@@ -5,11 +5,12 @@ export const Theme={
             padding:'10px 20px 10px 20px',
             borderRadius:'10px',
             border:"none",
-            fontSize:'16px',
+            fontSize:'20px',
             color:'white',
             height:'50px',
             width:'100%',
             maxWidth:'400px'
+
         },
         primaryOutlined:{
             padding:'10px 15px 10px 15px',
