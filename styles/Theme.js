@@ -5,7 +5,7 @@ export const Theme={
             padding:'10px 20px 10px 20px',
             borderRadius:'10px',
             border:"none",
-            fontSize:'20px',
+            fontSize:'18px',
             color:'white',
             height:'50px',
             width:'100%',

@@ -1,6 +1,7 @@
 .box{
     margin: 10px auto;
     height: 50px;
+
   }
  
 .container1{
@@ -8,7 +9,6 @@
     vertical-align: middle;
     white-space: nowrap;
     position: relative;
-    
   }
  .title{
   font-size: 52px;
@@ -32,9 +32,8 @@
     float: left;
     color: #63717f;
     padding-left: 45px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
+
     outline: none;
     border:1px solid #bcbcbc;
     

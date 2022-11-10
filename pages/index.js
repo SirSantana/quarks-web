@@ -10,7 +10,7 @@ export default function Home() {
     <Layout>
       <div className={styles.container}>
       <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-      <h2 className={styles.title} style={Theme.texts.title}>Encuentra en un solo lugar todo para tu vehiculo</h2>
+      <h2 className={styles.title}>Encuentra en un solo lugar todo para tu vehiculo</h2>
       <h4 style={Theme.texts.subtitle}>Con quarks podras encontrar talleres, almacenes, y llevar la contabilidad de tu vehiculo.</h4>
       <Link href={'/almacenes'}><button style={Theme.buttons.primary}>Buscar talleres y almacenes</button></Link>
       
