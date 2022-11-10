@@ -8,7 +8,7 @@ export default function Card({data}){
     const handleSubmit=()=>{
         console.log('hola');
         let url = `https://web.whatsapp.com/send?phone=${data?.celular}`;
-        url += `&text=${encodeURI('Buen dia, encontre su anuncio en Quarks, estoy interesado en:')}&app_absent=0`
+        // url += `&text=${encodeURI('Buen dia, encontre su anuncio en Quarks, estoy interesado en:')}&app_absent=0`
         window.open(url);
     }
     return(
