@@ -10,7 +10,7 @@ export default function ProductosPage(){
   const [busqueda, setBusqueda] = useState(null);
 
     return(
-        <Layout>
+        <Layout title={'Productos'}>
             <HeaderTalleresAlmacenes
         tipo={"Productos"}
         setBusqueda={setBusqueda}
@@ -18,7 +18,7 @@ export default function ProductosPage(){
       />
       
       <div className={styles.grid}>
-        <ProductosRender />
+        <ProductosRender busqueda={busqueda}/>
       </div>
         </Layout>
     )

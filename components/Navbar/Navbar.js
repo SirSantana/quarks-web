@@ -13,7 +13,7 @@ export default function Navbar(){
             </div>
             <Link href='/talleres' className={styles.subtitle}>Talleres</Link>
             <Link href='/almacenes' className={styles.subtitle}>Almacenes</Link>
-            <Link href='/productos' className={styles.subtitle}>Productos</Link>
+            {/* <Link href='/productos' className={styles.subtitle}>Productos</Link> */}
 
             </div>
             <div style={{display:'flex',justifyContent:'center',gap:'20px',  flexDirection:'row', alignItems:'center'}}>
