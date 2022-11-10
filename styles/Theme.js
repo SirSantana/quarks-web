@@ -22,9 +22,10 @@ export const Theme={
     },
     texts:{
         title:{
-            fontSize:'30px',
-            fontWeight:'500',
+            fontSize:'52px',
+            fontWeight:'700',
             color:'#1b333d',
+            lineHeight:'50px'
         },
         subtitle:{
             fontSize:'18px',

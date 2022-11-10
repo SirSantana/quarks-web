@@ -2,7 +2,7 @@ import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
 
 
-const URI = 'https://quarks-api.vercel.app/'
+const URI = 'http://localhost:4000/'
 // const URI = proccess.env.DEV
 
 
