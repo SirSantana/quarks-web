@@ -24,7 +24,7 @@ export default function Card({data}){
             </h4>
             </div>
             {data?.celular &&
-            <button onClick={ handleSubmit} style={Theme.buttons.primary}>Enviar Mensaje</button>
+            <button onClick={handleSubmit} style={Theme.buttons.primary}>Enviar Mensaje</button>
             }
             
             </div>

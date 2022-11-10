@@ -8,7 +8,8 @@ export const Theme={
             fontSize:'16px',
             color:'white',
             height:'50px',
-            
+            width:'100%',
+            maxWidth:'400px'
         },
         primaryOutlined:{
             padding:'10px 15px 10px 15px',
@@ -31,6 +32,7 @@ export const Theme={
             fontSize:'18px',
             fontWeight:'400',
             color:'gray',
+            margin:'5px 0 10px 0'
         },
         subtitleWhite:{
             fontSize:'18px',

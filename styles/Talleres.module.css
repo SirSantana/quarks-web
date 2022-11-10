@@ -78,10 +78,10 @@ grid-row-gap: 20px;
   padding: 20px;
   border-radius: 10px;
   cursor: pointer;
-  min-height: 200px;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  min-height: 150px;
 }
 .cardProduct{
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
@@ -114,7 +114,6 @@ grid-row-gap: 20px;
 }
 .cardProduct:hover{
   background-color: rgb(255, 243, 243);
-
 }
 
 

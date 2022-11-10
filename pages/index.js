@@ -12,7 +12,7 @@ export default function Home() {
       <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
       <h2 className={styles.title} style={Theme.texts.title}>Encuentra en un solo lugar todo para tu vehiculo</h2>
       <h4 style={Theme.texts.subtitle}>Con quarks podras encontrar talleres, almacenes, y llevar la contabilidad de tu vehiculo.</h4>
-      <button style={Theme.buttons.primary}>Buscar talleres, almacenes</button>
+      <Link href={'/almacenes'}><button style={Theme.buttons.primary}>Buscar talleres, almacenes</button></Link>
       
       </div>
       <img src="/CarFondo.png" alt="FondoRepuestosCarros" className={styles.image} />
