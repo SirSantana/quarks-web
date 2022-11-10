@@ -5,7 +5,6 @@ import Layout from '../../components/Layout';
 import styles from '../../styles/Talleres.module.css'
 import { Theme } from '../../styles/Theme';
 import Link from 'next/link'
-import Marcas from '../../components/Lugares/marcas';
 import Card from '../../components/Lugares/Card/card';
 
 export const GET_ONE_NEGOCIO = gql`
@@ -43,7 +42,7 @@ export default function Almacen(){
             </Link>
             <img src ="/arrow-right-solid.svg" alt="My Happy SVG" style={{width:'12px', height:'12px', margin:'5px'}}/>
 
-            <Link href={'/alamacenes'} style={Theme.texts.subtitle}>
+            <Link href={'/almacenes'} style={Theme.texts.subtitle}>
               Almacenes
             </Link>
             <img src ="/arrow-right-solid.svg" alt="My Happy SVG" style={{width:'12px', height:'12px', margin:'5px'}}/>
