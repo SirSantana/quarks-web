@@ -18,10 +18,10 @@
 
 }
 .title{
-  font-size: 52px;
-  font-weight: 700;
-  color:#1b333d;
-  line-height: 50px;
+  font-size: 30px;
+  font-weight: 500;
+  color:white;
+
 }
 .subtitle{
   font-size: 18px;
@@ -61,10 +61,9 @@
       height: 250px;
     }
     .title{
-      font-size: 40px;
+      font-size: 22px;
       margin-bottom: 20px;
-     
-  line-height: 40px;
+      
     }
     .subtitleWhite{
       font-size: 14px;
