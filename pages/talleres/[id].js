@@ -6,7 +6,7 @@ import styles from '../../styles/Talleres.module.css'
 import { Theme } from '../../styles/Theme';
 import Link from 'next/link'
 import Marcas from '../../components/Lugares/marcas';
-import Card from '../../components/Lugares/Card/card';
+import Card from '../../components/Lugares/Card/Card';
 
 export const GET_ONE_NEGOCIO = gql`
   query getOneNegocio($id:ID){
