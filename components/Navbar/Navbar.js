@@ -16,12 +16,12 @@ export default function Navbar(){
             {/* <Link href='/productos' className={styles.subtitle}>Productos</Link> */}
 
             </div>
-            <div style={{display:'flex',justifyContent:'center',gap:'20px',  flexDirection:'row', alignItems:'center'}}>
+            {/* <div style={{display:'flex',justifyContent:'center',gap:'20px',  flexDirection:'row', alignItems:'center'}}>
            
             <button style={Theme.buttons.primaryOutlined}>¿No tienes una cuenta? Registrate</button>
             <button style={Theme.buttons.primary}>Iniciar Sesion</button>
 
-            </div>
+            </div> */}
 
         </div>
     )
