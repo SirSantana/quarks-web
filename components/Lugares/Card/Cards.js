@@ -1,13 +1,14 @@
 import { Theme } from "../../../styles/Theme";
 import Marcas from "../marcas";
+import styles from '../../../styles/Talleres.module.css'
 
 
 
 export default function Cards({el}){
     const handleSubmit=()=>{
-        let url = `https://web.whatsapp.com/send?phone=${el?.celular}`;
-        url += `&text=${encodeURI('Buen dia, encontre su anuncio en Quarks, estoy interesado en:')}&app_absent=0`
-        window.open(url);
+      let url = `https://api.whatsapp.com/send?phone=${el.celular}`;
+      url += `&text=${encodeURI('Buen dia, encontre su anuncio en Quarks, estoy interesado en:')}&app_absent=0`
+      window.open(url);
       }
     return(
         <>
@@ -38,7 +39,7 @@ export default function Cards({el}){
 
           </div>
           {el.celular && 
-          <button onClick={ handleSubmit} style={{cursor:'pointer', width:'100%',border:'none', backgroundColor:'#f50057', color:'white', borderRadius:'10px', padding:'10px 20px'}}>Enviar Mensaje</button>
+          <button onClick={ handleSubmit} className={styles.button}>Enviar Mensaje</button>
           }
           </>
     )

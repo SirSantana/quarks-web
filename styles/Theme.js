@@ -10,7 +10,7 @@ export const Theme={
             height:'50px',
             width:'100%',
             maxWidth:'400px'
-
+            
         },
         primaryOutlined:{
             padding:'10px 15px 10px 15px',

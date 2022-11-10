@@ -83,6 +83,17 @@ grid-row-gap: 20px;
   position: relative;
   min-height: 150px;
 }
+.button{
+  font-size: 16px;
+  background-color: #f50057;
+  border-radius: 10px;
+  padding:10px 20px;
+  color:white;
+  height: 40px;
+  border:none;
+  width: 100%;
+  max-width: 400px;
+}
 .cardProduct{
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
   background-color: white;
