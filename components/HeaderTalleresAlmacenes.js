@@ -15,6 +15,9 @@ export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda}){
     }else if(tipo==='Almacenes'){
         mensaje = "Encuentra tu almacen!"
         placeholder = 'Coloca tu marca de auto'
+    }else if(tipo==='Cotizaciones'){
+        mensaje = "Encuentra tus repuestos"
+        placeholder = 'Que repuesto buscas? Es probable que alguien ya lo haya preguntado'
     }else{
         mensaje = "Encuentra tus repuestos!"
         placeholder = '¿Que repuesto estas buscando?'

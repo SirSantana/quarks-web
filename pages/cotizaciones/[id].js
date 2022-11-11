@@ -5,36 +5,32 @@ import Layout from '../../components/Layout';
 import styles from '../../styles/Talleres.module.css'
 import { Theme } from '../../styles/Theme';
 import Link from 'next/link'
-import Marcas from '../../components/Lugares/marcas';
 import Card from '../../components/Lugares/Card/Card';
+import CardPregunta from '../../components/Cotizaciones/Cards/CardPregunta';
 
-export const GET_ONE_NEGOCIO = gql`
-  query getOneNegocio($id:ID){
-    getOneNegocio(id:$id){
-      nombre
-    marcas
-    tipo
-    ciudad
-    pais
-    celular
-    direccion
+export const GET_ONE_PREGUNTA = gql`
+  query getOnePregunta($id:ID){
+    getOnePregunta(id:$id){
+      titulo
+    marca
+    referencia
     }
 
   }
 `
-export default function Taller(){
-  const [getNegocio,{ data, loading, error }] = useLazyQuery( GET_ONE_NEGOCIO);
+export default function Almacen(){
+  const [getPregunta,{ data, loading, error }] = useLazyQuery(GET_ONE_PREGUNTA);
 
    
 
     const {query} = useRouter()
     useEffect(() => {
         if(query){
-            getNegocio({variables:{id:query?.id}})
+            getPregunta({variables:{id:query?.id}})
         }
     },[query])
     return(
-        <Layout title={data?.getOneNegocio?.nombre}>
+        <Layout title={data?.getOnePregunta?.nombre}>
             <div className={styles.container}>
 
             <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
@@ -43,20 +39,20 @@ export default function Taller(){
             </Link>
             <img src ="/arrow-right-solid.svg" alt="My Happy SVG" style={{width:'12px', height:'12px', margin:'5px'}}/>
 
-            <Link href={'/talleres'} style={Theme.texts.subtitle}>
-              Talleres
+            <Link href={'/cotizaciones'} style={Theme.texts.subtitle}>
+              Cotizaciones
             </Link>
             <img src ="/arrow-right-solid.svg" alt="My Happy SVG" style={{width:'12px', height:'12px', margin:'5px'}}/>
 
             <Link href={'#'} style={Theme.texts.subtitle}>
-              {data?.getOneNegocio?.nombre}
+              {data?.getOnePregunta?.titulo}
             </Link>
             </div>
 
             {loading && <h2 className={styles.title2}>Cargando...</h2>
 }
             {data && 
-              <Card data={data?.getOneNegocio}/>
+              <CardPregunta data={data?.getOnePregunta}/>
             }
             
             </div>

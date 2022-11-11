@@ -34,7 +34,7 @@ export default function ProductPage(){
     },[query])
     return(
         <Layout>
-            <div className={styles.container} style={{marginTop:'50px'}}>
+            <div className={styles.container}>
 
 <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
 <Link href={'/'} style={Theme.texts.subtitle}>

@@ -13,6 +13,7 @@ export default function Navbar(){
             </div>
             <Link href='/talleres' className={styles.subtitle}>Talleres</Link>
             <Link href='/almacenes' className={styles.subtitle}>Almacenes</Link>
+            <Link href='/cotizaciones' className={styles.subtitle}>Cotizaciones</Link>
             {/* <Link href='/productos' className={styles.subtitle}>Productos</Link> */}
 
             </div>
