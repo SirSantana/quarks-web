@@ -6,9 +6,12 @@ export default function Layout({children, title, description}){
         <>
         <Head>
         <title>{title}</title>
-        <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={'repuestos de carros y talleres en colombia'} />
+        <meta property="og:title" content="Encuentra los repuestos de tu vehiculo en colombia" key="title" />
+        <link rel="icon" href="/Logo.png" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
+        
         </Head>
         
         <main ><Navbar/>{children}</main>
