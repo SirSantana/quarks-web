@@ -1,9 +1,11 @@
 import Marcas from "../../Lugares/marcas";
 import styles from '../../../styles/Talleres.module.css'
+import { timeSince } from "../../../utils/dateEs";
 
 
 
 export default function CardsPreguntas({el}){
+  console.log(el?.fecha);
     return(
         <>
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginBottom:'10px'}}>
@@ -19,7 +21,7 @@ export default function CardsPreguntas({el}){
           >
             {el.marca} {el?.referencia}
           </h4>
-          <h6 style={{color:'gray', margin:0, fontWeight:400, fontSize:'14px'}}>Hace 1 hora</h6>
+          <h6 style={{color:'gray', margin:0, fontWeight:400, fontSize:'14px'}}>hace {timeSince(el?.fecha)}</h6>
         </div>
         <Marcas marca={el.marca}/>
 

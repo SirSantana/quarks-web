@@ -1,6 +1,6 @@
 import styles from "../../styles/Talleres.module.css";
 import { Theme } from "../../styles/Theme";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, useLazyQuery } from "@apollo/client";
 import Link from 'next/link'
 import LayoutPostCharge from "../Lugares/LayoutPosts";
 import Cards from "../Lugares/Card/Cards";
@@ -23,11 +23,27 @@ query getAlmacenes {
 }
 `;
 
-export default function AlmacenesRender({busqueda}) {
+// const GET_ALMACENS = gql`
+// query getAlmacens($split:Int) {
+//     getAlmacens(split:$split) {
+//     nombre
+//     marcas
+//     tipo
+//     ciudad
+//     pais
+//     id
+//     direccion
+//     celular
+//     repuestos
+//   }
+// }
+// `;
+
+export default function AlmacenesRender({busqueda, valueSplit}) {
 const { data, loading, error } = useQuery(GET_ALMACENES);
+// const [getAlmacens, {data, loading, error}] = useLazyQuery(GET_ALMACENS)
 
 const [filtrado, setFiltrado] = useState([])
-
 
 
   useEffect(()=>{
@@ -36,6 +52,7 @@ const [filtrado, setFiltrado] = useState([])
       el.marcas.toString().toLowerCase().indexOf(busqueda.toLowerCase())>=0)
       setFiltrado(negocios)
     }
+    // getAlmacens({variables:{split:valueSplit}})
   },[busqueda])
 
 return (
@@ -56,6 +73,7 @@ return (
           <Cards el={el}/>
         </Link>
       ))}
+
       </div>
 
   </>

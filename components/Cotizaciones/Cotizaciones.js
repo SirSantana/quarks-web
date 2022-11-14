@@ -16,15 +16,15 @@ query getPreguntas {
    userName
    referencia
    id
+   fecha
   }
 }
 `;
 
-export default function CotizacionesRender({busqueda}) {
+export default function CotizacionesRender({busqueda, dataBusqueda}) {
 const { data, loading, error } = useQuery(GET_COTIZACIONES);
 
 const [filtrado, setFiltrado] = useState([])
-
 
 
   useEffect(()=>{
@@ -34,25 +34,32 @@ const [filtrado, setFiltrado] = useState([])
       setFiltrado(negocios)
     }
   },[busqueda])
-
+console.log(dataBusqueda);
 return (
   <>
   <div className={styles.gridCotizaciones}>
   {error && <h2 style={Theme.texts.title}>Ha ocurrido un error, revise su conexion</h2>}
     {loading && <LayoutPostCharge/>}
-    {data && filtrado.length===0 &&
+    {data && filtrado.length===0 && dataBusqueda.length===0 &&
       data?.getPreguntas.map((el) => (
         <Link href={`/cotizaciones/${el.id}`} className={styles.card}>
           <CardPregunta el={el}/>
           
         </Link>
       ))}
-      {filtrado &&
+      {/* {filtrado &&!dataBusqueda &&
       filtrado?.map((el) => (
         <Link href={`/cotizaciones/${el.id}`} className={styles.card}>
           <CardPregunta el={el}/>
         </Link>
-      ))}
+      ))} */}
+      {dataBusqueda &&
+      dataBusqueda?.map((el) => (
+        <Link href={`/cotizaciones/${el.id}`} className={styles.card}>
+          <CardPregunta el={el}/>
+        </Link>
+      ))
+      }
       </div>
 
   </>

@@ -14,6 +14,7 @@ export const GET_ONE_PREGUNTA = gql`
       titulo
     marca
     referencia
+    fecha
     }
 
   }
