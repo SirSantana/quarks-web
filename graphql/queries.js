@@ -104,6 +104,7 @@ query getBusquedaPreguntas($word:String) {
    referencia
    id
    fecha
+   
   }
 }
 `;

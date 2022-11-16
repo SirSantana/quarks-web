@@ -1,4 +1,5 @@
 import styles from '../styles/Talleres.module.css'
+import MarcasMenu from '../utils/marcasMenu';
 
 
 export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, setSubmit, setMarca, marca}){
@@ -44,15 +45,7 @@ export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, se
                 </div>
             </div>
             {tipo === 'Cotizaciones' &&
-             <div className={styles.dropdown}>
-             <button style={{width:'200px', height:'30px',border:'none',borderRadius:'10px',fontSize:'16px', backgroundColor:'#f50057', color:'white'}}>Filtrar por {marca}</button>
-             <div className={styles.dropdownContent}>
-             <a onClick={()=>handleMarca('Chevrolet')} >Chevrolet</a>
-             <a onClick={()=>handleMarca('Mazda')}>Mazda</a>
-             <a onClick={()=>handleMarca('Ford')}>Ford</a>
-             <a onClick={()=>handleMarca('Renault')}>Renault</a>
-             </div>
-           </div>
+             <MarcasMenu handleMarca={handleMarca} marca={marca}/>
                   
             }     
             {busqueda&& tipo !== 'Cotizaciones' &&<h4 style={{fontSize:'16px',fontWeight:500, color:'#f50057', margin:0}}>Resultados con "{busqueda}"</h4>}
