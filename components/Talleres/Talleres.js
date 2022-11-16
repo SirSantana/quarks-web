@@ -1,27 +1,13 @@
 import styles from "../../styles/Talleres.module.css";
 import { Theme } from "../../styles/Theme";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Link from 'next/link'
-import Marcas from "../Lugares/marcas";
 import Cards from "../Lugares/Card/Cards";
 import LayoutPostCharge from "../Lugares/LayoutPosts";
 import { useEffect, useState } from "react";
+import { GET_TALLERES } from "../../graphql/queries";
 
-const GET_TALLERES = gql`
-  query getTalleres {
-    getTalleres {
-      nombre
-      marcas
-      tipo
-      ciudad
-      pais
-      id
-      direccion
-      celular
-      repuestos
-    }
-  }
-`;
+
 export default function TalleresRender({busqueda}) {
   const { data, loading, error } = useQuery(GET_TALLERES);
   const [filtrado, setFiltrado] = useState([])

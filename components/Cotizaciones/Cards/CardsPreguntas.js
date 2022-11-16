@@ -5,7 +5,6 @@ import { timeSince } from "../../../utils/dateEs";
 
 
 export default function CardsPreguntas({el}){
-  console.log(el?.fecha);
     return(
         <>
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginBottom:'10px'}}>

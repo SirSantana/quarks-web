@@ -1,32 +1,20 @@
 import {useRouter} from 'next/router'
-import { useQuery, gql, useLazyQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { useEffect } from 'react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/Talleres.module.css'
 import { Theme } from '../../styles/Theme';
 import Link from 'next/link'
 import Card from '../../components/Lugares/Card/Card';
+import { GET_ONE_NEGOCIO } from '../../graphql/queries';
+import { Loader } from '../../utils/loader';
 
-export const GET_ONE_NEGOCIO = gql`
-  query getOneNegocio($id:ID){
-    getOneNegocio(id:$id){
-      nombre
-    marcas
-    tipo
-    ciudad
-    pais
-    celular
-    direccion
-    }
 
-  }
-`
 export default function Almacen(){
-  const [getNegocio,{ data, loading, error }] = useLazyQuery( GET_ONE_NEGOCIO);
-
-   
-
+  const [getNegocio,{ data, loading, error }] = useLazyQuery(GET_ONE_NEGOCIO);
     const {query} = useRouter()
+
+
     useEffect(() => {
         if(query){
             getNegocio({variables:{id:query?.id}})
@@ -52,8 +40,7 @@ export default function Almacen(){
             </Link>
             </div>
 
-            {loading && <h2 className={styles.title2}>Cargando...</h2>
-}
+            {loading && <Loader/>}
             {data && 
               <Card data={data?.getOneNegocio}/>
             }

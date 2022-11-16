@@ -2,23 +2,13 @@ import styles from "../../styles/Talleres.module.css";
 import { Theme } from "../../styles/Theme";
 import { useQuery, gql } from "@apollo/client";
 import Link from 'next/link'
-import Marcas from "../Lugares/marcas";
-import Cards from "../Lugares/Card/Cards";
 import LayoutPostCharge from "../Lugares/LayoutPosts";
 import { useEffect, useState } from "react";
 import ProductsCard from "../Lugares/Card/Products";
+import { GET_PRODUCTOS } from "../../graphql/queries";
 
 
-const GET_PRODUCTOS = gql`
-query getProductos {
-getProductos {
-    titulo
-    precio
-    id
-    imagen
-  }
-}
-`;
+
 export default function ProductosRender({busqueda}){
     const { data, loading, error } = useQuery(GET_PRODUCTOS);
     const [filtrado, setFiltrado] = useState([])

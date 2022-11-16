@@ -5,39 +5,12 @@ import Link from 'next/link'
 import LayoutPostCharge from "../Lugares/LayoutPosts";
 import Cards from "../Lugares/Card/Cards";
 import { useEffect, useState } from "react";
+import { GET_ALMACENES } from "../../graphql/queries";
 
 
-const GET_ALMACENES = gql`
-query getAlmacenes {
-    getAlmacenes {
-    nombre
-    marcas
-    tipo
-    ciudad
-    pais
-    id
-    direccion
-    celular
-    repuestos
-  }
-}
-`;
 
-// const GET_ALMACENS = gql`
-// query getAlmacens($split:Int) {
-//     getAlmacens(split:$split) {
-//     nombre
-//     marcas
-//     tipo
-//     ciudad
-//     pais
-//     id
-//     direccion
-//     celular
-//     repuestos
-//   }
-// }
-// `;
+
+
 
 export default function AlmacenesRender({busqueda, valueSplit}) {
 const { data, loading, error } = useQuery(GET_ALMACENES);
@@ -58,7 +31,7 @@ const [filtrado, setFiltrado] = useState([])
 return (
   <>
   <div className={styles.grid}>
-  {error && <h2 style={Theme.texts.title}>Ha ocurrido un error, revise su conexion</h2>}
+    {error && <h2 style={Theme.texts.title}>Ha ocurrido un error, revise su conexion</h2>}
     {loading && <LayoutPostCharge/>}
     {data && filtrado.length===0 &&
       data?.getAlmacenes.map((el) => (

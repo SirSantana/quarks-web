@@ -7,6 +7,7 @@ import { Theme } from '../../styles/Theme';
 import Link from 'next/link'
 import Card from '../../components/Lugares/Card/Card';
 import CardPregunta from '../../components/Cotizaciones/Cards/CardPregunta';
+import { Loader } from '../../utils/loader';
 
 export const GET_ONE_PREGUNTA = gql`
   query getOnePregunta($id:ID){
@@ -31,7 +32,7 @@ export default function Almacen(){
         }
     },[query])
     return(
-        <Layout title={data?.getOnePregunta?.nombre}>
+        <Layout title={data?.getOnePregunta?.titulo}>
             <div className={styles.container}>
 
             <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
@@ -50,8 +51,7 @@ export default function Almacen(){
             </Link>
             </div>
 
-            {loading && <h2 className={styles.title2}>Cargando...</h2>
-}
+            {loading && <Loader/>}
             {data && 
               <CardPregunta data={data?.getOnePregunta}/>
             }

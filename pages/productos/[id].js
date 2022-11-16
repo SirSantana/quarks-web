@@ -6,22 +6,9 @@ import styles from '../../styles/Talleres.module.css'
 import { Theme } from '../../styles/Theme';
 import Link from 'next/link'
 import Product from '../../components/Lugares/Card/Product';
+import { GET_ONE_PRODUCT } from '../../graphql/queries';
 
-export const GET_ONE_PRODUCT = gql`
-  query getOneProducto($id:ID){
-    getOneProducto(id:$id){
-     titulo
-     imagen
-     precio
-     id
-     garantia
-     user
-     descripcion
-     linkpago
-    }
 
-  }
-`
 
 export default function ProductPage(){
     const [getOneProduct,{ data, loading, error }] = useLazyQuery( GET_ONE_PRODUCT);

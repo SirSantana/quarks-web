@@ -7,21 +7,9 @@ import { Theme } from '../../styles/Theme';
 import Link from 'next/link'
 import Marcas from '../../components/Lugares/marcas';
 import Card from '../../components/Lugares/Card/Card';
+import { GET_ONE_NEGOCIO } from '../../graphql/queries';
 
-export const GET_ONE_NEGOCIO = gql`
-  query getOneNegocio($id:ID){
-    getOneNegocio(id:$id){
-      nombre
-    marcas
-    tipo
-    ciudad
-    pais
-    celular
-    direccion
-    }
 
-  }
-`
 export default function Taller(){
   const [getNegocio,{ data, loading, error }] = useLazyQuery( GET_ONE_NEGOCIO);
 
