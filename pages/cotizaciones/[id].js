@@ -1,6 +1,6 @@
 import {useRouter} from 'next/router'
 import { useQuery, gql, useLazyQuery } from "@apollo/client";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/Talleres.module.css'
 import { Theme } from '../../styles/Theme';
@@ -8,31 +8,25 @@ import Link from 'next/link'
 import Card from '../../components/Lugares/Card/Card';
 import CardPregunta from '../../components/Cotizaciones/Cards/CardPregunta';
 import { Loader } from '../../utils/loader';
+import { GET_ONE_PREGUNTA } from '../../graphql/queries';
+import ModalError from '../../utils/modalError';
 
-export const GET_ONE_PREGUNTA = gql`
-  query getOnePregunta($id:ID){
-    getOnePregunta(id:$id){
-      titulo
-    marca
-    referencia
-    fecha
-    }
 
-  }
-`
 export default function Almacen(){
   const [getPregunta,{ data, loading, error }] = useLazyQuery(GET_ONE_PREGUNTA);
-
+  const [price, setPrice] = useState('')
    
-
-    const {query} = useRouter()
+  console.log(data);
+    const router = useRouter()
+    const id = router.query.id
+    let query = id?.substring(0, id?.indexOf(' '))
     useEffect(() => {
         if(query){
-            getPregunta({variables:{id:query?.id}})
+            getPregunta({variables:{id:query}})
         }
     },[query])
     return(
-        <Layout title={data?.getOnePregunta?.titulo}>
+        <Layout title={data?.getOnePregunta?.titulo} type='product' price={price} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
             <div className={styles.container}>
 
             <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
@@ -53,8 +47,9 @@ export default function Almacen(){
 
             {loading && <Loader/>}
             {data && 
-              <CardPregunta data={data?.getOnePregunta}/>
+              <CardPregunta data={data?.getOnePregunta} setPrice={setPrice}/>
             }
+            {error &&<ModalError mensaje={'Ha ocurrido un error'} description={error?.mensaje} />}
             
             </div>
 

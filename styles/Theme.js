@@ -9,7 +9,8 @@ export const Theme={
             color:'white',
             height:'50px',
             width:'100%',
-            maxWidth:'400px'
+            maxWidth:'400px',
+            cursor:'pointer'
             
         },
         primaryOutlined:{

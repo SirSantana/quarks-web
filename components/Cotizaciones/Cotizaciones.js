@@ -35,7 +35,7 @@ return (
       ))} */}
       {dataBusqueda &&
       dataBusqueda?.map((el) => (
-        <Link href={`/cotizaciones/${el.id}`} className={styles.card}>
+        <Link href={`/cotizaciones/${el.id} ${el.titulo}`} className={styles.card}>
           <CardPregunta el={el}/>
         </Link>
       ))

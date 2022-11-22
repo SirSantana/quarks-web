@@ -46,7 +46,7 @@ export default function ProductosPage(){
   },[submit, marca, split])
 
     return(
-        <Layout title={'Cotizaciones'}>
+        <Layout title={'Cotizaciones - Quarks'} type='website'  description={'Busca y encuentra tus repuestos en colombia'}>
             <HeaderTalleresAlmacenes
         tipo={"Cotizaciones"}
         setBusqueda={setBusqueda}

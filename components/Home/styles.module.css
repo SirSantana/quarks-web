@@ -1,0 +1,190 @@
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin:0 auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.divTitle{
+    display: flex;
+    flex-direction: row;
+    gap:8px;
+    flex-wrap: wrap;
+}
+.titleBlue{
+    color:#1b333d;
+    font-size: 2.3rem;
+    margin:0;
+    margin-top: 30px;
+}
+.titleRed{
+    color:#f50057;
+    font-size: 2.5rem;
+    margin:0;
+    margin-top: 30px;
+
+}
+.titleBlue2{
+    color:#1b333d;
+    font-size: 1.2rem;
+    margin:0
+}
+.titleBlueBeneficios{
+    color:#1b333d;
+    font-size: 2rem;
+    margin:0
+}
+.titleRed2{
+    color:#f50057;
+    font-size: 1.2rem;
+    margin:0;
+    flex-wrap: wrap;
+
+}
+.containerManual{
+    width: 90%;
+    padding: 50px;
+    margin-top: 30px;
+    display: flex;
+    gap:150px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.containerManual2{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    width: 60%;
+}
+
+.circle{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #f50057;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subtitleRed{
+    font-size: 1rem;
+    color: gray;
+    font-weight: 500;
+    margin: 0;
+    line-height:22px
+}
+.button{
+    font-size: 16px;
+    background-color: #f50057;
+    border-radius: 10px;
+    padding:10px 20px;
+    color:white;
+    height: 40px;
+    border:none;
+    width: 70%;
+    max-width: 400px;
+    cursor: pointer;
+  }
+  .button:hover{
+    background-color: #d9024d;
+
+  }
+  .containerPasos1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin:50px 0;
+    justify-content: space-between;
+}
+.containerPasos2{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    width: 28%;
+    justify-content: space-between;
+}
+.imageDespachos{
+    width: 50%;
+    height: 350px
+}
+.imageAplicacion{
+    width: 90%;
+    height: 70vh;
+}
+
+@media (max-width: 600px) {
+    .divTitle{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .imageDespachos{
+        width: 100%;
+        height: 300px;
+    }
+    .titleBlue{
+        font-size: 28px;
+        margin:0;
+        text-align: center;
+
+    }
+    .titleBlueBeneficios{
+        font-size: 28px;
+        margin:0;
+        text-align: center;
+    }
+    .titleRed{
+        font-size: 28px;
+        margin:0;
+        text-align: center;
+
+    
+    }
+    .titleBlue2{
+        font-size:22px;
+    }
+    .subtitleRed{
+        text-align: center;
+    }
+    .titleRed2{
+        font-size: 22px;
+    }
+    .containerCard{
+        padding: 20px;
+        width: 100%;
+        flex-direction: column-reverse;
+    }
+    .containerPasos2{
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .containerPasos1{
+        flex-direction: column;
+        width: 100%;
+        margin:20px 0;
+        gap:30px
+    }
+    .containerPasos2{
+        width: 100%;
+    }
+    .containerManual{
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin:0;
+        gap:20px
+    }
+    .containerManual2{
+        width: 100%;
+        justify-content: center;
+    }
+    .imageAplicacion{
+        height: 300px;
+    }
+}

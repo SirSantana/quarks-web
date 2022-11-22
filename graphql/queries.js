@@ -1,5 +1,22 @@
 import { gql } from "@apollo/client";
 
+//USER
+export const GET_USER = gql`
+    query getUser{
+        getUser{
+            name
+            apellido
+            email
+            vehiculos
+            avatar
+            role
+            ciudad 
+            pais
+            id
+            cotizaciones
+        }
+    }
+`
 
 //ALMACENES
 export const GET_ALMACENES = gql`
@@ -104,7 +121,6 @@ query getBusquedaPreguntas($word:String) {
    referencia
    id
    fecha
-   
   }
 }
 `;
@@ -120,3 +136,30 @@ query getPreguntas($split:Int, $marca:String) {
   }
 }
 `;
+export const GET_ONE_PREGUNTA = gql`
+  query getOnePregunta($id:ID){
+    getOnePregunta(id:$id){
+    titulo
+    marca
+    referencia
+    fecha
+    celular
+    cotizaciones
+    }
+
+  }
+`
+export const GET_COTIZACIONES= gql`
+query getCotizaciones($id:ID) {
+  getCotizaciones(id:$id) {
+   descripcion
+   marca
+   garantia
+   precio
+   id
+   fecha
+   user
+   celular
+  }
+}
+`

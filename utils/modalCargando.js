@@ -16,7 +16,6 @@ export default function ModalCargando({mensaje, description}){
         if(tiempoLoading >5){
             clearTimeout(time)
             setMessageTime({...messageTime, message:'Esta tardando mas de lo normal', description:'Por favor revisa tu conexion'})
-
         }
     },[tiempoLoading])
     return(
@@ -27,7 +26,7 @@ export default function ModalCargando({mensaje, description}){
 
                 <Loader/>
                     <h2 style={{color:'#1b333d', fontSize:'18px', margin:0, textAlign:'center'}}>{messageTime.message ? messageTime.message:  mensaje}</h2>
-                    <h4 className={styles.subtitle}>{messageTime.description ?messageTime.description :description} </h4>
+                    <h4 style={{textAlign:'center'}} className={styles.subtitle}>{messageTime.description ?messageTime.description :description} </h4>
 
                 </div>
                 </div>

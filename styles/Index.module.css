@@ -22,7 +22,6 @@
   font-size: 30px;
   font-weight: 400;
   color:white;
-
 }
 .subtitle{
   font-size: 18px;
@@ -72,7 +71,7 @@
     .title{
       font-size: 22px;
       margin-bottom: 20px;
-      
+      margin-top: 80px;
     }
     .subtitleWhite{
       font-size: 14px;

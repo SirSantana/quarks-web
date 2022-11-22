@@ -1,10 +1,10 @@
 import styles from '../styles/Talleres.module.css'
 import MarcasMenu from '../utils/marcasMenu';
+import {useRouter} from 'next/router'
 
+export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, setSubmit, setMarca, marca,visibleTextWithResults}){
 
-export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, setSubmit, setMarca, marca}){
-
-
+    const router = useRouter()
     let mensaje;
     let placeholder;
     if(tipo=== 'Talleres'){
@@ -17,7 +17,7 @@ export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, se
         mensaje = "Encuentra tus repuestos"
         placeholder = 'Que repuesto buscas? Es probable que alguien ya lo haya preguntado'
     }else{
-        mensaje = "Encuentra tus repuestos!"
+        mensaje = `Encuentra tus repuestos ${router.query.id}!`
         placeholder = '¿Que repuesto estas buscando?'
     }
     
@@ -30,6 +30,7 @@ export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, se
     const handleMarca=(marca)=>{
         setBusqueda('')
         setMarca(marca)
+        router.push(`/cotizaciones/marca/${marca}`)
     }
 
     return(
@@ -48,8 +49,8 @@ export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, se
              <MarcasMenu handleMarca={handleMarca} marca={marca}/>
                   
             }     
-            {busqueda&& tipo !== 'Cotizaciones' &&<h4 style={{fontSize:'16px',fontWeight:500, color:'#f50057', margin:0}}>Resultados con "{busqueda}"</h4>}
-            {tipo === 'Cotizaciones' && <h4 style={{fontSize:'16px',fontWeight:500, color:'#f50057', margin:0}}>Resultados</h4>}
+            {busqueda&& tipo !== 'Cotizaciones'  &&<h4 style={{fontSize:'16px',fontWeight:500, color:'#f50057', margin:0}}>{visibleTextWithResults? `Resultados con ${busqueda}`: null}</h4>}
+            {tipo === 'Cotizaciones' || !visibleTextWithResults && <h4 style={{fontSize:'16px',fontWeight:500, color:'#f50057', margin:0}}>Resultados</h4>}
             
             </div>
     )

@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { CREATE_PREGUNTA } from '../../../graphql/mutations'
 import styles from '../../../styles/Cotizar.module.css'
 import MarcasMenu from '../../../utils/marcasMenu'
@@ -32,6 +32,7 @@ export default function FormPregunta(){
         setForm(initialForm)
         createPregunta({variables:form})
         setVisibleModal(true)
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     return(
         <div onClick={()=> setVisibleModal(false)} className={styles.container4}>
@@ -51,7 +52,7 @@ export default function FormPregunta(){
                     <label htmlFor="celular" className={styles.label}>Celular</label>
                     <input value={form.celular} required onChange={handleChange}id='celular' name='celular' className={styles.input}type={'number'}placeholder='312355****'/>
                     
-                    <input style={{backgroundColor:validation ? 'gray': '#f50057'}}  className={styles.button} type={'submit'} value='Enviar Cotizacion'/>
+                    <input style={{backgroundColor:validation ? 'gray': '#f50057', cursor:'pointer'}}  className={styles.button} type={'submit'} value='Enviar Cotizacion'/>
                 </form>
                 {loading && 
                 <ModalCargando mensaje={'Enviando Cotizacion...'} description={'Espera un momento'}/>
