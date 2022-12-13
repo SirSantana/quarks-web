@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Navbar from './Navbar/Navbar'
 
 export default function Layout({children, title, description, type, price}){
-    console.log(price);
     return(
         <>
         <Head>

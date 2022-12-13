@@ -125,8 +125,8 @@ query getBusquedaPreguntas($word:String) {
 }
 `;
 export const GET_PREV_PREGUNTAS = gql`
-query getPreguntas($split:Int, $marca:String) {
-  getPreguntas(split:$split, marca:$marca) {
+query getPreguntas($limit:Int, $marca:String) {
+  getPreguntas(limit:$limit, marca:$marca) {
    titulo
    marca
    userName

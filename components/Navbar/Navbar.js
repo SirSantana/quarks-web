@@ -10,7 +10,7 @@ export default function Navbar(){
             <img src="/Logo.png" alt="colMotors Logo" style={{width:"20px" ,height:"20px"}} />
             <Link href={'/'} className={styles.title}>Quarks</Link>
             </div>
-            <Link href='/talleres' className={styles.subtitle}>Talleres</Link>
+            {/* <Link href='/talleres' className={styles.subtitle}>Talleres</Link> */}
             <Link href='/cotizaciones' className={styles.subtitle}>Cotizaciones</Link>
 
 

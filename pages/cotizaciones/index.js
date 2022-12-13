@@ -20,7 +20,7 @@ export default function ProductosPage(){
   const refMore = useRef(null)
 
   const [marca, setMarca] = useState('Chevrolet')
-  const [split, setSplit] = useState(10)
+  const [split, setSplit] = useState(8)
 
 
   const [getBusquedaPreguntas, {loading, data, error}] = useLazyQuery(GET_PREGUNTAS)
@@ -35,7 +35,7 @@ export default function ProductosPage(){
   };
   useEffect(()=>{
     if(marca && !submit){
-      getPrevPreguntas({variables:{marca:marca, split:split}})
+      getPrevPreguntas({variables:{marca:marca, limit:split}})
       setBusqueda(null)
       handleScroll(refMore.current)
     }else{
@@ -76,7 +76,7 @@ export default function ProductosPage(){
        }
         
       </div>
-      {split <=result?.data?.getPreguntas.length && <button  onClick={()=>setSplit(split + 10)}className={styles.button} style={{justifyContent:'center', display:'flex', flexDirection:'row', alignItems:'center', margin:'10px auto',cursor:'pointer', backgroundColor:'white', color:'#f50057', border:'1px solid #f50057', maxWidth:'300px'}}>Cargar mas resultados</button>}
+      {split <=result?.data?.getPreguntas.length && <button onClick={()=>setSplit(split + 8)}className={styles.button} style={{justifyContent:'center', display:'flex', flexDirection:'row', alignItems:'center', margin:'10px auto',cursor:'pointer', backgroundColor:'white', color:'#f50057', border:'1px solid #f50057', maxWidth:'300px'}}>Cargar mas resultados</button>}
          <Link href={'/cotizar'}><button ref={refMore}  className={styles.button} style={{justifyContent:'center', display:'flex', flexDirection:'row', alignItems:'center', margin:'0 auto', cursor:'pointer', maxWidth:'300px', height:'50px'}}>No encontraste tu repuesto? Cotiza manualmente</button></Link>
         </Layout>
     )

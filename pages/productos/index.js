@@ -16,7 +16,6 @@ export default function ProductosPage(){
         setBusqueda={setBusqueda}
         busqueda={busqueda}
       />
-      
       <div className={styles.grid}>
         <ProductosRender busqueda={busqueda}/>
       </div>
