@@ -117,6 +117,62 @@
         transform: translate(-50%, -50%);
         
       }
+
+ 
+
+
+      .toggle {
+        cursor: pointer;
+        display: inline-block;
+      }
+      
+      .toggleSwitch {
+        display: inline-block;
+        background: #ccc;
+        border-radius: 16px;
+        width: 58px;
+        height: 32px;
+        position: relative;
+        vertical-align: middle;
+        transition: background 0.25s;
+      }
+      .toggleSwitch:before, .toggleSwitch:after {
+        content: "";
+      }
+      .toggleSwitch:before {
+        display: block;
+        background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        transition: left 0.25s;
+      }
+      .toggle:hover .toggleSwitch:before {
+        background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+      }
+      .toggleCheckbox:checked + .toggleSwitch {
+        background: #56c080;
+      }
+      .toggleCheckbox:checked + .toggleSwitch:before {
+        left: 30px;
+      }
+      
+      .toggleCheckbox {
+        position: absolute;
+        visibility: hidden;
+      }
+      
+      .toggleLabel {
+        margin-left: 5px;
+        position: relative;
+        top: 2px;
+      }
+     
 @media (max-width: 600px) {
     .container{
         width: 100%;

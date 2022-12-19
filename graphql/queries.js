@@ -160,6 +160,8 @@ query getCotizaciones($id:ID) {
    fecha
    user
    celular
+   stock
+   envio
   }
 }
 `

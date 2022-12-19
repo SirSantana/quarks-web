@@ -15,8 +15,8 @@ mutation createPregunta($marca:String, $celular:String, $referencia:String, $tit
 `
 //COTIZACION
 export const CREATE_COTIZACION=gql`
-mutation createCotizacion($marca:String, $descripcion:String, $precio:String, $garantia:String,$pregunta:ID ) {
-  createCotizacion(input: {marca:$marca, descripcion:$descripcion, precio:$precio, garantia:$garantia,pregunta:$pregunta}) {
+mutation createCotizacion($marca:String, $descripcion:String, $precio:String, $garantia:String,$pregunta:ID, $envio:Boolean, $stock:String ) {
+  createCotizacion(input: {marca:$marca, descripcion:$descripcion, precio:$precio, garantia:$garantia,pregunta:$pregunta, envio:$envio, stock:$stock}) {
         descripcion
         marca
         precio

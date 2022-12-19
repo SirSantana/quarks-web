@@ -23,7 +23,7 @@ export default function CotizacionesFilterMarca(){
     let visibleTextWithResults=false
     useEffect(()=>{
         if(router.query.id){
-            getPrevPreguntas({variables:{marca:router.query.id, split:split}})
+            getPrevPreguntas({variables:{marca:router.query.id, limit:split}})
         }
     },[router.query.id, split])
     useEffect(()=>{

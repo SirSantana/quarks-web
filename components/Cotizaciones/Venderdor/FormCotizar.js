@@ -15,6 +15,8 @@ const initialForm={
     pregunta:'',
     precio:'',
     descripcion:'',
+    stock:'1',
+    envio:false
 }
 export default function FormCotizar({celular}){
     const [form, setForm] = useState(initialForm)
@@ -23,12 +25,14 @@ export default function FormCotizar({celular}){
     const [createCotizacion, {data, loading, error}] = useMutation(CREATE_COTIZACION)
     const router = useRouter()
     const {id} = router?.query
-    
+    let idPregunta = id.split(" ")
+
     const handleChange=(e)=>{
+        
         setForm({...form, [e.target.name]: e.target.value})
     }
     useEffect(()=>{
-        setForm({...form, pregunta:id})
+        setForm({...form, pregunta:idPregunta[0]})
     },[id])
 
     useEffect(()=>{
@@ -74,6 +78,22 @@ export default function FormCotizar({celular}){
                     <label htmlFor="garantia" className={styles.label}>Garantia en meses</label>
                     <input value={form.garantia} onChange={handleChange} id='garantia' name='garantia' className={styles.input}type={'number'}placeholder='Garantia del producto' min="1" max="24"/>
                     </section> 
+                    </div>
+
+                    <div style={{display:'flex', flexDirection:'row',justifyContent:'space-between'}}>
+                    <section style={{display:'flex',flexDirection:'column',width:'45%' }}>
+                    <label htmlFor="garantia" className={styles.label}>Stock</label>
+                    <input value={form.stock} onChange={handleChange} id='stock' name='stock' className={styles.input}type={'number'}placeholder='3' min="1" max="100"/>
+                    </section>
+                <section style={{display:'flex',flexDirection:'column',width:'45%',justifyContent:'space-between' }}>
+                <label htmlFor="garantia" className={styles.label}>Envio Gratis</label>
+                <label className={styles.toggle}>
+                <input  onChange={(e)=> setForm({...form, envio: form.envio === false ? true: false})} id='envio' name='envio'  className={styles.toggleCheckbox} type="checkbox"/>
+                <div className={styles.toggleSwitch}></div>
+                </label>
+
+                </section>
+
                     </div>
 
                     <input style={{backgroundColor:validation ? 'gray': '#f50057', cursor:'pointer'}}  className={styles.button} type={'submit'} value='Enviar Cotizacion'/>

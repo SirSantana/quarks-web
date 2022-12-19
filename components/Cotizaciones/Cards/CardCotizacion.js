@@ -21,12 +21,19 @@ export default function CardCotizacion({setPrice, data, userId, celularVendedor,
             {data?.imagen && <img src={data?.imagen} alt={pregunta} style={{width:'100%', height:'250px', margin:'5px'}}/>}
             
             <div style={{display:'flex', flexDirection:'column',margin:'5px 0'}}>
-            <h3 style={{color:'black', fontSize:'24px', margin:0,fontWeight:700}}>$ {data.precio}</h3>
+                <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
+                <h3 style={{color:'black', fontSize:'24px', margin:0,fontWeight:700}}>$ {data.precio}</h3>
+            {data?.envio &&<h4 style={{color:'green', fontSize:'18px',margin:0, marginLeft:'10px', fontWeight:600}}>Envio Gratis!</h4>}
+                </div>
+           
+
             <h6 style={{color:'#f50057', fontSize:'14px',margin:0, fontWeight:400}}>Precio sujeto a cambios en el tiempo</h6>
+
             </div>
             <h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}>Marca / origen: {data.marca}</h3>
             <h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}>Garantia: {data.garantia} mes(es)</h3>
 
+            {data?.stock &&<h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}>Stock : {data.stock} Und(s)</h3>}
 
             <h3 style={{color:'gray', margin:'5px 0 10px 0',fontSize:'16px', fontWeight:400}}>Fecha y hora : {fecha.toLocaleString()}</h3>
 
