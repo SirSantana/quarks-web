@@ -14,9 +14,9 @@ export default function CardCotizacion({setPrice, data, userId, celularVendedor,
         <div style={{width:'100%'}} className={styles.containerCotizaciones2}>
 
             <img src ="/file-pen-solid.svg" alt="Cotizacion icon" style={{width:'30px', height:'30px', margin:'5px'}}/>
-            <h3 style={{color:'black', margin:' 0', fontWeight:500}}>Cotizacion</h3>
+            <h3 style={{color:'black', margin:'0 0 10px 0', fontWeight:500}}>Cotizacion</h3>
 
-            <div style={{backgroundColor:'#f1f1f1',padding:'20px',width:'100%', boxShadow: "rgba(0, 0, 0, 0.40) 0px 3px 8px"}}>
+            <div style={{backgroundColor:'#fbfbfb',padding:'20px',width:'100%', boxShadow: "rgba(0, 0, 0, 0.40) 0px 3px 8px"}}>
             {/* <h2 style={{color:'black', margin:'5px 0',fontSize:'18px', fontWeight:400}}>{data.titulo} {data.marca} {data.referencia}</h2> */}
             {data?.imagen && <img src={data?.imagen} alt={pregunta} style={{width:'100%', height:'250px', margin:'5px'}}/>}
             
@@ -35,7 +35,7 @@ export default function CardCotizacion({setPrice, data, userId, celularVendedor,
 
             {data?.stock &&<h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}>Stock : {data.stock} Und(s)</h3>}
 
-            <h3 style={{color:'gray', margin:'5px 0 10px 0',fontSize:'16px', fontWeight:400}}>Fecha y hora : {fecha.toLocaleString()}</h3>
+            {/* <h3 style={{color:'gray', margin:'5px 0 10px 0',fontSize:'16px', fontWeight:400}}>Fecha y hora : {fecha.toLocaleString()}</h3> */}
 
             {userId === data?.user 
             ?<button className={styles.button}>Tu cotizacion</button>

@@ -1,0 +1,28 @@
+
+.slickSlide> div {
+  margin: 0 10px;
+}
+.slickList {
+  padding:0 15px;
+}
+.container{
+    width: 80%;
+    margin:0 auto;
+
+}
+.card{
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+@media (max-width: 600px) {
+    .container{
+        width: 90%;
+    }
+}

@@ -9,6 +9,7 @@ import styles from "../../styles/Talleres.module.css";
 import { Theme } from "../../styles/Theme";
 import Link from 'next/link'
 import { GET_PREGUNTAS, GET_PREV_PREGUNTAS } from "../../graphql/queries";
+import { useRouter } from "next/router";
 
 
 
@@ -21,7 +22,9 @@ export default function ProductosPage(){
 
   const [marca, setMarca] = useState('Chevrolet')
   const [split, setSplit] = useState(8)
-
+  const router = useRouter()
+  
+  const {query} = router.query
 
   const [getBusquedaPreguntas, {loading, data, error}] = useLazyQuery(GET_PREGUNTAS)
   const [getPrevPreguntas, result] = useLazyQuery(GET_PREV_PREGUNTAS)
@@ -35,15 +38,21 @@ export default function ProductosPage(){
   };
   useEffect(()=>{
     if(marca && !submit){
-      getPrevPreguntas({variables:{marca:marca, limit:split}})
-      setBusqueda(null)
-      handleScroll(refMore.current)
+      if(query){
+        getBusquedaPreguntas({variables:{word:query}})
+      }else{
+        getPrevPreguntas({variables:{marca:marca, limit:split}})
+        setBusqueda(null)
+        handleScroll(refMore.current)
+      }
+      
     }else{
+      console.log(busqueda,'dasda');
       getBusquedaPreguntas({variables:{word:busqueda}})
     }
     setSubmit(false)
     handleScroll(reff.current)
-  },[submit, marca, split])
+  },[submit, marca, split, router])
 
     return(
         <Layout title={'Cotizaciones - Quarks'} type='website'  description={'Busca y encuentra tus repuestos en colombia'}>

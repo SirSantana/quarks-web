@@ -5,7 +5,7 @@ export default function Marcas({marca}){
         <img
                 src={`/${marca}.png`}
                 alt={`marca ${marca}`}
-                style={{ width: "30px", height: "30px", margin:'2px' }}
+                style={{ width: "40px", height: "40px", margin:'2px' }}
               />
     )
 }

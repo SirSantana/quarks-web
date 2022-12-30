@@ -7,7 +7,7 @@ import { timeSince } from "../../../utils/dateEs";
 export default function CardsPreguntas({el}){
     return(
         <>
-        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginBottom:'10px'}}>
+        <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center', marginBottom:'10px',}}>
         <div>
         <h4
             style={{
@@ -48,7 +48,7 @@ export default function CardsPreguntas({el}){
           >
            Pregunta: {el.userName}
           </h4> */}
-          <button className={styles.button}>Ver cotizaciones</button>
+          <button  className={styles.button}>Ver cotizaciones</button>
 
         </>
     )

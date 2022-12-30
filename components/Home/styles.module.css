@@ -117,6 +117,44 @@
     width: 90%;
     height: 70vh;
 }
+.input{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    border-radius: 10px;
+    outline: none;
+    border:1px solid #bcbcbc;
+    
+  }
+  .input:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+.container1{
+    width: 100%;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+  }
+.container1 .icon{
+    position: absolute;
+    top: 50%;
+    margin-left: 17px;
+    margin-top: 15px;
+    z-index: 1;
+    color: #4f5b66;
+    cursor: pointer;
+  }
+  .box{
+    margin: 20px 0 10px 0;
+    height: 50px;
+    width: 100%;
+  }
+ 
 
 @media (max-width: 600px) {
     .divTitle{
@@ -186,5 +224,11 @@
     }
     .imageAplicacion{
         height: 300px;
+    }
+    .input{
+        font-size: 14px;
+       }
+    .icon{
+        left:0%
     }
 }

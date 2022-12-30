@@ -4,8 +4,8 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    margin:100px auto;
-    height: 60vh;
+    margin:90px auto;
+    height: 30vh;
 }
 /* backgroundColor:'#1b333d', height:'500px',display:'flex',gap:'50px', flexDirection:'row', alignItems:'center', justifyContent:'center' */
 .container2{
@@ -50,7 +50,8 @@
       flex-direction: column;
       padding:10px;
   text-align: center;
-      height: fit-content;
+      height: 30vh;
+      justify-content: end;
     }
     .container2{
       gap: 0;
