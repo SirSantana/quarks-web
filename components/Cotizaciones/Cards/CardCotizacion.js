@@ -1,12 +1,17 @@
 import styles from '../../../styles/Talleres.module.css'
+import { useRouter } from 'next/router'
 
 
 
 export default function CardCotizacion({setPrice, data, userId, celularVendedor, pregunta, idPregunta}){
     let fecha = new Date(data?.fecha)
+    const router = useRouter()
+
+    const urlPregunta = `https://www.quarks.com.co${router.asPath}`
+
     const sendMessage=()=>{
-        let url = `https://api.whatsapp.com/send?phone=57${3138562763}`;
-            url += `&text=${encodeURI(`😁 Hola, quiero saber si tienen disponibilidad de la cotizacion N°${data.id} \n ✍️ Descripcion:${pregunta} \n 📌 Link de la pregunta: https://www.quarks.com.co/cotizaciones/${idPregunta}`)}&app_absent=0`
+        let url = `https://api.whatsapp.com/send?phone=57${3203393232}`;
+            url += `&text=${encodeURI(`😁 Hola, quiero saber si tienen disponibilidad de la cotizacion N°${data.id} \n ✍️ Descripcion:${pregunta} \n 📌 Link de la pregunta:${urlPregunta}`)}&app_absent=0`
             window.open(url);
     }
     setPrice(data?.precio)
