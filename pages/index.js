@@ -36,9 +36,9 @@ export default function Home() {
       <div style={{ backgroundColor: '#f9f9fb', padding: "20px" }}>
         <Beneficios />
       </div>
-      <div style={{ backgroundColor: 'rgb(255, 243, 243)', padding: "20px" }}>
+      {/* <div style={{ backgroundColor: 'rgb(255, 243, 243)', padding: "20px" }}>
         <Aplicacion />
-      </div>
+      </div> */}
       <div style={{ backgroundColor: '#1b333d', padding: "20px" }}>
         <Footer />
       </div>
