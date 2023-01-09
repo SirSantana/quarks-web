@@ -145,11 +145,12 @@ export const GET_ONE_PREGUNTA = gql`
     fecha
     celular
     cotizaciones
+   imagen
     }
 
   }
 `
-export const GET_COTIZACIONES= gql`
+export const GET_COTIZACIONES = gql`
 query getCotizaciones($id:ID) {
   getCotizaciones(id:$id) {
    descripcion

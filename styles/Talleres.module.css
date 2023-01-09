@@ -107,7 +107,6 @@ grid-row-gap: 20px;
 .dropdown {
   display: inline-block;
   position: relative;
-  margin:10px 0
 }
 .dropdownContent {
   display: none;

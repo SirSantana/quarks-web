@@ -19,7 +19,7 @@ export default function CardPregunta({data, setPrice}){
     const cotizacionesRef = useRef()
     const [tiempoLoading, setTiempoLoading] = useState(0)
     const [visibleModal, setVisibleModal] = useState(false)
-
+    console.log(data);
     let time;
     if(visibleModal){
         time = setTimeout(()=>(

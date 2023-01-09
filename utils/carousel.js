@@ -6,6 +6,7 @@ import CardsPreguntas from "../components/Cotizaciones/Cards/CardsPreguntas";
 import CotizacionesRender from "../components/Cotizaciones/Cotizaciones";
 import { GET_PREV_PREGUNTAS } from "../graphql/queries";
 import styles from '../styles/carrousel.module.css'
+import { Loader } from "./loader";
 
 export default function MultipleItems(){
   
@@ -54,6 +55,7 @@ export default function MultipleItems(){
     return (
       <div className={styles.container}>
         <h4 style={{color:'#1b333d', fontWeight:'600'}}>Otras personas han preguntado...</h4>
+        {result?.loading && <Loader/>}
         <Slider className={styles.slickSlide} {...settings}>
         {result?.data?.getPreguntas &&result?.data?.getPreguntas.map(el=><Link href={`/cotizaciones/${el.id} ${el.titulo}`} className={styles.card}><div  className={styles.slickList}> <CardsPreguntas el={el}/></div></Link>) }
         </Slider>

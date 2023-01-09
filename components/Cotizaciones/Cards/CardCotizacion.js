@@ -35,8 +35,8 @@ export default function CardCotizacion({setPrice, data, userId, celularVendedor,
             <h6 style={{color:'#f50057', fontSize:'14px',margin:0, fontWeight:400}}>Precio sujeto a cambios en el tiempo</h6>
 
             </div>
-            <h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}>Marca / origen: {data.marca}</h3>
-            <h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}>Garantia: {data.garantia} mes(es)</h3>
+            <h3 style={{color:'gray', margin:'15px 0 5px 0',fontSize:'16px', fontWeight:400}}><b>Marca / origen:</b> {data.marca}</h3>
+            <h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}><b>Garantia:</b> {data.garantia} mes(es)</h3>
 
             {data?.stock &&<h3 style={{color:'gray', margin:'5px 0',fontSize:'16px', fontWeight:400}}>Stock : {data.stock} Und(s)</h3>}
 
@@ -44,7 +44,7 @@ export default function CardCotizacion({setPrice, data, userId, celularVendedor,
 
             {userId === data?.user 
             ?<button className={styles.button}>Tu cotizacion</button>
-            :<button onClick={sendMessage} className={styles.button}>Contactar disponibilidad</button>
+            :<button style={{marginTop:'15px'}} onClick={sendMessage} className={styles.button}>Contactar disponibilidad</button>
             }
             
 
