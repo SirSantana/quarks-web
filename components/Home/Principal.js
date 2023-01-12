@@ -2,8 +2,6 @@ import styles from './styles.module.css'
 import { useRouter } from 'next/router'
 
 import { useEffect, useState } from 'react'
-import MultipleItems from '../../utils/carousel';
-import Link from 'next/link';
 
 export default function Principal({ mainRef }) {
     const [busqueda, setBusqueda] = useState(null);

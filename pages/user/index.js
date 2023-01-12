@@ -9,7 +9,6 @@ export default function UserPage() {
     logout()
     localStorage.clear()
   }
-  console.log(user);
   return (
     <div>
       {user ? (

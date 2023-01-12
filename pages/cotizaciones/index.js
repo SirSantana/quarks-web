@@ -47,7 +47,6 @@ export default function ProductosPage(){
       }
       
     }else{
-      console.log(busqueda,'dasda');
       getBusquedaPreguntas({variables:{word:busqueda}})
     }
     setSubmit(false)

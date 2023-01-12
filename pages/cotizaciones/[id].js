@@ -16,7 +16,6 @@ export default function Almacen(){
   const [getPregunta,{ data, loading, error }] = useLazyQuery(GET_ONE_PREGUNTA);
   const [price, setPrice] = useState('')
    
-  console.log(data);
     const router = useRouter()
     const id = router.query.id
     let query = id?.substring(0, id?.indexOf(' '))
@@ -24,7 +23,8 @@ export default function Almacen(){
         if(query){
             getPregunta({variables:{id:query}})
         }
-    },[query])
+       
+    },[query,])
     return(
         <Layout title={data?.getOnePregunta?.titulo} type='product' price={price} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
             <div className={styles.container}>

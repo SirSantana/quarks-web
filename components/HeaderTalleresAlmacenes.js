@@ -1,13 +1,18 @@
 import styles from '../styles/Talleres.module.css'
 import MarcasMenu from '../utils/marcasMenu';
 import {useRouter} from 'next/router'
+import useAuth from '../hooks/useAuth';
 
 export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, setSubmit, setMarca, marca,visibleTextWithResults}){
-
+    const {user} = useAuth()
     const router = useRouter()
     let mensaje;
     let placeholder;
-    if(tipo=== 'Talleres'){
+    if(user?.role === 'Vendedor'){
+        mensaje = "Empieza a cotizar"
+        placeholder = 'Busca que cotizaciones puedes cotizar'
+    }
+    else if(tipo=== 'Talleres'){
         mensaje = "Encuentra tu taller!"
         placeholder = 'Coloca tu marca de auto'
     }else if(tipo==='Almacenes'){
@@ -16,7 +21,8 @@ export default function HeaderTalleresAlmacenes({tipo, setBusqueda, busqueda, se
     }else if(tipo==='Cotizaciones'){
         mensaje = "Encuentra tus repuestos"
         placeholder = 'Que repuesto buscas? Es probable que alguien ya lo haya preguntado'
-    }else{
+    }
+    else{
         mensaje = `Encuentra tus repuestos ${router.query.id}!`
         placeholder = '¿Que repuesto estas buscando?'
     }

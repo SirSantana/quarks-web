@@ -1,41 +1,50 @@
-import { useMutation } from "@apollo/client"
-import { useEffect, useState } from "react"
-import { SIGN_IN_MUTATION } from "../../graphql/mutations"
-import useAuth from "../../hooks/useAuth"
-import Link from "next/link"
+import LoginForm from "../../components/User/LoginForm";
+import styles from '../../components/Home/styles.module.css'
+import Layout from "../../components/Layout";
+import Link from 'next/link'
+let marcas = ['Chevrolet', 'Mazda', 'Ford', 'Renault']
+import useAuth from "../../hooks/useAuth";
+import { useRouter } from "next/router";
 
-const initialForm = {
-    email:'',
-    password:''
-}
+export default function LoginPage() {
+  const router = useRouter()
+  const { user, logout } = useAuth();
 
-export default function LoginPage(){
-    const [form,setForm] = useState(initialForm)
-    const [signIn,{data, loading, error}] = useMutation(SIGN_IN_MUTATION)
-    const {login} = useAuth()
-    const handleChange=(e)=>{
-        setForm({...form, [e.target.name]:e.target.value})
-    }
-    const handleSubmit=(e)=>{
-        e.preventDefault()
-        signIn({variables:form})
-    }
-   useEffect(()=>{
-    if(data){
-        localStorage.setItem('token', JSON.stringify(data?.signIn.token))
-        login(data?.signIn)
-        setForm(initialForm)
-    }
-   },[data])
-    return(
-        <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', margin:'0 auto'}}>
-            <h2 style={{color:'black'}}>Login Page</h2>
-            <form onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', width:'200px', gap:'20px'}}>
-            <input required  onChange={handleChange}name='email' style={{backgroundColor:'white', color:'black', height:'30px'}} type={'email'} placeholder='Email'/>
-            <input required onChange={handleChange} name='password' style={{backgroundColor:'white', color:'black', height:'30px'}}type={'password'}placeholder='Password'/>
-            <input style={{backgroundColor:'#f50057', color:'white', border:'none', height:'30px'}}type={'submit'}placeholder='Ingresar'/>
-            <Link style={{color:'#f50057'}} href='/user'>Volver</Link>
-            </form>
+  const handleCloseSesion=()=>{
+    logout()
+    localStorage.clear()
+    router.push('/')
+  }
+  return (
+    <Layout title={'Inicio Sesion vendedores - Quarks'} type='website' description={'Eres vendedor de repuestos para carros?'}>
+      <div className={styles.container} style={{ marginTop: '80px' }}>
+
+        <div className={styles.containerManual} style={{ alignItems: 'flex-start', padding: '0 10px' }}>
+
+          <div className={styles.containerManual2} >
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
+              {marcas.map(marca => (
+                <img src={`/${marca}.png`} style={{ width: '50px', height: '50px' }} alt={`Logo ${marca}`} />
+              ))}
+            </div>
+            
+            <h1 style={{ margin: '10px 0' }} className={styles.titleBlue}>Bienvenido de nuevo <b style={{ color: '#f50057' }}></b>  </h1>
+            <h4 style={{ fontWeight:400 }}className={styles.titleBlue2} >Inicia sesion y empieza a vender! </h4>
+            
+            <Link href={'/vendedor'} ><button style={{ width: '100%', marginTop: '20px' }} className={styles.button}>¿No eres vendedor? Registrate</button></Link>
+          </div>
+          {user ? (
+        <div className={styles.container4} style={{justifyContent:'center', alignItems:'center'}}>
+        <h2 style={{ color: "black" }}>Ya tienes una sesion iniciada</h2>
+        <button style={{ width: '100%', marginTop: '20px' }} className={styles.button} onClick={()=> router.push('/cotizaciones')}>Ir a cotizar</button>
+        <button style={{ width: '100%', marginTop: '20px', backgroundColor:'white',color:'#f50057' }} className={styles.button} onClick={handleCloseSesion}>Cerrar sesion</button>
         </div>
-    )
+      ) : (
+        <LoginForm />
+       
+      )}
+        </div>
+      </div>
+    </Layout>
+  )
 }

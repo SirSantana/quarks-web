@@ -7,9 +7,9 @@ import MarcasMenu from '../../../utils/marcasMenu'
 import ModalCargando from '../../../utils/modalCargando'
 import ModalError from '../../../utils/modalError'
 import ModalSuccesfull from '../../../utils/modalSuccesfull'
-import { BlobServiceClient, ContainerClient } from '@azure/storage-blob';
+import { BlobServiceClient } from '@azure/storage-blob';
 
-const containerName = process.env.NEXT_PUBLIC_CONTAINER_NAME;
+const containerName = process.env.NEXT_PUBLIC_CONTAINER_NAME_AUTOPARTES;
 const sasToken = process.env.NEXT_PUBLIC_SAS_TOKEN
 const storageAccountName = process.env.NEXT_PUBLIC_STORAGE_ACCOUNT_NAME
 
@@ -25,6 +25,7 @@ export default function FormPregunta() {
   const [form, setForm] = useState(initialForm)
   const validation = form.referencia === initialForm.referencia || form.celular === initialForm.celular || form.titulo === initialForm.titulo
   const [visibleModal, setVisibleModal] = useState(true)
+  
   const handleMarca = (marca) => {
     setForm({ ...form, marca })
   }
@@ -39,7 +40,6 @@ export default function FormPregunta() {
     setForm({...form, imagen:`https://${storageAccountName}.blob.core.windows.net/${containerName}/${date}${file.name}`})
     const blobClient = containerClient.getBlockBlobClient(`${date}${file.name}`);
     const options = { blobHTTPHeaders: { blobContentType: file.type } };
-    // upload file
     await blobClient.uploadData(file, options)
   }
   const handleImage = async(e)=>{
@@ -91,7 +91,7 @@ export default function FormPregunta() {
         <ModalSuccesfull mensaje={'Cotizacion enviada'} description={'Te contactaremos por whatsapp lo mas pronto posible'} />
       }
       {error && visibleModal &&
-        <ModalError mensaje={'Ha ocurrido un error'} description={error?.mensaje} />}
+        <ModalError mensaje={'Ha ocurrido un error'} description={'Revisa tu conexion'} />}
     </div>
 
   )

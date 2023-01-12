@@ -154,9 +154,42 @@
     height: 50px;
     width: 100%;
   }
- 
+  .container4 {
+    width: 60%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+    padding: 20px;
+  }
+  .containerCotizacionesVendedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin:0 auto 10px auto;
+  }
+  .cardCotizacion{
+    width: 40%;
+  }
+  .cardPregunta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+  }
 
 @media (max-width: 600px) {
+    .containerCotizacionesVendedor{
+        flex-direction: column;
+        gap:20px;
+        align-items: center;
+    }
+    .cardCotizacion{
+        width: 90%;
+    }
+    .cardPregunta{
+        width: 100%;
+    }
     .divTitle{
         flex-wrap: wrap;
         justify-content: center;
@@ -165,6 +198,11 @@
         width: 100%;
         height: 300px;
     }
+    .container4 {
+        width: 100%;
+        margin-top: 50px;
+    
+      }
     .titleBlue{
         font-size: 28px;
         margin:0;

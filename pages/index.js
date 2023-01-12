@@ -6,15 +6,15 @@ import Beneficios from '../components/Home/Beneficios'
 import Footer from '../components/Home/Footer'
 import Principal from '../components/Home/Principal'
 import MultipleItems from '../utils/carousel'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 export default function Home() {
   const mainRef = useRef(null);
 
- 
-
+  let description = 'Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes'
+  
   return (
-    <Layout title={'Encuentra tus repuestos - Quarks'} type='website' description={'Repuestos automotores para tu carro en colombia'}>
+    <Layout title={'Encuentra tus repuestos - Quarks'} type='website' description={description}>
       <div className={styles.container}>
         <Principal mainRef={mainRef} />
       </div>

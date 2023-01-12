@@ -8,10 +8,12 @@ export default function Layout({children, title, description, type, price}){
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={description} />
+        <meta name="keywords" content={'Repuestos para vehiculos, cientos de cotizaciones de autopartes para carros, Con vendedores disponibles facil y gratis, Cotizar repuestos, Colombia, chevrolet, ford, renault, mazda'} />
         <meta property="og:title" content={title} key="title" />
         <meta property='og:description' content={description} />
         <meta property='og:type' content={type} />
-        <meta property='og:site_name' content='https://quarks.com.co' />
+        <meta property='og:site_name' content='Quarks' />
+        <meta property='og:url' content='https://quarks.com.co' />
         {price &&
         <>
         <meta property="product:price:amount" content={price}/>

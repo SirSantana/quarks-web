@@ -1,15 +1,18 @@
 import Marcas from "../../Lugares/marcas";
 import styles from '../../../styles/Talleres.module.css'
 import { timeSince } from "../../../utils/dateEs";
+import useAuth from "../../../hooks/useAuth";
 
 
 
 export default function CardsPreguntas({ el }) {
+  const { user } = useAuth()
+
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', width: '100%' }}>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', width:'100%'}}>
-          {el?.imagen && <img alt={el.titulo} src={el?.imagen} style={{ width: 'fit-content', height: '300px', marginBottom: '10px' }} />}
+          {el?.imagen && <img alt={el.titulo} src={el?.imagen} style={{ width: '100%', objectFit:'contain', height: 'auto', maxHeight:'400px', marginBottom: '10px' }} />}
         </div>
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width:'100%',alignItems:'center'}}>
           <div>
@@ -22,11 +25,11 @@ export default function CardsPreguntas({ el }) {
                 lineHeight: '20px'
               }}
             >
-              {el.marca} {el?.referencia}
+              {el?.marca} {el?.referencia}
             </h4>
             <h6 style={{ color: 'gray', margin: 0, fontWeight: 400, fontSize: '14px' }}>hace {timeSince(el?.fecha)}</h6>
           </div>
-          <Marcas marca={el.marca} />
+          <Marcas marca={el?.marca} />
 
         </div>
 
@@ -54,8 +57,10 @@ export default function CardsPreguntas({ el }) {
           >
            Pregunta: {el.userName}
           </h4> */}
-
-      <button className={styles.button}>Ver cotizaciones</button>
+      {user?.role === 'Vendedor' ?<button onClick={()=>window.scrollTo({ top: 0, behavior: 'smooth' })} className={styles.button}>Cotizar</button>
+      :<button className={styles.button}>Ver cotizaciones</button>
+      }
+      
 
     </>
   )

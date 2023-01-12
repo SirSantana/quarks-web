@@ -14,6 +14,22 @@ export const GET_USER = gql`
             pais
             id
             cotizaciones
+            almacen
+            marcas
+        }
+    }
+`
+export const GET_ONE_USER = gql`
+    query getOneUser($id:ID){
+      getOneUser(id:$id){
+            name
+            ciudad 
+            pais
+            id
+            cotizaciones
+            avatar
+            marcas
+            almacen
         }
     }
 `
@@ -146,6 +162,7 @@ export const GET_ONE_PREGUNTA = gql`
     celular
     cotizaciones
    imagen
+   id
     }
 
   }
@@ -158,11 +175,36 @@ query getCotizaciones($id:ID) {
    garantia
    precio
    id
-   fecha
    user
    celular
    stock
    envio
+   estado
   }
 }
 `
+export const GET_COTIZACIONES_USER = gql`
+query getCotizacionesUser($id:ID, $limit:Int) {
+  getCotizacionesUser(id:$id, limit:$limit) {
+   descripcion
+   marca
+   garantia
+   precio
+   id
+   user
+   celular
+   stock
+   envio
+   pregunta
+   estado
+  }
+}
+`
+export const GET_AVATAR_USER = gql`
+query getAvatar($id:ID) {
+  getAvatar(id:$id) {
+            avatar
+            name
+            
+  }
+}`
