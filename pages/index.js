@@ -15,7 +15,7 @@ export default function Home() {
   
   return (
     <Layout title={'Encuentra tus repuestos - Quarks'} type='website' description={description}>
-      <div className={styles.container}>
+      <div style={{marginTop:'70px'}} className={styles.container}>
         <Principal mainRef={mainRef} />
       </div>
       <div style={{ backgroundColor: '#f1f1f1', padding: "20px 0 40px 0" }}>

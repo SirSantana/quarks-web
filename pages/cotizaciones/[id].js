@@ -15,7 +15,8 @@ import ModalError from '../../utils/modalError';
 export default function Almacen(){
   const [getPregunta,{ data, loading, error }] = useLazyQuery(GET_ONE_PREGUNTA);
   const [price, setPrice] = useState('')
-   
+  const [width, setWidth] = useState(null)
+  const isMobile = width < 600
     const router = useRouter()
     const id = router.query.id
     let query = id?.substring(0, id?.indexOf(' '))
@@ -25,10 +26,16 @@ export default function Almacen(){
         }
        
     },[query,])
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+        setWidth(window.screen.width)
+    }
+    }, []);
     return(
         <Layout title={data?.getOnePregunta?.titulo} type='product' price={price} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
             <div className={styles.container}>
 
+            {!isMobile && 
             <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
             <Link href={'/'} style={Theme.texts.subtitle}>
               Inicio
@@ -43,7 +50,7 @@ export default function Almacen(){
             <Link href={'#'} style={Theme.texts.subtitle}>
               {data?.getOnePregunta?.titulo}
             </Link>
-            </div>
+            </div>}
 
             {loading && <Loader/>}
             {data && 

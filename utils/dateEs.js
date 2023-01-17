@@ -2,7 +2,8 @@ export function timeSince(date) {
 
     var seconds = Math.floor((new Date() - new Date(date)) / 1000);
     var interval = seconds / 31536000;
-  
+    console.log(seconds/31536000);
+
     if (interval > 1) {
       return Math.floor(interval) + " año";
     }
@@ -21,6 +22,11 @@ export function timeSince(date) {
     interval = seconds / 60;
     if (interval > 1) {
       return Math.floor(interval) + " minutos";
+    }
+    interval = seconds / 60;
+    if(interval < 1){
+      return "unos segundos";
+
     }
 
   }

@@ -25,7 +25,7 @@ export default function PerfilVendedor() {
             <div >
               {data?.getOneUser?.avatar 
               ?<img alt={data?.getOneUser?.name} src={data?.getOneUser?.avatar} style={{objectFit:'contain',height:'70px', width:'70px', backgroundColor:'white', borderRadius:'50%'}} />
-              :<h2 className={styles.avatar}>{data?.getOneUser?.name}</h2>
+              :<h2 className={styles.avatar}>{data?.getOneUser?.name[0]}</h2>
               }
             
             </div>

@@ -81,7 +81,7 @@ export default function CardPregunta({ data, setPrice }) {
         {result?.loading && <LayoutPostCharge />}
         {result?.data?.getCotizaciones.length > 0 ?
           result?.data?.getCotizaciones.map(el => (
-            <CardCotizacion setPrice={setPrice} data={el} userId={user?.id} celularVendedor={el?.celular} pregunta={data?.marca + " " + data?.referencia + " " + data?.titulo} idPregunta={router.query.id} />
+            <CardCotizacion setPrice={setPrice} data={el} userId={user?.id}  pregunta={data?.marca + " " + data?.referencia + " " + data?.titulo} idPregunta={router.query.id} />
           ))
           : visibleModal && user?.role !== 'Vendedor' && <ModalError description={'Aún no hay cotizacio(es)'} mensaje={'Lo sentimos, vuelve pronto'} />
         }

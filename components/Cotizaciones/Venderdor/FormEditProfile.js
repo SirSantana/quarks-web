@@ -50,8 +50,11 @@ export default function FormEditProfile() {
     const date = new Date().toISOString()
     setForm({ ...form, avatar: `https://${storageAccountName}.blob.core.windows.net/${containerName}/${date}${file.name}` })
     const blobClient = containerClient.getBlockBlobClient(`${date}${file.name}`);
+    console.log(blobClient);
     const options = { blobHTTPHeaders: { blobContentType: file.type } };
+    console.log(file);
     await blobClient.uploadData(file, options)
+    console.log(file);
 
   }
   const handleImage = async (e) => {

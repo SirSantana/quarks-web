@@ -205,6 +205,8 @@ query getAvatar($id:ID) {
   getAvatar(id:$id) {
             avatar
             name
+            ciudad
+            celular
             
   }
 }`

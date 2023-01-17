@@ -76,19 +76,19 @@ export default function FormCreateVendedor() {
         <label htmlFor="almacen" className={styles.label}>Nombre del Almacen</label>
         <input value={form.almacen} required onChange={handleChange} name='almacen' id='almacen' className={styles.input} type={'text'} />
 
-        <label htmlFor="direccion" className={styles.label}>Direccion</label>
+        <label htmlFor="direccion" className={styles.label}>Direccion de contacto</label>
         <input value={form.direccion} required onChange={handleChange} id='direccion' name='direccion' className={styles.input} type={'text'} />
 
-        <label htmlFor="ciudad" className={styles.label} >Ciudad</label>
+        <label htmlFor="ciudad" className={styles.label}>Ciudad </label>
         <input value={form.ciudad} required onChange={handleChange} id='ciudad' name='ciudad' className={styles.input} type={'text'} />
 
-        <label htmlFor="celular" className={styles.label}>Celular</label>
+        <label htmlFor="celular" className={styles.label}>Tu celular</label>
         <input value={form.celular} required onChange={handleChange} id='celular' name='celular' className={styles.input} type={'number'} />
         
-        <label htmlFor="email" className={styles.label}>Correo</label>
+        <label htmlFor="email" className={styles.label}>Tu correo</label>
         <input value={form.email} required onChange={handleChange} id='email' name='email' className={styles.input} type={'email'} />
 
-        <label htmlFor="password" className={styles.label}>Contraseña</label>
+        <label htmlFor="password" className={styles.label}>Crea una contraseña</label>
         <input value={form.password} required onChange={handleChange}  id='password' name='password' className={styles.input} type={'password'} />
         {/* BASE64 */}
         {/* <input onChange={(e) => handleFileUpload(e).then(res=> setForm({...form, imagen:res}))} accept="image/*" id='imagen' name='imagen' style={{color:'gray'}} type={'file'}  /> */}

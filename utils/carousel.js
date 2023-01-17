@@ -19,6 +19,7 @@ export default function MultipleItems() {
     speed: 4000,
     autoplaySpeed: 4000,
     cssEase: "linear",
+    swipeToSlide:true,
     responsive: [
       {
         breakpoint: 1024,
