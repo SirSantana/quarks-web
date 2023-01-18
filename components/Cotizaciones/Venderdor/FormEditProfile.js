@@ -30,6 +30,7 @@ export default function FormEditProfile() {
   const [avatarExpire, setAvatarExpire] = useState('')
   const [visibleModalImage, setVisibleModalImage] = useState(false)
   const [visibleModal, setVisibleModal] = useState(true)
+  const [uploadingImage, setUploadingImage] = useState(false)
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -37,27 +38,25 @@ export default function FormEditProfile() {
   const handleSubmit = (e) => {
     e.preventDefault()
     for (let property in form) {
-      if (form[property].length === 0) {
+      if(uploadingImage)return
+       if (form[property].length === 0) {
         delete form[property]
       }
     }
     setVisibleModal(true)
-
     editVendedor({ variables: form })
     router.back()
   }
   const createBlobInContainer = async (containerClient, file) => {
-    const date = new Date().toISOString()
-    setForm({ ...form, avatar: `https://${storageAccountName}.blob.core.windows.net/${containerName}/${date}${file.name}` })
+    const date = new Date().getTime()
     const blobClient = containerClient.getBlockBlobClient(`${date}${file.name}`);
-    console.log(blobClient);
     const options = { blobHTTPHeaders: { blobContentType: file.type } };
-    console.log(file);
-    await blobClient.uploadData(file, options)
-    console.log(file);
-
+    const res = await blobClient.uploadData(file, options)
+    setForm({ ...form, avatar: `https://${storageAccountName}.blob.core.windows.net/${containerName}/${date}${file.name}` })
+    setUploadingImage(false)
   }
   const handleImage = async (e) => {
+    setUploadingImage(true)
     const blobService = new BlobServiceClient(
       `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
     );
@@ -130,7 +129,7 @@ export default function FormEditProfile() {
               <input placeholder={user?.celular} onChange={handleChange} name='celular' className={styles.input} type={'number'} value={form.celular} />
             </div>
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <button onClick={handleSubmit} className={styles.button}>Guardar Cambios</button>
+              <button style={{backgroundColor:uploadingImage? 'gray':'#f50057'}} disabled={uploadingImage? true:false} onClick={handleSubmit} className={styles.button}>Guardar Cambios</button>
             </div>
           </div>
         </div>
