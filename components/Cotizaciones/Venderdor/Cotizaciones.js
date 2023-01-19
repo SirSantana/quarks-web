@@ -47,7 +47,7 @@ export default function CotizacionesVendedor({user}) {
           <img src ="/user-solid-blue.svg" alt="User icon" style={{width:'30px', height:'30px', margin:'5px'}}/>
             <h3 style={{color:'black', margin:'0 0 10px 0', fontWeight:500}}>Pregunta</h3>
 
-            {result?.data && el.pregunta === result?.data.getOnePregunta.id ?
+            {result?.data && el.pregunta === result?.data?.getOnePregunta?.id ?
             <div style={{border:'1px solid lightGray', padding:'20px'}}>
               <CardsPreguntas el={result?.data?.getOnePregunta}/>
             </div>
