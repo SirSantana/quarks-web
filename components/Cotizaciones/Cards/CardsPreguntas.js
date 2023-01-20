@@ -16,7 +16,7 @@ export default function CardsPreguntas({ el }) {
         </div>
         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width:'100%',alignItems:'center'}}>
           <div>
-            <h4
+            <h1
               style={{
                 fontSize: "20px",
                 fontWeight: 700,
@@ -26,7 +26,7 @@ export default function CardsPreguntas({ el }) {
               }}
             >
               {el?.marca} {el?.referencia}
-            </h4>
+            </h1>
             <h6 style={{ color: 'gray', margin: 0, fontWeight: 400, fontSize: '14px' }}>hace {timeSince(el?.fecha)}</h6>
           </div>
           <Marcas marca={el?.marca} />

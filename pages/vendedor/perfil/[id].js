@@ -18,20 +18,20 @@ export default function PerfilVendedor() {
   }, [router?.query?.id])
   
   return (
-    <Layout title={'Perfil Vendedor'} description={'Perfil de cotizaciones de repuestos de carros en colombia'}>
-      <div className={styles.container}>
+    <Layout title={'Perfil Vendedor | Quarks'} description={'Perfil de cotizaciones de repuestos de carros en colombia'}>
+      <section className={styles.container}>
         <div className={styles.containerDataPerfil}>
           <div className={styles.avatarContainer}>
             <div >
               {data?.getOneUser?.avatar 
               ?<img alt={data?.getOneUser?.name} src={data?.getOneUser?.avatar} style={{objectFit:'contain',height:'70px', width:'70px', backgroundColor:'white', borderRadius:'50%'}} />
-              :<h2 className={styles.avatar}>{data?.getOneUser?.name[0]}</h2>
+              :<h1 className={styles.avatar}>{data?.getOneUser?.name[0]}</h1>
               }
             
             </div>
             <div className={styles.divLogos}>
               {data?.getOneUser?.marcas.map(marca => (
-                <img key={marca} src={`/${marca}.png`} style={{ width: '30px', height: '30px' }} alt={`Logo ${marca}`} />
+                <img key={marca} src={`/${marca}.png`} style={{ width: '30px', height: '30px' }} alt={`Repuestos de ${marca}`} />
               ))}
             </div>
           </div>
@@ -47,8 +47,8 @@ export default function PerfilVendedor() {
 
             <div className={styles.containerHeader2}>
               <h2 style={{ margin: 0, color: '#464646', fontSize: '18px', marginBottom: '5px', fontWeight: 'bold' }}>{data?.getOneUser?.name}</h2>
-              <h2 style={{ margin: 0, color: 'gray', fontSize: '16px', marginBottom: '5px', fontWeight: '400' }}>Vendedor</h2>
-              <h2 style={{ margin: 0, color: '#464646', fontSize: '16px', fontWeight: '400' }}>{data?.getOneUser?.ciudad},{data?.getOneUser?.pais}</h2>
+              <h3 style={{ margin: 0, color: 'gray', fontSize: '16px', marginBottom: '5px', fontWeight: '400' }}>Vendedor</h3>
+              <h3 style={{ margin: 0, color: '#464646', fontSize: '16px', fontWeight: '400' }}>{data?.getOneUser?.ciudad},{data?.getOneUser?.pais}</h3>
             </div>
 
 
@@ -59,7 +59,7 @@ export default function PerfilVendedor() {
           <CotizacionesVendedor user={user} />
 
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }

@@ -26,7 +26,7 @@ export default function HeaderCotizaciones({ id, setCiudad, setCelularVendedor }
   setCiudad(data?.getAvatar?.ciudad)
   setCelularVendedor(data?.getAvatar?.celular)
   return (
-    <div style={{ display: 'flex', flexDirection: 'row',justifyContent:'space-between', alignItems:'center'}}>
+    <section style={{ display: 'flex', flexDirection: 'row',justifyContent:'space-between', alignItems:'center'}}>
       <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
       <div onClick={()=>router.push(`/vendedor/perfil/${id}`)} style={{ width: '40px', height: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'none', borderRadius: '50%', fontSize: '14px', backgroundColor: 'purple', color: 'white', cursor: 'pointer' }}>
         {data?.getAvatar?.avatar
@@ -35,8 +35,8 @@ export default function HeaderCotizaciones({ id, setCiudad, setCelularVendedor }
         }
       </div>
       <div>
-        <h3 style={{ color: '#1b333d', fontSize: '18px', margin: 0, fontWeight: 600 }}>{data?.getAvatar?.name} </h3>
-        <h3 style={{ color: 'gray', fontSize: '14px', margin: 0, fontWeight: 400 }}>Vendedor en {data?.getAvatar.ciudad}</h3>
+        <h2 style={{ color: '#1b333d', fontSize: '18px', margin: 0, fontWeight: 600 }}>{data?.getAvatar?.name} </h2>
+        <h4 style={{ color: 'gray', fontSize: '14px', margin: 0, fontWeight: 400 }}>Vendedor en {data?.getAvatar.ciudad}</h4>
       </div>
       </div>
       <button onClick={()=> {setVisibleModal(true),window.scrollTo({ top: 0, behavior: 'smooth' });}} style={{  display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', height: '30px', border: 'none', borderRadius: '5px', fontSize: '16px', backgroundColor: 'inherit',  cursor: 'pointer' }}>
@@ -44,7 +44,7 @@ export default function HeaderCotizaciones({ id, setCiudad, setCelularVendedor }
       </button>
       {visibleModal && <ModalMenu preguntas={preguntas} setVisibleModal={setVisibleModal}/>}
 
-    </div>
+    </section>
 
 
   )

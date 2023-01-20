@@ -13,7 +13,7 @@ export default function UserPage() {
     <div>
       {user ? (
         <>
-        <h2 style={{ color: "black" }}>Ya tienes una sesion iniciada</h2>
+        <h1 style={{ color: "black", fontSize:'30px', color:'#1b333d' }}>Ya tienes una sesion iniciada</h1>
         <button onClick={handleCloseSesion}>Cerrar sesion</button>
         </>
       ) : (

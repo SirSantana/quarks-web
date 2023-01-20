@@ -33,7 +33,7 @@ export default function Almacen(){
     }, []);
     return(
         <Layout title={data?.getOnePregunta?.titulo} type='product' price={price} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
-            <div className={styles.container}>
+            <section className={styles.container}>
 
             {!isMobile && 
             <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
@@ -58,7 +58,7 @@ export default function Almacen(){
             }
             {error &&<ModalError mensaje={'Ha ocurrido un error'} description={error?.mensaje} />}
             
-            </div>
+            </section>
 
         </Layout>
     )

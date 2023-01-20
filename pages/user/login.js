@@ -10,41 +10,44 @@ export default function LoginPage() {
   const router = useRouter()
   const { user, logout } = useAuth();
 
-  const handleCloseSesion=()=>{
+  const handleCloseSesion = () => {
     logout()
     localStorage.clear()
     router.push('/')
   }
   return (
     <Layout title={'Inicio Sesion vendedores - Quarks'} type='website' description={'Eres vendedor de repuestos para carros?'}>
-      <div className={styles.container} style={{ marginTop: '80px' }}>
+      <section className={styles.container} style={{ marginTop: '80px' }}>
 
         <div className={styles.containerManual} style={{ alignItems: 'flex-start', padding: '0 10px' }}>
 
           <div className={styles.containerManual2} >
             <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
               {marcas.map(marca => (
-                <img src={`/${marca}.png`} style={{ width: '50px', height: '50px' }} alt={`Logo ${marca}`} />
+                <img src={`/${marca}.png`} style={{ width: '50px', height: '50px' }} alt={`Repuestos de ${marca}`} />
               ))}
             </div>
-            
+
             <h1 style={{ margin: '10px 0' }} className={styles.titleBlue}>Bienvenido de nuevo <b style={{ color: '#f50057' }}></b>  </h1>
-            <h4 style={{ fontWeight:400 }}className={styles.titleBlue2} >Inicia sesion y empieza a vender! </h4>
-            
-            <Link href={'/vendedor'} ><button style={{ width: '100%', marginTop: '20px' }} className={styles.button}>¿No eres vendedor? Registrate</button></Link>
+            {!user &&
+              <>
+                <h2 style={{ fontWeight: 400 }} className={styles.titleBlue2} >Inicia sesion y empieza a vender! </h2>
+                <Link href={'/vendedor'} ><button style={{ width: '100%', marginTop: '20px' }} className={styles.button}>¿No eres vendedor? Registrate</button></Link>
+              </>
+            }
           </div>
           {user ? (
-        <div className={styles.container4} style={{justifyContent:'center', alignItems:'center'}}>
-        <h2 style={{ color: "black" }}>Ya tienes una sesion iniciada</h2>
-        <button style={{ width: '100%', marginTop: '20px' }} className={styles.button} onClick={()=> router.push('/cotizaciones')}>Ir a cotizar</button>
-        <button style={{ width: '100%', marginTop: '20px', backgroundColor:'white',color:'#f50057' }} className={styles.button} onClick={handleCloseSesion}>Cerrar sesion</button>
+            <div className={styles.container4} style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <h2 style={{ color: "#1b333d" }}>Ya tienes una sesion iniciada</h2>
+              <button style={{ width: '100%', marginTop: '20px' }} className={styles.button} onClick={() => router.push('/cotizaciones')}>Ir a cotizar</button>
+              <button style={{ width: '100%', marginTop: '20px', backgroundColor: 'white', color: '#f50057' }} className={styles.button} onClick={handleCloseSesion}>Cerrar sesion</button>
+            </div>
+          ) : (
+            <LoginForm />
+
+          )}
         </div>
-      ) : (
-        <LoginForm />
-       
-      )}
-        </div>
-      </div>
+      </section>
     </Layout>
   )
 }

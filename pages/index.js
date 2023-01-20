@@ -14,28 +14,28 @@ export default function Home() {
   let description = 'Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes'
   
   return (
-    <Layout title={'Encuentra tus repuestos - Quarks'} type='website' description={description}>
-      <div style={{marginTop:'70px'}} className={styles.container}>
+    <Layout title={'Encuentra tus repuestos | Quarks'} type='website' description={description}>
+      <section style={{marginTop:'70px'}} className={styles.container}>
         <Principal mainRef={mainRef} />
-      </div>
-      <div style={{ backgroundColor: '#f1f1f1', padding: "20px 0 40px 0" }}>
+      </section>
+      <section style={{ backgroundColor: '#f1f1f1', padding: "20px 0 40px 0" }}>
         <MultipleItems />
-      </div>
-      <div ref={mainRef}  style={{ backgroundColor: 'white', padding: "20px" }}>
+      </section>
+      <section ref={mainRef}  style={{ backgroundColor: 'white', padding: "20px" }}>
         <CotizacionManual />
-      </div>
-      <div style={{ backgroundColor: '#f9f9fb', padding: "20px" }}>
+      </section>
+      <section style={{ backgroundColor: '#f9f9fb', padding: "20px" }}>
         <PasosCotizacion />
-      </div>
-      <div style={{ backgroundColor: '#f9f9fb', padding: "20px" }}>
+      </section>
+      <section style={{ backgroundColor: '#f9f9fb', padding: "20px" }}>
         <Beneficios />
-      </div>
+      </section>
       {/* <div style={{ backgroundColor: 'rgb(255, 243, 243)', padding: "20px" }}>
         <Aplicacion />
       </div> */}
-      <div style={{ backgroundColor: '#1b333d', padding: "20px" }}>
+      <section style={{ backgroundColor: '#1b333d', padding: "20px" }}>
         <Footer />
-      </div>
+      </section>
 
 
     </Layout>

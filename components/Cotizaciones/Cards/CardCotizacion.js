@@ -30,7 +30,7 @@ export default function CardCotizacion({ setPrice, data, userId, pregunta, idPre
         <div style={{ height: '1px', backgroundColor: 'lightGray', margin: '10px 0' }} />
         <div style={{ display: 'flex', flexDirection: 'column', margin: '10px 0' }}>
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
-            <h3 style={{ color: 'black', fontSize: '24px', margin: 0, fontWeight: 700 }}>$ {data.precio}</h3>
+            <span style={{ color: 'black', fontSize: '24px', margin: 0, fontWeight: 700 }}>$ {data.precio}</span>
             {data?.envio && <h4 style={{ color: 'green', fontSize: '18px', margin: 0, marginLeft: '10px', fontWeight: 600 }}>Envio Gratis!</h4>}
           </div>
           <h6 style={{ color: 'gray', fontSize: '12px', margin: 0, fontWeight: 400 }}>Precio sujeto a cambios en el tiempo*</h6>
