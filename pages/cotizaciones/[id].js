@@ -32,7 +32,7 @@ export default function Almacen(){
     }
     }, []);
     return(
-        <Layout title={data?.getOnePregunta?.titulo} type='product' price={price} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
+        <Layout title={`${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo} | Quarks`} type='product' price={price} keywords={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
             <section className={styles.container}>
 
             {!isMobile && 

@@ -11,7 +11,7 @@ import { useEffect, useRef } from 'react'
 export default function Home() {
   const mainRef = useRef(null);
 
-  let description = 'Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes'
+  let description = 'Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes. Cotiza ya!'
   
   return (
     <Layout title={'Encuentra tus repuestos | Quarks'} type='website' description={description}>
