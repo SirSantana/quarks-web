@@ -58,3 +58,14 @@ mutation editVendedor($name:String, $ciudad:String, $direccion:String, $pais:Str
   }
 }
 `
+export const CHANGE_PASSWORD = gql`
+mutation changePassword($email:String,$password:String, $previusPassword:String, ){
+  changePassword(email:$email,password:$password, previusPassword:$previusPassword)
+}
+`
+
+export const SEND_EMAIL = gql`
+mutation contactoEmail($name:String,$email:String, $mensaje:String, ){
+  contactoEmail(name:$name,email:$email, mensaje:$mensaje)
+}
+`

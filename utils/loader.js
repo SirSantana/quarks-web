@@ -1,6 +1,6 @@
 export const Loader = () => {
   return (
-    <svg width="57" height="57" viewBox="0 0 57 57" xmlns="http://www.w3.org/2000/svg" fill="#f50057" stroke="#f50057">
+    <svg width="40" height="40" viewBox="0 0 57 57" xmlns="http://www.w3.org/2000/svg" fill="#f50057" stroke="#f50057">
       <g fillRule="none" fill-rule="evenodd">
         <g transform="translate(1 1)" stroke-width="2">
           <circle cx="5" cy="50" r="5">

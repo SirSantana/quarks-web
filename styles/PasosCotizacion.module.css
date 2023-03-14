@@ -1,0 +1,167 @@
+.container {
+  width: 70%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 32px auto;
+  padding: 32px 0 0 0;
+}
+
+.image {
+  width: 35%;
+}
+
+.title {
+  color: #f50057;
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: #373737;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.divTitle {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.title1 {
+  color: #76022C;
+  font-size: 32px;
+  margin: 0;
+}
+
+.containerPasos1 {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 50px 0;
+  justify-content: space-between;
+}
+
+.containerPasos2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 28%;
+  justify-content: space-between;
+}
+
+.circle {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: #f50057;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerBeneficios {
+  width: 70%;
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 32px auto;
+}
+
+.containerIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #f50057;
+  margin-right: 16px;
+}
+
+.containerBeneficios2 {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 50%;
+}
+
+@media (max-width: 1200px) {
+  .containerPasos1 {
+    flex-direction: column;
+    width: 90%;
+    margin: 20px 0;
+    gap: 30px;
+  }
+
+  .containerPasos2 {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 700px) {
+  .containerPasos2 {
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .subtitle {
+    width: 80%;
+  }
+  .containerPasos1 {
+    flex-direction: column;
+    width: 90%;
+    margin: 20px 0;
+    gap: 30px;
+  }
+
+  .title1 {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+    text-align: left;
+  }
+
+  .containerBeneficios2 {
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 90%;
+  }
+
+  .containerBeneficios {
+    width: 90%;
+    justify-content: center;
+  }
+
+  .image {
+    width: 90%;
+  }
+
+
+}

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from '../styles/Cotizar.module.css'
+import styles from '@/styles/Home.module.css'
 
 let comoFunciona = 'Esta es una cotizacion que recibiste o que recibio un usuario. Todas las cotizaciones son publicas, con esto podrás contactar por whatsapp con el vendedor y llegar a un acuerdo con él.'
 let problema='😁 Hola, cuentanos con que vendedor tuviste inconvenientes, ingresa archivos que nos puedan ayudar a validar tu informacion'
@@ -26,8 +26,8 @@ export default function ModalMenu({ preguntas, setVisibleModal }) {
 
         <div className={styles.modal}>
           <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', width:'90%'}}>
-          <img src="/Logo.png" alt="Exitoso" className={styles.icon} style={{width:'20px', height:'20px'}} />
-          <img onClick={()=> setVisibleModal(false)} src="/error.svg" alt="Exitoso" className={styles.icon} style={{width:'20px',cursor:'pointer', height:'20px'}} />
+          <img src="/Logo.png" alt="Exitoso"  style={{width:'20px', height:'20px'}} />
+          <img onClick={()=> setVisibleModal(false)} src="/error.svg" alt="Exitoso"  style={{width:'20px',cursor:'pointer', height:'20px'}} />
           </div>
           <div style={{marginTop:'10px', display:'flex', flexDirection:'column', gap:'2px'}}>
           {preguntas.map(el=>

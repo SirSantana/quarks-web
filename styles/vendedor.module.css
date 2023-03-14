@@ -1,169 +1,209 @@
 .container {
-    display: grid;
-    flex-direction: column;
-    width: 70%;
-    margin:0 auto;
-    margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 5% auto 0 auto;
+  padding: 32px;
+}
 
+.container2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.containerDataPerfil{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
+
+.title {
+  color: #76022C;
+  font-size: 32px;
+  margin: 0;
 }
-.avatarContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-    flex-direction: column;
+
+.title2 {
+  color: #373737;
+  font-size: 18px;
+  margin: 16px 0;
 }
-.letraInicial{
-    font-size: 22px;
-    font-weight: 500;
+
+.containerBeneficios {
+  margin: 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 40%;
 }
-.button {
-    font-size: 16px;
-    background-color: #f50057;
-    border-radius: 10px;
-    padding: 10px 20px;
-    color: white;
-    height: 40px;
-    border: none;
-    width: 100%;
-    max-width: 400px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+
+.checkInput[type="checkbox"] {
+  background-color: #DDD;
+  border-radius: 2px;
   appearance: none;
-margin-top: 20px;
-cursor: pointer;
-    
-  }
-.avatar{
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    width: 100px;
-    background-color: rebeccapurple;
-    color:white
-}
-.containerHeader1{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-    justify-content: space-between;
-    width: 60%;
-}
-.containerHeader2{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    justify-content: space-between;
-    width: 60%;
-}
-.divLogos{
-    display: flex;
-    flex-direction: row;
-    gap:10px
-}
-.input {
-    width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    border:1px solid #dadada;
-    outline: none;
-    color: #1b333d;
-    padding: 0 10px
-  }
-  .containerInput{
-    display: flex;
-    padding:20px;
-    gap:20px;
-    flex-direction: row;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    box-shadow:0 0 0 2px #f4f4f4;
-    border:2px solid #f1f1fb
-  }
-  
-  .input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #f4f4f4 inset !important;
-    -webkit-text-fill-color: #1b333d;
-  }
-  
-  .input:hover {
-    background-color: #d9d9d9;
-  }
-  .modal {
-    width: 300px;
-    height: 170px;
-    background: white;
-    color: white;
-    z-index: 10;
-    border-radius: 16px;
-    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .darkBG {
-    background-color: rgba(0, 0, 0, 0.2);
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-  }
-  
-  .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  
-  }
-@media (max-width: 600px) {
-    .containerInput{
-    width: 95%;
-    padding:10px;
-    gap:10px;
-    }
-    .container{
-        width: 100%;
-        margin-top: 20%;
-    }
-    .divLogos{
-    flex-direction: column;
-    gaP:2px
-    }
-    .containerHeader1{
-        margin-bottom: 10px;
-        width: 100%;
-        flex-direction: column;
-        gap:5px
-    }
-    .containerHeader2{
-        margin-bottom: 10px;
-        width: 100%;
-    }
-    .avatar{
-        width: 50px;
-        height: 50px;
-    }
-    .letraInicial{
-        font-size: 16px;
-        font-weight: 400;
-    }
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  position: relative;
 }
 
+.checkInput[type="checkbox"]:checked {
+  background-color: #f50057;
+  background: #f50057 url("data:image/gif;base64,R0lGODlhCwAKAIABAP////3cnSH5BAEKAAEALAAAAAALAAoAAAIUjH+AC73WHIsw0UCjglraO20PNhYAOw==") 3px 3px no-repeat;
+}
+
+.subtitle {
+  color: #373737;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 16px 0;
+  width: 80%;
+
+}
+
+.beneficio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.containerIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #f50057;
+  margin-right: 16px;
+}
+
+.containerIcons {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 12px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.containerBoxes {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.boxPerfil {
+  box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.30);
+  padding: 16px;
+  transition: 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.boxPerfil:hover {
+  background-color: rgb(255, 243, 243);
+}
+
+.input {
+  width: 400px;
+  border: #c0c0c0 solid 1px;
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 16px;
+}
+
+.input:hover {
+  border: #5f5f5f solid 1px;
+
+}
+
+.input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1b333d;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 32px 0;
+
+}
+
+.button {
+  background-color: #f50057;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 50px;
+  transition: 0.3s;
+  margin: 16px 0;
+  align-self: flex-end;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+appearance: none;
+}
+
+.button:hover {
+  background-color: #db024e;
+
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 90%;
+    padding: 32px 0;
+  }
+
+  .container2 {
+    flex-direction: column;
+  }
+
+  .containerBeneficios {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 90%;
+    padding: 32px 0;
+  }
+
+  .boxPerfil {
+    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .container2 {
+    flex-direction: column;
+  }
+
+  .subtitle {
+    width: 80%;
+  }
+
+  .containerBeneficios {
+    gap: 0
+  }
+
+  .input {
+    width: 90%;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

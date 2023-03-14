@@ -1,0 +1,131 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  align-items: center;
+  margin: 32px auto;
+  padding: 32px 0;
+  margin-bottom: 32px;
+}
+
+.containerFooter {
+  padding: 32px 0;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
+}
+.containerFooter2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.title1 {
+  color: #76022C;
+  font-size: 20px;
+  margin: 0;
+  width: 60%;
+  text-align: center;
+}
+.title2 {
+  color: #5B0221;
+  font-size: 16px;
+  margin: 16px 0;
+  text-align: center;
+}
+.subtitle {
+  color: #5B0221;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  cursor: pointer;
+}
+.subtitleCopy {
+  color: #24000d;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  cursor: pointer;
+}
+.subtitle:hover{
+  color: #24000d;
+}
+
+.button {
+  background-color: #f50057;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 16px 64px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: center;
+  transition: 0.3s;
+  margin-top: 32px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+appearance: none;
+}
+
+.button:hover {
+  background-color: #db024e;
+
+}
+.image{
+  width: 50px;
+  height: 50px;
+}
+.logo{
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+.logo:hover{
+  opacity: 0.6;
+}
+.containerText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.containerSocial{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) {
+  .containerFooter2{
+    flex-direction: column;
+  width: 90%;
+  }
+  .title1 {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .title1 {
+    width: 100%;
+  }
+  .container{
+    width: 90%;
+  }
+  .containerText{
+    width: 90%;
+  }
+  .containerFooter2{
+    flex-direction: column;
+  width: 90%;
+  }
+  .containerSocial{
+    width: 90%;
+  }
+}

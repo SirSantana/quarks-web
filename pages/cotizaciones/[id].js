@@ -1,65 +1,71 @@
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import { useQuery, gql, useLazyQuery } from "@apollo/client";
 import { useEffect, useState } from 'react';
-import Layout from '../../components/Layout';
-import styles from '../../styles/Talleres.module.css'
-import { Theme } from '../../styles/Theme';
-import Link from 'next/link'
-import Card from '../../components/Lugares/Card/Card';
-import CardPregunta from '../../components/Cotizaciones/Cards/CardPregunta';
-import { Loader } from '../../utils/loader';
-import { GET_ONE_PREGUNTA } from '../../graphql/queries';
-import ModalError from '../../utils/modalError';
+import Layout from '@/src/Components/Layout';
+import { GET_COTIZACIONES, GET_ONE_PREGUNTA } from '@/graphql/queries';
+import CardCotizacionCliente from '@/src/Components/Cotizaciones/Cards/CardCotizacionCliente';
+import styles from '@/styles/Cotizaciones.module.css'
+import CardCotizacionVendedor from '@/src/Components/Cotizaciones/Cards/CardCotizacionVendedor';
+import { Loader } from '@/utils/loader';
 
 
-export default function Almacen(){
-  const [getPregunta,{ data, loading, error }] = useLazyQuery(GET_ONE_PREGUNTA);
-  const [price, setPrice] = useState('')
-  const [width, setWidth] = useState(null)
-  const isMobile = width < 600
-    const router = useRouter()
-    const id = router.query.id
-    let query = id?.substring(0, id?.indexOf(' '))
-    useEffect(() => {
-        if(query){
-            getPregunta({variables:{id:query}})
-        }
-       
-    },[query,])
-    useEffect(() => {
-      if (typeof window !== 'undefined') {
-        setWidth(window.screen.width)
+
+export default function Cotizacion() {
+  const [getPregunta, { data, loading, error }] = useLazyQuery(GET_ONE_PREGUNTA);
+  const [getCotizaciones, result] = useLazyQuery(GET_COTIZACIONES)
+
+  const router = useRouter()
+  const id = router.query.id
+
+  let query = id?.substring(0, id?.indexOf(' '))
+  useEffect(() => {
+    if (query) {
+      getPregunta({ variables: { id: query } })
     }
-    }, []);
-    return(
-        <Layout title={`${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo} | Quarks`} type='product' price={price} keywords={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
-            <section className={styles.container}>
+  }, [query])
+  useEffect(() => {
+    if (data?.getOnePregunta) {
+      getCotizaciones({ variables: { id: data?.getOnePregunta.id } })
+    }
+  }, [data?.getOnePregunta])
 
-            {!isMobile && 
-            <div style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
-            <Link href={'/'} style={Theme.texts.subtitle}>
-              Inicio
-            </Link>
-            <img src ="/arrow-right-solid.svg" alt="My Happy SVG" style={{width:'12px', height:'12px', margin:'5px'}}/>
+  return (
+    <Layout title={`${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo} | Quarks`} type='product' keywords={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`} description={`${data?.getOnePregunta?.marca} ${data?.getOnePregunta?.referencia} ${data?.getOnePregunta?.titulo}`}>
+      <div className={styles.container2}>
 
-            <Link href={'/cotizaciones'} style={Theme.texts.subtitle}>
-              Cotizaciones
-            </Link>
-            <img src ="/arrow-right-solid.svg" alt="My Happy SVG" style={{width:'12px', height:'12px', margin:'5px'}}/>
-
-            <Link href={'#'} style={Theme.texts.subtitle}>
-              {data?.getOnePregunta?.titulo}
-            </Link>
-            </div>}
-
-            {loading && <Loader/>}
-            {data && 
-              <CardPregunta data={data?.getOnePregunta} setPrice={setPrice}/>
+        <div className={styles.parentCotizacion}>
+          <h1 style={{ margin: '32px 0' }} className={styles.title2}>Cotizacion  </h1>
+          <div className={styles.containerOneCotizacion}>
+            {loading && <Loader />}
+            {data &&
+              <CardCotizacionCliente el={data?.getOnePregunta} />
             }
-            {error &&<ModalError mensaje={'Ha ocurrido un error'} description={error?.mensaje} />}
-            
-            </section>
+          </div>
+        </div>
 
-        </Layout>
-    )
+        <div className={styles.parentCotizacion}>
+          <h1 style={{ margin: '32px 0' }} className={styles.title2}>Cotizaciones  </h1>
+          <div className={styles.containerOneCotizacion}>
+            {result?.loading && <Loader />}
+            {result?.data?.getCotizaciones &&
+              result?.data?.getCotizaciones.map(el => (
+                <>
+                  <CardCotizacionVendedor data={el} pregunta={data?.getOnePregunta?.marca + " " + data?.getOnePregunta?.referencia + " " + data?.getOnePregunta?.titulo} idPregunta={router.query.id} />
+                  <div style={{ height: '1px', backgroundColor: 'lightGray', margin: '10px 0' }} />
+                </>
+
+              ))
+            }
+            {result?.data?.getCotizaciones.length <= 0 &&
+              <p className={styles.subtitle}>Aún no hay cotizaciones, regresa mas tarde</p>
+            }
+
+          </div>
+        </div>
+
+      </div>
+
+
+    </Layout>
+  )
 }
