@@ -100,7 +100,7 @@ export default function Vendedor() {
 
             <input value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.input} type={'text'} />
             <input value={form.almacen} required onChange={handleChange} placeholder="Nombre del Almacen" name='almacen' id='almacen' className={styles.input} type={'text'} />
-            <input value={form.direccion} required onChange={handleChange} placeholder="Direccion de Contacto" id='direccion' name='direccion' className={styles.input} type={'text'} />
+            <input value={form.direccion} required onChange={handleChange} placeholder="Direccion de Almacen" id='direccion' name='direccion' className={styles.input} type={'text'} />
             <input value={form.ciudad} required onChange={handleChange} placeholder="Ciudad" id='ciudad' name='ciudad' className={styles.input} type={'text'} />
             <input value={form.celular} required onChange={handleChange} placeholder="Tu celular" id='celular' name='celular' className={styles.input} type={'text'} />
             <input value={form.email} required onChange={handleChange} placeholder="Tú email" id='email' name='email' className={styles.input} type={'email'} />

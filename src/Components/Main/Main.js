@@ -123,7 +123,7 @@ export default function Main() {
       {visibleMarca &&
         <div onClick={() => setVisibleMarca(visibleMarca ? false : true)} className={styles.modal}>
           <div className={styles.modalContent}>
-            {marcas.map(el => (<img key={el} onClick={() => setMarca(el)} style={{ height: '40px', width: '40px', cursor: 'pointer' }} src={`./${el}.png`} />))}
+            {marcas.map(el => (<img key={el} onClick={() => {setMarca(el), setForm({...form, marca:el})}} style={{ height: '40px', width: '40px', cursor: 'pointer' }} src={`./${el}.png`} />))}
           </div>
         </div>
       }
