@@ -210,3 +210,20 @@ query getAvatar($id:ID) {
             
   }
 }`
+
+
+export const GET_BATALLAS=gql`
+  query getBatallas{
+    getBatallas{
+      carroUno
+      carroDos
+      carroUnoImg
+      carroDosImg
+      carroUnoVotos
+      carroDosVotos
+      carroUnoId
+      carroDosId
+      id
+    }
+  }
+`

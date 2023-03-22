@@ -26,11 +26,11 @@ export default function HeaderCotizaciones({ id, setCiudad, setCelularVendedor, 
       <div style={{ width: '40px', height: '40px',alignSelf:'center', display: 'flex', justifyContent: 'center', alignItems: 'center', border: 'none', borderRadius: '50%', fontSize: '14px', backgroundColor: 'purple', color: 'white', marginRight:'16px' }}>
         {data?.getAvatar?.avatar
           ? <img alt={'imagenperfil'} src={data?.getAvatar?.avatar} style={{ objectFit: 'contain', height: '50px', width: '50px', backgroundColor: 'white', borderRadius: '25px' }} />
-          : <h2 >V</h2>
+          : <h3 style={{fontWeight:'400', fontSize:'18px'}}>{data?.getAvatar?.name.slice(0,1)}</h3>
         }
       </div>
       <div>
-        <h2 style={{ color: 'gray', fontSize: '16px', margin: 0, fontWeight: 400 }}>{data?.getAvatar?.name} en {data?.getAvatar.ciudad} </h2>
+        <h2 style={{ color: 'gray', fontSize: '16px', margin: 0, fontWeight: 400 }}>{data?.getAvatar?.name.split(' ',1)} en {data?.getAvatar.ciudad} </h2>
         <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
         <h4 style={{ color: '#373737', fontSize: '18px', margin: 0, fontWeight: 600 }}>$ {precio}  </h4>
         <h6 style={{ color: 'green', margin: 0,marginLeft:'5px', fontWeight: 400, fontSize: '13px' }}>{envio&& 'Envio Gratis'}</h6>

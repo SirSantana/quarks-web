@@ -2,6 +2,7 @@ import { SIGN_IN_MUTATION } from '@/graphql/mutations'
 import useAuth from '@/hooks/useAuth'
 import styles from '@/styles/Vendedor.module.css'
 import { Loader } from '@/utils/loader'
+import { ModalError } from '@/utils/Modales'
 import { useMutation } from '@apollo/client'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -39,6 +40,9 @@ export default function LoginFormVendedor() {
         <Loader/>
       </div>
     )
+  }
+  if(error){
+    alert(error)
   }
   
   return (

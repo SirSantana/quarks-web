@@ -69,3 +69,9 @@ mutation contactoEmail($name:String,$email:String, $mensaje:String, ){
   contactoEmail(name:$name,email:$email, mensaje:$mensaje)
 }
 `
+
+export const CREATE_VOTE = gql`
+mutation createVote($id:String, $idCarro:String ){
+  createVote(id:$id, idCarro:$idCarro)
+}
+`

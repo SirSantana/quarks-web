@@ -14,11 +14,11 @@ export default function CardCotizacionVendedor({ data, pregunta, idPregunta }) {
   const [celularVendedor, setCelularVendedor] = useState(null)
   const [visibleAllData, setVisibleAllData] = useState(false)
 
-
+  console.log(router?.asPath);
   const urlPregunta = `https://www.quarks.com.co${router.asPath}`
   const sendMessage = () => {
     let url = `https://api.whatsapp.com/send?phone=57${celularVendedor}`;
-    url += `&text=${encodeURI(`😁 Hola, quiero saber si tienen disponibilidad de la cotizacion N°${data.id} \n ✍️ Descripcion: ${pregunta} \n 📌 Link de la pregunta: ${urlPregunta}`)}&app_absent=0`
+    url += `&text=${encodeURI(`😁 Hola, quiero saber si tienen disponibilidad de la cotizacion N°${data.id} \n ✍️ Descripcion: ${pregunta} \n 📌 Link de la pregunta: ` + urlPregunta)}&app_absent=0`
     window.open(url);
   }
   return (

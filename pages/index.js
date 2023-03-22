@@ -18,8 +18,8 @@ export default function Home() {
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/Logo.png" />
-        <meta property="og:title" content={'Repuestos de carro'} key="title" />
-        <meta property='og:description' content={'Cotiza tus autopartes para tu vehiculo'} />
+        <meta property="og:title" content='Cotiza tus repuestos | Quarks' key="title" />
+        <meta property='og:description' content={description} />
         <meta property='og:site_name' content='Quarks' />
         <meta property='og:url' content='https://quarks.com.co' />
         <meta name="keywords" content={'Repuestos para vehiculos. Almacenes de repuestos en bogota. Repuestos bogota. Repuestos para chevrolet. Repuestos de Renault. Autopartes para carros. Cientos de cotizaciones de autopartes para carros. Cotizar repuestos Colombia. Repuestos chevrolet colombia. Repuestos chevrolet renault. Repuestos chevrolet mazda. Repuestos chevrolet ford'} />
