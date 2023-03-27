@@ -19,7 +19,7 @@ export default function Cotizacion() {
   const router = useRouter()
   const id = router.query.id
 
-  let query = id?.substring(0, id?.indexOf(' '))
+  let query = id?.substring(0, id?.indexOf('-'))
 
   const cotizacionesVendedores = result?.data?.getCotizaciones?.filter(el => el.user === user?.id)
 
@@ -60,7 +60,7 @@ export default function Cotizacion() {
             {result?.data?.getCotizaciones && user?.role !== 'Vendedor' &&
               result?.data?.getCotizaciones.map(el => (
                 <>
-                  <CardCotizacionVendedor data={el} pregunta={data?.getOnePregunta?.marca + " " + data?.getOnePregunta?.referencia + " " + data?.getOnePregunta?.titulo} idPregunta={router.query.id} />
+                  <CardCotizacionVendedor data={el} pregunta={data?.getOnePregunta?.marca + " " + data?.getOnePregunta?.referencia + " " + data?.getOnePregunta?.titulo} idPregunta={router.query.id} celular={data?.getOnePregunta?.celular}/>
                   <div style={{ height: '1px', backgroundColor: 'lightGray', margin: '10px 0' }} />
                 </>
 

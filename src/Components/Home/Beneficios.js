@@ -38,7 +38,7 @@ export default function Beneficios() {
           
 
         </div>
-        <img className={styles.image} src='./Repuestos.png' />
+        <img className={styles.image} src='./Repuestos.jpg' />
       </div>
     </div>
 

@@ -149,6 +149,8 @@ query getPreguntas($limit:Int, $marca:String) {
    referencia
    id
    fecha
+   cotizaciones
+
   }
 }
 `;

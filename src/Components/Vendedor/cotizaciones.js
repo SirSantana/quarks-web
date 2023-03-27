@@ -22,7 +22,7 @@ export default function CotizacionesVendedor() {
   }
   useEffect(() => {
     if (result?.data) {
-      router.push(`/cotizaciones/${result?.data?.getOnePregunta.id} ${result?.data?.getOnePregunta.titulo}`)
+      router.push(`/cotizaciones/${result?.data?.getOnePregunta.id}-${result?.data?.getOnePregunta.titulo.split(" ").join('-')}`)
     }
   }, [result?.data])
 

@@ -7,6 +7,7 @@ import { CREATE_COTIZACION } from '@/graphql/mutations'
 import { useMutation } from '@apollo/client'
 import useAuth from '@/hooks/useAuth'
 import { ModalError, ModalLoading, ModalSuccessfull } from '@/utils/Modales'
+import sendMessage from '@/utils/fetching'
 
 const initialForm = {
   garantia: '1',
@@ -19,7 +20,7 @@ const initialForm = {
   celular: '',
   estado: 'Nuevo'
 }
-export default function FormCotizar({ setFormCotizacion, celular }) {
+export default function FormCotizar({ setFormCotizacion, celular, long }) {
   const [form, setForm] = useState(initialForm)
   const [colorBack, setColorBack] = useState('#80FF1C')
   const { user } = useAuth()
@@ -29,7 +30,9 @@ export default function FormCotizar({ setFormCotizacion, celular }) {
 
   const { asPath } = router
   const { id } = router?.query
-  let idPregunta = id.split(" ")
+  let link = `quarks.com.co${asPath}`
+
+  let idPregunta = id.split("-")
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
     if (e.target.name === 'estado') {
@@ -43,12 +46,11 @@ export default function FormCotizar({ setFormCotizacion, celular }) {
     }
   }
   const handleSendMessage = () => {
-    let link = `https://www.quarks.com.co${asPath}`
     let url = `https://api.whatsapp.com/send?phone=57${celular}`;
-    url += `&text=${encodeURI(`😁 Hola, ya tienes cotizacion(es) para el repuesto de tú vehículo! \n🚘 Cotización N° ${idPregunta[0]} \n✍️ Para ver la cotización en la pagina ve al siguiente link. ` + link)}&app_absent=0`
+    url += `&text=${encodeURI(`😁 Hola, ya tienes cotizacion(es) para el repuesto de tú vehículo! \n🚘 Cotización N° ${idPregunta[0]} \n✍️ Para ver la(s) cotización en la pagina ve al siguiente link. ` + link)}&app_absent=0`
     window.open(url);
   }
-
+  console.log(link);
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
@@ -66,6 +68,14 @@ export default function FormCotizar({ setFormCotizacion, celular }) {
         setVisibleCotizado(false)
         router.reload()
       }, 2000)
+
+      if (long == undefined) {
+        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $. ${data?.createCotizacion?.precio} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar a los vendedores ve al siguiente link: \n` + link
+        sendMessage({ titulo: frase, number: `57${celular}` })
+      }
+    } else {
+      let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $. ${data?.createCotizacion?.precio} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar a los vendedores ve al link en la parte de arriba`
+      sendMessage({ titulo: frase, number: `57${celular}` })
     }
   }, [data])
   return (
@@ -73,7 +83,7 @@ export default function FormCotizar({ setFormCotizacion, celular }) {
       <div style={{ width: '300px', backgroundColor: 'white', padding: '16px', borderRadius: '8px' }} className={styles.modalContent}>
         <img onClick={() => setFormCotizacion(false)} src={closeIcon.src} style={{ width: '26px', height: '26px', alignSelf: 'flex-end', cursor: 'pointer' }} />
 
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', marginTop: '8px', gap: '10px', width:'100%' }}>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', marginTop: '8px', gap: '10px', width: '100%' }}>
 
           <label htmlFor="descripcion" className={styles.label}>Detalle de cotizacion</label>
           <input value={form.descripcion} onChange={handleChange} name='descripcion' id='descripcion' className={styles.input} type={'text'} placeholder='Coloca un mensaje de soporte de cotizacion' />
@@ -122,7 +132,7 @@ export default function FormCotizar({ setFormCotizacion, celular }) {
 
           </div>
 
-          <input className={styles.button} type={'submit'} value='Enviar Cotizacion' />
+          <input disabled={loading} className={styles.button} type={'submit'} value='Enviar Cotizacion' />
           {user?.email === process.env.NEXT_PUBLIC_EMAIL && <button onClick={handleSendMessage}>Enviar mensaje</button>}
 
         </form>

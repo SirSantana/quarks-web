@@ -7,10 +7,14 @@ import HomeSection from '@/src/Components/Home/Home'
 import PasosCotizacion from '@/src/Components/Home/PasosCotizacion'
 import Beneficios from '@/src/Components/Home/Beneficios'
 import Footer from '@/src/Components/Footer/Footer'
+import { useEffect } from 'react'
+
 
 
 export default function Home() {
   let description = 'Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes.Repuestos de carros en bogota.Repuestos para chevrolet en bogota. Repuestos para carros en colombia Cotiza ya!'
+  
+  
   return (
     <>
       <Head>
@@ -23,7 +27,7 @@ export default function Home() {
         <meta property='og:site_name' content='Quarks' />
         <meta property='og:url' content='https://quarks.com.co' />
         <meta name="keywords" content={'Repuestos para vehiculos. Almacenes de repuestos en bogota. Repuestos bogota. Repuestos para chevrolet. Repuestos de Renault. Autopartes para carros. Cientos de cotizaciones de autopartes para carros. Cotizar repuestos Colombia. Repuestos chevrolet colombia. Repuestos chevrolet renault. Repuestos chevrolet mazda. Repuestos chevrolet ford'} />
-        
+
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -1,7 +1,9 @@
 import { CREATE_PREGUNTA } from '@/graphql/mutations'
 import styles from '@/styles/Main.module.css'
 import { handleFileUpload } from '@/utils/base64'
-import  { ModalSuccessfull,ModalError, ModalLoading } from '@/utils/Modales'
+import sendMessage from '@/utils/fetching'
+import Fetching from '@/utils/fetching'
+import { ModalSuccessfull, ModalError, ModalLoading } from '@/utils/Modales'
 import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 
@@ -14,6 +16,7 @@ const initialForm = {
   titulo: '',
   imagen: ''
 }
+let arrayVendedores = ['573143551942', '573138562763']
 
 export default function Main() {
   const [visibleMarca, setVisibleMarca] = useState(false)
@@ -29,7 +32,7 @@ export default function Main() {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (form.celular.length !== 10 ) {
+    if (form.celular.length !== 10) {
       return alert('Tu numero de celular debe tener 10 digitos')
     }
     createPregunta({ variables: form })
@@ -60,13 +63,23 @@ export default function Main() {
     setSelectedFile(e.target.files[0])
     handleFileUpload(e).then(res => setForm({ ...form, imagen: res }))
   }
+
   useEffect(() => {
     if (data) {
       setVisibleCotizado(true)
       setTimeout(() => {
         setVisibleCotizado(false)
       }, 2000)
+      const response = data?.createPregunta
+      let url = `quarks.com.co/cotizaciones/${response?.id}-${response?.titulo.split(" ").join('-')}`
+      let frase = `😁 Haz recibido una cotizacion! \n🚘 ${response?.titulo} \n✍️ Cotiza en el siguiente link: \n` + url
+      for (let i = 0; i < arrayVendedores.length; i++) {
+        console.log(i);
+        sendMessage({ titulo: frase, number: arrayVendedores[i] })
+      }
     }
+
+
   }, [data])
   return (
     <section className={styles.home} >
@@ -95,22 +108,22 @@ export default function Main() {
 
         <div className={styles.locationDivRep}>
           <label htmlFor='repuestos' className={styles.label}>Repuestos</label>
-          <input required id='repuestos' className={styles.input} type='text' onChange={handleChange} name='titulo' placeholder='Bomba de agua, balancines...' value={form.titulo}/>
+          <input required id='repuestos' className={styles.input} type='text' onChange={handleChange} name='titulo' placeholder='Bomba de agua, balancines...' value={form.titulo} />
         </div>
 
         <div className={styles.locationDivCel}>
           <label htmlFor='celular' className={styles.label}>Tu celular</label>
-          <input required id='celular' className={styles.input} type='number' onChange={handleChange} name='celular' placeholder='3214560210' value={form.celular}/>
+          <input required id='celular' className={styles.input} type='number' onChange={handleChange} name='celular' placeholder='3214560210' value={form.celular} />
         </div>
         <div className={styles.locationImg}>
-          <input  id='image' style={{ display: 'none', height: 0, }} onChange={onSelectFile} type='file' accept="image/png, image/gif, image/jpeg" />
+          <input id='image' style={{ display: 'none', height: 0, }} onChange={onSelectFile} type='file' accept="image/png, image/gif, image/jpeg" />
           <label className={styles.labelImage} htmlFor='image'>
             {selectedFile ?
               <div className={styles.containerImageSelected}>
                 <img src={preview} style={{ width: '50px', height: '50px' }} />
-                <img onClick={cancelImage} src={'/trash.svg'} style={{ width: '25px', height: '25px', cursor:'pointer' }} />
+                <img onClick={cancelImage} src={'/trash.svg'} style={{ width: '25px', height: '25px', cursor: 'pointer' }} />
               </div >
-              : <img src='/image.svg' style={{ width: '25px', height: '25px',cursor:'pointer' }} />}
+              : <img src='/image.svg' style={{ width: '25px', height: '25px', cursor: 'pointer' }} />}
 
           </label>
         </div>
@@ -123,18 +136,18 @@ export default function Main() {
       {visibleMarca &&
         <div onClick={() => setVisibleMarca(visibleMarca ? false : true)} className={styles.modal}>
           <div className={styles.modalContent}>
-            {marcas.map(el => (<img key={el} onClick={() => {setMarca(el), setForm({...form, marca:el})}} style={{ height: '40px', width: '40px', cursor: 'pointer' }} src={`./${el}.png`} />))}
+            {marcas.map(el => (<img key={el} onClick={() => { setMarca(el), setForm({ ...form, marca: el }) }} style={{ height: '40px', width: '40px', cursor: 'pointer' }} src={`./${el}.png`} />))}
           </div>
         </div>
       }
       {visibleCotizado &&
-        <ModalSuccessfull title={'Tu cotización ha sido enviada!'} subtitle={'Te avisaremos por whatsapp las cotizaciones'}/>
+        <ModalSuccessfull title={'Tu cotización ha sido enviada!'} subtitle={'Te avisaremos por whatsapp las cotizaciones'} />
       }
       {loading &&
-        <ModalLoading title={'Enviando Cotizacion ... '}/>
+        <ModalLoading title={'Enviando Cotizacion ... '} />
       }
       {error &&
-        <ModalError title={'Ha ocurrido un error'} subtitle={error?.message}/>
+        <ModalError title={'Ha ocurrido un error'} subtitle={error?.message} />
       }
 
 

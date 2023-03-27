@@ -6,7 +6,7 @@ import HeaderCotizaciones from './HeaderCotizaciones'
 
 
 
-export default function CardCotizacionVendedor({ data, pregunta, idPregunta }) {
+export default function CardCotizacionVendedor({ data, pregunta, idPregunta, celular }) {
   const router = useRouter()
   const { user } = useAuth()
   const [ciudad, setCiudad] = useState(null)
@@ -14,12 +14,17 @@ export default function CardCotizacionVendedor({ data, pregunta, idPregunta }) {
   const [celularVendedor, setCelularVendedor] = useState(null)
   const [visibleAllData, setVisibleAllData] = useState(false)
 
-  console.log(router?.asPath);
-  const urlPregunta = `https://www.quarks.com.co${router.asPath}`
+  const urlPregunta = `quarks.com.co${router.asPath}`
   const sendMessage = () => {
     let url = `https://api.whatsapp.com/send?phone=57${celularVendedor}`;
     url += `&text=${encodeURI(`😁 Hola, quiero saber si tienen disponibilidad de la cotizacion N°${data.id} \n ✍️ Descripcion: ${pregunta} \n 📌 Link de la pregunta: ` + urlPregunta)}&app_absent=0`
     window.open(url);
+  }
+
+  const alertCliente = ()=>{
+    let url = `https://api.whatsapp.com/send?phone=57${celular}`;
+    url += `&text=${encodeURI(`😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 Vendedor en ${ciudad}, $. ${data?.precio} en marca / origen ${data?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar al vendedor ve al link en la parte de arriba` )}&app_absent=0`
+    window.open(url)
   }
   return (
     <div className={styles.containerCotizaciones2}>
@@ -68,6 +73,9 @@ export default function CardCotizacionVendedor({ data, pregunta, idPregunta }) {
             {user?.id === data?.user
               ? <button className={styles.button}>Tu cotizacion</button>
               : <button style={{ marginTop: '10px', }} onClick={sendMessage} className={styles.button}>Contactar disponibilidad</button>
+            }
+            {user?.role === 'Admin'
+              && <button onClick={alertCliente} style={{width:'100%', marginTop:'16px', padding:'8px'}}>Mensaje Cliente</button>
             }
           </div>
 

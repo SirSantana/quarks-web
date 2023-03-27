@@ -13,14 +13,14 @@ export default function CardCotizacionCliente({ el }) {
   const router = useRouter()
   const { id } = router?.query
   const { asPath } = router
-
+  console.log(el);
   const handleCotizar=()=>{
     if(id){
       return setFormCotizacion(true)
     }
   }
   const handleSendMessageVendedor = () => {
-      let link = `https://www.quarks.com.co${asPath}`
+      let link = `quarks.com.co${asPath}`
       let url = `https://api.whatsapp.com/send?phone=57${3138562763}`;
       url += `&text=${encodeURI(`😁 Haz recibido una cotizacion! \n🚘 ${el?.titulo} \n✍️ Cotiza en el siguiente link: `+link)}&app_absent=0`
       window.open(url);
@@ -42,13 +42,13 @@ export default function CardCotizacionCliente({ el }) {
         </div>
       </div>
       <h4 className={styles.subtitle}>{el?.titulo}</h4>
-      {user?.role === 'Vendedor' || user?.role === 'Admin'? <button onClick={handleCotizar} className={styles.button}>Cotizar</button>
+      {user?.role === 'Vendedor' || user?.role === 'Admin'? <button onClick={handleCotizar}  className={styles.button}>Cotizar</button>
         : <button className={styles.button}>Ver cotizaciones</button>
       }
       {user?.email === process.env.NEXT_PUBLIC_EMAIL && <button onClick={handleSendMessageVendedor}>Avisar vendedor</button>}
 
       {formCotizacion &&
-          <FormCotizar setFormCotizacion={setFormCotizacion} celular={el?.celular}/>
+          <FormCotizar setFormCotizacion={setFormCotizacion} celular={el?.celular} long={el?.cotizaciones?.length}/>
       }
     </div>
 

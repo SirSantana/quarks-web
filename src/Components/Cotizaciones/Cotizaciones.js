@@ -44,6 +44,7 @@ export default function CotizacionesRender({ busqueda, marca, }) {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth", })
     }
   }, [busqueda])
+  
   return (
     <>
       <div ref={reff} className={styles.gridCotizaciones}>
@@ -52,16 +53,16 @@ export default function CotizacionesRender({ busqueda, marca, }) {
         {result?.data?.getBusquedaPreguntas.length<=0 && <h2 style={{width:'100%'}} className={styles.subtitle}>No se han encontrado resultados</h2>}
 
         {!busqueda && data?.getPreguntas.map(el => (
-          <Link href={`/cotizaciones/${el.id} ${el.titulo}`} className={styles.card}>
-            <CardCotizacionCliente el={el} />
+          <Link href={`/cotizaciones/${el.id}-${el.titulo.split(" ").join('-')}`} className={styles.card}>
+            <CardCotizacionCliente el={el}  />
           </Link>
         ))}
 
         {result?.data?.getBusquedaPreguntas.length > 0 &&
           result?.data?.getBusquedaPreguntas.map(el => (
             el.marca === marca &&
-            <Link href={`/cotizaciones/${el.id} ${el.titulo}`} className={styles.card}>
-              <CardCotizacionCliente el={el} />
+            <Link href={`/cotizaciones/${el.id}-${el.titulo.split(" ").join('-')}`} className={styles.card}>
+              <CardCotizacionCliente el={el}  />
             </Link>
           ))
         }
