@@ -45,14 +45,16 @@ export default function FormCotizar({ setFormCotizacion, celular, long }) {
       }
     }
   }
+  console.log(form);
   const handleSendMessage = () => {
     let url = `https://api.whatsapp.com/send?phone=57${celular}`;
     url += `&text=${encodeURI(`😁 Hola, ya tienes cotizacion(es) para el repuesto de tú vehículo! \n🚘 Cotización N° ${idPregunta[0]} \n✍️ Para ver la(s) cotización en la pagina ve al siguiente link. ` + link)}&app_absent=0`
     window.open(url);
   }
-  console.log(link);
   const handleSubmit = (e) => {
     e.preventDefault()
+    form.precio = form.precio.replace(new RegExp(/[^\d]/, 'ig'), "")
+
     if (id) {
       createCotizacion({ variables: form })
       setForm(initialForm)
@@ -62,6 +64,7 @@ export default function FormCotizar({ setFormCotizacion, celular, long }) {
     setForm({ ...form, pregunta: idPregunta[0], })
   }, [id])
   useEffect(() => {
+    let total = (Number(data?.createCotizacion?.precio)+ Number(data?.createCotizacion?.precio * 0.10)).toString()
     if (data) {
       setVisibleCotizado(true)
       setTimeout(() => {
@@ -69,13 +72,13 @@ export default function FormCotizar({ setFormCotizacion, celular, long }) {
         router.reload()
       }, 2000)
 
-      if (long == undefined) {
-        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $. ${data?.createCotizacion?.precio} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar a los vendedores ve al siguiente link: \n` + link
+      if (long == undefined && data ) {
+        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${total})} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al siguiente link: \n` + link
+        sendMessage({ titulo: frase, number: `57${celular}` })
+      } else {
+        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${total})} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba`
         sendMessage({ titulo: frase, number: `57${celular}` })
       }
-    } else {
-      let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $. ${data?.createCotizacion?.precio} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar a los vendedores ve al link en la parte de arriba`
-      sendMessage({ titulo: frase, number: `57${celular}` })
     }
   }, [data])
   return (
