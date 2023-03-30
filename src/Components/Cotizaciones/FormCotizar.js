@@ -73,10 +73,10 @@ export default function FormCotizar({ setFormCotizacion, celular, long }) {
       }, 2000)
 
       if (long == undefined && data ) {
-        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${total})} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al siguiente link: \n` + link
+        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${total} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al siguiente link: \n` + link
         sendMessage({ titulo: frase, number: `57${celular}` })
       } else {
-        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${total})} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba`
+        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${total} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba`
         sendMessage({ titulo: frase, number: `57${celular}` })
       }
     }
