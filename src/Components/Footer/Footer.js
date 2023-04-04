@@ -37,7 +37,7 @@ export default function Footer() {
 
           <div className={styles.containerText}>
             <h4 className={styles.title2}>Acerca de Nosotros</h4>
-            <Link style={{ textDecoration: 'none' }} href={'/contactanos'} ><p className={styles.subtitle}>Contactanos</p></Link>
+            {/* <Link style={{ textDecoration: 'none' }} href={'/contactanos'} ><p className={styles.subtitle}>Contactanos</p></Link> */}
             <Link style={{ textDecoration: 'none' }} href={'/quienessomos'} ><p className={styles.subtitle}>¿Quienes somos?</p></Link>
 
             <Link style={{ textDecoration: 'none' }} href={'/faq'} ><p className={styles.subtitle}>Preguntas frecuentes</p></Link>

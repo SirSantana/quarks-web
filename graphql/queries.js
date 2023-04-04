@@ -209,6 +209,8 @@ query getAvatar($id:ID) {
             name
             ciudad
             celular
+            almacen
+            direccion
             
   }
 }`

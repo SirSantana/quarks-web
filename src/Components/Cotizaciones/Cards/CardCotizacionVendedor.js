@@ -4,19 +4,39 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import HeaderCotizaciones from './HeaderCotizaciones'
 
-
+let initialDataVendedor ={
+  ciudad:'',
+  direccion:'',
+  almacen:'',
+  celular:''
+}
 
 export default function CardCotizacionVendedor({ data, pregunta, idPregunta, celular }) {
   const router = useRouter()
-  const [ciudad, setCiudad] = useState(null)
+  const [dataVendedor, setDataVendedor] = useState(initialDataVendedor)
+
+  const { user } = useAuth()
 
   const [visibleAllData, setVisibleAllData] = useState(false)
-  
+
+  const urlPregunta = `quarks.com.co${router.asPath}`
+  const sendMessage = () => {
+    let url = `https://api.whatsapp.com/send?phone=57${dataVendedor?.celular}`;
+    url += `&text=${encodeURI(`😁 Hola, quiero saber si tienen disponibilidad de la cotizacion N°${data.id} \n ✍️ Descripcion: ${pregunta} \n 📌 Link de la pregunta: \n` + urlPregunta)}&app_absent=0`
+    window.open(url);
+  }
+
+  const alertCliente = ()=>{
+    let url = `https://api.whatsapp.com/send?phone=57${celular}`;
+    url += `&text=${encodeURI(`😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 Vendedor en ${dataVendedor?.ciudad}, $. ${data?.precio} en marca / origen ${data?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar al vendedor ve al link en la parte de arriba` )}&app_absent=0`
+    window.open(url)
+  }
+  console.log(dataVendedor);
   
   return (
     <div className={styles.containerCotizaciones2}>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%', alignItems: 'flex-end', marginBottom: '8px', }}>
-        <HeaderCotizaciones id={data?.user} setCiudad={setCiudad}  setVisibleAllData={setVisibleAllData} cotizacion={data} visibleAllData={visibleAllData} pregunta={pregunta} celular={celular} ciudad={ciudad}/>
+        <HeaderCotizaciones id={data?.user} setDataVendedor={setDataVendedor}  setVisibleAllData={setVisibleAllData} precio={data?.precio}/>
         {/* <div style={{ height: '1px', backgroundColor: 'lightGray', margin: '10px 0' }} /> */}
 
         {visibleAllData &&
@@ -42,6 +62,12 @@ export default function CardCotizacionVendedor({ data, pregunta, idPregunta, cel
               <h3 style={{ margin: 0, fontSize:'14px', color:'gray' }} className={styles.subtitle}>Estado  </h3>
               <h3 style={{ margin: 0, fontSize:'14px', fontWeight:'700' }} className={styles.subtitle}> {data?.estado}</h3>
             </div>
+
+            <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3 style={{ margin: 0, fontSize:'14px', color:'gray'  }} className={styles.subtitle}>Marca / origen  </h3>
+              <h3 style={{ margin: 0,  fontSize:'14px',fontWeight:'700'}} className={styles.subtitle}> {data?.marca}</h3>
+            </div>
+
             <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
               <h3 style={{ margin: 0, fontSize:'14px', color:'gray'}} className={styles.subtitle}>Garantía  </h3>
               <h3 style={{ margin: 0, fontSize:'14px', fontWeight:'700' }} className={styles.subtitle}> {data?.garantia?.length > 0 ? data?.garantia + ' mes(es)' : 'Sin garantía'}</h3>
@@ -49,16 +75,19 @@ export default function CardCotizacionVendedor({ data, pregunta, idPregunta, cel
 
             <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
               <h3 style={{ margin: 0,fontSize:'14px', color:'gray' }} className={styles.subtitle}>Ubicación  </h3>
-              <h3 style={{ margin: 0, fontSize:'14px', fontWeight:'700' }} className={styles.subtitle}> {data?.ciudad}</h3>
+              <h3 style={{ margin: 0, fontSize:'14px', fontWeight:'700' }} className={styles.subtitle}>{dataVendedor?.direccion}. {dataVendedor?.ciudad}</h3>
             </div>
 
-            <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h3 style={{ margin: 0, fontSize:'14px', color:'gray'  }} className={styles.subtitle}>Marca / origen  </h3>
-              <h3 style={{ margin: 0,  fontSize:'14px',fontWeight:'700'}} className={styles.subtitle}> {data?.marca}</h3>
-            </div>
+            
             <h6 style={{ color: '#f50057', margin: 0,  fontWeight: 400, fontSize: '14px' }}>Precio sujeto a cambios en el tiempo*</h6>
 
-
+            {user?.id === data?.user
+              ? <button className={styles.button}>Tu cotizacion</button>
+              : <button style={{ marginTop: '10px', }} onClick={sendMessage} className={styles.button}>Contactar disponibilidad</button>
+            }
+            {user?.role === 'Admin'
+              && <button onClick={alertCliente} style={{width:'100%', marginTop:'16px', padding:'8px'}}>Mensaje Cliente</button>
+            }
             
           </div>
 

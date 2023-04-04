@@ -63,7 +63,7 @@ export default function Main() {
     setSelectedFile(e.target.files[0])
     handleFileUpload(e).then(res => setForm({ ...form, imagen: res }))
   }
-
+  console.log(data);
   useEffect(() => {
     if (data) {
       setVisibleCotizado(true)
@@ -73,9 +73,12 @@ export default function Main() {
       const response = data?.createPregunta
       let url = `quarks.com.co/cotizaciones/${response?.id}-${response?.titulo.split(" ").join('-')}`
       let frase = `😁 Haz recibido una cotizacion! \n🚘 ${response?.titulo} \n✍️ Cotiza en el siguiente link: \n` + url
+      let fraseCliente = `😁 Los almacenes ya recibieron tu cotizacion! \n🚘 ${response?.titulo} \n✍️ Nosotros te avisaremos en el momento que lleguen cotizaciones, para ver tu pregunta ve al siguiente link: \n` + url
+      sendMessage({ titulo: fraseCliente, number: `57${data?.createPregunta?.celular}`})
+
       for (let i = 0; i < arrayVendedores.length; i++) {
-        console.log(i);
         sendMessage({ titulo: frase, number: arrayVendedores[i] })
+
       }
     }
 

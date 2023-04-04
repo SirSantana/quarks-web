@@ -35,7 +35,6 @@ export default function BatallasVehiculos() {
     carroDosVotos = data?.getBatallas[0].carroDosVotos
     setPercentage((carroUnoVotos * (100)) / (carroUnoVotos + carroDosVotos))
   }, [data]);
-  console.log(percentage);
   return (
     <Layout title={'Aveo vs Optra'} description={'Batallas de vehiculos'}>
 

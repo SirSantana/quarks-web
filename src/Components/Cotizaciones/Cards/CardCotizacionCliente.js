@@ -13,8 +13,13 @@ export default function CardCotizacionCliente({ el }) {
   const router = useRouter()
   const { id } = router?.query
   const { asPath } = router
-  console.log(el);
   const handleCotizar=()=>{
+    if(el?.cotizaciones?.length>4){
+      return alert('Esta cotizacion ya obtuve 5 cotizaciones, no se puede cotizar mas. ')
+    }
+    if(timeSince(el?.fecha) === '24 horas'){
+      return alert('Ya no puedes cotizar. Las preguntas con mas de 24 horas no puedes cotizarlas.')
+    }
     if(id){
       return setFormCotizacion(true)
     }

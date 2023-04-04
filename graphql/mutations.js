@@ -10,6 +10,7 @@ mutation createPregunta($marca:String, $celular:String, $referencia:String, $tit
         referencia
         id
         fecha
+        celular
     }
   }
 `
