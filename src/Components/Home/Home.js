@@ -8,7 +8,7 @@ export default function HomeSection() {
       <div className={styles.containerText}>
         <h2 className={styles.title}>Que hacemos?</h2>
         <h3 className={styles.subtitle}>En Quarks, no somos vendedores directos. Unimos a usuarios como tú que buscan un repuesto, con
-          vendedores en toda Colombia, seguros y confiables. Para que puedan cerrar la comprar por otros medios. <b>Sin comisiones, pero con seguridad.</b> </h3>
+          vendedores en toda Colombia, seguros y confiables. Para que puedan cerrar la compra por otros medios. <b>Sin comisiones, pero con seguridad.</b> </h3>
 
         <div className={styles.cardContainer}>
           <div className={styles.card}>

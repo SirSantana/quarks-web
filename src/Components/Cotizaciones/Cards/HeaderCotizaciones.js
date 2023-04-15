@@ -25,7 +25,6 @@ export default function HeaderCotizaciones({ id, setDataVendedor, setVisibleAllD
       getAvatar({ variables: { id: id } })
     }
   }, [id])
-  console.log(data);
   return (
     <section onClick={() => setVisibleAllData(prev => prev ? false : true)} style={{ display: 'flex', cursor: 'pointer', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
       <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
