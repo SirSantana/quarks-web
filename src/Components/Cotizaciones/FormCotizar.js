@@ -4,10 +4,11 @@ import closeIcon from '@/public/close-outline.svg'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { CREATE_COTIZACION } from '@/graphql/mutations'
-import { useMutation } from '@apollo/client'
+import { useLazyQuery, useMutation } from '@apollo/client'
 import useAuth from '@/hooks/useAuth'
 import { ModalError, ModalLoading, ModalSuccessfull } from '@/utils/Modales'
 import sendMessage from '@/utils/fetching'
+import { GET_AVATAR_USER } from '@/graphql/queries'
 
 const initialForm = {
   garantia: '1',
@@ -20,12 +21,13 @@ const initialForm = {
   celular: '',
   estado: 'Nuevo'
 }
-export default function FormCotizar({ setFormCotizacion, celular, long }) {
+export default function FormCotizar({ setFormCotizacion, celular, long, dataVendedor }) {
   const [form, setForm] = useState(initialForm)
   const [colorBack, setColorBack] = useState('#80FF1C')
   const { user } = useAuth()
   const router = useRouter()
   const [createCotizacion, { data, loading, error }] = useMutation(CREATE_COTIZACION)
+
   const [visibleCotizado, setVisibleCotizado] = useState(false)
 
   const { asPath } = router
@@ -73,10 +75,10 @@ export default function FormCotizar({ setFormCotizacion, celular, long }) {
       }, 2000)
 
       if (long == undefined && data ) {
-        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${data?.createCotizacion?.precio} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al siguiente link: \n` + link
+        let frase = `😁¡Nueva Cotizacion! de Almacen ${dataVendedor?.almacen} \n🧑 Precio: $ ${data?.createCotizacion?.precio}. Marca / Origen: ${data?.createCotizacion?.marca}\n 📍Ubicacion: ${dataVendedor?.direccion}. ${dataVendedor?.ciudad}\n✍️ Para ver la(s) cotización al detalle ve al siguiente link: \n` + link
         sendMessage({ titulo: frase, number: `57${celular}` })
       } else {
-        let frase = `😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 $.${data?.createCotizacion?.precio} en marca / origen ${data?.createCotizacion?.marca} \n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba`
+        let frase = `😁¡Nueva Cotizacion! de Almacen ${dataVendedor?.almacen} \n🧑 Precio: $ ${data?.createCotizacion?.precio}. Marca / Origen: ${data?.createCotizacion?.marca}\n 📍Ubicacion: ${dataVendedor?.direccion}. ${dataVendedor?.ciudad} \n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba`
         sendMessage({ titulo: frase, number: `57${celular}` })
       }
     }

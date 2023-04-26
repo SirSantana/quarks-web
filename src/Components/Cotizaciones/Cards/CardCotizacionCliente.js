@@ -1,23 +1,37 @@
+import { GET_AVATAR_USER } from '@/graphql/queries';
 import useAuth from '@/hooks/useAuth'
 import styles from '@/styles/Cotizaciones.module.css'
 import { timeSince } from "@/utils/dateEs";
 import Marcas from "@/utils/marcas";
+import { useLazyQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FormCotizar from '../FormCotizar';
 
-
+let initialDataVendedor ={
+  ciudad:'',
+  direccion:'',
+  almacen:'',
+  celular:''
+}
 
 export default function CardCotizacionCliente({ el }) {
   const { user } = useAuth()
   const router = useRouter()
   const { id } = router?.query
   const { asPath } = router
+  const [formCotizacion, setFormCotizacion] = useState(false)
+  const [getAvatar, {data, error, loading}] = useLazyQuery(GET_AVATAR_USER)
+  const [dataVendedor, setDataVendedor] = useState(initialDataVendedor)
+
+
   const handleCotizar=()=>{
+    let seconds = Math.floor((new Date() - new Date(el?.fecha)) / 1000);
+    let interval = seconds / 86400;
     if(el?.cotizaciones?.length>4){
       return alert('Esta cotizacion ya obtuve 5 cotizaciones, no se puede cotizar mas. ')
     }
-    if(timeSince(el?.fecha) === '24 horas'){
+    if(interval>1){
       return alert('Ya no puedes cotizar. Las preguntas con mas de 24 horas no puedes cotizarlas.')
     }
     if(id){
@@ -30,7 +44,16 @@ export default function CardCotizacionCliente({ el }) {
       url += `&text=${encodeURI(`😁 Haz recibido una cotizacion! \n🚘 ${el?.titulo} \n✍️ Cotiza en el siguiente link: `+link)}&app_absent=0`
       window.open(url);
   }
-  const [formCotizacion, setFormCotizacion] = useState(false)
+  useEffect(() => {
+    if (data) {
+      setDataVendedor({ celular:data?.getAvatar?.celular,ciudad:data?.getAvatar?.ciudad,almacen:data?.getAvatar?.almacen, direccion:data?.getAvatar?.direccion})
+    }
+  }, [data])
+  useEffect(() => {
+    if (id) {
+      getAvatar({ variables: { id: user?.id } })
+    }
+  }, [id])
   return (
 
     <div style={{ height: '100%' }} className={styles.containerCotizaciones2}>
@@ -53,7 +76,7 @@ export default function CardCotizacionCliente({ el }) {
       {user?.email === process.env.NEXT_PUBLIC_EMAIL && <button onClick={handleSendMessageVendedor}>Avisar vendedor</button>}
 
       {formCotizacion &&
-          <FormCotizar setFormCotizacion={setFormCotizacion} celular={el?.celular} long={el?.cotizaciones?.length}/>
+          <FormCotizar setFormCotizacion={setFormCotizacion} celular={el?.celular} long={el?.cotizaciones?.length} dataVendedor={dataVendedor}/>
       }
     </div>
 

@@ -1,5 +1,3 @@
-
-
 import { GET_COTIZACIONES_USER, GET_ONE_PREGUNTA } from '@/graphql/queries'
 import useAuth from '@/hooks/useAuth'
 import styles from '@/styles/Cotizaciones.module.css'
