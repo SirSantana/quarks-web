@@ -43,6 +43,7 @@ const initialForm = {
 }
 export function ModalContactMe({setVisibleModalContactMe, vendedor, urlPregunta }) {
   const [form, setForm] = useState(initialForm)
+  const [visibleSuccesfull, setVisibleSuccesfull] = useState(false)
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
@@ -51,9 +52,14 @@ export function ModalContactMe({setVisibleModalContactMe, vendedor, urlPregunta 
     if(!form.name || !form.celular){
      return alert('Debes completar tus datos')
     }
-    // console.log(vendedor?.celular);
-    let frase = `🚗¡El cliente ${form.name} esta interesado en tu cotizacion! \n🧑 Contacte con él, al siguiente numero ${form.celular} \n✍️ Link de la cotizacion: \n` + urlPregunta
+    let frase = `🚗¡El cliente ${form.name} esta interesado en tu cotizacion! \n🧑 Contacta con él, al siguiente numero ${form.celular} \n✍️ Link de la cotizacion: \n` + urlPregunta
         sendMessage({ titulo: frase, number: `57${vendedor?.celular}` })
+        .then(res=>  
+          setVisibleSuccesfull(true))
+          setTimeout(() => {
+            setVisibleSuccesfull(false)
+            setVisibleModalContactMe(false)
+          }, 2000)
   }
 
   return (
@@ -65,8 +71,8 @@ export function ModalContactMe({setVisibleModalContactMe, vendedor, urlPregunta 
 
         </section>
         <form className={styles.form}>
-          <input value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.input} type={'text'} />
-          <input value={form.celular} required onChange={handleChange} placeholder="Tú celular" name='celular' id='celular' className={styles.input} type={'number'} />
+          <input  value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.inputContact} type={'text'} />
+          <input value={form.celular} required onChange={handleChange} placeholder="Tú celular" name='celular' id='celular' className={styles.inputContact} type={'number'} />
 
         </form>
         <div style={{width:'100%', display:'flex', gap:'8px', justifyContent:'flex-end', marginTop:'32px'}}>
@@ -74,8 +80,9 @@ export function ModalContactMe({setVisibleModalContactMe, vendedor, urlPregunta 
           <button onClick={handleSubmit} style={{width:'40%', fontSize:'14px', fontWeight:'400',borderRadius:'4px', height:'40px'}} className={styles.button}>Enviar datos</button>
         </div>
       </div>
-
-    </div>
+      {visibleSuccesfull && 
+      <ModalSuccessfull title={'Enviado correctamente'} subtitle={'El vendedor te contactara pronto'}/>}
+    </div>  
   )
 }
 

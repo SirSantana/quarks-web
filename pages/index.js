@@ -7,13 +7,21 @@ import HomeSection from '@/src/Components/Home/Home'
 import PasosCotizacion from '@/src/Components/Home/PasosCotizacion'
 import Beneficios from '@/src/Components/Home/Beneficios'
 import Footer from '@/src/Components/Footer/Footer'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 
 
 export default function Home() {
   let description = 'Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes.Repuestos de carros en bogota.Repuestos para chevrolet en bogota. Repuestos para carros en colombia Cotiza ya!'
-  
+  const [limit, setLimit] = useState(0)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      fetch('https://whatsapp-api-macn.onrender.com/hi').catch(err=> console.log(err)).then(res=> console.log(res))
+      setLimit(limit +1)
+      console.log(new Date().toLocaleTimeString())
+    },840000)
+  },[limit])
   
   return (
     <>
