@@ -30,7 +30,7 @@ export default function CardCotizacionVendedor({ data, pregunta, idPregunta, cel
 
   const alertCliente = () => {
     let url = `https://api.whatsapp.com/send?phone=57${celular}`;
-    url += `&text=${encodeURI(`😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 Vendedor en ${dataVendedor?.ciudad}, $. ${data?.precio} en marca / origen ${data?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar al vendedor ve al link en la parte de arriba`)}&app_absent=0`
+    url += `&text=${encodeURI(`😁 Hola, tienes una nueva cotizacion por tu repuesto! \n🧑 Vendedor en ${dataVendedor?.ciudad}, $. ${data?.precio?.replace(/\B(?=(\d{3})+(?!\d))/g, '.')} en marca / origen ${data?.marca} \n✍️ Para ver la(s) cotización al detalle y contactar al vendedor ve al link en la parte de arriba`)}&app_absent=0`
     window.open(url)
   }
 

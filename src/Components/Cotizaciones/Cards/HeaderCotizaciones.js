@@ -38,7 +38,7 @@ export default function HeaderCotizaciones({ id, setDataVendedor, setVisibleAllD
           <div>
             <h2 style={{ color: 'gray', fontSize: '16px', margin: 0, fontWeight: 400 }}>Almacen {data?.getAvatar?.almacen} </h2>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h4 style={{ color: '#373737', fontSize: '18px', margin: 0, fontWeight: 600 }}>$ {precio}  </h4>
+              <h4 style={{ color: '#373737', fontSize: '18px', margin: 0, fontWeight: 600 }}>$ {precio?.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}  </h4>
               {/* <h6 style={{ color: 'green', margin: 0,marginLeft:'5px', fontWeight: 400, fontSize: '13px' }}>{envio&& 'Envio Gratis'}</h6> */}
             </div>
           </div>

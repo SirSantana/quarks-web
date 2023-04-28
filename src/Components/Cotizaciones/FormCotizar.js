@@ -75,10 +75,10 @@ export default function FormCotizar({ setFormCotizacion, celular, long, dataVend
       }, 2000)
 
       if (long == undefined && data ) {
-        let frase = `😁¡Nueva Cotizacion! de Almacen ${dataVendedor?.almacen} \n🧑 Precio: $ ${data?.createCotizacion?.precio}. Marca / Origen: ${data?.createCotizacion?.marca}\n 📍Ubicacion: ${dataVendedor?.direccion}. ${dataVendedor?.ciudad}\n✍️ Para ver la(s) cotización al detalle ve al siguiente link: \n` + link
+        let frase = `😁¡Nueva Cotizacion! de Almacen ${dataVendedor?.almacen} \n🧑 Precio: $ ${data?.createCotizacion?.precio?.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}. Marca / Origen: ${data?.createCotizacion?.marca}\n📍Ubicacion: ${dataVendedor?.direccion}. ${dataVendedor?.ciudad}\n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba` 
         sendMessage({ titulo: frase, number: `57${celular}` })
       } else {
-        let frase = `😁¡Nueva Cotizacion! de Almacen ${dataVendedor?.almacen} \n🧑 Precio: $ ${data?.createCotizacion?.precio}. Marca / Origen: ${data?.createCotizacion?.marca}\n 📍Ubicacion: ${dataVendedor?.direccion}. ${dataVendedor?.ciudad} \n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba`
+        let frase = `😁¡Nueva Cotizacion! de Almacen ${dataVendedor?.almacen} \n🧑 Precio: $ ${data?.createCotizacion?.precio?.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}. Marca / Origen: ${data?.createCotizacion?.marca}\n📍Ubicacion: ${dataVendedor?.direccion}. ${dataVendedor?.ciudad} \n✍️ Para ver la(s) cotización al detalle ve al link en la parte de arriba`
         sendMessage({ titulo: frase, number: `57${celular}` })
       }
     }
