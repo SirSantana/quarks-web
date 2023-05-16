@@ -87,7 +87,7 @@ export default function CardCotizacionVendedor({ data, pregunta, idPregunta, cel
               :
               <>
                 <button style={{ marginTop: '10px', }} onClick={sendMessage} className={styles.button}>Contactar por WhatsApp</button>
-                <button style={{ marginTop: '10px', color:'#f50057', backgroundColor:'white', border:'1px solid #f50057'}} onClick={()=> setVisibleModalContactMe(true)}  className={styles.button}>Quiero que me contacten</button>
+                {/* <button style={{ marginTop: '10px', color:'#f50057', backgroundColor:'white', border:'1px solid #f50057'}} onClick={()=> setVisibleModalContactMe(true)}  className={styles.button}>Quiero que me contacten</button> */}
               </>
 
             }

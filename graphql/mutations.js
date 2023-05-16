@@ -92,3 +92,8 @@ mutation createVisitaAlmacen($id:ID){
   createVisitaAlmacen(id:$id)
 }
 `
+export const INTERESADO_ALMACEN = gql`
+mutation interesadoAlmacen($name:String, $celular:String, $almacen:ID){
+  interesadoAlmacen(name:$name, celular:$celular, almacen:$almacen)
+}
+`

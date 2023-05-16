@@ -1,6 +1,6 @@
 import styles from '@/styles/Almacenes.module.css'
 
-const categorias = ['Accesorios', 'Baterias', 'Clutch','Caja y Transmision', 'Carroceria',  'Correas', 'Direccion y suspension', 'Electricos', 'Filtros','Lubricantes', 'Frenado', 'Iluminacion',  'Motor', 'Refrigeracion', ]
+const categorias = ['Accesorios', 'Baterias', 'Clutch','Caja y Transmision', 'Carroceria',  'Correas', 'Direccion y suspension','Filtros', 'Electricos', 'Lubricantes', 'Frenado', 'Iluminacion',  'Motor', 'Refrigeracion', ]
 
 export default function ModalCategorias({ categoria, setCategoria, form, setForm}) {
   const handlePress =(el)=>{

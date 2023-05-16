@@ -1,5 +1,6 @@
 
 import styles from '@/styles/Almacenes.module.css'
+import { ModalContactAlmacen, ModalVisibleTelefonoAlmacen } from '@/utils/Modales'
 import { useState } from 'react'
 
 const subCategorias = {
@@ -20,6 +21,17 @@ const subCategorias = {
 }
 export default function CardAlmacen({ almacen }) {
   const [visibleCategorias, setVisibleCategorias] = useState(false)
+  const [visibleModalContactAlmacen, setVisibleModalContactAlmacen] = useState(false)
+  const [tipo, setTipo] = useState(null)
+  console.log(almacen);
+
+  const sendMessageWha =()=>{
+    let url = `https://api.whatsapp.com/send?phone=57${almacen?.celular}`;
+    url += `&text=${encodeURI(`Hola buenos dia, vi su almacen en Quarks, estoy averiguando...`)}&app_absent=0`
+    window.open(url);
+  }
+
+
   return (
     <div className={styles.cardDataAlmacen}>
 
@@ -39,8 +51,8 @@ export default function CardAlmacen({ almacen }) {
 
       {/* <h4 style={{ margin: '8px 0' }} className={styles.title2}>Calidad repuestos</h4> */}
 
-      <button style={{ width: '100%', fontSize: '14px', margin: '8px 0' }} className={styles.button}>Contactar por WhatsApp</button>
-      <button style={{ width: '100%', fontSize: '14px', backgroundColor: 'white', border: '1px solid #f50057', color: '#f50057', marginBottom: '8px' }} className={styles.button}>Ver telefono</button>
+      <button onClick={sendMessageWha} style={{ width: '100%', fontSize: '14px', margin: '8px 0' }} className={styles.button}>Contactar por WhatsApp</button>
+      <button onClick={() => setVisibleModalContactAlmacen(true)} style={{ width: '100%', fontSize: '14px', backgroundColor: 'white', border: '1px solid #f50057', color: '#f50057', marginBottom: '8px' }} className={styles.button}>Ver telefono</button>
 
       <div style={{ backgroundColor: '#bababa', height: '1px', width: '100%', margin: '16px 0' }} />
 
@@ -55,7 +67,14 @@ export default function CardAlmacen({ almacen }) {
         ))}
         </h6>
       }
-
+      {/* {
+        visibleModalContactAlmacen &&
+        <ModalContactAlmacen almacen={almacen} setVisibleModalContactAlmacen={setVisibleModalContactAlmacen} tipo={tipo} />
+      } */}
+      {
+        visibleModalContactAlmacen &&
+        <ModalVisibleTelefonoAlmacen celular={almacen?.celular} setVisibleModalContactAlmacen={setVisibleModalContactAlmacen}/>
+      }
     </div>
   )
 }

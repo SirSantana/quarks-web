@@ -259,6 +259,7 @@ query getAlmacenRepuestos($id:ID) {
     direccion
     calidades
     ubicacionmaps
+    celular
   }
 }
 `;

@@ -10,6 +10,7 @@ import { Loader } from "@/utils/loader";
 import { ModalError, ModalLoading } from "@/utils/Modales";
 import Opiniones from "@/src/Components/Almacenes/Opiniones";
 import { CREATE_VISITA_ALMACEN } from "@/graphql/mutations";
+import RepuestosManejados from "@/src/Components/Almacenes/RepuestosManejados";
 
 const subCategorias = {
   Accesorios: ['Accesorios', 'Alarma', 'Pito', 'Plumillas', 'Parasoles', 'Antena', 'Tapizados', 'Emblemas', 'Tapetes'],
@@ -62,13 +63,17 @@ export default function Almacen() {
               src={data?.getAlmacenRepuestos?.fotoperfil} className={styles.imgPerfil} style={{ margin: 0, display: loadingImage ? 'none' : 'block', alignSelf: 'center' }} />
           </div>
           <CardAlmacen almacen={data?.getAlmacenRepuestos} />
+          
           <div className={styles.containerDescripcion}>
             <h2 style={{ fontSize: '16px', marginBottom: '8px' }} className={styles.title2}>Descripción</h2>
-            <h3 className={styles.title3}>Somos un almacen de repuestos con mas de 15 años de experiencia en el sector automotriz. Cotiza con nosotros, te colaboraremos con lo que necesites</h3>
+            <h3 className={styles.title3} style={{fontSize: '14px',}}>{data?.getAlmacenRepuestos?.descripcion ? data?.getAlmacenRepuestos?.descripcion:'Este almacen no tiene descripcion'}</h3>
+          </div>
+          <div  className={styles.containerRepuestos}>
+            <RepuestosManejados almacen={data?.getAlmacenRepuestos}/>
 
           </div>
           <div className={styles.containerOpiniones}>
-            <Opiniones almacen={data?.getAlmacenRepuestos.id}/>
+            <Opiniones almacen={data?.getAlmacenRepuestos?.id}/>
           </div>
           <div ref={ref} className={styles.containerUbicacion}>
             <h2 style={{ fontSize: '16px', marginBottom: '16px' }} className={styles.title2}>Ubicación</h2>
