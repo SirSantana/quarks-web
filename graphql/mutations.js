@@ -76,3 +76,19 @@ mutation createVote($id:String, $idCarro:String ){
   createVote(id:$id, idCarro:$idCarro)
 }
 `
+
+export const CREATE_OPINION = gql`
+mutation createOpinion($email:String, $descripcion:String, $idpregunta:ID,$calificacion:Int,$almacen:ID ){
+  createOpinion(input:{ email:$email , descripcion:$descripcion, idpregunta:$idpregunta, calificacion:$calificacion, almacen:$almacen}){
+    email
+    calificacion
+    descripcion
+    id
+  }
+}
+`
+export const CREATE_VISITA_ALMACEN = gql`
+mutation createVisitaAlmacen($id:ID){
+  createVisitaAlmacen(id:$id)
+}
+`

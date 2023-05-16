@@ -32,7 +32,7 @@
     transform: translate(-50%);
     left: 50%;
     gap: 1rem;
-    box-shadow: 0 2px 8px 4px rgb(178, 178, 178, 0.45);
+    box-shadow: 0 2px 8px 4px rgb(178, 178, 178, 0.25);
     display: flex;
     flex-direction: row;
 }

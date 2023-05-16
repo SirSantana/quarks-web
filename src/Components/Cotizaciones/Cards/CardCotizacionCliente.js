@@ -31,7 +31,7 @@ export default function CardCotizacionCliente({ el }) {
     if(el?.cotizaciones?.length>4){
       return alert('Esta cotizacion ya obtuve 5 cotizaciones, no se puede cotizar mas. ')
     }
-    if(interval>2){
+    if(interval>2 && el?.cotizaciones?.length>3){
       return alert('Ya no puedes cotizar. Las preguntas con mas de 48 horas no puedes cotizarlas.')
     }
     if(id){

@@ -216,7 +216,7 @@ query getAvatar($id:ID) {
 }`
 
 
-export const GET_BATALLAS=gql`
+export const GET_BATALLAS = gql`
   query getBatallas{
     getBatallas{
       carroUno
@@ -231,3 +231,89 @@ export const GET_BATALLAS=gql`
     }
   }
 `
+
+export const GET_ALMACENES_REPUESTOS = gql`
+query getAlmacenesRepuestos {
+  getAlmacenesRepuestos {
+    nombre
+    marcas
+    categorias
+    ciudad
+   id
+    fotoperfil
+    barrio
+  }
+}
+`
+export const GET_ALMACEN_REPUESTOS = gql`
+query getAlmacenRepuestos($id:ID) {
+  getAlmacenRepuestos(id:$id) {
+    nombre
+    marcas
+    categorias
+    ciudad
+   id
+    fotoperfil
+    barrio
+    descripcion
+    direccion
+    calidades
+    ubicacionmaps
+  }
+}
+`;
+export const GET_BUSQUEDA_ALMACENES = gql`
+query getBusquedaAlmacenes($categoria:String, $marca:String) {
+  getBusquedaAlmacenes(categoria:$categoria, marca:$marca) {
+    nombre
+    marcas
+    categorias
+    ciudad
+   id
+    fotoperfil
+    barrio
+  }
+}
+`;
+export const GET_ALMACENES_BY_CATEGORIA = gql`
+query getAlmacenesByCategoria($categoria:String) {
+  getAlmacenesByCategoria(categoria:$categoria) {
+    nombre
+    marcas
+    categorias
+    ciudad
+   id
+    fotoperfil
+    barrio
+  }
+}
+`;
+export const GET_ALMACENES_RECOMENDADOS = gql`
+query getAlmacenesRecomendados {
+  getAlmacenesRecomendados {
+    nombre
+    marcas
+    categorias
+    ciudad
+   id
+    fotoperfil
+    barrio
+  }
+}
+`;
+export const GET_OPINIONES = gql`
+query getOpiniones($id:ID) {
+  getOpiniones(id:$id) {
+    email
+    calificacion
+    descripcion
+    id
+    fecha
+  }
+}
+`;
+export const GET_CALIFICACION_OPINIONES = gql`
+query getCalificacionOpiniones($id:ID) {
+  getCalificacionOpiniones(id:$id) 
+}
+`;

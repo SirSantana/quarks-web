@@ -21,7 +21,8 @@ export default function ContactUs() {
     <Layout title={'Contactanos | Quarks'}>
       <div className={styles.container}>
         <h1 className={styles.title}>Contáctanos</h1>
-        <p className={styles.response}>Cuentanos si tienes alguna sugerencia, reporte o problema con algun vendedor. <br />
+        <p className={styles.response}>Puedes escribirnos por nuestras redes sociales</p>
+        {/* <p className={styles.response}>Cuentanos si tienes alguna sugerencia, reporte o problema con algun vendedor. <br />
           Sientete libre de contarnos lo que quieras, nos pondremos en contacto contigo lo mas pronto posible.</p>
         <form className={styles.form}>
           <input placeholder="Tú nombre" className={styles.input} type={'text'} />
@@ -30,7 +31,7 @@ export default function ContactUs() {
           <button className={styles.button}>
             Enviar mensaje
           </button>
-        </form>
+        </form> */}
       </div>
     </Layout>
   )

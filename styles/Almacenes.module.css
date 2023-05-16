@@ -1,0 +1,543 @@
+.slider{
+  text-decoration: none;
+  outline: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 2% auto 0 auto;
+  padding: 32px;
+}
+
+.containerFirst {
+  display: flex;
+  flex-direction: row;
+  gap: 16px
+}
+
+.title {
+  color: #76022C;
+  font-size: 32px;
+  margin: 0;
+}
+
+.title2 {
+  color: #76022C;
+  font-size: 16px;
+  margin: 0;
+}
+
+.title3 {
+  color: #969595;
+  font-size: 16px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.subtitle {
+  color: #373737;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 4px 0;
+}
+
+.subtitle2 {
+  color: #373737;
+  font-size: 12px;
+  font-weight: 400;
+  align-self: center;
+  margin-top: 4px;
+}
+
+.homeCard {
+  width: 50%;
+  margin-top: 32px;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px 4px rgb(178, 178, 178, 0.25);
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+
+}
+
+.cardCategorias {
+  max-width: 40%;
+  margin-top: 32px;
+  border-radius: 0.5rem;
+  padding: 0.8rem 1rem;
+  background-color: white;
+  gap: 8px;
+  box-shadow: 0 2px 8px 4px rgb(178, 178, 178, 0.25);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.label {
+  display: block;
+  color: #76022C;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.locationDivMarca {
+  cursor: pointer;
+}
+
+.locationDivRepuestos {
+  cursor: pointer;
+}
+
+.button {
+  background-color: #f50057;
+  border: none;
+  color: white;
+  font-weight: 400;
+  width: 25%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 40px;
+  align-self: center;
+  transition: 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+}
+
+.button:hover {
+  background-color: #db024e;
+}
+.button2 {
+  background-color: #f50057;
+  border: none;
+  color: white;
+  font-weight: 400;
+  width: 25%;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 50px;
+  align-self: center;
+  transition: 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.button2:hover {
+  background-color: #db024e;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.modalContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  width: 200px;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.modalCategorias {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  width: 400px;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.labelCategoria {
+  font-size: 12px;
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+  align-self: center;
+}
+
+.categoria {
+  border: 2px solid #d9d9d9;
+  border-radius: 8px;
+  color: #5B0221;
+  padding: 8px 16px;
+  cursor: pointer;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  display: flex;
+
+}
+
+.categoriaCheck {
+  background-color: #f50057;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  padding: 8px 16px;
+  flex-direction: row;
+  gap: 8px
+}
+
+.cardAlmacen {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.dataAlmacen {
+  padding: 4px 16px 16px 16px;
+  width: 90%;
+}
+
+.gridCotizaciones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  width: 100%;
+  max-height: fit-content;
+  margin: 32px auto 64px auto;
+  justify-content: center;
+}
+
+.containerInput {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: space-between;
+  gap: 10%
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+  background-color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  min-height: 150px;
+  text-decoration: none;
+  transition: 0.5s;
+  
+}
+
+.containerDataAlmacen {
+  display: grid;
+  grid-template-columns: 2.0fr 1fr;
+  grid-template-rows: 1fr .3fr .5fr .5fr;
+  margin-top: 32px;
+  grid-template-areas:
+    "Foto DataAlmacen"
+    "Description DataAlmacen"
+    "Opinion DataAlmacen"
+    "Ubicacion DataAlmacen";
+    ;
+
+}
+
+.imgPerfil {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  object-position: left;
+}
+
+.cardDataAlmacen {
+  grid-area: DataAlmacen;
+  box-shadow: rgba(0, 0, 0, 0.20) 0px 3px 6px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.5s;
+  box-sizing: border-box;
+  height: fit-content;
+}
+
+.containerDescripcion {
+  grid-area: Description;
+}
+.containerFoto {
+  grid-area: Foto;
+}
+.containerOpiniones {
+  grid-area: Opinion;
+}
+.containerAlmacenAll {
+  width: 60%;
+}
+.mapsImage{
+  width: 90%;
+  height: 350px;
+  object-fit: contain;
+}
+.containerUbicacion{
+  grid-area: Ubicacion;
+}
+.input {
+  width: 65%;
+  border: #c0c0c0 solid 1px;
+  border-radius: 8px;
+  padding: 16px;
+box-sizing: border-box;
+}
+
+.input:hover {
+  border: #5f5f5f solid 1px;
+
+}
+
+.input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1b333d;
+}
+.containerInputOpinion{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+@media (max-width: 1400px) {
+  .gridCotizaciones {
+    grid-template-columns: repeat(3, 1fr);
+    
+    width: 100%;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  .containerInput {
+    width: 100%;
+  }
+
+  .locationDivMarca {
+    width: 25%;
+  }
+
+  .locationDivRepuestos {
+    width: 65%;
+  }
+
+  .homeCard {
+    height: fit-content;
+    width: 70%;
+  }
+  .containerInputOpinion{
+    width: 100%;
+
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .homeCard {
+    flex-direction: column;
+    height: fit-content;
+    width: 100%;
+  }
+  .input{
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .containerInput {
+    width: 100%;
+  }
+
+  .labelImage {
+    justify-content: space-between;
+  }
+
+  .locationDivMarca {
+    width: 25%;
+  }
+
+  .locationDivRepuestos {
+    width: 65%;
+  }
+
+  .gridCotizaciones {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+
+  .button {
+    width: 100%;
+  }
+  .button2 {
+    width: 100%;
+  }
+
+  .containerDataAlmacen {
+    gap: 32px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr;
+    grid-template-areas:
+      "Foto"
+      "DataAlmacen"
+      "Description"
+      "Opinion"
+      "Ubicacion";
+  }
+
+
+  .imgPerfil {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .cardDataAlmacen {
+    width: 100%;
+  }
+
+  .containerAlmacenAll {
+    width: 100%;
+  }
+  .containerInputOpinion{
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+  
+  .title {
+    color: #76022C;
+    font-size: 26px;
+    margin: 0;
+    margin-bottom: 32px;
+  }
+
+  .containerAlmacenAll {
+    width: 100%;
+  }
+
+  .containerDataAlmacen {
+    gap: 32px;
+    margin-top: 16px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr;
+    grid-template-areas:
+      "Foto"
+      "DataAlmacen"
+      "Description"
+      "Opinion"
+      "Ubicacion";
+  }
+
+  .containerInput {
+    width: 100%;
+  }
+
+  .container {
+    width: 90%;
+    padding: 8px 0;
+  }
+
+  .containerFirst {
+    flex-direction: column;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .homeCard {
+    flex-direction: column;
+    margin-top: 8px;
+    width: 100%;
+    padding: 16px;
+
+  }
+
+  .modalCategorias {
+    width: 80vw;
+  }
+
+  .locationDivMarca {
+    margin-bottom: 8px;
+    width: 30%;
+  }
+
+  .locationDivRepuestos {
+    margin-bottom: 8px;
+    width: 70%;
+  }
+
+  .cardCategorias {
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  .gridCotizaciones {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+
+  .categoria {
+    padding: 8px;
+
+  }
+
+  .categoriaCheck {
+    padding: 8px;
+
+  }
+
+  .title3 {
+    font-size: 14px;
+  }
+
+  .imgPerfil {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 16px;
+  object-position: center;
+
+  }
+  .mapsImage{
+    width: 100%;
+    height: 200px;
+    margin-bottom: 16px;
+  }
+  .cardDataAlmacen {
+    width: 100%;
+  }
+  .input{
+    width: 100%;
+  }
+
+}
