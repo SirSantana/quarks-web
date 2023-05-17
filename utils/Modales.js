@@ -1,7 +1,7 @@
-import { INTERESADO_ALMACEN } from '@/graphql/mutations'
+import { INTERESADO_ALMACEN, INTERESADO_ANUNCIO } from '@/graphql/mutations'
 import styles from '@/styles/Main.module.css'
 import { useMutation } from '@apollo/client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import sendMessage from './fetching'
 
 
@@ -43,25 +43,25 @@ const initialForm = {
   name: '',
   celular: ''
 }
-export function ModalContactMe({setVisibleModalContactMe, vendedor, urlPregunta }) {
+export function ModalContactMe({ setVisibleModalContactMe, vendedor, urlPregunta }) {
   const [form, setForm] = useState(initialForm)
   const [visibleSuccesfull, setVisibleSuccesfull] = useState(false)
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault()
-    if(!form.name || !form.celular){
-     return alert('Debes completar tus datos')
+    if (!form.name || !form.celular) {
+      return alert('Debes completar tus datos')
     }
     let frase = `🚗¡El cliente ${form.name} esta interesado en tu cotizacion! \n🧑 Contacta con él, al siguiente numero ${form.celular} \n✍️ Link de la cotizacion: \n` + urlPregunta
-        sendMessage({ titulo: frase, number: `57${vendedor?.celular}` })
-        .then(res=>  
-          setVisibleSuccesfull(true))
-          setTimeout(() => {
-            setVisibleSuccesfull(false)
-            setVisibleModalContactMe(false)
-          }, 2000)
+    sendMessage({ titulo: frase, number: `57${vendedor?.celular}` })
+      .then(res =>
+        setVisibleSuccesfull(true))
+    setTimeout(() => {
+      setVisibleSuccesfull(false)
+      setVisibleModalContactMe(false)
+    }, 2000)
   }
 
   return (
@@ -73,40 +73,40 @@ export function ModalContactMe({setVisibleModalContactMe, vendedor, urlPregunta 
 
         </section>
         <form className={styles.form}>
-          <input  value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.inputContact} type={'text'} />
+          <input value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.inputContact} type={'text'} />
           <input value={form.celular} required onChange={handleChange} placeholder="Tú celular" name='celular' id='celular' className={styles.inputContact} type={'number'} />
 
         </form>
-        <div style={{width:'100%', display:'flex', gap:'8px', justifyContent:'flex-end', marginTop:'32px'}}>
-          <button onClick={()=> setVisibleModalContactMe(false)} style={{width:'40%', fontSize:'14px', fontWeight:'400',borderRadius:'4px', height:'40px',color:'#f50057', backgroundColor:'white', border:'1px solid #f50057'}} className={styles.button}>Cancelar</button>
-          <button onClick={handleSubmit} style={{width:'40%', fontSize:'14px', fontWeight:'400',borderRadius:'4px', height:'40px'}} className={styles.button}>Enviar datos</button>
+        <div style={{ width: '100%', display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '32px' }}>
+          <button onClick={() => setVisibleModalContactMe(false)} style={{ width: '40%', fontSize: '14px', fontWeight: '400', borderRadius: '4px', height: '40px', color: '#f50057', backgroundColor: 'white', border: '1px solid #f50057' }} className={styles.button}>Cancelar</button>
+          <button onClick={handleSubmit} style={{ width: '40%', fontSize: '14px', fontWeight: '400', borderRadius: '4px', height: '40px' }} className={styles.button}>Enviar datos</button>
         </div>
       </div>
-      {visibleSuccesfull && 
-      <ModalSuccessfull title={'Enviado correctamente'} subtitle={'El vendedor te contactara pronto'}/>}
-    </div>  
+      {visibleSuccesfull &&
+        <ModalSuccessfull title={'Enviado correctamente'} subtitle={'El vendedor te contactara pronto'} />}
+    </div>
   )
 }
 
-const initialFormAlmacen={
+const initialFormAlmacen = {
   name: '',
   celular: '',
-  almacen:'',
+  almacen: '',
 }
-export function ModalContactAlmacen({setVisibleModalContactAlmacen, almacen, tipo}) {
+export function ModalContactAlmacen({ setVisibleModalContactAlmacen, almacen, tipo }) {
   const [form, setForm] = useState(initialFormAlmacen)
   const [visibleSuccesfull, setVisibleSuccesfull] = useState(false)
-  const [interesadoAlmacen, {data, loading, error}] = useMutation(INTERESADO_ALMACEN)
+  const [interesadoAlmacen, { data, loading, error }] = useMutation(INTERESADO_ALMACEN)
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault()
-    if(!form.name || !form.celular){
-     return alert('Debes completar tus datos')
+    if (!form.name || !form.celular) {
+      return alert('Debes completar tus datos')
     }
-    
+
     // let frase = `🚗¡El cliente ${form.name} esta interesado en tu cotizacion! \n🧑 Contacta con él, al siguiente numero ${form.celular} \n✍️ Link de la cotizacion: \n` + urlPregunta
     //     sendMessage({ titulo: frase, number: `57${vendedor?.celular}` })
     //     .then(res=>  
@@ -122,36 +122,98 @@ export function ModalContactAlmacen({setVisibleModalContactAlmacen, almacen, tip
       <div style={{ width: '300px', padding: '32px 16px', borderRadius: '8px' }} className={styles.modalContent}>
         <section style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '16px' }}>
           <p style={{ fontSize: '18px', fontWeight: '700', color: '#5B0221', margin: 0 }}>
-            {tipo === 'Telefono' 
-            ?'Ver telefono'
-            :'Contactar por whatsapp'
+            {tipo === 'Telefono'
+              ? 'Ver telefono'
+              : 'Contactar por whatsapp'
             }
-           </p>
+          </p>
           <p style={{ fontSize: '14px', color: '#373737', margin: 0 }}>Para contactarte por WhatsApp o ver el telefono de contacto llena los siguientes datos:</p>
 
         </section>
         <form className={styles.form}>
-          <input  value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.inputContact} type={'text'} />
+          <input value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.inputContact} type={'text'} />
           <input value={form.celular} required onChange={handleChange} placeholder="Tú celular" name='celular' id='celular' className={styles.inputContact} type={'number'} />
 
         </form>
-        <div style={{width:'100%', display:'flex', gap:'8px', justifyContent:'flex-end', marginTop:'32px'}}>
-          <button onClick={()=> setVisibleModalContactMe(false)} style={{width:'40%', fontSize:'14px', fontWeight:'400',borderRadius:'4px', height:'40px',color:'#f50057', backgroundColor:'white', border:'1px solid #f50057'}} className={styles.button}>Cancelar</button>
-          <button onClick={handleSubmit} style={{width:'40%', fontSize:'14px', fontWeight:'400',borderRadius:'4px', height:'40px'}} className={styles.button}>Enviar datos</button>
+        <div style={{ width: '100%', display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '32px' }}>
+          <button onClick={() => setVisibleModalContactMe(false)} style={{ width: '40%', fontSize: '14px', fontWeight: '400', borderRadius: '4px', height: '40px', color: '#f50057', backgroundColor: 'white', border: '1px solid #f50057' }} className={styles.button}>Cancelar</button>
+          <button onClick={handleSubmit} style={{ width: '40%', fontSize: '14px', fontWeight: '400', borderRadius: '4px', height: '40px' }} className={styles.button}>Enviar datos</button>
         </div>
       </div>
-      {visibleSuccesfull && 
-      <ModalSuccessfull title={'Enviado correctamente'} subtitle={'El vendedor te contactara pronto'}/>}
-    </div>  
+      {visibleSuccesfull &&
+        <ModalSuccessfull title={'Enviado correctamente'} subtitle={'El vendedor te contactara pronto'} />}
+    </div>
   )
 }
 export function ModalVisibleTelefonoAlmacen({ celular, setVisibleModalContactAlmacen }) {
   return (
-    <div onClick={()=> setVisibleModalContactAlmacen(false)} className={styles.modal} >
+    <div onClick={() => setVisibleModalContactAlmacen(false)} className={styles.modal} >
       <div style={{ width: '300px', padding: '16px', borderRadius: '8px' }} className={styles.modalContent}>
-      <p style={{ fontSize: '16px', color: '#373737', margin: 0 }}>Para contactarte con este almacen, comunicate al {celular}</p>
+        <p style={{ fontSize: '16px', color: '#373737', margin: 0 }}>Para contactarte con este almacen, comunicate al {celular}</p>
 
       </div>
+    </div>
+  )
+}
+
+
+const initialFormAnuncio = {
+  name: '',
+  celular: '',
+}
+export function ModalInteresadoAnuncio({ setVisibleModalInteresado, }) {
+  const [form, setForm] = useState(initialFormAnuncio)
+  const [visibleSuccesfull, setVisibleSuccesfull] = useState(false)
+  const [interesadoAnuncio, { data, loading, error }] = useMutation(INTERESADO_ANUNCIO)
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (!form.name || !form.celular) {
+      return alert('Debes completar tus datos')
+    }
+    interesadoAnuncio({ variables: form })
+  }
+  useEffect(() => {
+    if (data) {
+      setVisibleSuccesfull(true)
+      setTimeout(() => {
+        setVisibleSuccesfull(false)
+        setVisibleModalInteresado(false)
+      }, 2000)
+    }
+  }, [data])
+  return (
+    <div style={{ zIndex: '999' }} className={styles.modal} >
+      <div style={{ width: '300px', padding: '32px 16px', borderRadius: '8px' }} className={styles.modalContent}>
+        <section style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '16px' }}>
+          <p style={{ fontSize: '18px', fontWeight: '700', color: '#5B0221', margin: 0 }}>
+            Anuncia con nosotros
+          </p>
+          <p style={{ fontSize: '14px', color: '#373737', margin: 0 }}>Para anunciarte, completa tus datos, nosotros nos pondremos en contacto contigo para ayudarte a vender mas!</p>
+
+        </section>
+        <form className={styles.form}>
+          <input value={form.name} required onChange={handleChange} placeholder="Tú nombre" name='name' id='name' className={styles.inputContact} type={'text'} />
+          <input value={form.celular} required onChange={handleChange} placeholder="Tú celular" name='celular' id='celular' className={styles.inputContact} type={'number'} />
+
+        </form>
+        <div style={{ width: '100%', display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '32px' }}>
+          <button disabled={loading} onClick={() => setVisibleModalInteresado(false)} style={{ width: '40%', fontSize: '14px', fontWeight: '400', borderRadius: '4px', height: '40px', color: '#f50057', backgroundColor: 'white', border: '1px solid #f50057' }} className={styles.button}>Cancelar</button>
+          <button disabled={loading} onClick={handleSubmit} style={{ width: '40%', fontSize: '14px', fontWeight: '400', borderRadius: '4px', height: '40px' }} className={styles.button}>Enviar datos</button>
+        </div>
+      </div>
+      {visibleSuccesfull &&
+        <ModalSuccessfull title={'Enviado correctamente'} subtitle={'Te contactaremos pronto'} />}
+      {loading &&
+        <ModalLoading title={'Enviando...'} />
+      }
+      {error &&
+        <ModalError title={'Ha ocurrido un error'} subtitle={error?.message} />
+      }
+
     </div>
   )
 }

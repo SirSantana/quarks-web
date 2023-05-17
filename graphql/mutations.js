@@ -97,3 +97,8 @@ mutation interesadoAlmacen($name:String, $celular:String, $almacen:ID){
   interesadoAlmacen(name:$name, celular:$celular, almacen:$almacen)
 }
 `
+export const INTERESADO_ANUNCIO = gql`
+mutation interesadoAnuncio($name:String, $celular:String){
+  interesadoAnuncio(name:$name, celular:$celular)
+}
+`

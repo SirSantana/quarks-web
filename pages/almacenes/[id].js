@@ -50,7 +50,7 @@ export default function Almacen() {
     createVisitaAlmacen({variables:{id:query}})
   }, [query])
   return (
-    <Layout title={'Corsa Motors | Almacen'} description={'Almacen en ' + data?.getAlmacenRepuestos?.direccion + " " + data?.getAlmacenRepuestos?.barrio + " " + data?.getAlmacenRepuestos?.ciudad + " repuestos para " + data?.getAlmacenRepuestos?.marcas?.map(el => "" + el) + " repuestos de " + data?.getAlmacenRepuestos?.categorias?.map(el => " " + el) + " " + data?.getAlmacenRepuestos?.categorias?.map(categoria => subCategorias[categoria]?.map(categoria => categoria + " · "))}>
+    <Layout title={`Almacen ${data?.getAlmacenRepuestos?.nombre}`} description={'Almacen en ' + data?.getAlmacenRepuestos?.direccion + " " + data?.getAlmacenRepuestos?.barrio + " " + data?.getAlmacenRepuestos?.ciudad + " repuestos para " + data?.getAlmacenRepuestos?.marcas?.map(el => "" + el) + " repuestos de " + data?.getAlmacenRepuestos?.categorias?.map(el => " " + el) + " " + data?.getAlmacenRepuestos?.categorias?.map(categoria => subCategorias[categoria]?.map(categoria => categoria + " · "))}>
       <div className={styles.container}>
         <div onClick={() => handleScroll(ref?.current)} style={{ cursor: 'pointer' }}>
           <HeaderAlmacen almacen={data?.getAlmacenRepuestos} />
@@ -60,7 +60,7 @@ export default function Almacen() {
           <div className={styles.containerFoto}>
             {loadingImage && <Loader />}
             <img onLoad={() => setLoadingImage(false)}
-              src={data?.getAlmacenRepuestos?.fotoperfil} className={styles.imgPerfil} style={{ margin: 0, display: loadingImage ? 'none' : 'block', alignSelf: 'center' }} />
+              src={data?.getAlmacenRepuestos?.fotoperfil} className={styles.imgPerfil} alt={data?.getAlmacenRepuestos?.nombre} style={{ margin: 0, objectFit:'cover', display: loadingImage ? 'none' : 'block', alignSelf: 'center' }} />
           </div>
           <CardAlmacen almacen={data?.getAlmacenRepuestos} />
           
@@ -84,8 +84,8 @@ export default function Almacen() {
         </div>
 
       </div>
-      {loading &&
-        <ModalLoading title={'Espera un momento...'} />}
+      {/* {loading &&
+        <ModalLoading title={'Espera un momento...'} />} */}
       {error &&
         <ModalError title={'Ha ocurrido un error'} subtitle={error?.message} />
       }

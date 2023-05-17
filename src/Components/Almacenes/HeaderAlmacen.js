@@ -25,7 +25,7 @@ export default function HeaderAlmacen({ almacen,  }) {
         <h1 style={{ marginBottom: 0 }} className={styles.title}>{almacen?.nombre}</h1>
         
       </div>
-      {data?.getCalificacionOpiniones.length>0 &&
+      {data?.getCalificacionOpiniones?.length>0 &&
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>

@@ -5,7 +5,7 @@ export default function Almacen({ almacen }) {
   const categoriasTrim = almacen?.categorias.slice(0,3)
   return (
     <div className={styles.cardAlmacen}>
-      <img src={`${almacen?.fotoperfil}`} style={{ height: '150px',objectFit:'contain', width: '100%', borderTopLeftRadius: '8px', borderTopRightRadius: '8px' }} />
+      <img alt={almacen?.nombre} src={`${almacen?.fotoperfil}`} style={{ height: '150px',objectFit:'cover', width: '100%', borderTopLeftRadius: '8px', borderTopRightRadius: '8px' }} />
       <div className={styles.dataAlmacen}>
         <h3 className={styles.title2}>{almacen?.nombre}</h3>
 
@@ -16,7 +16,7 @@ export default function Almacen({ almacen }) {
           <h6 className={styles.subtitle2}>{almacen?.categorias?.map(categoria => categoria + " · ")}</h6>
         }
 
-        <div style={{ height: '2px', backgroundColor: '#d9d9d9', width: '100%', margin: '8px 0' }} />
+        <div style={{ height: '1px', backgroundColor: '#d9d9d9', width: '100%', margin: '8px 0' }} />
         <div style={{width:'100%', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
           <section style={{display:'flex', flexDirection:'row', alignItems:'center'}}>
           {almacen?.marcas.map(el => (

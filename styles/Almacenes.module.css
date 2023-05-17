@@ -1,4 +1,4 @@
-.slider{
+.slider {
   text-decoration: none;
   outline: none;
 }
@@ -34,6 +34,13 @@
   font-size: 16px;
   margin: 0;
   font-weight: 400;
+}
+
+.titleOpinion {
+  color: #f50057;
+  font-size: 48px;
+  margin: 0;
+  font-weight: 700;
 }
 
 .subtitle {
@@ -110,12 +117,13 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  
+
 }
 
 .button:hover {
   background-color: #db024e;
 }
+
 .button2 {
   background-color: #f50057;
   border: none;
@@ -241,14 +249,14 @@
 }
 
 .card {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 2px;
   background-color: white;
   border-radius: 10px;
   cursor: pointer;
-  min-height: 150px;
+  min-height: 120px;
   text-decoration: none;
   transition: 0.5s;
-  
+
 }
 
 .containerDataAlmacen {
@@ -263,7 +271,7 @@
     "Repuestos DataAlmacen"
     "Opinion DataAlmacen"
     "Ubicacion DataAlmacen";
-    ;
+  ;
 
 }
 
@@ -276,7 +284,7 @@
 
 .cardDataAlmacen {
   grid-area: DataAlmacen;
-  box-shadow: rgba(0, 0, 0, 0.20) 0px 3px 6px ;
+  box-shadow: rgba(0, 0, 0, 0.20) 0px 3px 6px;
   background-color: white;
   padding: 16px;
   border-radius: 10px;
@@ -290,32 +298,39 @@
 .containerDescripcion {
   grid-area: Description;
 }
+
 .containerFoto {
   grid-area: Foto;
 }
+
 .containerOpiniones {
   grid-area: Opinion;
 }
+
 .containerRepuestos {
   grid-area: Repuestos;
 }
+
 .containerAlmacenAll {
   width: 60%;
 }
-.mapsImage{
+
+.mapsImage {
   width: 90%;
   height: 350px;
   object-fit: contain;
 }
-.containerUbicacion{
+
+.containerUbicacion {
   grid-area: Ubicacion;
 }
+
 .input {
   width: 65%;
   border: #c0c0c0 solid 1px;
   border-radius: 8px;
   padding: 16px;
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .input:hover {
@@ -327,17 +342,65 @@ box-sizing: border-box;
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
-.containerInputOpinion{
+
+.containerInputOpinion {
   display: flex;
   flex-direction: column;
   width: 100%;
 
 }
 
+.containerHeaderOpiniones {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.cardCategoriasAlmacenes{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 2px;
+  background-color: #FFF4F0;
+  border-radius: 10px;
+  cursor: pointer;
+  min-height: 120px;
+  text-decoration: none;
+  transition: 0.5s;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 16px 0 32px 0;
+}
+.containerServicios{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.cardServicios{
+  background-color: #f50057;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 16px;
+  width: 60%;
+}
+.cardServicios2{
+  background-color: #FFF4F0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 16px;
+  width: 38%;
+}
+
 @media (max-width: 1400px) {
   .gridCotizaciones {
     grid-template-columns: repeat(3, 1fr);
-    
+
     width: 100%;
   }
 
@@ -361,7 +424,8 @@ box-sizing: border-box;
     height: fit-content;
     width: 70%;
   }
-  .containerInputOpinion{
+
+  .containerInputOpinion {
     width: 100%;
 
   }
@@ -374,10 +438,21 @@ box-sizing: border-box;
     height: fit-content;
     width: 100%;
   }
-  .input{
+  .containerServicios{
+    flex-direction: column;
+    gap:16px
+  }
+  .cardServicios{
+    width: 100%;
+  }
+  .cardServicios2{
+    width: 100%;
+  }
+  .input {
     width: 100%;
     margin-bottom: 8px;
   }
+
   .containerInput {
     width: 100%;
   }
@@ -403,6 +478,7 @@ box-sizing: border-box;
   .button {
     width: 100%;
   }
+
   .button2 {
     width: 100%;
   }
@@ -433,13 +509,20 @@ box-sizing: border-box;
   .containerAlmacenAll {
     width: 100%;
   }
-  .containerInputOpinion{
+
+  .containerInputOpinion {
     flex-direction: column;
   }
 }
 
 @media (max-width: 700px) {
-  
+  .containerHeaderOpiniones {
+    flex-direction: column;
+  }
+  .cardCategoriasAlmacenes{
+    margin: 16px  0;
+
+  }
   .title {
     color: #76022C;
     font-size: 24px;
@@ -529,22 +612,29 @@ box-sizing: border-box;
     font-size: 14px;
   }
 
+  .titleOpinion {
+    font-size: 32px;
+  }
+
   .imgPerfil {
     width: 100%;
     height: 200px;
     margin-bottom: 16px;
-  object-position: center;
+    object-position: center;
 
   }
-  .mapsImage{
+
+  .mapsImage {
     width: 100%;
     height: 200px;
     margin-bottom: 16px;
   }
+
   .cardDataAlmacen {
     width: 100%;
   }
-  .input{
+
+  .input {
     width: 100%;
   }
 

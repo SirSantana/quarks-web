@@ -26,15 +26,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Quarks - Cotiza tus repuestos</title>
+        <title>Almacenes de repuestos de carros en Colombia | Quarks</title>
         <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/Logo.png" />
-        <meta property="og:title" content='Cotiza tus repuestos | Quarks' key="title" />
+        -.-.-ooliuioiui
+        
+         <meta name="viewport" content="width=device-width, initial-scale=1" />        <link rel="icon" href="/Logo.png" />
+        <meta property="og:title" content='Almacenes de repuestos de carros en Colombia | Quarks' key="title" />
         <meta property='og:description' content={description} />
         <meta property='og:site_name' content='Quarks' />
         <meta property='og:url' content='https://quarks.com.co' />
-        <meta name="keywords" content={'Repuestos para vehiculos. Almacenes de repuestos en bogota. Repuestos bogota. Repuestos para chevrolet. Repuestos de Renault. Autopartes para carros. Cientos de cotizaciones de autopartes para carros. Cotizar repuestos Colombia. Repuestos chevrolet colombia. Repuestos chevrolet renault. Repuestos chevrolet mazda. Repuestos chevrolet ford'} />
+        <meta name="keywords" content='Repuestos, carros, vehiculos, autopartes, colombia, bogota, almacenes, cotizar, chevrolet, ford, renault, mazda, suspension, motor, electricos, carroceria' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
