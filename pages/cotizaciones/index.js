@@ -23,7 +23,7 @@ export default function CotizacionesPage() {
   return (
     <Layout title={'Cotizaciones | Quarks'} type='website' description={'Busca y encuentra tus repuestos para tu carro en Colombia facil y rapido'}>
       <div className={styles.container}>
-        <h1 style={{ marginBottom: '32px' }} className={styles.title}>Encuentra tus repuestos</h1>
+        <h1 className={styles.title}>Encuentra tus repuestos</h1>
         <Buscador busqueda={busqueda} setBusqueda={setBusqueda} placeholder={'Que repuestos buscas? Es probable que alguien ya lo haya preguntado'} marca={marca} />
 
         <div onClick={() => setVisibleMarca(true)} style={{ display: 'flex', width: '80px', margin: '16px 0', flexDirection: 'row', backgroundColor: 'white', boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 8px", borderRadius: '10px', cursor: 'pointer', padding: '4px 16px', justifyContent: 'space-between' }}>

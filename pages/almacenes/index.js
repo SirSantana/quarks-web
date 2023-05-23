@@ -65,9 +65,9 @@ export default function AlmacenesPage() {
 
         {result?.data?.getBusquedaAlmacenes?.length > 0 &&
           <>
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '32px' }}>
+            <div ref={ref} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '32px' }}>
               <img src={`../${formBusqueda.categoria}.png`} style={{ height: '32px', width: '32px', marginRight: '8px' }} />
-              <h2 ref={ref} className={styles.title2} >Almacenes de {formBusqueda.categoria}</h2>
+              <h2  className={styles.title2} >Almacenes de {formBusqueda.categoria}</h2>
             </div>
             <div className={styles.gridCotizaciones}>
               {result?.data?.getBusquedaAlmacenes.map(almacen => (
@@ -102,7 +102,7 @@ export default function AlmacenesPage() {
               <h2 style={{ fontSize: '24px', margin:'0 0 16px 0' }} className={styles.title2}>Cotiza tus repuestos</h2>
               <button onClick={() => router.push('/')} style={{ alignSelf: 'flex-start',  fontWeight: '600', width:'50%', maxWidth:'200px' }} className={styles.button} >Cotizar</button>
 
-              <img src={'../frenado.png'} style={{ height: '100px', width: '100px', justifySelf: 'flex-end', alignSelf: 'flex-end' }} />
+              <img src={'../Frenado.png'} style={{ height: '100px', width: '100px', justifySelf: 'flex-end', alignSelf: 'flex-end' }} />
             </div>
           </div>
         </div>

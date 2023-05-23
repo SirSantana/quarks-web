@@ -11,7 +11,7 @@
 .title {
   color: #76022C;
   font-size: 32px;
-  margin: 0;
+  margin-top: 10%;
 }
 
 .question {
@@ -90,8 +90,6 @@ appearance: none;
   .title {
     color: #76022C;
     font-size: 26px;
-    margin: 0;
-    margin-bottom: 32px;
   }
 
   .container {

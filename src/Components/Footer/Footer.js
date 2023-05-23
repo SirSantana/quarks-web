@@ -10,7 +10,7 @@ import FacebookLogo from '@/public/WhatsappLogo.png'
 export default function Footer() {
   const router = useRouter()
   return (
-    <>
+    <section>
       <div className={styles.container}>
         <h3 className={styles.title1}>Estas listo para cotizar tus repuestos sin salir de casa y sin altas comisiones?</h3>
         <button onClick={() => router.push('/')} className={styles.button}>
@@ -60,6 +60,6 @@ export default function Footer() {
         </div>
 
       </div>
-    </>
+    </section>
   )
 }

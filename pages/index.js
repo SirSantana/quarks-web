@@ -12,30 +12,26 @@ import { useEffect, useState } from 'react'
 
 
 export default function Home() {
-  let description = 'Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes.Repuestos de carros en bogota.Repuestos para chevrolet en bogota. Repuestos para carros en colombia Cotiza ya!'
   const [limit, setLimit] = useState(0)
 
   // useEffect(()=>{
   //   setTimeout(()=>{
-  //     fetch('https://whatsapp-api-macn.onrender.com/hi').catch(err=> console.log(err)).then(res=> console.log(res))
+  //     window.open('https://www.youtube.com/watch?v=8_pUpi4Ndcs')
   //     setLimit(limit +1)
   //     console.log(new Date().toLocaleTimeString())
-  //   },840000)
+  //   },720000)
   // },[limit])
-  
   return (
     <>
       <Head>
-        <title>Almacenes de repuestos de carros en Colombia | Quarks</title>
-        <meta name="description" content={description} />
-        -.-.-ooliuioiui
-        
-         <meta name="viewport" content="width=device-width, initial-scale=1" />        <link rel="icon" href="/Logo.png" />
-        <meta property="og:title" content='Almacenes de repuestos de carros en Colombia | Quarks' key="title" />
-        <meta property='og:description' content={description} />
+        <title>Repuestos de carros en Colombia | Quarks</title>
+        <meta name="description" content={"Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes.Repuestos de carros en bogota.Repuestos para chevrolet en bogota. Repuestos para carros en colombia Cotiza ya!"} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />        <link rel="icon" href="/Logo.png" />
+        <meta property="og:title" content='Repuestos de carros en Colombia | Quarks' key="title" />
+        <meta property='og:description' content={"Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes.Repuestos de carros en bogota.Repuestos para chevrolet en bogota. Repuestos para carros en colombia Cotiza ya!"} />
         <meta property='og:site_name' content='Quarks' />
         <meta property='og:url' content='https://quarks.com.co' />
-        <meta name="keywords" content='Repuestos, carros, vehiculos, autopartes, colombia, bogota, almacenes, cotizar, chevrolet, ford, renault, mazda, suspension, motor, electricos, carroceria' />
+        <meta name="keywords" content='repuestos de carros en bogota, repuestos de carros en colombia, donde cotizar repuestos para carro, repuestos de carros 7 de agosto, partes de carros en bogota, amortiguadores para carro en bogota, suspension de carros en bogota, suspension de carros en colombia,suspension para carros en colombia, partes de motor para carros en bogota, ' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

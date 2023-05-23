@@ -22,7 +22,7 @@ export default function MiPerfilVendedor() {
   return (
     < >
       <h1 className={styles.title}>Mi perfil</h1>
-      <div className={styles.containerBoxes}>
+      <section className={styles.containerBoxes}>
         <div className={styles.boxPerfil}>
           <div>
             <h3 style={{ margin: 0, width: '100%' }} className={styles.title2}>Datos de tu Perfil</h3>
@@ -48,7 +48,7 @@ export default function MiPerfilVendedor() {
           <h3 style={{ margin: 0, }} className={styles.title2}>Salir de quarks.com.co</h3>
           <button style={{ margin: 0, height: '40px', }} className={styles.button}>Cerrar sesion</button>
         </div>
-      </div>
+      </section>
     </ >
   )
 }

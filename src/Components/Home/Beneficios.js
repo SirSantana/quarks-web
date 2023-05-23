@@ -3,7 +3,7 @@ import styles from '@/styles/PasosCotizacion.module.css'
 
 export default function Beneficios() {
   return (
-    <div style={{ backgroundColor: '#f6f6f6', padding: '32px 0px' }}>
+    <section style={{ backgroundColor: '#f6f6f6', padding: '32px 0px' }}>
       <div className={styles.containerBeneficios}>
         <div className={styles.containerBeneficios2}>
         <h2 className={styles.title1}>Beneficios</h2>
@@ -40,7 +40,7 @@ export default function Beneficios() {
         </div>
         <img className={styles.image} src='./Repuestos.jpg' />
       </div>
-    </div>
+    </section>
 
   )
 }

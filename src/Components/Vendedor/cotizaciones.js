@@ -42,7 +42,7 @@ export default function CotizacionesVendedor() {
   return (
     < >
       <h1 className={styles.title}>Cotizaciones</h1>
-      <div style={{ marginTop: '32px' }} className={styles.gridCotizaciones1}>
+      <section style={{ marginTop: '32px' }} className={styles.gridCotizaciones1}>
 
 
         {data?.getCotizacionesUser?.length>0 && data?.getCotizacionesUser.map(el => (
@@ -94,7 +94,7 @@ export default function CotizacionesVendedor() {
         ))
         }
 
-      </div>
+      </section>
       {split <= data?.getCotizacionesUser.length &&
         <div ref={refMore} style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '32px', }}>
           <button style={{ width: '300px', backgroundColor: 'white', color: '#f50057', border: '1px solid #f50057' }} onClick={() => setSplit(split + 8)} className={styles.button} >Cargar mas resultados</button>

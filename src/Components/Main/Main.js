@@ -88,7 +88,7 @@ export default function Main() {
       <div className={styles.secContainer}>
         <div className={styles.homeText} style={{ flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10%' }}>
           <h1 className={styles.title}>
-            Cotiza tus <b style={{ color: '#5B0221' }}>repuestos</b> con vendedores de toda Colombia!
+            Cotiza tus <b style={{ color: '#5B0221' }}>repuestos</b> con almacenes de toda Colombia!
           </h1>
           {/* <img src='./Croquis2.png' style={{width:'30%', height:'250px'}}/> */}
         </div>

@@ -175,6 +175,7 @@ appearance: none;
   .container {
     width: 90%;
     padding: 32px 0;
+  margin: 10% auto 0 auto;
   }
 
   .boxPerfil {

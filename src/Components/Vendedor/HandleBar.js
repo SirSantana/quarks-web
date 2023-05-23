@@ -6,7 +6,7 @@ import styles from '@/styles/Vendedor.module.css'
 export default function HandleBar({ setSection, section, data }) {
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+    <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
       <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
         <div onClick={() => setSection(true)} style={{ backgroundColor: section && '#f50057', }} className={styles.containerIcons} >
           <img alt={data?.getOneUser?.name} src={personSharp.src} style={{ width: '22px', height: '22px', }} />
@@ -27,6 +27,6 @@ export default function HandleBar({ setSection, section, data }) {
           <h3 style={{ margin: 0, width: '100%' }} className={styles.subtitle}>{data?.getOneUser?.ciudad}, {data?.getOneUser?.pais}</h3>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

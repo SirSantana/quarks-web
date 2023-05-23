@@ -4,7 +4,7 @@ import styles from '@/styles/PasosCotizacion.module.css'
 
 export default function PasosCotizacion() {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.divTitle}>
         <h1 className={styles.title1}>¿Cómo cotizo mis repuestos?  </h1>
       </div>
@@ -40,6 +40,6 @@ export default function PasosCotizacion() {
           </h4>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
