@@ -31,9 +31,18 @@ export default function Layout({ children, title, description, type, price, keyw
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+          crossorigin="anonymous"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       </Head>
 
-      <main ><Nav />{children}<Footer/></main>
+        <main >
+          <Nav />
+          {children}
+          <Footer />
+        </main>
+
 
     </>
   )

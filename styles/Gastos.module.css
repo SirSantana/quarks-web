@@ -1,0 +1,61 @@
+.modalContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    
+    border-radius: 16px;
+    padding:  16px;
+}
+.subtitle3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #373737;
+}
+.parrafo {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6D6D6D;
+}
+.input {
+    width: 200px;
+    border: #c0c0c0 solid 1px;
+    border-radius: 8px;
+    margin: 8px 0;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .input:hover {
+    border: #5f5f5f solid 1px;
+  
+  }
+  
+  .input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    -webkit-text-fill-color: #1b333d;
+  }
+
+  .inputContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    width: 250px;
+    cursor: pointer;
+  }
+  
+ 
+  
+  .inputField {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+  }
+  .inputContainer:hover {
+    border: #5f5f5f solid 1px;
+  
+  }

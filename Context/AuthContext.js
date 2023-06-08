@@ -7,16 +7,21 @@ import { GET_USER } from '../graphql/queries';
 export const AuthContext = createContext({
     user:undefined,
     login:()=>{},
-    logout:()=>{}
+    logout:()=>{},
+    loading:undefined
 })
 
 
 export function AuthProvider({children}){
     const [user, setUser] = useState(null)
     const [token, setToken] = useState(null)
+    const [loading, setLoading] = useState(false)
     const result = useQuery(GET_USER)
 
     const login=()=>{
+        if(result?.loading){
+            setLoading(true)
+        }
         if(result?.data?.getUser){
             setUser(result?.data?.getUser)
         }
@@ -40,7 +45,7 @@ export function AuthProvider({children}){
     },[result, token])
     const valueContext={
         user,
-        login, logout
+        login, logout, loading
     }
     return(
         <AuthContext.Provider value={valueContext}>{children}</AuthContext.Provider>

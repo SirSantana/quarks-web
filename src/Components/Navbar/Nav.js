@@ -33,6 +33,8 @@ export default function Nav() {
         <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/vendedor' && '#5B0221' }}className={styles.subtitle}href={'/vendedor'}>Ingresar</Link></li>
       </ul>
       <img onClick={()=> setOpen(open ? false: true)} alt={'Menu'} src={open?'./close.svg' :'/menu2.svg'} className={styles.menu} style={{display: width <=1080? 'block':'none'}} />
+    
+    
     </header>
     </div >
 

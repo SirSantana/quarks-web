@@ -1,0 +1,364 @@
+.container {
+    background-color: #F9FAFC;
+}
+
+.containerHeaderChildren {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.menu {
+    height: 100vh;
+    width: 100px;
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    align-items: center;
+    padding: 16px 32px;
+    margin: 0;
+    transition: all .50 ease;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
+    flex-direction: column;
+    align-items: center;
+    gap: 32px
+}
+
+.imagenCarro {
+    width: 50%;
+    height: 80%;
+}
+
+.subtitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.subtitle2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #828282;
+    transition: opacity 2s ease-in-out, transform 0.5s ease-in-out;
+}
+.subtitleMarca {
+    font-size: 14px;
+    font-weight: 600;
+    color: #828282;
+}
+
+.subtitleButton {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.subtitle3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #373737;
+}
+
+.parrafo {
+    font-size: 14px;
+    font-weight: 400;
+    color: #6D6D6D;
+}
+.logo{
+    height: 24px;
+
+}
+
+.textprice {
+    font-size: 32px;
+    font-weight: 700;
+    color: #373737;
+    margin: 16px 0;
+    transition: opacity 2s ease-in-out, transform 0.5s ease-in-out;
+}
+.textprice2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #373737;
+    margin: 0px 0;
+}
+.containerDivs {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+}
+
+.gridComponents {
+    gap: 32px;
+    margin: 2% 3% 0 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.3fr;
+    grid-template-rows: 0.3fr 0.5fr 0.5fr 0.5fr 0.5fr;
+    /* grid-template-areas:
+        "cardcar estadisticas estadisticas conversaciones"
+        "gastosmanteni estadisticas estadisticas conversaciones"
+        "gastosmanteni estadisticas estadisticas cotizaciones"
+        "gastosmanteni estadisticas estadisticas cotizaciones"
+        ". . . premium"; */
+    grid-template-areas:
+        "cardcar premium premium gastosmanteni"
+        "estadisticas estadisticas estadisticas conversaciones"
+        "estadisticas estadisticas estadisticas conversaciones"
+        "estadisticas estadisticas estadisticas conversaciones"
+        ". . cotizaciones cotizaciones";
+}
+
+.dashboardHeader {
+    margin: 2% 3% 0 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardcar {
+    grid-area: cardcar;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.25);
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.premium {
+    grid-area: premium;
+    padding: 16px;
+    border-radius: 16px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+}
+
+/* .conversaciones {
+    grid-area: conversaciones;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.25);
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+} */
+
+.conversaciones {
+    grid-area: conversaciones;
+    background-color: #F9FAFC;
+    box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.25);
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.estadisticas {
+    grid-area: estadisticas;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.25);
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gastosmanteni {
+    grid-area: gastosmanteni;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.25);
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cotizaciones {
+    grid-area: cotizaciones;
+    background-color: #F9FAFC;
+    box-shadow: 0 2px 2px 2px rgb(178, 178, 178, 0.25);
+
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: #f50057;
+    border: none;
+    color: white;
+    font-weight: 400;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    height: 40px;
+    align-self: center;
+    transition: 0.3s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+
+.button:hover {
+    background-color: #db024e;
+}
+
+.divHeaderButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px
+}
+
+.titleDashboard {
+    font-size: 32px;
+}
+
+.cardTiposGastos {
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0 40px 0;
+    gap: 16px
+}
+
+
+
+
+
+.cylinderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 400px;
+  }
+  
+  .cylinder {
+    position: relative;
+    width: 150px;
+    height: 300px;
+    background-color: #eaeaea;
+    overflow: hidden;
+    border: 5px solid #373737;
+    border-bottom: none;
+  }
+  
+  .piston {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 142px;
+    height: 30px;
+    border: 5px solid #373737;
+
+    background-color: #939393;
+  }
+ 
+ 
+@media (max-width: 1250px) {
+    .containerHeaderChildren {
+        flex-direction: column;
+    }
+
+    .gridComponents {
+        margin: 2% 3% 0 3%;
+        gap: 16px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 0.5fr;
+        grid-template-areas:
+            "cardcar cardcar"
+            "premium premium"
+            "estadisticas estadisticas "
+            "estadisticas estadisticas "
+            "gastosmanteni conversaciones "
+            ". cotizaciones";
+
+    }
+
+    .menu {
+        height: 60px;
+        width: 100%;
+        flex-direction: row;
+        position: relative;
+    }
+
+    .containerDivs {
+        flex-direction: row;
+        gap: 16px;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .dashboardHeader {
+        margin: 5% 3% 0 3%;
+
+    }
+
+}
+
+@media (max-width: 900px) {
+    
+    .subtitleButton {
+        display: none;
+    }
+
+    .titleDashboard {
+        font-size: 20px;
+    }
+
+    .textprice {
+        font-size: 22px;
+    }
+    .textprice2 {
+        font-size: 20px;
+    }
+    .subtitle3{
+        font-size: 12px;
+    }
+    .subtitleMarca{
+        display: none;
+    }
+    /* .gridComponents {
+        margin: 2% 3% 0 3%;
+        gap: 16px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr;
+        grid-template-areas:
+            "cardcar"
+            "premium"
+            "estadisticas"
+            "estadisticas"
+            "gastosmanteni"
+            "conversaciones"
+            "cotizaciones";
+
+    } */
+   
+}

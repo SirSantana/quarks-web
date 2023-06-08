@@ -73,7 +73,7 @@
 }
 
 .subtitle {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: white;
 }
@@ -138,6 +138,7 @@
     justify-content: center;
     flex-direction: column;
     transition: all 0.8s ease-in-out;
+    z-index: 999;
 }
 @media (max-width: 600px) {
     .container{

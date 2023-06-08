@@ -318,3 +318,56 @@ query getCalificacionOpiniones($id:ID) {
   getCalificacionOpiniones(id:$id) 
 }
 `;
+
+//CARROS
+export const GET_VEHICLES = gql`
+  query getCars{
+    getCars{
+      tipo
+      marca
+      id
+      imagen
+      cilindraje
+      referencia
+      modelo
+      presupuesto
+    }
+  }
+`
+
+//GASTOS
+
+
+export const GET_GASTOS_MONTH = gql`
+  query getGastosMonth($id:ID){
+    getGastosMonth(id:$id){
+      tipo
+      dineroGastado
+      id
+    }
+  }
+`
+
+export const GET_RECORDATORIOS = gql`
+    query getRecordatorios($id:ID){
+        getRecordatorios(id:$id){
+            tipo
+            fechaInicial
+            fechaFinal
+            kilometrajeInicial
+            kilometrajeFinal
+            id
+        }
+    }
+`
+export const GET_ALL_GASTOS = gql`
+  query getAllGastos($id:ID){
+    getAllGastos(id:$id){
+      tipo
+      dineroGastado
+      fecha
+      id
+      vehiculo
+    }
+  }
+`

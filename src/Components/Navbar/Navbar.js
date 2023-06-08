@@ -25,10 +25,10 @@ export default function Navbar() {
 
       <ul style={{display:width > 1080? 'flex': open ? 'flex': 'none'}} className={styles.navv}>
         <li className={styles.li}><Link style={{ textDecoration: 'none', color:router?.pathname === '/' && '#5B0221'}}className={styles.subtitle} href={'/'}>Inicio</Link></li>
-        <li className={styles.li}><Link style={{ textDecoration: 'none' }}className={styles.subtitle} href={'/cotizaciones'}>Cotizaciones</Link></li>
+        <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/cotizaciones' && '#5B0221' }}className={styles.subtitle} href={'/cotizaciones'}>Cotizaciones</Link></li>
         {/* <li className={styles.li}><Link style={{ textDecoration: 'none' }}className={styles.subtitle}href={'/'}>Blog</Link></li> */}
-        <li className={styles.li}><Link style={{ textDecoration: 'none' }}className={styles.subtitle} href={'/almacenes'}>Almacenes</Link></li>
-        <li className={styles.li}><Link style={{ textDecoration: 'none' }}className={styles.subtitle}href={'/'}>Ingresar</Link></li>
+        <li className={styles.li}><Link style={{ textDecoration: 'none', color:router?.pathname === '/almacenes' && '#5B0221'}}className={styles.subtitle} href={'/almacenes'}>Almacenes</Link></li>
+        <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/vendedor' && '#5B0221' }}className={styles.subtitle}href={'/vendedor'}>Ingresar</Link></li>
       </ul>
       <img onClick={()=> setOpen(open ? false: true)} alt={'Menu'} src={open?'./close.svg' :'/menu2.svg'} className={styles.menu} style={{display: width <=1080? 'block':'none'}} />
 

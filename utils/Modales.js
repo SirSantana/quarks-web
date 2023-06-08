@@ -1,4 +1,5 @@
 import { INTERESADO_ALMACEN, INTERESADO_ANUNCIO } from '@/graphql/mutations'
+import CreateGasto from '@/src/Components/Dashboard/Gastos/CreateGasto'
 import styles from '@/styles/Main.module.css'
 import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
@@ -214,6 +215,72 @@ export function ModalInteresadoAnuncio({ setVisibleModalInteresado, }) {
         <ModalError title={'Ha ocurrido un error'} subtitle={error?.message} />
       }
 
+    </div>
+  )
+}
+
+
+export function ModalChooseCar({ setVisibleModalCar, data, setCar }) {
+  return (
+    <div onClick={() => setVisibleModalCar(false)} className={styles.modal}>
+      <div style={{ gap: '16px' }} className={styles.modalContent}>
+        {data?.map(el => (
+          <div onClick={() => setCar(el)} style={{ backgroundColor: 'white', display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', gap: '16px', width: '100%', padding: '8px 16px', boxSizing: 'border-box', backgroundColor: '#FBF6F6', borderRadius: '8px' }}>
+            <img key={el} style={{ height: '36px', width: '36px', }} src={`./${el?.marca}.png`} />
+            <p style={{ fontSize: '14px', color: '#373737', margin: 0 }}>{el?.referencia} · {el?.modelo}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+let tiposGastos = ['Tanqueada', 'Mantenimiento', 'Lavada', 'Repuestos', 'Parqueadero', 'Peajes', 'Multa', 'Otros', 'Todos']
+export function ModalChooseTipoGasto({ setVisibleModalGasto, setSelectTipoGasto, selectTipoGasto, createGasto }) {
+  return (
+    <div onClick={() => setVisibleModalGasto(false)} className={styles.modal}>
+      <div style={{ gap: '16px' }} className={styles.modalContent}>
+        <p style={{ fontSize: '16px', fontWeight: '700', color: '#5B0221', margin: 0 }}>
+          {createGasto ? 'Selecciona uno' : 'Filtrar'}
+        </p>
+        {tiposGastos.map(el => (
+          createGasto && el === 'Todos'
+            ? null
+            :
+            <div key={el} onClick={() => setSelectTipoGasto(el)} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', cursor: 'pointer' }}>
+              <p style={{ fontSize: '14px', color: '#373737', margin: 0 }}>{el}</p>
+              <img style={{ height: '24px', width: '24px', }} src={selectTipoGasto === el ? `./ellipse.svg` : `./ellipse-outline.svg`} />
+            </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 2023]
+export function ModalChooseDate({ setVisibleModalDate, date, setDate }) {
+  console.log(date);
+  return (
+    <div onClick={() => setVisibleModalDate(false)} className={styles.modal}>
+      <div style={{ gap: '16px' }} className={styles.modalContent}>
+        <p style={{ fontSize: '16px', fontWeight: '700', color: '#5B0221', margin: 0 }}>
+          Filtrar
+        </p>
+        {months.map((el, index) => (
+          <div key={el} onClick={() => setDate(index)} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', cursor: 'pointer' }}>
+            <p style={{ fontSize: '14px', color: '#373737', margin: 0 }}>{el}</p>
+            <img style={{ height: '24px', width: '24px', }} src={date === index ? `./ellipse.svg` : `./ellipse-outline.svg`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export function ModalCreateGasto({ setVisibleCreateGasto, }) {
+  return (
+    <div className={styles.modal}>
+      <CreateGasto />
     </div>
   )
 }
