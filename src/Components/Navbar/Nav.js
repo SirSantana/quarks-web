@@ -1,7 +1,7 @@
 import styles from '@/styles/Navbar.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 
 export default function Nav() {
@@ -12,7 +12,7 @@ export default function Nav() {
   const [width, setWidth] = useState(0);
 
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setWidth(ref.current.offsetWidth);
   }, []);
   return (

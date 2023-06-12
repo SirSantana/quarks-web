@@ -6,7 +6,32 @@
   padding: 32px;
   max-width: 700px;
 }
-
+.containerBottomHeaderInfo{
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  margin: 8px 0 32px 0;
+}
+.divIconHeader{
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  border: 1px solid #bababa;
+  
+}
+.divIconHeader:hover{
+  background-color: #e6e6e6;
+  transition: 0.2s ease-in-out;
+}
+.divHeaderText{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
 .title {
   color: #373737;
   font-size: 40px;
@@ -24,6 +49,19 @@
   font-size: 16px;
   font-weight: 400;
   margin: 8px 0 16px 0;
+  line-height: 30px;
+}
+.containerTags{
+  padding: 8px 24px;
+  border: 1px solid #bababa;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+}
+.containerTags:hover{
+  background-color: #e6e6e6;
+  transition: 0.2s ease-in-out;
+
 }
 
 .icon {
@@ -95,7 +133,16 @@
 .button:hover {
   background-color: #db024e;
 }
+.componente {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
+.componente.aparecer {
+  opacity: 1;
+  transform: translateY(0);
+}
 .containerCalculadora {
   margin-top: 32px;
   display: flex;
@@ -129,6 +176,25 @@
   color:#76022C;
   font-weight: 700;
 }
+.containerArticulosRelacionados{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+.containerArticuloRelacionado{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  
+}
+.containerArticuloRelacionado:hover{
+  font-weight: 600;
+
+}
 @media (max-width: 700px) {
   .input {
     width: 90%;
@@ -158,9 +224,13 @@
 
   .question {
     font-size: 16px;
+  line-height: 20px;
+
   }
   .response {
     font-size: 14px;
+  line-height: 22px;
+
   }
   .button {
     width: 100%;
@@ -174,5 +244,8 @@
   .containerInputs {
     justify-content: space-between;
     width: 90%;
+  }
+  .containerBottomHeaderInfo{
+    gap: 16px;
   }
 }

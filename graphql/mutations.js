@@ -102,3 +102,10 @@ mutation interesadoAnuncio($name:String, $celular:String){
   interesadoAnuncio(name:$name, celular:$celular)
 }
 `
+
+
+export const CREATE_VISTA_ARTICULO = gql`
+mutation createVistaArticulo($id:ID){
+  createVistaArticulo(id:$id)
+}
+`

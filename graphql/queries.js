@@ -371,3 +371,113 @@ export const GET_ALL_GASTOS = gql`
     }
   }
 `
+
+export const GET_ALL_ARTICULOS = gql`
+  query getAllArticulos{
+    getAllArticulos{
+      tituloPrincipal
+      autor
+      fecha
+      id
+      tiempoLectura
+      subtituloPrincipal
+      imgPrincipal
+      palabrasClave
+
+      tituloParrafoUno
+      parrafoUno
+      parrafoUnoDos
+      parrafoUnoTres
+      imgParrafoUno
+
+      tituloParrafoDos
+      parrafoDos
+      parrafoDosDos
+      parrafoDosTres
+      imgParrafoDos
+
+      tituloParrafoTres
+      parrafoTres
+      parrafoTresDos
+      parrafoTresTres
+      imgParrafoTres
+
+      tituloParrafoCuatro
+      parrafoCuatro
+      parrafoCuatroDos
+      parrafoCuatroTres
+      imgParrafoCuatro
+
+      tituloParrafoCinco
+      parrafoCinco
+      parrafoCincoDos
+      parrafoCincoTres
+      imgParrafoCinco
+
+      tituloParrafoSeis
+      parrafoSeis
+      parrafoSeisDos
+      parrafoSeisTres
+      imgParrafoSeis
+    }
+  }
+`
+
+export const GET_ARTICULO = gql`
+  query getArticulo($id:ID){
+    getArticulo(id:$id){
+      tituloPrincipal
+      autor
+      fecha
+      id
+      tiempoLectura
+      subtituloPrincipal
+      imgPrincipal
+      vistas
+      tema
+      palabrasClave
+
+      tituloParrafoUno
+      parrafoUno
+      parrafoUnoDos
+      parrafoUnoTres
+      imgParrafoUno
+
+      tituloParrafoDos
+      parrafoDos
+      parrafoDosDos
+      parrafoDosTres
+      imgParrafoDos
+
+      tituloParrafoTres
+      parrafoTres
+      parrafoTresDos
+      parrafoTresTres
+      imgParrafoTres
+
+      tituloParrafoCuatro
+      parrafoCuatro
+      parrafoCuatroDos
+      parrafoCuatroTres
+      imgParrafoCuatro
+
+      tituloParrafoCinco
+      parrafoCinco
+      parrafoCincoDos
+      parrafoCincoTres
+      imgParrafoCinco
+
+      tituloParrafoSeis
+      parrafoSeis
+      parrafoSeisDos
+      parrafoSeisTres
+      imgParrafoSeis
+    }
+  }
+`
+
+export const GET_VISTAS_ARTICULO=gql`
+query getVistasArticulo($id:ID){
+  getVistasArticulo(id:$id)
+}
+`
