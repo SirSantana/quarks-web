@@ -436,6 +436,8 @@ export const GET_ARTICULO = gql`
       vistas
       tema
       palabrasClave
+      descripcion
+      keywords
 
       tituloParrafoUno
       parrafoUno

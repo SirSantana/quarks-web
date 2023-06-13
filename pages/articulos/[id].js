@@ -14,12 +14,12 @@ import { CREATE_VISTA_ARTICULO } from "@/graphql/mutations";
 import { useEffect } from "react";
 
 
-let description = 'La cilindrada o desplazamiento del motor, es el volumen total de los pistones dentro de los cilindros de un motor. La fórmula para calcular el cilindraje es: π x (diámetro del cilindro²/4) multiplicado por la altura del recorrido total o carrera del pistón y por el número de pistones con los que cuenta el motor. Descubre cómo calcular la cilindrada, su relación con la potencia y la eficiencia en un motor.'
 
 export default function Articulo({data}) {
   
   return (
-    <Layout title={'¿Como calcular el cilindraje de un vehiculo? | Quarks'} description={description}>
+    data &&
+    <Layout title={data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave}>
       <div className={styles.container}>
         <HeaderArticulo autor={data?.autor} tema={data?.tema} fecha={data?.fecha}/>
         <section>
@@ -36,6 +36,8 @@ export default function Articulo({data}) {
 
           <ArticulosRelacionados />
           <BottomArticulo palabras={data?.palabrasClave}/>
+
+          
 
         </section >
       </div >
