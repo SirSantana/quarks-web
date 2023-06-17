@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/client'
 export default function BottomHeaderInfo({tiempo, id,}) {
   const {loading, data, error} = useQuery(GET_VISTAS_ARTICULO, {variables:{id:id}})
   return (
-    <section className={styles.containerBottomHeaderInfo}>
+    <section  className={styles.containerBottomHeaderInfo}>
       <div className={styles.divHeaderText}>
         <div className={styles.divIconHeader}>
           <ion-icon name="eye-outline"></ion-icon>

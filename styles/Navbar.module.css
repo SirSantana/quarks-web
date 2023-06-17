@@ -39,6 +39,7 @@
   background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
 
 }
+
 .navv{
     display: flex;
 }
@@ -88,6 +89,27 @@
     align-items: center;
     gap:20px
 }
+
+.newHeader{
+    width: 70%;
+  margin: 0 auto 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 16px 0;
+    transition: all .50 ease;
+    box-sizing: border-box;
+}
+
+.newSubtitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #626262;
+}
+.newSubtitle:hover{
+    color: #5B0221;
+}
 @media (max-width: 1280px) {
     .header{
         padding: 12px 6%;
@@ -96,6 +118,9 @@
     .header2{
         padding: 12px 6%;
         transition: .2s;
+    }
+    .newHeader{
+        margin:0 16px
     }
     .li{
         margin-right: 8px;
@@ -109,7 +134,7 @@
     }
     .navv{
         position: absolute;
-        top: 100%;
+        top: 0%;
         right: 2%;
         width: 230px;
         display: flex;

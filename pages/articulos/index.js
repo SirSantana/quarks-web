@@ -13,7 +13,7 @@ export default function Articulos({ data }) {
     <>
       {data?.map(el => (
         <>
-        <Link href={`/articulos/${el.tituloPrincipal.split(" ").join('-')}-${el.id}`}>
+        <Link key={el.id} href={`/articulos/${el.tituloPrincipal.split(" ").join('-')}-${el.id}`}>
         <h2>{el?.tituloPrincipal}</h2>
         </Link>
         </>

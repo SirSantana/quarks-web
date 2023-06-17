@@ -1,15 +1,13 @@
 import Head from 'next/head'
 import Footer from './Footer/Footer'
 import Nav from './Navbar/Nav'
+import NewNavbar from './Navbar/NewNavbar'
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags }) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url }) {
   return (
     <>
       <Head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
-          crossorigin="anonymous"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        
 
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -29,20 +27,22 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:image" content={image} />
+        <meta name="url" content={`https://quarks.com.co${url}`} />
+        <meta property="url" content={`https://quarks.com.co${url}`} />
+        
         <meta property="twitter:description" content={description} />
-
         <meta property="og:title" content={title} key="title" />
+        <meta property="og:image" content={image} />
+        <meta property="og:image:url" content={image} />
         <meta property='og:description' content={description} />
+        <meta property='og:url' content={`https://quarks.com.co${url}`} />
         <meta property='og:type' content={type} />
         <meta property='og:locale' content='es_CO' />
         <meta property='og:locale:alternate' content='es_CO' />
-        <meta property='og:url' content='https://quarks.com.co' />
         <meta property='og:site_name' content='Quarks' />
-        <meta property="og:image" content={image} />
-        <meta property="og:image:url" content={image} />
         <meta property="og:image:width" content='200' />
         <meta property="og:image:height" content='200' />
-        <meta property="og:image:type" content='image/jpeg' />
+        <meta property="og:image:type" content='image/png' />
 
         {tags?.map(tag=><meta property='article:tag' content={tag} />)}
         <meta property='article:published_time' content={fecha} />
@@ -62,11 +62,15 @@ export default function Layout({ children, title, description, type, price, keyw
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
-
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+          crossorigin="anonymous"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       </Head>
 
       <main >
-        <Nav />
+        {/* <Nav /> */}
+        <NewNavbar/>
         {children}
         <Footer />
       </main>

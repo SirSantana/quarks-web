@@ -1,0 +1,36 @@
+{
+  "A": [
+    {
+      "id": "648d069fa78195fbadfa31e2",
+      "name": "Amortiguador",
+      "description": "Direccion y suspension"
+    },
+    {
+      "id": 2,
+      "name": "Amorsa",
+      "description": "Direccion y suspension"
+    },
+    {
+      "id": 3,
+      "name": "Amtr",
+      "description": "Direccion y suspension"
+    }
+  ],
+  "B": [
+    {
+      "id": 4,
+      "name": "Bomba de agua",
+      "description": "Direccion y suspension"
+    },
+    {
+      "id": 5,
+      "name": "Bomba de aceite",
+      "description": "Direccion y suspension"
+    },
+    {
+      "id": 6,
+      "name": "Bomba de gasolina",
+      "description": "Direccion y suspension"
+    }
+  ]
+}

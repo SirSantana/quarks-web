@@ -4,6 +4,7 @@ import styles from '@/styles/Main.module.css'
 import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import sendMessage from './fetching'
+import Link from 'next/link'
 
 
 
@@ -284,3 +285,5 @@ export function ModalCreateGasto({ setVisibleCreateGasto, }) {
     </div>
   )
 }
+
+

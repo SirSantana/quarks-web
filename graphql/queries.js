@@ -444,41 +444,50 @@ export const GET_ARTICULO = gql`
       parrafoUnoDos
       parrafoUnoTres
       imgParrafoUno
+      videoUrlUno
+
 
       tituloParrafoDos
       parrafoDos
       parrafoDosDos
       parrafoDosTres
       imgParrafoDos
+      videoUrlDos
+
 
       tituloParrafoTres
       parrafoTres
       parrafoTresDos
       parrafoTresTres
       imgParrafoTres
+      videoUrlTres
 
       tituloParrafoCuatro
       parrafoCuatro
       parrafoCuatroDos
       parrafoCuatroTres
       imgParrafoCuatro
+      videoUrlCuatro
 
       tituloParrafoCinco
       parrafoCinco
       parrafoCincoDos
       parrafoCincoTres
       imgParrafoCinco
+      videoUrlCinco
 
       tituloParrafoSeis
       parrafoSeis
       parrafoSeisDos
       parrafoSeisTres
       imgParrafoSeis
+      videoUrlSeis
+
     }
   }
 `
 
-export const GET_VISTAS_ARTICULO=gql`
+export const GET_VISTAS_ARTICULO = gql`
 query getVistasArticulo($id:ID){
   getVistasArticulo(id:$id)
 }
