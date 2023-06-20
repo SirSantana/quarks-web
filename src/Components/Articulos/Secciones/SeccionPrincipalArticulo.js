@@ -9,7 +9,7 @@ export default function SeccionPrincipalArticulo({ titulo, img, tituloParrafo, p
     <>
       {img && <img alt={titulo} src={img} className={styles.imgPrincipal} />}
 
-      <article style={{ margin: '24px 0' }}>
+      <article style={{ margin: '8px 0' }}>
         <div onClick={() => setVisibleInfo(() => visibleInfo ? false : true)} style={{ flexDirection: 'row', display: 'flex', cursor: 'pointer', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
           <h2 className={styles.question}>{tituloParrafo}</h2>
           <img src={visibleInfo ? '../remove-sharp.svg' : '../add-sharp.svg'} className={styles.icon} />

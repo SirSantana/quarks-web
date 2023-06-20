@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import SeccionSecundaria from "@/src/Components/Articulos/Secciones/SeccionSecundaria";
 import OtrosArticulos from "@/src/Components/Articulos/OtrosArticulos";
 import { useRouter } from "next/router";
+import HeaderHome from "@/src/Components/Index/HeaderHome";
 
 
 
@@ -22,6 +23,8 @@ export default function Articulo({ data }) {
     data &&
     <Layout title={data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
       <div className={styles.container}>
+      <HeaderHome />
+
         <HeaderArticulo autor={data?.autor} tema={data?.tema} fecha={data?.fecha} />
         <section>
           <h1 className={styles.title}>{data?.tituloPrincipal}</h1>

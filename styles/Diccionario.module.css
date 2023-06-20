@@ -14,28 +14,32 @@
   line-height: 48px;
   width: 80%;
 }
+
 .title2 {
   color: #373737;
   font-size: 48px;
   line-height: 48px;
   width: 80%;
 }
-.containerBottomHeaderInfo{
+
+.containerBottomHeaderInfo {
   display: flex;
   flex-direction: row;
   margin: 8px 0 32px 0;
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  gap:5%
+  gap: 5%
 }
-.divHeaderText{
+
+.divHeaderText {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 }
-.divIconHeader{
+
+.divIconHeader {
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -43,29 +47,42 @@
   height: 32px;
   width: 32px;
   border: 1px solid #bababa;
-  
+
 }
+
 .question {
   color: #373737;
   font-size: 16px;
   margin: 0;
+  line-height: 22px;
 }
 
-.subtitleCategory{
+.subtitleCategory {
   font-size: 14px;
   color: #76022C;
   font-weight: 400;
-  margin:0
+  margin: 0
 }
-.divIconHeader:hover{
+
+.containerHeaderDiccionario {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divIconHeader:hover {
   background-color: #e6e6e6;
   transition: 0.2s ease-in-out;
 }
-.subtitleHeader{
+
+.subtitleHeader {
   font-size: 14px;
   color: #626262;
   font-weight: 400;
 }
+
 .box {
   height: 50px;
   width: 40%;
@@ -80,7 +97,8 @@
   box-sizing: border-box;
 
 }
-.container1 .icon{
+
+.container1 .icon {
   position: absolute;
   top: 50%;
   margin-left: 17px;
@@ -91,7 +109,8 @@
   box-sizing: border-box;
 
 }
-.input{
+
+.input {
   height: 50px;
   background-color: white;
   border: none;
@@ -102,19 +121,22 @@
   border-radius: 10px;
   padding-right: 16px;
   outline: none;
-  border:1px solid #bcbcbc;
+  border: 1px solid #bcbcbc;
   transition: 0.3s;
   box-sizing: border-box;
 
 }
-.input:hover{
+
+.input:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
 .input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
-.containerButtonsHeader{
+
+.containerButtonsHeader {
   display: flex;
   flex-direction: row;
   width: 50%;
@@ -122,39 +144,239 @@
   justify-content: space-between;
 }
 
+.containerHeaderDiccionario2 {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+
+.containerGrid {
+  width: 70vw;
+  align-self: center;
+  display: grid;
+  row-gap: 32px;
+
+  grid-template-columns: 0.9fr 1.2fr 0.9fr;
+  grid-template-rows: 0.8fr 0.8fr 0.5fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "seccion4 foto seccion2"
+    "seccion5 foto seccion3"
+    ". seccion1 .";
+
+  /* grid-template-columns: 0.9fr 1.2fr 0.9fr;
+  grid-template-rows: 1.8fr 0.6fr 0.8fr 0.8fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "seccion4 foto seccion2"
+    "seccion5 foto seccion3"
+    "seccion5 seccion1 seccion3"
+    "seccion5 seccion1 seccion3"; */
+}
+
+.foto {
+  grid-area: foto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.seccion1 {
+  grid-area: seccion1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: background-color 0.5s ease;
+}
+
+.seccion2 {
+  grid-area: seccion2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: background-color 0.5s ease;
+  transition: border 0.3s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+
+.seccion3 {
+  grid-area: seccion3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: background-color 0.5s ease;
+}
+
+.seccion4 {
+  grid-area: seccion4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: background-color 0.5s ease;
+}
+
+.seccion5 {
+  grid-area: seccion5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  transition: background-color 0.5s ease;
+}
+
+.seccion1:hover {
+  border-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 1px #a1a1a1;
+}
+
+.seccion2:hover {
+  border-radius: 8px;
+  border-color: #ffffff;
+  box-shadow: 0 0 2px 1px #a1a1a1;
+
+}
+
+.seccion3:hover {
+  border-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 1px #a1a1a1;
+
+}
+
+.seccion4:hover {
+  border-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 1px #a1a1a1;
+}
+
+.seccion5:hover {
+  border-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 2px 1px #a1a1a1;
+}
+
+.imgRepuesto {
+  width: 350px;
+  height: 300px;
+}
+
+@media (max-width: 1280px) {
+  .containerGrid {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr;
+    gap: 0px 0px;
+    row-gap: 16px;
+    grid-template-areas:
+      "foto foto"
+      "seccion1 seccion2"
+      "seccion3 seccion4"
+      "seccion5 seccion5"
+  }
+
+  .imgRepuesto {
+    width: 200px;
+    height: 160px;
+  }
+}
+
 @media (max-width: 980px) {
   .container {
     width: 90%;
-    padding: 32px 0;
+    padding: 0px 0;
   }
-  
-}
-@media (max-width: 700px) {
-  .containerButtonsHeader{
+
+  .containerHeaderDiccionario {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .containerHeaderDiccionario2 {
     width: 100%;
   }
-  
+
+  .containerGrid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr 0.3fr;
+    gap: 0px 0px;
+    row-gap: 16px;
+    grid-template-areas:
+      "foto"
+      "seccion1"
+      "seccion2"
+      "seccion3"
+      "seccion4"
+      "seccion5"
+  }
+
+
+}
+
+@media (max-width: 700px) {
+  .containerButtonsHeader {
+    width: 100%;
+  }
+
+  .imgRepuesto {
+    width: 80%;
+    height: 200px;
+  }
+
   .title {
     font-size: 26px;
     line-height: 32px;
   }
+
   .title2 {
     font-size: 26px;
     line-height: 32px;
   }
-  .containerBottomHeaderInfo{
+
+  .containerBottomHeaderInfo {
     gap: 16px;
     flex-direction: column;
   }
+
   .question {
     font-size: 16px;
-  line-height: 20px;
+    line-height: 26px;
 
   }
-  .box{
+
+  .box {
     width: 100%;
   }
-  .input{
+
+  .input {
     width: 100%;
   }
 }

@@ -73,6 +73,7 @@ export default function Layout({ children, title, description, type, price, keyw
         <NewNavbar/>
         {children}
         <Footer />
+        
       </main>
 
 

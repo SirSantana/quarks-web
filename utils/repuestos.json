@@ -6,31 +6,88 @@
       "description": "Direccion y suspension"
     },
     {
-      "id": 2,
-      "name": "Amorsa",
-      "description": "Direccion y suspension"
+      "id": "648de2b0821d58598a34a5c0",
+      "name": "Alternador",
+      "description": "Electricos"
     },
     {
-      "id": 3,
-      "name": "Amtr",
-      "description": "Direccion y suspension"
+      "id": "648df299821d58598a34a5c1",
+      "name": "Árbol de levas",
+      "description": "Motor"
     }
   ],
   "B": [
     {
-      "id": 4,
+      "id": "648e2e60821d58598a34a5c2",
+      "name": "Bateria",
+      "description": "Electricos"
+    },
+    {
+      "id": "648e48bb821d58598a34a5c3",
+      "name": "Bobina de encendido",
+      "description": "Electricos"
+    },
+    {
+      "id": "648e6934821d58598a34a5c4",
       "name": "Bomba de agua",
-      "description": "Direccion y suspension"
+      "description": "Refrigeracion"
     },
     {
-      "id": 5,
-      "name": "Bomba de aceite",
-      "description": "Direccion y suspension"
-    },
-    {
-      "id": 6,
+      "id": "648e714dae5cde6b95562cef",
       "name": "Bomba de gasolina",
+      "description": "Motor"
+    },
+    {
+      "id": "648e8048ae5cde6b95562cf0",
+      "name": "Bomba de direccion hidraulica",
       "description": "Direccion y suspension"
+    },
+    {
+      "id": "648e8821ae5cde6b95562cf1",
+      "name": "Bomba de freno",
+      "description": "Frenos"
+    },
+    {
+      "id": "648e8ea6ae5cde6b95562cf2",
+      "name": "Bomba de aceite",
+      "description": "Motor"
+    },
+    {
+      "id": "648f2bd6ea6b952ff84977ac",
+      "name": "Bujia",
+      "description": "Electricos"
+    },
+    {
+      "id": "648f34fbea6b952ff84977ad",
+      "name": "Bujia de precalentamiento",
+      "description": "Electricos"
+    }
+  ],
+  "C": [
+    {
+      "id": "6491b18b21ba69c72ecb4294",
+      "name": "Cables de bujia",
+      "description": "Electricos"
+    },
+    {
+      "id": "6491b9b021ba69c72ecb4295",
+      "name": "Caja de cambios",
+      "description": "Caja y Transmision"
+    },
+    {
+      "id": "6491c14e21ba69c72ecb4296",
+      "name": "Caja de fusibles",
+      "description": "Electricos"
+    },
+    {
+      "id": "6491c73921ba69c72ecb4297",
+      "name": "Caja de direccion",
+      "description": "Caja y Transmision"
+    },
+    {
+      "id": "6491cfd621ba69c72ecb4298",
+      "name": "Caja de transferencia",
+      "description": "Caja y Transmision"
     }
   ]
 }

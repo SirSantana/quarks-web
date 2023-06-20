@@ -3,11 +3,11 @@ import styles from '@/styles/Articulos.module.css'
 
 export default function BottomArticulo({palabras}) {
   return (
-    <article style={{ marginTop: '32px' }}>
-      <section style={{ display: 'flex', flexDirection: 'row', gap: '8px', margin: '16px 0 32px 0' }}>
+    <article style={{ marginTop: '0px' }}>
+      <section className={styles.sectionBottomArticulo}>
         {palabras.map(palabra=> (
           <div key={palabra} className={styles.containerTags}>
-          <p className={styles.subtitleHeader}>{palabra}</p>
+          <p className={styles.subtitleBottomArticulo}>{palabra}</p>
         </div>
         ))}
         

@@ -23,17 +23,19 @@ export default function HomeArticulos() {
 
       <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '32px 0' }} />
 
-      <Link href={'/diccionario-de-autopartes'} style={{ textDecoration: 'none' }}>
-        <h2 style={{ marginBottom: '16px' }} className={styles.question}>Diccionario Automotriz</h2>
+      <Link href={'/glosario-de-autopartes'} style={{ textDecoration: 'none' }}>
+        <h2 style={{ marginBottom: '16px' }} className={styles.question}>Glosario de Autopartes</h2>
       </Link>
 
       <SwiperAutopartes />
 
-      <h2 style={{ marginBottom: '16px', fontSize: '16px' }} className={styles.question}>Dirección y Suspensión</h2>
+      <h2 style={{ margin: '32px 0 16px 0', fontSize: '16px' }} className={styles.question}>Caja y Transmision</h2>
 
       <DiccionarioHome />
 
-      <div>
+
+
+      {/* <div>
         <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '32px 0' }} />
 
         <h2 className={styles.question}>¿Qué quieres hacer?</h2>
@@ -48,7 +50,7 @@ export default function HomeArticulos() {
           <ion-icon style={{ fontSize: '96px' }} name="dice-outline"></ion-icon>
         </article>
 
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -2,8 +2,9 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: 5% auto 0 auto;
+  margin: 0 auto 0 auto;
   padding: 32px;
+  padding-top: 0;
   max-width: 700px;
 }
 .containerBottomHeaderInfo{
@@ -116,7 +117,7 @@
   display: flex;
   flex-direction: row;
   gap:16px;
-  margin: 32px 0 8px 0;
+  margin: 0px 0 8px 0;
   
 }
 .subtitleCategory{
@@ -126,6 +127,11 @@
   margin-right: 16px;
 }
 .subtitleHeader{
+  font-size: 14px;
+  color: #626262;
+  font-weight: 400;
+}
+.subtitleBottomArticulo{
   font-size: 14px;
   color: #626262;
   font-weight: 400;
@@ -212,6 +218,13 @@
   object-fit: cover;
 
 }
+.sectionBottomArticulo{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin: 16px 0 32px 0;
+  flex-wrap: wrap;
+}
 @media (max-width: 1200px) {
   .gridContainer{
     grid-template-columns: repeat(3, 1fr);
@@ -226,6 +239,19 @@
     width: 100%;
     object-fit: cover;
   
+  }
+  .sectionBottomArticulo{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+  }
+  .subtitleBottomArticulo{
+    font-size: 10px;
+    color: #626262;
+    font-weight: 400;
+  }
+  .containerTags{
+    padding: 8px 16px;
   }
 }
 @media (max-width: 360px) {

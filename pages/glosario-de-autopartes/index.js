@@ -38,7 +38,7 @@ export default function DiccionarioDeAutopartes() {
         <HeaderHome />
 
         <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-          <h1 className={styles.title2}>Diccionario de Autopartes</h1>
+          <h1 className={styles.title2}>Glosario de Autopartes</h1>
           <img src={'../motor.png'} className={styles.icon} />
         </section>
 
@@ -83,10 +83,10 @@ export default function DiccionarioDeAutopartes() {
                 const itemName = Object.values(item)[1]; // Obtener el nombre del elemento
                 const itemId = itemName.split(" ").join('-'); // Obtener el ID del elemento
                 return (
-                  <Link key={itemId} href={`/diccionario-de-autopartes/${itemId}-${Object.values(item)[0]}`} style={{ textDecoration: 'none' }}>
+                  <Link key={itemId} href={`/glosario-de-autopartes/${itemId}-${Object.values(item)[0]}`} style={{ textDecoration: 'none' }}>
                     <li style={{ margin: '16px 0', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                       <div>
-                        <p style={{ lineHeight: '8px' }} className={styles.subtitleCategory}>{Object.values(item)[2]}</p>
+                        <p style={{ lineHeight: '16px' }} className={styles.subtitleCategory}>{Object.values(item)[2]}</p>
                         <h2 className={styles.question}>{Object.values(item)[1]}</h2>
                       </div>
                       <p className={styles.subtitleCategory}>Ver detalle</p>

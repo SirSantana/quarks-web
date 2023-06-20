@@ -4,7 +4,7 @@ import styles from '@/styles/Articulos.module.css'
 
 export default function OtrosArticulos({ img }) {
   return (
-    <article style={{ marginTop: '32px' }}>
+    <article style={{ marginTop: '8px' }}>
       <h2 className={styles.question}>Otros Articulos</h2>
 
       <section className={styles.gridContainer}>

@@ -4,7 +4,7 @@ import styles from '@/styles/Articulos.module.css'
 
 export default function ArticulosRelacionados() {
   return (
-    <article style={{ margin: '32px 0' }}>
+    <article style={{ margin: '16px 0' }}>
         <h2 className={styles.question}>Leé otros articulos relacionados:</h2>
         <div className={styles.containerArticulosRelacionados}>
           <div className={styles.containerArticuloRelacionado}>
