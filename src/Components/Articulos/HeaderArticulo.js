@@ -9,7 +9,7 @@ export default function HeaderArticulo({ autor, tema, fecha }) {
   return (
     <header className={styles.containerHeader}>
       <p className={styles.subtitleCategory}>{tema}</p>
-      <p className={styles.subtitleHeader}>{fechaFormateada} · por {autor}</p>
+      <p className={styles.subtitleHeader}>{fechaFormateada} · por grupo de mecanicos CO</p>
     </header>
   )
 }

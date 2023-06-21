@@ -6,10 +6,16 @@ import styles from '@/styles/Diccionario.module.css'
 import { useState } from "react";
 import data from '@/utils/repuestos.json'
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { ModalShareArticulo } from "@/utils/Modales";
 
 
+let descripcion = 'Glosario de autopartes, en este glosario encontrarás una lista de términos y definiciones relacionados con las autopartes, componentes esenciales para el funcionamiento y mantenimiento de los vehículos. Ya sea que seas un entusiasta de los automóviles o un propietario que desea conocer más sobre las piezas que conforman su vehículo, este glosario te ayudará a comprender mejor el mundo de las autopartes.'
 export default function DiccionarioDeAutopartes() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
+
+  const router = useRouter()
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
@@ -33,7 +39,7 @@ export default function DiccionarioDeAutopartes() {
   }, {});
   
   return (
-    <Layout>
+    <Layout title={'Glosario de Autopartes | Quarks automotriz'} description={descripcion}  type='article'  image={'../motor.png'}  url={router?.asPath}>
       <div className={styles.container}>
         <HeaderHome />
 
@@ -54,9 +60,9 @@ export default function DiccionarioDeAutopartes() {
               <div className={styles.divIconHeader}>
                 <ion-icon name="build-outline"></ion-icon>
               </div>
-              <p className={styles.subtitleHeader}>98 autopartes</p>
+              <p className={styles.subtitleHeader}>18 autopartes</p>
             </div>
-            <div className={styles.divIconHeader}>
+            <div style={{cursor:'pointer'}} onClick={()=> setVisibleShareArticulo(true)} className={styles.divIconHeader}>
               <ion-icon name="arrow-redo-outline"></ion-icon>
             </div>
           </div>
@@ -99,6 +105,7 @@ export default function DiccionarioDeAutopartes() {
         ))}
 
       </div>
+      {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`}/>}
 
     </Layout>
   )

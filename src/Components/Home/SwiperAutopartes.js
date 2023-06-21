@@ -12,6 +12,7 @@ const categorias = ['Accesorios', 'Clutch', 'Caja y Transmision', 'Carroceria', 
 export default function SwiperAutopartes({quantity}) {
   return (
     <Swiper
+    style={{paddingBottom:'32px',}}
     className={styles.swipperContainer}
     freeMode={true}
     modules={[FreeMode, Pagination]}

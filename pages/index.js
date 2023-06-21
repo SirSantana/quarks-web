@@ -34,6 +34,7 @@ export default function Home() {
         <meta property='og:site_name' content='Quarks' />
         <meta property='og:url' content='https://quarks.com.co' />
         <meta name="keywords" content='repuestos de carros en bogota, repuestos de carros en colombia, donde cotizar repuestos para carro, repuestos de carros 7 de agosto, partes de carros en bogota, amortiguadores para carro en bogota, suspension de carros en bogota, suspension de carros en colombia,suspension para carros en colombia, partes de motor para carros en bogota, ' />
+        <link rel="icon" href="/logoquarks200623.png" />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

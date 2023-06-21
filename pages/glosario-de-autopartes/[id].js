@@ -88,7 +88,7 @@ export default function Repuesto({ data }) {
         {data?.tituloParrafoCinco && <SeccionSecundaria img={data?.imgParrafoCinco} tituloParrafo={data.tituloParrafoCinco} parrafoUno={data?.parrafoCinco} parrafoDos={data?.parrafoCincoDos} parrafoTres={data?.parrafoCincoTres} video={data?.videoUrlCinco} />}
 
         {data?.tituloParrafoSeis && <SeccionSecundaria img={data?.imgParrafoSeis} tituloParrafo={data.tituloParrafoSeis} parrafoUno={data?.parrafoSeis} parrafoDos={data?.parrafoSeisDos} parrafoTres={data?.parrafoSeisTres} video={data?.videoUrlSeis} />} */}
-        <OtrosArticulos img={data?.imgPrincipal} />
+        {/* <OtrosArticulos img={data?.imgPrincipal} /> */}
 
         <ArticulosRelacionados />
         <BottomArticulo palabras={data?.palabrasClave} />

@@ -45,7 +45,7 @@ export default function Articulo({ data }) {
 
           <ArticulosRelacionados />
           <BottomArticulo palabras={data?.palabrasClave} />
-          <OtrosArticulos img={data?.imgPrincipal}/>
+          {/* <OtrosArticulos img={data?.imgPrincipal}/> */}
 
 
 

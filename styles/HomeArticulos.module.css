@@ -19,8 +19,8 @@
 }
 .swipperContainer{
   width: 100%;
-  padding-bottom: 48px;
-  padding-left: 4px;
+  padding-bottom: 120px;
+  padding-left: 8px;
 }
 .question {
   color: #373737;
@@ -69,7 +69,7 @@
   padding: 32px;
   box-sizing: border-box;
   gap: 16px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
 }
@@ -202,10 +202,15 @@
   font-weight: 700;
 }
 .imgRepuesto{
-  height: 180px;
-  width: 100%;
-  border-radius: 8px;
+  height: 100%;
+  width:50%;
   object-fit: cover;
+}
+.imgRepuesto2{
+  height: 148px;
+  width:100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 @media (max-width: 1200px) {
   .containerHomeArticulos {
@@ -239,10 +244,21 @@
     width: 60%;
     
   }
+  .imgRepuesto{
+    width: 90%;
+  }
 }
 
 @media (max-width: 800px) {
+  .containerCardTrivia {
+    padding: 16px;
+  }
+  
   .imgRepuesto{
+    height: 100%;
+    width:100%;
+  }
+  .imgRepuesto2{
     height: 100px;
   }
   .imgPrincipal{
@@ -276,6 +292,9 @@
     padding: 8px;
   box-sizing: border-box;
   }
+  .containerRepuestos{
+    gap:8px
+  }
 }
 
 @media (max-width: 700px) {
@@ -284,9 +303,7 @@
     flex-direction: column;
     gap: 32px;
   }
-  .containerRepuestos{
-    gap:32px
-  }
+ 
   .articuloHome {
     width: 100%;
   }
@@ -296,7 +313,8 @@
   }
 
   .container {
-    width: 100%;
+    width: 90%;
+    padding: 0;
   }
 
   .triviaTitle {

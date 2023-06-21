@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import sendMessage from './fetching'
 import Link from 'next/link'
+import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, ViberShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
 
 
 
@@ -278,12 +279,47 @@ export function ModalChooseDate({ setVisibleModalDate, date, setDate }) {
   )
 }
 
-export function ModalCreateGasto({ setVisibleCreateGasto, }) {
+// export function ModalCreateGasto({ setVisibleCreateGasto, }) {
+//   return (
+//     <div className={styles.modal}>
+//       <CreateGasto />
+//     </div>
+//   )
+// }
+
+
+export function ModalShareArticulo({ setVisibleShareArticulo, url }) {
+  const handleCopy = () => {
+    const currentURL = window.location.href;
+
+    // Verificar si el navegador es compatible con la API Clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(currentURL)
+        .then(() => {
+          alert('URL copiada al portapapeles');
+        })
+        .catch((error) => {
+          alert('Error al copiar la URL', error);
+        });
+    } else {
+      // Si el navegador no es compatible, muestra un mensaje de error o una alternativa
+      alert('El navegador no es compatible con la API Clipboard');
+    }
+  }
   return (
-    <div className={styles.modal}>
-      <CreateGasto />
+    <div onClick={()=>setVisibleShareArticulo(false)} className={styles.modal}>
+      <div style={{ gap: '16px', cursor:'pointer', alignItems:'flex-start' }} className={styles.modalContent}>
+        <h3>Compartir</h3>
+        <div onClick={handleCopy} style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}}>
+        <ion-icon  style={{width:'24px', height:'24px', borderRadius:'50%'}} name="share-social-outline"></ion-icon> 
+        <p style={{fontSize:'12px'}}>Copiar link</p>
+        </div>
+        <FacebookShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url} ><FacebookIcon style={{width:'24px', height:'24px', borderRadius:'50%'}}/><p style={{fontSize:'12px'}}>Facebook</p></FacebookShareButton>
+        <TwitterShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url} ><TwitterIcon style={{width:'24px', height:'24px', borderRadius:'50%'}}/><p style={{fontSize:'12px'}}>Twitter</p></TwitterShareButton>
+        <WhatsappShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url}><WhatsappIcon  style={{width:'24px', height:'24px', borderRadius:'50%'}}/><p style={{fontSize:'12px'}}>WhatsApp</p></WhatsappShareButton>
+        <EmailShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url}><EmailIcon style={{width:'24px', height:'24px', borderRadius:'50%'}}/> <p style={{fontSize:'12px'}}>Email</p></EmailShareButton>
+      </div>
     </div>
+
   )
 }
-
-

@@ -13,30 +13,31 @@ export default function NewNavbar() {
 
   useLayoutEffect(() => {
     setWidth(ref.current.offsetWidth);
-  },[])
+  }, [])
   console.log(width);
 
   return (
-    <div 
+    <div
     // className={open && styles.modal
     >
 
-    <header   ref={ref} className={styles.newHeader}>
-      <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center' }} href={'/'}>
-        <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color:'#5B0221', fontSize:'24px' }} className={styles.title}>Quarks</h1>
-        <img alt={'Cotiza tus repuestos logo'} src={'/Logo.png'} style={{ height: '26px', width: '26px', marginLeft: '8px' }} />
-      </Link>
+      <header ref={ref} className={styles.newHeader}>
+        <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center' }} href={'/'}>
+          <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#5B0221', fontSize: '24px' }} className={styles.title}>Quarks</h1>
+          <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} style={{ height: '26px', width: '26px', marginLeft: '8px' }} />
+        </Link>
 
-      <ul 
-      style={{display:width > 1080? 'flex': open ? 'flex': 'none'}}
-       className={styles.navv}>
-        <li className={styles.li}><Link style={{ textDecoration: 'none', color:router?.pathname === '/' && '#5B0221'}}className={styles.newSubtitle} href={'/'}>Articulos</Link></li>
-        <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/cotizaciones' && '#5B0221' }}className={styles.newSubtitle} href={'/cotizaciones'}>Trivias</Link></li>
-        <li className={styles.li}><Link style={{ textDecoration: 'none', color:router?.pathname === '/almacenes' && '#5B0221'}}className={styles.newSubtitle} href={'/almacenes'}>Diccionario automotriz</Link></li>
-      </ul>
-      {width <= 180 && <img onClick={()=> setOpen(open ? false: true)} alt={'Menu'} src={open?'./close.svg' :'/menu2.svg'} className={styles.menu} style={{display: width <=1080? 'flex':'none'}} />}
+        <ul
+          // style={{display:width > 1080? 'flex': open ? 'flex': 'none'}}
 
-    </header>
+          className={styles.navv}>
+          <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/' && '#5B0221' }} className={styles.newSubtitle} href={'/'}>Inicio</Link></li>
+          {/* <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/cotizaciones' && '#5B0221' }} className={styles.newSubtitle} href={'/cotizaciones'}>Trivias</Link></li> */}
+          <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' && '#5B0221' }} className={styles.newSubtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
+        </ul>
+        {/* {width <= 180 && <img onClick={() => setOpen(open ? false : true)} alt={'Menu'} src={open ? './close.svg' : '/menu2.svg'} className={styles.menu} style={{ display: width <= 1080 ? 'flex' : 'none' }} />} */}
+
+      </header>
     </div >
 
 

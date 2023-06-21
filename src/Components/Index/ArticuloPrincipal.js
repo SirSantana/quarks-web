@@ -12,7 +12,7 @@ export default function ArticuloPrincipal() {
         <p className={styles.subtitleHeader}>8 de Junio 2023</p>
       </div>
       <div>
-        <Link style={{ textDecoration: 'none' }} href='https://www.quarks.com.co/articulos/Cilindrada-de-un-vehiculo-:-Todo-lo-que-tienes-que-saber-64860ae7bf99b4c49795114b'>
+        <Link style={{ textDecoration: 'none' }} href='/articulos/Cilindrada-de-un-vehiculo-:-Todo-lo-que-tienes-que-saber-64860ae7bf99b4c49795114b'>
           <h2 className={styles.question}>Cilindrada de un vehiculo: Todo lo que tienes que saber</h2>
         </Link>
         <p className={styles.response}>La cilindrada es el volumen total de los pistones dentro de los cilindros de un motor...</p>
