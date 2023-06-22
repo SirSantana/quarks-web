@@ -25,9 +25,9 @@ export default function HomeArticulos() {
 
       <Link href={'/glosario-de-autopartes'} style={{ textDecoration: 'none' }}>
         <h2 style={{ marginBottom: '16px' }} className={styles.question}>Glosario de Autopartes</h2>
-        <SwiperAutopartes />
-     
       </Link>
+
+      <SwiperAutopartes />
 
 
       <h2 style={{ margin: '32px 0 16px 0', fontSize: '16px' }} className={styles.question}>Caja y Transmision</h2>

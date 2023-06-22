@@ -26,14 +26,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Repuestos de carros en Colombia | Quarks</title>
-        <meta name="description" content={"Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes.Repuestos de carros en bogota.Repuestos para chevrolet en bogota. Repuestos para carros en colombia Cotiza ya!"} />
+        <title>Mundo automotriz | Quarks automotriz</title>
+        <meta name="description" content={"Articulos referentes al mundo automotriz, explicado de una manera clara y sencilla para todos"} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />        <link rel="icon" href="/Logo.png" />
-        <meta property="og:title" content='Repuestos de carros en Colombia | Quarks' key="title" />
-        <meta property='og:description' content={"Repuestos automotores para tu carro en colombia, encuentra los repuestos para tu vehiculo, cotiza con decenas de vendedores tus partes.Repuestos de carros en bogota.Repuestos para chevrolet en bogota. Repuestos para carros en colombia Cotiza ya!"} />
+        <meta property="og:title" content='Mundo automotriz | Quarks automotriz' key="title" />
+        <meta property='og:description' content={"Articulos referentes al mundo automotriz, explicado de una manera clara y sencilla para todos"} />
         <meta property='og:site_name' content='Quarks' />
         <meta property='og:url' content='https://quarks.com.co' />
-        <meta name="keywords" content='repuestos de carros en bogota, repuestos de carros en colombia, donde cotizar repuestos para carro, repuestos de carros 7 de agosto, partes de carros en bogota, amortiguadores para carro en bogota, suspension de carros en bogota, suspension de carros en colombia,suspension para carros en colombia, partes de motor para carros en bogota, ' />
+        {/* <meta name="keywords" content='repuestos de carros en bogota, repuestos de carros en colombia, donde cotizar repuestos para carro, repuestos de carros 7 de agosto, partes de carros en bogota, amortiguadores para carro en bogota, suspension de carros en bogota, suspension de carros en colombia,suspension para carros en colombia, partes de motor para carros en bogota, ' /> */}
         <link rel="icon" href="/logoquarks200623.png" />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />

@@ -15,7 +15,7 @@ export default function Layout({ children, title, description, type, price, keyw
         {keywords ?
           <meta name="keywords" content={keywords} />
           :
-          <meta name="keywords" content={'Repuestos para vehiculos. Almacenes de repuestos en bogota. Repuestos bogota. Repuestos para chevrolet. Repuestos de Renault. Autopartes para carros. Cientos de cotizaciones de autopartes para carros. Cotizar repuestos Colombia. Repuestos chevrolet colombia. Repuestos chevrolet renault. Repuestos chevrolet mazda. Repuestos chevrolet ford'} />
+          <meta name="keywords" content={'Mundo automotriz'} />
         }
         <meta name='robots' content='follow, index, max-image-preview:large' />
         <meta name='bingbot' content='follow, index' />

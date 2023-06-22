@@ -9,8 +9,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ModalShareArticulo } from "@/utils/Modales";
 
-
-let descripcion = 'Glosario de autopartes, en este glosario encontrarás una lista de términos y definiciones relacionados con las autopartes, componentes esenciales para el funcionamiento y mantenimiento de los vehículos. Ya sea que seas un entusiasta de los automóviles o un propietario que desea conocer más sobre las piezas que conforman su vehículo, este glosario te ayudará a comprender mejor el mundo de las autopartes.'
+let keywords= "autopartes, repuestos de automóviles, componentes de vehículos, terminología de autopartes, glosario de repuestos, piezas de automóviles, accesorios para autos, mecánica automotriz, vocabulario de autopartes, diccionario de repuestos, explicación de componentes de automóviles, significado de las partes de un automóvil, guía de autopartes, descripción de repuestos de vehículos, nomenclatura de autopartes, jerga de la industria automotriz, explicación técnica de piezas de automóviles, conceptos básicos de autopartes, mecánica automotriz."
+let descripcion = 'El glosario de autopartes es una completa guía que te brinda un amplio vocabulario y explicación detallada de los diferentes componentes y repuestos que conforman un automóvil. Desde los elementos básicos hasta los más técnicos, este glosario te permite entender y familiarizarte con la terminología utilizada en el mundo de las autopartes. Explora nuestras definiciones claras y concisas, descubre el significado y la función de cada pieza, y adquiere el conocimiento necesario para comprender mejor tu vehículo y realizar reparaciones o mantenimiento de manera más informada. ¡Empodérate con el diccionario de repuestos y mejora tu experiencia en el ámbito de la mecánica automotriz!'
 export default function DiccionarioDeAutopartes() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -39,13 +39,13 @@ export default function DiccionarioDeAutopartes() {
   }, {});
   
   return (
-    <Layout title={'Glosario de Autopartes | Quarks automotriz'} description={descripcion}  type='article'  image={'../motor.png'}  url={router?.asPath}>
+    <Layout title={'Glosario de Autopartes | Quarks automotriz'} description={descripcion} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
       <div className={styles.container}>
         <HeaderHome />
 
         <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
           <h1 className={styles.title2}>Glosario de Autopartes</h1>
-          <img src={'../motor.png'} className={styles.icon} />
+          <img src={'../Motor.png'} className={styles.icon} alt="Glosario de repuestos de carro"/>
         </section>
 
         <section className={styles.containerBottomHeaderInfo}>

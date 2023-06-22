@@ -19,6 +19,7 @@ export default function Footer() {
       </div> */}
       <div className={styles.containerFooter}>
         <div className={styles.containerFooter2}>
+        <Link style={{ textDecoration: 'none' }} href={'/quienessomos'} ><p className={styles.subtitle}>¿Quienes somos?</p></Link>
 
           {/* <div style={{ display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center', alignSelf: 'center' }}>
             <h4 style={{ color: 'white', fontSize: '20px', marginBottom: '16px' }}>Quarks</h4>
