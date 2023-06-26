@@ -27,6 +27,8 @@ export default function DiccionarioDeAutopartes() {
   };
 
   const filteredData = Object.entries(data).reduce((acc, [key, values]) => {
+    console.log(values);
+
     const filteredValues = values.filter((item) => {
       const itemName = item.name.toLowerCase();
       return itemName.includes(searchTerm.toLowerCase());
@@ -54,13 +56,13 @@ export default function DiccionarioDeAutopartes() {
               <div className={styles.divIconHeader}>
                 <ion-icon name="eye-outline"></ion-icon>
               </div>
-              <p className={styles.subtitleHeader}>2300 vistas</p>
+              <p className={styles.subtitleHeader}>11332 vistas</p>
             </div>
             <div className={styles.divHeaderText}>
               <div className={styles.divIconHeader}>
                 <ion-icon name="build-outline"></ion-icon>
               </div>
-              <p className={styles.subtitleHeader}>18 autopartes</p>
+              <p className={styles.subtitleHeader}>36 autopartes</p>
             </div>
             <div style={{cursor:'pointer'}} onClick={()=> setVisibleShareArticulo(true)} className={styles.divIconHeader}>
               <ion-icon name="arrow-redo-outline"></ion-icon>

@@ -16,9 +16,6 @@ import { useEffect } from "react";
 import VanillaTilt from 'vanilla-tilt';
 import parse from 'html-react-parser';
 
-let texto = 'La cilindrada, también conocida como desplazamiento del motor, es el volumen combinado de barrido de los pistones dentro de los'
-
-
 
 export default function Repuesto({ data }) {
   const router = useRouter()
@@ -34,35 +31,35 @@ export default function Repuesto({ data }) {
 
         <div className={styles.containerGrid}>
           <div data-tilt className={styles.foto}>
-            <img src={data?.imgPrincipal} className={styles.imgRepuesto}  />
+            <img src={data?.imgPrincipal} className={styles.imgRepuesto} />
 
           </div>
           <div className={styles.seccion1}>
-            <ion-icon style={{ fontSize: '24px' , marginBottom:'8px'}} name="cog-outline"></ion-icon>
+            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="cog-outline"></ion-icon>
 
             <h2 className={styles.question}>{data.tituloParrafoUno}</h2>
             <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoUno)} </p>
 
           </div>
           <div className={styles.seccion3}>
-            <ion-icon style={{ fontSize: '24px', marginBottom:'8px' }} name="construct-outline"></ion-icon>
+            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="construct-outline"></ion-icon>
             <h2 className={styles.question}>{data.tituloParrafoCinco}</h2>
             <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCinco)}</p>
 
 
           </div>
-          <div  className={styles.seccion2}>
-            <ion-icon style={{ fontSize: '24px', marginBottom:'8px'}} name="extension-puzzle-outline"></ion-icon>
+          <div className={styles.seccion2}>
+            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="extension-puzzle-outline"></ion-icon>
 
             <h2 className={styles.question}>{data.tituloParrafoTres}</h2>
-            <div style={{listStyle:'none', fontSize: '12px', lineHeight: '20px', marginTop: '8px' }}>
+            <div style={{ listStyle: 'none', fontSize: '12px', lineHeight: '20px', marginTop: '8px' }}>
               {parse(data?.parrafoTres)}
             </div>
             {/* <p style={{fontSize:'12px', lineHeight:'20px', marginTop:'8px'}}className={styles.response}>{texto}</p> */}
 
           </div>
           <div className={styles.seccion5}>
-            <ion-icon style={{ fontSize: '24px', marginBottom:'8px' }} name="build-outline"></ion-icon>
+            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="build-outline"></ion-icon>
             <h2 className={styles.question}>{data.tituloParrafoCuatro}</h2>
             <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCuatro)}</p>
           </div>
@@ -76,7 +73,7 @@ export default function Repuesto({ data }) {
         </div>
 
 
-        <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '0' }} />
+        <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '0 0 32px 0' }} />
         {/* <SeccionPrincipalArticulo titulo={data?.tituloPrincipal} tituloParrafo={data.tituloParrafoUno} parrafoUno={data?.parrafoUno} parrafoDos={data?.parrafoUnoDos} parrafoTres={data?.parrafoUnoTres} video={data?.videoUrlUno} />
 
         {data?.tituloParrafoDos && <SeccionSecundaria img={data?.imgParrafoDos} tituloParrafo={data.tituloParrafoDos} parrafoUno={data?.parrafoDos} parrafoDos={data?.parrafoDosDos} parrafoTres={data?.parrafoDosTres} video={data?.videoUrlDos} />}
@@ -89,6 +86,24 @@ export default function Repuesto({ data }) {
 
         {data?.tituloParrafoSeis && <SeccionSecundaria img={data?.imgParrafoSeis} tituloParrafo={data.tituloParrafoSeis} parrafoUno={data?.parrafoSeis} parrafoDos={data?.parrafoSeisDos} parrafoTres={data?.parrafoSeisTres} video={data?.videoUrlSeis} />} */}
         {/* <OtrosArticulos img={data?.imgPrincipal} /> */}
+        {
+          data?.parrafoDosDos &&
+          <div>
+            <h3 style={{ fontSize: '20px' }} className={styles.question}>Preguntas frecuentes</h3>
+            <div style={{ margin: '32px 0' }}>
+              <h2 className={styles.question}>{data?.parrafoDosDos}</h2>
+              <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoDosTres)} </p>
+            </div>
+            <div style={{ margin: '32px 0' }}>
+              <h2 className={styles.question}>{data?.parrafoTresDos}</h2>
+              <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoTresTres)} </p>
+            </div>
+            <div style={{ margin: '32px 0' }}>
+              <h2 className={styles.question}>{data?.parrafoCuatroDos}</h2>
+              <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCuatroTres)} </p>
+            </div>
+          </div>
+        }
 
         <ArticulosRelacionados />
         <BottomArticulo palabras={data?.palabrasClave} />

@@ -12,7 +12,7 @@
     },
     {
       "id": "648df299821d58598a34a5c1",
-      "name": "Árbol de levas",
+      "name": "Árbol de levas - Eje de levas",
       "description": "Motor"
     }
   ],
@@ -66,7 +66,7 @@
   "C": [
     {
       "id": "6491b18b21ba69c72ecb4294",
-      "name": "Cables de bujia",
+      "name": "Cables de bujia - Instalacion de alta",
       "description": "Electricos"
     },
     {
@@ -88,6 +88,100 @@
       "id": "6491cfd621ba69c72ecb4298",
       "name": "Caja de transferencia",
       "description": "Caja y Transmision"
+    },
+    {
+      "id": "64947e6a787958e84ce45a14",
+      "name": "Campana de freno",
+      "description": "Frenos"
+    },
+    {
+      "id": "64948522787958e84ce45a15",
+      "name": "Carburador",
+      "description": "Motor"
+    },
+    {
+      "id": "64949037787958e84ce45a16",
+      "name": "Catalizador",
+      "description": "Motor"
+    },
+    {
+      "id": "6494dfd0787958e84ce45a17",
+      "name": "Cigueñal",
+      "description": "Motor"
+    },
+    {
+      "id": "6495d64aabfa94222079afaf",
+      "name": "Correa de distribucion",
+      "description": "Correas"
+    },
+    {
+      "id": "64960af4abfa94222079afb0",
+      "name": "Cremallera de direccion",
+      "description": "Direccion y suspension"
+    }
+  ],
+  "D":[
+    {
+      "id": "64961276abfa94222079afb1",
+      "name": "Disco de freno",
+      "description": "Frenos"
+    }
+  ],
+  "E":[
+    {
+      "id": "64963e6e5ace1ce09f6b6987",
+      "name": "Embrague - Clutch",
+      "description": "Clutch"
+    },
+    {
+      "id": "6498ff9031d022f51ba1308a",
+      "name": "Empaque de Culata - Junta de culata",
+      "description": "Motor"
+    },
+    {
+      "id": "649648fb5ace1ce09f6b6988",
+      "name": "Escobilla de limpiabrisas",
+      "description": "Accesorios"
+    }
+  ],
+  "F":[
+    {
+      "id": "64965c5f5ace1ce09f6b6989",
+      "name": "Filtro de aceite",
+      "description": "Filtros"
+    },
+    {
+      "id": "6496f585ce88f4f4490476e2",
+      "name": "Filtro de aire",
+      "description": "Filtros"
+    },
+    {
+      "id": "6496fbb8ce88f4f4490476e3",
+      "name": "Filtro de combustible",
+      "description": "Filtros"
+    },
+    {
+      "id": "649701c9ce88f4f4490476e4",
+      "name": "Filtro de aire acondicionado",
+      "description": "Filtros"
+    },
+    {
+      "id": "6498f53731d022f51ba13089",
+      "name": "Freno de Tambor",
+      "description": "Frenos"
+    },
+    {
+      "id": "649908e731d022f51ba1308b",
+      "name": "Freno de mano",
+      "description": "Frenos"
+    }
+    
+  ],
+  "I":[
+    {
+      "id": "6499131c31d022f51ba1308c",
+      "name": "Inyector de combustible",
+      "description": "Motor"
     }
   ]
 }
