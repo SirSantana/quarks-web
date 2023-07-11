@@ -10,6 +10,10 @@ import Footer from '@/src/Components/Footer/Footer'
 import { useEffect, useState } from 'react'
 import HomeArticulos from '@/src/Components/Index/Home'
 import NewNavbar from '@/src/Components/Navbar/NewNavbar'
+import ServiciosPopulares from '@/src/Components/Main/ServiciosPopulares'
+import TalleresRecomendados from '@/src/Components/Main/TalleresRecomendados'
+import Link from 'next/link'
+import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes'
 
 
 
@@ -42,21 +46,31 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
-          <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       </Head>
-        
-        <main className={styles.main}>
-          {/* <Navbar /> */}
-          <NewNavbar/>
-          {/* <Main /> */}
-          {/* <HomeSection /> */}
-          {/* <PasosCotizacion /> */}
-          {/* <Beneficios /> */}
-          <HomeArticulos/>
 
-          <Footer />
-          
-        </main>
+      <main className={styles.main}>
+        <Navbar />
+        {/* <NewNavbar/> */}
+        {/* <Main /> */}
+        {/* <HomeSection /> */}
+        {/* <PasosCotizacion /> */}
+        {/* <Beneficios /> */}
+
+        {/* <HomeArticulos/> */}
+        <Main />
+        <ServiciosPopulares />
+        
+        <TalleresRecomendados/>
+        
+        
+        {/* <TalleresRecomendados/> */}
+
+
+
+        <Footer />
+
+      </main>
     </>
   )
 }

@@ -26,7 +26,7 @@ export default function Repuesto({ data }) {
   return (
     <Layout title={data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
       <div className={styles.container}>
-        <HeaderHome />
+        {/* <HeaderHome /> */}
         <HeaderDiccionario tema={data?.tema} tiempo={data?.tiempoLectura} id={data?.id} img={data?.imgPrincipal} titulo={data?.subtituloPrincipal} />
 
         <div className={styles.containerGrid}>
@@ -86,19 +86,25 @@ export default function Repuesto({ data }) {
 
         {data?.tituloParrafoSeis && <SeccionSecundaria img={data?.imgParrafoSeis} tituloParrafo={data.tituloParrafoSeis} parrafoUno={data?.parrafoSeis} parrafoDos={data?.parrafoSeisDos} parrafoTres={data?.parrafoSeisTres} video={data?.videoUrlSeis} />} */}
         {/* <OtrosArticulos img={data?.imgPrincipal} /> */}
+        {data?.videoUrlUno && !data?.parrafoDosDos &&
+            <iframe className={styles.imgPrincipal} style={{maxHeight:'315px', maxWidth:'560px'}} src={data?.videoUrlUno} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          }
         {
           data?.parrafoDosDos &&
           <div>
             <h3 style={{ fontSize: '20px' }} className={styles.question}>Preguntas frecuentes</h3>
             <div style={{ margin: '32px 0' }}>
               <h2 className={styles.question}>{data?.parrafoDosDos}</h2>
-              <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoDosTres)} </p>
+              <p style={{ marginTop: '8px', }} className={styles.response}>{parse(data?.parrafoDosTres)} </p>
+              {data?.videoUrlUno &&
+            <iframe className={styles.imgPrincipal} style={{maxHeight:'315px', maxWidth:'560px'}} src={data?.videoUrlUno} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          }
             </div>
-            <div style={{ margin: '32px 0' }}>
+            <div style={{ margin: '40px 0' }}>
               <h2 className={styles.question}>{data?.parrafoTresDos}</h2>
               <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoTresTres)} </p>
             </div>
-            <div style={{ margin: '32px 0' }}>
+            <div style={{ margin: '40px 0' }}>
               <h2 className={styles.question}>{data?.parrafoCuatroDos}</h2>
               <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCuatroTres)} </p>
             </div>

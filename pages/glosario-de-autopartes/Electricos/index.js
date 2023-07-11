@@ -8,7 +8,8 @@ import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes';
 import Link from 'next/link';
 import { ModalShareArticulo } from '@/utils/Modales';
 
-
+let description = 'Conoce las partes del sistema electrico de un vehiculo en el glosario automotriz. La sección de electricos de vehículos ofrece una amplia variedad de partes y componentes esenciales para el sistema electrico de un automóvil.'
+let keywords = 'sistema eléctrico, sistema de cableado, batería, alternador, motor de arranque, fusibles, relés, luces, faros, luces interiores, luces exteriores, sistema de encendido, sistema de carga, sistema de alimentación, sistema de iluminación, sistema de audio, sistema de climatización, sistema de control electrónico, diagnóstico eléctrico, problemas eléctricos, cortocircuito, falla de conexión, cableado dañado, mantenimiento eléctrico, reparación eléctrica.'
 export default function FrenosSeccion() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -47,7 +48,7 @@ export default function FrenosSeccion() {
     }
    
     return (
-        <Layout title={'Glosario de Autopartes | Quarks automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
+        <Layout title={'Autopartes de electricos | Glosario Automotriz'}description={description} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
           <HeaderHome />
   

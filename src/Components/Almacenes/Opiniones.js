@@ -7,7 +7,7 @@ import Opinion from './Opinion'
 
 const Star = ({ index, stars, tamaño }) => {
   return (
-    <img src={stars < index + 1 ? `../star-outline.svg` : `../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} />
+    <img src={stars < index + 1 ? `../../star-outline.svg` : `../../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} />
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
@@ -23,26 +23,11 @@ export default function Opiniones({ almacen }) {
       setStars(0)
     }
   }, [visibleOpinion])
-  
+
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '32px', marginBottom: '0px' }}>
-        <h2 style={{ fontSize: '16px' }} className={styles.title2}>Opiniones</h2>
-        
-      </div>
-
-
       <div className={styles.containerInputOpinion}>
-        
-        {/* <input title='Opinar' onClick={() => setVisibleOpinion(true)} type={'submit'} className={styles.button2} /> */}
-        {visibleOpinion &&
-          <div className={styles.modal}>
-            <ModalCreateOpinion setVisibleOpinion={setVisibleOpinion} setCalificated={setCalificated} />
-          </div>}
-
-        <Opinion almacen={almacen} setCalificated={setCalificated}/>
-        <h6 style={{ fontSize: '16px' }} className={styles.title2}> Califica y opina</h6>
-        <h6 className={styles.title3} style={{ margin: '4px 0',fontSize:'14px', color: '#373737', alignSelf: 'flex-start' }}>{calificated ? 'Ya compartiste tu opinion' : 'Comparte tu experiencia para ayudar a otros usuarios'} </h6>
+        <h6 className={styles.title3} style={{ margin: '4px 0', fontSize: '14px', color: '#373737', alignSelf: 'flex-start' }}>{calificated ? 'Ya compartiste tu opinion' : 'Comparte tu experiencia para ayudar a otros usuarios'} </h6>
 
 
         {/* <input placeholder='Agrega tu opinion del almacen' type={'text'} className={styles.input} /> */}
@@ -56,8 +41,17 @@ export default function Opiniones({ almacen }) {
 
 
         </div>
+
+        {/* <input title='Opinar' onClick={() => setVisibleOpinion(true)} type={'submit'} className={styles.button2} /> */}
+        {visibleOpinion &&
+          <div className={styles.modal}>
+            <ModalCreateOpinion setVisibleOpinion={setVisibleOpinion} setCalificated={setCalificated} />
+          </div>}
+
+        <Opinion almacen={almacen} setCalificated={setCalificated} />
+
       </div>
-      </>
+    </>
 
   )
 }

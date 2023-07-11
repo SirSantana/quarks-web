@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 
 const Star = ({ index, form }) => {
   return (
-    <img src={form.calificacion < index + 1 ? `../star-outline.svg` : `../star.svg`} style={{ height: '24px', width: '24px' }} />
+    <img src={form.calificacion < index + 1 ? `../../star-outline.svg` : `../../star.svg`} style={{ height: '24px', width: '24px' }} />
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
@@ -21,15 +21,14 @@ let initialForm = {
 
 }
 
-export default function ModalCreateOpinion({ setVisibleOpinion, setCalificated}) {
+export default function ModalCreateOpinion({ setVisibleOpinion, setCalificated }) {
   const [form, setForm] = useState(initialForm)
   const router = useRouter()
   const [email, setEmail] = useState(null)
   const id = router.query.id
   let query = id?.substring(0, id?.indexOf('-'))
 
-
-  const [createOpinion, { loading, data, error }] = useMutation(CREATE_OPINION, { refetchQueries: [{ query: GET_OPINIONES, variables: { id: query } },{query:GET_CALIFICACION_OPINIONES,variables: { id: query } }] })
+  const [createOpinion, { loading, data, error }] = useMutation(CREATE_OPINION, { refetchQueries: [{ query: GET_OPINIONES, variables: { id: query } }, { query: GET_CALIFICACION_OPINIONES, variables: { id: query } }] })
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -54,7 +53,7 @@ export default function ModalCreateOpinion({ setVisibleOpinion, setCalificated})
   }
 
   useEffect(() => {
-    setForm({ ...form, almacen: query, email: localStorage.getItem('email')})
+    setForm({ ...form, almacen: query, email: localStorage.getItem('email') })
     setEmail(localStorage.getItem('email'))
   }, [query])
 
@@ -79,13 +78,10 @@ export default function ModalCreateOpinion({ setVisibleOpinion, setCalificated})
       {
         !email &&
         <input required onChange={handleChange} style={{ width: '100%' }} name='email' type={'email'} placeholder={'Coloca tu correo'} className={styles.input} />
-
       }
-
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', margin: '32px 0 16px 0', gap: '16px' }}>
         <button disabled={loading} onClick={handleSubmit} style={{ width: '100%', fontSize: '14px', }} className={styles.button}>Publicar</button>
         <button onClick={() => { setVisibleOpinion(false), setForm(initialForm) }} style={{ width: '100%', fontSize: '14px', backgroundColor: 'white', border: '1px solid #f50057', color: '#f50057', }} className={styles.button}>Regresar</button>
-
       </div>
       {loading &&
         <ModalLoading title={'Publicando...'} />}

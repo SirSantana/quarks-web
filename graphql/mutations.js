@@ -109,3 +109,9 @@ mutation createVistaArticulo($id:ID){
   createVistaArticulo(id:$id)
 }
 `
+
+export const CREATE_VISITA_WHATSAPP= gql`
+mutation createVisitaWhatsapp($id:ID){
+  createVisitaWhatsapp(id:$id)
+}
+`

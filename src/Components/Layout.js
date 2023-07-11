@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Footer from './Footer/Footer'
 import Nav from './Navbar/Nav'
 import NewNavbar from './Navbar/NewNavbar'
+import Navbar from './Navbar/Navbar'
 
 export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url }) {
   return (
@@ -69,8 +70,9 @@ export default function Layout({ children, title, description, type, price, keyw
       </Head>
 
       <main >
-        {/* <Nav /> */}
-        <NewNavbar/>
+        <Nav />
+        {/* <NewNavbar/> */}
+        {/* <Navbar/> */}
         {children}
         <Footer />
         

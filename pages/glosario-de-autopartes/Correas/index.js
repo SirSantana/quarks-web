@@ -8,7 +8,8 @@ import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes';
 import Link from 'next/link';
 import { ModalShareArticulo } from '@/utils/Modales';
 
-
+let description = 'Conoce las correas / bandas de un vehiculo en el glosario automotriz. La sección de correas / bandas de vehículos ofrece una amplia variedad de soluciones a preguntas sobre las correas de un automóvil.'
+let keywords = 'correa de distribucion, correa de reparticion, correa de alternador'
 export default function FrenosSeccion() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -47,12 +48,12 @@ export default function FrenosSeccion() {
     }
    
     return (
-        <Layout title={'Glosario de Autopartes | Quarks automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
+        <Layout title={'Autopartes de correas | Glosario Automotriz'}description={description}keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
           <HeaderHome />
   
           <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-            <h1 className={styles.title2}>Autopartes Caja y Transmision</h1>
+            <h1 className={styles.title2}>Autopartes Correas</h1>
             <img src={'../../Correas.png'} className={styles.icon} alt="Glosario de repuestos de carro"/>
           </section>
   

@@ -8,7 +8,8 @@ import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes';
 import Link from 'next/link';
 import { ModalShareArticulo } from '@/utils/Modales';
 
-
+let description = 'Conoce las partes del sistema de embrague / clutch de un vehiculo en el glosario automotriz. La sección de embrague / clutch de vehículos ofrece una amplia variedad de partes y componentes esenciales para el sistema de embrague de un automóvil.'
+let keywords = 'embrague, sistema de embrague, cambio de embrague, disco de embrague, placa de presión, collarín de embrague, pedal de embrague, desgaste del embrague, reparación de embrague, síntomas de un embrague defectuoso, problemas de embrague, mantenimiento del embrague, embrague hidráulico, embrague automático, embrague manual'
 export default function FrenosSeccion() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -48,7 +49,7 @@ export default function FrenosSeccion() {
     }
    
     return (
-        <Layout title={'Glosario de Autopartes | Quarks automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
+        <Layout title={'Autopartes de embrague | Glosario Automotriz'} description={description} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
           <HeaderHome />
   

@@ -3,8 +3,8 @@ import { setContext } from '@apollo/client/link/context';
 import { useEffect, useState } from "react";
 
 
-const URI = process.env.NEXT_PUBLIC_API_PRODUCTION
-// const URI = 'http://localhost:4000/graphql'
+// const URI = process.env.NEXT_PUBLIC_API_PRODUCTION
+const URI = 'http://localhost:4000/graphql'
 
 // const URI = proccess.env.DEV
 

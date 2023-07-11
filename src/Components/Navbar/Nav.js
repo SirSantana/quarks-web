@@ -20,21 +20,20 @@ export default function Nav() {
 
     <header  ref={ref} className={styles.header2}>
 
-      <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center' }} href={'/'}>
-        <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.title}>Quarks</h1>
-        <img alt={'Cotiza tus repuestos logo'} src={'/Logo.png'} style={{ height: '26px', width: '26px', marginLeft: '8px' }} />
+      <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap:'16px' }} href={'/'}>
+        <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
+        <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.titleNav}>Quarks</h1>
       </Link>
 
-      <ul   style={{display:width > 1080? 'flex': open ? 'flex': 'none'}} className={styles.navv}>
-        <li className={styles.li}><Link style={{ textDecoration: 'none', color:router?.pathname === '/' && '#5B0221'}}className={styles.subtitle} href={'/'}>Inicio</Link></li>
-        <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/cotizaciones' && '#5B0221' }}className={styles.subtitle} href={'/cotizaciones'}>Cotizaciones</Link></li>
+      <ul  className={styles.navv}>
+        <li className={styles.li}><Link style={{ textDecoration: 'none', color:router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' && '#5B0221'}}className={styles.subtitle} href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'}>Talleres</Link></li>
+        <li className={styles.li}><Link style={{ textDecoration: 'none', color:router?.pathname === '/glosario-de-autopartes' && '#5B0221'}}className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
+
+        {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/cotizaciones' && '#5B0221' }}className={styles.subtitle} href={'/cotizaciones'}>Cotizaciones</Link></li> */}
         {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/blog' && '#5B0221' }}className={styles.subtitle}href={'/'}>Blog</Link></li> */}
-        <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/almacenes' && '#5B0221' }}className={styles.subtitle} href={'/almacenes'}>Almacenes</Link></li>
-        <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/vendedor' && '#5B0221' }}className={styles.subtitle}href={'/vendedor'}>Ingresar</Link></li>
+        {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/almacenes' && '#5B0221' }}className={styles.subtitle} href={'/almacenes'}>Almacenes</Link></li> */}
+        {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/vendedor' && '#5B0221' }}className={styles.subtitle}href={'/vendedor'}>Ingresar</Link></li> */}
       </ul>
-      <img onClick={()=> setOpen(open ? false: true)} alt={'Menu'} src={open?'./close.svg' :'/menu2.svg'} className={styles.menu} style={{display: width <=1080? 'block':'none'}} />
-    
-    
     </header>
     </div >
 

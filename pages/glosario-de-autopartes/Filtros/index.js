@@ -8,7 +8,8 @@ import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes';
 import Link from 'next/link';
 import { ModalShareArticulo } from '@/utils/Modales';
 
-
+let description = 'Conoce las partes del sistema de filtros de un vehiculo en el glosario automotriz. La sección de filtros de vehículos ofrece una amplia variedad de partes y componentes esenciales para el sistema de filtrado de un automóvil. sistema de filtros, filtro de aceite, filtro de aire, filtro de combustible, filtro de habitáculo, filtro de aire acondicionado, mantenimiento de filtros, reemplazo de filtros, limpieza de filtros, eficiencia de filtración, vida útil del filtro, calidad del filtro, obstrucción del filtro, cambio de filtro, filtro de partículas, filtro de sedimentos, filtro de contaminantes, filtración de impurezas, rendimiento del sistema de filtros.'
+let keywords = 'sistema de filtros, filtro de aceite, filtro de aire, filtro de combustible, filtro de habitáculo, filtro de aire acondicionado, mantenimiento de filtros, reemplazo de filtros, limpieza de filtros, eficiencia de filtración, vida útil del filtro, calidad del filtro, obstrucción del filtro, cambio de filtro, filtro de partículas, filtro de sedimentos, filtro de contaminantes, filtración de impurezas, rendimiento del sistema de filtros.'
 export default function FrenosSeccion() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -47,7 +48,7 @@ export default function FrenosSeccion() {
     }
    
     return (
-        <Layout title={'Glosario de Autopartes | Quarks automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
+        <Layout title={'Autopartes de filtros | Glosario Automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
           <HeaderHome />
   

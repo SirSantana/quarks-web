@@ -8,7 +8,8 @@ import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes';
 import Link from 'next/link';
 import { ModalShareArticulo } from '@/utils/Modales';
 
-
+let description = 'Conoce las partes del sistema de la direccion y suspension de un vehiculo en el glosario automotriz. La sección de direccion y suspension de vehículos ofrece una amplia variedad de partes y componentes esenciales para el sistema de direccion y suspension de un automóvil.'
+let keywords = 'sistema de dirección, sistema de suspensión, dirección asistida, dirección hidráulica, dirección electrónica, dirección mecánica, suspensión delantera, suspensión trasera, amortiguadores, resortes, barra estabilizadora, brazo de suspensión, rótula de suspensión, bujes de suspensión, alineación, balanceo, desgaste de neumáticos, dirección suave, dirección dura, problemas de dirección, problemas de suspensión, mantenimiento del sistema de dirección y suspensión.'
 export default function FrenosSeccion() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -47,7 +48,7 @@ export default function FrenosSeccion() {
     }
    
     return (
-        <Layout title={'Glosario de Autopartes | Quarks automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
+        <Layout title={'Autopartes de direccion y suspension | Glosario Automotriz'} description={description} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
           <HeaderHome />
   

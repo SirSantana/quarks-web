@@ -8,7 +8,8 @@ import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes';
 import Link from 'next/link';
 import { ModalShareArticulo } from '@/utils/Modales';
 
-
+let description='Conoce las partes del sistema de motor de un vehiculo en el glosario automotriz. La sección de motor de vehículos ofrece una amplia variedad de partes y componentes esenciales para el sistema de motor de un automóvil. motor de combustión interna, motor de gasolina, motor diésel, motor de cuatro tiempos, motor de dos tiempos, cilindros del motor, pistones, árbol de levas, bielas, cigüeñal, sistema de distribución, sistema de admisión, sistema de escape, sistema de lubricación, sistema de refrigeración, sistema de inyección de combustible, sistema de encendido, sistema de control de emisiones, sistema de escape, sistema de alimentación de aire, sistema de combustible, sistema de aceite, sistema de refrigerante, motor eficiente, motor potente, motor de alta cilindrada, motor de baja cilindrada, rendimiento del motor, mantenimiento del motor, averías del motor, reparación del motor, ajuste del motor, reemplazo de piezas del motor.'
+let keywords='motor de combustión interna, motor de gasolina, motor diésel, motor de cuatro tiempos, motor de dos tiempos, cilindros del motor, pistones, árbol de levas, bielas, cigüeñal, sistema de distribución, sistema de admisión, sistema de escape, sistema de lubricación, sistema de refrigeración, sistema de inyección de combustible, sistema de encendido, sistema de control de emisiones, sistema de escape, sistema de alimentación de aire, sistema de combustible, sistema de aceite, sistema de refrigerante, motor eficiente, motor potente, motor de alta cilindrada, motor de baja cilindrada, rendimiento del motor, mantenimiento del motor, averías del motor, reparación del motor, ajuste del motor, reemplazo de piezas del motor.'
 export default function FrenosSeccion() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -47,7 +48,7 @@ export default function FrenosSeccion() {
     }
    
     return (
-        <Layout title={'Glosario de Autopartes | Quarks automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
+        <Layout title={'Autopartes de Motor | Glosario Automotriz'} description={description} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
           <HeaderHome />
   

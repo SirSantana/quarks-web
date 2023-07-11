@@ -8,7 +8,8 @@ import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes';
 import Link from 'next/link';
 import { ModalShareArticulo } from '@/utils/Modales';
 
-
+let description = 'Conoce las partes del sistema de frenado de un vehiculo en el glosario automotriz. La sección de frenado de vehículos ofrece una amplia variedad de partes y componentes esenciales para el sistema de frenos de un automóvil. sistema de frenos, frenos de disco, frenos de tambor, pastillas de freno, discos de freno, zapatas de freno, líquido de frenos, cilindro maestro, freno de mano, sistema antibloqueo de frenos (ABS), sistema de frenos hidráulicos, sistema de frenos electromecánicos, frenado seguro, mantenimiento de frenos, reemplazo de frenos, frenos desgastados, frenos defectuosos, frenos eficientes, frenado suave, frenos de alto rendimiento, frenos de emergencia, frenos de estacionamiento, inspección de frenos, frenos balanceados, frenos en buen estado'
+let keywords = 'sistema de frenos, frenos de disco, frenos de tambor, pastillas de freno, discos de freno, zapatas de freno, líquido de frenos, cilindro maestro, freno de mano, sistema antibloqueo de frenos (ABS), sistema de frenos hidráulicos, sistema de frenos electromecánicos, frenado seguro, mantenimiento de frenos, reemplazo de frenos, frenos desgastados, frenos defectuosos, frenos eficientes, frenado suave, frenos de alto rendimiento, frenos de emergencia, frenos de estacionamiento, inspección de frenos, frenos balanceados, frenos en buen estado.'
 export default function FrenosSeccion() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
@@ -47,7 +48,7 @@ export default function FrenosSeccion() {
     }
    
     return (
-        <Layout title={'Glosario de Autopartes | Quarks automotriz'}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
+        <Layout title={'Autopartes de frenos | Glosario Automotriz'} description={description} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
           <HeaderHome />
   

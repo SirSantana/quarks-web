@@ -43,7 +43,7 @@ export default function DiccionarioDeAutopartes() {
   return (
     <Layout title={'Glosario de Autopartes | Quarks automotriz'} description={descripcion} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
       <div className={styles.container}>
-        <HeaderHome />
+        {/* <HeaderHome /> */}
 
         <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
           <h1 className={styles.title2}>Glosario de Autopartes</h1>

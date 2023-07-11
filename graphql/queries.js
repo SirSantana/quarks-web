@@ -372,6 +372,32 @@ export const GET_ALL_GASTOS = gql`
   }
 `
 
+export const GET_ONE_NEGOCIOVDOS= gql`
+  query getOneNegocioVDos($id:ID){
+    getOneNegocioVDos(id:$id){
+      nombre
+      direccion
+      fotoperfil
+      facebook
+      paginaweb
+      categorias
+      visitas
+      whatsapp
+      telefono
+      localidad
+      ciudad
+      pais
+      acercanegocio
+      sponsored
+      nivelnegocio
+      horario
+      ubicacionmaps
+      visitaswhatsapp
+      opiniones
+    }
+  }
+`
+
 export const GET_ALL_ARTICULOS = gql`
   query getAllArticulos{
     getAllArticulos{

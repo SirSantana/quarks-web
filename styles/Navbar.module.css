@@ -21,7 +21,23 @@
     padding: 16px 8%;
     transition: all .50 ease;
     box-sizing: border-box;
+  /* background: #f50057; */
+  background: transparent;
+}
+.headerScrolled{
   background: #f50057;
+  position: fixed;
+  width: 100%;
+  top:0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 8%;
+  transition: all .50 ease;
+  box-sizing: border-box;
+/* background: #f50057; */
 }
 .header2{
     position: fixed;
@@ -72,6 +88,11 @@
     font-weight: bold;
     color: white;
 }
+.titleNav{
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+}
 
 .subtitle {
     font-size: 16px;
@@ -109,6 +130,10 @@
 }
 .newSubtitle:hover{
     color: #5B0221;
+}
+.logo{
+    width: 32px;
+    height: 32px;
 }
 @media (max-width: 1280px) {
     .header{
@@ -177,6 +202,9 @@
     }
     .title {
         font-size: 24px;
+    }
+    .titleNav{
+        display: none;
     }
     .subtitle {
         font-size: 16px;

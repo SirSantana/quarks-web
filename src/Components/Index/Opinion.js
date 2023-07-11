@@ -17,6 +17,7 @@ export default function Opinion({ almacen, setCalificated }) {
   const [getCalificacionOpiniones, { loading, error, data }] = useLazyQuery(GET_CALIFICACION_OPINIONES)
 
 
+
   useEffect(() => {
     setEmail(localStorage.getItem('email'))
   }, [])
@@ -30,6 +31,8 @@ export default function Opinion({ almacen, setCalificated }) {
       setNumCalificaciones(result?.data?.getOpiniones?.length)
     }
   }, [result?.data])
+  console.log(data);
+
   return (
     <>
       {result?.data?.getOpiniones?.length <= 0 &&
@@ -76,7 +79,7 @@ export default function Opinion({ almacen, setCalificated }) {
                     </div>
                   ))}
                 </div>
-                <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', justifySelf: 'end', margin: 0 }}>{opinion.email.split("@")[0]} · {fecha}</h6>
+                <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', justifySelf: 'end', margin: 0 }}> {opinion.email} · {fecha}</h6>
 
               </div>
               <h6 className={styles.title3} style={{ margin: '4px 0', color: '#373737', alignSelf: 'flex-start' }}>{opinion?.descripcion}</h6>
