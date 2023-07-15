@@ -310,6 +310,8 @@ query getOpiniones($id:ID) {
     descripcion
     id
     fecha
+    foto
+    nombre
   }
 }
 `;

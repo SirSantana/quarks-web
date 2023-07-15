@@ -4,7 +4,8 @@
       "nombre": "Pelaez Hermanos - Toberin",
       "direccion": "Calle 161 # 17 - 15",
       "categorias": [
-        "Servicio de Baterias"
+        "Servicio de Baterias",
+        "Taller mecanico"
       ],
       "localidad": "Usaquen",
       "id": "64a81a9a456641a87d697b30",
@@ -19,7 +20,9 @@
       "nombre": "Pelaez Hermanos - Siete de Agosto",
       "direccion": "Cra 27 No. 65-70",
       "categorias": [
-        "Servicio de Baterias"
+        "Servicio de Baterias",
+        "Taller mecanico"
+
       ],
       "localidad": "Barrios Unidos",
       "id": "64aa2e5de3b051b0053a31ff",
@@ -37,7 +40,9 @@
         "Servicio de Frenos",
         "Alineación y balanceo",
         "Cambio de aceite",
-        "Servicio de Suspensión"
+        "Servicio de Suspensión",
+        "Taller mecanico"
+
       ],
       "localidad": "Barrios Unidos",
       "id": "64aa313ce3b051b0053a3200",
@@ -60,7 +65,9 @@
         "Cambio de aceite",
         "Servicio de Frenos",
         "Alineación y balanceo",
-        "Servicio de Latonería y pintura"
+        "Servicio de Latonería y pintura",
+        "Taller mecanico"
+
       ],
       "nivelnegocio": "0",
       "ciudad": "Bogotá",
@@ -80,7 +87,9 @@
         "Cambio de aceite",
         "Servicio de Frenos",
         "Alineación y balanceo",
-        "Mecanica Basica"
+        "Mecanica Basica",
+        "Taller mecanico"
+
       ],
       "localidad": "Usaquen",
       "id": "64ad4adf1423f1c24207812c",
@@ -95,7 +104,9 @@
       "nombre": "Pelaez Hermanos - San Fernando",
       "direccion": "Av.Clle 68 No. 66-15",
       "categorias": [
-        "Servicio de Baterias"
+        "Servicio de Baterias",
+        "Taller mecanico"
+
       ],
       "localidad": "Usaquen",
       "id": "64ad4ccc1423f1c24207812d",
@@ -107,110 +118,63 @@
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1689079090544!5m2!1ses-419!2sco!6m8!1m7!1s9u7gif5S1nH-tKpCmF3yww!2m2!1d4.676083603740192!2d-74.08499452120509!3f245.7069708579426!4f2.1798801953024167!5f0.7820865974627469"
     },
     {
-      "nombre": "Talleres Ríos",
-      "direccion": "Calle 72 #15-23",
-      "telefono": "9876543210",
+      "nombre": "El Mundo del Amortiguador La 27",
+      "direccion": "CRA 26 #64-20",
       "categorias": [
-        "Peritaje",
-        "Diagnostico automotriz",
-        "Tecnico-mecanica",
-        "Servicio de Aire acondicionado"
-      ],
-      "nivelnegocio": "1",
-      "id": "1241341231",
-      "fotoperfil": "",
-      "localidad":"Chapinero",
-      "ciudad":"Bogota",
-      "pais":"Colombia",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar: 9:00 AM - 7:00 PM,Mié: 8:30 AM - 5:30 PM,Jue: 9:30 AM - 6:30 PM,Vie: 8:00 AM - 6:00 PM,Sáb: Cerrado,Dom: Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.69210748584027!2d-74.07370445893818!3d4.6577635634135826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5260ce216b%3A0xca1f35c2011dda61!2sCra.%2027a%20%236457%2C%20Bogot%C3%A1!5e1!3m2!1ses-419!2sco!4v1684127169585!5m2!1ses-419!2sco"
-    },
-    {
-      "nombre": "Taller de llantas Express",
-      "direccion": "Carrera 7 #32-60",
-      "telefono": "2345678901",
-      "categorias": [
-        "Alineación y balanceo",
         "Servicio de Suspensión",
-        "Servicio de Eléctricos"
-      ],
-      "nivelnegocio": "0",
-      "localidad":"Santafe",
-      "ciudad":"Bogota",
-      "pais":"Colombia",
-      "id": "1241341231",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar: 9:00 AM - 7:00 PM,Mié: 8:30 AM - 5:30 PM,Jue: 9:30 AM - 6:30 PM,Vie: 8:00 AM - 6:00 PM,Sáb: Cerrado,Dom: Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.69210748584027!2d-74.07370445893818!3d4.6577635634135826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5260ce216b%3A0xca1f35c2011dda61!2sCra.%2027a%20%236457%2C%20Bogot%C3%A1!5e1!3m2!1ses-419!2sco!4v1684127169585!5m2!1ses-419!2sco"
-    },
-    {
-      "nombre": "AutoService Rust",
-      "direccion": "Calle 100 #19A-54",
-      "telefono": "5678901234",
-      "categorias": [
-        "Servicio de Latonería y pintura",
-        "Servicio de Suspensión",
-        "Servicio de Baterias"
-      ],
-      "nivelnegocio": "0",
-      "localidad": "Usaquen",
-      "ciudad": "Bogotá",
-      "pais": "Colombia",
-      "id": "1241341231",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar: 9:00 AM - 7:00 PM,Mié: 8:30 AM - 5:30 PM,Jue: 9:30 AM - 6:30 PM,Vie: 8:00 AM - 6:00 PM,Sáb: Cerrado,Dom: Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.69210748584027!2d-74.07370445893818!3d4.6577635634135826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5260ce216b%3A0xca1f35c2011dda61!2sCra.%2027a%20%236457%2C%20Bogot%C3%A1!5e1!3m2!1ses-419!2sco!4v1684127169585!5m2!1ses-419!2sco"
-    },
-    {
-      "nombre": "Taller Automotriz CarFix",
-      "direccion": "Carrera 82 #72B-07",
-      "telefono": "1234567890",
-      "categorias": [
-        "Taller mecanico",
-        "Revisión general",
+        "Servicio de Frenos",
         "Cambio de aceite",
-        "Servicio de Frenos"
+        "Taller mecanico"
+
       ],
+      "localidad": "Barrios Unidos",
+      "id": "64af263b53d7724a96947eb6",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
       "nivelnegocio": "0",
-      "localidad": "Engativa",
-      "ciudad":"Bogota",
-      "pais":"Colombia",
-      "id": "1241341231",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar: 9:00 AM - 7:00 PM,Mié: 8:30 AM - 5:30 PM,Jue: 9:30 AM - 6:30 PM,Vie: 8:00 AM - 6:00 PM,Sáb: Cerrado,Dom: Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.69210748584027!2d-74.07370445893818!3d4.6577635634135826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5260ce216b%3A0xca1f35c2011dda61!2sCra.%2027a%20%236457%2C%20Bogot%C3%A1!5e1!3m2!1ses-419!2sco!4v1684127169585!5m2!1ses-419!2sco"
+      "pais": "Colombia",
+      "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1689079090544!5m2!1ses-419!2sco!6m8!1m7!1s9u7gif5S1nH-tKpCmF3yww!2m2!1d4.676083603740192!2d-74.08499452120509!3f245.7069708579426!4f2.1798801953024167!5f0.7820865974627469"
     },
     {
-      "nombre": "Mecánica Express Suba",
-      "direccion": "Avenida Suba #116-59",
-      "telefono": "0987654321",
+      "nombre": "La boutique del amortiguador - 7 de Agosto",
+      "direccion": "Calle 64 #26-14",
       "categorias": [
-        "Mecanica Basica",
-        "Mecanica Avanzada",
-        "Sincronizacion",
-        "Servicio de Suspensión"
+        "Servicio de Suspensión",
+        "Servicio de Frenos",
+        "Cambio de aceite",
+        "Taller mecanico"
+
+
       ],
+      "localidad": "Barrios Unidos",
+      "id": "64af26de53d7724a96947eb7",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
       "nivelnegocio": "0",
-      "localidad": "Suba",
-      "ciudad":"Bogota",
-      "pais":"Colombia",
-      "id": "1241341231",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar: 9:00 AM - 7:00 PM,Mié: 8:30 AM - 5:30 PM,Jue: 9:30 AM - 6:30 PM,Vie: 8:00 AM - 6:00 PM,Sáb: Cerrado,Dom: Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.69210748584027!2d-74.07370445893818!3d4.6577635634135826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5260ce216b%3A0xca1f35c2011dda61!2sCra.%2027a%20%236457%2C%20Bogot%C3%A1!5e1!3m2!1ses-419!2sco!4v1684127169585!5m2!1ses-419!2sco"
+      "pais": "Colombia",
+      "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1689079090544!5m2!1ses-419!2sco!6m8!1m7!1s9u7gif5S1nH-tKpCmF3yww!2m2!1d4.676083603740192!2d-74.08499452120509!3f245.7069708579426!4f2.1798801953024167!5f0.7820865974627469"
     },
     {
-      "nombre": "Taller Autoservicio La 26",
-      "direccion": "Carrera 10 #26-56",
-      "telefono": "9876543210",
+      "nombre": "La boutique del amortiguador - Prado",
+      "direccion": "CRA 45 #130-57",
       "categorias": [
-        "Peritaje",
-        "Diagnostico automotriz",
-        "Tecnico-mecanica",
-        "Servicio de Aire acondicionado"
+        "Servicio de Suspensión",
+        "Servicio de Frenos",
+        "Cambio de aceite",
+        "Taller mecanico"
+
+
       ],
+      "localidad": "Usaquen",
+      "id": "64af271d53d7724a96947eb8",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
       "nivelnegocio": "0",
-      "localidad": "Santafe",
-      "ciudad":"Bogota",
-      "pais":"Colombia",
-      "id": "1241341231",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar: 9:00 AM - 7:00 PM,Mié: 8:30 AM - 5:30 PM,Jue: 9:30 AM - 6:30 PM,Vie: 8:00 AM - 6:00 PM,Sáb: Cerrado,Dom: Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d286.69210748584027!2d-74.07370445893818!3d4.6577635634135826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a5260ce216b%3A0xca1f35c2011dda61!2sCra.%2027a%20%236457%2C%20Bogot%C3%A1!5e1!3m2!1ses-419!2sco!4v1684127169585!5m2!1ses-419!2sco"
-    }  ]
+      "pais": "Colombia",
+      "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1689079090544!5m2!1ses-419!2sco!6m8!1m7!1s9u7gif5S1nH-tKpCmF3yww!2m2!1d4.676083603740192!2d-74.08499452120509!3f245.7069708579426!4f2.1798801953024167!5f0.7820865974627469"
+    }
+     ]
 }

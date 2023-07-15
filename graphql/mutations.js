@@ -78,18 +78,25 @@ mutation createVote($id:String, $idCarro:String ){
 `
 
 export const CREATE_OPINION = gql`
-mutation createOpinion($email:String, $descripcion:String, $idpregunta:ID,$calificacion:Int,$almacen:ID ){
-  createOpinion(input:{ email:$email , descripcion:$descripcion, idpregunta:$idpregunta, calificacion:$calificacion, almacen:$almacen}){
+mutation createOpinion($email:String, $descripcion:String, $idpregunta:ID,$calificacion:Int,$almacen:ID, $nombre:String, $foto:String ){
+  createOpinion(input:{ email:$email , descripcion:$descripcion, idpregunta:$idpregunta, calificacion:$calificacion, almacen:$almacen, nombre:$nombre, foto:$foto}){
     email
     calificacion
     descripcion
     id
+    nombre
+    foto
   }
 }
 `
 export const CREATE_VISITA_ALMACEN = gql`
 mutation createVisitaAlmacen($id:ID){
   createVisitaAlmacen(id:$id)
+}
+`
+export const CREATE_IMPRESION_ALMACEN = gql`
+mutation createImpresionAlmacen($id:ID){
+  createImpresionAlmacen(id:$id)
 }
 `
 export const INTERESADO_ALMACEN = gql`
@@ -110,8 +117,17 @@ mutation createVistaArticulo($id:ID){
 }
 `
 
-export const CREATE_VISITA_WHATSAPP= gql`
+export const CREATE_VISITA_WHATSAPP = gql`
 mutation createVisitaWhatsapp($id:ID){
   createVisitaWhatsapp(id:$id)
+}
+`
+
+export const CREATE_TALLER = gql`
+mutation createTaller($nombre:String, $direccion:String, $localidad:String,$telefono:String,$whatsapp:String, $horario:String, $categorias:[String] ){
+  createTaller(input:{ nombre:$nombre, direccion:$direccion, localidad:$localidad,telefono:$telefono , whatsapp:$whatsapp, horario:$horario, categorias:$categorias}){
+    nombre
+    id
+  }
 }
 `

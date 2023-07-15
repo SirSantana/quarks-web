@@ -1,11 +1,11 @@
 import Layout from "@/src/Components/Layout"
 import { useRouter } from "next/router"
 import styles from '@/styles/ServiciosAutomotriz.module.css'
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import talleres from '../talleres.json'
 import { GET_CALIFICACION_OPINIONES, GET_ONE_NEGOCIOVDOS } from "@/graphql/queries"
 import { client } from "@/client"
-import { ModalShareArticulo } from "@/utils/Modales"
+import { ModalShareArticulo, ModalTelefono } from "@/utils/Modales"
 import ModalCreateOpinion from "@/src/Components/Almacenes/ModalCreateOpinion"
 import Opinion from "@/src/Components/Index/Opinion"
 import Opiniones from "@/src/Components/Almacenes/Opiniones"
@@ -24,12 +24,14 @@ export default function Negocio({ data }) {
   const parts = router?.query?.id?.split("-");
   const [scrolled, setScrolled] = useState(false);
   const [taller, setTaller] = useState(null)
+  const [visibleModalTelefono, setVisibleModalTelefono] = useState(false)
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: parts?.[0] } })
   const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
 
   const [visibleOpinion, setVisibleOpinion] = useState(false)
   const [calificated, setCalificated] = useState(false)
+  const reff = useRef(null)
 
   // Obtener el día actual en la zona horaria de Colombia
   const numeroDia = new Date().getDay();
@@ -39,7 +41,7 @@ export default function Negocio({ data }) {
   const sendMessageWha = () => {
     createVisitaWhatsapp({ variables: { id: parts[0] } })
     let url = `https://api.whatsapp.com/send?phone=57${data?.whatsapp}`;
-    url += `&text=${encodeURI(`Buenos dia, vi su negocio en https://quarks.com.co/${router?.asPath}, estoy interesado en...`)}&app_absent=0`
+    url += `&text=${encodeURI(`Buenos dia, vi su negocio en https://quarks.com.co${router?.asPath}, estoy interesado en...`)}&app_absent=0`
     window.open(url);
   }
   const abrirGoogleMaps = (direccion) => {
@@ -47,7 +49,13 @@ export default function Negocio({ data }) {
     const url = `https://www.google.com/maps/search/?api=1&query=${direccionFormatoURL}`;
     window.open(url, '_blank');
   };
-
+  const handleScroll = () => {
+    window.scrollTo({
+      top: reff?.current?.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,13 +77,13 @@ export default function Negocio({ data }) {
     setTaller(taller1)
   }, [router])
   return (
-    <Layout title={` ${data?.nombre} | Quarks-automotriz`}>
+    <Layout title={` Taller ${data?.nombre} | Quarks-automotriz`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil? data?.fotoperfil: 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias}>
       <div className={styles.container}>
         <div className={styles.sectionOneNegocio}>
           <div className={styles.headerNegocio}>
             <div className={styles.containerHeaderCardMobile}>
               {data?.fotoperfil ?
-                <img src={data?.fotoperfil} className={styles.imgPrincipalLugarMobile} />
+                <img src={data?.fotoperfil} alt={`Taller automotriz ${data?.nombre}`} className={styles.imgPrincipalLugarMobile} />
                 : <ion-icon style={{ fontSize: '72px' }} className={styles.imgPrincipalLugarMobile} name="storefront-outline"></ion-icon>
               }
               <div>
@@ -101,8 +109,8 @@ export default function Negocio({ data }) {
             </div>
 
             {data?.fotoperfil ?
-              <img src={data?.fotoperfil} className={styles.imgPrincipalLugarDesktop} />
-              : <ion-icon style={{ fontSize: '128px' }} className={styles.imgPrincipalLugarDesktop} name="storefront-outline"></ion-icon>
+              <img src={data?.fotoperfil} alt={`Taller ${data?.nombre}`} className={styles.imgPrincipalLugarDesktop} />
+              : <ion-icon style={{ fontSize: '128px' }} class={styles.imgPrincipalLugarDesktop} name="storefront-outline"></ion-icon>
             }
             <div className={styles.headerNegocioText}>
               <div className={styles.containerHeaderCardDesktop}>
@@ -125,18 +133,21 @@ export default function Negocio({ data }) {
               </div>
 
               <div className={styles.containerCategory}>
-                {data?.categorias.map(categoria => (
+                {data?.categorias.slice(0, 5).map(categoria => (
                   <div className={styles.cardCategoryLugar}>
                     <p className={styles.textCategory}>{categoria}</p>
                   </div>
                 ))}
+                {data?.categorias.length > 5 && <div className={styles.cardCategoryLugar}>
+                  <p className={styles.textCategory}>+ {data?.categorias.length} categorias</p>
+                </div>}
               </div>
               <div className={styles.containerButtonsCA}>
-                <button className={styles.buttonPrimary}><ion-icon style={{ color: 'white', fontSize: '24px' }} name="star-outline"></ion-icon>Agregar reseña</button>
+                <button onClick={handleScroll} className={styles.buttonPrimary}><ion-icon style={{ color: 'white', fontSize: '24px' }} name="star-outline"></ion-icon>Agregar reseña</button>
                 <button onClick={() => setVisibleShareArticulo(true)} className={styles.buttonSecondary}><ion-icon style={{ fontSize: '24px' }} name="share-outline"></ion-icon>Compartir</button>
               </div>
               <div className={styles.containerButtonsMobile}>
-                <div className={styles.containerButtonMobile}>
+                <div onClick={handleScroll} className={styles.containerButtonMobile}>
                   <ion-icon style={{ fontSize: '24px' }} name="star-outline"></ion-icon>
                   <p className={styles.textCategory}>Agregar reseña</p>
                 </div>
@@ -144,7 +155,7 @@ export default function Negocio({ data }) {
                   <ion-icon style={{ fontSize: '24px' }} name="location-outline"></ion-icon>
                   <p className={styles.textCategory}>Ubicacion</p>
                 </div>
-                <div className={styles.containerButtonMobile}>
+                <div onClick={() => setVisibleModalTelefono(true)} className={styles.containerButtonMobile}>
                   <ion-icon style={{ fontSize: '24px' }} name="call-outline"></ion-icon>
                   <p className={styles.textCategory}>Telefono</p>
                 </div>
@@ -226,7 +237,7 @@ export default function Negocio({ data }) {
 
           <h2 className={styles.titleLugar}>Agregar reseña</h2>
 
-          <div>
+          <div ref={reff}>
             {visibleOpinion &&
               <div className={styles.modal}>
                 <ModalCreateOpinion setVisibleOpinion={setVisibleOpinion} setCalificated={setCalificated} />
@@ -285,7 +296,7 @@ export default function Negocio({ data }) {
 
       </div>
       {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />}
-
+      {visibleModalTelefono && <ModalTelefono taller={data?.nombre} telefono={data?.telefono} setVisibleModalTelefono={setVisibleModalTelefono} />}
     </Layout >
 
   )

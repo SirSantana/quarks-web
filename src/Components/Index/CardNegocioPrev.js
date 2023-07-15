@@ -32,7 +32,7 @@ export default function CardNegocioPrev({ el, horariosSeparados }) {
           {result?.data?.getCalificacionOpiniones?.length > 0 &&
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
               {estrellas.map((el, index) => (
-                <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
+                <div key={index} id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
                   <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'16'} />
                 </div>
               ))}
@@ -55,7 +55,7 @@ export default function CardNegocioPrev({ el, horariosSeparados }) {
           {result?.data?.getCalificacionOpiniones?.length > 0 &&
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
               {estrellas.map((el, index) => (
-                <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
+                <div  key={index} id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
                   <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'16'} />
                 </div>
               ))}
@@ -66,12 +66,12 @@ export default function CardNegocioPrev({ el, horariosSeparados }) {
           {
             el.nivelnegocio <= 0
               ? el.categorias.slice(0, 2).map((categoria) => (
-                <div className={styles.cardCategoryLugar}>
+                <div key={categoria} className={styles.cardCategoryLugar}>
                   <p className={styles.textCategory}>{categoria}</p>
                 </div>
               ))
               : el.categorias.map((categoria) => (
-                <div className={styles.cardCategoryLugar}>
+                <div key={categoria} className={styles.cardCategoryLugar}>
                   <p className={styles.textCategory}>{categoria}</p>
                 </div>
               ))

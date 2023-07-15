@@ -7,6 +7,8 @@ import talleres from './talleres.json'
 import { useEffect, useState } from "react";
 import { options, options2 } from "@/src/Components/Main/Main";
 import CardNegocioPrev from "@/src/Components/Index/CardNegocioPrev";
+import { client } from "@/client";
+import { CREATE_IMPRESION_ALMACEN } from "@/graphql/mutations";
 
 // const options2 = [
 //   { value: 'Recomendado', label: 'Recomendado' },
@@ -49,7 +51,7 @@ export default function ServicioAutomotriz({ data }) {
   const servicioFiltrado2 = options2.find(el => el.value === parts?.[1])
 
   return (
-    <Layout title={`Los mejores ${parts?.[0]} en ${parts?.[1]}`}>
+    <Layout title={`Los mejores talleres de carros para ${parts?.[0]} en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg'}url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el=> " taller de "  +  el.value +" en "+ parts?.[1])}`}>
       <div className={styles.container2}>
 
         <div className={styles.section1}>
@@ -63,8 +65,8 @@ export default function ServicioAutomotriz({ data }) {
               </div> */}
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <p className={styles.subtitleHeader}>Filtrar:</p>
-                <Select onChange={handleChange} options={options} isSearchable={false} styles={customStyles} defaultValue={options[servicioFiltrado.index]} />
-                <Select onChange={handleChange2} options={options2} isSearchable={false} styles={customStyles} defaultValue={options2[servicioFiltrado2.index]} />
+                <Select onChange={handleChange} options={options} isSearchable={false} styles={customStyles} defaultValue={options[servicioFiltrado?.index]} />
+                <Select onChange={handleChange2} options={options2} isSearchable={false} styles={customStyles} defaultValue={options2[servicioFiltrado2?.index]} />
 
               </div>
             </div>
@@ -105,6 +107,9 @@ export async function getServerSideProps({ query }) {
   const parts = query?.id?.split("-");
   let categoria = parts[0];
   let localidad = parts[1].split(".")[0]
+
+
+
   let resultados = talleres?.talleres.filter((taller) => {
     const coincideCategoria = taller?.categorias.includes(categoria);
     return coincideCategoria;
@@ -115,10 +120,26 @@ export async function getServerSideProps({ query }) {
       return coincideLocalidad;
     });
   }
-
+   resultados.map(el=>{
+    const result = client.mutate(
+      {
+        mutation: CREATE_IMPRESION_ALMACEN,
+        variables: { id: el?.id }
+      }
+    )
+  }
+  )
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+  const resultados2 = shuffleArray(resultados);
   return {
     props: {
-      data: resultados
+      data: resultados2
     },
   };
 }

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import Navbar from '@/src/Components/Navbar/Navbar'
-import Main from '@/src/Components/Main/Main'
+import Main, { options } from '@/src/Components/Main/Main'
 import HomeSection from '@/src/Components/Home/Home'
 import PasosCotizacion from '@/src/Components/Home/PasosCotizacion'
 import Beneficios from '@/src/Components/Home/Beneficios'
@@ -30,22 +30,48 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Mundo automotriz | Quarks automotriz</title>
-        <meta name="description" content={"Articulos referentes al mundo automotriz, explicado de una manera clara y sencilla para todos"} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />        <link rel="icon" href="/Logo.png" />
-        <meta property="og:title" content='Mundo automotriz | Quarks automotriz' key="title" />
-        <meta property='og:description' content={"Articulos referentes al mundo automotriz, explicado de una manera clara y sencilla para todos"} />
+
+
+        <title>Talleres de carros en Bogotá | Quarks Automotriz</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
+        <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia"} />
+        <meta name='robots' content='follow, index, max-image-preview:large' />
+        <meta name='bingbot' content='follow, index' />
+        <meta name='GOOGLEBOT' content='follow, index' />
+        <meta name='language' content='spanish' />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@quarks-automotriz" />
+        <meta name="twitter:creator" content="@quarks-automotriz" />
+        <meta name="twitter:title" content={"Talleres de carros en Bogotá | Quarks Automotriz"} />
+        <meta name="twitter:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
+        <meta name="url" content={`https://quarks.com.co`} />
+        <meta property="url" content={`https://quarks.com.co`} />
+
+        <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
+        <meta property="og:title" content={"Talleres de carros en Bogotá | Quarks Automotriz"} key="title" />
+        <meta property="og:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
+        <meta property="og:image:url" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
+        <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
+        <meta property='og:url' content={`https://quarks.com.co/`} />
+
+        <meta property='og:locale' content='es_CO' />
+        <meta property='og:locale:alternate' content='es_CO' />
         <meta property='og:site_name' content='Quarks' />
-        <meta property='og:url' content='https://quarks.com.co' />
-        {/* <meta name="keywords" content='repuestos de carros en bogota, repuestos de carros en colombia, donde cotizar repuestos para carro, repuestos de carros 7 de agosto, partes de carros en bogota, amortiguadores para carro en bogota, suspension de carros en bogota, suspension de carros en colombia,suspension para carros en colombia, partes de motor para carros en bogota, ' /> */}
-        <link rel="icon" href="/logoquarks200623.png" />
+        <meta property="og:image:width" content='1080' />
+        <meta property="og:image:height" content='1080' />
+        <meta property="og:image:type" content='image/png' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
+        <link rel="icon" href="/logoquarks200623.png" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       </Head>
 
@@ -60,10 +86,10 @@ export default function Home() {
         {/* <HomeArticulos/> */}
         <Main />
         <ServiciosPopulares />
-        
-        <TalleresRecomendados/>
-        
-        
+
+        {/* <TalleresRecomendados /> */}
+
+
         {/* <TalleresRecomendados/> */}
 
 

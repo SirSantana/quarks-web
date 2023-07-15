@@ -58,7 +58,6 @@ export default function Opinion({ almacen, setCalificated }) {
         </div>
 
       }
-
       {
         result?.data?.getOpiniones?.map(opinion => {
           const fecha = new Date(opinion?.fecha).toLocaleDateString()
@@ -68,16 +67,26 @@ export default function Opinion({ almacen, setCalificated }) {
 
           return (
             <>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', }}>
-                  {estrellas.map((el, index) => (
-                    <div id={index} style={{ marginRight: '8px' }}  >
-                      <Star index={index} calificacion={opinion?.calificacion} tamaño={12} />
-                    </div>
-                  ))}
-                </div>
-                <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', justifySelf: 'end', margin: 0 }}>{opinion.email.split("@")[0]} · {fecha}</h6>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between'}}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
+                  <img style={{ borderRadius: '25px', width: '36px', height: '36px' }} src={opinion?.foto} />
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
+                    <h6 className={styles.subtitle} style={{ color: '#373737', margin: 0, fontWeight: '600' }}>{opinion.nombre}</h6>
+                    <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', margin: 0, textAlign: 'left', alignSelf: 'flex-start' }}>{fecha}</h6>
+                  </div>
 
+                </div>
+
+
+                {/* <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', justifySelf: 'end', margin: 0 }}>{opinion.email.split("@")[0]} · {fecha}</h6> */}
+
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '16px' }}>
+                {estrellas.map((el, index) => (
+                  <div id={index} style={{ marginRight: '8px' }}  >
+                    <Star index={index} calificacion={opinion?.calificacion} tamaño={16} />
+                  </div>
+                ))}
               </div>
               <h6 className={styles.title3} style={{ margin: '4px 0', color: '#373737', alignSelf: 'flex-start' }}>{opinion?.descripcion}</h6>
               <div style={{ backgroundColor: '#d9d9d9', height: '1px', width: '100%', margin: '16px 0' }} />

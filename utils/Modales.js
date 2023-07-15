@@ -261,7 +261,6 @@ export function ModalChooseTipoGasto({ setVisibleModalGasto, setSelectTipoGasto,
 
 let months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre', 2023]
 export function ModalChooseDate({ setVisibleModalDate, date, setDate }) {
-  console.log(date);
   return (
     <div onClick={() => setVisibleModalDate(false)} className={styles.modal}>
       <div style={{ gap: '16px' }} className={styles.modalContent}>
@@ -288,13 +287,13 @@ export function ModalChooseDate({ setVisibleModalDate, date, setDate }) {
 // }
 
 
-export function ModalShareArticulo({ setVisibleShareArticulo, url }) {
+export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
   const handleCopy = () => {
     const currentURL = window.location.href;
 
     // Verificar si el navegador es compatible con la API Clipboard
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(currentURL)
+      navigator.clipboard.writeText(otherUrl? url: currentURL)
         .then(() => {
           alert('URL copiada al portapapeles');
         })
@@ -307,19 +306,34 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url }) {
     }
   }
   return (
-    <div onClick={()=>setVisibleShareArticulo(false)} className={styles.modal}>
-      <div style={{ gap: '16px', cursor:'pointer', alignItems:'flex-start' }} className={styles.modalContent}>
+    <div onClick={() => setVisibleShareArticulo(false)} className={styles.modal}>
+      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start' }} className={styles.modalContent}>
         <h3>Compartir</h3>
-        <div onClick={handleCopy} style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}}>
-        <ion-icon  style={{width:'24px', height:'24px', borderRadius:'50%'}} name="share-social-outline"></ion-icon> 
-        <p style={{fontSize:'12px'}}>Copiar link</p>
+        <div onClick={handleCopy} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
+          <ion-icon style={{ width: '24px', height: '24px', borderRadius: '50%' }} name="share-social-outline"></ion-icon>
+          <p style={{ fontSize: '12px' }}>Copiar link</p>
         </div>
-        <FacebookShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url} ><FacebookIcon style={{width:'24px', height:'24px', borderRadius:'50%'}}/><p style={{fontSize:'12px'}}>Facebook</p></FacebookShareButton>
-        <TwitterShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url} ><TwitterIcon style={{width:'24px', height:'24px', borderRadius:'50%'}}/><p style={{fontSize:'12px'}}>Twitter</p></TwitterShareButton>
-        <WhatsappShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url}><WhatsappIcon  style={{width:'24px', height:'24px', borderRadius:'50%'}}/><p style={{fontSize:'12px'}}>WhatsApp</p></WhatsappShareButton>
-        <EmailShareButton style={{display:'flex', flexDirection:'row', alignItems:'center',gap:'8px'}} url={url}><EmailIcon style={{width:'24px', height:'24px', borderRadius:'50%'}}/> <p style={{fontSize:'12px'}}>Email</p></EmailShareButton>
+        <FacebookShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url} ><FacebookIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Facebook</p></FacebookShareButton>
+        <TwitterShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url} ><TwitterIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Twitter</p></TwitterShareButton>
+        <WhatsappShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url}><WhatsappIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>WhatsApp</p></WhatsappShareButton>
+        <EmailShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url}><EmailIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /> <p style={{ fontSize: '12px' }}>Email</p></EmailShareButton>
       </div>
     </div>
 
+  )
+}
+
+export function ModalTelefono({ telefono, taller,setVisibleModalTelefono}) {
+  return (
+    <div onClick={() => setVisibleModalTelefono(false)} className={styles.modal} >
+      <div style={{ gap: '16px', borderRadius:'8px', padding:'24px' }} className={styles.modalContent} >
+        <h3>Telefono / celular</h3>
+        <p style={{ fontSize: '14px', fontWeight: '400', color: '#373737', margin: 0 }}>
+          Comunicate con el taller {taller}, diles que viste su anuncio en quarks.com.co
+        </p>
+        <p style={{ fontSize: '20px', fontWeight: '700', color: '#373737', margin: 0 }}>{telefono}</p>
+
+      </div>
+    </div>
   )
 }

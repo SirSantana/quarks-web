@@ -8,7 +8,7 @@ export default function Layout({ children, title, description, type, price, keyw
   return (
     <>
       <Head>
-        
+
 
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -30,14 +30,16 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta name="twitter:image" content={image} />
         <meta name="url" content={`https://quarks.com.co${url}`} />
         <meta property="url" content={`https://quarks.com.co${url}`} />
-        
+
         <meta property="twitter:description" content={description} />
         <meta property="og:title" content={title} key="title" />
         <meta property="og:image" content={image} />
         <meta property="og:image:url" content={image} />
         <meta property='og:description' content={description} />
         <meta property='og:url' content={`https://quarks.com.co${url}`} />
-        <meta property='og:type' content={type} />
+        {type &&
+          <meta property='og:type' content={type} />
+        }
         <meta property='og:locale' content='es_CO' />
         <meta property='og:locale:alternate' content='es_CO' />
         <meta property='og:site_name' content='Quarks' />
@@ -45,10 +47,13 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta property="og:image:height" content='200' />
         <meta property="og:image:type" content='image/png' />
 
-        {tags?.map(tag=><meta property='article:tag' content={tag} />)}
-        <meta property='article:published_time' content={fecha} />
-        <meta property='article:modified_time' content={fecha} />
-        <meta property='date' content={fecha} />
+        {tags?.map(tag => <meta property='article:tag' content={tag} />)}
+        {fecha &&
+          <>
+            <meta property='article:published_time' content={fecha} />
+            <meta property='article:modified_time' content={fecha} />
+            <meta property='date' content={fecha} />
+          </>}
 
 
         {price &&
@@ -75,7 +80,7 @@ export default function Layout({ children, title, description, type, price, keyw
         {/* <Navbar/> */}
         {children}
         <Footer />
-        
+
       </main>
 
 

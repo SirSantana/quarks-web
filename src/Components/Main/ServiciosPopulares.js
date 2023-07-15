@@ -6,7 +6,7 @@ const categorias = [
   { imagen: 'Clutch', servicio: 'Servicio de Clutch' },
   { imagen: 'Caja y Transmision', servicio: 'Servicio de Cajas' },
   { imagen: 'Carroceria', servicio: 'Servicio de Latonería y pintura' },
-  { imagen: 'Direccion y suspension', servicio: 'Servicio de Amortiguadores' },
+  { imagen: 'Direccion y suspension', servicio: 'Servicio de Suspensión' },
   { imagen: 'Filtros', servicio: 'Cambio de aceite' },
   { imagen: 'Electricos', servicio: 'Servicio de Eléctricos' },
   { imagen: 'Frenado', servicio: 'Servicio de Frenos' },

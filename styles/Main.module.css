@@ -12,6 +12,7 @@
 .divContainer {
   background-color: white;
   height: 100vh;
+  width: 100%;
 
 }
 
@@ -477,6 +478,7 @@
   .buttonPrimary {
     width: 100%;
     border-radius: 8px;
+    height: fit-content;
   }
 }
 
@@ -526,8 +528,7 @@
 }
 @media (max-width: 600px) {
   .divContainer {
-    height: 90vh;
-  
+    height: 70vh;
   }
   .icon{
     width: 24px;
@@ -540,19 +541,17 @@
   }
 
   .containerIcons {
-    margin-top: 35%;
-    width: 90%;
-    justify-content: center;
+    display: none;
   }
 
   .homeCard {
     flex-direction: column;
-    top: 40%;
+    top: 35%;
     width: 90%;
   }
 
   .home {
-    height: 50%;
+    height: 60%;
   }
 
   .button {
@@ -597,8 +596,3 @@
   }
 }
 
-@media (max-width: 450px) {
-  .containerIcons {
-    margin-top: 45%;
-  }
-}
