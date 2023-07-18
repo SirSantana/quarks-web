@@ -16,3 +16,6 @@ export const convertToBase64 = (file) => {
     return base64
     // setForm({ ...form, imagen: base64 });
   };
+
+
+  

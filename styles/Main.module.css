@@ -412,6 +412,11 @@
 .textCategory{
   font-size: 14px;
 }
+.imgTallerDefault{
+  width: 250px;
+  height: 280px;
+  object-fit: cover;
+}
 @media (max-width: 1200px) {
   .select1 {
     width: 100%;
@@ -491,6 +496,10 @@
     height: 32px;
   font-size: 32px;
 
+  }
+  .imgTallerDefault{
+    width: 130px;
+    height: 150px;
   }
   .containerIcons {
     margin-top: 20%;

@@ -86,7 +86,7 @@ export default function Main() {
       <section className={styles.home} >
         <div className={styles.homeText} style={{ flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10%' }}>
           <h1 className={styles.title}>
-            Los mejores talleres de Bogotá a un click
+            Encuentra los mejores talleres mecanicos de Bogotá
           </h1>
           {/* <img src='./Croquis2.png' style={{width:'30%', height:'250px'}}/> */}
         </div>

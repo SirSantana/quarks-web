@@ -30,11 +30,9 @@ export default function Home() {
   return (
     <>
       <Head>
-
-
-        <title>Talleres de carros en Bogotá | Quarks Automotriz</title>
+        <title>Directorio de Talleres de carros en Bogotá </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
+        <meta name="description" content={`Encuentra los mejores talleres mecanicos con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
         <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia"} />
         <meta name='robots' content='follow, index, max-image-preview:large' />
         <meta name='bingbot' content='follow, index' />
@@ -44,13 +42,13 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quarks-automotriz" />
         <meta name="twitter:creator" content="@quarks-automotriz" />
-        <meta name="twitter:title" content={"Talleres de carros en Bogotá | Quarks Automotriz"} />
+        <meta name="twitter:title" content={"Directorio de Talleres de carros en Bogotá "} />
         <meta name="twitter:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta name="url" content={`https://quarks.com.co`} />
         <meta property="url" content={`https://quarks.com.co`} />
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
-        <meta property="og:title" content={"Talleres de carros en Bogotá | Quarks Automotriz"} key="title" />
+        <meta property="og:title" content={"Directorio de Talleres de carros en Bogotá "} key="title" />
         <meta property="og:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta property="og:image:url" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />

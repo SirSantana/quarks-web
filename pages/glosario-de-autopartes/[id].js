@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import VanillaTilt from 'vanilla-tilt';
 import parse from 'html-react-parser';
-
+import articulos from '../../utils/articulosrepuestos.json'
 
 export default function Repuesto({ data }) {
   const router = useRouter()
@@ -23,93 +23,109 @@ export default function Repuesto({ data }) {
     const element = document.querySelector('[data-tilt]');
     VanillaTilt.init(element);
   }, []);
+  console.log(data);
   return (
     <Layout title={data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
       <div className={styles.container}>
         {/* <HeaderHome /> */}
-        <HeaderDiccionario tema={data?.tema} tiempo={data?.tiempoLectura} id={data?.id} img={data?.imgPrincipal} titulo={data?.subtituloPrincipal} />
+        <HeaderDiccionario tema={data?.tema} tiempo={data?.tiempoLectura} id={data?.id} img={data?.imgPrincipal} titulo={data?.parrafoSeisDos ? data?.parrafoSeisDos : data?.subtituloPrincipal} subtitle={data?.parrafoSeisTres} />
+        {data?.parrafoSeis ?
+          parse(data?.parrafoSeis)
+          :
+          <>
+            <div className={styles.containerGrid}>
+              <div data-tilt className={styles.foto}>
+                <img src={data?.imgPrincipal} className={styles.imgRepuesto} />
 
-        <div className={styles.containerGrid}>
-          <div data-tilt className={styles.foto}>
-            <img src={data?.imgPrincipal} className={styles.imgRepuesto} />
+              </div>
+              <div className={styles.seccion1}>
+                <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="cog-outline"></ion-icon>
 
-          </div>
-          <div className={styles.seccion1}>
-            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="cog-outline"></ion-icon>
+                <h2 className={styles.question}>{data.tituloParrafoUno}</h2>
+                <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoUno)} </p>
 
-            <h2 className={styles.question}>{data.tituloParrafoUno}</h2>
-            <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoUno)} </p>
-
-          </div>
-          <div className={styles.seccion3}>
-            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="construct-outline"></ion-icon>
-            <h2 className={styles.question}>{data.tituloParrafoCinco}</h2>
-            <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCinco)}</p>
+              </div>
+              <div className={styles.seccion3}>
+                <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="construct-outline"></ion-icon>
+                <h2 className={styles.question}>{data.tituloParrafoCinco}</h2>
+                <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCinco)}</p>
 
 
-          </div>
-          <div className={styles.seccion2}>
-            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="extension-puzzle-outline"></ion-icon>
+              </div>
+              <div className={styles.seccion2}>
+                <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="extension-puzzle-outline"></ion-icon>
 
-            <h2 className={styles.question}>{data.tituloParrafoTres}</h2>
-            <div style={{ listStyle: 'none', fontSize: '12px', lineHeight: '20px', marginTop: '8px' }}>
-              {parse(data?.parrafoTres)}
+                <h2 className={styles.question}>{data.tituloParrafoTres}</h2>
+                <div style={{ listStyle: 'none', fontSize: '12px', lineHeight: '20px', marginTop: '8px' }}>
+                  {parse(data?.parrafoTres)}
+                </div>
+
+              </div>
+              <div className={styles.seccion5}>
+                <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="build-outline"></ion-icon>
+                <h2 className={styles.question}>{data.tituloParrafoCuatro}</h2>
+                <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCuatro)}</p>
+              </div>
+              <div className={styles.seccion4}>
+                <ion-icon style={{ fontSize: '24px', }} name="settings-outline"></ion-icon>
+                <h2 className={styles.question}>{data.tituloParrafoDos}</h2>
+                <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoDos)}</p>
+
+
+              </div>
             </div>
-            {/* <p style={{fontSize:'12px', lineHeight:'20px', marginTop:'8px'}}className={styles.response}>{texto}</p> */}
-
-          </div>
-          <div className={styles.seccion5}>
-            <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="build-outline"></ion-icon>
-            <h2 className={styles.question}>{data.tituloParrafoCuatro}</h2>
-            <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCuatro)}</p>
-          </div>
-          <div className={styles.seccion4}>
-            <ion-icon style={{ fontSize: '24px', }} name="settings-outline"></ion-icon>
-            <h2 className={styles.question}>{data.tituloParrafoDos}</h2>
-            <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoDos)}</p>
 
 
-          </div>
-        </div>
+            <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '0 0 32px 0' }} />
+            <SeccionPrincipalArticulo titulo={data?.tituloPrincipal} tituloParrafo={data.tituloParrafoUno} parrafoUno={data?.parrafoUno} parrafoDos={data?.parrafoUnoDos} parrafoTres={data?.parrafoUnoTres} video={data?.videoUrlUno} />
 
+            {data?.tituloParrafoDos && <SeccionSecundaria img={data?.imgParrafoDos} tituloParrafo={data.tituloParrafoDos} parrafoUno={data?.parrafoDos} parrafoDos={data?.parrafoDosDos} parrafoTres={data?.parrafoDosTres} video={data?.videoUrlDos} />}
 
-        <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '0 0 32px 0' }} />
-        {/* <SeccionPrincipalArticulo titulo={data?.tituloPrincipal} tituloParrafo={data.tituloParrafoUno} parrafoUno={data?.parrafoUno} parrafoDos={data?.parrafoUnoDos} parrafoTres={data?.parrafoUnoTres} video={data?.videoUrlUno} />
+            {data?.tituloParrafoTres && <SeccionSecundaria img={data?.imgParrafoTres} tituloParrafo={data.tituloParrafoTres} parrafoUno={data?.parrafoTres} parrafoDos={data?.parrafoTresDos} parrafoTres={data?.parrafoTresTres} video={data?.videoUrlTres} />}
 
-        {data?.tituloParrafoDos && <SeccionSecundaria img={data?.imgParrafoDos} tituloParrafo={data.tituloParrafoDos} parrafoUno={data?.parrafoDos} parrafoDos={data?.parrafoDosDos} parrafoTres={data?.parrafoDosTres} video={data?.videoUrlDos} />}
+            {data?.tituloParrafoCuatro && <SeccionSecundaria img={data?.imgParrafo} tituloParrafo={data.tituloParrafoCuatro} parrafoUno={data?.parrafoCuatro} parrafoDos={data?.parrafoCuatroDos} parrafoTres={data?.parrafoCuatroTres} video={data?.videoUrlCuatro} />}
 
-        {data?.tituloParrafoTres && <SeccionSecundaria img={data?.imgParrafoTres} tituloParrafo={data.tituloParrafoTres} parrafoUno={data?.parrafoTres} parrafoDos={data?.parrafoTresDos} parrafoTres={data?.parrafoTresTres} video={data?.videoUrlTres} />}
+            {data?.tituloParrafoCinco && <SeccionSecundaria img={data?.imgParrafoCinco} tituloParrafo={data.tituloParrafoCinco} parrafoUno={data?.parrafoCinco} parrafoDos={data?.parrafoCincoDos} parrafoTres={data?.parrafoCincoTres} video={data?.videoUrlCinco} />}
 
-        {data?.tituloParrafoCuatro && <SeccionSecundaria img={data?.imgParrafo} tituloParrafo={data.tituloParrafoCuatro} parrafoUno={data?.parrafoCuatro} parrafoDos={data?.parrafoCuatroDos} parrafoTres={data?.parrafoCuatroTres} video={data?.videoUrlCuatro} />}
+            {data?.tituloParrafoSeis && <SeccionSecundaria img={data?.imgParrafoSeis} tituloParrafo={data.tituloParrafoSeis} parrafoUno={data?.parrafoSeis} parrafoDos={data?.parrafoSeisDos} parrafoTres={data?.parrafoSeisTres} video={data?.videoUrlSeis} />}
 
-        {data?.tituloParrafoCinco && <SeccionSecundaria img={data?.imgParrafoCinco} tituloParrafo={data.tituloParrafoCinco} parrafoUno={data?.parrafoCinco} parrafoDos={data?.parrafoCincoDos} parrafoTres={data?.parrafoCincoTres} video={data?.videoUrlCinco} />}
+            {data?.videoUrlUno && !data?.parrafoDosDos &&
+              <iframe className={styles.imgPrincipal} style={{ maxHeight: '315px', maxWidth: '560px' }} src={data?.videoUrlUno} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            }
+            {
+              data?.parrafoDosDos &&
+              <div>
+                <h3 style={{ fontSize: '20px' }} className={styles.question}>Preguntas frecuentes</h3>
+                <div style={{ margin: '32px 0' }}>
+                  <h2 className={styles.question}>{data?.parrafoDosDos}</h2>
+                  <p style={{ marginTop: '8px', }} className={styles.response}>{parse(data?.parrafoDosTres)} </p>
+                  {data?.videoUrlUno &&
+                    <iframe className={styles.imgPrincipal} style={{ maxHeight: '315px', maxWidth: '560px' }} src={data?.videoUrlUno} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  }
+                </div>
+                <div style={{ margin: '40px 0' }}>
+                  <h2 className={styles.question}>{data?.parrafoTresDos}</h2>
+                  <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoTresTres)} </p>
+                </div>
+                <div style={{ margin: '40px 0' }}>
+                  <h2 className={styles.question}>{data?.parrafoCuatroDos}</h2>
+                  <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCuatroTres)} </p>
+                </div>
+              </div>
 
-        {data?.tituloParrafoSeis && <SeccionSecundaria img={data?.imgParrafoSeis} tituloParrafo={data.tituloParrafoSeis} parrafoUno={data?.parrafoSeis} parrafoDos={data?.parrafoSeisDos} parrafoTres={data?.parrafoSeisTres} video={data?.videoUrlSeis} />} */}
-        {/* <OtrosArticulos img={data?.imgPrincipal} /> */}
-        {data?.videoUrlUno && !data?.parrafoDosDos &&
-            <iframe className={styles.imgPrincipal} style={{maxHeight:'315px', maxWidth:'560px'}} src={data?.videoUrlUno} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          }
-        {
-          data?.parrafoDosDos &&
-          <div>
-            <h3 style={{ fontSize: '20px' }} className={styles.question}>Preguntas frecuentes</h3>
-            <div style={{ margin: '32px 0' }}>
-              <h2 className={styles.question}>{data?.parrafoDosDos}</h2>
-              <p style={{ marginTop: '8px', }} className={styles.response}>{parse(data?.parrafoDosTres)} </p>
-              {data?.videoUrlUno &&
-            <iframe className={styles.imgPrincipal} style={{maxHeight:'315px', maxWidth:'560px'}} src={data?.videoUrlUno} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          }
-            </div>
-            <div style={{ margin: '40px 0' }}>
-              <h2 className={styles.question}>{data?.parrafoTresDos}</h2>
-              <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoTresTres)} </p>
-            </div>
-            <div style={{ margin: '40px 0' }}>
-              <h2 className={styles.question}>{data?.parrafoCuatroDos}</h2>
-              <p style={{ marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoCuatroTres)} </p>
-            </div>
-          </div>
+            }
+            <OtrosArticulos img={data?.imgPrincipal} />
+
+          </>
         }
+
+
+
+
+
+
+
+
 
         <ArticulosRelacionados />
         <BottomArticulo palabras={data?.palabrasClave} />

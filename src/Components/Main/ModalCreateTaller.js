@@ -19,7 +19,7 @@ export default function ModalCreateTaller({ data, loading, error }) {
           {data && `Bienvenido Taller ${data?.createTaller.nombre} a la comunidad de los mejores talleres de Bogota, estaremos juntos en el crecimiento de tu negocio. Copia el link de tu taller y compartelo en tus redes!`}
           {loading && 'Estamos creando el anuncio de tu taller, falta poco...'}
         </h3>
-        <img src="https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png" style={{ width: '250px', height: '280px', objectFit: 'cover' }} />
+        <img src="https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png" className={styles.imgTallerDefault} />
         {data && <button onClick={()=> setVisibleShareArticulo(true)} style={{ height: '50px', color: 'white', marginTop: '16px', width: '200px', border: 'none', backgroundColor: '#5B0221', padding: '8px 16px', borderRadius: '8px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '16px' }}>
           <ion-icon style={{ color: 'white', fontSize: '24px' }} name="share-social-outline"></ion-icon>
           Copiar Link

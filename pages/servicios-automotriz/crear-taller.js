@@ -144,7 +144,7 @@ export default function CrearTaller() {
     }
   }
   return (
-    <Layout title={'Ingresa tu taller al directorio de talleres de Bogota gratis!'} image={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} >
+    <Layout title={'Ingresa tu taller al directorio de talleres de Bogota'} image={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} description={'Unete GRATIS!, aumenta tu visibilidad y exposicion a mas clientes, y haz crecer tu negocio. Desde $0!'}>
       <div className={styles.containerVendedor}>
         <img src="https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png" className={styles.imgRegisterTaller} />
         <div className={styles.containerFormTaller}>
@@ -183,10 +183,10 @@ export default function CrearTaller() {
                 <input id='telefono' name='telefono' onChange={handleChange} placeholder="Numero de telefono" className={styles.input} type={'text'} />
                 <input id='whatsapp' name='whatsapp' onChange={handleChange} placeholder="Numero de WhatsApp" className={styles.input} type={'text'} />
                 {/* <input id='email' name='email' placeholder="Correo" className={styles.input} type={'email'} /> */}
-                <div style={{ marginTop: '16px' }}>
+                <div style={{ marginTop: '16px', width:'100%' }}>
                   <h6 style={{ fontSize: '14px', marginBottom: '16px' }}>Horario de atencion</h6>
                   {weekHours.map((day, index) => (
-                    <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', marginBottom: '16px' }} key={index}>
+                    <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', marginBottom: '16px',width:'100%' }} key={index}>
                       <label htmlFor={`open-checkbox-${index}`}>{day.day}:</label>
                       <input
                         type="checkbox"

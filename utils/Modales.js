@@ -5,7 +5,7 @@ import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import sendMessage from './fetching'
 import Link from 'next/link'
-import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, ViberShareButton, WhatsappIcon, WhatsappShareButton } from 'react-share'
+import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, ViberShareButton, WhatsappIcon, WhatsappShareButton ,} from 'react-share'
 
 
 
@@ -305,6 +305,7 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
       alert('El navegador no es compatible con la API Clipboard');
     }
   }
+  const urlEncoded = url.replace(/ /g, '%20')
   return (
     <div onClick={() => setVisibleShareArticulo(false)} className={styles.modal}>
       <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start' }} className={styles.modalContent}>
@@ -313,10 +314,12 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
           <ion-icon style={{ width: '24px', height: '24px', borderRadius: '50%' }} name="share-social-outline"></ion-icon>
           <p style={{ fontSize: '12px' }}>Copiar link</p>
         </div>
-        <FacebookShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url} ><FacebookIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Facebook</p></FacebookShareButton>
-        <TwitterShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url} ><TwitterIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Twitter</p></TwitterShareButton>
-        <WhatsappShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url}><WhatsappIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>WhatsApp</p></WhatsappShareButton>
-        <EmailShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={url}><EmailIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /> <p style={{ fontSize: '12px' }}>Email</p></EmailShareButton>
+        <FacebookShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded} ><FacebookIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Facebook</p></FacebookShareButton>
+        <TwitterShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded} ><TwitterIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Twitter</p></TwitterShareButton>
+        <WhatsappShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded}><WhatsappIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>WhatsApp</p></WhatsappShareButton>
+        <EmailShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded}><EmailIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /> <p style={{ fontSize: '12px' }}>Email</p></EmailShareButton>
+        
+        <a style={{ fontSize: '12px' }} href={urlEncoded}>Ver perfil de mi taller</a>
       </div>
     </div>
 

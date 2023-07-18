@@ -51,13 +51,13 @@ export default function ServicioAutomotriz({ data }) {
   const servicioFiltrado2 = options2.find(el => el.value === parts?.[1])
 
   return (
-    <Layout title={`Los mejores talleres de carros para ${parts?.[0]} en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg'}url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el=> " taller de "  +  el.value +" en "+ parts?.[1])}`}>
+    <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg'}url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el=> " taller de "  +  el.value +" en "+ parts?.[1])}`}>
       <div className={styles.container2}>
 
         <div className={styles.section1}>
           <p style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>{parts?.[0]}{" > "} {parts?.[1]}</p>
           <div className={styles.containerHeaderText}>
-            <h1 className={styles.titleHeader}>Los mejores talleres de carros para {parts?.[0]} en {parts?.[1]}</h1>
+            <h1 className={styles.titleHeader}>Los mejores talleres mecanicos de {parts?.[0]} cerca a mi en {parts?.[1]}</h1>
             <div className={styles.containerFiltersBasic}>
               {/* <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <p className={styles.subtitleHeader}>Ordenar:</p>
