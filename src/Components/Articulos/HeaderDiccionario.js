@@ -3,13 +3,14 @@ import styles from '@/styles/Diccionario.module.css'
 import BottomHeaderInfo from './BottomHeaderInfo';
 
 
-export default function HeaderDiccionario({  tema,  tiempo, id, img, titulo, subtitle}) {
+export default function HeaderDiccionario({  tema,  tiempo, id, img, titulo, subtitle, vDos}) {
   return (
     <div className={styles.containerHeaderDiccionario}>
       <div style={{alignItems:'center', justifyContent:'center', width:'100%'}} className={styles.containerHeaderDiccionario2}>
         <header style={{alignItems:'center', marginBottom:'8px'}} className={styles.containerHeader}>
           <p style={{textAlign:'center'}} className={styles.subtitleCategory}>{tema}</p>
-          <h2 style={{textAlign:'center', width:'100%'}} className={styles.title2}>{titulo}</h2>
+          <h1 style={{textAlign:'center', width:'100%'}} className={styles.title2}>{titulo}</h1>
+          
         </header>
         <BottomHeaderInfo tiempo={tiempo} id={id} />
       </div>

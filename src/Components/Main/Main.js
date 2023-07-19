@@ -30,6 +30,9 @@ export const options = [
   { value: 'Mecanica Basica', label: 'Mecanica Basica', index: 21 },
   { value: 'Mecanica Avanzada', label: 'Mecanica Avanzada', index: 22 },
   { value: 'Taller mecanico', label: 'Taller mecanico', index: 23 },
+  { value: 'Mecanico a Domicilio', label: 'Mecanico a Domicilio', index: 24 },
+
+  
 
 ]
 export const options2 = [

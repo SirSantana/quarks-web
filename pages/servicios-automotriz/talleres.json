@@ -195,6 +195,256 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.1298675120793!2d-74.15472223050084!3d4.679385499705979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9cee10287b71%3A0xe05ce97dedd2eadf!2sCl.%2016h%20%23112-72%2C%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1689594435282!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Motores y Cajas Ruben",
+      "direccion": "Servicio a Domicilio",
+      "categorias": [
+        "Servicio de Cajas",
+        "Taller mecanico",
+        "Mecanica Basica",
+        "Mecanico a Domicilio"
+      ],
+      "localidad": "",
+      "id": "64b7d0bfcbf32fcc68b63588",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Math autos",
+      "direccion": "Calle 75A #29 06",
+      "categorias": [
+        "Sincronizacion",
+        "Servicio de Suspensión",
+        "Servicio de Clutch",
+        "Cambio de aceite",
+        "Servicio de Frenos",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64b7d28ccbf32fcc68b63589",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/MathAutos190723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 9:00 AM - 1:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Multiservicios Ismael Sanchez",
+      "direccion": "Servicio a Domicilio",
+      "categorias": [
+        "Mecanico a Domicilio",
+        "Taller mecanico",
+        "Mecanica Basica",
+        "Servicio de Frenos",
+        "Servicio de Cajas"
+      ],
+      "localidad": "",
+      "id": "64b7e1b9cbf32fcc68b6358a",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Tecnicentro Jose Bustamante",
+      "direccion": "Calle 55 sur #87j-42",
+      "categorias": [
+        "Sincronizacion",
+        "Servicio de Suspensión",
+        "Servicio de Clutch",
+        "Cambio de aceite",
+        "Servicio de Frenos",
+        "Servicio de Motor",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Bosa",
+      "id": "64b7e4eacbf32fcc68b6358b",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Taller Optra Club Colombia",
+      "direccion": "Av Boyacá #64 j - 16",
+      "categorias": [
+        "Sincronizacion",
+        "Servicio de Suspensión",
+        "Servicio de Clutch",
+        "Cambio de aceite",
+        "Servicio de Frenos",
+        "Servicio de Motor",
+        "Servicio de Eléctricos",
+        "Servicio de Baterias",
+        "Taller mecanico",
+        "Mecanica Basica",
+        "Servicio de Aire acondicionado"
+      ],
+      "localidad": "Bosa",
+      "id": "64b7e788cbf32fcc68b6358c",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/Optraclub190723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:00 PM,Mar 8:00 AM - 5:00 PM,Mié 8:00 AM - 5:00 PM,Jue 8:00 AM - 5:00 PM,Vie 8:00 AM - 5:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Aires Acondicionados JC",
+      "direccion": "Calle 66 a # 78 -10",
+      "categorias": [
+        "Servicio de Aire acondicionado",
+        "Taller mecanico"
+      ],
+      "localidad": "Engativa",
+      "id": "64b7ee1ccbf32fcc68b6358d",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Alineautos Serviteca",
+      "direccion": "Tv 78H #41-61 sur",
+      "categorias": [
+        "Sincronizacion",
+        "Servicio de Suspensión",
+        "Alineación y balanceo",
+        "Cambio de aceite",
+        "Servicio de Frenos",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Kennedy",
+      "id": "64b7f060cbf32fcc68b6358e",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Talleres Caldas",
+      "direccion": "Cra 55 # 75 - 45",
+      "categorias": [
+        "Alineación y balanceo",
+        "Cambio de aceite",
+        "Servicio de Eléctricos",
+        "Servicio de Electronica",
+        "Peritaje",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64b80f20cbf32fcc68b6358f",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tqllerescaldas190723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Talleres Padilla",
+      "direccion": "Cra 20 #51-52",
+      "categorias": [
+        "Servicio de Latonería y pintura",
+        "Cambio de aceite",
+        "Servicio de Electronica",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64b80f20cbf32fcc68b6358f",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tallerespadilla190723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 9:00 AM - 5:00 PM,Mar 9:00 AM - 5:00 PM,Mié 9:00 AM - 5:00 PM,Jue 9:00 AM - 5:00 PM,Vie 9:00 AM - 5:00 PM,Sáb 9:00 AM - 5:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Oil Filter´s 7 DE AGOSTO",
+      "direccion": "Calle 68 No. 28 B - 03",
+      "categorias": [
+        "Cambio de aceite",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64b816a0cbf32fcc68b63591",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/oilfilters7agosto190723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 7:00 PM,Dom 9:00 AM - 1:00",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Oil Filter´s Engativa",
+      "direccion": "Cl 64 #113A-75",
+      "categorias": [
+        "Cambio de aceite",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Engativa",
+      "id": "64b8412405384b36b887b709",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/oilfilters7agosto190723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 7:00 PM,Dom 9:00 AM - 1:00",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Oil Filter´s Fontibon",
+      "direccion": "Calle 17 No. 103 A 02",
+      "categorias": [
+        "Cambio de aceite",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Fontibon",
+      "id": "64b8456a05384b36b887b70a",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/oilfilters7agosto190723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 4:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Oil Filter´s Suba",
+      "direccion": "Cra 92 No. 147D-05 ",
+      "categorias": [
+        "Cambio de aceite",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Suba",
+      "id": "64b8487505384b36b887b70b",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/oilfilters7agosto190723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 4:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
     }
      ]
 }
