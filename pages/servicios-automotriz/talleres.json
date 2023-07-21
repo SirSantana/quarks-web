@@ -223,8 +223,10 @@
         "Servicio de Clutch",
         "Cambio de aceite",
         "Servicio de Frenos",
+        "Servicio de Motor",
         "Taller mecanico",
-        "Mecanica Basica"
+        "Mecanica Basica",
+        "Mecanica Avanzada"
       ],
       "localidad": "Barrios Unidos",
       "id": "64b7d28ccbf32fcc68b63589",
@@ -306,6 +308,7 @@
       "direccion": "Calle 66 a # 78 -10",
       "categorias": [
         "Servicio de Aire acondicionado",
+        "Servicio de Cajas",
         "Taller mecanico"
       ],
       "localidad": "Engativa",
@@ -314,7 +317,7 @@
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
       "pais": "Colombia",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "horario": "Lun 8:30 AM - 5:30 PM,Mar 8:30 AM - 5:30 PM,Mié 8:30 AM - 5:30 PM,Jue 8:30 AM - 5:30 PM,Vie 8:30 AM - 5:30 PM,Sáb 8:30 AM - 3:30 PM,Dom Cerrado",
       "ubicacionmaps": ""
     },
     {
@@ -370,7 +373,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Barrios Unidos",
-      "id": "64b80f20cbf32fcc68b6358f",
+      "id": "64b81326cbf32fcc68b63590",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tallerespadilla190723.jpg",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
@@ -444,6 +447,182 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 4:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Solo frenos del norte",
+      "direccion": "Av Suba # 93B – 05",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Suspensión",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ba77866368741f9887b13b",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/solofrenosdelnorte210723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Solo frenos rionegro",
+      "direccion": "Calle 98A #58-19",
+      "categorias": [
+        "Servicio de Frenos",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ba78996368741f9887b13c",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Autofrenos Ortzon",
+      "direccion": "Av Cali #90-46",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Clutch",
+        "Servicio de Suspensión",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Engativa",
+      "id": "64ba830b6368741f9887b13d",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "A Tiempo Cars",
+      "direccion": "CALLE 161 8F 45",
+      "categorias": [
+        "Servicio de Latonería y pintura"
+      ],
+      "localidad": "Usaquen",
+      "id": "64ba84046368741f9887b13e",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/atiempocars210723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Lumaz - Latoneria y Pintura",
+      "direccion": "Cra 27 #75-20",
+      "categorias": [
+        "Servicio de Latonería y pintura"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ba86466368741f9887b13f",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "DACAR PLUS Latoneria y pintura",
+      "direccion": "Cra. 20b #76-79",
+      "categorias": [
+        "Servicio de Latonería y pintura"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ba87046368741f9887b140",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/dakarplus210723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:00 AM - 6:00 PM,Mar 7:00 AM - 6:00 PM,Mié 7:00 AM - 6:00 PM,Jue 7:00 AM - 6:00 PM,Vie 7:00 AM - 6:00 PM,Sáb 8:00 AM - 1:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Latoneria y pintura DMJ Multimarcas",
+      "direccion": "Carrera 68h # 66-07",
+      "categorias": [
+        "Servicio de Latonería y pintura"
+      ],
+      "localidad": "Engativa",
+      "id": "64ba88606368741f9887b141",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Multimarcas latoneria y pintura",
+      "direccion": "Cra. 26 #628",
+      "categorias": [
+        "Servicio de Latonería y pintura"
+      ],
+      "localidad": "Martires",
+      "id": "64ba89db6368741f9887b142",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:00 AM - 6:00 PM,Mar 7:00 AM - 6:00 PM,Mié 7:00 AM - 6:00 PM,Jue 7:00 AM - 6:00 PM,Vie 7:00 AM - 6:00 PM,Sáb 7:00 AM - 5:30 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Aire Acondicionado 7 de agosto",
+      "direccion": "Cra. 28 #63f-42",
+      "categorias": [
+        "Servicio de Aire acondicionado"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ba8b726368741f9887b143",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom 9:00 AM - 2:00 PM",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "ICEBERG TECNOLOGÍA - RADIADORES Y AIRE ACONDICIONADO",
+      "direccion": "Cl. 63f #28a-17",
+      "categorias": [
+        "Servicio de Aire acondicionado"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ba98a46368741f9887b144",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:30 AM - 6:30 PM,Mar 8:30 AM - 6:30 PM,Mié 8:30 AM - 6:30 PM,Jue 8:30 AM - 6:30 PM,Vie 8:30 AM - 6:30 PM,Sáb 8:30 AM - 4:00 PM,Dom Cerrado",
+      "ubicacionmaps": ""
+    },
+    {
+      "nombre": "Cajas Automáticas Mendez",
+      "direccion": "Cra. 28b, #67-37",
+      "categorias": [
+        "Servicio de Cajas",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64baa1606368741f9887b145",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
       "ubicacionmaps": ""
     }
      ]

@@ -10,7 +10,7 @@ import ModalCreateOpinion from "@/src/Components/Almacenes/ModalCreateOpinion"
 import Opinion from "@/src/Components/Index/Opinion"
 import Opiniones from "@/src/Components/Almacenes/Opiniones"
 import { useLazyQuery, useMutation, useQuery } from "@apollo/client"
-import { CREATE_VISITA_ALMACEN, CREATE_VISITA_WHATSAPP } from "@/graphql/mutations"
+import { CREATE_CLICK_COMPARTIDO, CREATE_CLICK_MAPA, CREATE_CLICK_TELEFONO, CREATE_VISITA_ALMACEN, CREATE_VISITA_WHATSAPP } from "@/graphql/mutations"
 import Link from "next/link"
 
 const Star = ({ index, stars, tamaño, }) => {
@@ -28,6 +28,9 @@ export default function Negocio({ data }) {
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: parts?.[0] } })
   const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
+  const [createClickTelefono]= useMutation(CREATE_CLICK_TELEFONO)
+  const [createClickCompartido] = useMutation(CREATE_CLICK_COMPARTIDO)
+  const [createClickMapaDireccion] = useMutation(CREATE_CLICK_MAPA)
 
   const [visibleOpinion, setVisibleOpinion] = useState(false)
   const [calificated, setCalificated] = useState(false)
@@ -56,7 +59,20 @@ export default function Negocio({ data }) {
       behavior: "smooth",
     });
   };
-
+  const handleClickTelefono=(modal)=>{
+    if(modal){
+      setVisibleModalTelefono(true)
+    }
+    createClickTelefono({ variables: { id: parts[0] } })
+  }
+  const handleClickCompartir=()=>{
+    setVisibleShareArticulo(true)
+    createClickCompartido({ variables: { id: parts[0] } })
+  }
+  const handleClickMapa=(data)=>{
+    createClickMapaDireccion({ variables: { id: parts[0] } })
+    abrirGoogleMaps(data?.direccion)
+  }
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 200 && window.scrollY < 900) {
@@ -144,22 +160,22 @@ export default function Negocio({ data }) {
               </div>
               <div className={styles.containerButtonsCA}>
                 <button onClick={handleScroll} className={styles.buttonPrimary}><ion-icon style={{ color: 'white', fontSize: '24px' }} name="star-outline"></ion-icon>Agregar reseña</button>
-                <button onClick={() => setVisibleShareArticulo(true)} className={styles.buttonSecondary}><ion-icon style={{ fontSize: '24px' }} name="share-outline"></ion-icon>Compartir</button>
+                <button onClick={handleClickCompartir} className={styles.buttonSecondary}><ion-icon style={{ fontSize: '24px' }} name="share-outline"></ion-icon>Compartir</button>
               </div>
               <div className={styles.containerButtonsMobile}>
                 <div onClick={handleScroll} className={styles.containerButtonMobile}>
                   <ion-icon style={{ fontSize: '24px' }} name="star-outline"></ion-icon>
                   <p className={styles.textCategory}>Agregar reseña</p>
                 </div>
-                <div onClick={() => abrirGoogleMaps(data?.direccion)} className={styles.containerButtonMobile}>
+                <div onClick={() => handleClickMapa(data)} className={styles.containerButtonMobile}>
                   <ion-icon style={{ fontSize: '24px' }} name="location-outline"></ion-icon>
                   <p className={styles.textCategory}>Ubicacion</p>
                 </div>
-                <div onClick={() => setVisibleModalTelefono(true)} className={styles.containerButtonMobile}>
+                <div onClick={()=>handleClickTelefono(true)} className={styles.containerButtonMobile}>
                   <ion-icon style={{ fontSize: '24px' }} name="call-outline"></ion-icon>
                   <p className={styles.textCategory}>Telefono</p>
                 </div>
-                <div onClick={() => setVisibleShareArticulo(true)} className={styles.containerButtonMobile}>
+                <div onClick={handleClickCompartir} className={styles.containerButtonMobile}>
                   <ion-icon style={{ fontSize: '24px' }} name="share-outline"></ion-icon>
                   <p className={styles.textCategory}>Compartir</p>
                 </div>
@@ -211,16 +227,16 @@ export default function Negocio({ data }) {
           <h2 className={styles.titleLugar}>Datos relevantes</h2>
           <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
             {data?.telefono &&
-              <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', marginTop: '8px' }}>
+              <div onClick={handleClickTelefono} style={{ display: 'flex',cursor:'pointer', flexDirection: 'row', gap: '16px', alignItems: 'center', marginTop: '8px' }}>
                 <ion-icon style={{ fontSize: '24px' }} name="call-outline"></ion-icon>
                 <h6 style={{ fontSize: '14px', fontWeight: '400' }} className={styles.textCategory}>{data?.telefono}</h6>
               </div>}
             {data?.whatsapp &&
-              <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center' }}>
+              <div onClick={sendMessageWha}  style={{ display: 'flex', flexDirection: 'row', gap: '16px',cursor:'pointer', alignItems: 'center' }}>
                 <ion-icon style={{ fontSize: '24px' }} name="logo-whatsapp"></ion-icon>
                 <h6 style={{ fontSize: '14px', fontWeight: '400' }} className={styles.textCategory}>{data?.whatsapp}</h6>
               </div>}
-            <div onClick={() => abrirGoogleMaps(data?.direccion)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', cursor: 'pointer' }}>
+            <div onClick={() => handleClickMapa(data)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', cursor: 'pointer' }}>
               <ion-icon style={{ fontSize: '24px' }} name="arrow-redo-outline"></ion-icon>
               <h6 style={{ fontSize: '14px', fontWeight: '400' }} className={styles.textCategory}>{data?.direccion}</h6>
             </div>
@@ -261,7 +277,7 @@ export default function Negocio({ data }) {
 
           <div className={styles.sectionTwoTwo}>
             {data?.telefono &&
-              <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center' }}>
+              <div  onClick={handleClickTelefono} style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', cursor:'pointer' }}>
                 <ion-icon style={{ fontSize: '24px' }} name="call-outline"></ion-icon>
                 <h6 style={{ fontSize: '14px', fontWeight: '400' }} className={styles.textCategory}>{data?.telefono}</h6>
               </div>}
@@ -269,14 +285,14 @@ export default function Negocio({ data }) {
             <div style={{ backgroundColor: '#d9d9d9', width: '100%', height: '1px', margin: '16px 0' }} />
 
             {data?.whatsapp &&
-              <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center' }}>
+              <div onClick={sendMessageWha} style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', cursor:'pointer' }}>
                 <ion-icon style={{ fontSize: '24px' }} name="logo-whatsapp"></ion-icon>
                 <h6 style={{ fontSize: '14px', fontWeight: '400' }} className={styles.textCategory}>{data?.whatsapp}</h6>
               </div>}
 
             <div style={{ backgroundColor: '#d9d9d9', width: '100%', height: '1px', margin: '16px 0' }} />
 
-            <div onClick={() => abrirGoogleMaps(data?.direccion)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', cursor: 'pointer' }}>
+            <div onClick={() => handleClickMapa(data)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', cursor: 'pointer' }}>
               <ion-icon style={{ fontSize: '24px' }} name="arrow-redo-outline"></ion-icon>
               <h6 style={{ fontSize: '14px', fontWeight: '400' }} className={styles.textCategory}>{data?.direccion}</h6>
             </div>

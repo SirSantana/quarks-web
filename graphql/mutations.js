@@ -131,3 +131,19 @@ mutation createTaller($nombre:String, $direccion:String, $localidad:String,$tele
   }
 }
 `
+
+export const CREATE_CLICK_COMPARTIDO = gql`
+mutation createClickCompartido($id:ID){
+  createClickCompartido(id:$id)
+}
+`
+export const CREATE_CLICK_MAPA = gql`
+mutation createClickMapaDireccion($id:ID){
+  createClickMapaDireccion(id:$id)
+}
+`
+export const CREATE_CLICK_TELEFONO = gql`
+mutation createClickTelefono($id:ID){
+  createClickTelefono(id:$id)
+}
+`

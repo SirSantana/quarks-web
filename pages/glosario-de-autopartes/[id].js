@@ -23,7 +23,6 @@ export default function Repuesto({ data }) {
     const element = document.querySelector('[data-tilt]');
     VanillaTilt.init(element);
   }, []);
-  console.log(data);
   return (
     <Layout title={data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
       <div className={styles.container}>
