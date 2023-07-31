@@ -3,7 +3,7 @@ import { AuthProvider } from '@/Context/AuthContext'
 import '@/styles/globals.css'
 import { ApolloProvider } from '@apollo/client'
 import { SessionProvider } from "next-auth/react"
-
+import { Analytics } from '@vercel/analytics/react';
 export default function App({ Component, pageProps, session }) {
 
 
@@ -12,6 +12,7 @@ export default function App({ Component, pageProps, session }) {
     <SessionProvider session={session}>
       <AuthProvider>
         <Component {...pageProps} />
+        <Analytics />
       </AuthProvider>
     </SessionProvider>
   </ApolloProvider>

@@ -52,7 +52,7 @@ export const options2 = [
   { value: 'Usme. Bogota, Colombia', label: 'Usme', index: 13 },
   { value: 'Santafe. Bogota, Colombia', label: 'Santafe', index: 14 },
 ]
-const customStyles = {
+export const customStyles = {
   control: (provided) => ({
     ...provided,
     border: 'none', // Quitar el borde

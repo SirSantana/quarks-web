@@ -39,7 +39,7 @@ const customStyles = {
 export default function ServicioAutomotriz({ data }) {
   const router = useRouter()
   const parts = router?.query?.id?.split("-");
-  
+
   const handleChange = (e) => {
     router.push(`/servicios-automotriz/${e.value}-${parts[1]}`)
   }
@@ -51,7 +51,7 @@ export default function ServicioAutomotriz({ data }) {
   const servicioFiltrado2 = options2.find(el => el.value === parts?.[1])
 
   return (
-    <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg'}url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el=> " taller de "  +  el.value +" en "+ parts?.[1])}`}>
+    <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + parts?.[1])}`}>
       <div className={styles.container2}>
 
         <div className={styles.section1}>
@@ -107,20 +107,48 @@ export async function getServerSideProps({ query }) {
   const parts = query?.id?.split("-");
   let categoria = parts[0];
   let localidad = parts[1].split(".")[0]
+  const levenshteinDistance = (s1, s2) => {
+    const m = s1.length;
+    const n = s2.length;
+  
+    // Inicializar una matriz m × n con 0
+    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  
+    // Llenar la matriz con los valores de distancia
+    for (let i = 0; i <= m; i++) {
+      for (let j = 0; j <= n; j++) {
+        if (i === 0) {
+          dp[i][j] = j;
+        } else if (j === 0) {
+          dp[i][j] = i;
+        } else if (s1[i - 1] === s2[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+        }
+      }
+    }
+  
+    return dp[m][n];
+  };
 
-
-
-  let resultados = talleres?.talleres.filter((taller) => {
-    const coincideCategoria = taller?.categorias.includes(categoria);
-    return coincideCategoria;
-  });
+  const filterData = (text) => {
+    // Realizamos el filtrado por nombre y categorías
+    const filteredItems = talleres.talleres.filter(item =>
+      item.nombre.toLowerCase().includes(categoria.toLowerCase()) ||
+      item.categorias.some(categoriaa => categoriaa.toLowerCase().includes(categoria.toLowerCase())) ||
+      levenshteinDistance(item.nombre.toLowerCase(), categoria.toLowerCase()) < 5 // Valor umbral de similitud
+    );
+    return filteredItems
+  };
+  let resultados = filterData()
   if (localidad && localidad !== 'Bogota, Colombia') {
     resultados = resultados.filter((taller) => {
       const coincideLocalidad = taller?.localidad?.toLowerCase().includes(localidad.toLowerCase());
       return coincideLocalidad;
     });
   }
-   resultados.map(el=>{
+  resultados.map(el => {
     const result = client.mutate(
       {
         mutation: CREATE_IMPRESION_ALMACEN,

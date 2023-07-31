@@ -1,48 +1,53 @@
-
 .container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position:absolute;
+    position: absolute;
     width: 90%;
     padding-top: 20px;
     padding-left: 50px;
 }
-.header{
+
+.header {
+    position: fixed;
+    width: 80%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    margin: 0 auto;
+    transition: all .50 ease;
+    box-sizing: border-box;
+    /* background: #f50057; */
+    background: transparent;
+}
+
+.headerScrolled {
+    background: #f50057;
     position: fixed;
     width: 100%;
-    top:0;
+    top: 0;
     right: 0;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 32px;
+    padding: 16px 8%;
     transition: all .50 ease;
     box-sizing: border-box;
-  /* background: #f50057; */
-  background: transparent;
+    /* background: #f50057; */
 }
-.headerScrolled{
-  background: #f50057;
-  position: fixed;
-  width: 100%;
-  top:0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 8%;
-  transition: all .50 ease;
-  box-sizing: border-box;
-/* background: #f50057; */
-}
-.header2{
+
+.header2 {
     position: fixed;
     width: 100%;
-    top:0;
+    top: 0;
     right: 0;
     z-index: 1000;
     display: flex;
@@ -52,21 +57,24 @@
     padding: 16px 8%;
     transition: all .50 ease;
     box-sizing: border-box;
-  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
 
 }
 
-.navv{
+.navv {
     display: flex;
 }
-.li{
+
+.li {
     margin-right: 16px;
     list-style-type: none;
 }
-.li:hover{
+
+.li:hover {
     color: #5B0221;
 }
-.menu{
+
+.menu {
     z-index: 1001;
     cursor: pointer;
     width: 32px;
@@ -88,7 +96,8 @@
     font-weight: bold;
     color: white;
 }
-.titleNav{
+
+.titleNav {
     font-size: 26px;
     font-weight: bold;
     color: white;
@@ -99,21 +108,23 @@
     font-weight: 500;
     color: white;
 }
-.subtitle:hover{
+
+.subtitle:hover {
     color: #5B0221;
 
 }
-.containerItems{
+
+.containerItems {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap:20px
+    gap: 20px
 }
 
-.newHeader{
+.newHeader {
     width: 70%;
-  margin: 0 auto 0 auto;
+    margin: 0 auto 0 auto;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -128,37 +139,45 @@
     font-weight: 500;
     color: #626262;
 }
-.newSubtitle:hover{
+
+.newSubtitle:hover {
     color: #5B0221;
 }
-.logo{
+
+.logo {
     width: 32px;
     height: 32px;
 }
+
 @media (max-width: 1280px) {
-    .header{
+    .header {
         padding: 12px 24px;
         transition: .2s;
     }
-    .header2{
+
+    .header2 {
         padding: 12px 6%;
         transition: .2s;
     }
-    .newHeader{
-        margin:0 auto;
+
+    .newHeader {
+        margin: 0 auto;
         width: 90%;
-        
+
     }
-    .li{
+
+    .li {
         margin-right: 8px;
     }
 }
+
 @media (max-width: 1090px) {
-    .menu{
+    .menu {
         display: block;
         transition: all .50s ease;
 
     }
+
     /* .navv{
         position: absolute;
         top: 0%;
@@ -171,13 +190,14 @@
         transition: all .50s ease;
         background-color:#f50057 ;
     } */
-    .li{
+    .li {
         margin: 12px 0;
         list-style-type: none;
         display: block;
         padding: 0px 16px;
     }
 }
+
 .modal {
     position: fixed;
     left: 0;
@@ -192,21 +212,29 @@
     transition: all 0.8s ease-in-out;
     z-index: 999;
 }
+
 @media (max-width: 600px) {
-    .container{
+    .container {
         padding: 10px;
-        
+
     }
-    .containerNav{
+
+    .containerNav {
         padding: 10px;
     }
+
     .title {
         font-size: 24px;
     }
-    .titleNav{
+
+    .titleNav {
         display: none;
     }
+
     .subtitle {
         font-size: 16px;
+    }
+    .header{
+        width: 100%;
     }
 }

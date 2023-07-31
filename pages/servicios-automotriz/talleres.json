@@ -22,7 +22,6 @@
       "categorias": [
         "Servicio de Baterias",
         "Taller mecanico"
-
       ],
       "localidad": "Barrios Unidos",
       "id": "64aa2e5de3b051b0053a31ff",
@@ -42,7 +41,6 @@
         "Cambio de aceite",
         "Servicio de Suspensión",
         "Taller mecanico"
-
       ],
       "localidad": "Barrios Unidos",
       "id": "64aa313ce3b051b0053a3200",
@@ -67,7 +65,6 @@
         "Alineación y balanceo",
         "Servicio de Latonería y pintura",
         "Taller mecanico"
-
       ],
       "nivelnegocio": "0",
       "ciudad": "Bogotá",
@@ -89,7 +86,6 @@
         "Alineación y balanceo",
         "Mecanica Basica",
         "Taller mecanico"
-
       ],
       "localidad": "Usaquen",
       "id": "64ad4adf1423f1c24207812c",
@@ -106,7 +102,6 @@
       "categorias": [
         "Servicio de Baterias",
         "Taller mecanico"
-
       ],
       "localidad": "Barrios Unidos",
       "id": "64ad4ccc1423f1c24207812d",
@@ -125,7 +120,6 @@
         "Servicio de Frenos",
         "Cambio de aceite",
         "Taller mecanico"
-
       ],
       "localidad": "Barrios Unidos",
       "id": "64af263b53d7724a96947eb6",
@@ -144,8 +138,6 @@
         "Servicio de Frenos",
         "Cambio de aceite",
         "Taller mecanico"
-
-
       ],
       "localidad": "Barrios Unidos",
       "id": "64af26de53d7724a96947eb7",
@@ -158,7 +150,7 @@
     },
     {
       "nombre": "La boutique del amortiguador - Prado",
-      "direccion": "CRA 45 #130-57",
+      "direccion": "CRA 45a #130-57",
       "categorias": [
         "Servicio de Suspensión",
         "Servicio de Frenos",
@@ -235,7 +227,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 9:00 AM - 1:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1988.2888527380576!2d-74.0694723!3d4.6691231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b0742b2850b%3A0x6bcecaf28893a584!2sMath%20Autos!5e0!3m2!1ses-419!2sco!4v1690472996889!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Multiservicios Ismael Sanchez",
@@ -294,14 +286,14 @@
         "Mecanica Basica",
         "Servicio de Aire acondicionado"
       ],
-      "localidad": "Bosa",
+      "localidad": "Engativa",
       "id": "64b7e788cbf32fcc68b6358c",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/Optraclub190723.jpg",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:00 PM,Mar 8:00 AM - 5:00 PM,Mié 8:00 AM - 5:00 PM,Jue 8:00 AM - 5:00 PM,Vie 8:00 AM - 5:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5212242640355!2d-74.10311548927015!3d4.67907669527622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9c3e08161375%3A0xa8eaffb1ced6b0ec!2sTaller%20Optra%20Club%20Colombia!5e0!3m2!1ses-419!2sco!4v1690472916365!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Aires Acondicionados JC",
@@ -339,7 +331,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8740369812217!2d-74.15949598927054!3d4.616550195338794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9f5fbfb1b4a5%3A0xbc79cb58462cd670!2sAlineautos%20Serviteca!5e0!3m2!1ses-419!2sco!4v1690472892300!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Talleres Caldas",
@@ -396,7 +388,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 7:00 PM,Dom 9:00 AM - 1:00",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6173112170227!2d-74.07673798927027!3d4.662130795293176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a547d9c4071%3A0xde100dd369acee61!2sOil%20Filter&#39;s%207%20De%20Agosto!5e0!3m2!1ses-419!2sco!4v1690472622915!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Oil Filter´s Engativa",
@@ -413,7 +405,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 7:00 PM,Dom 9:00 AM - 1:00",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.351297161219!2d-74.14151308927013!3d4.708896095246374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8348c026bf11%3A0xad1e5c3680c8bd19!2sOil%20Filter&#39;s%20Engativa!5e0!3m2!1ses-419!2sco!4v1690472601602!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Oil Filter´s Fontibon",
@@ -430,7 +422,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 4:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.547737271524!2d-74.15186105529938!3d4.67440698322018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9c8a5314f0eb%3A0xae0616178e923b73!2sOil%20Filter&#39;s%20Fontibon%20103!5e0!3m2!1ses-419!2sco!4v1690472504574!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Oil Filter´s Suba",
@@ -465,7 +457,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.501782542053!2d-74.06620328927018!3d4.682497995272814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ae8c1ab0251%3A0x53106a0ab169da3c!2sSolo%20Frenos%20Del%20Norte!5e0!3m2!1ses-419!2sco!4v1690472458084!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Solo frenos rionegro",
@@ -485,8 +477,8 @@
       "ubicacionmaps": ""
     },
     {
-      "nombre": "Autofrenos Ortzon",
-      "direccion": "Av Cali #90-46",
+      "nombre": "Servifrenos y suspensión bogota",
+      "direccion": "Cra86 #89-57",
       "categorias": [
         "Servicio de Frenos",
         "Servicio de Clutch",
@@ -501,7 +493,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.347559932605!2d-74.09733748255616!3d4.709549800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f85097ef1ca87%3A0x1114abedb4d54ad2!2sServifrenos%20y%20suspensi%C3%B3n%20BOGOT%C3%81!5e0!3m2!1ses-419!2sco!4v1690472720861!5m2!1ses-419!2sco"
     },
     {
       "nombre": "A Tiempo Cars",
@@ -516,7 +508,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.1859576965253!2d-74.03310708926988!3d4.737730695217555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f857d796544a5%3A0x8cd4184c863901cb!2sLatoner%C3%ADa%20y%20Pintura%20Express%20A%20Tiempo%20Cars!5e0!3m2!1ses-419!2sco!4v1690472165868!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Lumaz - Latoneria y Pintura",
@@ -531,7 +523,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5915419181924!2d-74.06906538927029!3d4.666681495288642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9af80af195e7%3A0xaf76e5a00a6eaa88!2sLumaz%20-%20Latoneria%20y%20Pintura%20Automotriz!5e0!3m2!1ses-419!2sco!4v1690472125762!5m2!1ses-419!2sco"
     },
     {
       "nombre": "DACAR PLUS Latoneria y pintura",
@@ -546,37 +538,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:00 AM - 6:00 PM,Mar 7:00 AM - 6:00 PM,Mié 7:00 AM - 6:00 PM,Jue 7:00 AM - 6:00 PM,Vie 7:00 AM - 6:00 PM,Sáb 8:00 AM - 1:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
-    },
-    {
-      "nombre": "Latoneria y pintura DMJ Multimarcas",
-      "direccion": "Carrera 68h # 66-07",
-      "categorias": [
-        "Servicio de Latonería y pintura"
-      ],
-      "localidad": "Engativa",
-      "id": "64ba88606368741f9887b141",
-      "fotoperfil": "",
-      "ciudad": "Bogotá",
-      "nivelnegocio": "0",
-      "pais": "Colombia",
-      "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 6:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
-    },
-    {
-      "nombre": "Multimarcas latoneria y pintura",
-      "direccion": "Cra. 26 #628",
-      "categorias": [
-        "Servicio de Latonería y pintura"
-      ],
-      "localidad": "Martires",
-      "id": "64ba89db6368741f9887b142",
-      "fotoperfil": "",
-      "ciudad": "Bogotá",
-      "nivelnegocio": "0",
-      "pais": "Colombia",
-      "horario": "Lun 7:00 AM - 6:00 PM,Mar 7:00 AM - 6:00 PM,Mié 7:00 AM - 6:00 PM,Jue 7:00 AM - 6:00 PM,Vie 7:00 AM - 6:00 PM,Sáb 7:00 AM - 5:30 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5992645239367!2d-74.06397828927021!3d4.6653181952900145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bc041897679%3A0x7501126c042539d0!2sDACAR%20PLUS%20Latoneria%20y%20pintura!5e0!3m2!1ses-419!2sco!4v1690472098244!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Aire Acondicionado 7 de agosto",
@@ -591,7 +553,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom 9:00 AM - 2:00 PM",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.64878784659!2d-74.07757198927035!3d4.656566195298741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a4d625ed921%3A0x5543323bffa48a84!2sAire%20Acondicionado%207%20de%20agosto!5e0!3m2!1ses-419!2sco!4v1690471780321!5m2!1ses-419!2sco"
     },
     {
       "nombre": "ICEBERG TECNOLOGÍA - RADIADORES Y AIRE ACONDICIONADO",
@@ -606,7 +568,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:30 PM,Mar 8:30 AM - 6:30 PM,Mié 8:30 AM - 6:30 PM,Jue 8:30 AM - 6:30 PM,Vie 8:30 AM - 6:30 PM,Sáb 8:30 AM - 4:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.650370133752!2d-74.07936648927031!3d4.656286295299044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bf9b9c7eac7%3A0x64f2d1032e843bf8!2sICEBERG%20TECNOLOG%C3%8DA%20-%20RADIADORES%20Y%20AIRE%20ACONDICIONADO!5e0!3m2!1ses-419!2sco!4v1690471728065!5m2!1ses-419!2sco"
     },
     {
       "nombre": "Cajas Automáticas Mendez",
@@ -624,6 +586,328 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
       "ubicacionmaps": ""
+    },
+    {
+      "nombre": "SAE AUTOMOTRIZ",
+      "direccion": "Cra. 55 #76-62",
+      "categorias": [
+        "Servicio de Cajas",
+        "Servicio de Frenos",
+        "Servicio de Electronica",
+        "Servicio de Suspensión",
+        "Servicio de Latonería y pintura",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c1280e1cff353830519062",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/saeautomotriz.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb Cerrado,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5514936452614!2d-74.07351390000001!3d4.673744999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9afc510f0fd7%3A0xc765304ab43cf9e!2sSAE%20AUTOMOTRIZ!5e0!3m2!1ses-419!2sco!4v1690380389342!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "CORREA MOTORS",
+      "direccion": "Cra. 23 #71A-89",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Electronica",
+        "Servicio de Suspensión",
+        "Servicio de Latonería y pintura",
+        "Servicio de Motor",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c129cf1cff353830519063",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/correamotors270723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.615310320691!2d-74.06880208255615!3d4.6624842999999965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a53db2c90c3%3A0xf49d2aae5b3e8f62!2sCORREA%20MOTORS!5e0!3m2!1ses-419!2sco!4v1690380710341!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Check-Autos BMW",
+      "direccion": "Calle 74 A # 24-32",
+      "categorias": [
+        "Servicio de Frenos",
+        "Cambio de aceite",
+        "Servicio de Suspensión",
+        "Servicio de Latonería y pintura",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c12be51cff353830519064",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/checkautosbmw270723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:00 PM,Mar 8:00 AM - 5:00 PM,Mié 8:00 AM - 5:00 PM,Jue 8:00 AM - 5:00 PM,Vie 8:00 AM - 5:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d812.1782209971624!2d-74.06611875671247!3d4.665469544226365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a57ec33eac9%3A0x9138880bc7572c8a!2sCheck-Autos%20BMW%20Taller%20Mec%C3%A1nico!5e0!3m2!1ses-419!2sco!4v1690381229302!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "SERVIAUTOS MECANICA ESPECIALIZADA CARROS CHINOS",
+      "direccion": "Cl. 78 #28b-09",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Cajas",
+        "Servicio de Motor",
+        "Servicio de Electronica",
+        "Servicio de Eléctricos",
+        "Cambio de aceite",
+        "Servicio de Suspensión",
+        "Servicio de Latonería y pintura",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c12d861cff353830519065",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/serviautos270723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5708543001697!2d-74.06764489999999!3d4.670331600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b08ccc42081%3A0x458f3aabff680543!2sSERVIAUTOS%20MECANICA%20ESPECIALIZADA%20CARROS%20CHINOS!5e0!3m2!1ses-419!2sco!4v1690381585406!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Taller automotriz Motorshop",
+      "direccion": "AK 30 # 66-53",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Cajas",
+        "Servicio de Motor",
+        "Servicio de Aire acondicionado",
+        "Alineación y balanceo",
+        "Servicio de Suspensión",
+        "Servicio de Electronica",
+        "Servicio de Eléctricos",
+        "Servicio de Baterias",
+        "Servicio de Latonería y pintura",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c130681cff353830519066",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/motorshop270723).png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6157116387985!2d-74.0772108!3d4.6624134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bb24ec10d4b%3A0xb11d896960230ce9!2sTaller%20de%20Mec%C3%A1nica%20automotriz%20Motorshop!5e0!3m2!1ses-419!2sco!4v1690382408037!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "MECANICA AM",
+      "direccion": "Carrera 24#75-21",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Aire acondicionado",
+        "Servicio de Suspensión",
+        "Servicio de Eléctricos",
+        "Servicio de Baterias",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c132f51cff353830519067",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/mecanicaam270723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5932941625665!2d-74.06519270000001!3d4.6663722000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bd707818097%3A0x9509953798462aa7!2sMECANICA%20AM!5e0!3m2!1ses-419!2sco!4v1690382984317!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Coltalleres - Amortiguadores y Frenos",
+      "direccion": "Cra. 24 #75-27",
+      "categorias": [
+        "Alineación y balanceo",
+        "Servicio de Frenos",
+        "Servicio de Clutch",
+        "Servicio de Suspensión",
+        "Servicio de Eléctricos",
+        "Sincronizacion",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c134a81cff353830519068",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/coltalleres27'723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.59481009796!2d-74.06760418255617!3d4.666104600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b3eef8021ad%3A0xcb7fae064598bf3e!2sColtalleres%20-%20Amortiguadores%20y%20Frenos%20Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1690383479968!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "TALLER MECÁNICO SAMA MOTORS",
+      "direccion": "Cra. 51 #127d - 27",
+      "categorias": [
+        "Alineación y balanceo",
+        "Cambio de aceite",
+        "Servicio de Aire acondicionado",
+        "Servicio de Frenos",
+        "Servicio de Clutch",
+        "Servicio de Suspensión",
+        "Servicio de Eléctricos",
+        "Sincronizacion",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Suba",
+      "id": "64c135be1cff353830519069",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/samamotors270723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.331315933558!2d-74.06052968255617!3d4.7123901000000075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8536c0cc2605%3A0xe903c4769c5e456!2sTALLER%20MEC%C3%81NICO%20SAMA%20MOTORS!5e0!3m2!1ses-419!2sco!4v1690383783168!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Talleres Mejor Ltda.",
+      "direccion": "Cra. 56 #79-50",
+      "categorias": [
+        "Servicio de Latonería y pintura",
+        "Sincronizacion",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c137691cff35383051906a",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:00 AM - 6:00 PM,Mar 7:00 AM - 6:00 PM,Mié 7:00 AM - 6:00 PM,Jue 7:00 AM - 6:00 PM,Vie 7:00 AM - 6:00 PM,Sáb 7:00 AM - 12:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5367228970435!2d-74.073931!3d4.676347499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9afcd5be5575%3A0x521f970454d40f9d!2sTalleres%20Mejor%20Ltda.!5e0!3m2!1ses-419!2sco!4v1690384087577!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "CARLLANTAS",
+      "direccion": "Cl. 49 #20-46",
+      "categorias": [
+        "Servicio de Motor",
+        "Servicio de Eléctricos",
+        "Servicio de Suspensión",
+        "Peritaje",
+        "Sincronizacion",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Teusaquillo",
+      "id": "64c139371cff35383051906b",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/carllantas270723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:30 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15907.024148401542!2d-74.07884145848571!3d4.637556100000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a3212f902e1%3A0xe5508584d14bd358!2sCARLLANTAS!5e0!3m2!1ses-419!2sco!4v1690384666791!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "TALLER MEKAUTOS",
+      "direccion": "Cra. 96 # 71a-12",
+      "categorias": [
+        "Servicio de Frenos",
+        "Alineación y balanceo",
+        "Servicio de Suspensión",
+        "Cambio de aceite",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Engativa",
+      "id": "64c13bab1cff35383051906c",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/mekautos270723.jpeg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4073729090746!2d-74.11651508255615!3d4.699076599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b5f26cf3373%3A0x27b12315e02606bc!2sTALLER%20MEKAUTOS!5e0!3m2!1ses-419!2sco!4v1690385292995!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Mecánica Javiautos",
+      "direccion": "Cl. 77a #85-9",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Motor",
+        "Servicio de Suspensión",
+        "Cambio de aceite",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Engativa",
+      "id": "64c13d3e1cff35383051906d",
+      "fotoperfil": "",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:00 AM - 8:00 PM,Mar 7:00 AM - 8:00 PM,Mié 7:00 AM - 8:00 PM,Jue 7:00 AM - 8:00 PM,Vie 7:00 AM - 8:00 PM,Sáb 7:00 AM - 6:30 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.3963194763983!2d-74.10350518255616!3d4.701013800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfcb58a0e07%3A0x89a4e7fa9f3ba09d!2staller%20de%20Mec%C3%A1nica%20Javiautos!5e0!3m2!1ses-419!2sco!4v1690385688868!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Mecánica - DJC Los Boyacos",
+      "direccion": "Cl. 131 #46-36",
+      "categorias": [
+        "Servicio de Eléctricos",
+        "Servicio de Frenos",
+        "Servicio de Motor",
+        "Servicio de Suspensión",
+        "Servicio de Latonería y pintura",
+        "Taller mecanico",
+        "Mecanica Basica"
+      ],
+      "localidad": "Suba",
+      "id": "64c13e7e1cff35383051906e",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/djclosboyacos270723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:00 AM - 8:00 PM,Mar 7:00 AM - 8:00 PM,Mié 7:00 AM - 8:00 PM,Jue 7:00 AM - 8:00 PM,Vie 7:00 AM - 8:00 PM,Sáb 7:00 AM - 6:30 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36503.41816121317!2d-74.05491725009462!3d4.719269947858305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f85f6c0ec7c23%3A0x5c6aa3417c91237d!2sTaller%20de%20mec%C3%A1nica%20-%20DJC%20Los%20Boyacos!5e0!3m2!1ses-419!2sco!4v1690385992957!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "TALLER MECÁNICO CHEVRONORTE"      ,
+      "direccion": "Av. C/ 63 #27 - 62",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Motor",
+        "Servicio de Suspensión",
+        "Servicio de Latonería y pintura",
+        "Taller mecanico",
+        "Mecanica Avanzada"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64c13f861cff35383051906f",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/cargt270723.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 1:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5026.595351559962!2d-74.07371262588462!3d4.652858054441255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a4b62531d4d%3A0x427f0a93120a58f6!2sTALLER%20MEC%C3%81NICO%20CHEVRONORTE!5e0!3m2!1ses-419!2sco!4v1690386400820!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Alianza Automotriz TM"      ,
+      "direccion": "Cl. 128a #47-63",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Motor",
+        "Servicio de Baterias",
+        "Servicio de Aire acondicionado",
+        "Servicio de Eléctricos",
+        "Servicio de Suspensión",
+        "Servicio de Latonería y pintura",
+        "Taller mecanico",
+        "Mecanica Avanzada"
+      ],
+      "localidad": "Suba",
+      "id": "64c140a21cff353830519070",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/alianzaautomotriztm270723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 1:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.3263114566776!2d-74.0562182!3d4.7132648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8524f04455f7%3A0xe435edc94857e58!2sAlianza%20Automotriz%20TM!5e0!3m2!1ses-419!2sco!4v1690386526647!5m2!1ses-419!2sco"
     }
-     ]
+  ]
 }

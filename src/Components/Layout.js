@@ -4,12 +4,10 @@ import Nav from './Navbar/Nav'
 import NewNavbar from './Navbar/NewNavbar'
 import Navbar from './Navbar/Navbar'
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url }) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon}) {
   return (
     <>
       <Head>
-
-
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={description} />
@@ -63,7 +61,7 @@ export default function Layout({ children, title, description, type, price, keyw
           </>}
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href="/logoquarks200623.png" />
+        <link rel="icon" href={icon?icon :"/logoquarks200623.png"} />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

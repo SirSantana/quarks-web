@@ -383,7 +383,6 @@ export const GET_ONE_NEGOCIOVDOS= gql`
       facebook
       paginaweb
       categorias
-      visitas
       whatsapp
       telefono
       localidad
@@ -399,7 +398,17 @@ export const GET_ONE_NEGOCIOVDOS= gql`
     }
   }
 `
-
+export const GET_STADISTICS_HALFMONTH = gql`
+query getStadisticsHalfMonth($id:ID){
+  getOneNegocioVDos(id:$id){
+    visitas
+    visitaswhatsapp
+    vecescompartido
+    visitasmapa
+    impresion
+  }
+}
+` 
 export const GET_ALL_ARTICULOS = gql`
   query getAllArticulos{
     getAllArticulos{

@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { useEffect, useRef, useState } from "react"
 import talleres from '../talleres.json'
-import { GET_CALIFICACION_OPINIONES, GET_ONE_NEGOCIOVDOS } from "@/graphql/queries"
+import { GET_CALIFICACION_OPINIONES, GET_ONE_NEGOCIOVDOS,  } from "@/graphql/queries"
 import { client } from "@/client"
 import { ModalShareArticulo, ModalTelefono } from "@/utils/Modales"
 import ModalCreateOpinion from "@/src/Components/Almacenes/ModalCreateOpinion"
@@ -93,7 +93,7 @@ export default function Negocio({ data }) {
     setTaller(taller1)
   }, [router])
   return (
-    <Layout title={` Taller ${data?.nombre} | Quarks-automotriz`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil? data?.fotoperfil: 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias}>
+    <Layout title={` Taller ${data?.nombre} | Quarks-automotriz`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil? data?.fotoperfil: 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil}>
       <div className={styles.container}>
         <div className={styles.sectionOneNegocio}>
           <div className={styles.headerNegocio}>
@@ -131,6 +131,7 @@ export default function Negocio({ data }) {
             <div className={styles.headerNegocioText}>
               <div className={styles.containerHeaderCardDesktop}>
                 <p className={styles.subtitleLugar}>Hoy {horariosSeparados?.[indiceDia]}</p>
+
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', width: '100%', marginBottom: '8px' }}>
                   <h1 style={{ width: '90%' }} className={styles.titleNegocio}>{data?.nombre}</h1>
                   {data?.nivelnegocio > 1 && <ion-icon style={{ color: '#f50057', fontSize: '24px', width: '10%' }} name="shield-checkmark"></ion-icon>}
@@ -161,6 +162,8 @@ export default function Negocio({ data }) {
               <div className={styles.containerButtonsCA}>
                 <button onClick={handleScroll} className={styles.buttonPrimary}><ion-icon style={{ color: 'white', fontSize: '24px' }} name="star-outline"></ion-icon>Agregar reseña</button>
                 <button onClick={handleClickCompartir} className={styles.buttonSecondary}><ion-icon style={{ fontSize: '24px' }} name="share-outline"></ion-icon>Compartir</button>
+                {/* <button>Get Stadistics</button> */}
+              
               </div>
               <div className={styles.containerButtonsMobile}>
                 <div onClick={handleScroll} className={styles.containerButtonMobile}>

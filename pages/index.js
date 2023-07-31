@@ -14,6 +14,14 @@ import ServiciosPopulares from '@/src/Components/Main/ServiciosPopulares'
 import TalleresRecomendados from '@/src/Components/Main/TalleresRecomendados'
 import Link from 'next/link'
 import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes'
+import FirstScreen from '@/src/Components/LandingPage/FirstScreen'
+import ListTalleresLanding from '@/src/Components/LandingPage/ListTalleresLanding'
+import SectionVariedadTalleres from '@/src/Components/LandingPage/Section1'
+import SectionCotizaciones from '@/src/Components/LandingPage/Section2'
+import SectionGlosario from '@/src/Components/LandingPage/Section3'
+import SectionGrowthTaller from '@/src/Components/LandingPage/SectionGrowthTaller'
+import SectionPasos from '@/src/Components/LandingPage/Section4'
+import ActividadReciente from '@/src/Components/LandingPage/ActividadReciente'
 
 
 
@@ -48,7 +56,7 @@ export default function Home() {
         <meta property="url" content={`https://quarks.com.co`} />
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
-        <meta property="og:title" content={"Directorio de Talleres de carros en Bogotá "} key="title" />
+        <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
         <meta property="og:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta property="og:image:url" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
@@ -82,8 +90,17 @@ export default function Home() {
         {/* <Beneficios /> */}
 
         {/* <HomeArticulos/> */}
-        <Main />
-        <ServiciosPopulares />
+        <FirstScreen/>
+        <ListTalleresLanding/>
+        <ActividadReciente/>
+        <SectionCotizaciones/>
+        <SectionVariedadTalleres/>
+        <SectionPasos/>
+        <SectionGrowthTaller/>
+        <SectionGlosario/>
+
+        {/* <Main />
+        <ServiciosPopulares /> */}
 
         {/* <TalleresRecomendados /> */}
 

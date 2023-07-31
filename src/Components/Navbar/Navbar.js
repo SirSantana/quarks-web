@@ -33,13 +33,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className={open && styles.modal} >
+    <div style={{display:'flex', alignItems:'center', justifyContent:'center', width:'100vw'}} className={open && styles.modal} >
 
       <header ref={ref} className={` ${scrolled ? styles.headerScrolled : styles.header}`}>
-        <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
-          <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
-          <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.titleNav}>Quarks</h1>
-        </Link>
+      <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap:'16px' }} href={'/'}>
+        <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
+        <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.titleNav}>Quarks</h1>
+      </Link>
 
         <ul className={styles.navv}>
           <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' && '#5B0221' }} className={styles.subtitle} href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'}>Talleres</Link></li>
