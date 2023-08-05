@@ -50,7 +50,7 @@ export default function FrenosSeccion() {
     return (
         <Layout title={'Autopartes de correas | Glosario Automotriz'}description={description}keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
-          <HeaderHome />
+          {/* <HeaderHome /> */}
   
           <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
             <h1 className={styles.title2}>Autopartes Correas</h1>

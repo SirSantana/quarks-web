@@ -1,11 +1,69 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  margin: 7% auto 0 auto;
+  width: 100%;
+  margin: 10% auto 0 auto;
   padding: 32px;
   padding-top: 0;
   max-width: 700px;
+  grid-area: container;
+}
+
+.containerGridAside {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  gap: 0px 16px;
+  width: 100%;
+  column-gap: 32px;
+  margin-top: 32px;
+  grid-template-areas:
+    "aside container aside2"
+}
+
+.asideBar {
+  padding: 16px 16px 16px 32px;
+  margin: 20% auto 0 auto;
+  width: 100%;
+  /* Ajusta el ancho según tus necesidades */
+  display: flex;
+  grid-area: aside;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 700px;
+}
+
+.asideUl {
+  list-style: none;
+  justify-self: center;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  margin-top: 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.asideUlPadding {
+  list-style: none;
+  justify-self: center;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  margin-top: 4px;
+  padding-left: 30px;
+}
+
+.asideLi {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #828282;
+}
+
+.asideLi:hover {
+  color: #373737
 }
 
 .title {
@@ -287,6 +345,7 @@
   width: 350px;
   height: 300px;
 }
+
 .imgPrincipal {
   width: 100%;
   height: 300px;
@@ -310,6 +369,15 @@
   .imgRepuesto {
     width: 200px;
     height: 160px;
+  }
+
+  .containerGridAside {
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr;
+    gap: 0px 16px;
+    width: 100%;
+    grid-template-areas:
+      "aside container "
   }
 }
 
@@ -344,13 +412,20 @@
       "seccion5"
   }
 
+  .asideBar {
+    display: none;
+  }
 
+  .containerGridAside {
+    display: flex;
+  }
 }
 
 @media (max-width: 700px) {
-  .container{
+  .container {
     margin-top: 22%;
   }
+
   .imgPrincipal {
     width: 100%;
     height: 200px;

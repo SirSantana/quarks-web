@@ -31,6 +31,7 @@ export default function Negocio({ data }) {
   const [createClickTelefono]= useMutation(CREATE_CLICK_TELEFONO)
   const [createClickCompartido] = useMutation(CREATE_CLICK_COMPARTIDO)
   const [createClickMapaDireccion] = useMutation(CREATE_CLICK_MAPA)
+  const [numCalificaciones, setNumCalificaciones] = useState(0)
 
   const [visibleOpinion, setVisibleOpinion] = useState(false)
   const [calificated, setCalificated] = useState(false)
@@ -92,8 +93,9 @@ export default function Negocio({ data }) {
     const taller1 = talleres.talleres.find(el => el.id === parts?.[0])
     setTaller(taller1)
   }, [router])
+
   return (
-    <Layout title={` Taller ${data?.nombre} | Quarks-automotriz`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil? data?.fotoperfil: 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil}>
+    <Layout title={`${data?.nombre} - Talleres en Bogota`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil? data?.fotoperfil: 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil}>
       <div className={styles.container}>
         <div className={styles.sectionOneNegocio}>
           <div className={styles.headerNegocio}>
@@ -117,7 +119,7 @@ export default function Negocio({ data }) {
                         <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'20'} />
                       </div>
                     ))}
-                    <p className={styles.textCategory} >{result?.data?.getCalificacionOpiniones?.length} calificaciones</p>
+                    <p className={styles.textCategory} >{numCalificaciones} calificaciones</p>
                   </div>
                 }
 
@@ -143,7 +145,7 @@ export default function Negocio({ data }) {
                         <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'20'} />
                       </div>
                     ))}
-                    <p className={styles.textCategory} >{result?.data?.getCalificacionOpiniones.length} calificaciones</p>
+                    <p className={styles.textCategory} >{numCalificaciones} calificaciones</p>
                   </div>
                 }
 
@@ -263,7 +265,7 @@ export default function Negocio({ data }) {
               </div>}
             {/* <input placeholder='Agrega tu opinion del almacen' type={'text'} className={styles.input} /> */}
 
-            <Opiniones almacen={parts[0]} />
+            <Opiniones almacen={parts[0]} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones}/>
 
           </div>
 

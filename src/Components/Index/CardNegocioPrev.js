@@ -14,9 +14,9 @@ export default function CardNegocioPrev({ el, horariosSeparados }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: el?.id } })
-
+  console.log(result);
   return (
-    <Link href={`/servicios-automotriz/negocio/${el?.id}-${el?.nombre}`} className={styles.containerCardLugar}>
+    <Link target="_blank" href={`/servicios-automotriz/negocio/${el?.id}-${el?.nombre}`} className={styles.containerCardLugar}>
 
       <div className={styles.containerHeaderCardMobile}>
         {el?.fotoperfil ?

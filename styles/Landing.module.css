@@ -412,6 +412,9 @@
   .title2{
     text-align: center;
   }
+  .containerCardOpinion{
+    gap: 0px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -481,4 +484,5 @@
   .buttonSearch {
     display: none;
   }
+  
 }

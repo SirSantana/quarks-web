@@ -16,7 +16,7 @@ const Star = ({ index, stars, tamaño }) => {
 let estrellas = [1, 2, 3, 4, 5]
 
 
-export default function Opiniones({ almacen }) {
+export default function Opiniones({ almacen, setNumCalificaciones, numCalificaciones }) {
   const [visibleOpinion, setVisibleOpinion] = useState(false)
   const [stars, setStars] = useState(0)
   const [calificated, setCalificated] = useState(false)
@@ -74,7 +74,7 @@ export default function Opiniones({ almacen }) {
             <ModalLoginFacebook  setVisibleModalLogin={setVisibleModalLogin}/>
           </div>
         }
-        <Opinion almacen={almacen} setCalificated={setCalificated} />
+        <Opinion almacen={almacen} setCalificated={setCalificated} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones} />
 
       </div>
     </>

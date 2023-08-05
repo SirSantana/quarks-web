@@ -18,7 +18,6 @@ export default function FrenosSeccion() {
     const articulosFiltrados = Object.values(data).flatMap((seccion) =>
         seccion.filter((articulo) => articulo.description === 'Direccion y suspension')
     );
-    console.log(articulosFiltrados);
 
     const handleSearch = (event) => {
       setSearchTerm(event.target.value.toLowerCase());
@@ -50,7 +49,7 @@ export default function FrenosSeccion() {
     return (
         <Layout title={'Autopartes de direccion y suspension | Glosario Automotriz'} description={description} keywords={keywords}  type='article'  image={'../Motor.png'}  url={router?.asPath}>
         <div className={styles.container}>
-          <HeaderHome />
+          {/* <HeaderHome /> */}
   
           <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
             <h1 className={styles.title2}>Autopartes Direccion y suspension</h1>

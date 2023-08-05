@@ -19,14 +19,11 @@ export default function FirstScreen() {
 
     router.push(`/servicios-automotriz/${form.servicio}-${form.localidad}`)
   }
-  const handleChange = (selectedOption) => {
-    console.log(selectedOption);
-    if (selectedOption) {
-      setForm({ ...form, servicio: selectedOption.value });
-    } else {
-      setForm({ ...form, servicio: form.servicio });
-    }
-  };
+  const handleWha =(e)=>{
+    let url = `https://api.whatsapp.com/send?phone=573166394366`;
+    url += `&text=${encodeURI(`Buenos dia, vi su negocio en https://quarks.com.co${router?.asPath}, estoy interesado en...`)}&app_absent=0`
+    window.open(url);
+  }
 
   return (
     <div className={styles.container}>
@@ -55,7 +52,7 @@ export default function FirstScreen() {
         </div>
         <div className={styles.containerChildDos}>
           <img src={'./fotostoredefault.png'} className={styles.imgPrincipal} />
-
+          {/* <button onClick={handleWha}>Whatsapp</button> */}
         </div>
       </div>
     </div>

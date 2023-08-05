@@ -908,6 +908,200 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 1:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.3263114566776!2d-74.0562182!3d4.7132648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8524f04455f7%3A0xe435edc94857e58!2sAlianza%20Automotriz%20TM!5e0!3m2!1ses-419!2sco!4v1690386526647!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Latoneria y pintura Painting Cars Diaz"      ,
+      "direccion": "Calle 76A #82-57",
+      "categorias": [
+        "Servicio de Latonería y pintura",
+        "Ampliaciones de vehiculos",
+        "Body Kit Jetta",
+        "Pintura Rines",
+        "Arreglo Plasticos",
+        "Taller mecanico"
+      ],
+      "localidad": "Engativa",
+      "id": "64c850f6236f49da0a26f81b",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/paintingcarsdiaz210723.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4090620199413!2d-74.1002798!3d4.6987805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b5b4537549f%3A0xaddbc474246d85f0!2sLatoneria%20y%20pintura%20Painting%20Cars%20Diaz!5e0!3m2!1ses-419!2sco!4v1690843797278!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "MECANICA LUIS PESCADOR EU"      ,
+      "direccion": "Cl. 68 #65-50",
+      "categorias": [
+        "Servicio de Latonería y pintura",
+        "Mecanica Basica",
+        "Taller mecanico"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64cd12d78b8dd44ce6aaa182",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/mecanicaluispescador40823.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 1:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48401.975047588494!2d-74.1311595934575!3d4.6719257556190374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b0492073623%3A0x72409a38fe291320!2sMECANICA%20LUIS%20PESCADOR%20EU!5e0!3m2!1ses-419!2sco!4v1691161257325!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Taller de Mecánica Armando Briceño"      ,
+      "direccion": "Cra. 19 #70a-3",
+      "categorias": [
+        "Alineación y balanceo",
+        "Servicio de Suspensión",
+        "Servicio de Frenos",
+        "Mecanica Basica",
+        "Taller mecanico"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64cd1c9e8b8dd44ce6aaa183",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/armandobriceño040823.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 4:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6645.773710259891!2d-74.07316771087109!3d4.659058577778233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a507f15f21f%3A0x60f403c14bbfcebb!2sTaller%20de%20Mec%C3%A1nica%20Armando%20Brice%C3%B1o!5e0!3m2!1ses-419!2sco!4v1691163602505!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "V.I.P. Auto Mecánica"      ,
+      "direccion": "Cra. 29c #76-66",
+      "categorias": [
+        "Servicio de Motor",
+        "Sincronizacion",
+        "Servicio de Cajas",
+        "Servicio de Electronica",
+        "Servicio de Eléctricos",
+        "Tecnico mecanica",
+        "Mecanica Basica",
+        "Taller mecanico"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64cd1fad8b8dd44ce6aaa184",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/yonvipmecanica040823.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497.0710703749049!2d-74.07021274404661!3d4.670735700000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b2d99d29db7%3A0xb1f36c7e15c90b1f!2sV.I.P.%20Auto%20Mec%C3%A1nica!5e0!3m2!1ses-419!2sco!4v1691164499065!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Centro Automotriz La Precisión"      ,
+      "direccion": "Cra. 70B # 64-45",
+      "categorias": [
+        "Servicio de Clutch",
+        "Alineación y balanceo",
+        "Sincronizacion",
+        "Servicio de Cajas",
+        "Servicio de Electronica",
+        "Servicio de Eléctricos",
+        "Cambio de aceite",
+        "Servicio de Frenos",
+        "Servicio de Suspensión",
+        "Servicio de Motor",
+        "Peritaje",
+        "Servicio de Latonería y pintura",
+        "Tecnico mecanica",
+        "Mecanica Basica",
+        "Taller mecanico"
+      ],
+      "localidad": "Engativa",
+      "id": "64cec2fcc16738491af75c46",
+      "fotoperfil": "https://www.laprecision.com.co/wp-content/uploads/2022/11/LOGO-REDES-LA-PRECISION.webp",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 7:00 AM - 5:00 PM,Mar 7:00 AM - 5:00 PM,Mié 7:00 AM - 5:00 PM,Jue 7:00 AM - 5:00 PM,Vie 7:00 AM - 5:00 PM,Sáb 8:00 AM - 12:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56908.995196440614!2d-74.15874596818556!3d4.686945875701365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b0cde834897%3A0x4f36d0ae29e20e54!2sCentro%20Automotriz%20La%20Precisi%C3%B3n!5e0!3m2!1ses-419!2sco!4v1691271900285!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "GIA-Gestión Integral Automotriz"      ,
+      "direccion": "Cra. 69 #74b-71",
+      "categorias": [
+        "Sincronizacion",
+        "Servicio de Latonería y pintura",
+        "Cambio de aceite",
+        "Servicio de Lujos",
+        "Mecanica Basica",
+        "Mecanica Avanzada",
+        "Taller mecanico"
+      ],
+      "localidad": "Engativa",
+      "id": "64cec8cfc16738491af75c47",
+      "fotoperfil": "https://scontent.fbog3-2.fna.fbcdn.net/v/t39.30808-6/313338333_574705184455404_1854176103614158013_n.png?_nc_cat=106&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_ZyZm4WZZw4AX8f-xYS&_nc_ht=scontent.fbog3-2.fna&oh=00_AfCDYBRJ-mVtVv6sMS9qFU-68OxhAhxi6RAjXR0iL66Wzg&oe=64D45B51",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31811.95504539086!2d-74.1064374683389!3d4.683799900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bd2fbe833e1%3A0x651eb8d45bb6cad1!2sGIA-Gesti%C3%B3n%20Integral%20Automotriz!5e0!3m2!1ses-419!2sco!4v1691273042556!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "ANDRESAUTOS SERVICIO AUTOMOTRIZ"      ,
+      "direccion": "Cra. 57 #70-34",
+      "categorias": [
+        "Servicio de Frenos",
+        "Servicio de Suspensión",
+        "Cambio de aceite",
+        "Mecanica Basica",
+        "Taller mecanico"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64cecd16c16738491af75c48",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/andresauto050823.png",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31812.630917149283!2d-74.09985896523439!3d4.668918599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b0051f38d11%3A0xec1624dfa89a6492!2sANDRESAUTOS%20SERVICIO%20AUTOMOTRIZ!5e0!3m2!1ses-419!2sco!4v1691274225621!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Lujos Montana"      ,
+      "direccion": "Cra. 27b Bis #67-73",
+      "categorias": [
+        "Servicio de Lujos",
+        "Instalación de Sonido Profesional",
+        "Instalación de Alarmas",
+        "Instalación de Radios",
+        "Instalación de todo tipo de Luces Led",
+        "Servicio de Eléctricos",
+        "Instalación y revisión de sensores de parqueo y reversa",
+        "Servicio de Aire acondicionado",
+        "Taller mecanico"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ced095c16738491af75c49",
+      "fotoperfil": "https://scontent.fbog3-2.fna.fbcdn.net/v/t39.30808-6/302087543_470131991790550_971927208200224440_n.jpg?_nc_cat=103&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=yKd5X4-C3AgAX8nV9sW&_nc_ht=scontent.fbog3-2.fna&oh=00_AfA_GfNeMEMH6z1_NM_rfXnt4k1arnL3Lxco_8SggU-XiA&oe=64D3C966",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 9:00 AM - 6:00 PM,Mar 9:00 AM - 6:00 PM,Mié 9:00 AM - 6:00 PM,Jue 9:00 AM - 6:00 PM,Vie 9:00 AM - 6:00 PM,Sáb 9:00 AM - 6:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31813.001332852244!2d-74.09319546523437!3d4.660742699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a524540cba1%3A0xb46900acdd8a4a95!2sLujos%20Montana!5e0!3m2!1ses-419!2sco!4v1691275273397!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Car Lujos Tunning"      ,
+      "direccion": "Calle 72 # 65b - 34",
+      "categorias": [
+        "Servicio de Lujos",
+        "Instalación de Sonido Profesional",
+        "Instalación de Alarmas",
+        "Instalación de Radios",
+        "Instalación Luces Led",
+        "Servicio de Eléctricos",
+        "Intalacion de Timones",
+        "Instalacion de Salpicaderas",
+        "Instalación y revisión de sensores de parqueo y reversa",
+        "Taller mecanico"
+      ],
+      "localidad": "Barrios Unidos",
+      "id": "64ced53dc16738491af75c4a",
+      "fotoperfil": "https://scontent.fbog3-1.fna.fbcdn.net/v/t39.30808-6/305739733_490901286374672_4404824255304145139_n.jpg?_nc_cat=109&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=WLtK7nkeC1wAX8YqSjK&_nc_ht=scontent.fbog3-1.fna&oh=00_AfCVWCm8Za8Je1d-pDl2vK4clU31EmT9tFR1Ja5uYOlefw&oe=64D2D1BB",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:30 AM - 6:30 PM,Mar 8:30 AM - 6:30 PM,Mié 8:30 AM - 6:30 PM,Jue 8:30 AM - 6:30 PM,Vie 8:30 AM - 6:30 PM,Sáb 8:30 AM - 6:30 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31812.30145403809!2d-74.10473096523438!3d4.676178600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b04b8540ed3%3A0xd0bf844a5c358b64!2sCar%20Lujos!5e0!3m2!1ses-419!2sco!4v1691276495390!5m2!1ses-419!2sco"
     }
   ]
 }

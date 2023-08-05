@@ -10,10 +10,10 @@ const Star = ({ index, calificacion, tamaño }) => {
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
-export default function Opinion({ almacen, setCalificated }) {
+export default function Opinion({ almacen, setCalificated, setNumCalificaciones, numCalificaciones }) {
   const [getOpiniones, result] = useLazyQuery(GET_OPINIONES)
   const [email, setEmail] = useState(null)
-  const [numCalificaciones, setNumCalificaciones] = useState(0)
+  // const [numCalificaciones, setNumCalificaciones] = useState(0)
   const [getCalificacionOpiniones, { loading, error, data }] = useLazyQuery(GET_CALIFICACION_OPINIONES)
 
 
