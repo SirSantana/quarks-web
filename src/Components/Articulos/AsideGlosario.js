@@ -48,6 +48,7 @@ export default function AsideGlosario() {
 
   return (
     <aside className={styles.asideBar}>
+      
       <ul className={styles.asideUl}>
         {Object.entries(subcategoriasPorDescripcion).map(([categoria, subcategorias]) => (
           <li className={styles.asideLi} key={categoria}>
@@ -59,7 +60,7 @@ export default function AsideGlosario() {
 
               <ul className={styles.asideUlPadding}>
                 {subcategorias.map(subcategoria => (
-                  <Link key={subcategoria} href={`/glosario-de-autopartes/${subcategoria.name}-${subcategoria.id}`} style={{ textDecoration: 'none' }}>
+                  <Link target='_blank' key={subcategoria} href={`/glosario-de-autopartes/${subcategoria.name}-${subcategoria.id}`} style={{ textDecoration: 'none' }}>
                     <li 
                      className={styles.asideLi} key={subcategoria.id}>{subcategoria.name}</li>
 

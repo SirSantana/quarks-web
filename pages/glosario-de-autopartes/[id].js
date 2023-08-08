@@ -28,7 +28,7 @@ export default function Repuesto({ data }) {
     <Layout title={data?.parrafoSeisDos ? data?.parrafoSeisDos:data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
 
       <div className={styles.containerGridAside}>
-        {/* <AsideGlosario /> */}
+        <AsideGlosario />
 
         <div className={styles.container}>
           {/* <HeaderHome /> */}
@@ -215,37 +215,56 @@ export async function getServerSideProps({ query }) {
 // <br><br>
 
 
-//    <img src='https://azurequarks.blob.core.windows.net/repuestos/cajadedireccion20062023.png' alt='¿Por qué se daña la cremallera de un carro?' className={{styles.imgRepuesto}}/> <br/><br/>
-// <h2 >¿Qué es la Cremallera de Dirección?</h2><br/>
-//     <p style="line-height: 1.8;">La <b>cremallera de dirección</b> es una pieza mecánica que forma parte del sistema de dirección del vehículo. <br/><br/>Es una barra de metal dentada que se encuentra en el extremo de la columna de dirección y está conectada a las ruedas delanteras del automóvil. <br/><br/>Cuando giras el volante, la cremallera de dirección convierte ese movimiento en un movimiento lineal que permite que las ruedas cambien de dirección y te permitan conducir el vehículo en la dirección deseada.</p>
-//     <br/><br/>
-//     <h2 >¿Cómo Funciona la Cremallera de Dirección?</h2><br/>
-//     <p style="line-height: 1.8;">La cremallera de dirección funciona mediante un sistema de piñón y cremallera.<br/><br/> Cuando giras el volante, el piñón, que es una pieza dentada en el extremo de la columna de dirección, engrana con la cremallera, que también es dentada. <br/><br/>A medida que giras el volante, la cremallera se desplaza hacia adelante o hacia atrás, lo que a su vez mueve las ruedas delanteras para cambiar la dirección del vehículo.</p>
-//     <br/><br/>
-//     <h2 >¿Qué Pasa Cuando Falla la Cremallera de Dirección?</h2><br/>
-//     <p style="line-height: 1.8;">Cuando la <b>cremallera de dirección</b> falla, pueden ocurrir problemas graves en el manejo del vehículo. Algunos síntomas de una cremallera de dirección defectuosa incluyen:</p>
-//     <ul style="line-height: 1.8;"><br/>
-//         <li><b>Dificultad para Girar el Volante:</b> Si notas que el volante está más duro de lo normal o requiere un esfuerzo excesivo para girar, puede ser un signo de un problema con la cremallera de dirección.</li><br/>
-//         <li><b>Ruidos Extraños:</b> Ruidos de chirrido o rechinamiento al girar el volante pueden indicar desgaste o daños en la cremallera.</li><br/>
-//         <li><b>Fugas de Aceite:</b> Si ves que la cremallera de dirección está goteando aceite, puede ser un indicio de una falla interna.</li>
-//     </ul>
-//     <br/><br/>
-//     <h2 >¿Qué Hacer si la Cremallera de Dirección Tira Aceite?</h2><br/>
-//     <p style="line-height: 1.8;">Si notas una fuga de aceite proveniente de la <b>cremallera de dirección</b>, es importante que acudas a un taller mecánico de confianza lo antes posible. <br/><br/>Las fugas de aceite pueden afectar el rendimiento y la vida útil de la cremallera, y si no se aborda a tiempo, puede llevar a problemas más graves en la dirección del vehículo.</p>
-//     <br/><br/>
-//     <h2 >¿Cómo Saber si la Cremallera de Dirección Está Dañada?</h2><br/>
-//     <p style="line-height: 1.8;">Si sospechas que la <b>cremallera de dirección</b> está dañada, es fundamental que la revises con prontitud. Algunos indicios de que puede estar dañada incluyen:</p>
-//     <ul style="line-height: 1.8;">
-//         <li><b>Vibraciones en el Volante:</b> Si el volante tiembla o vibra anormalmente al conducir, podría ser un síntoma de una cremallera de dirección dañada.</li><br/>
-//         <li><b>Juego Excesivo en el Volante:</b> Si sientes que el volante tiene un juego excesivo, es decir, se mueve más de lo normal antes de que las ruedas respondan, puede ser un indicio de una cremallera desgastada.</li><br/>
-//         <li><b>Desgaste Irregular de los Neumáticos:</b> Si los neumáticos muestran un desgaste desigual o irregular, puede ser consecuencia de un problema en la dirección.</li>
-//     </ul>
-//     <br/><br/>
-//     <h2 >¿Qué Tipos de Cremalleras de Dirección Existen?</h2><br/>
-//     <p style="line-height: 1.8;">Existen diferentes tipos de cremalleras de dirección, incluyendo cremalleras hidráulicas y eléctricas.<br/><br/> Las cremalleras hidráulicas utilizan un sistema de fluido para facilitar el movimiento, mientras que las cremalleras eléctricas utilizan un motor eléctrico.<br/><br/> Cada tipo tiene sus ventajas y desventajas, y la elección dependerá del fabricante y modelo del vehículo.</p>
-//     <br/><br/>
-//   <h2 >Donde cambiar o revisar la cremallera de la direccion de un carro en Bogota?</h2><br/>
-//   <p><a href="/">Aquí</a> encuentras mas de 100 talleres al servicio de tu carro, visita algunos los mejores talleres para tu carro <a href="/servicios-automotriz/Servicio%20de%20Suspensión-Bogota,%20Colombia">aquí</a></p> <br/><br/>
-  // <p style="line-height: 1.8;">En conclusión, el <b>cigüeñal</b> es una pieza vital para el funcionamiento del motor y, por ende, del vehículo en su totalidad. </p>
+  //   <img src='https://azurequarks.blob.core.windows.net/repuestos/inyector260623.jpeg' alt='Por qué deja de funcionar un inyector?' className={{styles.imgRepuesto}}/> <br/><br/>
+  //   <h2 >¿Qué es el Inyector de Combustible?</h2><br/>
+  // <p style="line-height: 1.8;">Los inyectores de combustible son componentes esenciales en los sistemas de inyección de combustible de los vehículos. <br/><br/>Su función principal es suministrar la cantidad precisa de combustible al motor en el momento adecuado para asegurar una combustión eficiente. <br/><br/>En otras palabras, son como los "rociadores" de gasolina que alimentan el motor de tu automóvil.</p>
 
+  // <br/><br/>
+
+  // <h2 >¿Cómo funciona el Inyector de Combustible?</h2><br/>
+  // <p style="line-height: 1.8;">El funcionamiento del inyector de combustible es bastante ingenioso y preciso.<br/><br/> Estos pequeños dispositivos cuentan con una boquilla de pulverización que rocía el combustible directamente en la cámara de combustión del motor.<br/><br/> La cantidad de combustible que se inyecta se regula electrónicamente mediante el sistema de control del vehículo.</p><br/><br/>
+  // <p style="line-height: 1.8;">El <b>inyector de combustible</b> recibe una señal eléctrica de la ECU (Unidad de Control Electrónico) del automóvil.<br/><br/> Cuando se activa, se abre una válvula que permite que el combustible a alta presión salga a través de la boquilla en forma de aerosol fino. <br/><br/>Este aerosol se mezcla con el aire en la cámara de combustión, creando una mezcla homogénea que se quema eficientemente en el motor.</p>
+
+  // <br/><br/>
+
+  // <h2 >¿Cómo saber si los inyectores están mal?</h2><br/>
+  // <p style="line-height: 1.8;">Detectar un inyector de combustible defectuoso puede ser un desafío, pero hay algunos síntomas comunes a los que debes estar atento. Algunos de ellos incluyen:</p><br/>
+  // <ul style="line-height: 1.8;">
+  //   <li><b>Marcha irregular</b>: Si el motor de tu vehículo comienza a temblar o vibrar de manera irregular, podría ser un indicio de problemas con uno o más inyectores de combustible.</li><br/>
+  //   <li><b>Aumento del consumo de combustible</b>: Si notas que el rendimiento de combustible ha disminuido drásticamente, es posible que tengas inyectores defectuosos que no están suministrando la cantidad adecuada de combustible.</li><br/>
+  //   <li><b>Humo oscuro del escape</b>: Un inyector defectuoso puede causar una combustión incompleta, lo que provoca la emisión de humo oscuro y sucio desde el escape.</li>
+  // </ul>
+
+  // <br/><br/>
+
+  // <h2 >¿Por qué deja de funcionar un inyector?</h2><br/>
+  // <p style="line-height: 1.8;">El mal funcionamiento de un inyector de combustible puede deberse a varias razones, entre las cuales se incluyen:</p><br/>
+  // <ul style="line-height: 1.8;">
+  //   <li><b>Suciedad o depósitos</b>: A lo largo del tiempo, los inyectores pueden obstruirse debido a la acumulación de suciedad o depósitos de combustible que impiden su correcto funcionamiento.</li><br/>
+  //   <li><b>Daño eléctrico</b>: Las fluctuaciones de voltaje o problemas eléctricos pueden afectar el circuito del inyector, provocando su falla.</li><br/>
+  //   <li><b>Desgaste mecánico</b>: Los inyectores están sometidos a un uso constante y pueden desgastarse con el tiempo, afectando su capacidad de rociar el combustible de manera adecuada.</li>
+  // </ul>
+
+  // <br/><br/>
+
+  // <h2 >Cuál es la vida útil de un inyector de gasolina?</h2><br/>
+  // <p style="line-height: 1.8;">La vida útil de un inyector de combustible puede variar dependiendo de varios factores, incluyendo la calidad del combustible utilizado, el mantenimiento del vehículo y las condiciones de conducción. <br/><br/>En condiciones ideales, los inyectores pueden durar entre 50,000 y 100,000 kilómetros.</p><br/><br/>
+  // <p style="line-height: 1.8;">Para prolongar la vida útil de los inyectores, es importante mantener el vehículo en buen estado, utilizar combustibles de calidad y seguir las recomendaciones de mantenimiento del fabricante.</p>
+
+  // <br/><br/>
+
+  // <h2 >Cuáles son las partes de un inyector?</h2><br/>
+  // <p style="line-height: 1.8;">Un inyector de combustible está compuesto por varias partes importantes, entre las cuales se encuentran:</p><br/>
+  // <ul style="line-height: 1.8;">
+  //   <li><b>Bobina solenoide</b>: Es la encargada de abrir y cerrar la válvula del inyector para permitir el paso del combustible.</li><br/>
+  //   <li><b>Boquilla de pulverización</b>: Es la parte que rocía el combustible en forma de aerosol en la cámara de combustión.</li><br/>
+  //   <li><b>Filtro</b>: Algunos inyectores cuentan con un filtro que evita la entrada de partículas de suciedad y protege la boquilla.</li><br/>
+  //   <li><b>Válvula de aguja</b>: Regula el flujo de combustible y evita posibles goteos o fugas.</li><br/>
+  //   <li><b>Conector eléctrico</b>: Es el punto de conexión entre el inyector y la ECU del vehículo, donde recibe la señal eléctrica.</li>
+  // </ul>
+
+  //   <br/><br/>
+  // <h2 >Donde hacer la revision o cambio de los inyectores de un carro en Bogota?</h2><br/>
+  //  <p><a href="/">Aquí</a> encuentras mas de 100 talleres al servicio de tu carro, visita algunos los mejores talleres para tu carro <a href="/servicios-automotriz/Servicio%20de%20Motor-Bogota,%20Colombia">aquí</a></p> <br/><br/>
+  //   // <p>En conclusión, el <b>filtro de aceite de un vehículo</b> es un componente vital para garantizar el buen funcionamiento del motor y protegerlo de daños. <br/><br/>Cambiar el filtro de aceite regularmente es esencial para mantener el motor limpio y bien lubricado. Recuerda seguir las recomendaciones del fabricante y cambiar el filtro de aceite cada vez que realices un cambio de aceite.</p>
 

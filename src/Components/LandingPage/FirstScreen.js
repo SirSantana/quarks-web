@@ -20,7 +20,7 @@ export default function FirstScreen() {
     router.push(`/servicios-automotriz/${form.servicio}-${form.localidad}`)
   }
   const handleWha =(e)=>{
-    let url = `https://api.whatsapp.com/send?phone=573166394366`;
+    let url = `https://api.whatsapp.com/send?phone=573125972054`;
     url += `&text=${encodeURI(`Buenos dia, vi su negocio en https://quarks.com.co${router?.asPath}, estoy interesado en...`)}&app_absent=0`
     window.open(url);
   }

@@ -63,6 +63,10 @@
 
 .navv {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:16px
 }
 
 .li {
@@ -104,14 +108,14 @@
 }
 
 .subtitle {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 600;
     color: white;
+
 }
 
 .subtitle:hover {
     color: #5B0221;
-
 }
 
 .containerItems {
@@ -149,6 +153,63 @@
     height: 32px;
 }
 
+.talleres {
+    position: relative;
+    text-decoration: none;
+}
+
+.tooltip {
+    position: absolute;
+  top: 40px;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: #373737;
+  padding: 32px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  font-size: 14px;
+  font-weight: 600;
+  list-style: none;
+  box-sizing: border-box;
+  column-count: 2;
+  column-gap: 32px;
+
+}
+
+.talleres:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  
+  }
+.ulTipos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.ulTipos li {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+    cursor: pointer;
+
+}
+.ulTipos li:hover{
+    color:#969696
+}
+
+.ulTipos li:last-child {
+    margin-bottom: 0;
+    /* Elimina el margen inferior del último elemento */
+}
+
 @media (max-width: 1280px) {
     .header {
         padding: 12px 24px;
@@ -172,6 +233,17 @@
 }
 
 @media (max-width: 1090px) {
+    .tooltip {
+        column-count: 2;
+        column-gap: 16px;
+        overflow-y: visible;
+
+      }
+      .ulTipos li {
+        gap: 14px;
+        margin-bottom: 16px;
+    
+    }
     .menu {
         display: block;
         transition: all .50s ease;
@@ -222,7 +294,17 @@
     .containerNav {
         padding: 10px;
     }
-
+    .tooltip {
+      column-gap: 8px;
+      margin-bottom: 8px;
+      padding: 16px;
+      font-size: 12px;
+    }
+    .ulTipos li {
+        gap: 8px;
+        margin-bottom: 14px;
+    
+    }
     .title {
         font-size: 24px;
     }
@@ -234,7 +316,8 @@
     .subtitle {
         font-size: 16px;
     }
-    .header{
+
+    .header {
         width: 100%;
     }
 }
