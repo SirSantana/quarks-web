@@ -31,7 +31,6 @@ export default function Opinion({ almacen, setCalificated }) {
       setNumCalificaciones(result?.data?.getOpiniones?.length)
     }
   }, [result?.data])
-  console.log(data);
 
   return (
     <>
@@ -65,7 +64,7 @@ export default function Opinion({ almacen, setCalificated }) {
       {
         result?.data?.getOpiniones?.map(opinion => {
           const fecha = new Date(opinion?.fecha).toLocaleDateString()
-          if (opinion.email === email) {
+          if (opinion?.email === email) {
             setCalificated(true)
           }
 
@@ -90,6 +89,7 @@ export default function Opinion({ almacen, setCalificated }) {
 
         })
       }
+
     </>
 
   )

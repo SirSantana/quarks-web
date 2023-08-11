@@ -518,7 +518,7 @@
 
 @media (max-width: 700px) {
   .containerHeaderOpiniones {
-    flex-direction: row;
+    flex-direction: column;
   }
   .cardCategoriasAlmacenes{
     margin: 16px  0;

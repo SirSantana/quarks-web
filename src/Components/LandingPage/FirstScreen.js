@@ -36,7 +36,7 @@ export default function FirstScreen() {
               <CreatableSelect isClearable options={options}
                 styles={customStyles}
                 placeholder="Buscar..."
-                onChange={(e) => setForm({ ...form, servicio: e.value })}
+                onChange={(e) => setForm({ ...form, servicio: e?.value })}
               />
             </div>
             <div className={styles.separador} />

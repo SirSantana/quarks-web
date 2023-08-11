@@ -395,6 +395,7 @@ export const GET_ONE_NEGOCIOVDOS= gql`
       ubicacionmaps
       visitaswhatsapp
       opiniones
+      numerocalificacionesmaps
     }
   }
 `
@@ -527,5 +528,15 @@ export const GET_ARTICULO = gql`
 export const GET_VISTAS_ARTICULO = gql`
 query getVistasArticulo($id:ID){
   getVistasArticulo(id:$id)
+}
+`
+
+export const GET_CONSUMOS = gql`
+query getConsumos{
+  getConsumos{
+    fecha
+    consumo
+    galon
+  }
 }
 `

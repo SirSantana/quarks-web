@@ -22,6 +22,7 @@ import SectionGlosario from '@/src/Components/LandingPage/Section3'
 import SectionGrowthTaller from '@/src/Components/LandingPage/SectionGrowthTaller'
 import SectionPasos from '@/src/Components/LandingPage/Section4'
 import ActividadReciente from '@/src/Components/LandingPage/ActividadReciente'
+import SectionCalculadoraCombustible from '@/src/Components/LandingPage/Section5'
 
 
 
@@ -98,6 +99,7 @@ export default function Home() {
         <SectionPasos/>
         <SectionGrowthTaller/>
         <SectionGlosario/>
+        <SectionCalculadoraCombustible/>
 
         {/* <Main />
         <ServiciosPopulares /> */}

@@ -16,7 +16,7 @@ const categorias = [
   { nombre: 'Frenos', img: 'Frenado', url: 'Frenos' },
   { nombre: 'Inyeccion', img: 'inyeccion', url: 'Inyeccion' },
   { nombre: 'Latonería y pintura', img: 'Carroceria', url: 'Latoneria y pintura' },
-  { nombre: 'Mecanico a domicilio', img: 'Mecanico', url: 'Mecanico a Domicilio' },
+  { nombre: 'Mecanico a domicilio', img: 'mecanico', url: 'Mecanico a Domicilio' },
   { nombre: 'Motor', img: 'Motor', url: 'Motor' },
   { nombre: 'Peritaje', img: 'peritaje', url: 'Peritaje' },
   { nombre: 'Sincronización', img: 'Sincronizacion', url: 'Sincronizacion' },

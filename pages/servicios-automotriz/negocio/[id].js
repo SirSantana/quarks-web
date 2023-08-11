@@ -7,7 +7,6 @@ import { GET_CALIFICACION_OPINIONES, GET_ONE_NEGOCIOVDOS,  } from "@/graphql/que
 import { client } from "@/client"
 import { ModalShareArticulo, ModalTelefono } from "@/utils/Modales"
 import ModalCreateOpinion from "@/src/Components/Almacenes/ModalCreateOpinion"
-import Opinion from "@/src/Components/Index/Opinion"
 import Opiniones from "@/src/Components/Almacenes/Opiniones"
 import { useLazyQuery, useMutation, useQuery } from "@apollo/client"
 import { CREATE_CLICK_COMPARTIDO, CREATE_CLICK_MAPA, CREATE_CLICK_TELEFONO, CREATE_VISITA_ALMACEN, CREATE_VISITA_WHATSAPP } from "@/graphql/mutations"
@@ -265,7 +264,7 @@ export default function Negocio({ data }) {
               </div>}
             {/* <input placeholder='Agrega tu opinion del almacen' type={'text'} className={styles.input} /> */}
 
-            <Opiniones almacen={parts[0]} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones}/>
+            <Opiniones almacen={parts[0]} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones} calificacionMaps={data?.numerocalificacionesmaps} mapsUrl={taller?.ubicacionmaps}/>
 
           </div>
 

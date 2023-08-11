@@ -67,11 +67,14 @@ export default function Opinion({ almacen, setCalificated, setNumCalificaciones,
 
           return (
             <>
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between'}}>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', width:'100%' }}>
                   <img style={{ borderRadius: '25px', width: '36px', height: '36px' }} src={opinion?.foto} />
-                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'left' }}>
-                    <h6 className={styles.subtitle} style={{ color: '#373737', margin: 0, fontWeight: '600' }}>{opinion.nombre}</h6>
+                  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'left', width:'100%' }}>
+                    <div style={{display:'flex', flexDirection:'row',alignItems:'center', gap:'8px',justifyContent:'space-between', width:'100%'}}>
+                      <h6 className={styles.subtitle} style={{ color: '#373737', margin: 0, fontWeight: '600' }}>{opinion.nombre}</h6>
+                      {!opinion?.email && <img src="../../googleicon.png" style={{ width: '14px', height: '14px' }} />}
+                    </div>
                     <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', margin: 0, textAlign: 'left', alignSelf: 'flex-start' }}>{fecha}</h6>
                   </div>
 
@@ -96,6 +99,7 @@ export default function Opinion({ almacen, setCalificated, setNumCalificaciones,
 
         })
       }
+
     </>
 
   )

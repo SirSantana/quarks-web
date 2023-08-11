@@ -1,17 +1,16 @@
-
-
 .container {
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: 5% auto 0 auto;
+  margin: 0% auto 0 auto;
   padding: 32px;
 }
 
 .title {
   color: #76022C;
   font-size: 32px;
-  margin-top: 10%;
+  margin-top: 8%;
+  line-height: 110%;
 }
 
 .question {
@@ -73,14 +72,22 @@
   margin: 16px 0;
   -webkit-appearance: none;
   -moz-appearance: none;
-appearance: none;
+  appearance: none;
 }
 
+.gridContainer {
+  display: grid;
+  column-gap: 16px;
+  row-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 
 .button:hover {
   background-color: #db024e;
 }
-.containerCalculadora{
+
+.containerCalculadora {
   margin-top: 32px;
   display: flex;
   flex-direction: row;
@@ -89,38 +96,213 @@ appearance: none;
   width: 100%;
   gap: 100px;
 }
-.containerInputs{
+
+.containerInputs {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 48px;
 }
-.imgCilindraje{
+
+.imgCilindraje {
   width: 80%;
   height: 300px;
 }
-.imgFormula{
+
+.imgFormula {
   width: 90%;
   height: 100px;
+}
+
+
+.button {
+  position: absolute;
+  bottom: -40px;
+  /* Ajusta el valor negativo para que el botón sobresalga */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #f50057;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transition: opacity 0.2s, visibility 0.2s;
+
+
+}
+
+.containerCardRendimiento {
+  position: relative;
+  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
+  border-radius: 16px;
+  height: 320px;
+  width: 320px;
+  box-sizing: border-box;
+  padding: 32px 32px 48px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.miniContainerCardRendimiento{
+  position: relative;
+  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color:white;
+  max-width: 260px;
+}
+.tabs{
+  margin:32px 0;
+}
+.containerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  margin: 64px 0;
+  gap: 10%;
+}
+
+.containerInput {
+  margin: 32px 0 72px 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.containerInputs2 {
+  width: 50%;
+}
+
+.h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.h3 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.pSubtitle {
+  font-size: 16px;
+}
+
+.bigTitle {
+  font-size: 48px;
+  color: white;
+}
+
+
+@media (max-width: 1200px) {
+  .containerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin: 64px 0;
+  }
+}
+
+@media (max-width: 1080px) {
+  .containerContent {
+    gap: 32px;
+  }
+
+  .bigTitle {
+    font-size: 40px;
+  }
+
+  .container {
+    margin-top: 5%;
+  }
+}
+.tabs{
+  margin:64px 0;
+}
+@media (max-width: 900px) {
+  .containerContent {
+    flex-direction: column;
+    gap: 32px;
+    margin: 16px 0;
+  }
+
+  .containerInput {
+    margin: 32px 0;
+  }
+
+  .containerInputs2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    height: fit-content;
+  }
+
+  .h4 {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .pSubtitle {
+    font-size: 12px;
+  }
+
+  .containerCardRendimiento {
+    height: fit-content;
+    gap: 32px;
+    width: 100%;
+  }
+
+  .bigTitle {
+    font-size: 32px;
+  }
 }
 
 @media (max-width: 700px) {
   .input {
     width: 90%;
   }
-  .imgFormula{
+
+  .imgFormula {
     width: 100%;
     height: 50px;
   }
-  
-  .imgCilindraje{
+
+  .imgCilindraje {
     width: 100%;
     height: 200px;
   }
+
   .title {
     color: #76022C;
     font-size: 26px;
+    margin-top: 10%;
+    margin-bottom: 8px;
+  }
+
+  .containerContent {
+    flex-direction: column;
   }
 
   .container {
@@ -132,14 +314,14 @@ appearance: none;
     font-size: 16px;
   }
 
-  .button {
-    width: 100%;
-  }
-  .containerCalculadora{
+ 
+
+  .containerCalculadora {
     flex-direction: column;
     gap: 64px;
   }
-  .containerInputs{
+
+  .containerInputs {
     justify-content: space-between;
     width: 90%;
   }

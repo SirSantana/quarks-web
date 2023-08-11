@@ -299,6 +299,7 @@
       margin-bottom: 8px;
       padding: 16px;
       font-size: 12px;
+      column-count: 1;
     }
     .ulTipos li {
         gap: 8px;

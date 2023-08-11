@@ -16,14 +16,13 @@ const Star = ({ index, stars, tamaño }) => {
 let estrellas = [1, 2, 3, 4, 5]
 
 
-export default function Opiniones({ almacen, setNumCalificaciones, numCalificaciones }) {
+export default function Opiniones({ almacen, setNumCalificaciones, numCalificaciones,calificacionMaps, mapsUrl }) {
   const [visibleOpinion, setVisibleOpinion] = useState(false)
   const [stars, setStars] = useState(0)
   const [calificated, setCalificated] = useState(false)
   const [visibleModalLogin, setVisibleModalLogin] = useState(false)
   const {data:session}= useSession()
   const router = useRouter()
-
   const handlerLoginOpinion=(index)=>{
     setStars(index + 1)
     router.push(router?.asPath + '?modal-visible')
@@ -60,8 +59,6 @@ export default function Opiniones({ almacen, setNumCalificaciones, numCalificaci
                 <Star index={index} stars={stars} tamaño={'24'} />
               </div>
             ))}
-
-
         </div>
 
         {/* <input title='Opinar' onClick={() => setVisibleOpinion(true)} type={'submit'} className={styles.button2} /> */}
@@ -75,7 +72,8 @@ export default function Opiniones({ almacen, setNumCalificaciones, numCalificaci
           </div>
         }
         <Opinion almacen={almacen} setCalificated={setCalificated} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones} />
-
+        {/* {calificacionMaps >= 8 && <a href={mapsUrl}className={styles.button} style={{display:'flex', alignItems:'center', justifyContent:'center', textDecoration :'none'}}>Ver mas opiniones</a>} */}
+        
       </div>
     </>
 

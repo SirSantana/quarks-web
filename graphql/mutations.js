@@ -147,3 +147,13 @@ mutation createClickTelefono($id:ID){
   createClickTelefono(id:$id)
 }
 `
+
+export const CREATE_CONSUMO = gql`
+mutation createConsumo($fecha:String, $galon:String, $consumo:String){
+  createConsumo(fecha:$fecha, galon:$galon, consumo:$consumo){
+    fecha
+    galon
+    consumo
+  }
+}
+`

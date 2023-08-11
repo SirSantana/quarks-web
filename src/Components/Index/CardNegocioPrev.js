@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { useQuery } from "@apollo/client";
 import { GET_CALIFICACION_OPINIONES } from "@/graphql/queries";
+import OpinionesPrev from "./OpinionesPrev";
 
 const Star = ({ index, stars, tamaño }) => {
   return (
@@ -14,7 +15,6 @@ export default function CardNegocioPrev({ el, horariosSeparados }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: el?.id } })
-  console.log(result);
   return (
     <Link target="_blank" href={`/servicios-automotriz/negocio/${el?.id}-${el?.nombre}`} className={styles.containerCardLugar}>
 
@@ -29,15 +29,9 @@ export default function CardNegocioPrev({ el, horariosSeparados }) {
             <h2 style={{ alignItems: 'center', display: 'flex', gap: '8px' }} className={styles.titleLugar}>{el.nombre}{el?.nivelnegocio > 0 && <ion-icon style={{ color: '#f50057' }} name="shield-checkmark"></ion-icon>}</h2>
             <p className={styles.subtitleLugar}>Hoy {horariosSeparados[indiceDia]}</p>
           </div>
-          {result?.data?.getCalificacionOpiniones?.length > 0 &&
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
-              {estrellas.map((el, index) => (
-                <div key={index} id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
-                  <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'16'} />
-                </div>
-              ))}
-              <p className={styles.textCategory} >{result?.data?.getCalificacionOpiniones.length} calificaciones</p>
-            </div>}
+          {result?.data?.getCalificacionOpiniones > 0 &&
+              <OpinionesPrev id={el?.id}/>
+            }
         </div>
       </div>
 
@@ -52,15 +46,9 @@ export default function CardNegocioPrev({ el, horariosSeparados }) {
             <h2 style={{ alignItems: 'center', display: 'flex', gap: '8px' }} className={styles.titleLugar}>{el.nombre}{el?.nivelnegocio > 0 && <ion-icon style={{ color: '#f50057' }} name="shield-checkmark"></ion-icon>}</h2>
             <p className={styles.subtitleLugar}>Hoy {horariosSeparados[indiceDia]}</p>
           </div>
-          {result?.data?.getCalificacionOpiniones?.length > 0 &&
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
-              {estrellas.map((el, index) => (
-                <div  key={index} id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
-                  <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'16'} />
-                </div>
-              ))}
-              <p className={styles.textCategory}  >{result?.data?.getCalificacionOpiniones.length} </p>
-            </div>}
+          {result?.data?.getCalificacionOpiniones> 0 &&
+              <OpinionesPrev id={el?.id}/>
+            }
         </div>
         <div className={styles.containerCategory}>
           {
