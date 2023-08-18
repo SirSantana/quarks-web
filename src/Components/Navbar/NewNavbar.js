@@ -14,7 +14,6 @@ export default function NewNavbar() {
   useLayoutEffect(() => {
     setWidth(ref.current.offsetWidth);
   }, [])
-  console.log(width);
 
   return (
     <div

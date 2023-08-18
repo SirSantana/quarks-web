@@ -81,7 +81,6 @@ export function GraphTorta({ gastosMes }) {
         const filteredLabels = labelsAño.filter((label, index) => gastosMes?.[index.toString()]?.total !== 0);
         dataa["labels"] = filteredLabels
         dataa["datasets"][0]["data"]= labelsAño.map((el, index)=> gastosMes?.[index.toString()]?.total)
-        console.log(dataa);
 
       }else{
         const filteredLabels = labels.filter((label, index) => gastosMes[index] !== 0);

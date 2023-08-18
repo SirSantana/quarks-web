@@ -23,7 +23,10 @@ import SectionGrowthTaller from '@/src/Components/LandingPage/SectionGrowthTalle
 import SectionPasos from '@/src/Components/LandingPage/Section4'
 import ActividadReciente from '@/src/Components/LandingPage/ActividadReciente'
 import SectionCalculadoraCombustible from '@/src/Components/LandingPage/Section5'
-
+import Script from 'next/script'
+import FirstNewScreen from '@/src/Components/LandingPage/FirstNewScreen'
+import NewNavbarWithSearch from '@/src/Components/Navbar/NewNavbar2'
+import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
 
 
 export default function Home() {
@@ -41,7 +44,7 @@ export default function Home() {
       <Head>
         <title>Directorio de Talleres de carros en Bogotá </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={`Encuentra los mejores talleres mecanicos con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
+        <meta name="description" content={`Encuentra los mejores talleres mecanicos con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia"} />
         <meta name='robots' content='follow, index, max-image-preview:large' />
         <meta name='bingbot' content='follow, index' />
@@ -56,11 +59,11 @@ export default function Home() {
         <meta name="url" content={`https://quarks.com.co`} />
         <meta property="url" content={`https://quarks.com.co`} />
 
-        <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
+        <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
         <meta property="og:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta property="og:image:url" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
-        <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el=> " " + el.value)}`} />
+        <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property='og:url' content={`https://quarks.com.co/`} />
 
         <meta property='og:locale' content='es_CO' />
@@ -80,10 +83,29 @@ export default function Home() {
           crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-KTWW10C7YF" />
+        <Script
+          id='google-analytics'
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+          gtag('config', 'G-KTWW10C7YF', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
+
       </Head>
 
       <main className={styles.main}>
-        <Navbar />
+        {/* <Navbar /> */}
+        <NewNavbarWithSearch />
+
+
         {/* <NewNavbar/> */}
         {/* <Main /> */}
         {/* <HomeSection /> */}
@@ -91,15 +113,17 @@ export default function Home() {
         {/* <Beneficios /> */}
 
         {/* <HomeArticulos/> */}
-        <FirstScreen/>
-        <ListTalleresLanding/>
-        <ActividadReciente/>
-        <SectionCotizaciones/>
-        <SectionVariedadTalleres/>
-        <SectionPasos/>
-        <SectionGrowthTaller/>
-        <SectionGlosario/>
-        <SectionCalculadoraCombustible/>
+        <FirstNewScreen />
+        <SectonFilters />
+        {/* <FirstScreen /> */}
+        {/* <ListTalleresLanding />
+        <ActividadReciente />
+        <SectionCotizaciones />
+        <SectionVariedadTalleres />
+        <SectionPasos />
+        <SectionGrowthTaller />
+        <SectionGlosario />
+        <SectionCalculadoraCombustible /> */}
 
         {/* <Main />
         <ServiciosPopulares /> */}

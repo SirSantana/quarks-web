@@ -23,7 +23,6 @@ export default function CardAlmacen({ almacen }) {
   const [visibleCategorias, setVisibleCategorias] = useState(false)
   const [visibleModalContactAlmacen, setVisibleModalContactAlmacen] = useState(false)
   const [tipo, setTipo] = useState(null)
-  console.log(almacen);
 
   const sendMessageWha =()=>{
     let url = `https://api.whatsapp.com/send?phone=57${almacen?.celular}`;

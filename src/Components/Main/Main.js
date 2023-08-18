@@ -51,6 +51,13 @@ export const customStyles = {
     boxShadow: 'none',
     
   }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    display: 'none', // Ocultar el icono de flecha
+  }),
+  indicatorSeparator: () => ({
+    display: 'none', // Ocultar la línea horizontal
+  }),
   option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isSelected ? '#f50057' : 'white', // Cambiar el color de fondo de la opción seleccionada
@@ -60,6 +67,28 @@ export const customStyles = {
       color: 'black', // Cambiar el color de texto cuando se realiza un hover
     },
     zIndex:'999'
+  }),
+};
+export const customStyles2 = {
+  control: (provided) => ({
+    ...provided,
+    border: 'none', // Quitar el borde
+    boxShadow: 'none',
+  }),
+  dropdownIndicator: (provided) => ({
+    ...provided,
+    display: 'none', // Ocultar el icono de flecha
+  }),
+ 
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.isSelected ? '#f50057' : 'white', // Cambiar el color de fondo de la opción seleccionada
+    color: state.isSelected ? 'white' : 'black', // Cambiar el color de texto de la opción seleccionada
+    ':hover': {
+      backgroundColor: '#ffefef', // Cambiar el color de fondo cuando se realiza un hover
+      color: 'black', // Cambiar el color de texto cuando se realiza un hover
+    },
+    zIndex:'999',
   }),
 };
 

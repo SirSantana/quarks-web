@@ -41,7 +41,6 @@ export default function FrenosSeccion() {
           if (filteredValues.length > 0) {
             acc[key] = filteredValues;
           }
-          console.log(acc);
           return acc;
       }, {});
     }

@@ -18,7 +18,6 @@ export default function FrenosSeccion() {
     const articulosFiltrados = Object.values(data).flatMap((seccion) =>
         seccion.filter((articulo) => articulo.description === 'Filtros')
     );
-    console.log(articulosFiltrados);
 
     const handleSearch = (event) => {
       setSearchTerm(event.target.value.toLowerCase());
@@ -42,7 +41,6 @@ export default function FrenosSeccion() {
           if (filteredValues.length > 0) {
             acc[key] = filteredValues;
           }
-          console.log(acc);
           return acc;
       }, {});
     }

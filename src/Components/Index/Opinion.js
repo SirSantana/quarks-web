@@ -45,7 +45,7 @@ export default function Opinion({ almacen, setCalificated }) {
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
                 {estrellas.map((el, index) => (
                   <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
-                    <Star index={index} calificacion={data?.getCalificacionOpiniones} tamaño={'24'} />
+                    <Star index={index} calificacion={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'24'} />
                   </div>
                 ))}
               </div>
@@ -74,7 +74,7 @@ export default function Opinion({ almacen, setCalificated }) {
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', }}>
                   {estrellas.map((el, index) => (
                     <div id={index} style={{ marginRight: '8px' }}  >
-                      <Star index={index} calificacion={opinion?.calificacion} tamaño={12} />
+                      <Star index={index} calificacion={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={12} />
                     </div>
                   ))}
                 </div>

@@ -3,8 +3,10 @@ import Footer from './Footer/Footer'
 import Nav from './Navbar/Nav'
 import NewNavbar from './Navbar/NewNavbar'
 import Navbar from './Navbar/Navbar'
+import Script from 'next/script'
+import NewNavbarWithSearch from './Navbar/NewNavbar2'
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon}) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon }) {
   return (
     <>
       <Head>
@@ -61,7 +63,7 @@ export default function Layout({ children, title, description, type, price, keyw
           </>}
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href={icon?icon :"/logoquarks200623.png"} />
+        <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,10 +72,26 @@ export default function Layout({ children, title, description, type, price, keyw
           crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-KTWW10C7YF"/>
+        <Script
+          id='google-analytics'
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+          gtag('config', 'G-KTWW10C7YF', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
       </Head>
 
       <main >
-        <Nav />
+        {/* <Nav /> */}
+        <NewNavbarWithSearch/>
         {/* <NewNavbar/> */}
         {/* <Navbar/> */}
         {children}

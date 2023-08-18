@@ -9,60 +9,32 @@ import { options, options2 } from "@/src/Components/Main/Main";
 import CardNegocioPrev from "@/src/Components/Index/CardNegocioPrev";
 import { client } from "@/client";
 import { CREATE_IMPRESION_ALMACEN } from "@/graphql/mutations";
+import SliderTiposTalleres from "@/src/Components/LandingPage/SliderTiposTalleres";
+import SectonFilters from "@/src/Components/LandingPage/SectionFilters";
 
-// const options2 = [
-//   { value: 'Recomendado', label: 'Recomendado' },
-//   { value: 'Mas votado', label: 'Mas votado' },
-//   { value: 'Mas visitado', label: 'Mas visitado' }
-// ];
-const customStyles = {
-  control: (provided,) => ({
-    ...provided,
-    border: 'none',
-    boxShadow: 'none',
-    fontSize: '14px',
-    fontWeight: '700',
-    width: '140px'
-  }),
-  option: (provided, state) => ({
-    ...provided,
-    fontSize: '14px',
-    backgroundColor: state.isSelected ? '#f50057' : 'white',
-    color: state.isSelected ? 'white' : 'black',
-    ':hover': {
-      backgroundColor: '#ffefef',
-      color: 'black',
-    },
-  }),
-};
 
 export default function ServicioAutomotriz({ data }) {
   const router = useRouter()
   const parts = router?.query?.id?.split("-");
 
-  const handleChange = (e) => {
-    router.push(`/servicios-automotriz/${e.value}-${parts[1]}`)
-  }
-  const handleChange2 = (e) => {
-    router.push(`/servicios-automotriz/${parts[0]}-${e.value}`)
-  }
-
-  const servicioFiltrado = options.find(el => el.value === parts?.[0])
-  const servicioFiltrado2 = options2.find(el => el.value === parts?.[1])
-
   return (
-    <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + parts?.[1])}`}>
-      <div className={styles.container2}>
+    <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + parts?.[1])}`}>
+        <div >
+        <SliderTiposTalleres/>
+
+        <SectonFilters data={data}/>
+        </div>
+
+
+      
+      {/* <div className={styles.container2}>
 
         <div className={styles.section1}>
           <p style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>{parts?.[0]}{" > "} {parts?.[1]}</p>
           <div className={styles.containerHeaderText}>
             <h1 className={styles.titleHeader}>Los mejores talleres mecanicos de {parts?.[0]} cerca a mi en {parts?.[1]}</h1>
             <div className={styles.containerFiltersBasic}>
-              {/* <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <p className={styles.subtitleHeader}>Ordenar:</p>
-                <Select options={options2} isSearchable={false} styles={customStyles} defaultValue={options2[0]} />
-              </div> */}
+             
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <p className={styles.subtitleHeader}>Filtrar:</p>
                 <Select onChange={handleChange} options={options} isSearchable={false} styles={customStyles} defaultValue={options[servicioFiltrado?.index]} />
@@ -88,16 +60,12 @@ export default function ServicioAutomotriz({ data }) {
                   )
                 })}
             </>
-            // : <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>No se encontraron talleres de carros para {parts?.[0]} en {parts?.[1]} </h2>
             : <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>Proximamente...</h2>
 
           }
         </div>
-        {/* <div className={styles.section2}>
-          <h2>Mapa</h2>
-        </div> */}
 
-      </div>
+      </div> */}
 
     </Layout>
   )
@@ -106,7 +74,7 @@ export default function ServicioAutomotriz({ data }) {
 export async function getServerSideProps({ query }) {
   const parts = query?.id?.split("-");
   let categoria = parts[0];
-  let localidad = parts[1].split(".")[0]
+  let localidad = parts[1]?.split(".")[0]
   const levenshteinDistance = (s1, s2) => {
     const m = s1.length;
     const n = s2.length;

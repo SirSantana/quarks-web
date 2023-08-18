@@ -17,7 +17,6 @@ export default function CardAnalytics({ idCar, gastosArray, setSelectTipoGasto, 
     for (let i = 0; i <= 11; i++) {
       totalTipoGasto += gastos[i]?.total
     }
-    console.log(totalTipoGasto, totalGastadoAño);
     porcentaje =  (totalTipoGasto *100) / totalGastadoAño
   }
   return (

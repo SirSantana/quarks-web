@@ -11,19 +11,25 @@ const Star = ({ index, stars, tamaño }) => {
 }
 let estrellas = [1, 2, 3, 4, 5]
 
-export default function OpinionesPrev({id}) {
-  const [getCalificacionOpiniones,result] = useLazyQuery(GET_CALIFICACION_OPINIONES, )
-  useEffect(()=>{
+export default function OpinionesPrev({ id }) {
+  const [getCalificacionOpiniones, result] = useLazyQuery(GET_CALIFICACION_OPINIONES,)
+  useEffect(() => {
     getCalificacionOpiniones({ variables: { id: id } })
-  },[id])
+  }, [id])
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
-      {estrellas.map((el, index) => (
-        <div key={index} id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
-          <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'16'} />
-        </div>
-      ))}
-      <p className={styles.textCategory} >{result?.data?.getCalificacionOpiniones} </p>
+    <div style={{backgroundColor:'#f50057',borderRadius:'4px', padding:'4px 8px'}}>
+      <p style={{ fontSize: '12px',color:'#ffffff', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '2px' }}>
+        <ion-icon style={{ color: '#ffffff' }} name="star"></ion-icon>
+        {result?.data?.getCalificacionOpiniones}</p>
     </div>
+    // <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
+    //   {estrellas.map((el, index) => (
+    //     <div key={index} id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
+    //       <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'16'} />
+    //     </div>
+    //   ))}
+    //   <p className={styles.textCategory} >{result?.data?.getCalificacionOpiniones} </p>
+
+    // </div>
   )
 }

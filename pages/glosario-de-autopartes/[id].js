@@ -13,17 +13,13 @@ import Layout from "@/src/Components/Layout";
 import styles from '@/styles/Diccionario.module.css'
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import VanillaTilt from 'vanilla-tilt';
 import parse from 'html-react-parser';
 import articulos from '../../utils/articulosrepuestos.json'
 import AsideGlosario from "@/src/Components/Articulos/AsideGlosario";
 
 export default function Repuesto({ data }) {
   const router = useRouter()
-  useEffect(() => {
-    const element = document.querySelector('[data-tilt]');
-    VanillaTilt.init(element);
-  }, []);
+ 
   return (
     <Layout title={data?.parrafoSeisDos ? data?.parrafoSeisDos:data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
 
@@ -38,7 +34,7 @@ export default function Repuesto({ data }) {
             :
             <>
               <div className={styles.containerGrid}>
-                <div data-tilt className={styles.foto}>
+                <div  className={styles.foto}>
                   <img src={data?.imgPrincipal} className={styles.imgRepuesto} />
 
                 </div>

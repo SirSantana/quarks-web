@@ -115,7 +115,7 @@ export default function Negocio({ data }) {
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
                     {estrellas.map((el, index) => (
                       <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
-                        <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'20'} />
+                        <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'20'} />
                       </div>
                     ))}
                     <p className={styles.textCategory} >{numCalificaciones} calificaciones</p>
@@ -141,7 +141,7 @@ export default function Negocio({ data }) {
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
                     {estrellas.map((el, index) => (
                       <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
-                        <Star index={index} stars={result?.data?.getCalificacionOpiniones} tamaño={'20'} />
+                        <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'20'} />
                       </div>
                     ))}
                     <p className={styles.textCategory} >{numCalificaciones} calificaciones</p>

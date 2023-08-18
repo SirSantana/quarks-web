@@ -11,7 +11,7 @@
 
 .header {
     position: fixed;
-    width: 80%;
+    width: 100%;
     top: 0;
     right: 0;
     z-index: 1000;
@@ -20,14 +20,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 0;
-    margin: 0 auto;
     transition: all .50 ease;
     box-sizing: border-box;
     /* background: #f50057; */
-    background: transparent;
+    background: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
 }
-
+.navDiv{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    margin: 0 auto;
+}
 .headerScrolled {
     background: #f50057;
     position: fixed;
@@ -70,7 +76,6 @@
 }
 
 .li {
-    margin-right: 16px;
     list-style-type: none;
 }
 
@@ -160,7 +165,7 @@
 
 .tooltip {
     position: absolute;
-  top: 40px;
+  top: 50px;
   white-space: nowrap;
   left: 50%;
   transform: translateX(-50%);
@@ -177,9 +182,24 @@
   box-sizing: border-box;
   column-count: 2;
   column-gap: 32px;
-
+  box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
 }
-
+.liCategory:hover{
+    opacity: 0.7;
+}
+.textCategoriaTaller{
+    font-size: 12px;
+    color: #717171;
+    font-weight: 600;
+    white-space: nowrap
+  }
+  .textCategoriaTallerA{
+    font-size: 12px;
+    color: black;
+    font-weight: 600;
+    white-space: nowrap
+  }
+  
 .talleres:hover .tooltip {
     opacity: 1;
     visibility: visible;
@@ -212,7 +232,6 @@
 
 @media (max-width: 1280px) {
     .header {
-        padding: 12px 24px;
         transition: .2s;
     }
 
@@ -233,6 +252,10 @@
 }
 
 @media (max-width: 1090px) {
+    
+    .titleNav {
+        display: none;
+    }
     .tooltip {
         column-count: 2;
         column-gap: 16px;
@@ -263,10 +286,10 @@
         background-color:#f50057 ;
     } */
     .li {
-        margin: 12px 0;
+        margin: 0;
         list-style-type: none;
         display: block;
-        padding: 0px 16px;
+        padding: 0px;
     }
 }
 
@@ -284,13 +307,19 @@
     transition: all 0.8s ease-in-out;
     z-index: 999;
 }
-
+@media (max-width:900px){
+    .navDiv{
+        width: 90%;
+    }
+}
 @media (max-width: 600px) {
     .container {
         padding: 10px;
 
     }
-
+    .navDiv{
+        width: 95%;
+    }
     .containerNav {
         padding: 10px;
     }
@@ -310,9 +339,6 @@
         font-size: 24px;
     }
 
-    .titleNav {
-        display: none;
-    }
 
     .subtitle {
         font-size: 16px;
