@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function SectionGlosario() {
   return (
-    <div className={styles.containerListTalleres}>
+    <section className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column', alignItems: 'center' }}>
           <img src='/glosarioautomotriz.png' className={styles.imgPrincipal} />
@@ -19,6 +19,6 @@ export default function SectionGlosario() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -10,7 +10,7 @@ const Star = ({ index, calificacion, tamaño }) => {
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
-export default function Opinion({ almacen, setCalificated, setNumCalificaciones, numCalificaciones }) {
+export default function Opinion({ almacen, setCalificated, setNumCalificaciones, numCalificaciones, calificacionMaps }) {
   const [getOpiniones, result] = useLazyQuery(GET_OPINIONES)
   const [email, setEmail] = useState(null)
   // const [numCalificaciones, setNumCalificaciones] = useState(0)
@@ -47,7 +47,7 @@ export default function Opinion({ almacen, setCalificated, setNumCalificaciones,
                   </div>
                 ))}
               </div>
-              <h6 className={styles.subtitle2} style={{ margin: 0, color: '#6D6D6D', alignSelf: 'flex-start' }}>{numCalificaciones} calificaciones</h6>
+              <h6 className={styles.subtitle2} style={{ margin: 0, color: '#6D6D6D', alignSelf: 'flex-start' }}>{Number(calificacionMaps) + Number(numCalificaciones)} reseñas</h6>
 
             </div>
           </div>

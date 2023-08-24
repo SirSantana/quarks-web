@@ -6,6 +6,7 @@ import Opinion from './Opinion'
 import ModalLoginFacebook from './ModalLoginFacebook'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 
 const Star = ({ index, stars, tamaño }) => {
@@ -16,34 +17,34 @@ const Star = ({ index, stars, tamaño }) => {
 let estrellas = [1, 2, 3, 4, 5]
 
 
-export default function Opiniones({ almacen, setNumCalificaciones, numCalificaciones,calificacionMaps, mapsUrl }) {
+export default function Opiniones({ almacen, setNumCalificaciones, numCalificaciones, calificacionMaps, urltallermaps }) {
   const [visibleOpinion, setVisibleOpinion] = useState(false)
   const [stars, setStars] = useState(0)
   const [calificated, setCalificated] = useState(false)
   const [visibleModalLogin, setVisibleModalLogin] = useState(false)
-  const {data:session}= useSession()
+  const { data: session } = useSession()
   const router = useRouter()
-  const handlerLoginOpinion=(index)=>{
+  const handlerLoginOpinion = (index) => {
     setStars(index + 1)
     router.push(router?.asPath + '?modal-visible')
-    if(session){
+    if (session) {
       return setVisibleOpinion(true)
-    }else{
+    } else {
       return setVisibleModalLogin(true)
     }
   }
-  
+
   useEffect(() => {
     if (!visibleOpinion) {
       setStars(0)
     }
   }, [visibleOpinion])
-  useEffect(()=>{
+  useEffect(() => {
     const modal = router.asPath.split('?')[1]
-    if(modal && session){
+    if (modal && session) {
       return setVisibleOpinion(true)
     }
-  },[session])
+  }, [session])
   return (
     <>
       <div className={styles.containerInputOpinion}>
@@ -67,12 +68,16 @@ export default function Opiniones({ almacen, setNumCalificaciones, numCalificaci
           </div>}
         {visibleModalLogin &&
           <div className={styles.modal}>
-            <ModalLoginFacebook  setVisibleModalLogin={setVisibleModalLogin}/>
+            <ModalLoginFacebook setVisibleModalLogin={setVisibleModalLogin} />
           </div>
         }
-        <Opinion almacen={almacen} setCalificated={setCalificated} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones} />
+        <Opinion almacen={almacen} setCalificated={setCalificated} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones} calificacionMaps={calificacionMaps} />
         {/* {calificacionMaps >= 8 && <a href={mapsUrl}className={styles.button} style={{display:'flex', alignItems:'center', justifyContent:'center', textDecoration :'none'}}>Ver mas opiniones</a>} */}
-        
+        {urltallermaps &&
+          <Link className={styles.button} style={{ display: 'flex', textDecoration: 'none', justifyContent: 'center', alignItems: 'center' }} href={urltallermaps} target="_blank" rel="noopener noreferrer">
+            Ver mas reseñas
+          </Link>
+        }
       </div>
     </>
 

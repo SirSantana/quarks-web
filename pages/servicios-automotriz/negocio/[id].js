@@ -40,6 +40,7 @@ export default function Negocio({ data }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = data?.horario.split(',');
+  console.log(data);
 
   const sendMessageWha = () => {
     createVisitaWhatsapp({ variables: { id: parts[0] } })
@@ -92,7 +93,6 @@ export default function Negocio({ data }) {
     const taller1 = talleres.talleres.find(el => el.id === parts?.[0])
     setTaller(taller1)
   }, [router])
-
   return (
     <Layout title={`${data?.nombre} - Talleres en Bogota`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil? data?.fotoperfil: 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil}>
       <div className={styles.container}>
@@ -118,7 +118,7 @@ export default function Negocio({ data }) {
                         <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'20'} />
                       </div>
                     ))}
-                    <p className={styles.textCategory} >{numCalificaciones} calificaciones</p>
+                    <p className={styles.textCategory} >{result?.data?.getCalificacionOpiniones} ({Number(data?.numerocalificacionesmaps) + Number(numCalificaciones)} reseñas)</p>
                   </div>
                 }
 
@@ -135,7 +135,7 @@ export default function Negocio({ data }) {
 
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', width: '100%', marginBottom: '8px' }}>
                   <h1 style={{ width: '90%' }} className={styles.titleNegocio}>{data?.nombre}</h1>
-                  {data?.nivelnegocio > 1 && <ion-icon style={{ color: '#f50057', fontSize: '24px', width: '10%' }} name="shield-checkmark"></ion-icon>}
+                  {data?.nivelnegocio >= 1 && <ion-icon style={{ color: '#f50057', fontSize: '24px', width: '10%' }} name="shield-checkmark"></ion-icon>}
                 </div>
                 {result?.data?.getCalificacionOpiniones?.length > 0 &&
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px' }}>
@@ -144,13 +144,13 @@ export default function Negocio({ data }) {
                         <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'20'} />
                       </div>
                     ))}
-                    <p className={styles.textCategory} >{numCalificaciones} calificaciones</p>
+                    <p className={styles.textCategory} >{result?.data?.getCalificacionOpiniones} ({Number(data?.numerocalificacionesmaps) + Number(numCalificaciones)} reseñas)</p>
                   </div>
                 }
 
               </div>
 
-              <div className={styles.containerCategory}>
+              {/* <div className={styles.containerCategory}>
                 {data?.categorias.slice(0, 5).map(categoria => (
                   <div className={styles.cardCategoryLugar}>
                     <p className={styles.textCategory}>{categoria}</p>
@@ -159,7 +159,7 @@ export default function Negocio({ data }) {
                 {data?.categorias.length > 5 && <div className={styles.cardCategoryLugar}>
                   <p className={styles.textCategory}>+ {data?.categorias.length} categorias</p>
                 </div>}
-              </div>
+              </div> */}
               <div className={styles.containerButtonsCA}>
                 <button onClick={handleScroll} className={styles.buttonPrimary}><ion-icon style={{ color: 'white', fontSize: '24px' }} name="star-outline"></ion-icon>Agregar reseña</button>
                 <button onClick={handleClickCompartir} className={styles.buttonSecondary}><ion-icon style={{ fontSize: '24px' }} name="share-outline"></ion-icon>Compartir</button>
@@ -194,7 +194,7 @@ export default function Negocio({ data }) {
 
           <div style={{ backgroundColor: '#d9d9d9', width: '100%', height: '1px', margin: '16px 0 16px 0' }} />
 
-          <div>
+          <div style={{margin:'48px 0'}}>
             <h2 className={styles.titleLugar}>Servicios ofrecidos</h2>
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', margin: '16px 0' }}>
               {data?.categorias.map(categoria => (
@@ -264,7 +264,7 @@ export default function Negocio({ data }) {
               </div>}
             {/* <input placeholder='Agrega tu opinion del almacen' type={'text'} className={styles.input} /> */}
 
-            <Opiniones almacen={parts[0]} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones} calificacionMaps={data?.numerocalificacionesmaps} mapsUrl={taller?.ubicacionmaps}/>
+            <Opiniones almacen={parts[0]} setNumCalificaciones={setNumCalificaciones} numCalificaciones={numCalificaciones} calificacionMaps={data?.numerocalificacionesmaps} urltallermaps={data?.urltallermaps}/>
 
           </div>
 

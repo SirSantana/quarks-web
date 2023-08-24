@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function SectionVariedadTalleres() {
   return (
-    <div className={styles.containerListTalleres}>
+    <section className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column', alignItems: 'center' }}>
           <img src='/carespejo.svg' className={styles.imgPrincipal} />
@@ -19,6 +19,6 @@ export default function SectionVariedadTalleres() {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

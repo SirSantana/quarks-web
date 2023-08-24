@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function SectionPasos() {
   return (
-    <div className={styles.containerListTalleres}>
+    <section className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
           <h2 className={styles.title2}>Encuentra el mejor taller para tu auto</h2>
@@ -43,7 +43,7 @@ export default function SectionPasos() {
 
       </div>
 
-    </div>
+    </section>
 
   )
 }

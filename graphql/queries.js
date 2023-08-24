@@ -396,6 +396,8 @@ export const GET_ONE_NEGOCIOVDOS= gql`
       visitaswhatsapp
       opiniones
       numerocalificacionesmaps
+      promediocalificacionesmaps
+      urltallermaps
     }
   }
 `

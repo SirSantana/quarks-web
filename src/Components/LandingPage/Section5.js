@@ -49,7 +49,7 @@ export default function SectionCalculadoraCombustible() {
     setCheck(false)
   }, [galones, kilometros])
   return (
-    <div className={styles2.containerListTalleres}>
+    <section className={styles2.containerListTalleres}>
       {/* <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column', alignItems: 'center' }}>
           <img src='/glosarioautomotriz.png' className={styles.imgPrincipal} />
@@ -131,6 +131,6 @@ export default function SectionCalculadoraCombustible() {
 
       </div>
 
-    </div>
+    </section>
   )
 }

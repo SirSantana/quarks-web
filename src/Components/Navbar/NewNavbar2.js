@@ -8,6 +8,7 @@ import Select from 'react-select'
 import CreatableSelect from 'react-select/creatable'
 import { customStyles, customStyles2, options, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
+import FirstNewScreen from '../LandingPage/FirstNewScreen';
 
 const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
@@ -50,9 +51,8 @@ export default function NewNavbarWithSearch() {
   }
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100vw' }} className={open && styles.modal} >
-
-      <header ref={ref} className={` ${styles.header}`}>
+    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }} className={open && styles.modal}>
+      <div ref={ref} className={` ${styles.header}`}>
         <div className={styles.navDiv}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
             <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
@@ -60,7 +60,7 @@ export default function NewNavbarWithSearch() {
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
             <div className={styles2.select1}>
-              <CreatableSelect isClearable 
+              <CreatableSelect isClearable
                 styles={customStyles2}
                 placeholder="Buscar..."
                 onChange={(e) => setForm({ ...form, servicio: e?.value })}
@@ -103,9 +103,9 @@ export default function NewNavbarWithSearch() {
           </ul>
         </div>
 
-      </header>
-
-    </div >
+      </div>
+      <FirstNewScreen/>
+    </header>
 
   )
 }

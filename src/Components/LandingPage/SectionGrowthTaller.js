@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function SectionGrowthTaller() {
   return (
-    <div className={styles.containerGrowthTaller}>
+    <section className={styles.containerGrowthTaller}>
       <div className={styles.containerGrowth}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
           <h2 className={styles.title}>Haz crecer tu negocio con nosotros. Unete Gratis!</h2>
@@ -19,6 +19,6 @@ export default function SectionGrowthTaller() {
           <img src={'./fotostoredefault.png'} className={styles.imgPrincipal} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }

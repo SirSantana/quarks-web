@@ -1,20 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import Navbar from '@/src/Components/Navbar/Navbar'
 import Main, { options } from '@/src/Components/Main/Main'
-import HomeSection from '@/src/Components/Home/Home'
-import PasosCotizacion from '@/src/Components/Home/PasosCotizacion'
-import Beneficios from '@/src/Components/Home/Beneficios'
 import Footer from '@/src/Components/Footer/Footer'
 import { useEffect, useState } from 'react'
-import HomeArticulos from '@/src/Components/Index/Home'
-import NewNavbar from '@/src/Components/Navbar/NewNavbar'
-import ServiciosPopulares from '@/src/Components/Main/ServiciosPopulares'
-import TalleresRecomendados from '@/src/Components/Main/TalleresRecomendados'
-import Link from 'next/link'
-import SwiperAutopartes from '@/src/Components/Home/SwiperAutopartes'
-import FirstScreen from '@/src/Components/LandingPage/FirstScreen'
 import ListTalleresLanding from '@/src/Components/LandingPage/ListTalleresLanding'
 import SectionVariedadTalleres from '@/src/Components/LandingPage/Section1'
 import SectionCotizaciones from '@/src/Components/LandingPage/Section2'
@@ -42,9 +30,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Directorio de Talleres de carros en Bogotá </title>
+        <title>Talleres mecanicos</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={`Encuentra los mejores talleres mecanicos con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
+        <meta name="description" content={`Encuentra los mejores talleres de carros con reseñas de usuarios y recomendaciones en Bogota. Taller automotriz de Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia"} />
         <meta name='robots' content='follow, index, max-image-preview:large' />
         <meta name='bingbot' content='follow, index' />
@@ -113,17 +101,17 @@ export default function Home() {
         {/* <Beneficios /> */}
 
         {/* <HomeArticulos/> */}
-        <FirstNewScreen />
+        {/* <FirstNewScreen /> */}
         <SectonFilters />
         {/* <FirstScreen /> */}
-        {/* <ListTalleresLanding />
+        <ListTalleresLanding />
         <ActividadReciente />
         <SectionCotizaciones />
         <SectionVariedadTalleres />
         <SectionPasos />
         <SectionGrowthTaller />
         <SectionGlosario />
-        <SectionCalculadoraCombustible /> */}
+        <SectionCalculadoraCombustible />
 
         {/* <Main />
         <ServiciosPopulares /> */}

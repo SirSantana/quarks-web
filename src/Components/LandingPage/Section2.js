@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function SectionCotizaciones() {
   return (
-    <div style={{ backgroundColor: '#FDFDFD' }} className={styles.containerListTalleres}>
+    <section style={{ backgroundColor: '#FDFDFD' }} className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
 
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
@@ -19,6 +19,6 @@ export default function SectionCotizaciones() {
           <img src='/cardtallerUno.jpg' className={styles.imgPrincipal} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }

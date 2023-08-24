@@ -226,7 +226,7 @@
 .categoria {
   margin: 0 8px; /* Agrega un espacio de 8px en cada lado */
   padding: 8px;
-  width: auto !important;
+  width: 100px;
   text-decoration: none;
   position: relative; 
 }

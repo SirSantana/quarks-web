@@ -67,19 +67,19 @@ export default function SectonFilters({ data }) {
     levenshteinDistance(item.nombre.toLowerCase(), categoria.toLowerCase()) < 5 // Valor umbral de similitud
   );
   return (
-    <div className={styles.containerGridTalleres}>
+    <section className={styles.containerGridTalleres}>
       <div className={styles.headerTalleres} >
 
         <div >
           {router?.pathname !== '/'
-            && <h1 style={{ textAlign: 'left', }} className={styles.title2}>Mejores talleres de {parts?.[0]} </h1>
+            && <h1 style={{ textAlign: 'left', }} className={styles.title2}>Taller automotriz de {parts?.[0]} </h1>
           }
 
           {router?.pathname !== '/'
             ?
-            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} resultados de {parts?.[0]} cerca a mi en {parts?.[1]}</h4>
+            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} taller de carro de {parts?.[0]} cerca a mi en {parts?.[1]}</h4>
             :
-            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Encuentra mas de 100 lugares al servicio automotriz</h4>
+            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
 
           }
         </div>
@@ -104,6 +104,6 @@ export default function SectonFilters({ data }) {
 
       </div>
 
-    </div>
+    </section>
   )
 }

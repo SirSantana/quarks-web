@@ -26,9 +26,9 @@ export default function SliderTiposTalleres({ quantity }) {
   const router = useRouter()
 
   return (
-    <div style={{ width:router?.pathname === '/'?'100%': '95%',padding:'0',marginRight:' auto',marginLeft:'auto', marginTop:router?.pathname === '/'?'16px': '90px'}}>
+    <section style={{ width:router?.pathname === '/'?'100%': '95%',padding:'0',marginRight:' auto',marginLeft:'auto', marginTop:router?.pathname === '/'?'16px': '90px'}}>
       <CategoriasSlider categorias={categorias} />
-    </div>
+    </section>
 
 
   )

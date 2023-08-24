@@ -27,11 +27,17 @@ export default function ListTalleresLanding() {
     return () => clearTimeout(timeout);
   }, []);
   return (
-    <div className={styles.containerListTalleres}>
-      <h2 style={{ textAlign: 'center' }} className={styles.title2}>Los mejores talleres en un solo lugar</h2>
+    <section className={styles.containerListTalleres}>
+      <h2 className={styles.title2} style={{ textAlign: 'center', color: '#373737' }}>
+        Los Mejores Talleres de carros en un solo Lugar
+      </h2>
       <div className={styles.containerImgTalleres}>
         {imagesTalleres.map((el, index) => (
-          <Link href={`/servicios-automotriz/negocio/${el.id}-${el?.taller}`} className={styles.imageWrapper} key={index}>
+          <Link
+            href={`/servicios-automotriz/negocio/${el.id}-${el?.taller}`}
+            className={styles.imageWrapper}
+            key={index}
+          >
             {isLoading ? (
               <div className={styles.skeletonLoader} />
             ) : (
@@ -46,10 +52,15 @@ export default function ListTalleresLanding() {
         ))}
       </div>
 
-      <Link className={styles.button} href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'} style={{ textDecoration: 'none', fontSize: '14px', color: 'white' }}>
-        Explora mas talleres
+      <Link
+        href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'}
+        className={styles.button}
+        style={{ textDecoration: 'none', fontSize: '14px', color: 'white' }}
+      >
+        Explora Más Talleres
         <ion-icon name="arrow-forward-outline"></ion-icon>
       </Link>
-    </div>
+    </section>
+
   )
 }
