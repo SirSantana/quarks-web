@@ -10,7 +10,6 @@ const Star = ({ index, stars, tamaño, }) => {
 }
 let estrellas = [1, 2, 3, 4, 5]
 export default function ActividadReciente() {
-
   return (
     <section className={styles.containerListTalleres}>
       <h2 style={{ textAlign: 'center' }} className={styles.title2}>Actividad Reciente</h2>
@@ -30,13 +29,11 @@ export default function ActividadReciente() {
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>
             </div>
-
             <img
             alt='Taller automotriz djc los boyacos bogota'
               className={styles.imgTaller}
               src={`https://azurequarks.blob.core.windows.net/negocios/djclosboyacos270723.jpg`}
             />
-
             <div style={{ padding: '16px', display: 'flex', gap: '4px', flexDirection: 'column', justifyContent: 'center' }}>
               <h4>Mecánica - DJC Los Boyacos</h4>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>
@@ -53,9 +50,7 @@ export default function ActividadReciente() {
             </div>
           </Link>
         </article>
-
         <article>
-
           <Link href={'/servicios-automotriz/negocio/64aa313ce3b051b0053a3200-Tu%20Llanta%20-%20Siete%20de%20Agosto'} className={styles.containerCardOpinion}>
             <div style={{ padding: '16px', display: 'flex', gap: '16px', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}>
@@ -68,17 +63,14 @@ export default function ActividadReciente() {
               </div>
               <div>
                 <h4>Harrison Alvarez</h4>
-
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>
             </div>
-
             <img
               alt='Taller automotriz tu llanta bogota'
               className={styles.imgTaller}
               src={`https://azurequarks.blob.core.windows.net/avatares/tullanta.png`}
             />
-
             <div style={{ padding: '16px', display: 'flex', gap: '4px', flexDirection: 'column', justifyContent: 'center' }}>
               <h4>Tu Llanta - Siete de Agosto</h4>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>

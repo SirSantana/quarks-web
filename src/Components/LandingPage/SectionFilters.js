@@ -30,7 +30,6 @@ const initialForm = {
   localidad: 'Bogota, Colombia'
 }
 export default function SectonFilters({ data }) {
-  const [form, setForm] = useState(initialForm)
   const router = useRouter()
   const parts = router?.query?.id?.split("-");
 
@@ -69,27 +68,21 @@ export default function SectonFilters({ data }) {
   return (
     <section className={styles.containerGridTalleres}>
       <div className={styles.headerTalleres} >
-
         <div >
           {router?.pathname !== '/'
             && <h1 style={{ textAlign: 'left', }} className={styles.title2}>Taller automotriz de {parts?.[0]} </h1>
           }
-
           {router?.pathname !== '/'
             ?
             <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} taller de carro de {parts?.[0]} cerca a mi en {parts?.[1]}</h4>
             :
             <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
-
           }
         </div>
         {router?.pathname !== '/' && <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: '16px', }}>
           <Select onChange={handleChange2} options={options2} styles={customStyles} defaultValue={options2[0]} />
         </div>}
       </div>
-
-
-
       <div className={styles.gridCardTalleres} >
         {data?.length <= 0 && router.pathname !== '/' ? <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>No se encontraron resultados...</h2>
           :
@@ -99,11 +92,8 @@ export default function SectonFilters({ data }) {
             : filteredItems?.map(el => (
               <CardNewTaller taller={el} />
             ))
-
         }
-
       </div>
-
     </section>
   )
 }

@@ -1,44 +1,92 @@
+
+
 import styles from '@/styles/Navbar.module.css'
-import { ModalVisibleMenuNavbar } from '@/utils/Modales'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import {  useRef, useState } from 'react';
+import Select from 'react-select'
+import { customStyles, options2 } from '../Main/Main'
+import styles2 from '@/styles/Landing.module.css'
 
+const categorias = [
+  { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
+  { nombre: 'Aire acondicionado', img: 'Refrigeracion', url: 'Aire acondicionado' },
+  { nombre: 'Alineación y balanceo', img: 'Rueda', url: 'Alineación y balanceo' },
+  { nombre: 'Baterias', img: 'Baterias', url: 'Baterias' },
+  { nombre: 'Caja y transmisión', img: 'Caja y Transmision', url: 'Cajas' },
+  { nombre: 'Cambio de aceite', img: 'Filtros', url: 'Cambio de aceite' },
+  { nombre: 'Clutch', img: 'Clutch', url: 'Clutch' },
+  { nombre: 'Correas', img: 'Correas', url: 'Motor' },
+  { nombre: 'Direccion y suspension', img: 'Direccion y suspension', url: 'Suspensión' },
+  { nombre: 'Eléctricos', img: 'Electricos', url: 'Eléctricos' },
+  { nombre: 'Frenos', img: 'Frenado', url: 'Frenos' },
+  { nombre: 'Inyeccion', img: 'inyeccion', url: 'Inyeccion' },
+  { nombre: 'Latonería y pintura', img: 'Carroceria', url: 'Latoneria y pintura' },
+  { nombre: 'Mecanico a domicilio', img: 'mecanico', url: 'Mecanico a Domicilio' },
+  { nombre: 'Motor', img: 'Motor', url: 'Motor' },
+  { nombre: 'Peritaje', img: 'peritaje', url: 'Peritaje' },
+  { nombre: 'Sincronización', img: 'Sincronizacion', url: 'Sincronizacion' },
+  { nombre: 'Tecnico mecánica', img: 'tecnicomecanica', url: 'Tecnico mecanica' },
 
-export default function NewNavbar() {
+];
+
+const initialForm = {
+  servicio: 'Taller mecanico',
+  localidad: 'Bogota, Colombia'
+}
+export default function NewNavbarWithSearch2() {
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
-  const [width, setWidth] = useState(0);
+  const [form, setForm] = useState(initialForm)
 
-  useLayoutEffect(() => {
-    setWidth(ref.current.offsetWidth);
-  }, [])
+  const categoriaRouter = router?.query?.id?.split("-")[0]
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    router.push(`/servicios-automotriz/${form.servicio}-${form.localidad}`)
+  }
   return (
-    <div
-    // className={open && styles.modal
-    >
-
-      <header ref={ref} className={styles.newHeader}>
-        <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center' }} href={'/'}>
-          <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#5B0221', fontSize: '24px' }} className={styles.title}>Quarks</h1>
-          <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} style={{ height: '26px', width: '26px', marginLeft: '8px' }} />
-        </Link>
-
-        <ul
-          // style={{display:width > 1080? 'flex': open ? 'flex': 'none'}}
-
-          className={styles.navv}>
-          <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/' && '#5B0221' }} className={styles.newSubtitle} href={'/'}>Inicio</Link></li>
-          {/* <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/cotizaciones' && '#5B0221' }} className={styles.newSubtitle} href={'/cotizaciones'}>Trivias</Link></li> */}
-          <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' && '#5B0221' }} className={styles.newSubtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
-        </ul>
-        {/* {width <= 180 && <img onClick={() => setOpen(open ? false : true)} alt={'Menu'} src={open ? './close.svg' : '/menu2.svg'} className={styles.menu} style={{ display: width <= 1080 ? 'flex' : 'none' }} />} */}
-
-      </header>
-    </div >
-
+    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }} className={open && styles.modal}>
+      <div ref={ref} className={` ${styles.header}`}>
+        <div className={styles.navDiv}>
+          <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
+            <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
+            <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h3>
+          </Link>
+          <form onSubmit={handleSubmit} className={styles2.homeCard}>
+            <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} />
+            <div className={styles.separatorSearch}/>
+            <div className={styles2.select2}>
+              <Select onChange={(e) => setForm({ ...form, localidad: e.value })} options={options2} styles={customStyles} defaultValue={options2[0]} />
+            </div>
+            <div onClick={handleSubmit} style={{ cursor: 'pointer' }} className={styles2.buttonSearch}>
+              <ion-icon style={{ color: 'white', fontSize: '20px' }} name="search-outline"></ion-icon>
+            </div>
+          </form>
+          <ul className={styles.navv}>
+            <div className={styles.talleres}>
+              <li style={{ listStyle: 'none', cursor: 'pointer', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' ? '#373737' : '#373737' }} className={styles.subtitle}>Talleres</li>
+              <div className={styles.tooltip}>
+                <ul className={styles.ulTipos}>
+                  {categorias.map(el => (
+                    <li style={{ color: '#373737' }} className={styles.liCategory} onClick={() => router.push(`/servicios-automotriz/${el.url}-Bogota,%20Colombia`)} key={el.nombre}>
+                      <img src={router.pathname === '/' ? `./${el.img}.png` : `../../${el.img}.png`} style={{ height: '20px', width: '20px' }} />
+                      {categoriaRouter === el.nombre || (router?.pathname === '/' && el.nombre === 'Alineación y balanceo') ?
+                        <p className={styles.textCategoriaTallerA}>{el.nombre}</p>
+                        :
+                        <p className={styles.textCategoriaTaller}>{el.nombre}</p>
+                      }
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
+          </ul>
+        </div>
+      </div>
+    </header>
 
   )
 }

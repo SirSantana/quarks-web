@@ -5,6 +5,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import styles from '@/styles/HomeArticulos.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { Loader } from '@/utils/loader';
 
 export default function CategoriasSlider({ categorias }) {
   const router = useRouter()
@@ -45,7 +47,6 @@ export default function CategoriasSlider({ categorias }) {
           style={{width:140}}
           className={styles.categoria}
         >
-         
           <div className={styles.centeredContent}>
             <img src={router.pathname === '/'?`./${categoria.img}.png`:`../../${categoria.img}.png`} style={{ height: '24px', width: '24px' }} alt={categoria.nombre} />
             {categoriaRouter === categoria.nombre || (router?.pathname === '/' && categoria.nombre === 'Alineación y balanceo')  ?

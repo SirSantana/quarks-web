@@ -8,7 +8,7 @@ export function timeSince(date) {
   }
   interval = seconds / 2592000;
   if (interval > 1) {
-    return Math.floor(interval) + " mes";
+    return Math.floor(interval) + " meses";
   }
   interval = seconds / 86400;
   if (interval > 1) {

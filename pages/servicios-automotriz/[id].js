@@ -16,11 +16,10 @@ import SectonFilters from "@/src/Components/LandingPage/SectionFilters";
 export default function ServicioAutomotriz({ data }) {
   const router = useRouter()
   const parts = router?.query?.id?.split("-");
-
   return (
     <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + parts?.[1])}`}>
-        <div >
-        {/* <SliderTiposTalleres/> */}
+        <div  >
+        <SliderTiposTalleres/>
 
         <SectonFilters data={data}/>
         </div>
@@ -101,15 +100,21 @@ export async function getServerSideProps({ query }) {
   };
 
   const filterData = (text) => {
+    const categoriaNormalized = normalizeString(categoria.toLowerCase())
     // Realizamos el filtrado por nombre y categorías
     const filteredItems = talleres.talleres.filter(item =>
-      item.nombre.toLowerCase().includes(categoria.toLowerCase()) ||
-      item.categorias.some(categoriaa => categoriaa.toLowerCase().includes(categoria.toLowerCase())) ||
-      levenshteinDistance(item.nombre.toLowerCase(), categoria.toLowerCase()) < 5 // Valor umbral de similitud
+      item.nombre.toLowerCase().includes(categoriaNormalized.toLowerCase()) ||
+      item.categorias.some(categoriaa => 
+        categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
+      levenshteinDistance(item.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10 // Valor umbral de similitud
     );
     return filteredItems
   };
+  function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
   let resultados = filterData()
+
   if (localidad && localidad !== 'Bogota, Colombia') {
     resultados = resultados.filter((taller) => {
       const coincideLocalidad = taller?.localidad?.toLowerCase().includes(localidad.toLowerCase());

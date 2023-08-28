@@ -3,10 +3,9 @@
 import styles from '@/styles/Navbar.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 import Select from 'react-select'
-import CreatableSelect from 'react-select/creatable'
-import { customStyles, customStyles2, options, options2 } from '../Main/Main'
+import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
 import FirstNewScreen from '../LandingPage/FirstNewScreen';
 
@@ -56,25 +55,17 @@ export default function NewNavbarWithSearch() {
         <div className={styles.navDiv}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
             <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
-            <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks</h1>
+            <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h3>
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
-            <div className={styles2.select1}>
-              <CreatableSelect isClearable
-                styles={customStyles2}
-                placeholder="Buscar..."
-                onChange={(e) => setForm({ ...form, servicio: e?.value })}
-                noOptionsMessage={() => null}
-              />
-            </div>
+            <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} />
+            <div className={styles.separatorSearch}/>
             <div className={styles2.select2}>
               <Select onChange={(e) => setForm({ ...form, localidad: e.value })} options={options2} styles={customStyles} defaultValue={options2[0]} />
             </div>
             <div onClick={handleSubmit} style={{ cursor: 'pointer' }} className={styles2.buttonSearch}>
-              <ion-icon style={{ color: 'white', fontSize: '24px' }} name="search-outline"></ion-icon>
+              <ion-icon style={{ color: 'white', fontSize: '20px' }} name="search-outline"></ion-icon>
             </div>
-            {/* <input type='submit' className={styles2.buttonPrimary} value={'Buscar'} /> */}
-
           </form>
           <ul className={styles.navv}>
             <div className={styles.talleres}>
@@ -91,20 +82,14 @@ export default function NewNavbarWithSearch() {
                       }
                     </li>
                   ))}
-
                 </ul>
               </div>
             </div>
-
-
             <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
-            {/* <button>Tienes un taller?</button> */}
-
           </ul>
         </div>
-
       </div>
-      <FirstNewScreen/>
+      <FirstNewScreen />
     </header>
 
   )

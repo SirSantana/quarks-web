@@ -50,29 +50,12 @@ export default function SectionCalculadoraCombustible() {
   }, [galones, kilometros])
   return (
     <section className={styles2.containerListTalleres}>
-      {/* <div className={styles.containerVariedadTalleres}>
-        <div style={{ display: 'flex', gap: '40px', flexDirection: 'column', alignItems: 'center' }}>
-          <img src='/glosarioautomotriz.png' className={styles.imgPrincipal} />
-          <a style={{ fontSize: '14px', }} href="https://storyset.com/transport">Illustrations by Storyset</a>
-        </div>
-        <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
-          <h2 className={styles.title2}>Calcula el consumo de tu vehiculo</h2>
-          <h4 className={styles.subtitle2}>Ingresa la informacion y conoce el rendimiento del combustible.</h4>
-          <Link className={styles.button} href={'/calculadora-de-combustible'} style={{ textDecoration: 'none', fontSize: '14px', color: 'white' }}>
-            Calcular consumo
-          </Link>
-        </div>
-      </div> */}
-          <h2 style={{marginBottom:'32px'}} className={styles2.title2}>Calcula el consumo de tu vehiculo</h2>
-
+      <h2 style={{ marginBottom: '32px' }} className={styles2.title2}>Calcula el consumo de tu vehiculo</h2>
       <div style={{ width: '100%' }} className={styles.containerContent}>
-        
         <div className={styles.containerInputs2}>
           <div className={styles.containerInput}>
-
-            <h4 className={styles.h4}>Distancia Recorrida</h4>
-            <h3 className={styles.h3}>{kilometros} Kms</h3>
-
+            <h5 className={styles.h4}>Distancia Recorrida</h5>
+            <h4 className={styles.h3}>{kilometros} Kms</h4>
             <Slider
               min={0}
               max={600}
@@ -90,8 +73,8 @@ export default function SectionCalculadoraCombustible() {
             </div>
           </div>
           <div className={styles.containerInput}>
-            <h4 className={styles.h4}>Galones Consumidos</h4>
-            <h3 className={styles.h3}>{galones} Gl</h3>
+            <h5 className={styles.h4}>Galones Consumidos</h5>
+            <h4 className={styles.h3}>{galones} Gl</h4>
             <Slider
               min={0}
               max={20}
@@ -115,11 +98,11 @@ export default function SectionCalculadoraCombustible() {
         <div className={styles.containerCardRendimiento}>
           <div>
             <p style={{ fontSize: '14px', color: 'white' }}>Consumo cada 100 kms </p>
-            <h2 className={styles.bigTitle}> {consumo?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ gl</b></h2>
+            <h3 className={styles.bigTitle}> {consumo?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ gl</b></h3>
           </div>
           <div>
             <p style={{ fontSize: '14px', color: 'white' }}>Rendimiento por galon </p>
-            <h2 className={styles.bigTitle}> {galon?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ kms</b></h2>
+            <h3 className={styles.bigTitle}> {galon?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ kms</b></h3>
           </div>
           <Link href={'/calculadora-de-combustible'} style={{ color: '#373737', outline: 'none' }}>
             <button className={styles.button}>

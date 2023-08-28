@@ -2,6 +2,7 @@ import { GET_CALIFICACION_OPINIONES, GET_OPINIONES } from "@/graphql/queries"
 import { useLazyQuery } from "@apollo/client"
 import { useEffect, useState } from "react"
 import styles from '@/styles/Almacenes.module.css'
+import { timeSince } from "@/utils/dateEs"
 
 
 const Star = ({ index, calificacion, tamaño }) => {
@@ -61,9 +62,7 @@ export default function Opinion({ almacen, setCalificated, setNumCalificaciones,
       {
         result?.data?.getOpiniones?.map(opinion => {
           const fecha = new Date(opinion?.fecha).toLocaleDateString()
-          if (opinion.email === email) {
-            setCalificated(true)
-          }
+          
 
           return (
             <>
@@ -75,7 +74,7 @@ export default function Opinion({ almacen, setCalificated, setNumCalificaciones,
                       <h6 className={styles.subtitle} style={{ color: '#373737', margin: 0, fontWeight: '600' }}>{opinion.nombre}</h6>
                       {!opinion?.email && <img src="../../googleicon.png" style={{ width: '14px', height: '14px' }} />}
                     </div>
-                    <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', margin: 0, textAlign: 'left', alignSelf: 'flex-start' }}>{fecha}</h6>
+                    <h6 className={styles.subtitle2} style={{ color: '#6D6D6D', margin: 0, textAlign: 'left', alignSelf: 'flex-start' }}>hace {timeSince(opinion?.fecha)}</h6>
                   </div>
 
                 </div>

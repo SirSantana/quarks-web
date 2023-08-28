@@ -49,7 +49,7 @@ export const customStyles = {
     ...provided,
     border: 'none', // Quitar el borde
     boxShadow: 'none',
-    
+    fontSize:'14px',
   }),
   dropdownIndicator: (provided) => ({
     ...provided,

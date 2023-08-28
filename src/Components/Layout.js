@@ -5,6 +5,7 @@ import NewNavbar from './Navbar/NewNavbar'
 import Navbar from './Navbar/Navbar'
 import Script from 'next/script'
 import NewNavbarWithSearch from './Navbar/NewNavbar2'
+import NewNavbarWithSearch2 from './Navbar/NewNavbar'
 
 export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon }) {
   return (
@@ -72,26 +73,11 @@ export default function Layout({ children, title, description, type, price, keyw
           crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-KTWW10C7YF"/>
-        <Script
-          id='google-analytics'
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-          gtag('config', 'G-KTWW10C7YF', {
-              page_path: window.location.pathname,
-            });
-          `,
-          }}
-        />
       </Head>
 
       <main >
         {/* <Nav /> */}
-        <NewNavbarWithSearch/>
+        <NewNavbarWithSearch2/>
         {/* <NewNavbar/> */}
         {/* <Navbar/> */}
         {children}

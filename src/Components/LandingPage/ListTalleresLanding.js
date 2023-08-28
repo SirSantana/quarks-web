@@ -18,12 +18,9 @@ let imagesTalleres = [
 export default function ListTalleresLanding() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    // Simulamos una carga de 1.5 segundos para cambiar el estado isLoading
     const timeout = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
-
-    // Limpia el temporizador cuando el componente se desmonta
     return () => clearTimeout(timeout);
   }, []);
   return (
@@ -51,7 +48,6 @@ export default function ListTalleresLanding() {
           </Link>
         ))}
       </div>
-
       <Link
         href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'}
         className={styles.button}

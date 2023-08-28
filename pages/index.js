@@ -71,39 +71,11 @@ export default function Home() {
           crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-KTWW10C7YF" />
-        <Script
-          id='google-analytics'
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-          gtag('config', 'G-KTWW10C7YF', {
-              page_path: window.location.pathname,
-            });
-          `,
-          }}
-        />
-
       </Head>
 
       <main className={styles.main}>
-        {/* <Navbar /> */}
         <NewNavbarWithSearch />
-
-
-        {/* <NewNavbar/> */}
-        {/* <Main /> */}
-        {/* <HomeSection /> */}
-        {/* <PasosCotizacion /> */}
-        {/* <Beneficios /> */}
-
-        {/* <HomeArticulos/> */}
-        {/* <FirstNewScreen /> */}
         <SectonFilters />
-        {/* <FirstScreen /> */}
         <ListTalleresLanding />
         <ActividadReciente />
         <SectionCotizaciones />
@@ -112,17 +84,6 @@ export default function Home() {
         <SectionGrowthTaller />
         <SectionGlosario />
         <SectionCalculadoraCombustible />
-
-        {/* <Main />
-        <ServiciosPopulares /> */}
-
-        {/* <TalleresRecomendados /> */}
-
-
-        {/* <TalleresRecomendados/> */}
-
-
-
         <Footer />
 
       </main>
