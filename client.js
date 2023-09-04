@@ -1,6 +1,5 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
-import { useEffect, useState } from "react";
 
 
 const URI = process.env.NEXT_PUBLIC_API_PRODUCTION

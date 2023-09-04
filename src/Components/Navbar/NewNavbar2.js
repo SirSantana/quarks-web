@@ -94,7 +94,7 @@ export default function NewNavbarWithSearch() {
         </div>
       </div>
       <FirstNewScreen />
-      <button onClick={sendMessage}>What</button>
+      {/* <button onClick={sendMessage}>What</button> */}
     </header>
 
   )
