@@ -48,14 +48,18 @@ export default function NewNavbarWithSearch() {
 
     router.push(`/servicios-automotriz/${form.servicio}-${form.localidad}`)
   }
-
+  const sendMessage = (problema) => {
+    let url = `https://api.whatsapp.com/send?phone=57${3202754087}`;
+   
+    window.open(url);
+  }
   return (
     <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }} className={open && styles.modal}>
       <div ref={ref} className={` ${styles.header}`}>
         <div className={styles.navDiv}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
             <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
-            <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h3>
+            <h4 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h4>
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
             <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} />
@@ -90,6 +94,7 @@ export default function NewNavbarWithSearch() {
         </div>
       </div>
       <FirstNewScreen />
+      <button onClick={sendMessage}>What</button>
     </header>
 
   )
