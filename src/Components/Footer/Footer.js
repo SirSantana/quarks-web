@@ -39,13 +39,13 @@ export default function Footer() {
           </div>
           <div className={styles.containerText}>
             <h4 className={styles.title2}>Legal</h4>
-            <Link style={{ textDecoration: 'none' }} href='https://www.privacypolicies.com/live/09cd59af-1d7b-47b5-9dde-2e78d4dc9770' ><p className={styles.subtitle}>Politica de Privacidad</p></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.privacypolicies.com/live/09cd59af-1d7b-47b5-9dde-2e78d4dc9770' ><p className={styles.subtitle}>Politica de Privacidad</p></Link>
           </div>
         </div>
         <div className={styles.containerSocial}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '8px', margin: '16px 0' }}>
-            <Link style={{ textDecoration: 'none' }} href='https://www.instagram.com/quarks_app/'><img src={WhatsappLogo.src} className={styles.logo} /></Link>
-            <Link style={{ textDecoration: 'none' }} href='https://www.facebook.com/profile.php?id=100092259191727'><img src={InstagramLogo.src} className={styles.logo} /></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.instagram.com/quarks_app/'><img src={WhatsappLogo.src} className={styles.logo} /></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.facebook.com/profile.php?id=100092259191727'><img src={InstagramLogo.src} className={styles.logo} /></Link>
           </div>
           <p className={styles.subtitleCopy}>(C) copyright Quarks 2023</p>
         </div>

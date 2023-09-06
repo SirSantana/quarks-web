@@ -44,15 +44,15 @@ export default function Home() {
         <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={"Directorio de Talleres de carros en Bogotá "} />
         <meta name="twitter:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
-        <meta name="url" content={`https://quarks.com.co`} />
-        <meta property="url" content={`https://quarks.com.co`} />
+        <meta name="url" content={`https://www.quarks.com.co`} />
+        <meta property="url" content={`https://www.quarks.com.co`} />
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
         <meta property="og:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta property="og:image:url" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
-        <meta property='og:url' content={`https://quarks.com.co/`} />
+        <meta property='og:url' content={`https://www.quarks.com.co/`} />
 
         <meta property='og:locale' content='es_CO' />
         <meta property='og:locale:alternate' content='es_CO' />
@@ -62,6 +62,7 @@ export default function Home() {
         <meta property="og:image:type" content='image/png' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
+        
         <link rel="icon" href="/logoquarks200623.png" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

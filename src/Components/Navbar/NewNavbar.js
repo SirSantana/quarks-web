@@ -46,6 +46,7 @@ export default function NewNavbarWithSearch2() {
     e.preventDefault()
     router.push(`/servicios-automotriz/${form.servicio}-${form.localidad}`)
   }
+  
   return (
     <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }} className={open && styles.modal}>
       <div ref={ref} className={` ${styles.header}`}>

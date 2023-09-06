@@ -29,15 +29,15 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:image" content={image} />
-        <meta name="url" content={`https://quarks.com.co${url}`} />
-        <meta property="url" content={`https://quarks.com.co${url}`} />
+        <meta name="url" content={`https://www.quarks.com.co${url}`} />
+        <meta property="url" content={`https://www.quarks.com.co${url}`} />
 
         <meta property="twitter:description" content={description} />
         <meta property="og:title" content={title} key="title" />
         <meta property="og:image" content={image} />
         <meta property="og:image:url" content={image} />
         <meta property='og:description' content={description} />
-        <meta property='og:url' content={`https://quarks.com.co${url}`} />
+        <meta property='og:url' content={`https://www.quarks.com.co${url}`} />
         {type &&
           <meta property='og:type' content={type} />
         }
