@@ -398,6 +398,7 @@ export const GET_ONE_NEGOCIOVDOS= gql`
       numerocalificacionesmaps
       promediocalificacionesmaps
       urltallermaps
+      id
     }
   }
 `

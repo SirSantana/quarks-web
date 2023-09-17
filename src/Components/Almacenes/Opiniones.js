@@ -45,6 +45,7 @@ export default function Opiniones({ almacen, setNumCalificaciones, numCalificaci
       return setVisibleOpinion(true)
     }
   }, [session])
+  
   return (
     <>
       <div className={styles.containerInputOpinion}>

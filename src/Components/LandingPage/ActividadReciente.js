@@ -25,7 +25,7 @@ export default function ActividadReciente() {
                 />
               </div>
               <div>
-                <h4>Liseth Fonseca</h4>
+                <p style={{fontSize:'16px', fontWeight:'600'}}>Liseth Fonseca</p>
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function ActividadReciente() {
                 />
               </div>
               <div>
-                <h4>Harrison Alvarez</h4>
+                <p style={{fontSize:'16px', fontWeight:'600'}}>Harrison Alvarez</p>
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>
             </div>
@@ -99,7 +99,7 @@ export default function ActividadReciente() {
                 />
               </div>
               <div>
-                <h4>Abel Rojas</h4>
+                <p style={{fontSize:'16px', fontWeight:'600'}}>Abel Rojas</p>
 
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>

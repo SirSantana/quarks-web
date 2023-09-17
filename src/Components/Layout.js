@@ -1,10 +1,5 @@
 import Head from 'next/head'
 import Footer from './Footer/Footer'
-import Nav from './Navbar/Nav'
-import NewNavbar from './Navbar/NewNavbar'
-import Navbar from './Navbar/Navbar'
-import Script from 'next/script'
-import NewNavbarWithSearch from './Navbar/NewNavbar2'
 import NewNavbarWithSearch2 from './Navbar/NewNavbar'
 
 export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon }) {
@@ -55,8 +50,6 @@ export default function Layout({ children, title, description, type, price, keyw
             <meta property='article:modified_time' content={fecha} />
             <meta property='date' content={fecha} />
           </>}
-
-
         {price &&
           <>
             <meta property="product:price:amount" content={price} />

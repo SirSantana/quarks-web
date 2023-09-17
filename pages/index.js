@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import Main, { options } from '@/src/Components/Main/Main'
+import { options } from '@/src/Components/Main/Main'
 import Footer from '@/src/Components/Footer/Footer'
-import { useEffect, useState } from 'react'
 import ListTalleresLanding from '@/src/Components/LandingPage/ListTalleresLanding'
 import SectionVariedadTalleres from '@/src/Components/LandingPage/Section1'
 import SectionCotizaciones from '@/src/Components/LandingPage/Section2'
@@ -11,26 +10,15 @@ import SectionGrowthTaller from '@/src/Components/LandingPage/SectionGrowthTalle
 import SectionPasos from '@/src/Components/LandingPage/Section4'
 import ActividadReciente from '@/src/Components/LandingPage/ActividadReciente'
 import SectionCalculadoraCombustible from '@/src/Components/LandingPage/Section5'
-import Script from 'next/script'
-import FirstNewScreen from '@/src/Components/LandingPage/FirstNewScreen'
 import NewNavbarWithSearch from '@/src/Components/Navbar/NewNavbar2'
 import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
 
 
 export default function Home() {
-  const [limit, setLimit] = useState(0)
-
-  // useEffect(()=>{
-  //   setTimeout(()=>{
-  //     window.open('https://www.youtube.com/watch?v=8_pUpi4Ndcs')
-  //     setLimit(limit +1)
-  //     console.log(new Date().toLocaleTimeString())
-  //   },720000)
-  // },[limit])
   return (
     <>
       <Head>
-        <title>Talleres mecanicos</title>
+        <title>Talleres mecanicos automotrices de Bogotá</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={`Encuentra los mejores talleres de carros con reseñas de usuarios y recomendaciones en Bogota. Taller automotriz de Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia"} />
@@ -44,8 +32,8 @@ export default function Home() {
         <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={"Directorio de Talleres de carros en Bogotá "} />
         <meta name="twitter:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
-        <meta name="url" content={`https://www.quarks.com.co`} />
-        <meta property="url" content={`https://www.quarks.com.co`} />
+        <meta name="url" content={`https://www.quarks.com.co/`} />
+        <meta property="url" content={`https://www.quarks.com.co/`} />
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
@@ -62,7 +50,6 @@ export default function Home() {
         <meta property="og:image:type" content='image/png' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        
         <link rel="icon" href="/logoquarks200623.png" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,7 +71,7 @@ export default function Home() {
         <SectionPasos />
         <SectionGrowthTaller />
         <SectionGlosario />
-        <SectionCalculadoraCombustible />
+        {/* <SectionCalculadoraCombustible /> */}
         <Footer />
 
       </main>

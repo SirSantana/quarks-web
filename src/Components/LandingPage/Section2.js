@@ -9,7 +9,7 @@ export default function SectionCotizaciones() {
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
           <h2 className={styles.title2}>Informacion de cada taller automotriz</h2>
-          <h4 className={styles.subtitle2}>Cada taller automotriz, tienen su horario de servicio, direccion, numeros de contacto, servicios ofrecidos, y mas.</h4>
+          <p className={styles.subtitle2}>Cada taller automotriz, tienen su horario de servicio, direccion, numeros de contacto, servicios ofrecidos, y mas.</p>
           <Link className={styles.button} href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'} style={{ textDecoration: 'none', fontSize: '14px', color: 'white' }}>
             Mirar talleres
           </Link>

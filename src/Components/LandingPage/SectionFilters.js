@@ -2,8 +2,7 @@ import styles from '@/styles/Landing.module.css'
 import CardNewTaller from './CardNewTaller'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import Select from 'react-select'
-import { options, options2 } from '../Main/Main'
-import { useState } from 'react'
+import { options2 } from '../Main/Main'
 import { useRouter } from 'next/router'
 
 const customStyles = {
@@ -26,9 +25,7 @@ const customStyles = {
     },
   }),
 };
-const initialForm = {
-  localidad: 'Bogota, Colombia'
-}
+
 export default function SectonFilters({ data }) {
   const router = useRouter()
   const parts = router?.query?.id?.split("-");

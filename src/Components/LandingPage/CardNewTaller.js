@@ -6,21 +6,14 @@ import OpinionesPrev from '../Index/OpinionesPrev';
 import { useRouter } from 'next/router';
 
 
-const categorias = [
-  { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
-  { nombre: 'Aire acondicionado', img: 'Refrigeracion', url: 'Aire acondicionado' },
-  { nombre: 'Alineación y balanceo', img: 'Rueda', url: 'Alineación y balanceo' },
-]
-
 export default function CardNewTaller({ taller }) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
 
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario.split(',');
-  const router = useRouter()
   return (
-    <Link target="_blank" href={`/servicios-automotriz/negocio/${taller?.id}-${taller?.nombre}`} className={styles.cardNewTaller}>
+    <Link target="_blank" href={`/${taller?.userName}`} className={styles.cardNewTaller}>
 
       <div className={styles.containerDataNewTaller}>
         {taller?.fotoperfil &&

@@ -13,6 +13,7 @@
       "ciudad": "Bogotá",
       "nivelnegocio": "1",
       "pais": "Colombia",
+      "userName":"pelaez_hermanos_toberin",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 4:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1688926374496!5m2!1ses-419!2sco!6m8!1m7!1sANrTU329n-R6vf1_1ecdEg!2m2!1d4.740357635156229!2d-74.04139687701054!3f166.3970195434396!4f3.4387836172710564!5f0.7820865974627469"
     },
@@ -28,6 +29,7 @@
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg",
       "ciudad": "Bogotá",
       "nivelnegocio": "1",
+      "userName":"pelaez_hermanos_7_de_agosto",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 4:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1688926554016!6m8!1m7!1sZNfqvAwBZaKejAHlEbCAHg!2m2!1d4.658151934000678!2d-74.0724819425688!3f96.63200643808467!4f-5.89585580265053!5f0.7820865974627469"
@@ -45,6 +47,7 @@
       "localidad": "Barrios Unidos",
       "id": "64aa313ce3b051b0053a3200",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tullantalogo80723.jpg",
+      "userName":"tu_llanta_7_de_agosto",
       "ciudad": "Bogotá",
       "nivelnegocio": "1",
       "pais": "Colombia",
@@ -67,6 +70,7 @@
         "Taller mecanico"
       ],
       "nivelnegocio": "0",
+      "userName":"taller_seikou",
       "ciudad": "Bogotá",
       "pais": "Colombia",
       "localidad": "Barrios Unidos",
@@ -87,6 +91,7 @@
         "Mecanica Basica",
         "Taller mecanico"
       ],
+      "userName":"pelaez_hermanos_usaquen",
       "localidad": "Usaquen",
       "id": "64ad4adf1423f1c24207812c",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg",
@@ -108,6 +113,7 @@
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
+      "userName":"pelaez_hermanos_sanfernando",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 2:30 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1689079090544!5m2!1ses-419!2sco!6m8!1m7!1s9u7gif5S1nH-tKpCmF3yww!2m2!1d4.676083603740192!2d-74.08499452120509!3f245.7069708579426!4f2.1798801953024167!5f0.7820865974627469"
@@ -125,6 +131,7 @@
       "id": "64af263b53d7724a96947eb6",
       "fotoperfil": "",
       "ciudad": "Bogotá",
+      "userName":"emda_la_27",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
@@ -143,6 +150,7 @@
       "id": "64af26de53d7724a96947eb7",
       "fotoperfil": "",
       "ciudad": "Bogotá",
+      "userName":"emda_7_de_agosto",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
@@ -159,6 +167,7 @@
       ],
       "localidad": "Usaquen",
       "id": "64af271d53d7724a96947eb8",
+      "userName":"emda_prado",
       "fotoperfil": "",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
@@ -181,6 +190,7 @@
       ],
       "localidad": "Fontibon",
       "id": "64b52ac64ec73c060139698b",
+      "userName":"taller_mecanicos_asociados",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/mecanicosasociados170723.jpg",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
@@ -199,6 +209,7 @@
       ],
       "localidad": "",
       "id": "64b7d0bfcbf32fcc68b63588",
+      "userName":"motores_y_cajas_ruben",
       "fotoperfil": "",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
@@ -220,6 +231,7 @@
         "Mecanica Basica",
         "Mecanica Avanzada"
       ],
+      "userName":"math_autos",
       "localidad": "Barrios Unidos",
       "id": "64b7d28ccbf32fcc68b63589",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/MathAutos190723.jpg",
@@ -241,6 +253,7 @@
       ],
       "localidad": "",
       "id": "64b7e1b9cbf32fcc68b6358a",
+      "userName":"multiservicios_ismael_sanchez",
       "fotoperfil": "",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
@@ -263,6 +276,7 @@
       ],
       "localidad": "Bosa",
       "id": "64b7e4eacbf32fcc68b6358b",
+      "userName":"tecnicentro_jose_bustamante",
       "fotoperfil": "",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
@@ -286,6 +300,7 @@
         "Mecanica Basica",
         "Servicio de Aire acondicionado"
       ],
+      "userName":"optra_club_colombia",
       "localidad": "Engativa",
       "id": "64b7e788cbf32fcc68b6358c",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/Optraclub190723.jpg",
@@ -307,6 +322,7 @@
       "id": "64b7ee1ccbf32fcc68b6358d",
       "fotoperfil": "",
       "ciudad": "Bogotá",
+      "userName":"aires_acondicionados_jc",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 5:30 PM,Mar 8:30 AM - 5:30 PM,Mié 8:30 AM - 5:30 PM,Jue 8:30 AM - 5:30 PM,Vie 8:30 AM - 5:30 PM,Sáb 8:30 AM - 3:30 PM,Dom Cerrado",
@@ -325,6 +341,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Kennedy",
+      "userName":"alineautos_serviteca",
       "id": "64b7f060cbf32fcc68b6358e",
       "fotoperfil": "",
       "ciudad": "Bogotá",
@@ -345,6 +362,7 @@
         "Taller mecanico",
         "Mecanica Basica"
       ],
+      "userName":"talleres_caldas",
       "localidad": "Barrios Unidos",
       "id": "64b80f20cbf32fcc68b6358f",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tqllerescaldas190723.png",
@@ -364,6 +382,7 @@
         "Taller mecanico",
         "Mecanica Basica"
       ],
+      "userName":"talleres_padilla",
       "localidad": "Barrios Unidos",
       "id": "64b81326cbf32fcc68b63590",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tallerespadilla190723.jpg",
@@ -382,6 +401,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"oil_filters_7_de_agosto",
       "id": "64b816a0cbf32fcc68b63591",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/oilfilters7agosto190723.png",
       "ciudad": "Bogotá",
@@ -400,6 +420,7 @@
       ],
       "localidad": "Engativa",
       "id": "64b8412405384b36b887b709",
+      "userName":"oil_filters_engativa",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/oilfilters7agosto190723.png",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
@@ -416,6 +437,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Fontibon",
+      "userName":"oil_filters_fontibon",
       "id": "64b8456a05384b36b887b70a",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/oilfilters7agosto190723.png",
       "ciudad": "Bogotá",
@@ -433,6 +455,7 @@
         "Taller mecanico",
         "Mecanica Basica"
       ],
+      "userName":"solofrenos_del_norte",
       "localidad": "Barrios Unidos",
       "id": "64ba77866368741f9887b13b",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/solofrenosdelnorte210723.jpg",
@@ -451,6 +474,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"solofrenos_rionegro",
       "id": "64ba78996368741f9887b13c",
       "fotoperfil": "",
       "ciudad": "Bogotá",
@@ -469,6 +493,7 @@
         "Taller mecanico",
         "Mecanica Basica"
       ],
+      "userName":"servifrenos_y_suspension_bogota",
       "localidad": "Engativa",
       "id": "64ba830b6368741f9887b13d",
       "fotoperfil": "",
@@ -485,6 +510,7 @@
         "Servicio de Latonería y pintura",
         "Servicio de Lujos"
       ],
+      "userName":"a_tiempo_cars",
       "localidad": "Usaquen",
       "id": "64ba84046368741f9887b13e",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/atiempocars210723.jpg",
@@ -500,6 +526,7 @@
       "categorias": [
         "Servicio de Latonería y pintura"
       ],
+      "userName":"lumaz_latoneria_y_pintura",
       "localidad": "Barrios Unidos",
       "id": "64ba86466368741f9887b13f",
       "fotoperfil": "",
@@ -515,6 +542,7 @@
       "categorias": [
         "Servicio de Latonería y pintura"
       ],
+      "userName":"dacar_plus_latoneria_y_pintura",
       "localidad": "Barrios Unidos",
       "id": "64ba87046368741f9887b140",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/dakarplus210723.jpg",
@@ -534,6 +562,7 @@
       "id": "64ba8b726368741f9887b143",
       "fotoperfil": "",
       "ciudad": "Bogotá",
+      "userName":"aire_acondicionado_7_de_agosto",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom 9:00 AM - 2:00 PM",
@@ -549,6 +578,7 @@
       "id": "64ba98a46368741f9887b144",
       "fotoperfil": "",
       "ciudad": "Bogotá",
+      "userName":"iceberg_tecnologia",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:30 PM,Mar 8:30 AM - 6:30 PM,Mié 8:30 AM - 6:30 PM,Jue 8:30 AM - 6:30 PM,Vie 8:30 AM - 6:30 PM,Sáb 8:30 AM - 4:00 PM,Dom Cerrado",
@@ -567,6 +597,7 @@
       "fotoperfil": "",
       "ciudad": "Bogotá",
       "nivelnegocio": "0",
+      "userName":"cajas_automaticas_mendez",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
       "ubicacionmaps": ""
@@ -587,6 +618,7 @@
       "id": "64c1280e1cff353830519062",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/saeautomotriz.png",
       "ciudad": "Bogotá",
+      "userName":"sae_automotriz",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb Cerrado,Dom Cerrado",
@@ -608,6 +640,7 @@
       "id": "64c129cf1cff353830519063",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/correamotors270723.jpg",
       "ciudad": "Bogotá",
+      "userName":"correa_motors",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 2:00 PM,Dom Cerrado",
@@ -628,6 +661,7 @@
       "id": "64c12be51cff353830519064",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/checkautosbmw270723.jpg",
       "ciudad": "Bogotá",
+      "userName":"check_autos_bmw",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:00 PM,Mar 8:00 AM - 5:00 PM,Mié 8:00 AM - 5:00 PM,Jue 8:00 AM - 5:00 PM,Vie 8:00 AM - 5:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
@@ -649,6 +683,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"serviautos_carros_chinos",
       "id": "64c12d861cff353830519065",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/serviautos270723.jpg",
       "ciudad": "Bogotá",
@@ -675,6 +710,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"motorshop",
       "id": "64c130681cff353830519066",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/motorshop270723).png",
       "ciudad": "Bogotá",
@@ -696,6 +732,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"mecanica_am",
       "id": "64c132f51cff353830519067",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/mecanicaam270723.jpg",
       "ciudad": "Bogotá",
@@ -718,6 +755,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"coltalleres",
       "id": "64c134a81cff353830519068",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/coltalleres27'723.png",
       "ciudad": "Bogotá",
@@ -742,6 +780,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Suba",
+      "userName":"sama_motors",
       "id": "64c135be1cff353830519069",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/samamotors270723.png",
       "ciudad": "Bogotá",
@@ -763,6 +802,7 @@
       "id": "64c137691cff35383051906a",
       "fotoperfil": "",
       "ciudad": "Bogotá",
+      "userName":"talleres_mejor",
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:00 AM - 6:00 PM,Mar 7:00 AM - 6:00 PM,Mié 7:00 AM - 6:00 PM,Jue 7:00 AM - 6:00 PM,Vie 7:00 AM - 6:00 PM,Sáb 7:00 AM - 12:00 PM,Dom Cerrado",
@@ -780,6 +820,7 @@
         "Taller mecanico",
         "Mecanica Basica"
       ],
+      "userName":"carllantas",
       "localidad": "Teusaquillo",
       "id": "64c139371cff35383051906b",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/carllantas270723.png",
@@ -800,6 +841,7 @@
         "Taller mecanico",
         "Mecanica Basica"
       ],
+      "userName":"mekautos",
       "localidad": "Engativa",
       "id": "64c13bab1cff35383051906c",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/mekautos270723.jpeg",
@@ -820,6 +862,7 @@
         "Taller mecanico",
         "Mecanica Basica"
       ],
+      "userName":"javiautos",
       "localidad": "Engativa",
       "id": "64c13d3e1cff35383051906d",
       "fotoperfil": "",
@@ -842,6 +885,7 @@
         "Mecanica Basica"
       ],
       "localidad": "Suba",
+      "userName":"djc_los_boyacos",
       "id": "64c13e7e1cff35383051906e",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/djclosboyacos270723.jpg",
       "ciudad": "Bogotá",
@@ -862,6 +906,7 @@
         "Mecanica Avanzada"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"autolab_cars_gt",
       "id": "64c13f861cff35383051906f",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/cargt270723.png",
       "ciudad": "Bogotá",
@@ -885,6 +930,7 @@
         "Mecanica Avanzada"
       ],
       "localidad": "Suba",
+      "userName":"alianza_automotriz_tm",
       "id": "64c140a21cff353830519070",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/alianzaautomotriztm270723.jpg",
       "ciudad": "Bogotá",
@@ -905,6 +951,7 @@
         "Taller mecanico"
       ],
       "localidad": "Engativa",
+      "userName":"painting_cars_diaz",
       "id": "64c850f6236f49da0a26f81b",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/paintingcarsdiaz210723.jpg",
       "ciudad": "Bogotá",
@@ -922,6 +969,7 @@
         "Taller mecanico"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"luis_pescador_eu",
       "id": "64cd12d78b8dd44ce6aaa182",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/mecanicaluispescador40823.png",
       "ciudad": "Bogotá",
@@ -941,6 +989,7 @@
         "Taller mecanico"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"armando_briceño",
       "id": "64cd1c9e8b8dd44ce6aaa183",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/armandobriceño040823.png",
       "ciudad": "Bogotá",
@@ -963,6 +1012,7 @@
         "Taller mecanico"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"vip_automecanica",
       "id": "64cd1fad8b8dd44ce6aaa184",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/yonvipmecanica040823.png",
       "ciudad": "Bogotá",
@@ -992,6 +1042,7 @@
         "Taller mecanico"
       ],
       "localidad": "Engativa",
+      "userName":"la_precision",
       "id": "64cec2fcc16738491af75c46",
       "fotoperfil": "https://www.laprecision.com.co/wp-content/uploads/2022/11/LOGO-REDES-LA-PRECISION.webp",
       "ciudad": "Bogotá",
@@ -1013,6 +1064,7 @@
         "Taller mecanico"
       ],
       "localidad": "Engativa",
+      "userName":"gestion_integral_automotriz",
       "id": "64cec8cfc16738491af75c47",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/gestionintegralautomotriz110823.png",
       "ciudad": "Bogotá",
@@ -1031,6 +1083,7 @@
         "Mecanica Basica",
         "Taller mecanico"
       ],
+      "userName":"andresautos",
       "localidad": "Barrios Unidos",
       "id": "64cecd16c16738491af75c48",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/andresauto050823.png",
@@ -1054,6 +1107,7 @@
         "Servicio de Aire acondicionado",
         "Taller mecanico"
       ],
+      "userName":"lujos_montana",
       "localidad": "Barrios Unidos",
       "id": "64ced095c16738491af75c49",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/lujosmontana110823.jpg",
@@ -1079,6 +1133,7 @@
         "Taller mecanico"
       ],
       "localidad": "Barrios Unidos",
+      "userName":"car_lujos_tunning",
       "id": "64ced53dc16738491af75c4a",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/carlujos110823.jpg",
       "ciudad": "Bogotá",
@@ -1097,6 +1152,7 @@
         "Taller mecanico"
       ],
       "localidad": "Engativa",
+      "userName":"fuell_inyection",
       "id": "64d25ef77a5cee206459b7e4",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/fuellinyection140823.png",
       "ciudad": "Bogotá",
@@ -1115,6 +1171,7 @@
         "Servicio de Electronica",
         "Taller mecanico"
       ],
+      "userName":"procars",
       "localidad": "Barrios Unidos",
       "id": "64d2622b7a5cee206459b7e5",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/procars80823.png",
@@ -1132,6 +1189,7 @@
         "Sincronizacion",
         "Taller mecanico"
       ],
+      "userName":"inyectores_bogota",
       "localidad": "Barrios Unidos",
       "id": "64d2633f7a5cee206459b7e6",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/inyectoresbogota150823.png",
