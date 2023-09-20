@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Footer from './Footer/Footer'
 import NewNavbarWithSearch2 from './Navbar/NewNavbar'
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon }) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider }) {
   return (
     <>
       <Head>
@@ -70,7 +70,7 @@ export default function Layout({ children, title, description, type, price, keyw
 
       <main >
         {/* <Nav /> */}
-        <NewNavbarWithSearch2/>
+        <NewNavbarWithSearch2 visibleSlider={visibleSlider}/>
         {/* <NewNavbar/> */}
         {/* <Navbar/> */}
         {children}

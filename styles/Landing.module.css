@@ -16,6 +16,12 @@
 
 }
 
+.sectionSliderShow {
+  padding: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .containerListTalleres {
   width: 70%;
   margin: auto;
@@ -77,20 +83,23 @@
   min-height: 50px;
   min-width: 50px;
 }
+
 .containerGrid {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 0px 32px;
   margin-top: 40px;
 }
-.gridCardTalleres{
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 16px 16px; 
-    margin-top: 32px;
-    flex-wrap: wrap;
+
+.gridCardTalleres {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
 }
-.containerCardOpinion{
+
+.containerCardOpinion {
   border: 1px solid #DEDEDE;
   color: #373737;
   text-decoration: none;
@@ -100,17 +109,20 @@
   align-items: flex-start;
   gap: 8px;
   transition: transform 0.2s, filter 0.4s;
-  
+
 }
-.containerGridTalleres{
+
+.containerGridTalleres {
   background: white;
   width: 80%;
   margin: 64px auto;
 }
-.containerCardOpinion:hover{
+
+.containerCardOpinion:hover {
   border: 1px solid #c9c9c9;
-  
+
 }
+
 .title {
   font-size: 52px;
   font-weight: 700;
@@ -137,11 +149,13 @@
   color: #737373;
   font-weight: 400;
 }
+
 .subtitle3 {
   font-size: 16px;
   color: #737373;
   font-weight: 400;
 }
+
 .containerChildUno {
   display: flex;
   flex-direction: column;
@@ -172,13 +186,14 @@
   transition: 0.3s;
   cursor: pointer;
   border: 1px solid #d9d9d9;
-  gap:8px
+  gap: 8px
 }
-.homeCard:hover{
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2)
 
+.homeCard:hover {
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2)
 }
-.cardNewTaller{
+
+.cardNewTaller {
   text-decoration: none;
   color: #373737;
   outline: none;
@@ -195,7 +210,8 @@
   transition: 0.3s;
   padding-bottom: 8px;
 }
-.headerTalleres{
+
+.headerTalleres {
   width: 100%;
   margin: 0 auto;
   margin-top: 32px;
@@ -204,9 +220,11 @@
   align-items: flex-start;
   justify-content: space-between;
 }
-.cardNewTaller:hover{
+
+.cardNewTaller:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .select1 {
   width: 55%;
 }
@@ -256,28 +274,32 @@
   background-color: #d9d9d9;
   display: none
 }
-.imgPerfilTaller{
+
+.imgPerfilTaller {
   width: 160px;
   border-radius: 8px;
   object-fit: cover;
   display: block
 }
-.imgPerfilTaller2{
+
+.imgPerfilTaller2 {
   width: 160px;
   border-radius: 8px;
   object-fit: cover;
   display: none;
 
 }
-.containerDataNewTaller{
+
+.containerDataNewTaller {
   display: flex;
-  gap:8px;
+  gap: 8px;
   width: 100%;
   height: 100%;
   flex-direction: row;
   box-sizing: border-box;
   justify-content: space-between;
 }
+
 .buttonPrimary {
   background-color: #f50057;
   border: none;
@@ -366,7 +388,8 @@
   animation: skeleton-loading 1s infinite ease-in-out;
   /* Animación de carga */
 }
-.imgTaller{
+
+.imgTaller {
   width: 100%;
   object-fit: cover;
   height: 200px;
@@ -403,22 +426,28 @@
   .containerParent {
     width: 90%;
   }
-  .homeCard{
+
+  .homeCard {
     width: 50%;
   }
-  .gridCardTalleres{
-    grid-template-columns: 1fr; 
-}
+
+  .gridCardTalleres {
+    grid-template-columns: 1fr;
+  }
+
   .imgPrincipal {
     height: 300px;
     width: 350px;
   }
-  .imgPerfilTaller{
+
+  .imgPerfilTaller {
     width: 120px;
   }
-  .imgPerfilTaller2{
+
+  .imgPerfilTaller2 {
     width: 120px;
   }
+
   .title {
     font-size: 44px;
   }
@@ -429,30 +458,37 @@
 }
 
 @media (max-width: 1080px) {
-  .homeCard{
+  .homeCard {
     width: 60%;
   }
+
   .containerParent {
     width: 95%;
   }
+
   .select1 {
     width: 70%;
   }
-  .headerTalleres{
+
+  .headerTalleres {
     flex-direction: column;
   }
-  .imgPerfilTaller{
+
+  .imgPerfilTaller {
     width: 80px;
     max-height: 80px;
   }
-  .imgPerfilTaller2{
+
+  .imgPerfilTaller2 {
     width: 80px;
     max-height: 80px;
-    
+
   }
+
   .select2 {
     display: none;
   }
+
   .containerListTalleres {
     width: 95%;
     padding: 64px 0;
@@ -466,9 +502,10 @@
     width: 95%;
     padding: 64px 0;
   }
+
   .containerGrid {
-    grid-template-columns: 1fr 1fr ;
-    grid-template-rows:1fr ; 
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 32px 32px;
   }
 }
@@ -476,16 +513,19 @@
 @media (max-width: 900px) {
   .containerParent {
     flex-direction: column;
-      margin-top: 15%;
-      width: 95%;
+    margin-top: 15%;
+    width: 95%;
   }
-  .containerGridTalleres{
+
+  .containerGridTalleres {
     width: 90%;
-      margin: 48px auto;
+    margin: 48px auto;
   }
+
   .select1 {
     width: 80%;
   }
+
   .containerVariedadTalleres {
     gap: 32px;
     flex-direction: column;
@@ -516,56 +556,84 @@
     min-height: 36px;
     min-width: 36px;
   }
-  .title2{
+
+  .title2 {
     text-align: center;
   }
-  .containerCardOpinion{
+
+  .containerCardOpinion {
     gap: 0px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width:800px) {
+  .sectionSliderShow {
+    display: none;
+    z-index: 1000;
+
+  }
+
+  .homeCard {
+    width: 80%;
+  }
+
   .title {
+    margin-top: 70px;
     font-size: 32px;
     text-align: center;
   }
-  .imgPerfilTaller{
+
+  .title2 {
+    margin-top: 120px;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .imgPerfilTaller {
     width: 40px;
     height: 40px;
     display: none
   }
-  .imgPerfilTaller2{
+
+  .imgPerfilTaller2 {
     width: 40px;
     height: 40px;
     display: block;
   }
-  .containerGridTalleres{
+
+  .containerGridTalleres {
     width: 95%;
-    margin:24px auto
-    
+    margin: 24px auto
   }
+
   .containerGrid {
-    grid-template-columns: 1fr  ;
-    grid-template-rows:1fr 1fr ; 
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 16px 16px;
   }
+
   .title2 {
     font-size: 24px;
   }
-  .imgTaller{
+
+  .imgTaller {
     display: none
   }
+
   .separador {
     display: block;
   }
 
   .homeCard {
-    width: 40%;
     height: 40px;
-    padding: 0px;
+    padding-left: 8px;
   }
 
- 
+
 
   .subtitle {
     font-size: 16px;
@@ -573,13 +641,15 @@
   }
 
   .subtitle2 {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
   }
+
   .subtitle3 {
     font-size: 14px;
     text-align: left;
   }
+
   .containerParent {
     margin-top: 20%;
     gap: 16px;
@@ -593,6 +663,6 @@
     display: block;
   }
 
- 
-  
+
+
 }

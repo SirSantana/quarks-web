@@ -116,7 +116,7 @@ export default function Negocio({ data, }) {
   }, [router])
 
   return (
-    <Layout title={`${data?.nombre} - Talleres en Bogota`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil}>
+    <Layout title={`${data?.nombre} - Talleres en Bogota`} description={`Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false}>
       <div className={styles.container}>
         <div className={styles.sectionOneNegocio}>
           <div className={styles.headerNegocio}>

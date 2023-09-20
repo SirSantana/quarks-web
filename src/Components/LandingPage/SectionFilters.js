@@ -67,7 +67,7 @@ export default function SectonFilters({ data }) {
       <div className={styles.headerTalleres} >
         <div >
           {router?.pathname !== '/'
-            && <h1 style={{ textAlign: 'left', }} className={styles.title2}>Taller automotriz de {parts?.[0]} </h1>
+            && <h1 style={{  }} className={styles.title2}>Taller automotriz de {parts?.[0]} </h1>
           }
           {router?.pathname !== '/'
             ?

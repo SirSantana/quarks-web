@@ -3,10 +3,11 @@
 import styles from '@/styles/Navbar.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import {  useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Select from 'react-select'
 import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
+import CategoriasSlider from '../LandingPage/CategoriasSlider';
 
 const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
@@ -34,7 +35,7 @@ const initialForm = {
   servicio: 'Taller mecanico',
   localidad: 'Bogota, Colombia'
 }
-export default function NewNavbarWithSearch2() {
+export default function NewNavbarWithSearch2({ visibleSlider }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
@@ -46,7 +47,7 @@ export default function NewNavbarWithSearch2() {
     e.preventDefault()
     router.push(`/servicios-automotriz/${form.servicio}-${form.localidad}`)
   }
-  
+
   return (
     <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }} className={open && styles.modal}>
       <div ref={ref} className={` ${styles.header}`}>
@@ -57,7 +58,7 @@ export default function NewNavbarWithSearch2() {
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
             <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} />
-            <div className={styles.separatorSearch}/>
+            <div className={styles.separatorSearch} />
             <div className={styles2.select2}>
               <Select onChange={(e) => setForm({ ...form, localidad: e.value })} options={options2} styles={customStyles} defaultValue={options2[0]} />
             </div>
@@ -86,6 +87,9 @@ export default function NewNavbarWithSearch2() {
             <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
           </ul>
         </div>
+        {visibleSlider && <section className={styles.sectionSliderShowNav}>
+          <CategoriasSlider categorias={categorias} />
+        </section>}
       </div>
     </header>
 

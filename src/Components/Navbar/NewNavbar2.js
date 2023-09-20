@@ -3,11 +3,13 @@
 import styles from '@/styles/Navbar.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import {  useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Select from 'react-select'
 import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
 import FirstNewScreen from '../LandingPage/FirstNewScreen';
+import SliderTiposTalleres from '../LandingPage/SliderTiposTalleres';
+import CategoriasSlider from '../LandingPage/CategoriasSlider';
 
 const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
@@ -37,7 +39,6 @@ const initialForm = {
 }
 export default function NewNavbarWithSearch() {
   const router = useRouter()
-  const [open, setOpen] = useState(false)
   const ref = useRef(null)
   const [form, setForm] = useState(initialForm)
 
@@ -50,12 +51,12 @@ export default function NewNavbarWithSearch() {
   }
   const sendMessage = (problema) => {
     let url = `https://api.whatsapp.com/send?phone=57${3202754087}`;
-   
+
     window.open(url);
   }
   return (
-    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }} className={open && styles.modal}>
-      <div ref={ref} className={` ${styles.header}`}>
+    <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', }} >
+      <div ref={ref} className={styles.header}>
         <div className={styles.navDiv}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
             <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
@@ -63,7 +64,7 @@ export default function NewNavbarWithSearch() {
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
             <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} />
-            <div className={styles.separatorSearch}/>
+            <div className={styles.separatorSearch} />
             <div className={styles2.select2}>
               <Select onChange={(e) => setForm({ ...form, localidad: e.value })} options={options2} styles={customStyles} defaultValue={options2[0]} />
             </div>
@@ -92,8 +93,14 @@ export default function NewNavbarWithSearch() {
             <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
           </ul>
         </div>
+        <section className={styles.sectionSliderShowNav}>
+          <CategoriasSlider categorias={categorias} />
+        </section>
+
       </div>
+
       <FirstNewScreen />
+
       {/* <button onClick={sendMessage}>What</button> */}
     </header>
 

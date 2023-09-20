@@ -17,10 +17,8 @@ export default function ServicioAutomotriz({ data }) {
   const router = useRouter()
   const parts = router?.query?.id?.split("-");
   return (
-    <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + parts?.[1])}`}>
+    <Layout title={`Los mejores talleres mecanicos de ${parts?.[0]} cerca a mi en ${parts?.[1]}`} description={`Talleres de carros para ${parts?.[0]} en ${parts?.[1]}, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + parts?.[1])}`} visibleSlider={true}>
         <div  >
-        <SliderTiposTalleres/>
-
         <SectonFilters data={data}/>
         </div>
 

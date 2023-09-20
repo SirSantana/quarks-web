@@ -1,6 +1,7 @@
 
 import { useRouter } from 'next/router';
 import CategoriasSlider from './CategoriasSlider';
+import styles from '@/styles/Landing.module.css'
 
 const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
@@ -26,7 +27,7 @@ export default function SliderTiposTalleres({ quantity }) {
   const router = useRouter()
 
   return (
-    <section style={{ width:router?.pathname === '/'?'100%': '95%',padding:'0',marginRight:' auto',marginLeft:'auto', marginTop:router?.pathname === '/'?'16px': '90px'}}>
+    <section className={styles.sectionSliderShow} style={{width:router?.pathname === '/'?'100%': '95%',marginTop:router?.pathname === '/'?'16px': '90px'}}>
       <CategoriasSlider categorias={categorias} />
     </section>
 

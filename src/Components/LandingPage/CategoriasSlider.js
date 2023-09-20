@@ -5,8 +5,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import styles from '@/styles/HomeArticulos.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { Loader } from '@/utils/loader';
 
 export default function CategoriasSlider({ categorias }) {
   const router = useRouter()
@@ -30,7 +28,7 @@ export default function CategoriasSlider({ categorias }) {
     speed: 500,
     speed: 500,
     slidesToShow: 1, // Muestra una slide a la vez
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     variableWidth: true,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
