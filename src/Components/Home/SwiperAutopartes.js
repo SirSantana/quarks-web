@@ -8,7 +8,7 @@ import styles from '@/styles/HomeArticulos.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const categorias = [ 'Clutch', 'Caja y Transmision', 'Correas','Direccion y suspension',  'Filtros', 'Electricos',  'Frenado',  'Motor', ]
+const categorias = [   'Filtros', 'Electricos',  'Frenado',  'Motor', ]
 
 
 export default function SwiperAutopartes({quantity, select, imgPath}) {

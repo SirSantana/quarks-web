@@ -48,8 +48,6 @@ export default function FrenosSeccion() {
 
   return (
     <Layout title={'Autopartes de Motor | Glosario Automotriz'} description={description} keywords={keywords} type='article' image={'../Motor.png'} url={router?.asPath}>
-      <div className={styles.containerGrid}>
-        <AsideGlosario/>
 
         <div className={styles.container}>
           {/* <HeaderHome /> */}
@@ -88,7 +86,7 @@ export default function FrenosSeccion() {
 
           </section>
 
-          <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '0 0 32px 0' }} />
+          <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '0 0 32px 0', boxSizing:'border-box' }} />
 
           <SwiperAutopartes quantity={2} select={'Motor'} imgPath={true} />
 
@@ -116,7 +114,6 @@ export default function FrenosSeccion() {
           ))}
 
         </div>
-      </div>
 
       {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />}
 
