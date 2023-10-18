@@ -134,9 +134,9 @@ export default function Cilindraje() {
           <h2>¿Qué es el Cilindraje de un Vehículo?</h2>
           <br />
           <p style={{ lineHeight: '1.8' }}>La <b>cilindrada de un vehículo</b> es una medida importante que nos dice cuánto espacio hay dentro de los cilindros del motor. Ahora, imagina los cilindros como los corazones del motor.<br/><br/> Estos cilindros son como habitaciones donde ocurre la magia de la combustión, lo que hace que el motor funcione y el vehículo se mueva. Así que, en esencia, el cilindraje nos dice cuánta "potencia" puede generar el motor.</p>
-          <a style={{ marginTop: '32px' }} href='https://www.quarks.com.co/articulos/Cilindrada-de-un-vehiculo-:-Todo-lo-que-tienes-que-saber-64860ae7bf99b4c49795114b'>
+          {/* <a style={{ marginTop: '32px' }} href='https://www.quarks.com.co/articulos/Cilindrada-de-un-vehiculo-:-Todo-lo-que-tienes-que-saber-64860ae7bf99b4c49795114b'>
           Conoce todo sobre la cilindrada Aqui!
-        </a>
+        </a> */}
           <br /><br />
           
           <h2>¿Cómo se Calcula el cilindrada?</h2>

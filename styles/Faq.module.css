@@ -74,7 +74,23 @@
   -moz-appearance: none;
   appearance: none;
 }
-
+.button2 {
+  background-color: #f50057;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 50px;
+  transition: 0.3s;
+  margin: 16px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 .gridContainer {
   display: grid;
   column-gap: 16px;
@@ -119,7 +135,6 @@
 .button {
   position: absolute;
   bottom: -40px;
-  /* Ajusta el valor negativo para que el botón sobresalga */
   left: 50%;
   transform: translateX(-50%);
   padding: 10px 20px;
@@ -206,7 +221,45 @@
   color: white;
 }
 
-
+.containerAcceso{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  max-width: 1000px;
+  margin: 150px auto;
+  justify-content: center;
+  gap: 10%;
+}
+.titleAccess{
+  font-size: 40px;
+  line-height: 48px;
+}
+.imgCard{
+  width: 330px;
+  height: 450px;
+  align-self: center;
+}
+.containerInputAcceso{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.inputAcceso{
+  border-radius: 10px;
+  height: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 8px 16px;
+  border: none;
+  outline: none;
+}
+.inputAcceso:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1b333d;
+}
 @media (max-width: 1200px) {
   .containerContent {
     display: flex;
@@ -215,14 +268,21 @@
     width: 100%;
     align-items: center;
     margin: 64px 0;
+
   }
 }
-
+.tabs{
+  margin:64px 0;
+}
 @media (max-width: 1080px) {
   .containerContent {
     gap: 32px;
+    align-items: center;
   }
-
+  .titleAccess{
+    font-size: 32px;
+    line-height: 40px;
+  }
   .bigTitle {
     font-size: 40px;
   }
@@ -230,17 +290,26 @@
   .container {
     margin-top: 5%;
   }
+  .containerAcceso{
+    flex-direction: column;
+  }
 }
-.tabs{
-  margin:64px 0;
-}
+
+
 @media (max-width: 900px) {
   .containerContent {
     flex-direction: column;
     gap: 32px;
     margin: 16px 0;
   }
+  .containerInputAcceso{
+    flex-direction: column;
+  }
+  .containerAcceso{
+    width: 90%;
+    gap: 64px;
 
+  }
   .containerInput {
     margin: 32px 0;
   }
@@ -283,7 +352,10 @@
   .input {
     width: 90%;
   }
-
+  .titleAccess{
+    font-size: 24px;
+    line-height: 32px;
+  }
   .imgFormula {
     width: 100%;
     height: 50px;

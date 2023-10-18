@@ -39,6 +39,7 @@ export default function ListTalleresLanding() {
               <div className={styles.skeletonLoader} />
             ) : (
               <img
+              loading='lazy'
                 className={styles.imgFotoTaller}
                 src={`https://azurequarks.blob.core.windows.net/negocios/${el.src}`}
                 alt={el.alt}

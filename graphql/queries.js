@@ -399,6 +399,9 @@ export const GET_ONE_NEGOCIOVDOS= gql`
       promediocalificacionesmaps
       urltallermaps
       id
+      marcasAutos
+      tipo
+      fotossecundarias
     }
   }
 `

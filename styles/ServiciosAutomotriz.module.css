@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: row;
   width: 80%;
-  margin: 128px auto 96px auto;
+  margin: 64px auto 96px auto;
   padding: 8px;
   box-sizing: border-box;
   gap: 32px;
 }
+
 .container2 {
   display: flex;
   flex-direction: row;
@@ -16,6 +17,7 @@
   box-sizing: border-box;
   gap: 32px;
 }
+
 .section1 {
   width: 100%;
 }
@@ -44,7 +46,7 @@
   width: 40%;
   color: #373737;
   text-align: end;
-  
+
 }
 
 .titleSections {
@@ -98,6 +100,7 @@
   font-size: 16px;
   color: #373737;
 }
+
 .textCategoryMobile {
   font-size: 12px;
   color: #373737;
@@ -178,27 +181,31 @@
 
 .sectionTwoNegocio {
   width: 30%;
-  
+
 }
+
 .sectionTwoNegocioFixed {
   width: 330px;
   position: fixed;
   right: 12%;
   top: 20%;
 }
-.sectionTwoUno{
+
+.sectionTwoUno {
   border: 1px solid #d9d9d9;
   padding: 16px;
   box-sizing: border-box;
   height: fit-content;
   margin-bottom: 16px;
 }
-.sectionTwoTwo{
+
+.sectionTwoTwo {
   border: 1px solid #d9d9d9;
   padding: 16px;
   box-sizing: border-box;
   height: fit-content;
 }
+
 .titleNegocio {
   font-size: 40px;
   font-weight: 700;
@@ -208,78 +215,143 @@
   margin: 0;
   line-height: 48px;
 }
-.containerButtonsCA{
+
+.containerButtonsCA {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 16px;
   margin: 16px 0;
 }
-.buttonPrimary{
+
+.buttonPrimary {
   display: flex;
   background-color: #f50057;
   height: 48px;
-  padding: 8px 16px ;
+  padding: 8px 16px;
   box-sizing: border-box;
   align-items: center;
   border: none;
-  color:white;
+  color: white;
   border-radius: 4px;
-  gap:8px;
+  gap: 8px;
   cursor: pointer;
 }
-.buttonPrimaryMobile{
+
+.buttonPrimaryMobile {
   display: none;
   background-color: #f50057;
   height: 48px;
-  padding: 8px 16px ;
+  padding: 8px 16px;
   box-sizing: border-box;
   align-items: center;
   border: none;
-  color:white;
+  color: white;
   border-radius: 4px;
-  gap:8px;
+  gap: 8px;
   cursor: pointer;
   justify-content: center;
 }
-.buttonSecondary{
+
+.buttonSecondary {
   display: flex;
   height: 48px;
-  padding: 8px 16px ;
+  padding: 8px 16px;
   box-sizing: border-box;
   align-items: center;
   border: 1px solid #d9d9d9;
-  color:#373737;
+  color: #373737;
   border-radius: 4px;
-  gap:8px;
+  gap: 8px;
   background-color: white;
   cursor: pointer;
 
 }
-.buttonPrimary:hover{
+
+.buttonFixed {
+  display: flex;
+  background-color: #f50057;
+  height: 48px;
+  padding: 8px 16px;
+  width: 80%;
+  box-sizing: border-box;
+  align-items: center;
+  border: none;
+  color: white;
+  justify-content: center;
+  border-radius: 4px;
+  gap: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 12px;
+  max-width: 300px;
+
+}
+.divFixed{
+  display: flex;
+  position: fixed;
+  bottom: 6vh;
+  width: 90%;
+  padding: 8px 16px;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 400px;
+
+}
+.buttonFixed2 {
+  display: flex;
+  background-color: #f50057;
+  height: 48px;
+  width: 48px;
+  box-sizing: border-box;
+  align-items: center;
+  border: none;
+  color: white;
+  justify-content: center;
+  border-radius: 4px;
+  gap: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.buttonPrimary:hover {
   background-color: #dc014d;
 }
-.buttonSecondary:hover{
+
+.buttonSecondary:hover {
   background-color: #ffefef;
   border: 1px solid #5b0221;
 }
-.containerButtonsMobile{
+
+.containerButtonsMobile {
   display: none;
 
 }
-.containerButtonMobile:hover{
+
+.containerButtonMobile:hover {
   background-color: #ffefef;
 }
-.containerButtonMobile{
+
+.containerButtonMobile {
   padding: 8px;
   border-radius: 8px;
 }
-.containerHorariosUbicacion{
+
+.containerHorariosUbicacion {
   display: flex;
   gap: 32px;
   margin: 16px 0;
   flex-direction: row;
 }
+
+.containerHorarios {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  gap: 16px;
+}
+
 .modal {
   position: fixed;
   left: 0;
@@ -293,12 +365,14 @@
   flex-direction: column;
   z-index: 999;
 }
-.containerFiltersBasic{
+
+.containerFiltersBasic {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.containerVendedor{
+
+.containerVendedor {
   flex-direction: row;
   justify-content: space-between;
   display: flex;
@@ -308,6 +382,7 @@
   box-sizing: border-box;
   gap: 32px;
 }
+
 .input {
   width: 100%;
   border: #c0c0c0 solid 1px;
@@ -326,12 +401,14 @@
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
-.imgRegisterTaller{
+
+.imgRegisterTaller {
   object-fit: contain;
   width: 50%;
   height: 50%;
 }
-.containerFormTaller{
+
+.containerFormTaller {
   display: flex;
   margin: 0 auto;
   border: 1px solid #d9d9d9;
@@ -340,83 +417,111 @@
   padding: 32px 16px;
   box-sizing: border-box;
 }
-@media (max-width:1380px){
+.containerMobile{
+  background-color: #fbfbfb;
+  flex-direction: column;
+  gap: 4vh;
+  margin-bottom: 48px;
+  margin-top: 80px;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  display: none;
+}
+@media (max-width:1380px) {
   .sectionTwoNegocioFixed {
     width: 300px;
     right: 8%;
   }
 }
+
 @media (max-width:1200px) {
   .container {
     width: 90%;
     margin-top: 96px;
   }
+
   .container2 {
     width: 90%;
     margin-top: 96px;
   }
-  .titleNegocio{
+
+  .titleNegocio {
     font-size: 32px;
     line-height: 36px;
   }
+
   .sectionTwoNegocioFixed {
     width: 280px;
     right: 6%;
   }
-  .containerVendedor{
+
+  .containerVendedor {
     width: 90%;
     margin-top: 96px;
     flex-direction: column;
   }
-  .imgRegisterTaller{
+
+  .imgRegisterTaller {
     width: 100%;
     height: 100%;
   }
 }
+
 @media (max-width:1080px) {
   .sectionTwoNegocioFixed {
     width: 250px;
     right: 3%;
   }
-  
+
 }
+
 @media (max-width:900px) {
   .sectionTwoNegocioFixed {
     display: none;
   }
-  .containerHorariosUbicacion{
+
+  .containerHorariosUbicacion {
     width: 100%;
   }
-  .titleNegocio{
+
+  .titleNegocio {
     font-size: 24px;
     line-height: 26px;
   }
-  .buttonPrimaryMobile{
+
+  .buttonPrimaryMobile {
     display: flex
   }
-  .sectionTwoNegocio{
+
+  .sectionTwoNegocio {
     display: none;
   }
-  .containerButtonsMobile{
+
+  .containerButtonsMobile {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    margin:16px 0;
+    margin: 16px 0;
     cursor: pointer;
   }
-  .containerButtonsCA{
+
+  .containerButtonsCA {
     display: none;
   }
-  .containerButtonMobile{
+
+  .containerButtonMobile {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    gap: 8px; 
+    align-items: center;
+    gap: 8px;
   }
-  .sectionOneNegocio{
+
+  .sectionOneNegocio {
     width: 100%;
   }
+
   .containerHeaderText {
     flex-direction: column;
     align-items: flex-start;
@@ -439,11 +544,11 @@
     font-size: 14px;
     white-space: nowrap;
   }
- 
+
   .icons {
     font-size: 16px;
   }
- 
+
 
 }
 
@@ -451,22 +556,30 @@
   .container {
     width: 100%;
     margin-top: 80px;
+    display: none
   }
-  .containerVendedor{
+  .containerMobile{
+    display: flex;
+  }
+  .containerVendedor {
     width: 95%;
     margin-top: 72px;
   }
-  .containerHorariosUbicacion{
+
+  .containerHorariosUbicacion {
     flex-direction: column;
   }
+
   .container2 {
     width: 100%;
     margin-top: 80px;
   }
-  .titleNegocio{
+
+  .titleNegocio {
     font-size: 20px;
     line-height: 24px;
   }
+
   .titleHeader {
     font-size: 16px;
   }
@@ -497,10 +610,12 @@
   .imgPrincipalLugarMobile {
     display: flex;
   }
-  .headerNegocio{
-  flex-direction: column;
-  gap: 8px; 
+
+  .headerNegocio {
+    flex-direction: column;
+    gap: 8px;
   }
+
   .textCategoryMobile {
     display: flex;
     font-size: 12px;

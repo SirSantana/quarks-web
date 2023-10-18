@@ -14,7 +14,9 @@ export default function Page404() {
     const idParte = partes[partes.length - 1];
     const id = idParte.split("-")[0];
     const taller = talleres?.talleres.find(el => el.id === id)
-    router.replace(`/${taller?.userName}`)
+    if(taller){
+      router.replace(`/${taller?.userName}`)
+    }
   }, [])
 
   return (

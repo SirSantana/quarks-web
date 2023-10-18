@@ -25,9 +25,9 @@ export default function Nav() {
           <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.titleNav}>Quarks</h1>
         </Link>
 
-        <ul className={styles.navv}>
-          <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' && '#5B0221' }} className={styles.subtitle} href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'}>Talleres</Link></li>
-          <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' && '#5B0221' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
+        <ul className={styles.navv2}>
+          {/* <li className={styles.li}><Link style={{fontSize:'14px', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' && '#5B0221' }} className={styles.subtitle} href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'}>Talleres</Link></li> */}
+          <li className={styles.li}><Link style={{fontSize:'14px', textDecoration: 'none', fontWeight:'500', color: router?.pathname === '/glosario-de-autopartes' ? '#5B0221':'white' }} className={styles.subtitle} href={'/acceso'}>Tienes un taller o almacen?</Link></li>
 
           {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/cotizaciones' && '#5B0221' }}className={styles.subtitle} href={'/cotizaciones'}>Cotizaciones</Link></li> */}
           {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/blog' && '#5B0221' }}className={styles.subtitle}href={'/'}>Blog</Link></li> */}

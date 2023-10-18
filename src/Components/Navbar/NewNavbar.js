@@ -9,7 +9,7 @@ import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
 import CategoriasSlider from '../LandingPage/CategoriasSlider';
 
-const categorias = [
+export const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
   { nombre: 'Aire acondicionado', img: 'Refrigeracion', url: 'Aire acondicionado' },
   { nombre: 'Alineación y balanceo', img: 'Rueda', url: 'Alineación y balanceo' },
@@ -84,7 +84,7 @@ export default function NewNavbarWithSearch2({ visibleSlider }) {
                 </ul>
               </div>
             </div>
-            <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
+            {/* <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li> */}
           </ul>
         </div>
         {visibleSlider && <section className={styles.sectionSliderShowNav}>

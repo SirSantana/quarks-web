@@ -60,9 +60,8 @@ export default function Home() {
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       </Head>
-
+      <NewNavbarWithSearch />
       <main className={styles.main}>
-        <NewNavbarWithSearch />
         <SectonFilters />
         <ListTalleresLanding />
         <ActividadReciente />
@@ -70,11 +69,12 @@ export default function Home() {
         <SectionVariedadTalleres />
         <SectionPasos />
         <SectionGrowthTaller />
-        <SectionGlosario />
-        {/* <SectionCalculadoraCombustible /> */}
-        <Footer />
+        {/* <SectionGlosario /> */}
+        <SectionCalculadoraCombustible />
 
       </main>
+      <Footer />
+
     </>
   )
 }

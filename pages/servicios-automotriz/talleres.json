@@ -1198,6 +1198,32 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:00 PM,Mar 8:00 AM - 5:00 PM,Mié 8:00 AM - 5:00 PM,Jue 8:00 AM - 5:00 PM,Vie 8:00 AM - 5:00 PM,Sáb 8:00 AM - 12:30 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15906.486318334937!2d-74.08495348261717!3d4.661376599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b07209f4dcd%3A0x1dcdca6b82dad1fc!2sINYECTORES%20BOGOTA!5e0!3m2!1ses-419!2sco!4v1691509547482!5m2!1ses-419!2sco"
+    },{
+      "nombre": "Corsa Motors",
+      "direccion": "Cra 27a #64a-59",
+      "fotossecundarias":[],
+      "categorias": [
+        "Servicio de Eléctricos",
+        "Servicio de Clutch",
+        "Servicio de Frenos",
+        "Servicio de Motor",
+        "Servicio de Suspension"
+        
+      ],
+      "marcasAutos":[
+        "Chevrolet", 
+        "Mazda"
+      ],
+      "tipo":"Almacen",
+      "userName":"corsa_motors",
+      "localidad": "Barrios Unidos",
+      "id": "652ebb646e27674e4c2876a9",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tarjetacorsamotors.jpeg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 3:00 PM,Dom 10:00 AM - 2:00 PM",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1697561374702!6m8!1m7!1sYAM2wah5bxApYrR92Li3eA!2m2!1d4.657770543962067!2d-74.07361318533115!3f319.961134676433!4f-2.3154057628985356!5f0.7820865974627469"
     }
   ]
 }

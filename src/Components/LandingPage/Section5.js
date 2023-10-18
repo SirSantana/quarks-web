@@ -92,7 +92,10 @@ export default function SectionCalculadoraCombustible() {
               <p className={styles.pSubtitle}>0 Gl</p>
               <p className={styles.pSubtitle}>20 Gl</p>
             </div>
+
           </div>
+
+
         </div>
 
         <div className={styles.containerCardRendimiento}>
@@ -110,10 +113,15 @@ export default function SectionCalculadoraCombustible() {
             </button>
           </Link>
 
+
         </div>
 
       </div>
-
+      <Link href={'/calculadora-de-cilindraje-de-un-vehiculo'} style={{marginTop:'36px', color: '#373737', textDecoration: 'none', outline: 'none' }}>
+        <button style={{ cursor: 'pointer' }} className={styles2.button}>
+          Calcular cilindrada
+        </button>
+      </Link>
     </section>
   )
 }

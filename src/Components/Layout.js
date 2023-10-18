@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Footer from './Footer/Footer'
 import NewNavbarWithSearch2 from './Navbar/NewNavbar'
+import Nav from './Navbar/Nav'
 
 export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider }) {
   return (
@@ -57,6 +58,7 @@ export default function Layout({ children, title, description, type, price, keyw
           </>}
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
+        
         <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -70,9 +72,8 @@ export default function Layout({ children, title, description, type, price, keyw
 
       <main >
         {/* <Nav /> */}
-        <NewNavbarWithSearch2 visibleSlider={visibleSlider}/>
         {/* <NewNavbar/> */}
-        {/* <Navbar/> */}
+        <Nav/>
         {children}
         <Footer />
 

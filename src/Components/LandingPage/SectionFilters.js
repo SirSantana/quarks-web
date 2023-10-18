@@ -76,9 +76,9 @@ export default function SectonFilters({ data }) {
             <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
           }
         </div>
-        {router?.pathname !== '/' && <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: '16px', }}>
+        {/* {router?.pathname !== '/' && <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: '16px', }}>
           <Select onChange={handleChange2} options={options2} styles={customStyles} defaultValue={options2[0]} />
-        </div>}
+        </div>} */}
       </div>
       <div className={styles.gridCardTalleres} >
         {data?.length <= 0 && router.pathname !== '/' ? <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>No se encontraron resultados...</h2>

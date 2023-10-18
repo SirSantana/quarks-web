@@ -70,7 +70,11 @@ mutation contactoEmail($name:String,$email:String, $mensaje:String, ){
   contactoEmail(name:$name,email:$email, mensaje:$mensaje)
 }
 `
-
+export const INTERESADO_PREMIUM = gql`
+mutation interesadoPremium($nombre:String,$email:String ){
+  interesadoPremium(nombre:$nombre,email:$email)
+}
+`
 export const CREATE_VOTE = gql`
 mutation createVote($id:String, $idCarro:String ){
   createVote(id:$id, idCarro:$idCarro)

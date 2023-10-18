@@ -72,9 +72,9 @@ export default function NewNavbarWithSearch() {
               <ion-icon style={{ color: 'white', fontSize: '20px' }} name="search-outline"></ion-icon>
             </div>
           </form>
-          <ul className={styles.navv}>
+          <nav className={styles.navv}>
             <div className={styles.talleres}>
-              <li style={{ listStyle: 'none', cursor: 'pointer', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' ? '#373737' : '#373737' }} className={styles.subtitle}>Talleres</li>
+              <p style={{ listStyle: 'none', cursor: 'pointer', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' ? '#373737' : '#373737' }} className={styles.subtitle}>Talleres mecanicos</p>
               <div className={styles.tooltip}>
                 <ul className={styles.ulTipos}>
                   {categorias.map(el => (
@@ -90,8 +90,8 @@ export default function NewNavbarWithSearch() {
                 </ul>
               </div>
             </div>
-            <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li>
-          </ul>
+            {/* <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li> */}
+          </nav>
         </div>
         <section className={styles.sectionSliderShowNav}>
           <CategoriasSlider categorias={categorias} />

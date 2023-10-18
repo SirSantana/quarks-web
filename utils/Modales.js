@@ -308,8 +308,8 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
   const urlEncoded = url.replace(/ /g, '%20')
   return (
     <div onClick={() => setVisibleShareArticulo(false)} className={styles.modal}>
-      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start' }} className={styles.modalContent}>
-        <h3>Compartir</h3>
+      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding:'20px' }} className={styles.modalContent}>
+        <h3 style={{fontWeight:'600', marginBottom:'8px'}}>Compartir perfil</h3>
         <div onClick={handleCopy} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
           <ion-icon style={{ width: '24px', height: '24px', borderRadius: '50%' }} name="share-social-outline"></ion-icon>
           <p style={{ fontSize: '12px' }}>Copiar link</p>
@@ -319,7 +319,7 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
         <WhatsappShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded}><WhatsappIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>WhatsApp</p></WhatsappShareButton>
         <EmailShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded}><EmailIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /> <p style={{ fontSize: '12px' }}>Email</p></EmailShareButton>
         
-        <a style={{ fontSize: '12px' }} href={urlEncoded}>Ver perfil de mi taller</a>
+        {/* <a style={{ fontSize: '12px' }} href={urlEncoded}>Ver perfil de mi taller</a> */}
       </div>
     </div>
 
