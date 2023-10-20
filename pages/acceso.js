@@ -33,8 +33,10 @@ export default function AccesoPrevio() {
   return (
     <Layout title={'Obten acceso temprano'}>
       <div className={styles.containerAcceso} >
+      <img src="./card-almacen-prev.png" className={styles.imgCard} alt="Crea tu perfil" />
+        
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
-          <p style={{ fontSize:'14px', color: '#f50057', fontWeight:'600', display:'flex', flexDirection:'row', alignItems:'center', gap:'8px' }}><ion-icon style={{color:'#f50057', fontSize:'24px'}} name="ribbon-outline"></ion-icon>+50 talleres y almacenes registrados</p>
+          <p style={{ fontSize:'14px', color: 'green', fontWeight:'600', display:'flex', flexDirection:'row', alignItems:'center', gap:'8px' }}><ion-icon style={{color:'green', fontSize:'24px'}} name="ribbon-outline"></ion-icon>+50 talleres y almacenes registrados</p>
           <h1 className={styles.titleAccess}>La mejor forma de mostrar tu taller o almacen!</h1>
           <p style={{ margin: '8px 0 32px 0', color: '#5c5c5c' }}>
             Crea tú perfil en linea personalizado <span style={{ fontWeight: '700' }}>gratis</span> por tiempo limitado.
@@ -49,7 +51,6 @@ export default function AccesoPrevio() {
             </button>
           </form>
         </div>
-        <img src="./card-almacen-prev.png" className={styles.imgCard} alt="Crea tu perfil" />
 
       </div>
       {loading &&

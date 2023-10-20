@@ -27,7 +27,7 @@ const categorias2 = [
   { nombre: 'Alineación y balanceo', img: 'servicio-llantas', url: 'Alineación y balanceo', db: 'Alineación y balanceo' },
   { nombre: 'Baterias', img: 'servicio-bateria', url: 'bateria', db: 'Servicio de Baterias' },
   { nombre: 'Caja y transmisión', img: 'servicio-cajas', url: 'Cajas', db: 'Servicio de Cajas' },
-  { nombre: 'Cambio de aceite', img: 'servicio-cambio-aceite', url: 'Cambio de aceite', db: 'Cambio de aceite' },
+  { nombre: 'Cambio de aceite', img: 'servicio-cambio-aceite', url: 'Cambio de aceite', db: 'Cambio de Aceite' },
   { nombre: 'Clutch', img: 'servicio-clutch', url: 'Clutch', db: 'Servicio de Clutch' },
   { nombre: 'Correas', img: 'servicio-motor', url: 'Motor', db: 'Servicio de Motor' },
   { nombre: 'Direccion y suspension', img: 'servicio-suspension', url: 'Suspensión', db: 'Servicio de Suspensión' },
@@ -35,7 +35,7 @@ const categorias2 = [
   { nombre: 'Electronica', img: 'servicio-electronico', url: 'Electronica', db: 'Servicio de Electronica' },
   { nombre: 'Frenos', img: 'servicio-frenos', url: 'Frenos', db: 'Servicio de Frenos' },
   { nombre: 'Inyeccion', img: 'servicio-inyeccion', url: 'Inyeccion', db: 'Servicio Inyeccion' },
-  { nombre: 'Latonería y pintura', img: 'servicio-carroceria', url: 'Latoneria y pintura', db: 'Servicio de Latonería y pintura' },
+  { nombre: 'Latonería y pintura', img: 'servicio-carroceria', url: 'Latoneria y pintura', db: 'Latonería y pintura' },
   { nombre: 'Mecanico a domicilio', img: 'mecanico', url: 'Mecanico a Domicilio', db: 'Mecanico a Domicilio' },
   { nombre: 'Motor', img: 'servicio-motor', url: 'Motor', db: 'Servicio de Motor',  },
   { nombre: 'Peritaje', img: 'peritaje', url: 'Peritaje', db: 'Peritaje' },
@@ -48,20 +48,20 @@ const categorias2 = [
 
 ];
 export default function ServidosOfrecidos({ data }) {
-
+  console.log(data?.categorias);
   return (
     <>
       <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600' }} className={styles.titleNegocio}>{data?.tipo !== 'Almacen' ?"Servicios Ofrecidos":"Repuestos Manejados"} </h2>
       <div style={{ backgroundColor: 'white', border: '1px solid #d6d6d6', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '90%', maxWidth: '600px', justifyContent: 'space-between' }}>
         {data?.categorias.map(el => {
-          const category = categorias2?.find(cat => cat.db == el)
+          const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           
           return (
             <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems:'center' }}>
               <div style={{border:'1px solid #c5c5c5', borderRadius:'10px', width:'40px', height:'40px', display:'flex', alignItems:'center', justifyContent:'center'}}>
                 {category?.img ? <img src={`./${category?.img}.png`} style={{ width: '30px', height: '30px' }} /> : <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>}
               </div>
-              <p style={{ fontSize: '14px' }}>{data?.tipo === 'Almacen' ?category.nombre :el}</p>
+              <p style={{ fontSize: '14px', flex:1}}>{data?.tipo === 'Almacen' ?category.nombre :el}</p>
             </div>
           )
         })}

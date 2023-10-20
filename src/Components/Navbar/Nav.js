@@ -27,7 +27,7 @@ export default function Nav() {
 
         <ul className={styles.navv2}>
           {/* <li className={styles.li}><Link style={{fontSize:'14px', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' && '#5B0221' }} className={styles.subtitle} href={'/servicios-automotriz/Taller mecanico-Bogota, Colombia'}>Talleres</Link></li> */}
-          <li className={styles.li}><Link style={{fontSize:'14px', textDecoration: 'none', fontWeight:'500', color: router?.pathname === '/glosario-de-autopartes' ? '#5B0221':'white' }} className={styles.subtitle} href={'/acceso'}>Tienes un taller o almacen?</Link></li>
+          <li className={styles.li}><Link style={{fontSize:'14px', textDecoration: 'none', fontWeight:'500', color: router?.pathname === '/glosario-de-autopartes' ? '#5B0221':'white' }} className={styles.subtitle} href={'/acceso'}>Crear perfil</Link></li>
 
           {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/cotizaciones' && '#5B0221' }}className={styles.subtitle} href={'/cotizaciones'}>Cotizaciones</Link></li> */}
           {/* <li className={styles.li}><Link style={{ textDecoration: 'none',color:router?.pathname === '/blog' && '#5B0221' }}className={styles.subtitle}href={'/'}>Blog</Link></li> */}

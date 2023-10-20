@@ -70,14 +70,15 @@ export default function Negocio({ data, }) {
     setTalleresSimilares(randomResults)
 
   }, [router])
+  console.log(data?.fotossecundarias);
 
   let descripcionTaller = `Taller especializado en${data?.categorias.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
   return (
-    <Layout title={`${data?.nombre} - Talleres en Bogota`} description={data?.tipo === 'Almacen' ? descripcionAlmacen:descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false}>
+    <Layout title={`${data?.nombre} `} description={data?.tipo === 'Almacen' ? descripcionAlmacen:descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias.map(el => " Talleres de " + el + " en " + data?.ciudad)}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false}>
       <div className={styles.containerMobile} >
 
-        <HeaderHorario handleScroll={handleScroll} visibleFullHorario={visibleFullHorario} setVisibleFullHorario={setVisibleFullHorario} />
+        <HeaderHorario handleScroll={handleScroll} visibleFullHorario={visibleFullHorario} setVisibleFullHorario={setVisibleFullHorario} horario={data?.horario}/>
 
         <CardPerfil data={data} />
 
@@ -90,7 +91,7 @@ export default function Negocio({ data, }) {
         {data?.facebook && <RedesSociales data={data}/>}
         <MapaUbicacion taller={taller} />
 
-        {data?.fotossecuendarias && <Galeria data={data} />}
+        {data?.fotossecundarias.length>1 && <Galeria data={data} />}
 
         {/* <Reseñas id={data?.id} numeroCalificacionesMaps={data?.numerocalificacionesmaps} /> */}
 
