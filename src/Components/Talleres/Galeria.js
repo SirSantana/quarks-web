@@ -8,8 +8,8 @@ export default function Galeria({ data }) {
 
       {/* <div style={{ width: '90%', height: '300px', overflow: 'hidden', borderRadius: '20px' }}>
         <iframe
-          scrolling="no"
-          src={'https://i.pinimg.com/originals/f1/60/e6/f160e6dd20b3a263a9d8bd3cee27a108.gif'}
+          scrolling="no" frameborder="0" allowTransparency="true" 
+          src={'https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Ftullanta.colombia%2Fvideos%2F1503960960140061%2F&show_text=false&width=476&t=0'}
           style={{
             width: '100%', // Establece el ancho al 100% para que se ajuste al contenedor
             height: '100%', // Establece la altura al 100% para que se ajuste al contenedor

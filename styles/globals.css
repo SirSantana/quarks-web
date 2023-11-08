@@ -5,3 +5,6 @@
   font-family: 'Poppins', sans-serif;
   background-color: '';
 }
+input[type="time"]::-webkit-calendar-picker-indicator {
+  display: none;
+}

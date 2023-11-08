@@ -43,7 +43,7 @@ mutation signIn($email: String!, $password:String!) {
 `
 export const CREATE_VENDEDOR = gql`
 mutation createVendedor($email: String!, $celular:String!,$marcas:[Boolean], $direccion:String!, $ciudad:String!,$name:String!, $almacen:String!, $verified:Boolean, $password:String ) {
-  createVendedor(input:{email: $email, celular:$celular, direccion:$direccion, marcas:$marcas, ciudad:$ciudad, name:$name, almacen:$almacen, verified:$verified, password:$password}) 
+  createVendedor(input:{email: $email, celular:$celular, direccion:$direccion, marcas:$marcas, ciudad:$ciudad, name:$name, almacen:$almacen, verified:$verified, password:$password})
 }
 `
 
@@ -158,6 +158,46 @@ mutation createConsumo($fecha:String, $galon:String, $consumo:String){
     fecha
     galon
     consumo
+  }
+}
+`
+
+export const CREATE_NEGOCIO_VDOS = gql`
+mutation createNegocioVDos($email:String, $password:String, $username:String){
+  createNegocioVDos(email:$email, password:$password, username:$username){
+    negocio{
+      email
+    password
+    userName
+    }
+    token
+  }
+}
+`
+
+export const EDIT_NEGOCIO_VDOS = gql`
+mutation editNegocioVDos($direccion:String,  $ciudad:String,$pais:String, $whatsapp:String, $telefono:String, $horario:String, $fotoperfil:String, $categorias:[String], $nombre:String){
+  editNegocioVDos(input:{direccion:$direccion, ciudad:$ciudad,pais:$pais,  whatsapp:$whatsapp, telefono:$telefono,horario:$horario, fotoperfil:$fotoperfil,categorias:$categorias, nombre:$nombre} ){
+      nombre
+      direccion
+      userName
+      fotoperfil
+      categorias
+      telefono
+      whatsapp
+  }
+}
+`
+
+export const SIGNIN_NEGOCIO_VDOS = gql`
+mutation signInNegocio($email:String, $password:String){
+  signInNegocio(email:$email, password:$password ){
+    negocio{
+      email
+    password
+    userName
+    }
+    token
   }
 }
 `

@@ -5,9 +5,10 @@ import { ModalShareArticulo } from '@/utils/Modales';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import Icon, { IconCatalog } from '../Icon/Icon';
 
 
-export default function ButtonsFooter({data}) {
+export default function ButtonsFooter({ data, user }) {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter()
 
@@ -26,28 +27,26 @@ export default function ButtonsFooter({data}) {
     setVisibleShareArticulo(true)
     createClickCompartido({ variables: { id: data?.id } })
   }
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 400) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
-    scrolled &&
     <div className={styles.divFixed}>
-      <button className={styles.buttonFixed} onClick={sendMessageWha} ><ion-icon style={{ color: 'white', fontSize: '20px' }} name="logo-whatsapp"></ion-icon>Contactar ahora</button>
-      <button className={styles.buttonFixed2} onClick={handleClickCompartir} ><ion-icon style={{ color: 'white', fontSize: '20px' }} name="paper-plane-outline"></ion-icon></button>
+      {!user?.userName === router?.query?.id
+        ?
+        <>
+
+          <button style={{ fontSize: '16px', flex: 1, backgroundColor: '#373737' }} className={styles.buttonFixed} onClick={sendMessageWha} ><Icon name={IconCatalog.createOutline} style={{ color: 'white' }} size='md' /> Editar Taller</button>
+          <button style={{ border: '1px solid #373737', backgroundColor: 'white' }} className={styles.buttonFixed2} onClick={handleClickCompartir} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button>
+
+          <button style={{ border: '1px solid #373737', backgroundColor: 'white' }} className={styles.buttonFixed2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button>
+        </>
+        :
+        <>
+          <button style={{ fontSize: '14px', flex: 1, backgroundColor: '#373737' }} className={styles.buttonFixed} onClick={sendMessageWha} ><Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='md' /> Contactar ahora</button>
+          <button style={{ border: '1px solid #373737', backgroundColor: 'white' }} className={styles.buttonFixed2} onClick={handleClickCompartir} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button>
+
+          <button style={{ border: '1px solid #373737', backgroundColor: 'white' }} className={styles.buttonFixed2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button>
+        </>
+      }
       {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />}
-    
     </div>
 
   )

@@ -374,7 +374,7 @@ export const GET_ALL_GASTOS = gql`
   }
 `
 
-export const GET_ONE_NEGOCIOVDOS= gql`
+export const GET_ONE_NEGOCIOVDOS = gql`
   query getOneNegocioVDos($id:ID){
     getOneNegocioVDos(id:$id){
       nombre
@@ -402,6 +402,7 @@ export const GET_ONE_NEGOCIOVDOS= gql`
       marcasAutos
       tipo
       fotossecundarias
+      userName
     }
   }
 `
@@ -415,7 +416,7 @@ query getStadisticsHalfMonth($id:ID){
     impresion
   }
 }
-` 
+`
 export const GET_ALL_ARTICULOS = gql`
   query getAllArticulos{
     getAllArticulos{
@@ -545,4 +546,21 @@ query getConsumos{
     galon
   }
 }
+`
+
+export const CHECK_VERIFY_USERNAME = gql`
+query verifyAccountCheck($username:String){
+  verifyAccountCheck(username:$username)
+}
+`
+
+export const GET_NEGOCIOVDOS_ONE = gql`
+    query getNegocioVDosOne{
+      getNegocioVDosOne{
+        email
+        userName
+        categorias
+        nombre
+        }
+    }
 `

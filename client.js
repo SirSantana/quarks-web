@@ -13,12 +13,14 @@ const httpLink = createHttpLink({
 })
 const authLink = setContext(async (_, { headers }) => {
   let token;
+  let negocioToken;
   // get the authentication token from local storage if it exists
   if (typeof window !== "undefined") {
     token = localStorage.getItem('token');
+    negocioToken = localStorage.getItem('negocioToken')
     return {
       headers: {
-        authorization: token || '',
+        authorization: token || negocioToken || '',
       }
     }
   }

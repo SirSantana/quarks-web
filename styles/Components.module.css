@@ -1,0 +1,135 @@
+.cardContainerPrincipal {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin: 0 auto;
+  padding: 40px 16px 24px 16px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: -5vh;
+  width: 90%;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+  border: 1px solid white;
+
+}
+.cardContainerPrincipal:active{
+  transform: scale(0.95)
+}
+.active {
+  border: 1px solid #5c5c5c;
+  box-shadow: 5px 5px 10px rgba(103, 103, 103, 0.2);
+}
+.editIcon{
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  background-color: #373737; /* Añade un fondo para el icono de edición */
+  cursor: pointer;
+  width:40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.checkIcon{
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  background-color: #373737; /* Añade un fondo para el icono de edición */
+  cursor: pointer;
+  width:40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+
+}
+.checkIcon:hover {
+  border:1px solid #14e04e;
+  background-color: #4EDD76;
+  color: white; /* Cambiar el color del texto en hover (blanco) */
+}
+.cancelIcon{
+  position: absolute;
+  top: -16px;
+  right: 32px;
+  border:1px solid #373737;
+  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  cursor: pointer;
+  width:40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+
+}
+.cancelIcon:hover {
+  background-color: #f50057; /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
+  border-color: #b20000; /* Cambiar el color del borde en hover (rojo) */
+  color: white; /* Cambiar el color del texto en hover (blanco) */
+}
+.imgFotoPerfil{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform:translateX(-50%) ;
+  border: 4px solid white;
+}
+.inputNameNegocio{
+  line-height: 1.1;
+  align-self: center;
+  text-align: center;
+  width: 95%;
+  justify-content: center;
+  border: null;
+  text-decoration: none;
+  border: 0px solid white;
+  outline: none;
+  font-weight: 700;
+  font-size: 24px;
+}
+.inputDataNegocio{
+  line-height: 1.1;
+  align-self: center;
+  text-align: left;
+  width: 95%;
+  justify-content: center;
+  border: null;
+  text-decoration: none;
+  border: 0px solid white;
+  outline: none;
+  font-weight: 400;
+  font-size: 14px;
+}
+.nameNegocio{
+  line-height: 1.1;
+  align-self: center;
+  text-align: center;
+  width: 95%;
+  font-size: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: null;
+  text-decoration: none;
+  border: 0px solid white;
+  outline: none;
+  font-weight: 700;
+}

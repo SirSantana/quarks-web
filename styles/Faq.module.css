@@ -74,6 +74,7 @@
   -moz-appearance: none;
   appearance: none;
 }
+
 .button2 {
   background-color: #f50057;
   border: none;
@@ -91,6 +92,7 @@
   -moz-appearance: none;
   appearance: none;
 }
+
 .gridContainer {
   display: grid;
   column-gap: 16px;
@@ -119,6 +121,13 @@
   align-items: center;
   justify-content: center;
   gap: 48px;
+}
+.inputsAddInfo {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  box-sizing: border-box;
+  flex: 1;
 }
 
 .imgCilindraje {
@@ -165,7 +174,8 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.miniContainerCardRendimiento{
+
+.miniContainerCardRendimiento {
   position: relative;
   background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
   border-radius: 8px;
@@ -174,12 +184,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color:white;
+  color: white;
   max-width: 260px;
 }
-.tabs{
-  margin:32px 0;
+
+.tabs {
+  margin: 32px 0;
 }
+
 .containerContent {
   display: flex;
   flex-direction: row;
@@ -221,7 +233,7 @@
   color: white;
 }
 
-.containerAcceso{
+.containerAcceso {
   display: flex;
   flex-direction: row;
   width: 80%;
@@ -230,33 +242,75 @@
   justify-content: center;
   gap: 10%;
 }
-.titleAccess{
+
+.titleAccess {
   font-size: 40px;
   line-height: 48px;
 }
-.imgCard{
+
+.imgCard {
   width: 330px;
   height: 450px;
-  align-self: center;
 }
-.containerInputAcceso{
+
+.containerInputAcceso {
   display: flex;
   flex-direction: row;
   gap: 20px;
   width: 100%;
-  margin-bottom: 16px;
+  background-color: #f1f1f1;
+  padding: 8px 16px;
+  justify-content: space-between;
+  border-radius: 10px;
+  height: 50px;
+  box-sizing: border-box;
+  align-items: center;
+
 }
-.inputAcceso{
+
+.containerEmailPass {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
+}
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 32px;
+  justify-content: space-between;
+}
+
+.inputAcceso {
+  border: none;
+  background-color: #f1f1f1;
+  outline: none;
+  font-size: 16px;
+  width: 100%;
+}
+.inputAcceso::placeholder{
+  color:#5c5c5c
+}
+.inputsEmailPass {
+  border: none;
+  background-color: #f1f1f1;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 16px;
   border-radius: 10px;
   height: 50px;
   box-sizing: border-box;
   width: 100%;
-  background-color: #f1f1f1;
-  padding: 8px 16px;
-  border: none;
-  outline: none;
 }
+
 .inputAcceso:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1b333d;
+}
+.inputsEmailPass:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
@@ -271,18 +325,22 @@
 
   }
 }
-.tabs{
-  margin:64px 0;
+
+.tabs {
+  margin: 64px 0;
 }
+
 @media (max-width: 1080px) {
   .containerContent {
     gap: 32px;
     align-items: center;
   }
-  .titleAccess{
+
+  .titleAccess {
     font-size: 32px;
     line-height: 40px;
   }
+
   .bigTitle {
     font-size: 40px;
   }
@@ -290,7 +348,8 @@
   .container {
     margin-top: 5%;
   }
-  .containerAcceso{
+
+  .containerAcceso {
     flex-direction: column;
   }
 }
@@ -302,14 +361,14 @@
     gap: 32px;
     margin: 16px 0;
   }
-  .containerInputAcceso{
-    flex-direction: column;
-  }
-  .containerAcceso{
+
+  .containerAcceso {
     width: 90%;
     gap: 64px;
+    margin: 60px auto;
 
   }
+
   .containerInput {
     margin: 32px 0;
   }
@@ -352,18 +411,28 @@
   .input {
     width: 90%;
   }
-  .titleAccess{
+
+  .titleAccess {
     font-size: 24px;
     line-height: 32px;
   }
+
   .imgFormula {
     width: 100%;
     height: 50px;
   }
 
+  .containerEmailPass {
+    flex-direction: column;
+  }
+
   .imgCilindraje {
     width: 100%;
     height: 200px;
+  }
+
+  .imgCard {
+    display: none;
   }
 
   .title {
@@ -386,7 +455,7 @@
     font-size: 16px;
   }
 
- 
+
 
   .containerCalculadora {
     flex-direction: column;

@@ -72,7 +72,117 @@
 .containerCardLugar:hover {
   border: 1px solid #5b0221;
 }
+.containerHeaderCalendario{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  gap: 16px;
+  box-sizing: border-box;
+  border: 1px solid #d6d6d6;
+  margin: 0 auto;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  cursor: pointer;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+  position: relative
+}
 
+
+.editIcon{
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  background-color: #373737; /* Añade un fondo para el icono de edición */
+  cursor: pointer;
+  width:40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.checkIcon{
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  background-color: #373737; /* Añade un fondo para el icono de edición */
+  cursor: pointer;
+  width:40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+
+}
+.checkIcon:hover {
+  border:1px solid #14e04e;
+  background-color: #4EDD76;
+  color: white; /* Cambiar el color del texto en hover (blanco) */
+}
+.cancelIcon{
+  position: absolute;
+  top: -16px;
+  right: 32px;
+  border:1px solid #373737;
+  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  cursor: pointer;
+  width:40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+
+}
+.cancelIcon:hover {
+  background-color: #f50057; /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
+  border-color: #b20000; /* Cambiar el color del borde en hover (rojo) */
+  color: white; /* Cambiar el color del texto en hover (blanco) */
+}
+.containerHeaderCalendario:hover{
+  background-color: #fbfbfb;
+}
+.containerHeaderCalendario:active{
+  transform: scale(0.95)
+}
+.containerCardPerfil{
+  height: 500px;
+  background-color: white;
+  border: 1px solid #d6d6d6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+
+}
+.containerCardPerfil:active{
+  transform: scale(0.95)
+}
+.containerHeaderCalendario:hover{
+  background-color: #fbfbfb;
+}
+.active {
+  border: 1px solid #5c5c5c;
+  box-shadow: 5px 5px 10px rgba(103, 103, 103, 0.2);
+}
 .titleLugar {
   font-size: 20px;
   font-weight: 700;
@@ -128,9 +238,7 @@
   width: 72px;
   height: 72px;
   object-fit: cover;
-  display: none;
   font-size: 72px;
-
 }
 
 .containerBottomCard {
@@ -239,7 +347,7 @@
 }
 
 .buttonPrimaryMobile {
-  display: none;
+  display: flex;
   background-color: #f50057;
   height: 48px;
   padding: 8px 16px;
@@ -290,7 +398,7 @@
 .divFixed{
   display: flex;
   position: fixed;
-  bottom: 6vh;
+  bottom: 5vh;
   width: 90%;
   padding: 8px 16px;
   align-items: center;
@@ -401,7 +509,21 @@
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
-
+.inputsAddInfo {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  height: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
+.inputsAddInfo:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1b333d;
+}
 .imgRegisterTaller {
   object-fit: contain;
   width: 50%;
@@ -418,15 +540,14 @@
   box-sizing: border-box;
 }
 .containerMobile{
-  background-color: #fbfbfb;
   flex-direction: column;
   gap: 4vh;
+  margin:0 auto;
   margin-bottom: 48px;
-  margin-top: 80px;
   align-items: center;
-  width: 100%;
+  width: 500px;
   justify-content: center;
-  display: none;
+  display: flex;
 }
 @media (max-width:1380px) {
   .sectionTwoNegocioFixed {
@@ -559,7 +680,9 @@
     display: none
   }
   .containerMobile{
-    display: flex;
+    width: 100%;
+    background-color: #fbfbfb;
+
   }
   .containerVendedor {
     width: 95%;

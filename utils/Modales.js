@@ -1,11 +1,17 @@
-import { INTERESADO_ALMACEN, INTERESADO_ANUNCIO } from '@/graphql/mutations'
+import { EDIT_NEGOCIO_VDOS, INTERESADO_ALMACEN, INTERESADO_ANUNCIO } from '@/graphql/mutations'
 import CreateGasto from '@/src/Components/Dashboard/Gastos/CreateGasto'
 import styles from '@/styles/Main.module.css'
 import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import sendMessage from './fetching'
 import Link from 'next/link'
-import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, ViberShareButton, WhatsappIcon, WhatsappShareButton ,} from 'react-share'
+import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, ViberShareButton, WhatsappIcon, WhatsappShareButton, } from 'react-share'
+import AddHorario from '@/src/Components/Register/AddHorario'
+import { categorias2 } from '@/src/Components/Talleres/ServiciosOfrecidos'
+import { MagicMotion } from 'react-magic-motion'
+import AddServicios from '@/src/Components/Register/AddServicios'
+import WidgetComplete from '@/src/Components/Icon/WidgetComplete'
+import { IconCatalog } from '@/src/Components/Icon/Icon'
 
 
 
@@ -293,7 +299,7 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
 
     // Verificar si el navegador es compatible con la API Clipboard
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(otherUrl? url: currentURL)
+      navigator.clipboard.writeText(otherUrl ? url : currentURL)
         .then(() => {
           alert('URL copiada al portapapeles');
         })
@@ -308,17 +314,16 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
   const urlEncoded = url.replace(/ /g, '%20')
   return (
     <div onClick={() => setVisibleShareArticulo(false)} className={styles.modal}>
-      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding:'20px' }} className={styles.modalContent}>
-        <h3 style={{fontWeight:'600', marginBottom:'8px'}}>Compartir perfil</h3>
-        <div onClick={handleCopy} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
+      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px' }} className={styles.modalContent}>
+        <h3 style={{ fontWeight: '600', marginBottom: '8px', fontSize:'20px' }}>Compartir perfil</h3>
+        <div onClick={handleCopy} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
           <ion-icon style={{ width: '24px', height: '24px', borderRadius: '50%' }} name="share-social-outline"></ion-icon>
-          <p style={{ fontSize: '12px' }}>Copiar link</p>
+          <p style={{ fontSize: '14px' }}>Copiar link</p>
         </div>
-        <FacebookShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded} ><FacebookIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Facebook</p></FacebookShareButton>
-        <TwitterShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded} ><TwitterIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>Twitter</p></TwitterShareButton>
-        <WhatsappShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded}><WhatsappIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '12px' }}>WhatsApp</p></WhatsappShareButton>
-        <EmailShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }} url={urlEncoded}><EmailIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /> <p style={{ fontSize: '12px' }}>Email</p></EmailShareButton>
-        
+        <FacebookShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} url={urlEncoded} ><FacebookIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '14px' }}>Facebook</p></FacebookShareButton>
+        <TwitterShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} url={urlEncoded} ><TwitterIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '14px' }}>Twitter</p></TwitterShareButton>
+        <WhatsappShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} url={urlEncoded}><WhatsappIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /><p style={{ fontSize: '14px' }}>WhatsApp</p></WhatsappShareButton>
+        <EmailShareButton style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} url={urlEncoded}><EmailIcon style={{ width: '24px', height: '24px', borderRadius: '50%' }} /> <p style={{ fontSize: '14px' }}>Email</p></EmailShareButton>
         {/* <a style={{ fontSize: '12px' }} href={urlEncoded}>Ver perfil de mi taller</a> */}
       </div>
     </div>
@@ -326,10 +331,10 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
   )
 }
 
-export function ModalTelefono({ telefono, taller,setVisibleModalTelefono}) {
+export function ModalTelefono({ telefono, taller, setVisibleModalTelefono }) {
   return (
     <div onClick={() => setVisibleModalTelefono(false)} className={styles.modal} >
-      <div style={{ gap: '16px', borderRadius:'8px', padding:'24px' }} className={styles.modalContent} >
+      <div style={{ gap: '16px', borderRadius: '8px', padding: '24px' }} className={styles.modalContent} >
         <h3>Telefono / celular</h3>
         <p style={{ fontSize: '14px', fontWeight: '400', color: '#373737', margin: 0 }}>
           Comunicate con el taller {taller}, diles que viste su anuncio en quarks.com.co
@@ -338,5 +343,113 @@ export function ModalTelefono({ telefono, taller,setVisibleModalTelefono}) {
 
       </div>
     </div>
+  )
+}
+
+export function ModalEditHorario({ setVisibleModalEditHorario, horarioActual }) {
+  const initialFormHorario = {
+    horario: horarioActual
+  }
+  const [dataImportante, setDataImportante] = useState(initialFormHorario)
+  const [editNegocioVDos, { loading, data, error }] = useMutation(EDIT_NEGOCIO_VDOS)
+  const [visibleSuccesfull, setVisibleSuccesfull] = useState(false)
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    editNegocioVDos({ variables: dataImportante })
+  }
+  const handleClose=()=>{
+    console.log('hii');
+    setVisibleModalEditHorario(false)
+  }
+  useEffect(() => {
+    if (data) {
+      setVisibleSuccesfull(true)
+      setTimeout(() => {
+        setVisibleModalEditHorario(false)
+      }, 2000)
+    }
+  }, [data])
+  return (
+    <div className={styles.modal} style={{zIndex:'10000'}}>
+      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: 'fit-content' }} className={styles.modalContent}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', }}>
+            <ion-icon style={{ fontSize: '20px' }} name="calendar-number-outline"></ion-icon>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
+              <p style={{ fontSize: '14px', fontWeight: '600', }}>Horario</p>
+            </div>
+          </div>
+          <ion-icon onClick={handleClose} style={{ fontSize: '20px' }} name={"close-outline"}></ion-icon>
+        </div>
+
+        <AddHorario dataImportante={dataImportante} setDataImportante={setDataImportante} />
+        <button disabled={loading} onClick={handleSubmit} style={{ fontSize: '14px', fontWeight: '400', height: '40px', backgroundColor: '#f50057', }} className={styles.button}>Guardar cambios</button>
+
+      </div>
+      {
+        visibleSuccesfull &&
+        <ModalSuccessfull title={'Informacion actualizada!'} />
+      }
+      {loading &&
+        <ModalLoading title={'Actualizando horario...'} />
+      }
+    </div>
+  )
+}
+
+
+export function ModalEditServicios({ setVisibleModalEditServicios, setCategorias, addCategory, setAddCategory, categorias, otherCategorias, setOtherCategorias }) {
+  const handleChange = (category) => {
+    setCategorias((prevCategorias) => {
+      if (prevCategorias.includes(category)) {
+        // Si existe, elimínalo del array
+        return prevCategorias.filter((item) => item !== category);
+      } else {
+        // Si no existe, agrégalo al array
+        return [...prevCategorias, category];
+      }
+    });
+  }
+  const handleChange2 = (category) => {
+    setAddCategory('')
+    setOtherCategorias((prevCategorias) => {
+      if (prevCategorias.includes(category)) {
+        // Si existe, elimínalo del array
+        return prevCategorias.filter((item) => item !== category);
+      } else {
+        // Si no existe, agrégalo al array
+        return [...prevCategorias, category];
+      }
+    });
+  }
+
+  const handleSubmitCategory = (e) => {
+    e.preventDefault()
+    setOtherCategorias((prevCategorias) => {
+      if (prevCategorias.includes(addCategory)) {
+        // Si existe, elimínalo del array
+        return prevCategorias.filter((item) => item !== addCategory);
+      } else {
+        // Si no existe, agrégalo al array
+        return [...prevCategorias, addCategory];
+      }
+    });
+    setAddCategory('')
+
+  }
+  return (
+    <div style={{height:'fit-content',}} className={styles.modal}  >
+      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: '90%', height:'90%', overflow:'auto' }} className={styles.modalContent}>
+          <AddServicios setCategorias={setCategorias} addCategory={addCategory} setAddCategory={setAddCategory} categorias={categorias} otherCategorias={otherCategorias} setOtherCategorias={setOtherCategorias}/>
+      </div>
+      {/* {
+        visibleSuccesfull &&
+        <ModalSuccessfull title={'Informacion actualizada!'} />
+      }
+      {loading &&
+        <ModalLoading title={'Actualizando horario...'} />
+      } */}
+    </div >
   )
 }
