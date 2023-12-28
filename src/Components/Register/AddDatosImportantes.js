@@ -10,9 +10,10 @@ import Icon, { IconCatalog } from '../Icon/Icon'
 import Image from 'next/image'
 import useAuth from '@/hooks/useAuth'
 import AddFotoPerfil from './AddFotoPerfil'
+import { GET_NEGOCIOVDOS_ONE } from '@/graphql/queries'
 
 export default function AddDatosImportantes({ setPage, setDataImportante, dataImportante }) {
-  const [editNegocioVDos, { loading, data, error }] = useMutation(EDIT_NEGOCIO_VDOS)
+  const [editNegocioVDos, { loading, data, error }] = useMutation(EDIT_NEGOCIO_VDOS, {refetchQueries:[{query:GET_NEGOCIOVDOS_ONE}]})
   const [errorInput, setErrorInput] = useState(false)
   const router = useRouter()
 
@@ -43,15 +44,15 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
       <Icon name={IconCatalog.chevronBackOutline} size={'md'} onClick={() => setPage(2)} />
 
       <h1 className={styles.titleAccess}>Agreguemos la foto de tu taller y unos datos de contacto.</h1>
-      <AddFotoPerfil setDataImportante={setDataImportante} dataImportante={dataImportante}/>
-      
+      <AddFotoPerfil setDataImportante={setDataImportante} dataImportante={dataImportante} fotoRegister={true} />
+
       <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
         <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Icon name={IconCatalog.compassOutline} size='md' />
 
         </div>
         <input value={dataImportante.direccion} onChange={handleChange} className={styles.inputsAddInfo} type='text' name='direccion' placeholder='Agregar direccion' />
-        {dataImportante?.direccion?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md'style={{ color: '#4EDD76', }} />: <Icon name={IconCatalog.alertCircle} size='md'style={{ color: '#f50057', }} />}
+        {dataImportante?.direccion?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
@@ -59,7 +60,7 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
           <Icon name={IconCatalog.earthOutline} size='md' />
         </div>
         <input value={dataImportante.ciudad} onChange={handleChange} className={styles.inputsAddInfo} type='text' name='ciudad' placeholder='Agregar ciudad' />
-        {dataImportante?.ciudad?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md'style={{ color: '#4EDD76', }} />: <Icon name={IconCatalog.alertCircle} size='md'style={{ color: '#f50057', }} />}
+        {dataImportante?.ciudad?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
 
       </div>
 
@@ -68,7 +69,7 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
           <Icon name={IconCatalog.earthOutline} size='md' />
         </div>
         <input value={dataImportante.pais} onChange={handleChange} className={styles.inputsAddInfo} type='text' name='pais' placeholder='Agregar pais' />
-        {dataImportante?.pais?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md'style={{ color: '#4EDD76', }} />: <Icon name={IconCatalog.alertCircle} size='md'style={{ color: '#f50057', }} />}
+        {dataImportante?.pais?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
 
       </div>
 
@@ -77,7 +78,7 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
           <Icon name={IconCatalog.callOutline} size='md' />
         </div>
         <input value={dataImportante.telefono} onChange={handleChange} className={styles.inputsAddInfo} type='tel' name='telefono' placeholder='Agregar numero de telefono' />
-        {dataImportante?.telefono?.length > 3 ?<Icon name={IconCatalog.checkmarkCircle} size='md'style={{ color: '#4EDD76', }} />: <Icon name={IconCatalog.alertCircle} size='md'style={{ color: '#f50057', }} />}
+        {dataImportante?.telefono?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
 
       </div>
 
@@ -86,7 +87,7 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
           <Icon name={IconCatalog.logoWhatsapp} size='md' />
         </div>
         <input value={dataImportante.whatsapp} onChange={handleChange} className={styles.inputsAddInfo} type='tel' name='whatsapp' placeholder='Agregar numero de WhatsApp' />
-        {dataImportante?.whatsapp?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md'style={{ color: '#4EDD76', }} />: <Icon name={IconCatalog.alertCircle} size='md'style={{ color: '#f50057', }} />}
+        {dataImportante?.whatsapp?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
 
       </div>
 

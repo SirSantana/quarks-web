@@ -11,33 +11,32 @@ import FirstNewScreen from '../LandingPage/FirstNewScreen';
 import SliderTiposTalleres from '../LandingPage/SliderTiposTalleres';
 import CategoriasSlider from '../LandingPage/CategoriasSlider';
 
-const categorias = [
-  { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
-  { nombre: 'Aire acondicionado', img: 'Refrigeracion', url: 'Aire acondicionado' },
-  { nombre: 'Alineación y balanceo', img: 'Rueda', url: 'Alineación y balanceo' },
-  { nombre: 'Baterias', img: 'Baterias', url: 'Baterias' },
-  { nombre: 'Caja y transmisión', img: 'Caja y Transmision', url: 'Cajas' },
-  { nombre: 'Cambio de aceite', img: 'Filtros', url: 'Cambio de aceite' },
-  { nombre: 'Clutch', img: 'Clutch', url: 'Clutch' },
+export const categorias = [
+  { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos' },
+  { nombre: 'Aire acondicionado', img: 'servicio-aire-acondicionado', url: 'Aire acondicionado' },
+  { nombre: 'Alineación y balanceo', img: 'servicio-llantas', url: 'Alineación y balanceo' },
+  { nombre: 'Baterias', img: 'servicio-bateria', url: 'Baterias' },
+  { nombre: 'Caja y transmisión', img: 'servicio-cajas', url: 'Cajas' },
+  { nombre: 'Cambio de aceite', img: 'servicio-cambio-aceite', url: 'Cambio de aceite' },
+  { nombre: 'Clutch', img: 'servicio-clutch', url: 'Clutch' },
   { nombre: 'Correas', img: 'Correas', url: 'Motor' },
-  { nombre: 'Direccion y suspension', img: 'Direccion y suspension', url: 'Suspensión' },
-  { nombre: 'Eléctricos', img: 'Electricos', url: 'Eléctricos' },
-  { nombre: 'Frenos', img: 'Frenado', url: 'Frenos' },
-  { nombre: 'Inyeccion', img: 'inyeccion', url: 'Inyeccion' },
-  { nombre: 'Latonería y pintura', img: 'Carroceria', url: 'Latoneria y pintura' },
+  { nombre: 'Direccion y suspension', img: 'servicio-suspension', url: 'Suspensión' },
+  { nombre: 'Eléctricos', img: 'servicio-electrico', url: 'Eléctricos' },
+  { nombre: 'Frenos', img: 'servicio-frenos', url: 'Frenos' },
+  { nombre: 'Inyeccion', img: 'servicio-inyeccion', url: 'Inyeccion' },
+  { nombre: 'Latonería y pintura', img: 'servicio-carroceria', url: 'Latoneria y pintura' },
   { nombre: 'Mecanico a domicilio', img: 'mecanico', url: 'Mecanico a Domicilio' },
-  { nombre: 'Motor', img: 'Motor', url: 'Motor' },
+  { nombre: 'Motor', img: 'servicio-motor', url: 'Motor' },
   { nombre: 'Peritaje', img: 'peritaje', url: 'Peritaje' },
-  { nombre: 'Sincronización', img: 'Sincronizacion', url: 'Sincronizacion' },
-  { nombre: 'Tecnico mecánica', img: 'tecnicomecanica', url: 'Tecnico mecanica' },
-
+  { nombre: 'Sincronización', img: 'mecanica-basica', url: 'Sincronizacion' },
+  { nombre: 'Tecnico mecánica', img: 'mecanica-avanzada', url: 'Tecnico mecanica' },
 ];
 
 const initialForm = {
   servicio: 'Taller mecanico',
   localidad: 'Bogota, Colombia'
 }
-export default function NewNavbarWithSearch() {
+export default function NewNavbarWithSearch({mode}) {
   const router = useRouter()
   const ref = useRef(null)
   const [form, setForm] = useState(initialForm)
@@ -94,12 +93,12 @@ export default function NewNavbarWithSearch() {
           </nav>
         </div>
         <section className={styles.sectionSliderShowNav}>
-          <CategoriasSlider categorias={categorias} />
+          <CategoriasSlider categorias={categorias} mode={mode}/>
         </section>
 
       </div>
 
-      <FirstNewScreen />
+      <FirstNewScreen mode={mode}/>
 
       {/* <button onClick={sendMessage}>What</button> */}
     </header>

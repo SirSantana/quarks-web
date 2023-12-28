@@ -2,18 +2,18 @@ import { CREATE_CLICK_MAPA, CREATE_CLICK_TELEFONO, CREATE_VISITA_WHATSAPP } from
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router'
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { MagicMotion } from 'react-magic-motion';
 import WidgetComplete from '../Icon/WidgetComplete';
 import { IconCatalog } from '../Icon/Icon';
 
 
-const DatosImportantes = forwardRef(({ data, setVisibleModalTelefono, setEditPerfil, editPerfil, editMode, result}, ref) => {
+const DatosImportantes = forwardRef(({ data, setVisibleModalTelefono, setEditPerfil, editPerfil, editMode, result }, ref) => {
   const router = useRouter()
   const myRef = useRef(null);
   const [createClickTelefono] = useMutation(CREATE_CLICK_TELEFONO)
   const [createClickMapaDireccion] = useMutation(CREATE_CLICK_MAPA)
-  const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
+  const [createVisitaWhatsapp] = useMutation(CREATE_VISITA_WHATSAPP)
 
   const handleClickTelefono = (modal) => {
     if (modal) {
@@ -36,8 +36,8 @@ const DatosImportantes = forwardRef(({ data, setVisibleModalTelefono, setEditPer
     url += `&text=${encodeURI(`Buenos dia, vi su negocio en https://quarks.com.co${router?.asPath}, estoy interesado en...`)}&app_absent=0`
     window.open(url);
   }
-  const handleChange=(e)=>{
-    setEditPerfil({...editPerfil, [e.target.name]: e.target.value})
+  const handleChange = (e) => {
+    setEditPerfil({ ...editPerfil, [e.target.name]: e.target.value })
   }
   // Permite al componente padre acceder a la función scrollToRef
   useImperativeHandle(ref, () => ({
@@ -50,16 +50,40 @@ const DatosImportantes = forwardRef(({ data, setVisibleModalTelefono, setEditPer
       }
     },
   }));
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulamos una demora de 2 segundos para cargar los iconos
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    // Limpieza del temporizador en caso de que el componente se desmonte antes de que termine la carga simulada
+    return () => clearTimeout(timeoutId);
+  }, []);
   return (
     <MagicMotion>
-      
-      <WidgetComplete editMode={editMode} onChange={handleChange} name={'telefono'} onClick={!editMode ?handleClickTelefono:undefined} withBorder={false} text={data?.telefono} icon={IconCatalog.callOutline} icon2={IconCatalog.callOutline} editPerfil={editPerfil} valueEditCheck={result?.data?.editNegocioVDos.telefono}/>
-      <WidgetComplete editMode={editMode}onChange={handleChange} name={'whatsapp'}onClick={!editMode ?sendMessageWha:undefined} withBorder={false} text={data?.whatsapp} icon={IconCatalog.logoWhatsapp} icon2={IconCatalog.openOutline}editPerfil={editPerfil} valueEditCheck={result?.data?.editNegocioVDos.whatsapp}/>
-      <WidgetComplete editMode={editMode}onChange={handleChange} name={'direccion'}onClick={!editMode ? () => handleClickMapa(data) : undefined} withBorder={false} text={data?.direccion} icon={IconCatalog.compassOutline} icon2={IconCatalog.openOutline}editPerfil={editPerfil} valueEditCheck={result?.data?.editNegocioVDos.direccion}/>
+      {loading ? (
+        // Muestra el esqueleto mientras se carga
+        <div
+        className={styles.skeleton}
+        />
+      ) :
+        <WidgetComplete editMode={editMode} onChange={handleChange} name={'telefono'} onClick={!editMode ? handleClickTelefono : undefined} withBorder={false} text={data?.telefono} icon={IconCatalog.callOutline} icon2={IconCatalog.callOutline} editPerfil={editPerfil} valueEditCheck={result?.data?.editNegocioVDos.telefono} style={{ color: '#5c5c5c' }} />
+      }
+      {loading ? (
+        // Muestra el esqueleto mientras se carga
+        <div
+        className={styles.skeleton}
+        />
+      ) :
+        <WidgetComplete editMode={editMode} onChange={handleChange} name={'direccion'} onClick={!editMode ? () => handleClickMapa(data) : undefined} withBorder={false} text={data?.direccion} icon={IconCatalog.compassOutline} icon2={IconCatalog.openOutline} editPerfil={editPerfil} valueEditCheck={result?.data?.editNegocioVDos.direccion} style={{ color: '#5c5c5c' }} />
+      }
+      {/* <WidgetComplete editMode={editMode}onChange={handleChange} name={'whatsapp'}onClick={!editMode ?sendMessageWha:undefined} withBorder={false} text={data?.whatsapp} icon={IconCatalog.logoWhatsapp} icon2={IconCatalog.openOutline}editPerfil={editPerfil} valueEditCheck={result?.data?.editNegocioVDos.whatsapp}style={{color:'#5c5c5c'}}/> */}
+
 
       {/* <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600' }} className={styles.titleNegocio}>Datos Importantes</h2> */}
-     
+
 
       {data?.paginaWeb && <div style={{ cursor: 'pointer', backgroundColor: 'white', border: '1px solid #d6d6d6', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '20px', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '90%', maxWidth: '600px' }}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', }}>
@@ -70,7 +94,7 @@ const DatosImportantes = forwardRef(({ data, setVisibleModalTelefono, setEditPer
       </div>}
 
 
-     
+
     </MagicMotion>
   )
 })

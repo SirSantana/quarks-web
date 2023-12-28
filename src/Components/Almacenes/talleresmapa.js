@@ -1,6 +1,5 @@
 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css'; // Asegúrate de importar los estilos de Leaflet
 import L from 'leaflet';
 
 const customIcon = new L.Icon({

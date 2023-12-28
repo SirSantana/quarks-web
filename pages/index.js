@@ -12,9 +12,18 @@ import ActividadReciente from '@/src/Components/LandingPage/ActividadReciente'
 import SectionCalculadoraCombustible from '@/src/Components/LandingPage/Section5'
 import NewNavbarWithSearch from '@/src/Components/Navbar/NewNavbar2'
 import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
+import dynamic from 'next/dynamic'
+import talleres from '@/pages/servicios-automotriz/talleres.json'
+import { useState } from 'react'
 
 
-export default function Home() {
+export default function Home({ data }) {
+  const Map = dynamic(
+    () => import('../src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
+    { ssr: false } // This line is important. It's what prevents server-side render
+  )
+  const [mode, setMode] = useState(0)
+  console.log(mode);
   return (
     <>
       <Head>
@@ -71,10 +80,16 @@ export default function Home() {
           }}
         />
       </Head>
-      <NewNavbarWithSearch />
+      <NewNavbarWithSearch mode={mode} />
       <main className={styles.main}>
-        <SectonFilters />
+        {mode 
+          ?
+          <SectonFilters />
+          :
+          <Map talleres={data} />
+        }
         <ListTalleresLanding />
+
         <ActividadReciente />
         <SectionCotizaciones />
         <SectionVariedadTalleres />
@@ -82,10 +97,77 @@ export default function Home() {
         <SectionGrowthTaller />
         {/* <SectionGlosario /> */}
         <SectionCalculadoraCombustible />
-
+        <button
+          onClick={() => setMode(mode === 0?1:0)}
+          style={{
+            cursor:'pointer',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: '8px',
+            zIndex: '1000',
+            borderRadius: '8px',
+            border: 'none',
+            backgroundColor: '#f50057',
+            color: 'white',
+            position: 'fixed',
+            bottom: '50px', // Puedes ajustar esta propiedad para controlar la distancia desde la parte inferior
+            left: '50%',
+            fontWeight: '600',
+            transform: 'translateX(-50%)', // Centrar horizontalmente
+            padding: '10px 20px', // Agrega relleno si es necesario
+          }}
+        >
+          Mostrar {mode ?'Mapa': 'Lista'}
+          <ion-icon style={{ fontSize: '20px' }} name={mode?"map":'list'}></ion-icon>
+        </button>
       </main>
       <Footer />
 
     </>
   )
+}
+export async function getServerSideProps({ query }) {
+  const levenshteinDistance = (s1, s2) => {
+    const m = s1.length;
+    const n = s2.length;
+
+    // Inicializar una matriz m × n con 0
+    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+    // Llenar la matriz con los valores de distancia
+    for (let i = 0; i <= m; i++) {
+      for (let j = 0; j <= n; j++) {
+        if (i === 0) {
+          dp[i][j] = j;
+        } else if (j === 0) {
+          dp[i][j] = i;
+        } else if (s1[i - 1] === s2[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+        }
+      }
+    }
+
+    return dp[m][n];
+  };
+  const talleresFilter = talleres?.talleres.filter(taller => taller?.lat)
+  let filter;
+  if (query.servicio) {
+    let categoriaNormalized = normalizeString(query.servicio.toLowerCase())
+    filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
+      categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
+      levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
+
+  }
+  function normalizeString(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+  return {
+    props: {
+      data: filter ? filter : talleresFilter
+    },
+  }
+
 }

@@ -1,12 +1,13 @@
-
-.main{
+.main {
   width: 100%;
 }
+
 .containerNavbar {
   height: 70vh;
   background: rgb(2, 0, 36);
   background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(245, 0, 87, 1) 0%, rgba(134, 2, 49, 1) 100%);
 }
+
 .darkBG {
   background-color: rgba(0, 0, 0, 0.2);
   width: 100vw;
@@ -25,6 +26,7 @@
   transform: translate(-50%, -50%);
 
 }
+
 .modal {
   width: 250px;
   height: 170px;
@@ -39,6 +41,7 @@
   align-items: center;
   padding: 10px;
 }
+
 .subtitle {
   font-size: 14px;
   color: #676767;
@@ -46,3 +49,92 @@
   font-weight: 500;
   margin: 5px 0;
 }
+
+
+
+
+
+
+.icon {
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: white;
+  border: 1px solid #f1f1f1
+}
+
+.card {
+  box-shadow: none;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 300px;
+
+}
+
+
+
+.cardContent {
+  padding: 16px;
+}
+
+.placeName {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.map {
+  width: 100%;
+  height: 90vh;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.star {
+  color: #FFD700;
+  /* Color de estrellas doradas */
+  margin-right: 4px;
+}
+
+.services {
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .map {
+    margin-top: 30px;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .map {
+    margin-top: 40px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .map {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .map {
+    margin-top: 50px;
+  }
+}
+  @media (max-width: 400px) {
+    .map {
+      margin-top: 60px;
+    }
+  }
+  @media (max-width: 300px) {
+    .map {
+      margin-top: 70px;
+    }
+  }

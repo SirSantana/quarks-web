@@ -312,6 +312,9 @@ query getOpiniones($id:ID) {
     fecha
     foto
     nombre
+    marca
+    referencia
+    servicios
   }
 }
 `;
@@ -375,12 +378,13 @@ export const GET_ALL_GASTOS = gql`
 `
 
 export const GET_ONE_NEGOCIOVDOS = gql`
-  query getOneNegocioVDos($id:ID){
-    getOneNegocioVDos(id:$id){
+  query getOneNegocioVDos($userName:String){
+    getOneNegocioVDos(userName:$userName){
       nombre
       direccion
       fotoperfil
       facebook
+      instagram
       paginaweb
       categorias
       whatsapp
@@ -405,6 +409,11 @@ export const GET_ONE_NEGOCIOVDOS = gql`
       userName
     }
   }
+`
+export const GET_WHATSAPP_NEGOCIO = gql`
+query getWhatsappNegocio($id:ID){
+  getWhatsappNegocio(id:$id)
+}
 `
 export const GET_STADISTICS_HALFMONTH = gql`
 query getStadisticsHalfMonth($id:ID){
@@ -557,10 +566,33 @@ query verifyAccountCheck($username:String){
 export const GET_NEGOCIOVDOS_ONE = gql`
     query getNegocioVDosOne{
       getNegocioVDosOne{
-        email
-        userName
-        categorias
         nombre
+      direccion
+      fotoperfil
+      facebook
+      instagram
+      paginaweb
+      categorias
+      whatsapp
+      telefono
+      localidad
+      ciudad
+      pais
+      acercanegocio
+      sponsored
+      nivelnegocio
+      horario
+      ubicacionmaps
+      visitaswhatsapp
+      opiniones
+      numerocalificacionesmaps
+      promediocalificacionesmaps
+      urltallermaps
+      id
+      marcasAutos
+      tipo
+      fotossecundarias
+      userName
         }
     }
 `

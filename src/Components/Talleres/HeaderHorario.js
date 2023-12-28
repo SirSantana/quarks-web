@@ -27,7 +27,7 @@ export default function HeaderHorario({ handleScroll, setVisibleFullHorario, vis
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%' }}>
           <ion-icon style={{ fontSize: '20px' }} name="calendar-number-outline"></ion-icon>
           <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', }}>
               <p style={{ color: '#373737', fontSize: '14px' }}>Hoy <span style={{ fontWeight: '600' }}>{horariosSeparados?.[indiceDia]}</span></p>
             </div>
             <ion-icon style={{ fontSize: '16px', color: '#757A7E' }} name={"chevron-down-outline"}></ion-icon>

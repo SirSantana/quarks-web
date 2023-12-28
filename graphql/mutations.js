@@ -82,14 +82,18 @@ mutation createVote($id:String, $idCarro:String ){
 `
 
 export const CREATE_OPINION = gql`
-mutation createOpinion($email:String, $descripcion:String, $idpregunta:ID,$calificacion:Int,$almacen:ID, $nombre:String, $foto:String ){
-  createOpinion(input:{ email:$email , descripcion:$descripcion, idpregunta:$idpregunta, calificacion:$calificacion, almacen:$almacen, nombre:$nombre, foto:$foto}){
+mutation createOpinion($email:String, $descripcion:String, $idpregunta:ID,$calificacion:Int,$almacen:ID, $nombre:String, $foto:String, $marca:String, $referencia:String, $servicios:[String] ){
+  createOpinion(input:{ email:$email , descripcion:$descripcion, idpregunta:$idpregunta, calificacion:$calificacion, almacen:$almacen, nombre:$nombre, foto:$foto, marca:$marca, referencia:$referencia, servicios:$servicios}){
     email
     calificacion
     descripcion
     id
     nombre
     foto
+    servicios
+    marca
+    referencia
+    fecha
   }
 }
 `
@@ -185,6 +189,20 @@ mutation editNegocioVDos($direccion:String,  $ciudad:String,$pais:String, $whats
       categorias
       telefono
       whatsapp
+      id
+  }
+}
+`
+export const EDIT_NEGOCIO_VDOS_REDES =gql`
+mutation editNegocioVDosRedes($facebook:String,  $instagram:String, $paginaweb:String, ){
+  editNegocioVDosRedes(input:{facebook:$facebook, instagram:$instagram, paginaweb:$paginaweb, } ){
+      nombre
+      facebook
+      instagram
+      paginaweb
+      whatsapp
+      id
+      userName
   }
 }
 `

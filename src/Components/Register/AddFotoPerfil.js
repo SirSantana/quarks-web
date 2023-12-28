@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import styles2 from '@/styles/Components.module.css'
 
 
-export default function AddFotoPerfil({ setDataImportante, dataImportante, setEditMode, editMode, fotoActual, setPrevImage}) {
+export default function AddFotoPerfil({ setDataImportante, dataImportante, setEditMode, editMode, fotoActual, setPrevImage, fotoRegister=false}) {
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
   const onSelectFile = async (e) => {
@@ -36,6 +36,12 @@ export default function AddFotoPerfil({ setDataImportante, dataImportante, setEd
     }
   };
 
+  const editModeChose=(e)=>{
+    if(setEditMode){
+      setEditMode(true)
+    }
+  }
+
 
   useEffect(() => {
     if (!selectedFile) {
@@ -44,15 +50,17 @@ export default function AddFotoPerfil({ setDataImportante, dataImportante, setEd
     }
     const objectUrl = URL.createObjectURL(selectedFile)
     setPreview(objectUrl)
-    setPrevImage(objectUrl)
+    if(setPrevImage){
+      setPrevImage(objectUrl)
+    }
     return () => URL.revokeObjectURL(objectUrl)
   }, [selectedFile])
   return (
-    <label onClick={() => setEditMode(true)} >
-      <div>
+    <label onClick={editModeChose} style={fotoRegister ?{display:'flex', flexDirection:'column', height:'160px',borderRadius:'50%',alignItems:'center', justifyContent:'center', border:'1px solid #d9d9d9', width:'160px'}:null}>
+      <div style={{alignItems:'center', justifyContent:'center', display:'flex', flexDirection:'column', gap:'8px'}}>
         <input id='image' style={{ display: 'none',  }} onChange={onSelectFile} type='file' accept="image/png,image/jpeg" />
         {preview || fotoActual ?
-          <img src={preview || fotoActual} className={styles2.imgFotoPerfil} />
+          <img src={preview || fotoActual} className={fotoRegister?styles.imgFotoRegister:styles2.imgFotoPerfil} />
           :
           <>
             <Icon name={IconCatalog.storefrontOutline} style={{ fontSize: '48px', opacity: 0.5 }} />

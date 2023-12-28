@@ -9,11 +9,11 @@ import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
 import CategoriasSlider from '../LandingPage/CategoriasSlider';
 
-export const categorias = [
+ const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
   { nombre: 'Aire acondicionado', img: 'Refrigeracion', url: 'Aire acondicionado' },
   { nombre: 'Alineación y balanceo', img: 'Rueda', url: 'Alineación y balanceo' },
-  { nombre: 'Baterias', img: 'Baterias', url: 'Baterias' },
+  { nombre: 'Baterias', img: 'servicio-bateria', url: 'Baterias' },
   { nombre: 'Caja y transmisión', img: 'Caja y Transmision', url: 'Cajas' },
   { nombre: 'Cambio de aceite', img: 'Filtros', url: 'Cambio de aceite' },
   { nombre: 'Clutch', img: 'Clutch', url: 'Clutch' },

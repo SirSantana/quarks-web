@@ -18,9 +18,12 @@ import { IconCatalog } from '@/src/Components/Icon/Icon'
 export function ModalSuccessfull({ title, subtitle }) {
   return (
     <div className={styles.modal} >
-      <div style={{ width: '300px', backgroundColor: '#55C200', padding: '16px 32px', borderRadius: '8px' }} className={styles.modalContent}>
-        <p style={{ fontSize: '16px', fontWeight: '700', color: 'white', margin: 0 }}>{title}</p>
-        <p style={{ fontSize: '13px', color: 'white', margin: 0 }}>{subtitle} </p>
+      <div style={{ backgroundColor: 'white', padding: '8px 16px', borderRadius: '8px', flexDirection: 'row', justifyContent:'left', gap:'16px', }} className={styles.modalContent}>
+        <ion-icon style={{ color: '#4EDD76', fontSize:'24px' }} name="checkmark-circle"></ion-icon>
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', }}>
+          <p style={{ fontSize: '14px', fontWeight: '700', color: '#373737', margin: 0 }}>{title}</p>
+          <p style={{ fontSize: '12px', color: 'white', margin: 0 }}>{subtitle} </p>
+        </div>
       </div>
     </div>
   )
@@ -30,8 +33,10 @@ export function ModalSuccessfull({ title, subtitle }) {
 export function ModalLoading({ title }) {
   return (
     <div className={styles.modal} >
-      <div style={{ width: '300px', backgroundColor: '#FFBB56', padding: '16px', borderRadius: '8px' }} className={styles.modalContent}>
-        <p style={{ fontSize: '16px', fontWeight: '700', color: 'white', margin: 0 }}>{title}</p>
+      <div style={{  backgroundColor: 'white', display:'flex', flexDirection:'row',justifyContent:'left', gap:'16px', padding: '8px 16px', borderRadius: '8px' }} className={styles.modalContent}>
+      <ion-icon style={{ color: '#ffA500', fontSize:'24px' }} name="construct"></ion-icon>
+       
+        <p style={{ fontSize: '14px', fontWeight: '700', color: '#373737', margin: 0 }}>{title}</p>
       </div>
     </div>
   )
@@ -315,7 +320,7 @@ export function ModalShareArticulo({ setVisibleShareArticulo, url, otherUrl }) {
   return (
     <div onClick={() => setVisibleShareArticulo(false)} className={styles.modal}>
       <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px' }} className={styles.modalContent}>
-        <h3 style={{ fontWeight: '600', marginBottom: '8px', fontSize:'20px' }}>Compartir perfil</h3>
+        <h3 style={{ fontWeight: '600', marginBottom: '8px', fontSize: '20px' }}>Compartir perfil</h3>
         <div onClick={handleCopy} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
           <ion-icon style={{ width: '24px', height: '24px', borderRadius: '50%' }} name="share-social-outline"></ion-icon>
           <p style={{ fontSize: '14px' }}>Copiar link</p>
@@ -358,7 +363,7 @@ export function ModalEditHorario({ setVisibleModalEditHorario, horarioActual }) 
     e.preventDefault()
     editNegocioVDos({ variables: dataImportante })
   }
-  const handleClose=()=>{
+  const handleClose = () => {
     console.log('hii');
     setVisibleModalEditHorario(false)
   }
@@ -371,7 +376,7 @@ export function ModalEditHorario({ setVisibleModalEditHorario, horarioActual }) 
     }
   }, [data])
   return (
-    <div className={styles.modal} style={{zIndex:'10000'}}>
+    <div className={styles.modal} style={{ zIndex: '10000' }}>
       <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: 'fit-content' }} className={styles.modalContent}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', }}>
@@ -439,9 +444,9 @@ export function ModalEditServicios({ setVisibleModalEditServicios, setCategorias
 
   }
   return (
-    <div style={{height:'fit-content',}} className={styles.modal}  >
-      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: '90%', height:'90%', overflow:'auto' }} className={styles.modalContent}>
-          <AddServicios setCategorias={setCategorias} addCategory={addCategory} setAddCategory={setAddCategory} categorias={categorias} otherCategorias={otherCategorias} setOtherCategorias={setOtherCategorias}/>
+    <div style={{ height: 'fit-content', }} className={styles.modal}  >
+      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: '90%', height: '90%', overflow: 'auto' }} className={styles.modalContent}>
+        <AddServicios setCategorias={setCategorias} addCategory={addCategory} setAddCategory={setAddCategory} categorias={categorias} otherCategorias={otherCategorias} setOtherCategorias={setOtherCategorias} />
       </div>
       {/* {
         visibleSuccesfull &&

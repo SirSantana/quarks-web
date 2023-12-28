@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "lat": 4.6097,
+    "lng": -74.0817,
+    "nombre": "Punto 1",
+    "nivel":1,
+    "img": "https://azurequarks.blob.core.windows.net/negocios/tullantalogo80723.jpg",
+    "marcas": ["Chevrolet.png", "Hyundai.png"],
+    "servicios": [
+      {
+        "nombre": "Baterias",
+        "img": "servicio-bateria.png"
+      },
+      {
+        "nombre": "Cambio Aceite",
+        "img": "servicio-cambio-aceite.png"
+      }
+    ],
+    "url":"https://www.quarks.com.co/tu_llanta_7_de_agosto"
+  },
+  {
+    "id": 2,
+    "lat": 4.6243,
+    "lng": -74.0636,
+    "nombre": "Punto 2",
+    "nivel":2,
+
+    "img": "https://azurequarks.blob.core.windows.net/negocios/tallerseikulogo100723.png",
+    "marcas": ["Mazda.png", "Nissan.png"],
+    "servicios": [
+      {
+        "nombre": "Clutch",
+        "img": "servicio-clutch.png"
+      }
+    ],
+    "url":"https://www.quarks.com.co/talleres_caldas"
+  },
+  {
+    "id": 3,
+    "lat": 4.6586,
+    "lng": -74.0939,
+    "nombre": "Punto 3",
+    "nivel":3,
+
+    "img": "https://azurequarks.blob.core.windows.net/negocios/logopelaezhermanos80723.jpg",
+    "marcas": ["Chevrolet.png"],
+    "servicios": [
+      {
+        "nombre": "Baterias",
+        "img": "servicio-bateria.png"
+      },
+      {
+        "nombre": "Cambio Aceite",
+        "img": "servicio-cambio-aceite.png"
+      }
+    ],
+    "url":"https://www.quarks.com.co/pelaez_hermanos_usaquen"
+  },
+  {
+    "id": 4,
+    "lat": 4.6824,
+    "lng": -74.0629,
+    "nombre": "Punto 4",
+    "nivel":2,
+
+    "img": "https://azurequarks.blob.core.windows.net/negocios/tqllerescaldas190723.png",
+    "marcas": ["Hyundai.png", "Mazda.png"],
+    "servicios": [
+      {
+        "nombre": "Mecanica General",
+        "img": "servicio-clutch.png"
+      }
+    ],
+    "url":"https://www.quarks.com.co/tu_llanta_7_de_agosto"
+  },
+  {
+    "id": 4,
+    "lat": 4.7124,
+    "lng": -74.0629,
+    "nombre": "Punto 5",
+    "nivel":3,
+    "img": "https://azurequarks.blob.core.windows.net/negocios/tqllerescaldas190723.png",
+    "marcas": ["Hyundai.png", "Mazda.png"],
+    "servicios": [
+      {
+        "nombre": "Cambio Aceite",
+        "img": "servicio-cambio-aceite.png"
+      }
+    ],
+    "url":"https://www.quarks.com.co/tu_llanta_7_de_agosto"
+  }
+]

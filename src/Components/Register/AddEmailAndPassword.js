@@ -16,7 +16,7 @@ function validarEmail(email) {
 }
 export default function AddEmailAndPassword({ setForm, form, setPage, page }) {
   const [visiblePassword, setVisiblePassword] = useState(false)
-  const [createNegocioVDos, { loading, data, error }] = useMutation(CREATE_NEGOCIO_VDOS)
+  const [createNegocioVDos, { loading, data, error }] = useMutation(CREATE_NEGOCIO_VDOS,)
   const [errorEmail, setErrorEmail] = useState(null)
   const router = useRouter()
   const { login } = useAuth()

@@ -37,7 +37,7 @@ export default function CardPerfil({ data, user }) {
 
     e.stopPropagation()
     if (data && !editMode) {
-      setEditPerfil({ ...editPerfil, nombre: result?.data?.editNegocioVDos?.nombre?result?.data?.editNegocioVDos?.nombre: data?.nombre, direccion: data?.direccion, })
+      setEditPerfil({ ...editPerfil, nombre: result?.data?.editNegocioVDos?.nombre ? result?.data?.editNegocioVDos?.nombre : data?.nombre, direccion: data?.direccion, })
     }
     if ((user?.userName === router?.query?.id) && !editMode) {
       return setEditMode(!editMode)
@@ -64,7 +64,7 @@ export default function CardPerfil({ data, user }) {
 
   }
   const handleClose = () => {
-    setEditPerfil({ ...editPerfil, nombre: data?.nombre, fotoperfil:''})
+    setEditPerfil({ ...editPerfil, nombre: data?.nombre, fotoperfil: '' })
     setPrevImage(data?.fotoperfil)
     setEditMode(false)
   }
@@ -95,7 +95,7 @@ export default function CardPerfil({ data, user }) {
               textDecoration: 'none',
               border: '0 solid white',
               outline: 'none',
-              fontWeight:700
+              fontWeight: 700
             }} type='text' value={editPerfil.nombre} onChange={(e) => inputName(e)} />
             : <h1
               className={styles.titleNegocio}
@@ -111,12 +111,13 @@ export default function CardPerfil({ data, user }) {
                 outline: 'none'
               }}
             >
-              { result?.data?.editNegocioVDos.nombre ? result?.data.editNegocioVDos.nombre : data?.nombre}
+              {result?.data?.editNegocioVDos.nombre ? result?.data.editNegocioVDos.nombre : data?.nombre}
             </h1>
 
           }
 
-          <h3 style={{ fontSize: '16px', fontWeight: '400', alignSelf: 'center', textAlign: 'center' }}>{data?.direccion}. {data?.ciudad}, {data?.pais}</h3>
+          <h3 style={{ fontSize: '16px', fontWeight: '400', alignSelf: 'center', textAlign: 'center' }}>
+            {data?.direccion}. {data?.ciudad}, {data?.pais}</h3>
           {/* {user?.userName === router?.query?.id &&
             <input className={styles.inputsAddInfo} type='text' name='direccion' placeholder='Agregar direccion' />
           } */}

@@ -1,0 +1,57 @@
+import { timeSince } from "@/utils/dateEs";
+import { categorias2 } from "./ServiciosOfrecidos";
+import styles from '@/styles/Components.module.css'
+
+const Star = ({ index, stars, tamaño, }) => {
+  return (
+    <img src={stars < index + 1 ? `../../star-outline.svg` : `../../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} />
+  )
+}
+let estrellas = [1, 2, 3, 4, 5]
+
+
+export default function Reseña({ reseña }) {
+  return (
+    <div className={styles.containerReseña}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
+          <img style={{ width: '48px', height: '48px', borderRadius: '50%' }} src={reseña?.foto} />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <p style={{ fontSize: '16px', fontWeight: '600' }}>{reseña?.nombre}</p>
+            <p style={{ fontSize: '14px', fontWeight: '400', color: '#5c5c5c' }}>{reseña?.marca} · {reseña?.referencia}</p>
+
+          </div>
+        </div>
+        <p style={{ fontSize: '16px', lineHeight: '22px', }}>
+          {reseña?.descripcion}
+        </p>
+        <div style={{ width: 'fitContent', display: 'flex', flexWrap: 'wrap', flexDirection: 'row', gap: '8px' }}>
+          {reseña?.servicios?.map(el => {
+            let image = categorias2.find(category => category.nombre == el)
+            return (
+              <div style={{ borderRadius: '4px', padding: '4px', border: '1px solid #c5c5c5', width: 'fitContent', display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
+                <img style={{ width: '20px', height: '20px', borderRadius: '50%' }} src={`../${image?.img}.png`} />
+                <p style={{ fontSize: '12px', color: '#5c5c5c' }}>
+                  {el}
+                </p>
+              </div>
+
+            )
+          })}
+
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+          <p style={{ fontSize: '12px', lineHeight: '22px', color:'#969595' }}>
+            hace · {timeSince(reseña?.fecha)}
+          </p>
+          <div style={{display:'flex', flexDirection:'row', gap:'4px',}}>
+            {estrellas.map((el, index) => (
+              <Star index={index} stars={Math.round(reseña?.calificacion)} tamaño={'16'} />
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  )
+}

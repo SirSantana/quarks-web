@@ -3,11 +3,14 @@ import styles from '@/styles/Faq.module.css'
 import { categorias2 } from '../Talleres/ServiciosOfrecidos'
 import { useState } from 'react'
 import { MagicMotion } from "react-magic-motion";
+import useAuth from '@/hooks/useAuth';
 
 
 export default function AddServicios({ setPage, setCategorias, addCategory, setAddCategory, categorias, otherCategorias, setOtherCategorias }) {
 
+const {user} = useAuth()
 
+console.log(user);
   const handleChange = (category) => {
     setCategorias((prevCategorias) => {
       if (prevCategorias.includes(category)) {
@@ -48,7 +51,7 @@ export default function AddServicios({ setPage, setCategorias, addCategory, setA
   }
   return (
     <MagicMotion>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end',  boxSizing: 'border-box' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
         <h1 className={styles.titleAccess}>Agreguemos los servicios que manejas para que tus usuarios lo sepan!</h1>
 
         <ul
@@ -62,7 +65,7 @@ export default function AddServicios({ setPage, setCategorias, addCategory, setA
               <p style={{ fontSize: '14px', flex: 1 }}>{category.nombre}</p>
               {categorias.includes(category.db)
                 ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76' }} name="checkbox"></ion-icon>
-                : <div style={{ borderRadius: '4px', width: '18px', height: '18px', border: '1px solid black' }}>
+                : <div style={{ borderRadius: '4px', width: '18px', height: '18px', border: '1px solid black', margin:'2px' }}>
                 </div>
               }
 
@@ -80,7 +83,7 @@ export default function AddServicios({ setPage, setCategorias, addCategory, setA
                 </div>
                 <p style={{ fontSize: '14px', flex: 1 }}>{category}</p>
                 {otherCategorias.includes(category)
-                  ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76' }} name="checkbox"></ion-icon>
+                  ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76'}} name="checkbox"></ion-icon>
                   : <div style={{ borderRadius: '4px', width: '19.5px', height: '19.5px', border: '1px solid black' }}>
                   </div>
                 }
@@ -98,14 +101,14 @@ export default function AddServicios({ setPage, setCategorias, addCategory, setA
 
           {otherCategorias.includes(addCategory)
             ? <button type='submit'>
-              <ion-icon style={{ fontSize: '24px', cursor: 'pointer' }} name="checkbox"></ion-icon>
+              <ion-icon  style={{ fontSize: '24px', cursor: 'pointer' }} name="checkbox"></ion-icon>
             </button>
             : <div onClick={() => handleChange2(addCategory)} style={{ borderRadius: '4px', width: '19.5px', height: '19.5px', border: '1px solid black' }}>
             </div>
           }
         </form>
 
-        <button disabled={categorias.length <= 0} style={{ backgroundColor: categorias?.length > 0 ? '#f50057' : '#c5c5c5' }} onClick={() => { setPage(3), window.scrollTo({ top: 0, behavior: 'smooth' }) }} type="submit" className={styles.button2}>
+        <button onClick={() => { setPage(3), window.scrollTo({ top: 0, behavior: 'smooth' }) }} type="submit" className={styles.button2}>
           Siguiente
         </button>
       </div>

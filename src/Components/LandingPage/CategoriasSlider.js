@@ -6,7 +6,7 @@ import styles from '@/styles/HomeArticulos.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function CategoriasSlider({ categorias }) {
+export default function CategoriasSlider({ categorias, mode }) {
   const router = useRouter()
   const categoriaRouter = router?.query?.id?.split("-")[0]
 
@@ -33,37 +33,40 @@ export default function CategoriasSlider({ categorias }) {
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
   };
-
   return (
     <div className={styles.categoriasSlider}>
-      
-      <Slider  {...settings}>
-      {categorias.map((categoria, index) => (
-        <Link
-          href={`/servicios-automotriz/${categoria.url}-Bogota,%20Colombia`}
-          key={index}
-          style={{width:140}}
-          className={styles.categoria}
-        >
-          <div className={styles.centeredContent}>
-            <img src={router.pathname === '/'?`./${categoria.img}.png`:`../../${categoria.img}.png`} style={{ height: '24px', width: '24px' }} alt={categoria.nombre} />
-            {categoriaRouter === categoria.nombre || (router?.pathname === '/' && categoria.nombre === 'Alineación y balanceo')  ?
-              <>
-                <p className={styles.textCategoriaTallerA}>{categoria.nombre}</p>
-                <div className={styles.lineaDivisoraA} />
-              </>
-              :
-              <>
-                <p className={styles.textCategoriaTaller}>{categoria.nombre}</p>
-                <div className={styles.lineaDivisora} />
-              </>
-            }
 
-          </div>
-        </Link>
-      ))}
-    </Slider>
-      
+      <Slider  {...settings}>
+        {categorias.map((categoria, index) => (
+          <Link
+            href={mode
+              ?
+              `/servicios-automotriz/${categoria.url}-Bogota,%20Colombia`
+              :  `/?servicio=${categoria.nombre}`
+            }
+            key={index}
+            style={{ width: 140 }}
+            className={styles.categoria}
+          >
+            <div className={styles.centeredContent}>
+              <img src={router.pathname === '/' ? `./${categoria.img}.png` : `../../${categoria.img}.png`} style={{ height: '32px', width: '32px' }} alt={categoria.nombre} />
+              {categoriaRouter === categoria.nombre || (router?.pathname === '/' && categoria.nombre === 'Alineación y balanceo') ?
+                <>
+                  <p className={styles.textCategoriaTallerA}>{categoria.nombre}</p>
+                  <div className={styles.lineaDivisoraA} />
+                </>
+                :
+                <>
+                  <p className={styles.textCategoriaTaller}>{categoria.nombre}</p>
+                  <div className={styles.lineaDivisora} />
+                </>
+              }
+
+            </div>
+          </Link>
+        ))}
+      </Slider>
+
 
     </div>
   );

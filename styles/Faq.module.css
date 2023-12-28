@@ -366,7 +366,7 @@
     width: 90%;
     gap: 64px;
     margin: 60px auto;
-
+    
   }
 
   .containerInput {
@@ -432,6 +432,9 @@
   }
 
   .imgCard {
+    width: 150px;
+    height: 230px;
+    align-self: center;
     display: none;
   }
 

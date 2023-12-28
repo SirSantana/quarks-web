@@ -21,7 +21,7 @@ export default function SignIn() {
   const { user, login } = useAuth()
   const [visiblePassword, setVisiblePassword] = useState(false)
   const router = useRouter()
-  const [signInNegocio, { loading, data, error }] = useMutation(SIGNIN_NEGOCIO_VDOS)
+  const [signInNegocio, { loading, data, error }] = useMutation(SIGNIN_NEGOCIO_VDOS,)
 
 
   const handleChange = (e) => {
@@ -36,17 +36,17 @@ export default function SignIn() {
       localStorage.setItem('negocioToken', JSON.stringify(data?.signInNegocio.token))
       login(data?.signInNegocio?.token)
       setForm(initialForm)
-      router.push(`/${data?.signInNegocio.negocio.userName}`)
+      router.reload()
+      // router.push(`/${data?.signInNegocio.negocio.userName}`)
     }
   }, [data])
   useEffect(()=>{
     if(user){
        router.replace(`/${user.userName}`)
     }
-    
   },[user])
   return (
-    <Layout title={'Obten acceso temprano'}>
+    <Layout title={'Obten acceso temprano'} visibleNavbar={false}>
       <div className={styles.containerAcceso} >
 
         {user && form.checked ?
@@ -55,7 +55,7 @@ export default function SignIn() {
           <>
             <img src="./card-almacen-prev.png" className={styles.imgCard} alt="Crea tu perfil" />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
-              <p style={{ fontSize: '14px', color: '#4EDD76', fontWeight: '600', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}><ion-icon style={{ color: '#4EDD76', fontSize: '24px' }} name="ribbon-outline"></ion-icon>+50 talleres y almacenes registrados</p>
+              {/* <p style={{ fontSize: '14px', color: '#4EDD76', fontWeight: '600', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}><ion-icon style={{ color: '#4EDD76', fontSize: '24px' }} name="ribbon-outline"></ion-icon>+50 talleres y almacenes registrados</p> */}
               <h1 className={styles.titleAccess}>Inicia sesion</h1>
               <p style={{ margin: '8px 0 32px 0', color: '#5c5c5c' }}>
                 Completa los datos y podras editar tu taller.

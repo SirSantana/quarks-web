@@ -342,7 +342,24 @@
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
+.inputChooseMarca{
+  border: 1px solid #d9d9d9;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  flex: 1;
+  border-radius: 4px;
+  height: 48px;
+  outline: none;
+  transition: 0.5s;
 
+}
+.inputChooseMarca:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1b333d;
+}
+.inputChooseMarca:hover{
+  border: 1px solid #464646;
+}
 .containerInputOpinion {
   display: flex;
   flex-direction: column;

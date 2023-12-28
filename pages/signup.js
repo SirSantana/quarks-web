@@ -30,7 +30,7 @@ let secondForm = {
   id:''
 }
 export default function SignUp() {
-  const [page, setPage] = useState(3)
+  const [page, setPage] = useState(0)
   const [form, setForm] = useState(initialForm)
   const { user } = useAuth()
   const [categorias, setCategorias] = useState([])
@@ -54,11 +54,11 @@ export default function SignUp() {
 
   return (
     <Layout title={'Obten acceso temprano'} visibleNavbar={false}>
-      <div style={{justifyContent:'flex-start'}} className={styles.containerAcceso} >
+      <div  className={styles.containerAcceso} >
 
         {
           <>
-            <img src="./card-almacen-prev.png" className={styles.imgCard} alt="Crea tu perfil" />
+            <img src="./Card-almacen.png" className={styles.imgCard} alt="Crea tu perfil" />
             {page === 0 && <VerifyUsername setPage={setPage} setForm={setForm} form={form} />}
             {page === 1 && <AddEmailAndPassword setForm={setForm} form={form} setPage={setPage} />}
             {page === 2 && <AddServicios setPage={setPage} setCategorias={setCategorias} categorias={categorias} setAddCategory={setAddCategory} addCategory={addCategory} otherCategorias={otherCategorias} setOtherCategorias={setOtherCategorias} />}

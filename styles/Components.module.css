@@ -5,32 +5,36 @@
   align-items: center;
   background-color: white;
   margin: 0 auto;
-  padding: 40px 16px 24px 16px;
-  box-sizing: border-box;
+  padding: 40px 16px 16px 16px;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   top: -5vh;
   width: 90%;
   transition: transform 0.4s ease, background-color 0.2s ease;
-  border: 1px solid white;
-
+  max-width: 500px;
+  
 }
-.cardContainerPrincipal:active{
+
+.cardContainerPrincipal:active {
   transform: scale(0.95)
 }
+
 .active {
   border: 1px solid #5c5c5c;
   box-shadow: 5px 5px 10px rgba(103, 103, 103, 0.2);
 }
-.editIcon{
+
+.editIcon {
   position: absolute;
   top: -16px;
   right: -16px;
-  border-radius: 50%; /* Esto hace que el borde sea redondeado */
-  background-color: #373737; /* Añade un fondo para el icono de edición */
+  border-radius: 50%;
+  /* Esto hace que el borde sea redondeado */
+  background-color: #373737;
+  /* Añade un fondo para el icono de edición */
   cursor: pointer;
-  width:40px;
+  width: 40px;
   height: 40px;
   box-sizing: border-box;
   display: flex;
@@ -38,14 +42,17 @@
   justify-content: center;
   border: none;
 }
-.checkIcon{
+
+.checkIcon {
   position: absolute;
   top: -16px;
   right: -16px;
-  border-radius: 50%; /* Esto hace que el borde sea redondeado */
-  background-color: #373737; /* Añade un fondo para el icono de edición */
+  border-radius: 50%;
+  /* Esto hace que el borde sea redondeado */
+  background-color: #373737;
+  /* Añade un fondo para el icono de edición */
   cursor: pointer;
-  width:40px;
+  width: 40px;
   height: 40px;
   box-sizing: border-box;
   display: flex;
@@ -55,19 +62,23 @@
   transition: transform 0.4s ease, background-color 0.2s ease;
 
 }
+
 .checkIcon:hover {
-  border:1px solid #14e04e;
+  border: 1px solid #14e04e;
   background-color: #4EDD76;
-  color: white; /* Cambiar el color del texto en hover (blanco) */
+  color: white;
+  /* Cambiar el color del texto en hover (blanco) */
 }
-.cancelIcon{
+
+.cancelIcon {
   position: absolute;
   top: -16px;
   right: 32px;
-  border:1px solid #373737;
-  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  border: 1px solid #373737;
+  border-radius: 50%;
+  /* Esto hace que el borde sea redondeado */
   cursor: pointer;
-  width:40px;
+  width: 40px;
   height: 40px;
   box-sizing: border-box;
   display: flex;
@@ -77,12 +88,17 @@
   transition: transform 0.4s ease, background-color 0.2s ease;
 
 }
+
 .cancelIcon:hover {
-  background-color: #f50057; /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
-  border-color: #b20000; /* Cambiar el color del borde en hover (rojo) */
-  color: white; /* Cambiar el color del texto en hover (blanco) */
+  background-color: #f50057;
+  /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
+  border-color: #b20000;
+  /* Cambiar el color del borde en hover (rojo) */
+  color: white;
+  /* Cambiar el color del texto en hover (blanco) */
 }
-.imgFotoPerfil{
+
+.imgFotoPerfil {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -90,10 +106,12 @@
   position: absolute;
   top: -25px;
   left: 50%;
-  transform:translateX(-50%) ;
-  border: 4px solid white;
+  transform: translateX(-50%);
+  border: 1px solid #d6d6d6;
+  background-color: white;
 }
-.inputNameNegocio{
+
+.inputNameNegocio {
   line-height: 1.1;
   align-self: center;
   text-align: center;
@@ -106,20 +124,57 @@
   font-weight: 700;
   font-size: 24px;
 }
-.inputDataNegocio{
-  line-height: 1.1;
+
+.inputDataNegocio {
   align-self: center;
   text-align: left;
-  width: 95%;
+  width: fit-content;
+  max-width: 90%;
   justify-content: center;
   border: null;
   text-decoration: none;
-  border: 0px solid white;
+  border: 0px;
   outline: none;
   font-weight: 400;
   font-size: 14px;
 }
-.nameNegocio{
+
+.skeletonFotoPerfil {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e0e0e0;
+  /* Color del esqueleto */
+  animation: pulse 1.5s infinite alternate;
+}
+
+.containerReseña {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #d6d6d6;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+}
+
+@keyframes pulse {
+  to {
+    background-color: #f0f0f0;
+    /* Color alternativo del esqueleto */
+  }
+}
+
+.nameNegocio {
   line-height: 1.1;
   align-self: center;
   text-align: center;
@@ -132,4 +187,10 @@
   border: 0px solid white;
   outline: none;
   font-weight: 700;
+}
+
+@media (max-width:600px) {
+  .containerReseña {
+    width: 90%;
+  }
 }

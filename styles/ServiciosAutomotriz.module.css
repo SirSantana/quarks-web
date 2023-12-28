@@ -54,7 +54,11 @@
   font-weight: 700;
   margin-top: 24px;
 }
-
+.maps{
+  max-width: 500px;
+  height: 260px;
+  width: 100%;
+}
 .containerCardLugar {
   display: flex;
   flex-direction: row;
@@ -72,7 +76,8 @@
 .containerCardLugar:hover {
   border: 1px solid #5b0221;
 }
-.containerHeaderCalendario{
+
+.containerHeaderCalendario {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -82,22 +87,24 @@
   border: 1px solid #d6d6d6;
   margin: 0 auto;
   border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 500px;
   cursor: pointer;
   transition: transform 0.4s ease, background-color 0.2s ease;
   position: relative
 }
 
 
-.editIcon{
+.editIcon {
   position: absolute;
   top: -16px;
   right: -16px;
-  border-radius: 50%; /* Esto hace que el borde sea redondeado */
-  background-color: #373737; /* Añade un fondo para el icono de edición */
+  border-radius: 50%;
+  /* Esto hace que el borde sea redondeado */
+  background-color: #373737;
+  /* Añade un fondo para el icono de edición */
   cursor: pointer;
-  width:40px;
+  width: 40px;
   height: 40px;
   box-sizing: border-box;
   display: flex;
@@ -105,14 +112,35 @@
   justify-content: center;
   border: none;
 }
-.checkIcon{
+
+.editIconDisabled {
   position: absolute;
   top: -16px;
   right: -16px;
-  border-radius: 50%; /* Esto hace que el borde sea redondeado */
-  background-color: #373737; /* Añade un fondo para el icono de edición */
+  border-radius: 50%;
+  /* Esto hace que el borde sea redondeado */
+  border: 1px solid #373737;
+  background-color: white;
+  /* Añade un fondo para el icono de edición */
   cursor: pointer;
-  width:40px;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  border-radius: 50%;
+  /* Esto hace que el borde sea redondeado */
+  background-color: #373737;
+  /* Añade un fondo para el icono de edición */
+  cursor: pointer;
+  width: 40px;
   height: 40px;
   box-sizing: border-box;
   display: flex;
@@ -122,19 +150,23 @@
   transition: transform 0.4s ease, background-color 0.2s ease;
 
 }
+
 .checkIcon:hover {
-  border:1px solid #14e04e;
+  border: 1px solid #14e04e;
   background-color: #4EDD76;
-  color: white; /* Cambiar el color del texto en hover (blanco) */
+  color: white;
+  /* Cambiar el color del texto en hover (blanco) */
 }
-.cancelIcon{
+
+.cancelIcon {
   position: absolute;
   top: -16px;
   right: 32px;
-  border:1px solid #373737;
-  border-radius: 50%; /* Esto hace que el borde sea redondeado */
+  border: 1px solid #373737;
+  border-radius: 50%;
+  /* Esto hace que el borde sea redondeado */
   cursor: pointer;
-  width:40px;
+  width: 40px;
   height: 40px;
   box-sizing: border-box;
   display: flex;
@@ -144,18 +176,21 @@
   transition: transform 0.4s ease, background-color 0.2s ease;
 
 }
+
 .cancelIcon:hover {
-  background-color: #f50057; /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
-  border-color: #b20000; /* Cambiar el color del borde en hover (rojo) */
-  color: white; /* Cambiar el color del texto en hover (blanco) */
+  background-color: #f50057;
+  /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
+  border-color: #b20000;
+  /* Cambiar el color del borde en hover (rojo) */
+  color: white;
+  /* Cambiar el color del texto en hover (blanco) */
 }
-.containerHeaderCalendario:hover{
-  background-color: #fbfbfb;
-}
-.containerHeaderCalendario:active{
+
+.containerHeaderCalendario:active {
   transform: scale(0.95)
 }
-.containerCardPerfil{
+
+.containerCardPerfil {
   height: 500px;
   background-color: white;
   border: 1px solid #d6d6d6;
@@ -173,16 +208,20 @@
   transition: transform 0.4s ease, background-color 0.2s ease;
 
 }
-.containerCardPerfil:active{
+
+.containerCardPerfil:active {
   transform: scale(0.95)
 }
-.containerHeaderCalendario:hover{
+
+.containerHeaderCalendario:hover {
   background-color: #fbfbfb;
 }
+
 .active {
   border: 1px solid #5c5c5c;
   box-shadow: 5px 5px 10px rgba(103, 103, 103, 0.2);
 }
+
 .titleLugar {
   font-size: 20px;
   font-weight: 700;
@@ -395,7 +434,66 @@
   max-width: 300px;
 
 }
-.divFixed{
+
+.buttonFixedBlack {
+  display: flex;
+  background-color: #373737;
+  height: 48px;
+  padding: 8px 16px;
+  width: 80%;
+  box-sizing: border-box;
+  align-items: center;
+  border: none;
+  color: white;
+  justify-content: center;
+  border-radius: 4px;
+  gap: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 12px;
+  flex: 1;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+
+}
+
+.buttonFixedBlack:hover {
+  background-color: #5e5e5e;
+  /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
+  border-color: #2c2c2c;
+  /* Cambiar el color del borde en hover (rojo) */
+}
+
+.buttonFixedBlack:active {
+  transform: scale(0.95)
+}
+
+.imgFotoPortada {
+  width: 100%;
+  /* La imagen ocupa el 100% del ancho del contenedor */
+  max-width: 500px;
+  /* Limita el ancho máximo de la imagen a 600px */
+  height: 30vh;
+  /* Establece la altura de la imagen al 30% de la altura del viewport */
+  object-fit: cover;
+  /* Mantiene la proporción de aspecto y cubre completamente el contenedor */
+  margin: auto;
+  margin-top: 10vh;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+
+  /* Centra horizontalmente usando margen automático */
+  display: block;
+  /* Asegura que sea un bloque y no un elemento en línea */
+}
+
+.imgFotoRegister {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.divFixed {
   display: flex;
   position: fixed;
   bottom: 5vh;
@@ -408,6 +506,23 @@
   max-width: 400px;
 
 }
+
+.skeleton {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  /* Color del esqueleto */
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+    background-color: #f0f0f0;
+    /* Color alternativo del esqueleto */
+  }
+}
+
 .buttonFixed2 {
   display: flex;
   background-color: #f50057;
@@ -422,7 +537,37 @@
   gap: 16px;
   cursor: pointer;
   border-radius: 12px;
+
 }
+
+.buttonFixedBlack2 {
+  display: flex;
+  background-color: white;
+  height: 48px;
+  width: 48px;
+  box-sizing: border-box;
+  align-items: center;
+  border: 1px solid black;
+  color: white;
+  justify-content: center;
+  border-radius: 4px;
+  gap: 16px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+
+}
+
+.buttonFixedBlack2:hover {
+  background-color: #f1f1f1;
+  /* Cambiar el color de fondo en hover (un tono más claro de rojo) */
+  border-color: #2c2c2c;
+}
+
+.buttonFixedBlack2:active {
+  transform: scale(0.95)
+}
+
 .buttonPrimary:hover {
   background-color: #dc014d;
 }
@@ -509,6 +654,7 @@
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
+
 .inputsAddInfo {
   border: none;
   outline: none;
@@ -520,10 +666,12 @@
   width: 100%;
   text-align: center;
 }
+
 .inputsAddInfo:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
+
 .imgRegisterTaller {
   object-fit: contain;
   width: 50%;
@@ -539,16 +687,18 @@
   padding: 32px 16px;
   box-sizing: border-box;
 }
-.containerMobile{
+
+.containerMobile {
   flex-direction: column;
   gap: 4vh;
-  margin:0 auto;
+  margin: 0 auto;
   margin-bottom: 48px;
   align-items: center;
   width: 500px;
   justify-content: center;
   display: flex;
 }
+
 @media (max-width:1380px) {
   .sectionTwoNegocioFixed {
     width: 300px;
@@ -679,11 +829,15 @@
     margin-top: 80px;
     display: none
   }
-  .containerMobile{
+  .maps{
+    width: 90%;
+  }
+  .containerMobile {
     width: 100%;
-    background-color: #fbfbfb;
+    /* background-color: #fbfbfb; */
 
   }
+
   .containerVendedor {
     width: 95%;
     margin-top: 72px;
@@ -720,6 +874,10 @@
     display: none;
   }
 
+  .containerHeaderCalendario {
+    width: 90%;
+  }
+
   .containerHeaderCardMobile {
     display: flex;
     width: 100%;
@@ -742,5 +900,10 @@
   .textCategoryMobile {
     display: flex;
     font-size: 12px;
+  }
+  .imgFotoPortada{
+    margin-top: 0;
+    box-shadow: none;
+    border-radius: 0;
   }
 }
