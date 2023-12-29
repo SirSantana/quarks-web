@@ -183,7 +183,6 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
   }
   const handleChangeServices = (selectedOptions) => {
     const selectedValues = selectedOptions.map(option => option.label);
-
     // Actualizar el estado con el nuevo array de servicios
     setForm({ ...form, servicios: selectedValues });
   }
@@ -196,7 +195,7 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
     if (form.descripcion.length < 12) {
       return alert('Cuentanos mas sobre tu experiencia en este lugar!')
     }
-
+    setForm({ ...form, almacen: ide, nombre: session?.user?.name, foto: session?.user?.image, email: session?.user?.email })
     if (form.email !== '' && form.descripcion!== '' && form.referencia !== '' && form.servicios.length> 0) {
       createOpinion({ variables: form })
       // setCalificated(true)

@@ -123,7 +123,7 @@ export default function NewNavbarWithSearch({ mode }) {
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
             {/* <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} /> */}
             <div style={{ width: '100%', maxWidth: '100%' }}>
-              <CreatableSelect onChange={handleChange} options={talleresWithOptions} styles={customStyles} placeholder='Busca por Marca, Referencia, FMSI, WVA' noOptionsMessage={() => 'No se encontro ningun repuesto'} isSearchable isClearable />
+              <CreatableSelect onChange={handleChange} options={talleresWithOptions} styles={customStyles} placeholder='Buscar taller' noOptionsMessage={() => 'No se encontro ningun repuesto'} isSearchable isClearable />
             </div>
             {/* <div className={styles.separatorSearch} />
             <div className={styles2.select2}>
