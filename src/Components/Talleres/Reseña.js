@@ -18,8 +18,10 @@ export default function Reseña({ reseña }) {
           <img style={{ width: '48px', height: '48px', borderRadius: '50%' }} src={reseña?.foto} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <p style={{ fontSize: '16px', fontWeight: '600' }}>{reseña?.nombre}</p>
-            <p style={{ fontSize: '14px', fontWeight: '400', color: '#5c5c5c' }}>{reseña?.marca} · {reseña?.referencia}</p>
+            {reseña?.marca &&
+              <p style={{ fontSize: '14px', fontWeight: '400', color: '#5c5c5c' }}>{reseña?.marca} · {reseña?.referencia}</p>
 
+            }
           </div>
         </div>
         <p style={{ fontSize: '16px', lineHeight: '22px', }}>
@@ -41,10 +43,10 @@ export default function Reseña({ reseña }) {
 
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-          <p style={{ fontSize: '12px', lineHeight: '22px', color:'#969595' }}>
+          <p style={{ fontSize: '12px', lineHeight: '22px', color: '#969595' }}>
             hace · {timeSince(reseña?.fecha)}
           </p>
-          <div style={{display:'flex', flexDirection:'row', gap:'4px',}}>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '4px', }}>
             {estrellas.map((el, index) => (
               <Star index={index} stars={Math.round(reseña?.calificacion)} tamaño={'16'} />
             ))}

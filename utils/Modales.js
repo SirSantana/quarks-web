@@ -18,12 +18,13 @@ import { IconCatalog } from '@/src/Components/Icon/Icon'
 export function ModalSuccessfull({ title, subtitle }) {
   return (
     <div className={styles.modal} >
-      <div style={{ backgroundColor: 'white', padding: '8px 16px', borderRadius: '8px', flexDirection: 'row', justifyContent:'left', gap:'16px', }} className={styles.modalContent}>
-        <ion-icon style={{ color: '#4EDD76', fontSize:'24px' }} name="checkmark-circle"></ion-icon>
-        <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', }}>
-          <p style={{ fontSize: '14px', fontWeight: '700', color: '#373737', margin: 0 }}>{title}</p>
-          <p style={{ fontSize: '12px', color: 'white', margin: 0 }}>{subtitle} </p>
+      <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '8px', flexDirection: 'column', justifyContent: 'left', gap: '16px', }} className={styles.modalContent}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',gap:'8px' }}>
+          <ion-icon style={{ color: '#4EDD76', fontSize: '20px' }} name="checkmark-circle"></ion-icon>
+          <p style={{ fontSize: '16px', fontWeight: '700', color: '#4EDD76', margin: 0 }}>{title}</p>
         </div>
+        <p style={{ fontSize: '14px', color: '#373737', margin: 0, textAlign:'center' }}>{subtitle} </p>
+
       </div>
     </div>
   )
@@ -33,10 +34,9 @@ export function ModalSuccessfull({ title, subtitle }) {
 export function ModalLoading({ title }) {
   return (
     <div className={styles.modal} >
-      <div style={{  backgroundColor: 'white', display:'flex', flexDirection:'row',justifyContent:'left', gap:'16px', padding: '8px 16px', borderRadius: '8px' }} className={styles.modalContent}>
-      <ion-icon style={{ color: '#ffA500', fontSize:'24px' }} name="construct"></ion-icon>
-       
-        <p style={{ fontSize: '14px', fontWeight: '700', color: '#373737', margin: 0 }}>{title}</p>
+      <div style={{ backgroundColor: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'left', gap: '16px', padding: '8px 16px', borderRadius: '8px' }} className={styles.modalContent}>
+        <ion-icon style={{ color: '#ffA500', fontSize: '24px' }} name="construct"></ion-icon>
+        <p style={{ fontSize: '14px', fontWeight: '700', color: '#ffA500', margin: 0 }}>{title}</p>
       </div>
     </div>
   )
@@ -44,12 +44,17 @@ export function ModalLoading({ title }) {
 
 export function ModalError({ title, subtitle }) {
   return (
+  
     <div className={styles.modal} >
-      <div style={{ width: '300px', backgroundColor: '#f50057', padding: '16px 32px', borderRadius: '8px' }} className={styles.modalContent}>
-        <p style={{ fontSize: '16px', fontWeight: '700', color: 'white', margin: 0 }}>{title} </p>
-        <p style={{ fontSize: '13px', color: 'white', margin: 0 }}>{subtitle ? subtitle : 'Verifica tu conexión, e intentalo de nuevo'} </p>
+    <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '8px', flexDirection: 'column', justifyContent: 'left', gap: '16px', }} className={styles.modalContent}>
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',gap:'8px' }}>
+        <ion-icon style={{ color: '#f50057', fontSize: '20px' }} name="close-circle"></ion-icon>
+        <p style={{ fontSize: '16px', fontWeight: '700', color: '#f50057', margin: 0 }}>{title}</p>
       </div>
+      <p style={{ fontSize: '14px', color: '#373737', margin: 0, textAlign:'center' }}>{subtitle} </p>
+
     </div>
+  </div>
   )
 }
 

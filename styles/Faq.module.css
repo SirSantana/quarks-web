@@ -82,12 +82,12 @@
   font-weight: 600;
   padding: 10px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  height: 50px;
+  height: 48px;
   transition: 0.3s;
-  margin: 16px 0;
+  margin: 24px 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -249,8 +249,9 @@
 }
 
 .imgCard {
-  width: 330px;
-  height: 450px;
+  width: 340px;
+  height: 260px;
+  align-self: center;
 }
 
 .containerInputAcceso {
@@ -258,11 +259,8 @@
   flex-direction: row;
   gap: 20px;
   width: 100%;
-  background-color: #f1f1f1;
-  padding: 8px 16px;
   justify-content: space-between;
   border-radius: 10px;
-  height: 50px;
   box-sizing: border-box;
   align-items: center;
 
@@ -286,10 +284,12 @@
 
 .inputAcceso {
   border: none;
-  background-color: #f1f1f1;
+  background-color: #f5f5f5;
   outline: none;
   font-size: 16px;
   width: 100%;
+  padding: 12px 24px;
+  border-radius: 8px;
 }
 .inputAcceso::placeholder{
   color:#5c5c5c
@@ -361,11 +361,13 @@
     gap: 32px;
     margin: 16px 0;
   }
-
+  .containerInputAcceso{
+    flex-direction: column;
+  }
   .containerAcceso {
     width: 90%;
     gap: 64px;
-    margin: 60px auto;
+    margin: 80px auto;
     
   }
 

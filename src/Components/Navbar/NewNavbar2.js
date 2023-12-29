@@ -72,7 +72,7 @@ export default function NewNavbarWithSearch({mode}) {
             </div>
           </form>
           <nav className={styles.navv}>
-            <div className={styles.talleres}>
+            {/* <div className={styles.talleres}>
               <p style={{ listStyle: 'none', cursor: 'pointer', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' ? '#373737' : '#373737' }} className={styles.subtitle}>Talleres mecanicos</p>
               <div className={styles.tooltip}>
                 <ul className={styles.ulTipos}>
@@ -88,8 +88,8 @@ export default function NewNavbarWithSearch({mode}) {
                   ))}
                 </ul>
               </div>
-            </div>
-            {/* <li className={styles.li}><Link style={{ textDecoration: 'none', color: router?.pathname === '/glosario-de-autopartes' ? '#373737' : '#373737' }} className={styles.subtitle} href={'/glosario-de-autopartes'}>Glosario</Link></li> */}
+            </div> */}
+            <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/acceso'}>Tienes un Taller?</Link>
           </nav>
         </div>
         <section className={styles.sectionSliderShowNav}>
