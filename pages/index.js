@@ -23,7 +23,6 @@ export default function Home({ data }) {
     { ssr: false } // This line is important. It's what prevents server-side render
   )
   const [mode, setMode] = useState(0)
-  console.log(mode);
   return (
     <>
       <Head>
@@ -68,7 +67,7 @@ export default function Home({ data }) {
           crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               (function(c,l,a,r,i,t,y){
@@ -78,7 +77,7 @@ export default function Home({ data }) {
               })(window, document, "clarity", "script", "jh3neqgrnc");
             `,
           }}
-        />
+        /> */}
       </Head>
       <NewNavbarWithSearch mode={mode} />
       <main className={styles.main}>
