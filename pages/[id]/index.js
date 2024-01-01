@@ -28,6 +28,7 @@ export default function NegocioVDos({ data }) {
       <img
         className={styles.imgFotoPortada}
         src={data?.fotoperfil}
+        alt={`Taller mecanico ${data?.nombre} Bogota`}
       />
       <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
       <div className={styles.containerMobile} >
