@@ -19,9 +19,15 @@ import AsideGlosario from "@/src/Components/Articulos/AsideGlosario";
 
 export default function Repuesto({ data }) {
   const router = useRouter()
- 
+
+  let productoMarcado = {
+    titulo: data?.parrafoSeisDos ? data?.parrafoSeisDos : data?.subtituloPrincipal,
+    image: data?.imgPrincipal,
+    url:  router.asPath,
+    fecha:data?.fecha
+  }
   return (
-    <Layout title={data?.parrafoSeisDos ? data?.parrafoSeisDos:data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
+    <Layout title={data?.parrafoSeisDos ? data?.parrafoSeisDos:data?.tituloPrincipal} productoMarcado={productoMarcado} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
 
       <div className={styles.containerGridAside}>
         <AsideGlosario />

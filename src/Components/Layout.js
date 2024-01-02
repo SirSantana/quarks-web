@@ -2,8 +2,28 @@ import Head from 'next/head'
 import Footer from './Footer/Footer'
 import NewNavbarWithSearch2 from './Navbar/NewNavbar'
 import Nav from './Navbar/Nav'
-
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar=true }) {
+function generarMarcadoEstructurado(articulo) {
+  if (articulo) {
+    return  {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": articulo.titulo,
+      "image": [
+        articulo.image
+       ],
+       "url":articulo.url,
+      "datePublished": articulo?.fecha,
+      "dateModified": articulo?.fecha,
+      "author": [{
+          "@type": "Person",
+          "name": "Miguel Salazar",
+          "url": "https://scontent.fbog4-2.fna.fbcdn.net/v/t1.6435-9/118200733_104636334698420_6059036456657205315_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2be8e3&_nc_ohc=JlxtUCVL6iMAX-V2mU7&_nc_oc=AQk0DHIhyaER-NyXkFMhauXNynNSMDkMDDdkIrv0NwoMNcMS2S1xpel-d0VZDoJgxec&_nc_ht=scontent.fbog4-2.fna&oh=00_AfA3DyUAGymCxzo0gzHFBXH_EccrnPpEriqXWY9FWM3Anw&oe=65BBF572"
+    }]
+    }
+  }
+}
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar=true, productoMarcado }) {
+  const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
   return (
     <>
       <Head>
@@ -68,6 +88,11 @@ export default function Layout({ children, title, description, type, price, keyw
           crossorigin="anonymous"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        {productoMarcado &&
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(marcadoEstructurado) }}
+          />}
       </Head>
 
       <main >
