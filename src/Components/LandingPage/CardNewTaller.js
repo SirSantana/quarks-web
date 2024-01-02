@@ -35,8 +35,8 @@ export default function CardNewTaller({ taller }) {
             <OpinionesPrev id={taller?.id} />
           }
         </div>
-        <h3 style={{ fontSize: '18px' }}>{taller?.nombre}</h3>
-        <p style={{ fontSize: '14px' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
+        <h2 style={{ fontSize: '18px' }}>{taller?.nombre}</h2>
+        <h6 style={{ fontSize: '14px' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</h6>
         <div style={{ display: 'flex', marginTop: '16px', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
           {taller?.categorias.slice(0, 3).map(el => (
             <div style={{ display: 'flex', gap: '4px', alignItems: 'center', backgroundColor: '#f1f1f1', borderRadius: '4px', padding: '4px 8px' }}>
