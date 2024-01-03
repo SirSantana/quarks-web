@@ -20,7 +20,7 @@ export default function SeccionSecundaria({ img, tituloParrafo, parrafoUno, parr
 
       {visibleInfo && (
         <>
-          <p className={styles.response}>{parse(parrafoUno)}</p>
+          <p  className={styles.response}>{parse(parrafoUno)}</p>
           <p className={styles.response}>{parse(parrafoDos)}</p>
           <p className={styles.response}>{parse(parrafoTres)}</p>
           {img && <img src={img} className={styles.imgFormula} alt={tituloParrafo} />}

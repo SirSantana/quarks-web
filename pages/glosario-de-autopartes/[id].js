@@ -21,11 +21,12 @@ export default function Repuesto({ data }) {
   const router = useRouter()
 
   let productoMarcado = {
-    titulo: data?.parrafoSeisDos ? data?.parrafoSeisDos : data?.subtituloPrincipal,
+    titulo: data?.parrafoSeisDos ? data?.parrafoSeisDos : data?.tituloPrincipal,
     image: data?.imgPrincipal,
     url:  router.asPath,
     fecha:data?.fecha
   }
+
   return (
     <Layout title={data?.parrafoSeisDos ? data?.parrafoSeisDos:data?.tituloPrincipal} productoMarcado={productoMarcado} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
 
@@ -48,7 +49,7 @@ export default function Repuesto({ data }) {
                   <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="cog-outline"></ion-icon>
 
                   <h2 className={styles.question}>{data.tituloParrafoUno}</h2>
-                  <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px' }} className={styles.response}>{parse(data?.parrafoUno)} </p>
+                  <p style={{ fontSize: '12px', lineHeight: '20px', marginTop: '8px', }} className={styles.response}>{parse(data?.parrafoUno)} </p>
 
                 </div>
                 <div className={styles.seccion3}>

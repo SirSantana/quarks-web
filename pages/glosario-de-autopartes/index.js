@@ -89,7 +89,7 @@ export default function DiccionarioDeAutopartes() {
 
           {Object.entries(filteredData ? filteredData : data).map(([key, values]) => (
             <div key={key}>
-              <h1 className={styles.title}>{key}</h1>
+              <h4 className={styles.title}>{key}</h4>
               <ul>
                 {values.map((item) => {
                   const itemName = Object.values(item)[1]; // Obtener el nombre del elemento

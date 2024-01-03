@@ -476,6 +476,20 @@ export const GET_ALL_ARTICULOS = gql`
     }
   }
 `
+export const GET_ARTICULOS_BLOG = gql`
+  query getArticulosBlog{
+    getArticulosBlog{
+      tituloPrincipal
+      fecha
+      id
+      tiempoLectura
+      imgPrincipal
+      tema
+      vistas
+
+    }
+  }
+`
 
 export const GET_ARTICULO = gql`
   query getArticulo($id:ID){

@@ -7,13 +7,13 @@ import BottomArticulo from "@/src/Components/Articulos/BottomArticulo";
 import ArticulosRelacionados from "@/src/Components/Articulos/ArticulosRelacionados";
 import { client } from "@/client";
 import { GET_ARTICULO, } from "@/graphql/queries";
-import { useMutation } from "@apollo/client";
 import { CREATE_VISTA_ARTICULO } from "@/graphql/mutations";
-import { useEffect } from "react";
 import SeccionSecundaria from "@/src/Components/Articulos/Secciones/SeccionSecundaria";
 import OtrosArticulos from "@/src/Components/Articulos/OtrosArticulos";
 import { useRouter } from "next/router";
 import HeaderHome from "@/src/Components/Index/HeaderHome";
+import HeaderDiccionario from "@/src/Components/Articulos/HeaderDiccionario";
+import parse from 'html-react-parser';
 
 
 
@@ -23,26 +23,35 @@ export default function Articulo({ data }) {
     data &&
     <Layout title={data?.tituloPrincipal} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
       <div className={styles.container}>
-      <HeaderHome />
+        {/* <HeaderHome /> */}
 
-        <HeaderArticulo autor={data?.autor} tema={data?.tema} fecha={data?.fecha} />
         <section>
-          <h1 className={styles.title}>{data?.tituloPrincipal}</h1>
+          {data?.parrafoSeis ?
+            <>
+              <HeaderDiccionario tema={data?.tema} tiempo={data?.tiempoLectura} id={data?.id} img={data?.imgPrincipal} titulo={data?.parrafoSeisDos ? data?.parrafoSeisDos : data?.subtituloPrincipal} />
+              {parse(data?.parrafoSeis)}
+            </>
+            :
+            <>
+              <HeaderArticulo autor={data?.autor} tema={data?.tema} fecha={data?.fecha} />
 
-          <BottomHeaderInfo tiempo={data?.tiempoLectura} id={data?.id} />
+              <h1 className={styles.title}>{data?.tituloPrincipal}</h1>
 
-          <SeccionPrincipalArticulo titulo={data?.tituloPrincipal} img={data?.imgPrincipal} tituloParrafo={data.tituloParrafoUno} parrafoUno={data?.parrafoUno} parrafoDos={data?.parrafoUnoDos} parrafoTres={data?.parrafoUnoTres} video={data?.videoUrlUno} />
+              <BottomHeaderInfo tiempo={data?.tiempoLectura} id={data?.id} />
 
-          {data?.tituloParrafoDos && <SeccionSecundaria img={data?.imgParrafoDos} tituloParrafo={data.tituloParrafoDos} parrafoUno={data?.parrafoDos} parrafoDos={data?.parrafoDosDos} parrafoTres={data?.parrafoDosTres} video={data?.videoUrlDos} />}
+              <SeccionPrincipalArticulo titulo={data?.tituloPrincipal} img={data?.imgPrincipal} tituloParrafo={data.tituloParrafoUno} parrafoUno={data?.parrafoUno} parrafoDos={data?.parrafoUnoDos} parrafoTres={data?.parrafoUnoTres} video={data?.videoUrlUno} />
 
-          {data?.tituloParrafoTres && <SeccionSecundaria img={data?.imgParrafoTres} tituloParrafo={data.tituloParrafoTres} parrafoUno={data?.parrafoTres} parrafoDos={data?.parrafoTresDos} parrafoTres={data?.parrafoTresTres} video={data?.videoUrlTres} />}
+              {data?.tituloParrafoDos && <SeccionSecundaria img={data?.imgParrafoDos} tituloParrafo={data.tituloParrafoDos} parrafoUno={data?.parrafoDos} parrafoDos={data?.parrafoDosDos} parrafoTres={data?.parrafoDosTres} video={data?.videoUrlDos} />}
 
-          {data?.tituloParrafoCuatro && <SeccionSecundaria img={data?.imgParrafo} tituloParrafo={data.tituloParrafoCuatro} parrafoUno={data?.parrafoCuatro} parrafoDos={data?.parrafoCuatroDos} parrafoTres={data?.parrafoCuatroTres} video={data?.videoUrlCuatro} />}
+              {data?.tituloParrafoTres && <SeccionSecundaria img={data?.imgParrafoTres} tituloParrafo={data.tituloParrafoTres} parrafoUno={data?.parrafoTres} parrafoDos={data?.parrafoTresDos} parrafoTres={data?.parrafoTresTres} video={data?.videoUrlTres} />}
 
-          {data?.tituloParrafoCinco && <SeccionSecundaria img={data?.imgParrafoCinco} tituloParrafo={data.tituloParrafoCinco} parrafoUno={data?.parrafoCinco} parrafoDos={data?.parrafoCincoDos} parrafoTres={data?.parrafoCincoTres} video={data?.videoUrlCinco} />}
+              {data?.tituloParrafoCuatro && <SeccionSecundaria img={data?.imgParrafo} tituloParrafo={data.tituloParrafoCuatro} parrafoUno={data?.parrafoCuatro} parrafoDos={data?.parrafoCuatroDos} parrafoTres={data?.parrafoCuatroTres} video={data?.videoUrlCuatro} />}
 
-          {data?.tituloParrafoSeis && <SeccionSecundaria img={data?.imgParrafoSeis} tituloParrafo={data.tituloParrafoSeis} parrafoUno={data?.parrafoSeis} parrafoDos={data?.parrafoSeisDos} parrafoTres={data?.parrafoSeisTres} video={data?.videoUrlSeis} />}
+              {data?.tituloParrafoCinco && <SeccionSecundaria img={data?.imgParrafoCinco} tituloParrafo={data.tituloParrafoCinco} parrafoUno={data?.parrafoCinco} parrafoDos={data?.parrafoCincoDos} parrafoTres={data?.parrafoCincoTres} video={data?.videoUrlCinco} />}
 
+              {data?.tituloParrafoSeis && <SeccionSecundaria img={data?.imgParrafoSeis} tituloParrafo={data.tituloParrafoSeis} parrafoUno={data?.parrafoSeis} parrafoDos={data?.parrafoSeisDos} parrafoTres={data?.parrafoSeisTres} video={data?.videoUrlSeis} />}
+
+            </>}
           <ArticulosRelacionados />
           <BottomArticulo palabras={data?.palabrasClave} />
           {/* <OtrosArticulos img={data?.imgPrincipal}/> */}

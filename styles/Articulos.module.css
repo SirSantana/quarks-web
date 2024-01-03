@@ -2,10 +2,18 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: 0 auto 0 auto;
+  margin: 100px auto 0 auto;
   padding: 32px;
   padding-top: 0;
   max-width: 700px;
+}
+.containerBlog {
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto 0 auto;
+  padding: 32px;
+  padding-top: 0;
+  max-width: 1200px;
 }
 .containerBottomHeaderInfo{
   display: flex;
@@ -94,6 +102,10 @@
   flex-direction: column;
   margin: 32px 0;
 
+}
+.imgRepuesto {
+  width: 350px;
+  height: 300px; 
 }
 
 .button {
@@ -285,8 +297,13 @@
   .container {
     width: 90%;
     padding: 32px 0;
+    margin-top: 40px;
   }
-
+  .containerBlog {
+    width: 90%;
+    padding: 32px 0;
+    margin-top: 40px;
+  }
   .question {
     font-size: 16px;
   line-height: 20px;
