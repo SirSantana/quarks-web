@@ -52,12 +52,12 @@ export default function CategoriasSlider({ categorias, mode }) {
               <img src={router.pathname === '/' ? `./${categoria.img}.png` : `../../${categoria.img}.png`} style={{ height: '32px', width: '32px' }} alt={categoria.nombre} />
               {categoriaRouter === categoria.nombre || (router?.pathname === '/' && categoria.nombre === 'Alineación y balanceo') ?
                 <>
-                  <h3 className={styles.textCategoriaTallerA}>{categoria.nombre}</h3>
+                  <h3 className={styles.textCategoriaTallerA}>{categoria.nombre}dsdsd</h3>
                   <div className={styles.lineaDivisoraA} />
                 </>
                 :
                 <>
-                  <h3 className={styles.textCategoriaTaller}>{categoria.nombre}</h3>
+                  <h3 className={styles.textCategoriaTaller}>{categoria.nombre}dsds</h3>
                   <div className={styles.lineaDivisora} />
                 </>
               }

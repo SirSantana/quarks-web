@@ -244,7 +244,18 @@
   justify-content: center;
   padding: 0 8px;
 }
-
+.slider{
+  width: 90%;
+}
+.slide{
+  padding: 16px !important;;
+  border:1px solid #c5c5c5!important;
+  border-radius: 8px !important;;
+  width: 98% !important;
+  height: 100%  !important;
+  text-decoration: none;
+  color: #373737;
+}
 .textCategory {
   font-size: 16px;
   color: #373737;

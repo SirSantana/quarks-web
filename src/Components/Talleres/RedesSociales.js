@@ -91,7 +91,7 @@ export default function RedesSociales({ data, user }) {
                   <input style={{ backgroundColor: 'transparent', textDecoration: 'none', outline: 'none', fontSize: '14px', flex: 1, width: '100%', border: 'none' }} className={styles.nameNegocio} placeholder='nombre de usuario' type='text' value={form.facebook} name='facebook' onChange={handleChange} />
                 </div>
                 :
-                <p style={{ fontSize: '14px', flex: 1 }}><span style={{ fontWeight: '600' }}>@</span> {urlFacebook ? urlFacebook : 'Agregar Perfil'}</p>
+                <p style={{ fontSize: '14px', flex: 1 }}><span style={{ fontWeight: '600' }}></span> {urlFacebook ? 'Ver Perfil' : 'Agregar Perfil'}</p>
               }
             </div>
           }
