@@ -13,6 +13,7 @@ import ButtonsFooter from "@/src/Components/Talleres/ButtonsFooter";
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 import Reseñas from "@/src/Components/Talleres/Reseñas";
 import SliderTalleresSugeridos from "@/src/Components/Talleres/SliderTalleresSugeridos";
+import SectionCreateTaller from "@/src/Components/Talleres/SectionCreateTaller";
 
 
 
@@ -23,10 +24,9 @@ export default function NegocioVDos({ data }) {
   const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
-  
 
   return (
-    <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad )+ ", "+ data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
+    <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <img
         className={styles.imgFotoPortada}
         src={data?.fotoperfil}
@@ -39,8 +39,8 @@ export default function NegocioVDos({ data }) {
         <DatosImportantes data={data} ref={reff} setVisibleModalTelefono={setVisibleModalTelefono} /> */}
         {data?.categorias && <ServidosOfrecidos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />}
 
-        {data?.urltallermaps && <MapaUbicacion ubicacion={data?.urltallermaps}  username={data?.userName}/>}
-        <SliderTalleresSugeridos/>
+        {data?.urltallermaps && <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} />}
+        <SliderTalleresSugeridos />
         {/* <Redes /> */}
 
 
@@ -48,7 +48,10 @@ export default function NegocioVDos({ data }) {
         {(data?.facebook || data?.instagram || data?.paginaweb || user?.userName === router?.query?.id) &&
           <RedesSociales data={data} user={user} />
         }
-        <Reseñas id={data?.id} />
+        <SectionCreateTaller />
+        {data?.promediocalificacionesmaps &&
+          <Reseñas id={data?.id} />
+        }
 
         {!editModeHiddenButtons &&
           <ButtonsFooter data={data} user={user} />
