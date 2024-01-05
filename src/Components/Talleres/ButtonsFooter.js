@@ -18,7 +18,7 @@ export default function ButtonsFooter({ data, user }) {
   const [createClickCompartido] = useMutation(CREATE_CLICK_COMPARTIDO)
 
   const sendMessageWha = () => {
-    router.push(`${router.asPath}/solicitar-revision?ide=${data?.id}`);
+    router.push(`/${router.query.id}/solicitar-revision?ide=${data?.id}`);
 
     // createVisitaWhatsapp({ variables: { id: data?.id } })
     // let url = `https://api.whatsapp.com/send?phone=57${data?.whatsapp}`;

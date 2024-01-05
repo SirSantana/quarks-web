@@ -23,6 +23,7 @@ export default function Home({ data }) {
     { ssr: false } // This line is important. It's what prevents server-side render
   )
   const [mode, setMode] = useState(0)
+
   return (
     <>
       <Head>

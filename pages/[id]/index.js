@@ -18,7 +18,7 @@ import SectionCreateTaller from "@/src/Components/Talleres/SectionCreateTaller";
 
 
 
-export default function NegocioVDos({ data }) {
+export default function NegocioVDos({ data}) {
   const router = useRouter()
   const { user, logout } = useAuth()
   const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
@@ -68,7 +68,7 @@ export default function NegocioVDos({ data }) {
 
 export async function getServerSideProps({ query, res }) {
   const parts = query?.id;
-  const { data } = await client.query(
+  const { data, error, loading} = await client.query(
     {
       query: GET_ONE_NEGOCIOVDOS,
       variables: { userName: parts }
@@ -87,10 +87,11 @@ export async function getServerSideProps({ query, res }) {
     res.end();
     return { props: {} };
   }
-
+ 
   return {
     props: {
       data: data?.getOneNegocioVDos,
+      
     },
   };
 }

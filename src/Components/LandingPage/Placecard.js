@@ -52,6 +52,7 @@ const PlaceCard = ({ data }) => {
     createClickMapaDireccion({ variables: { id: data?.id } })
     abrirGoogleMaps(data?.direccion)
   }
+  console.log(data);
   return (
     <Link href={`/${data?.userName}`} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '16px 0', justifyContent: 'space-between' }}>
@@ -77,12 +78,12 @@ const PlaceCard = ({ data }) => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '6px', width: '100%' }}>
         <p style={{ fontSize: '12px', margin: 0, color: '#464646', width:'100%', fontWeight:'600' }}>{data?.nombre === 'Corsa Motors' ?'Almacen de Repuestos':'Taller Mecanico'}</p>
-        {data?.categorias.slice(0, 2).map(el => {
+        {data?.categorias.slice(0,2).map(el => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           return (
             <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
-              {category?.img ? <img src={`./${category?.img}.png`} style={{ width: '20px', height: '20px' }} alt={el} /> : <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>}
-              <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
+              {category?.img && <img src={`./${category?.img}.png`} style={{ width: '20px', height: '20px' }} alt={el} />}
+              <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.db}</p>
             </div>
           )
         })}
