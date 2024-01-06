@@ -12,26 +12,6 @@ import EditCategories from './EditServicios';
 import { client } from '@/client';
 import { GET_SERVICIOS_NEGOCIO } from '@/graphql/queries';
 
-const categorias = [
-  { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos', db: "Servicio de Lujos" },
-  { nombre: 'Aire acondicionado', img: 'Refrigeracion', url: 'Aire acondicionado', db: 'Servicio de Aire acondicionado' },
-  { nombre: 'Alineación y balanceo', img: 'Rueda', url: 'Alineación y balanceo', db: 'Alineación y balanceo' },
-  { nombre: 'Baterias', img: 'Baterias', url: 'Baterias', db: 'Servicio de Baterias' },
-  { nombre: 'Caja y transmisión', img: 'Caja y Transmision', url: 'Cajas', db: 'Servicio de Caja' },
-  { nombre: 'Cambio de aceite', img: 'Filtros', url: 'Cambio de aceite', db: 'Cambio de Aceite' },
-  { nombre: 'Clutch', img: 'Clutch', url: 'Clutch', db: 'Servicio de Clutch' },
-  { nombre: 'Correas', img: 'Correas', url: 'Motor', db: 'Servicio de Motor' },
-  { nombre: 'Direccion y suspension', img: 'Direccion y suspension', url: 'Suspensión', db: 'Servicio de Suspensión' },
-  { nombre: 'Eléctricos', img: 'Electricos', url: 'Eléctricos', db: 'Servicio de Eléctricos' },
-  { nombre: 'Frenos', img: 'Frenado', url: 'Frenos', db: 'Servicio de Frenos' },
-  { nombre: 'Inyeccion', img: 'inyeccion', url: 'Inyeccion', db: 'Servicio Inyeccion' },
-  { nombre: 'Latonería y pintura', img: 'Carroceria', url: 'Latoneria y pintura', db: 'Servicio de Latonería y pintura' },
-  { nombre: 'Mecanico a domicilio', img: 'mecanico', url: 'Mecanico a Domicilio', db: '' },
-  { nombre: 'Motor', img: 'Motor', url: 'Motor', db: 'Servicio de Motor' },
-  { nombre: 'Peritaje', img: 'peritaje', url: 'Peritaje', db: 'Peritaje' },
-  { nombre: 'Sincronización', img: 'Sincronizacion', url: 'Sincronizacion', db: 'Sincronizacion' },
-  { nombre: 'Tecnico mecánica', img: 'tecnicomecanica', url: 'Tecnico mecanica', db: '' },
-];
 export const categorias2 = [
   { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos', db: "Servicio de Accesorios y Lujos" },
   { nombre: 'Aire acondicionado', img: 'servicio-aire', url: 'Aire acondicionado', db: 'Servicio de Aire acondicionado' },
@@ -129,8 +109,6 @@ export default function ServidosOfrecidos({ data, user, setEditModeHiddenButtons
     }
   }, [result?.data])
 
-
-
   return (
     <>
       <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600' }} className={styles.titleNegocio}>{data?.tipo !== 'Almacen' ? "Servicios Ofrecidos" : "Repuestos Manejados"} </h2>
@@ -150,7 +128,7 @@ export default function ServidosOfrecidos({ data, user, setEditModeHiddenButtons
                 </div>
               }
 
-              <p style={{ fontSize: '14px', flex: 1 }}>{data?.tipo === 'Almacen' ? category.nombre : el}</p>
+              <p style={{ fontSize: '14px', flex: 1 }}>{category ? category?.nombre : el}</p>
 
             </div>
             

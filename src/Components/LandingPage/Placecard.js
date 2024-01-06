@@ -52,7 +52,6 @@ const PlaceCard = ({ data }) => {
     createClickMapaDireccion({ variables: { id: data?.id } })
     abrirGoogleMaps(data?.direccion)
   }
-  console.log(data);
   return (
     <Link href={`/${data?.userName}`} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '16px 0', justifyContent: 'space-between' }}>

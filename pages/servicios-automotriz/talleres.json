@@ -52,7 +52,7 @@
         "Servicio de Frenos",
         "Alineación y balanceo",
         "Cambio de aceite",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Taller mecanico"
       ],
       "localidad": "Barrios Unidos",
@@ -79,7 +79,7 @@
         "Mecanica Basica",
         "Mecanica Avanzada",
         "Sincronizacion",
-        "Servicio de Suspension",
+        "Servicio de Direccion y Suspensión",
         "Cambio de aceite",
         "Servicio de Frenos",
         "Alineación y balanceo",
@@ -107,7 +107,7 @@
       "direccion": "Calle 126 # 7 - 25",
       "categorias": [
         "Servicio de Baterias",
-        "Servicio de Suspension",
+        "Servicio de Direccion y Suspensión",
         "Cambio de aceite",
         "Servicio de Frenos",
         "Alineación y balanceo",
@@ -155,7 +155,7 @@
       "nombre": "El Mundo del Amortiguador La 27",
       "direccion": "CRA 26 #64-20",
       "categorias": [
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Frenos",
         "Cambio de aceite",
         "Taller mecanico"
@@ -179,7 +179,7 @@
       "nombre": "La boutique del amortiguador - Prado",
       "direccion": "CRA 45a #130-57",
       "categorias": [
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Frenos",
         "Cambio de aceite",
         "Taller mecanico"
@@ -203,11 +203,11 @@
       "nombre": "Mecanicos Asociados Taller M.A",
       "direccion": "calle 16H #112-72",
       "categorias": [
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Frenos",
         "Cambio de aceite",
         "Servicio de Eléctricos",
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Servicio de Motor",
         "Taller mecanico",
         "Mecanica Basica"
@@ -231,7 +231,7 @@
       "nombre": "Motores y Cajas Ruben",
       "direccion": "Servicio a Domicilio",
       "categorias": [
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Taller mecanico",
         "Mecanica Basica",
         "Mecanico a Domicilio"
@@ -254,7 +254,7 @@
       "direccion": "Calle 75A #29 06",
       "categorias": [
         "Sincronizacion",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Clutch",
         "Cambio de aceite",
         "Servicio de Frenos",
@@ -286,7 +286,7 @@
         "Taller mecanico",
         "Mecanica Basica",
         "Servicio de Frenos",
-        "Servicio de Cajas"
+        "Servicio de Caja y Transmision"
       ],
       "localidad": "",
       "id": "64b7e1b9cbf32fcc68b6358a",
@@ -306,7 +306,7 @@
       "direccion": "Calle 55 sur #87j-42",
       "categorias": [
         "Sincronizacion",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Clutch",
         "Cambio de aceite",
         "Servicio de Frenos",
@@ -332,7 +332,7 @@
       "direccion": "Av Boyacá #64 j - 16",
       "categorias": [
         "Sincronizacion",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Clutch",
         "Cambio de aceite",
         "Servicio de Frenos",
@@ -363,7 +363,7 @@
       "direccion": "Calle 66 a # 78 -10",
       "categorias": [
         "Servicio de Aire acondicionado",
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Taller mecanico"
       ],
       "localidad": "Engativa",
@@ -386,7 +386,7 @@
       "direccion": "Tv 78H #41-61 sur",
       "categorias": [
         "Sincronizacion",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Alineación y balanceo",
         "Cambio de aceite",
         "Servicio de Frenos",
@@ -534,7 +534,7 @@
       "direccion": "Av Suba # 93B – 05",
       "categorias": [
         "Servicio de Frenos",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Taller mecanico",
         "Mecanica Basica"
       ],
@@ -560,7 +560,7 @@
       "categorias": [
         "Servicio de Frenos",
         "Servicio de Clutch",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Taller mecanico",
         "Mecanica Basica"
       ],
@@ -689,7 +689,7 @@
       "nombre": "Cajas Automáticas Mendez",
       "direccion": "Cra. 28b, #67-37",
       "categorias": [
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Taller mecanico",
         "Mecanica Basica"
       ],
@@ -712,10 +712,10 @@
       "nombre": "SAE AUTOMOTRIZ",
       "direccion": "Cra. 55 #76-62",
       "categorias": [
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Servicio de Frenos",
         "Servicio de Electronica",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Latonería y pintura",
         "Taller mecanico",
         "Mecanica Basica"
@@ -741,7 +741,7 @@
       "categorias": [
         "Servicio de Frenos",
         "Servicio de Electronica",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Latonería y pintura",
         "Servicio de Motor",
         "Taller mecanico",
@@ -768,7 +768,7 @@
       "categorias": [
         "Servicio de Frenos",
         "Cambio de aceite",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Latonería y pintura",
         "Taller mecanico",
         "Mecanica Basica"
@@ -793,12 +793,12 @@
       "direccion": "Cl. 78 #28b-09",
       "categorias": [
         "Servicio de Frenos",
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Servicio de Motor",
         "Servicio de Electronica",
         "Servicio de Eléctricos",
         "Cambio de aceite",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Latonería y pintura",
         "Taller mecanico",
         "Mecanica Basica"
@@ -823,11 +823,11 @@
       "direccion": "AK 30 # 66-53",
       "categorias": [
         "Servicio de Frenos",
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Servicio de Motor",
         "Servicio de Aire acondicionado",
         "Alineación y balanceo",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Electronica",
         "Servicio de Eléctricos",
         "Servicio de Baterias",
@@ -856,7 +856,7 @@
       "categorias": [
         "Servicio de Frenos",
         "Servicio de Aire acondicionado",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Eléctricos",
         "Servicio de Baterias",
         "Taller mecanico",
@@ -884,7 +884,7 @@
         "Alineación y balanceo",
         "Servicio de Frenos",
         "Servicio de Clutch",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Eléctricos",
         "Sincronizacion",
         "Taller mecanico",
@@ -914,7 +914,7 @@
         "Servicio de Aire acondicionado",
         "Servicio de Frenos",
         "Servicio de Clutch",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Eléctricos",
         "Sincronizacion",
         "Taller mecanico",
@@ -965,7 +965,7 @@
       "categorias": [
         "Servicio de Motor",
         "Servicio de Eléctricos",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Peritaje",
         "Sincronizacion",
         "Taller mecanico",
@@ -992,7 +992,7 @@
       "categorias": [
         "Servicio de Frenos",
         "Alineación y balanceo",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Cambio de aceite",
         "Taller mecanico",
         "Mecanica Basica"
@@ -1018,7 +1018,7 @@
       "categorias": [
         "Servicio de Frenos",
         "Servicio de Motor",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Cambio de aceite",
         "Taller mecanico",
         "Mecanica Basica"
@@ -1045,7 +1045,7 @@
         "Servicio de Eléctricos",
         "Servicio de Frenos",
         "Servicio de Motor",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Latonería y pintura",
         "Taller mecanico",
         "Mecanica Basica"
@@ -1071,7 +1071,7 @@
       "categorias": [
         "Servicio de Frenos",
         "Servicio de Motor",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Latonería y pintura",
         "Taller mecanico",
         "Mecanica Avanzada"
@@ -1100,7 +1100,7 @@
         "Servicio de Baterias",
         "Servicio de Aire acondicionado",
         "Servicio de Eléctricos",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Latonería y pintura",
         "Taller mecanico",
         "Mecanica Avanzada"
@@ -1174,7 +1174,7 @@
       "direccion": "Cra. 19 #70a-3",
       "categorias": [
         "Alineación y balanceo",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Frenos",
         "Mecanica Basica",
         "Taller mecanico"
@@ -1200,7 +1200,7 @@
       "categorias": [
         "Servicio de Motor",
         "Sincronizacion",
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Servicio de Electronica",
         "Servicio de Eléctricos",
         "Tecnico mecanica",
@@ -1229,12 +1229,12 @@
         "Servicio de Clutch",
         "Alineación y balanceo",
         "Sincronizacion",
-        "Servicio de Cajas",
+        "Servicio de Caja y Transmision",
         "Servicio de Electronica",
         "Servicio de Eléctricos",
         "Cambio de aceite",
         "Servicio de Frenos",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Servicio de Motor",
         "Peritaje",
         "Servicio de Latonería y pintura",
@@ -1289,7 +1289,7 @@
       "direccion": "Cra. 57 #70-34",
       "categorias": [
         "Servicio de Frenos",
-        "Servicio de Suspensión",
+        "Servicio de Direccion y Suspensión",
         "Cambio de aceite",
         "Mecanica Basica",
         "Taller mecanico"
@@ -1449,13 +1449,12 @@
         "Servicio de Clutch",
         "Servicio de Frenos",
         "Servicio de Motor",
-        "Servicio de Suspension"
+        "Servicio de Direccion y Suspensión"
       ],
       "marcasAutos": [
         "Chevrolet",
         "Mazda"
       ],
-      "tipo": "Almacen",
       "emojisservicio":"Chevrolet",
       "servicio":"Repuestos Chevrolet",
       "lat": 4.657782,      
@@ -1494,6 +1493,7 @@
         "Mecanica Basica",
         "Modificaciones y transformaciones de vehículos"
       ],
+      "tipo": "Almacen",
       "userName": "s&i_master_paint",
       "servicio":"Latoneria y Pintura / Lujos / Lavado Tapiceria",
       "emojisservicio":"servicio-carroceria",
@@ -1506,7 +1506,7 @@
       "nivelnegocio": "0",
       "nivel":2,
       "pais": "Colombia",
-      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 1:30 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1704487329478!6m8!1m7!1sCOKQwNx-nA7vT3kJSqA_nQ!2m2!1d4.685086339858933!2d-74.10267763997695!3f295.96845881879483!4f1.2833428196287997!5f0.4000000000000002"
     }
   ]

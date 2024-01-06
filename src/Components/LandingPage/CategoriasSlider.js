@@ -8,14 +8,16 @@ import { useRouter } from 'next/router';
 
 export default function CategoriasSlider({ categorias, mode }) {
   const router = useRouter()
-  const categoriaRouter = router?.query?.id?.split("-")[0]
+  // const categoriaRouter = router?.query?.id?.split("-")[0]
+
+  const categoriaServicio = router?.query.servicio
 
   const CustomPrevArrow = (props) => (
     <div className={styles.customPrevArrow} onClick={props.onClick}>
       <ion-icon name="chevron-back-circle-outline"></ion-icon>
     </div>
   );
-
+    console.log(router?.query);
   const CustomNextArrow = (props) => (
     <div className={styles.customNextArrow} onClick={props.onClick}>
       <ion-icon name="chevron-forward-circle-outline"></ion-icon>
@@ -41,8 +43,8 @@ export default function CategoriasSlider({ categorias, mode }) {
           <Link
             href={mode
               ?
-              `/servicios-automotriz/${categoria.url}-Bogota,%20Colombia`
-              :  `/?servicio=${categoria.nombre}`
+              `/servicios-automotriz/${categoria.url.replace(/ /g,'-')}-Bogota,%20Colombia`
+              :  `/?servicio=${categoria.nombre.replace(/ /g,'-')}`
             }
             key={index}
             style={{ width: 140 }}
@@ -50,7 +52,7 @@ export default function CategoriasSlider({ categorias, mode }) {
           >
             <div className={styles.centeredContent}>
               <img src={router.pathname === '/' ? `./${categoria.img}.png` : `../../${categoria.img}.png`} style={{ height: '32px', width: '32px' }} alt={categoria.nombre} />
-              {categoriaRouter === categoria.nombre || (router?.pathname === '/' && categoria.nombre === 'Alineación y balanceo') ?
+              {categoriaServicio?.replace(/-/g,' ') === categoria.nombre ?
                 <>
                   <h3 className={styles.textCategoriaTallerA}>{categoria.nombre}</h3>
                   <div className={styles.lineaDivisoraA} />

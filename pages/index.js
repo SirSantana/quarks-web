@@ -155,7 +155,7 @@ export async function getServerSideProps({ query }) {
   const talleresFilter = talleres?.talleres.filter(taller => taller?.lat)
   let filter;
   if (query.servicio) {
-    let categoriaNormalized = normalizeString(query.servicio.toLowerCase())
+    let categoriaNormalized = normalizeString(query.servicio.replace(/-/g, ' ').toLowerCase())
     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
       categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
       levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
