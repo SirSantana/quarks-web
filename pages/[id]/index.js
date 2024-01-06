@@ -71,7 +71,7 @@ export async function getServerSideProps({ query, res }) {
   const { data, error, loading} = await client.query(
     {
       query: GET_ONE_NEGOCIOVDOS,
-      variables: { userName: parts }
+      variables: { userName: parts.replace(/&/g, '') }
     }
   )
   const result = await client.mutate(
@@ -80,6 +80,17 @@ export async function getServerSideProps({ query, res }) {
       variables: { id: parts }
     }
   )
+  if(parts == 's&i_master_paint'){
+    res.setHeader('Location', '/si_master_paint');
+    res.statusCode = 302; // Código de estado 302 para redirección temporal
+    res.end();
+    return {
+      props: {
+        data: data?.getOneNegocioVDos,
+        
+      },
+    };
+  }
 
   if (!data?.getOneNegocioVDos) {
     res.setHeader('Location', '/404'); // Cambia '/nueva-ruta' a la ruta deseada
