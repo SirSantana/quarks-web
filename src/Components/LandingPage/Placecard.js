@@ -54,8 +54,8 @@ const PlaceCard = ({ data }) => {
   }
   return (
     <Link href={`/${data?.userName}`} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
-      <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '16px 0', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '16px 0 8px 0', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width:'85%' }}>
           {data?.fotoperfil
             ?
             <img style={{ height: '48px', width: '48px', borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={data?.fotoperfil} alt="Nombre del lugar" />
@@ -63,8 +63,8 @@ const PlaceCard = ({ data }) => {
             <img style={{ height: '48px', width: '48px', borderRadius: '8px', objectFit: 'contain', }} src={'/EmojiTaller.png'} alt="Nombre del lugar" />
 
           }
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '4px' }}>
-            <h3 style={{ fontSize: data?.nombre.length > 20 ? '14px' : data?.nombre.length > 15 ? '16px' : '18px', fontWeight: '600' }}>{data?.nombre}</h3>
+          <div style={{overflow:'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center',}}>
+            <h3 style={{ fontSize: data?.nombre.length > 20 ? '14px' : data?.nombre.length > 15 ? '16px' : '18px', fontWeight: '600',overflow: 'hidden', textOverflow: 'ellipsis',whiteSpace: 'nowrap', }}>{data?.nombre}</h3>
             <p style={{ margin: 0, fontSize: '12px', color: '#929292' }}>{data?.direccion}</p>
           </div>
         </div>

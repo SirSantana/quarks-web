@@ -15,6 +15,7 @@ import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
 import dynamic from 'next/dynamic'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import { useState } from 'react'
+import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTalleresServicios'
 
 
 export default function Home({ data }) {
@@ -89,7 +90,7 @@ export default function Home({ data }) {
           <Map talleres={data} />
         }
         <ListTalleresLanding />
-
+        <SectionTalleresServicios/>
         <ActividadReciente />
         <SectionCotizaciones />
         <SectionVariedadTalleres />

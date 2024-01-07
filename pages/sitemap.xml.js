@@ -7,7 +7,6 @@ const generateSiteMap = (data) => {
   for (const i in data) {
     posts.push(data[i]);
   }
-
   return `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
@@ -16,7 +15,7 @@ const generateSiteMap = (data) => {
     ${posts && posts.map(item => {
     return `<url>
         <loc>
-          https://quarks.com.co/servicios-automotriz/${item.url}-Bogota,%20Colombia
+          https://www.quarks.com.co/servicios-automotriz/${item.nombre.replace(/ /g,'-')}
         </loc>
       </url>`;
   }).join('')}
@@ -28,11 +27,7 @@ function SiteMap() { }
 
 export const getServerSideProps = async ({ res }) => {
   
-  console.log(categorias);
   const sitemap = generateSiteMap(categorias);
-
-  
-
   res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);
   res.end();

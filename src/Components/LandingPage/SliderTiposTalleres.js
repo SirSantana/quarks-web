@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import CategoriasSlider from './CategoriasSlider';
 import styles from '@/styles/Landing.module.css'
 
-const categorias = [
-  { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos' },
+export const categorias = [
+  { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos',},
   { nombre: 'Aire acondicionado', img: 'servicio-aire-acondicionado', url: 'Aire acondicionado' },
   { nombre: 'Alineación y balanceo', img: 'servicio-llantas', url: 'Alineación y balanceo' },
   { nombre: 'Baterias', img: 'servicio-bateria', url: 'Baterias' },

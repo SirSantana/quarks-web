@@ -9,7 +9,7 @@ import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
 import CategoriasSlider from '../LandingPage/CategoriasSlider';
 
- const categorias = [
+ export const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
   { nombre: 'Aire acondicionado', img: 'Refrigeracion', url: 'Aire acondicionado' },
   { nombre: 'Alineación y balanceo', img: 'Rueda', url: 'Alineación y balanceo' },

@@ -67,11 +67,11 @@ export default function SectonFilters({ data }) {
       <div className={styles.headerTalleres} >
         <div >
           {router?.pathname !== '/'
-            && <h1 style={{  }} className={styles.title2}>Taller automotriz de {parts?.[0] ?parts?.[0]:router.query.busqueda} </h1>
+            && <h1  className={styles.title2}>Taller automotriz de {router?.query?.id ?router?.query?.id.replace(/-/g, ' '):router.query.busqueda} </h1>
           }
           {router?.pathname !== '/'
             ?
-            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} talleres de {parts?.[0] ?parts?.[0]:router.query.busqueda} cerca a mi en Bogota</h4>
+            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} talleres de {router?.query?.id ?router?.query?.id.replace(/-/g, ' '):router.query.busqueda} cerca a mi en Bogota</h4>
             :
             <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
           }

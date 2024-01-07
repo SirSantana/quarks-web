@@ -314,6 +314,27 @@
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
+.cardServicioHome{
+  position: relative;
+  margin-bottom: 60px;
+  padding: 20px;
+  background-color: #FAFAFA;
+  border-radius: 16px;
+  width: 160px;
+  height: 160px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+text-decoration: none;
+color:#373737;
+}
+.cardServicioHome:hover{
+  background-color: #373737;
+  color: white;
+  transform: scale(1.1);
+  
+
+}
 @media (max-width: 1200px) {
   .containerContent {
     display: flex;
@@ -470,5 +491,11 @@
   .containerInputs {
     justify-content: space-between;
     width: 90%;
+  }
+}
+@media (max-width: 370px) {
+  .cardServicioHome{
+    width: 100%;
+  
   }
 }
