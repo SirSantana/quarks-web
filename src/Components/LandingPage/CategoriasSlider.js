@@ -43,7 +43,7 @@ export default function CategoriasSlider({ categorias, mode }) {
           <Link
             href={mode
               ?
-              `/servicios-automotriz/${categoria.url.replace(/ /g,'-')}-Bogota,%20Colombia`
+              `/servicios-automotriz/${categoria.url.replace(/ /g,'-')}`
               :  `/?servicio=${categoria.nombre.replace(/ /g,'-')}`
             }
             key={index}

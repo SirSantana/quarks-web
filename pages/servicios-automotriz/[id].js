@@ -61,6 +61,7 @@ export default function ServicioAutomotriz({ data }) {
 
 export async function getServerSideProps({ query }) {
   let categoria = query?.id;
+  
 
   const levenshteinDistance = (s1, s2) => {
     const m = s1.length;
