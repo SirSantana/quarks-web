@@ -25,8 +25,11 @@ export const IconCatalog = {
   logoFacebook: 'logo-facebook',
   logoInstagram: 'logo-instagram',
   logoTiktok: 'logo-tiktok',
-  globeOutline: 'globe-outline'
-
+  globeOutline: 'globe-outline',
+  mapa: 'map',
+  lista: 'list',
+  arrowForwardOutline:'arrow-forward-outline',
+  searchOutline:'search-outline'
 
 }
 

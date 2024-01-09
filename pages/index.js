@@ -16,6 +16,8 @@ import dynamic from 'next/dynamic'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import { useState } from 'react'
 import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTalleresServicios'
+import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
+import { IconCatalog } from '@/src/Components/Icon/Icon'
 
 
 export default function Home({ data }) {
@@ -83,14 +85,14 @@ export default function Home({ data }) {
       </Head>
       <NewNavbarWithSearch mode={mode} />
       <main className={styles.main}>
-        {mode 
+        {mode
           ?
           <SectonFilters />
           :
           <Map talleres={data} />
         }
         <ListTalleresLanding />
-        <SectionTalleresServicios/>
+        <SectionTalleresServicios />
         <ActividadReciente />
         <SectionCotizaciones />
         <SectionVariedadTalleres />
@@ -98,30 +100,15 @@ export default function Home({ data }) {
         <SectionGrowthTaller />
         {/* <SectionGlosario /> */}
         <SectionCalculadoraCombustible />
-        <button
-          onClick={() => setMode(mode === 0?1:0)}
-          style={{
-            cursor:'pointer',
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: '8px',
-            zIndex: '1000',
-            borderRadius: '8px',
-            border: 'none',
-            backgroundColor: '#f50057',
-            color: 'white',
-            position: 'fixed',
-            bottom: '50px', // Puedes ajustar esta propiedad para controlar la distancia desde la parte inferior
-            left: '50%',
-            fontWeight: '600',
-            transform: 'translateX(-50%)', // Centrar horizontalmente
-            padding: '10px 20px', // Agrega relleno si es necesario
-          }}
-        >
-          Mostrar {mode ?'Mapa': 'Lista'}
-          <ion-icon style={{ fontSize: '20px' }} name={mode?"map":'list'}></ion-icon>
-        </button>
+        <Button style={{
+          zIndex: '1000',
+          position: 'fixed',
+          bottom: '50px', // Puedes ajustar esta propiedad para controlar la distancia desde la parte inferior
+          left: '50%',
+          transform: 'translateX(-50%)', // Centrar horizontalmente
+        }} onClick={() => setMode(mode === 0 ? 1 : 0)} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode ? 'mapa' : 'lista'}>
+          Mostrar {mode ? 'Mapa' : 'Lista'}
+        </Button>
       </main>
       <Footer />
 
