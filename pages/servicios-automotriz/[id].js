@@ -61,8 +61,9 @@ export default function ServicioAutomotriz({ data }) {
 
 export async function getServerSideProps({ query }) {
   let categoria = query?.id;
-  
-
+  if(categoria.includes('Bogota')){
+    categoria = categoria.replace('-Bogota, Colombia', '').trim()
+  }
   const levenshteinDistance = (s1, s2) => {
     const m = s1.length;
     const n = s2.length;

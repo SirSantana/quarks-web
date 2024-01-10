@@ -3,6 +3,7 @@ import styles from '@/styles/Landing.module.css'
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button';
+import { IconCatalog } from '../Icon/Icon';
 
 let imagesTalleres = [
   { src: 'logopelaezhermanos80723.jpg', nombre: 'Pelaez Hermanos', id: '64aa2e5de3b051b0053a31ff', taller: 'Pelaez Hermanos - Siete de Agosto', userName: 'pelaez_hermanos_7_de_agosto' },
@@ -50,8 +51,8 @@ export default function ListTalleresLanding() {
           </Link>
         ))}
       </div>
-      <Button link={true} href={'/servicios-automotriz/Taller-mecanico'} variant={ButtonVariant.primary} size={ButtonSize.base} icon={'arrowForwardOutline'}>
-        Explora Más Talleres
+      <Button link={true} href={'/servicios-automotriz/Taller-mecanico'} variant={ButtonVariant.primary} size={ButtonSize.base} icon={IconCatalog.arrowForwardOutline}>
+        Explora más talleres
       </Button>
     </section>
 

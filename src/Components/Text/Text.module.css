@@ -1,0 +1,88 @@
+.text {
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.text {
+  color: #373737;
+}
+
+.text.success {
+  color: green;
+}
+
+.text.critical {
+  color: red;
+}
+
+.text.caution {
+  color: orange;
+}
+
+.text-h1 {
+  font-size: 48px;
+}
+
+.text-h2 {
+  font-size: 40px;
+}
+
+.text-h3 {
+  font-size: 32px;
+}
+
+.text-h4 {
+  font-size: 24px;
+}
+
+.text-h5 {
+  font-size: 20px;
+}
+
+.text-p {
+  font-size: 16px;
+}
+
+.text-subtitle {
+  font-size: 14px;
+}
+
+.text-span {
+  font-size: 14px;
+}
+
+@media (max-width: 980px) {
+  .text-h1 {
+    font-size: 32px;
+  }
+
+  .text-h2 {
+    font-size: 24px;
+  }
+
+  .text-h3 {
+    font-size: 20px;
+  }
+
+  .text-h4 {
+    font-size: 16px;
+  }
+
+  .text-h5 {
+    font-size: 14px;
+  }
+
+  .text-p {
+    font-size: 14px;
+  }
+
+  .text-subtitle {
+    font-size: 12px;
+  }
+
+  .text-span {
+    font-size: 12px;
+  }
+
+}

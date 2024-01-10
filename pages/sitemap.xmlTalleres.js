@@ -16,7 +16,7 @@ const generateSiteMap = (data) => {
     ${posts && posts.map(item => {
     return `<url>
         <loc>
-          https://quarks.com.co/${item.userName}
+          https://www.quarks.com.co/${item.userName}
         </loc>
       </url>`;
   }).join('')}

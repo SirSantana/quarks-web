@@ -3,22 +3,22 @@ import Link from 'next/link';
 import Icon, { IconCatalog } from '../Icon/Icon';
 import styles from './Button.module.css'
 
-export const ButtonSize ={
-  sm : 'sm',
-  base : 'base',
-  lg :'lg',
-  xl:'xl'
+export const ButtonSize = {
+  sm: 'sm',
+  base: 'base',
+  lg: 'lg',
+  xl: 'xl'
 }
-export const ButtonVariant ={
-  primary : 'primary',
-  secondary : 'secondary',
-  outlined :'outlined',
+export const ButtonVariant = {
+  primary: 'primary',
+  secondary: 'secondary',
+  terciary: 'terciary',
+  outlined: 'outlined',
 }
 
 export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null }) {
   const variantButton = styles[`button-${variant}`];
   const sizeButton = styles[`button-${size}`]
-
   return (
     link
       ?
@@ -34,7 +34,7 @@ export default function Button({ children, size = ButtonSize.base, active = fals
         style={{ ...style, width: fullWidth && '100%' }}
       >
         {children}
-        {icon && <Icon name={IconCatalog[icon]} size='md' style={{ fontSize: '20px', color: 'white' }} />}
+        {icon && <Icon name={icon} size='md' style={{ fontSize: '20px', color: 'white' }} />}
       </button>
   )
 }

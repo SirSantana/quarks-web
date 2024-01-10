@@ -18,6 +18,7 @@ import { useState } from 'react'
 import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTalleresServicios'
 import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
 import { IconCatalog } from '@/src/Components/Icon/Icon'
+import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
 
 
 export default function Home({ data }) {
@@ -106,9 +107,12 @@ export default function Home({ data }) {
           bottom: '50px', // Puedes ajustar esta propiedad para controlar la distancia desde la parte inferior
           left: '50%',
           transform: 'translateX(-50%)', // Centrar horizontalmente
-        }} onClick={() => setMode(mode === 0 ? 1 : 0)} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode ? 'mapa' : 'lista'}>
+        }} onClick={() => setMode(mode === 0 ? 1 : 0)} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode ? IconCatalog.mapa : IconCatalog.lista}>
           Mostrar {mode ? 'Mapa' : 'Lista'}
         </Button>
+        <Text As={TextAs.h1} tone={TextTone.base}  fontWeight={TextWeight[600]} >
+          Hola a todos
+        </Text>
       </main>
       <Footer />
 
