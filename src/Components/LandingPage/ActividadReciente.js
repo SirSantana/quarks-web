@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
-    <img src={stars < index + 1 ? `../star-outline.svg` : `../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} alt={`Calificacion ${stars} del taller`}/>
+    <img src={stars < index + 1 ? `../star-outline.svg` : `../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} alt={`Calificacion ${stars} del taller`} />
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
@@ -19,19 +19,23 @@ export default function ActividadReciente() {
           <Link href={'/servicios-automotriz/negocio/64c13e7e1cff35383051906e-Mecánica%20-%20DJC%20Los%20Boyacos'} className={styles.containerCardOpinion}>
             <div style={{ padding: '16px', display: 'flex', gap: '16px', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}>
-                <img
-                alt='Taller mecanico cerca de mi'
-                  style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}
+                <Image
+                  alt='Taller mecanico cerca de mi'
+                  width={50}
+                  height={50}
+                  loading='lazy'
+                  style={{ borderRadius: '25px', backgroundColor: '#f1f1f1' }}
                   src='https://lh3.googleusercontent.com/a/AAcHTtfUhL85w74kHRxBuMqdxpXlQr62My4xf7Hp-oMUKC_L2Q=s96-c'
                 />
               </div>
               <div>
-                <p style={{fontSize:'16px', fontWeight:'600'}}>Liseth Fonseca</p>
+                <p style={{ fontSize: '16px', fontWeight: '600' }}>Liseth Fonseca</p>
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>
             </div>
             <img
-            alt='Taller automotriz djc los boyacos bogota'
+            loading='lazy'
+              alt='Taller automotriz djc los boyacos bogota'
               className={styles.imgTaller}
               src={`https://azurequarks.blob.core.windows.net/negocios/djclosboyacos270723.jpg`}
             />
@@ -64,11 +68,13 @@ export default function ActividadReciente() {
                 />
               </div>
               <div>
-                <p style={{fontSize:'16px', fontWeight:'600'}}>Harrison Alvarez</p>
+                <p style={{ fontSize: '16px', fontWeight: '600' }}>Harrison Alvarez</p>
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>
             </div>
             <img
+            loading='lazy'
+
               alt='Taller automotriz tu llanta bogota'
               className={styles.imgTaller}
               src={`https://azurequarks.blob.core.windows.net/avatares/tullanta.png`}
@@ -103,13 +109,14 @@ export default function ActividadReciente() {
                 />
               </div>
               <div>
-                <p style={{fontSize:'16px', fontWeight:'600'}}>Abel Rojas</p>
+                <p style={{ fontSize: '16px', fontWeight: '600' }}>Abel Rojas</p>
 
                 <p style={{ fontSize: '12px' }}>Agregó una reseña</p>
               </div>
             </div>
 
             <img
+            loading='lazy'
               className={styles.imgTaller}
               alt='Taller automotriz oil filters bogota'
               src={`https://azurequarks.blob.core.windows.net/avatares/oildentro.png`}

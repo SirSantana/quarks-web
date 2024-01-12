@@ -87,6 +87,25 @@
   height: 90vh;
 }
 
+.skeleton {
+  width: 100%;
+  height: 90vh;
+  background-color: #f0f0f0; /* Color de fondo del esqueleto */
+  animation: loading 1s infinite; /* Animación de carga */
+}
+@keyframes loading {
+  0% {
+    opacity: 0.7;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
 .rating {
   display: flex;
   align-items: center;
@@ -107,18 +126,25 @@
   .map {
     margin-top: 30px;
   }
-
+  .skeleton {
+    margin-top: 30px;
+  }
 }
 
 @media (max-width: 700px) {
   .map {
     margin-top: 40px;
   }
-
+  .skeleton {
+    margin-top: 40px;
+  }
 }
 
 @media (max-width: 600px) {
   .map {
+    margin-top: 30px;
+  }
+  .skeleton {
     margin-top: 30px;
   }
 }
@@ -127,14 +153,23 @@
   .map {
     margin-top: 50px;
   }
+  .skeleton {
+    margin-top: 50px;
+  }
 }
   @media (max-width: 400px) {
     .map {
       margin-top: 60px;
     }
+    .skeleton {
+      margin-top: 60px;
+    }
   }
   @media (max-width: 300px) {
     .map {
+      margin-top: 70px;
+    }
+    .skeleton {
       margin-top: 70px;
     }
   }

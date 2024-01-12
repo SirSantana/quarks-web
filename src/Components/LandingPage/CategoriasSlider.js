@@ -18,7 +18,6 @@ export default function CategoriasSlider({ categorias, mode }) {
       <ion-icon name="chevron-back-circle-outline"></ion-icon>
     </div>
   );
-    console.log(router?.query);
   const CustomNextArrow = (props) => (
     <div className={styles.customNextArrow} onClick={props.onClick}>
       <ion-icon name="chevron-forward-circle-outline"></ion-icon>

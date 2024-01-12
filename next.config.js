@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'azurequarks.blob.core.windows.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+      },
     ],
   },
 }

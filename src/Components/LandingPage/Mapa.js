@@ -36,9 +36,8 @@ export default function Map({ talleres }) {
   const [mapCenter, setMapCenter] = useState([4.657782, -74.073614]);
   const [userLocation, setUserLocation] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(5); // initial zoom level provided for MapContainer
-
   const router = useRouter()
-  let {servicio} = router?.query
+  let { servicio } = router?.query
   // const handleMarkerDragEnd = (event) => {
   //   const { lat, lng } = event.target.getLatLng();
   //   setUserLocation([lat, lng]);
@@ -63,15 +62,19 @@ export default function Map({ talleres }) {
 
 
   // const talleresFilter = talleres?.talleres.filter(taller => taller?.lat)
-  let emoji = categorias.find(cat => cat.url===servicio)
+  let emoji = categorias.find(cat => cat.url === servicio)
+
+ 
   return (
-    <MapContainer className={styles.map} center={userLocation ? userLocation : mapCenter} zoom={15} zoomControl={false} scrollWheelZoom={true}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-      />
-      <MyComponent setZoomLevel={setZoomLevel} />
-      {/* {userLocation && (
+   
+      <MapContainer
+        className={styles.map} center={userLocation ? userLocation : mapCenter} zoom={15} zoomControl={false} scrollWheelZoom={true}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+        />
+        <MyComponent setZoomLevel={setZoomLevel} />
+        {/* {userLocation && (
         <Marker icon={userIcon()} position={userLocation}
           draggable={true}
           onDragEnd={handleMarkerDragEnd}
@@ -79,7 +82,7 @@ export default function Map({ talleres }) {
           <Popup ><PlaceCard /></Popup>
         </Marker>
       )} */}
-      {/* {coordenadas.map((coordenada) => (
+        {/* {coordenadas.map((coordenada) => (
             <Marker
               key={coordenada.id}
               icon={customIcon({ icon: coordenada.img})}
@@ -88,30 +91,30 @@ export default function Map({ talleres }) {
               <Popup className={styles.card}><PlaceCard data={coordenada}/></Popup>
             </Marker>
         ))} */}
-      {talleres.map((taller) => (
-        <Marker
-          key={taller.id}
-          position={[taller.lat, taller.lng]}
-          icon={
-            L.divIcon({
-              html: `
+        {talleres.map((taller) => (
+          <Marker
+            key={taller.id}
+            position={[taller.lat, taller.lng]}
+            icon={
+              L.divIcon({
+                html: `
                    <div style="display: ${servicio ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;   box-shadow: 0 4px 8px rgba(200, 200, 200, 0.9); border-radius:8px; background-color:white">
-                     <img src="${emoji? taller?.fotoperfil?taller?.fotoperfil:'/'+taller.emojisservicio+".png":'/'+taller.emojisservicio+".png"}" alt="Icon" style="object-fit:cover;width: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; height: ${servicio?'24px':taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; ">
+                     <img src="${emoji ? taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png" : '/' + taller.emojisservicio + ".png"}" alt="Icon" style="object-fit:cover;width: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; height: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; ">
                      <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${servicio ? taller?.nombre : taller.servicio}</p>
                    </div>
                  `,
-              //  iconSize: [32, 32],
-              //  iconAnchor: [16, 32],
-              //  popupAnchor: [0, -32],
-            })
-          }
-        >
-          <Popup className={styles.card}>
-            <PlaceCard data={taller} />
-          </Popup>
-        </Marker>
-      ))}
-      {/* {coordenadas.map((coordenada) => (
+                //  iconSize: [32, 32],
+                //  iconAnchor: [16, 32],
+                //  popupAnchor: [0, -32],
+              })
+            }
+          >
+            <Popup className={styles.card}>
+              <PlaceCard data={taller} />
+            </Popup>
+          </Marker>
+        ))}
+        {/* {coordenadas.map((coordenada) => (
           <Marker
             key={coordenada.id}
             position={[coordenada.lat, coordenada.lng]}
@@ -134,7 +137,7 @@ export default function Map({ talleres }) {
             </Popup>
           </Marker>
         ))} */}
-    </MapContainer>
+      </MapContainer>
   )
 }
 
