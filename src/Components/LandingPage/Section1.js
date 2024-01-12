@@ -9,7 +9,7 @@ export default function SectionVariedadTalleres() {
     <section className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column', alignItems: 'center' }}>
-          <img src='/carespejo.svg' className={styles.imgPrincipal} />
+          <img src='/carespejo.svg' className={styles.imgPrincipal} alt='Taller mecanico de carros'/>
           <a style={{ fontSize: '14px', }} href="https://storyset.com/transport">Illustrations by Storyset</a>
         </div>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>

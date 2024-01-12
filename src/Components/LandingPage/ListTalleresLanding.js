@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button';
 import { IconCatalog } from '../Icon/Icon';
+import Image from 'next/image';
 
 let imagesTalleres = [
   { src: 'logopelaezhermanos80723.jpg', nombre: 'Pelaez Hermanos', id: '64aa2e5de3b051b0053a31ff', taller: 'Pelaez Hermanos - Siete de Agosto', userName: 'pelaez_hermanos_7_de_agosto' },
@@ -40,11 +41,13 @@ export default function ListTalleresLanding() {
             {isLoading ? (
               <div className={styles.skeletonLoader} />
             ) : (
-              <img
+              <Image
                 loading='lazy'
                 className={styles.imgFotoTaller}
+                width={64}
+                height={64}
                 src={`https://azurequarks.blob.core.windows.net/negocios/${el.src}`}
-                alt={el.alt}
+                alt={el?.taller}
               />
             )}
             <div className={styles.tooltip}>{el.nombre}</div>

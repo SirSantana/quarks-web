@@ -1,6 +1,7 @@
 import styles from '@/styles/Landing.module.css'
 import Link from 'next/link'
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button'
+import Image from 'next/image'
 
 
 
@@ -15,7 +16,7 @@ export default function SectionGrowthTaller() {
           </Button>
         </div>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column', alignItems: 'center' }}>
-          <img src={'./fotostoredefault.png'} className={styles.imgPrincipal} />
+          <Image width={450} height={400} src={'/fotostoredefault.png'} className={styles.imgPrincipal} alt='La forma mas facil de crecer tu taller mecanico automotriz'/>
         </div>
       </div>
     </section>

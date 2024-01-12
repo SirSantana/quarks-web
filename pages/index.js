@@ -99,7 +99,8 @@ export default function Home({ data }) {
         <SectionVariedadTalleres />
         <SectionPasos />
         <SectionGrowthTaller />
-        {/* <SectionGlosario /> */}
+
+        
         <SectionCalculadoraCombustible />
         <Button style={{
           zIndex: '1000',
@@ -110,9 +111,7 @@ export default function Home({ data }) {
         }} onClick={() => setMode(mode === 0 ? 1 : 0)} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode ? IconCatalog.mapa : IconCatalog.lista}>
           Mostrar {mode ? 'Mapa' : 'Lista'}
         </Button>
-        <Text As={TextAs.h1} tone={TextTone.base}  fontWeight={TextWeight[600]} >
-          Hola a todos
-        </Text>
+        
       </main>
       <Footer />
 

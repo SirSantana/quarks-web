@@ -11,7 +11,7 @@ const generateSiteMap = (data) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-      <loc>https://quarks.com.co</loc>
+      <loc>https://www.quarks.com.co</loc>
     </url>
     ${posts && posts.map(item => {
     return `<url>

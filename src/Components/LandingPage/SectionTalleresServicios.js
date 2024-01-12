@@ -29,7 +29,7 @@ export default function SectionTalleresServicios() {
                 left: '50%',
                 transform: 'translateX(-50%)',
               }}
-              alt={el.nombre}
+              alt={`Talleres de ${el.nombre} cerca a mi en Bogotá`}
             />
           </Link>
         ))}

@@ -8,6 +8,7 @@ import Select from 'react-select'
 import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
 import CategoriasSlider from '../LandingPage/CategoriasSlider';
+import Image from 'next/image';
 
  export const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'Accesorios', url: 'lujos' },
@@ -35,6 +36,7 @@ const initialForm = {
   servicio: 'Taller mecanico',
   localidad: 'Bogota, Colombia'
 }
+
 export default function NewNavbarWithSearch2({ visibleSlider }) {
   const router = useRouter()
   const [open, setOpen] = useState(false)
@@ -53,7 +55,7 @@ export default function NewNavbarWithSearch2({ visibleSlider }) {
       <div ref={ref} className={` ${styles.header}`}>
         <div className={styles.navDiv}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
-            <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
+            <Image alt={'Cotiza tus repuestos logo'} width={32} height={32} src={'/logoquarks200623.png'} />
             <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h3>
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>

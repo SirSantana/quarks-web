@@ -12,6 +12,7 @@ import SliderTiposTalleres from '../LandingPage/SliderTiposTalleres';
 import CategoriasSlider from '../LandingPage/CategoriasSlider';
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import CreatableSelect from 'react-select/creatable';
+import Image from 'next/image';
 
 export const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos' },
@@ -86,6 +87,9 @@ const talleresWithOptions = talleres.talleres.map((taller) => {
     index: taller.userName,
   })
 });
+const imageLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
+}
 export default function NewNavbarWithSearch({ mode }) {
   const router = useRouter()
   const ref = useRef(null)
@@ -117,7 +121,7 @@ export default function NewNavbarWithSearch({ mode }) {
       <div ref={ref} className={styles.header}>
         <div className={styles.navDiv}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
-            <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
+            <Image onLoad={imageLoader} alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} width={32} height={32} />
             <h4 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h4>
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>

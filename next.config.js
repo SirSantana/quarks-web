@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  eslint:{
+  eslint: {
     ignoreDuringBuilds: true,
   },
-  
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'azurequarks.blob.core.windows.net',
+      },
+    ],
+  },
 }
 
 

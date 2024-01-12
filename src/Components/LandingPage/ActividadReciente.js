@@ -1,11 +1,12 @@
 
 import styles from '@/styles/Landing.module.css'
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
-    <img src={stars < index + 1 ? `../star-outline.svg` : `../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} />
+    <img src={stars < index + 1 ? `../star-outline.svg` : `../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} alt={`Calificacion ${stars} del taller`}/>
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
@@ -19,7 +20,7 @@ export default function ActividadReciente() {
             <div style={{ padding: '16px', display: 'flex', gap: '16px', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}>
                 <img
-                alt=' taller mecanico cerca de mi'
+                alt='Taller mecanico cerca de mi'
                   style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}
                   src='https://lh3.googleusercontent.com/a/AAcHTtfUhL85w74kHRxBuMqdxpXlQr62My4xf7Hp-oMUKC_L2Q=s96-c'
                 />
@@ -38,7 +39,7 @@ export default function ActividadReciente() {
               <h4>Mecánica - DJC Los Boyacos</h4>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>
                 {estrellas.map((el, index) => (
-                  <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
+                  <div key={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
                     <Star index={index} stars={5} tamaño={'14'} />
                   </div>
                 ))}
@@ -54,10 +55,11 @@ export default function ActividadReciente() {
           <Link href={'/servicios-automotriz/negocio/64aa313ce3b051b0053a3200-Tu%20Llanta%20-%20Siete%20de%20Agosto'} className={styles.containerCardOpinion}>
             <div style={{ padding: '16px', display: 'flex', gap: '16px', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}>
-                <img
-                  alt='taller mecanico automotriz'
-
-                  style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}
+                <Image
+                  alt='taller mecanico automotriz en Bogota reseña'
+                  width={50}
+                  height={50}
+                  style={{ borderRadius: '25px', backgroundColor: '#f1f1f1' }}
                   src='https://azurequarks.blob.core.windows.net/avatares/imgprofileuser2.png'
                 />
               </div>
@@ -92,9 +94,11 @@ export default function ActividadReciente() {
           <Link href={'/servicios-automotriz/negocio/64b816a0cbf32fcc68b63591-Oil%20Filter´s%207%20DE%20AGOSTO'} className={styles.containerCardOpinion}>
             <div style={{ padding: '16px', display: 'flex', gap: '16px', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}>
-                <img
-                  alt='tallermecanico'
-                  style={{ width: '50px', height: '50px', borderRadius: '25px', backgroundColor: '#f1f1f1' }}
+                <Image
+                  alt='tallermecanico en Bogota'
+                  width={50}
+                  height={50}
+                  style={{ borderRadius: '25px', backgroundColor: '#f1f1f1' }}
                   src='https://azurequarks.blob.core.windows.net/avatares/imgprofileuser.jpg'
                 />
               </div>

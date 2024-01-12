@@ -23,6 +23,7 @@ const categorias = [
   { nombre: 'Tecnico mecánica', img: 'tecnicomecanica', url: 'Tecnico mecanica' },
 
 ];
+
 export default function Navbar() {
   const router = useRouter()
   const [open, setOpen] = useState(false)
@@ -56,7 +57,7 @@ export default function Navbar() {
 
       <header ref={ref} className={` ${scrolled ? styles.headerScrolled : styles.header}`}>
         <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
-          <img alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} className={styles.logo} />
+        <Image alt={'Cotiza tus repuestos logo'} width={32} height={32} src={'/logoquarks200623.png'}  />
           <h1 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.titleNav}>Quarks</h1>
         </Link>
 

@@ -1,10 +1,9 @@
 import styles from '@/styles/Footer.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Logo from '@/public/logoquarks200623.png'
 import InstagramLogo from '@/public/FacebookLogo.png'
 import WhatsappLogo from '@/public/InstagramLogo.png'
-import FacebookLogo from '@/public/WhatsappLogo.png'
+import Image from 'next/image'
 
 
 export default function Footer() {
@@ -44,14 +43,14 @@ export default function Footer() {
         </div>
         <div className={styles.containerSocial}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '8px', margin: '16px 0' }}>
-            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.instagram.com/quarks_app/'><img src={WhatsappLogo.src} className={styles.logo} /></Link>
-            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.facebook.com/profile.php?id=100092259191727'><img src={InstagramLogo.src} className={styles.logo} /></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de instagram de Quarks' href='https://www.instagram.com/quarks_app/'><img src={WhatsappLogo.src} className={styles.logo} alt='Instagram Quarks Talleres Carros colombia'/></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de facebook de Quarks'href='https://www.facebook.com/profile.php?id=100092259191727'><img src={InstagramLogo.src} className={styles.logo} alt='Facebook Quarks Talleres Carros colombia'/></Link>
           </div>
           <p className={styles.subtitleCopy}>(C) copyright Quarks 2023</p>
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center', alignSelf: 'center' }}>
           <h4 style={{ color: 'white', fontSize: '20px', marginBottom: '16px' }}>Quarks</h4>
-          <img src={Logo.src} className={styles.image} />
+          <Image  src={'/logoquarks200623.png'} width={50} height={50} alt={'Logo Quarks Talleres Mecanicos en Bogota'} />
         </div>
       </div>
     </footer>

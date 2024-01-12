@@ -25,7 +25,7 @@ export default function Button({ children, size = ButtonSize.base, active = fals
       <Link href={href} className={`${styles.button} ${variantButton} ${sizeButton}`}
         style={{ ...style, width: fullWidth && '100%' }}>
         {children}
-        {icon && <Icon name={IconCatalog[icon]} size='md' style={{ fontSize: '20px', color: 'white' }} />}
+        {icon && <Icon name={icon} size='md' style={{ fontSize: '20px', color: 'white' }} />}
       </Link>
       :
       <button

@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import styles from '@/styles/HomeArticulos.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export default function CategoriasSlider({ categorias, mode }) {
   const router = useRouter()
@@ -41,6 +42,7 @@ export default function CategoriasSlider({ categorias, mode }) {
       <Slider  {...settings}>
         {categorias.map((categoria, index) => (
           <Link
+          prefetch={false}
             href={mode
               ?
               `/servicios-automotriz/${categoria.url.replace(/ /g,'-')}`
@@ -51,7 +53,7 @@ export default function CategoriasSlider({ categorias, mode }) {
             className={styles.categoria}
           >
             <div className={styles.centeredContent}>
-              <img src={router.pathname === '/' ? `./${categoria.img}.png` : `../../${categoria.img}.png`} style={{ height: '32px', width: '32px' }} alt={categoria.nombre} />
+              <Image src={`/${categoria.img}.png`} width={32} height={32}  alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
               {categoriaServicio?.replace(/-/g,' ') === categoria.nombre ?
                 <>
                   <h3 className={styles.textCategoriaTallerA}>{categoria.nombre}</h3>

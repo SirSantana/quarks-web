@@ -15,7 +15,7 @@ const generateSiteMap = (data) => {
     ${posts && posts.map(item => {
     return `<url>
         <loc>
-          https://www.quarks.com.co/servicios-automotriz/${item.nombre.replace(/ /g,'-')}
+          https://quarks.com.co/servicios-automotriz/${item.nombre.replace(/ /g,'-')}
         </loc>
       </url>`;
   }).join('')}
