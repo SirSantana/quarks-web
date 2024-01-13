@@ -1,9 +1,6 @@
 import styles from '@/styles/Landing.module.css'
-import Link from 'next/link'
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button'
 import Image from 'next/image'
-
-
 
 export default function SectionGrowthTaller() {
   return (

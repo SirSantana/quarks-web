@@ -1,5 +1,4 @@
 import styles from '@/styles/Landing.module.css'
-import Link from 'next/link'
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button'
 import { IconCatalog } from '../Icon/Icon'
 import Image from 'next/image'

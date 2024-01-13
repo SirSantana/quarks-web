@@ -1,8 +1,5 @@
 import styles from '@/styles/Landing.module.css'
-import Link from 'next/link'
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button'
-
-
 
 
 export default function SectionPasos() {
@@ -11,7 +8,6 @@ export default function SectionPasos() {
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
           <h2 className={styles.title2}>Encuentra el mejor taller para tu carro</h2>
-         
           <Button link={true} href={'/'} variant={ButtonVariant.primary} size={ButtonSize.base} >
             Encuentra aqui
           </Button>

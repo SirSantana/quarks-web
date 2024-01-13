@@ -15,7 +15,7 @@
       "pais": "Colombia",
       "userName": "pelaez_hermanos_toberin",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 4:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1688926374496!5m2!1ses-419!2sco!6m8!1m7!1sANrTU329n-R6vf1_1ecdEg!2m2!1d4.740357635156229!2d-74.04139687701054!3f166.3970195434396!4f3.4387836172710564!5f0.7820865974627469",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705160013791!6m8!1m7!1syRlE1dLKaOW0Ln-6RjsPQA!2m2!1d4.740355488295536!2d-74.04136397664801!3f197.75796132968895!4f3.591413051310596!5f0.7820865974627469",
     "nivel":1,
       "lat": 4.740293,
       "lng": -74.041391,
@@ -38,7 +38,7 @@
     "nivel":3,
     "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 4:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1688926554016!6m8!1m7!1sZNfqvAwBZaKejAHlEbCAHg!2m2!1d4.658151934000678!2d-74.0724819425688!3f96.63200643808467!4f-5.89585580265053!5f0.7820865974627469",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705160545857!6m8!1m7!1sZNfqvAwBZaKejAHlEbCAHg!2m2!1d4.658151934000678!2d-74.0724819425688!3f100.60013143780732!4f-5.899522371313438!5f0.7820865974627469",
       "lat": 4.658190,
       "lng": -74.072442,
       "emojisservicio":"servicio-bateria",
@@ -64,7 +64,7 @@
     "nivelnegocio": "1",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1688926689707!5m2!1ses-419!2sco!6m8!1m7!1sGF9B1QMk8BrxwpwRWAhmcQ!2m2!1d4.665502534415418!2d-74.07501483779421!3f134.77381451503734!4f1.5143864075036078!5f0.7820865974627469",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705160628856!6m8!1m7!1sE-SSBQelOgipExsjPfEYZw!2m2!1d4.665466272637263!2d-74.07507955125823!3f130.53996381744827!4f6.698780053347548!5f0.7820865974627469",
       "lat": 4.665440,
       "lng": -74.075006,
       "emojisservicio":"servicio-llantas",
@@ -95,7 +95,7 @@
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/tallerseikulogo100723.png",
       "id": "64abffd94af55626ad913245",
       "horario": "Lun 6:00 AM - 6:00 PM,Mar 6:00 AM - 6:00 PM,Mié 6:00 AM - 6:00 PM,Jue 6:00 AM - 6:00 PM,Vie 6:00 AM - 6:00 PM,Sáb 7:00 AM - 12:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6519116011514!2d-74.06801949999999!3d4.6560136000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b8777785583%3A0x5821d3652043c492!2sTaller%20Mec%C3%A1nico%20Seikou%20-%20Taller%20Subaru%20Multimarca!5e0!3m2!1ses!2sco!4v1688994061453!5m2!1ses!2sco",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705160894049!6m8!1m7!1sjepAUYtAlhQWy-2Y-PUlug!2m2!1d4.656144206284107!2d-74.06809144469833!3f100.81268724373614!4f0.8755163972764564!5f0.4000000000000002",
       "lng": -74.068119,
       "lat": 4.656088,
       "servicio":"Mecanica General",
@@ -127,11 +127,11 @@
       "servicio":"Mecanica General",
       "emojisservicio":"servicio-llantas",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 4:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d394.2968610273661!2d-74.02935876655026!3d4.700666136964494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f900742a4ab39%3A0x893493b3c7e5203b!2sTaller%20Pel%C3%A1ez%20Hermanos%20S%20A!5e0!3m2!1ses-419!2sco!4v1689078799800!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162129488!6m8!1m7!1saIUEzzHIXSg63fxVFoOdIA!2m2!1d4.700875468790908!2d-74.02915647359494!3f195.70583!4f0!5f0.7820865974627469"
     },
     {
       "nombre": "Pelaez Hermanos - San Fernando",
-      "direccion": "Av.Clle 68 No. 66-15",
+      "direccion": "Cl. 68 # 66-15",
       "categorias": [
         "Servicio de Baterias",
         "Taller mecanico"
@@ -149,7 +149,7 @@
       "servicio":"Baterias",
       "emojisservicio":"servicio-bateria",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 2:30 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1689079090544!5m2!1ses-419!2sco!6m8!1m7!1s9u7gif5S1nH-tKpCmF3yww!2m2!1d4.676083603740192!2d-74.08499452120509!3f245.7069708579426!4f2.1798801953024167!5f0.7820865974627469"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162278982!6m8!1m7!1sO_r0e2L3FV8YOpCCN7NA8A!2m2!1d4.676199022338025!2d-74.08506935899389!3f229.3291484884948!4f0.6437859110347972!5f0.7820865974627469"
     },
     {
       "nombre": "El Mundo del Amortiguador La 27",
@@ -173,7 +173,7 @@
       "emojisservicio":"servicio-suspension",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sco!4v1689079090544!5m2!1ses-419!2sco!6m8!1m7!1s9u7gif5S1nH-tKpCmF3yww!2m2!1d4.676083603740192!2d-74.08499452120509!3f245.7069708579426!4f2.1798801953024167!5f0.7820865974627469"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162464984!6m8!1m7!1s03guPx2-WwD8DLENQqr0ww!2m2!1d4.656880201943785!2d-74.07250085493116!3f119.8154953875689!4f1.8617991652810417!5f0.7820865974627469"
     },
     {
       "nombre": "La boutique del amortiguador - Prado",
@@ -197,7 +197,7 @@
       "emojisservicio":"servicio-suspension",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.3057692600937!2d-74.05661618932868!3d4.71685354149732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8519d37551e1%3A0x6f2b3e5717ec7807!2sEl%20Mundo%20Del%20Amortiguador%20Prado!5e0!3m2!1ses-419!2sco!4v1692973587925!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162590801!6m8!1m7!1sQw-fRg7sSnfPSICzFFc5zg!2m2!1d4.717097160909637!2d-74.05327111518302!3f278.0995635623693!4f-8.01428068130167!5f0.7820865974627469"
     },
     {
       "nombre": "Mecanicos Asociados Taller M.A",
@@ -276,7 +276,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 9:00 AM - 1:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1988.2888527380576!2d-74.0694723!3d4.6691231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b0742b2850b%3A0x6bcecaf28893a584!2sMath%20Autos!5e0!3m2!1ses-419!2sco!4v1690472996889!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162989473!6m8!1m7!1syi5tYqM48MDzZpLEq1ZRpw!2m2!1d4.668997578994937!2d-74.06945307194475!3f357.17499425180733!4f-10.478762279489189!5f0.7820865974627469"
     },
     {
       "nombre": "Multiservicios Ismael Sanchez",
@@ -356,11 +356,11 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:00 PM,Mar 8:00 AM - 5:00 PM,Mié 8:00 AM - 5:00 PM,Jue 8:00 AM - 5:00 PM,Vie 8:00 AM - 5:00 PM,Sáb 8:00 AM - 5:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5212242640355!2d-74.10311548927015!3d4.67907669527622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9c3e08161375%3A0xa8eaffb1ced6b0ec!2sTaller%20Optra%20Club%20Colombia!5e0!3m2!1ses-419!2sco!4v1690472916365!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163083699!6m8!1m7!1s3_N-2Xb3XxUeXwE70OGEBQ!2m2!1d4.679317221983689!2d-74.10058604100333!3f123.97431905716934!4f-0.1722877651478285!5f2.3878287461720915"
     },
     {
       "nombre": "Aires Acondicionados JC",
-      "direccion": "Calle 66 a # 78 -10",
+      "direccion": "Calle 66a # 78 -10",
       "categorias": [
         "Servicio de Aire acondicionado",
         "Servicio de Caja y Transmision",
@@ -379,7 +379,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 5:30 PM,Mar 8:30 AM - 5:30 PM,Mié 8:30 AM - 5:30 PM,Jue 8:30 AM - 5:30 PM,Vie 8:30 AM - 5:30 PM,Sáb 8:30 AM - 3:30 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163266957!6m8!1m7!1sD7144aBYlFi1STTBXdkPlg!2m2!1d4.686182022248376!2d-74.10543237804738!3f235.10952655341362!4f7.485729355406846!5f0.808241331200644"
     },
     {
       "nombre": "Alineautos Serviteca",
@@ -406,7 +406,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8740369812217!2d-74.15949598927054!3d4.616550195338794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9f5fbfb1b4a5%3A0xbc79cb58462cd670!2sAlineautos%20Serviteca!5e0!3m2!1ses-419!2sco!4v1690472892300!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163417962!6m8!1m7!1s9JuqURRUW_PH4lfN2gaUCQ!2m2!1d4.616407894298578!2d-74.15702933688789!3f318.58306969926366!4f1.99242818714103!5f0.7820865974627469"
     },
     {
       "nombre": "Talleres Caldas",
@@ -433,7 +433,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 3:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163512860!6m8!1m7!1s4EuUzbMBLWG1AM3nDZkQRA!2m2!1d4.672771587959822!2d-74.0744399446349!3f337.33719425327064!4f0.3035966568674269!5f0.7820865974627469"
     },
     {
       "nombre": "Talleres Padilla",
@@ -458,7 +458,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 9:00 AM - 5:00 PM,Mar 9:00 AM - 5:00 PM,Mié 9:00 AM - 5:00 PM,Jue 9:00 AM - 5:00 PM,Vie 9:00 AM - 5:00 PM,Sáb 9:00 AM - 5:00 PM,Dom Cerrado",
-      "ubicacionmaps": ""
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163567397!6m8!1m7!1s93U4jh__G1wUz4XVBZVfjw!2m2!1d4.639772619363391!2d-74.07157495364194!3f68.26443491489877!4f5.8391890992586895!5f1.804428668659606"
     },
     {
       "nombre": "Oil Filter´s 7 DE AGOSTO",
@@ -504,7 +504,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 7:00 PM,Dom 9:00 AM - 1:00",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.351297161219!2d-74.14151308927013!3d4.708896095246374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f8348c026bf11%3A0xad1e5c3680c8bd19!2sOil%20Filter&#39;s%20Engativa!5e0!3m2!1ses-419!2sco!4v1690472601602!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163676766!6m8!1m7!1sgQzAAWz0bBvofOjlqEl5AA!2m2!1d4.709051119652486!2d-74.13882503689408!3f228.78224222256526!4f0.12615535311331882!5f0.7820865974627469"
     },
     {
       "nombre": "Oil Filter´s Fontibon",
@@ -527,7 +527,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 7:30 AM - 7:00 PM,Mar 7:30 AM - 7:00 PM,Mié 7:30 AM - 7:00 PM,Jue 7:30 AM - 7:00 PM,Vie 7:30 AM - 7:00 PM,Sáb 7:30 AM - 4:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.547737271524!2d-74.15186105529938!3d4.67440698322018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9c8a5314f0eb%3A0xae0616178e923b73!2sOil%20Filter&#39;s%20Fontibon%20103!5e0!3m2!1ses-419!2sco!4v1690472504574!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163862220!6m8!1m7!1skXu50WO7gJqZH52cGNIerg!2m2!1d4.67439920416801!2d-74.14723536813186!3f46.948563!4f0!5f0.7820865974627469"
     },
     {
       "nombre": "Solo frenos del norte",
@@ -551,7 +551,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.501782542053!2d-74.06620328927018!3d4.682497995272814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ae8c1ab0251%3A0x53106a0ab169da3c!2sSolo%20Frenos%20Del%20Norte!5e0!3m2!1ses-419!2sco!4v1690472458084!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705163908058!6m8!1m7!1sVsRgWANdQTDh7jPn7qKqWg!2m2!1d4.682374736691775!2d-74.06355993671909!3f258.7160983678427!4f-0.6215333561898291!5f0.7820865974627469"
     },
 
     {
@@ -577,7 +577,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 1:30 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.347559932605!2d-74.09733748255616!3d4.709549800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f85097ef1ca87%3A0x1114abedb4d54ad2!2sServifrenos%20y%20suspensi%C3%B3n%20BOGOT%C3%81!5e0!3m2!1ses-419!2sco!4v1690472720861!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705164006153!6m8!1m7!1syjgqm-nKrLUmreSb1A3RTA!2m2!1d4.709722026044095!2d-74.09492071017404!3f298.15935570754857!4f4.111051151802556!5f1.5222827487004906"
     },
     {
       "nombre": "A Tiempo Cars",
@@ -599,7 +599,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.1859576965253!2d-74.03310708926988!3d4.737730695217555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f857d796544a5%3A0x8cd4184c863901cb!2sLatoner%C3%ADa%20y%20Pintura%20Express%20A%20Tiempo%20Cars!5e0!3m2!1ses-419!2sco!4v1690472165868!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705164141871!6m8!1m7!1sOS5zfxZ7OINdQQIQZp4Oag!2m2!1d4.7378322126551!2d-74.03044414844172!3f203.34447910447795!4f-5.760579432021515!5f0.7820865974627469"
     },
     {
       "nombre": "Lumaz - Latoneria y Pintura",
@@ -620,7 +620,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5915419181924!2d-74.06906538927029!3d4.666681495288642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9af80af195e7%3A0xaf76e5a00a6eaa88!2sLumaz%20-%20Latoneria%20y%20Pintura%20Automotriz!5e0!3m2!1ses-419!2sco!4v1690472125762!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705164201260!6m8!1m7!1s1M2dm9q4JFzVT63lMBIU8g!2m2!1d4.666714849695961!2d-74.06655098617715!3f122.96807089102651!4f5.0733057251324!5f0.7820865974627469"
     },
     {
       "nombre": "DACAR PLUS Latoneria y pintura",
@@ -662,7 +662,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:00 AM - 6:00 PM,Dom 9:00 AM - 2:00 PM",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.64878784659!2d-74.07757198927035!3d4.656566195298741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a4d625ed921%3A0x5543323bffa48a84!2sAire%20Acondicionado%207%20de%20agosto!5e0!3m2!1ses-419!2sco!4v1690471780321!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705164362821!6m8!1m7!1sUIxkmvVH7W1xnoloF6H_tQ!2m2!1d4.656667068147001!2d-74.07509765668325!3f89.4516118859965!4f1.776376632277632!5f0.7820865974627469"
     },
     {
       "nombre": "ICEBERG TECNOLOGÍA - RADIADORES Y AIRE ACONDICIONADO",
@@ -683,7 +683,7 @@
       "nivelnegocio": "0",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:30 PM,Mar 8:30 AM - 6:30 PM,Mié 8:30 AM - 6:30 PM,Jue 8:30 AM - 6:30 PM,Vie 8:30 AM - 6:30 PM,Sáb 8:30 AM - 4:00 PM,Dom Cerrado",
-      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.650370133752!2d-74.07936648927031!3d4.656286295299044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bf9b9c7eac7%3A0x64f2d1032e843bf8!2sICEBERG%20TECNOLOG%C3%8DA%20-%20RADIADORES%20Y%20AIRE%20ACONDICIONADO!5e0!3m2!1ses-419!2sco!4v1690471728065!5m2!1ses-419!2sco"
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705164472332!6m8!1m7!1s-T8zSphPg7pC2EMHT0vjOw!2m2!1d4.656425448373817!2d-74.0766556130431!3f184.6954993512723!4f2.7366030281178553!5f2.0563302785431814"
     },
     {
       "nombre": "Cajas Automáticas Mendez",

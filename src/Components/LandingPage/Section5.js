@@ -1,7 +1,7 @@
 import styles2 from '@/styles/Landing.module.css'
 import Link from 'next/link'
 import styles from '@/styles/Faq.module.css'
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { CREATE_CONSUMO } from '@/graphql/mutations';
 import { useEffect, useState } from 'react';
@@ -14,39 +14,10 @@ export default function SectionCalculadoraCombustible() {
   const [galones, setGalones] = useState(12);
   const [consumo, setConsumo] = useState()
   const [galon, setGalon] = useState()
-  const [registros, setRegistros] = useState([]);
-  const [check, setCheck] = useState(false)
-  const [createConsumo, result] = useMutation(CREATE_CONSUMO)
-  useEffect(() => {
-    // Cargar registros desde el localStorage al montar el componente
-    const savedRegistros = JSON.parse(localStorage.getItem('registros'));
-
-    if (savedRegistros) {
-      setRegistros(savedRegistros);
-    }
-  }, []);
-  const handleGuardar = () => {
-    if (check) {
-      return alert('Ya guardaste este consumo')
-    } else {
-      const nuevoRegistro = {
-        fecha: new Date().toLocaleString(),
-        consumo: consumo.toFixed(2),
-        galon: galon.toFixed(2),
-      };
-      setCheck(true)
-      const nuevosRegistros = [...registros, nuevoRegistro];
-      setRegistros(nuevosRegistros);
-      localStorage.setItem('registros', JSON.stringify(nuevosRegistros));
-      createConsumo({ variables: { fecha: nuevoRegistro.fecha, galon: String(nuevoRegistro.galon), consumo: String(nuevoRegistro.consumo) } })
-      alert('Guardado correctamente')
-    }
-  };
 
   useEffect(() => {
     setConsumo((galones / kilometros) * 100)
     setGalon(kilometros / galones)
-    setCheck(false)
   }, [galones, kilometros])
   return (
     <section className={styles2.containerListTalleres}>
@@ -61,7 +32,6 @@ export default function SectionCalculadoraCombustible() {
               max={600}
               defaultValue={kilometros}
               onChange={(value) => setKilometros(value)}
-
               trackStyle={[{ backgroundColor: '#f50057', height: '8px' }]}
               handleStyle={[
                 { backgroundColor: '#f50057', height: '18px', width: '18px' },
@@ -92,10 +62,7 @@ export default function SectionCalculadoraCombustible() {
               <p className={styles.pSubtitle}>0 Gl</p>
               <p className={styles.pSubtitle}>20 Gl</p>
             </div>
-
           </div>
-
-
         </div>
 
         <div className={styles.containerCardRendimiento}>
@@ -112,8 +79,6 @@ export default function SectionCalculadoraCombustible() {
               Calcular consumo
             </button>
           </Link>
-
-
         </div>
 
       </div>

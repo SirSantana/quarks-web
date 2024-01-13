@@ -2,7 +2,6 @@
 import styles from '@/styles/Landing.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 const Star = ({ index, stars, tamaño, }) => {
   return (

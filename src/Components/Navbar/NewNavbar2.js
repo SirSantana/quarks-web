@@ -4,11 +4,8 @@ import styles from '@/styles/Navbar.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useRef, useState } from 'react';
-import Select from 'react-select'
-// import { customStyles, options2 } from '../Main/Main'
 import styles2 from '@/styles/Landing.module.css'
 import FirstNewScreen from '../LandingPage/FirstNewScreen';
-import SliderTiposTalleres from '../LandingPage/SliderTiposTalleres';
 import CategoriasSlider from '../LandingPage/CategoriasSlider';
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import CreatableSelect from 'react-select/creatable';
@@ -87,20 +84,15 @@ const talleresWithOptions = talleres.talleres.map((taller) => {
     index: taller.userName,
   })
 });
-const imageLoader = ({ src, width, quality }) => {
-  return `https://example.com/${src}?w=${width}&q=${quality || 75}`
-}
+
 export default function NewNavbarWithSearch({ mode }) {
   const router = useRouter()
   const ref = useRef(null)
   const [form, setForm] = useState(initialForm)
 
-  const categoriaRouter = router?.query?.id?.split("-")[0]
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    // router.push(`/servicios-automotriz/${form.servicio}-${form.localidad}`)
     router.push(`/catalogo-pastas-freno?busqueda=${form.servicio}`)
   }
   const handleChange = (e) => {
@@ -111,63 +103,31 @@ export default function NewNavbarWithSearch({ mode }) {
       router.push(`/servicios-automotriz?busqueda=${e.value}`)
     }
   }
-  const sendMessage = (problema) => {
-    let url = `https://api.whatsapp.com/send?phone=57${3202754087}`;
-
-    window.open(url);
-  }
   return (
     <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', }} >
       <div ref={ref} className={styles.header}>
         <div className={styles.navDiv}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
-            <Image onLoad={imageLoader} alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} width={32} height={32} />
+            <Image loading='lazy' alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} width={32} height={32} />
             <h4 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h4>
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
-            {/* <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} /> */}
             <div style={{ width: '100%', maxWidth: '100%' }}>
               <CreatableSelect onChange={handleChange} options={talleresWithOptions} styles={customStyles} placeholder='Buscar taller' noOptionsMessage={() => 'No se encontro ningun repuesto'} isSearchable isClearable />
             </div>
-            {/* <div className={styles.separatorSearch} />
-            <div className={styles2.select2}>
-
-              <Select onChange={(e) => setForm({ ...form, localidad: e.value })} options={options2} styles={customStyles} defaultValue={options2[0]} />
-            </div> */}
             <div onClick={handleSubmit} style={{ cursor: 'pointer' }} className={styles2.buttonSearch}>
               <ion-icon style={{ color: 'white', fontSize: '20px' }} name="search-outline"></ion-icon>
             </div>
           </form>
           <nav className={styles.navv}>
-            {/* <div className={styles.talleres}>
-              <p style={{ listStyle: 'none', cursor: 'pointer', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' ? '#373737' : '#373737' }} className={styles.subtitle}>Talleres mecanicos</p>
-              <div className={styles.tooltip}>
-                <ul className={styles.ulTipos}>
-                  {categorias.map(el => (
-                    <li style={{ color: '#373737' }} className={styles.liCategory} onClick={() => router.push(`/servicios-automotriz/${el.url}-Bogota,%20Colombia`)} key={el.nombre}>
-                      <img src={router.pathname === '/' ? `./${el.img}.png` : `../../${el.img}.png`} style={{ height: '20px', width: '20px' }} />
-                      {categoriaRouter === el.nombre || (router?.pathname === '/' && el.nombre === 'Alineación y balanceo') ?
-                        <p className={styles.textCategoriaTallerA}>{el.nombre}</p>
-                        :
-                        <p className={styles.textCategoriaTaller}>{el.nombre}</p>
-                      }
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div> */}
             <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/acceso'}>Tienes un Taller?</Link>
           </nav>
         </div>
         <section className={styles.sectionSliderShowNav}>
           <CategoriasSlider categorias={categorias} mode={mode} />
         </section>
-
       </div>
-
       <FirstNewScreen mode={mode} />
-
-      {/* <button onClick={sendMessage}>What</button> */}
     </header>
 
   )

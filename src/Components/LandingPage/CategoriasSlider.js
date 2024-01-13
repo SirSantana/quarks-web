@@ -52,7 +52,7 @@ export default function CategoriasSlider({ categorias, mode }) {
             className={styles.categoria}
           >
             <div className={styles.centeredContent}>
-              <Image src={`/${categoria.img}.png`} width={32} height={32}  alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
+              <Image  src={`/${categoria.img}.png`} width={32} height={32}  alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
               {categoriaServicio?.replace(/-/g,' ') === categoria.nombre ?
                 <>
                   <h3 className={styles.textCategoriaTallerA}>{categoria.nombre}</h3>

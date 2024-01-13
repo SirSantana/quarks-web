@@ -1,22 +1,19 @@
 import styles from '@/styles/Footer.module.css'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import InstagramLogo from '@/public/FacebookLogo.png'
 import WhatsappLogo from '@/public/InstagramLogo.png'
 import Image from 'next/image'
 
-
 export default function Footer() {
-  const router = useRouter()
   return (
     <footer>
       <div className={styles.containerFooter}>
         <div className={styles.containerFooter2}>
           <div className={styles.containerText}>
             <h4 className={styles.title2}>Talleres mecanicos</h4>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/lujos-Bogota,%20Colombia/'}>Talleres de Accesorios y Lujos</Link>
-            <Link className={styles.subtitle}  style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Aire%20acondicionado-Bogota,%20Colombia'}>Talleres de Aire acondicionado</Link>
-            <Link className={styles.subtitle}  style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Alineación%20y%20balanceo-Bogota,%20Colombia'}>Talleres de Alineación y balanceo</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/lujos'}>Talleres de Accesorios y Lujos</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Aire%20acondicionado-Bogota,%20Colombia'}>Talleres de Aire acondicionado</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Alineación%20y%20balanceo-Bogota,%20Colombia'}>Talleres de Alineación y balanceo</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Baterias-Bogota,%20Colombia'}>Talleres de Baterias</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Cajas-Bogota,%20Colombia'}>Talleres de Caja y transmisión</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Cambio%20de%20aceite-Bogota,%20Colombia'}>Talleres de Cambio de aceite</Link>
@@ -27,7 +24,7 @@ export default function Footer() {
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Frenos-Bogota,%20Colombia'}>Talleres de Frenos</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Inyeccion-Bogota,%20Colombia'}>Talleres de Inyeccion</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Latoneria%20y%20pintura-Bogota,%20Colombia'}>Talleres de Latonería y pintura</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/Mecanico%20a%20Domicilio-Bogota,%20Colombia'}>Mecanico a domicilio</Link>
+            {/* <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/Mecanico%20a%20Domicilio-Bogota,%20Colombia'}>Mecanico a domicilio</Link> */}
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Motor-Bogota,%20Colombia'}>Talleres de Motor</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Peritaje-Bogota,%20Colombia'}>Talleres de Peritaje</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Sincronizacion-Bogota,%20Colombia'}>Talleres de Sincronización</Link>
@@ -43,14 +40,14 @@ export default function Footer() {
         </div>
         <div className={styles.containerSocial}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '8px', margin: '16px 0' }}>
-            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de instagram de Quarks' href='https://www.instagram.com/quarks_app/'><img src={WhatsappLogo.src} className={styles.logo} alt='Instagram Quarks Talleres Carros colombia'/></Link>
-            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de facebook de Quarks'href='https://www.facebook.com/profile.php?id=100092259191727'><img src={InstagramLogo.src} className={styles.logo} alt='Facebook Quarks Talleres Carros colombia'/></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de instagram de Quarks' href='https://www.instagram.com/quarks_app/'><img src={WhatsappLogo.src} className={styles.logo} alt='Instagram Quarks Talleres Carros colombia' /></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de facebook de Quarks' href='https://www.facebook.com/profile.php?id=100092259191727'><img src={InstagramLogo.src} className={styles.logo} alt='Facebook Quarks Talleres Carros colombia' /></Link>
           </div>
           <p className={styles.subtitleCopy}>(C) copyright Quarks 2023</p>
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center', alignSelf: 'center' }}>
           <h4 style={{ color: 'white', fontSize: '20px', marginBottom: '16px' }}>Quarks</h4>
-          <Image  src={'/logoquarks200623.png'} width={50} height={50} alt={'Logo Quarks Talleres Mecanicos en Bogota'} />
+          <Image src={'/logoquarks200623.png'} width={50} height={50} alt={'Logo Quarks Talleres Mecanicos en Bogota'} />
         </div>
       </div>
     </footer>

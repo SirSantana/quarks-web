@@ -6,12 +6,8 @@ import ListTalleresLanding from '@/src/Components/LandingPage/ListTalleresLandin
 import SectionVariedadTalleres from '@/src/Components/LandingPage/Section1'
 import SectionCotizaciones from '@/src/Components/LandingPage/Section2'
 import SectionGlosario from '@/src/Components/LandingPage/Section3'
-import SectionGrowthTaller from '@/src/Components/LandingPage/SectionGrowthTaller'
 import SectionPasos from '@/src/Components/LandingPage/Section4'
-import ActividadReciente from '@/src/Components/LandingPage/ActividadReciente'
-import SectionCalculadoraCombustible from '@/src/Components/LandingPage/Section5'
 import NewNavbarWithSearch from '@/src/Components/Navbar/NewNavbar2'
-import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
 import dynamic from 'next/dynamic'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import { useState } from 'react'
@@ -20,12 +16,21 @@ import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Butto
 import { IconCatalog } from '@/src/Components/Icon/Icon'
 import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
 
+const SectonFilters = dynamic(()=> import('@/src/Components/LandingPage/SectionFilters'),
+{ ssr: false})
+const SectionGrowthTaller = dynamic(()=> import('@/src/Components/LandingPage/SectionGrowthTaller'),
+{ ssr: false})
+const SectionCalculadoraCombustible = dynamic(()=> import('@/src/Components/LandingPage/Section5'),
+{ ssr: false})
+const ActividadReciente = dynamic(()=> import('@/src/Components/LandingPage/ActividadReciente'),
+{ ssr: false})
+const Map = dynamic(
+  () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
+  { ssr: false, loading: () => <div className={styles.skeleton}/> } // This line is important. It's what prevents server-side render
+)
 
 export default function Home({ data }) {
-  const Map = dynamic(
-    () => import('../src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
-    { ssr: false, loading: () => <div className={styles.skeleton}/> } // This line is important. It's what prevents server-side render
-  )
+  
   const [mode, setMode] = useState(0)
 
   return (
@@ -97,8 +102,6 @@ export default function Home({ data }) {
         <SectionVariedadTalleres />
         <SectionPasos />
         <SectionGrowthTaller />
-
-
         <SectionCalculadoraCombustible />
         <Button style={{
           zIndex: '1000',

@@ -1,8 +1,5 @@
 import styles from '@/styles/Landing.module.css'
-import Link from 'next/link'
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button'
-
-
 
 export default function SectionVariedadTalleres() {
   return (
