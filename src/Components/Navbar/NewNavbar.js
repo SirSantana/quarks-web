@@ -59,7 +59,7 @@ export default function NewNavbarWithSearch2({ visibleSlider }) {
             <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h3>
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
-            <input onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} />
+            <input aria-label='Search' onChange={(e) => setForm({ ...form, servicio: e.target.value })} className={styles.input} type="search" id="search" placeholder={'Buscar...'} />
             <div className={styles.separatorSearch} />
             <div className={styles2.select2}>
               <Select onChange={(e) => setForm({ ...form, localidad: e.value })} options={options2} styles={customStyles} defaultValue={options2[0]} />
@@ -69,23 +69,6 @@ export default function NewNavbarWithSearch2({ visibleSlider }) {
             </div>
           </form>
           <ul className={styles.navv}>
-            {/* <div className={styles.talleres}>
-              <li style={{ listStyle: 'none', cursor: 'pointer', textDecoration: 'none', color: router?.pathname === '/servicios-automotriz/Taller mecanico-Bogota, Colombia' ? '#373737' : '#373737' }} className={styles.subtitle}>Talleres</li>
-              <div className={styles.tooltip}>
-                <ul className={styles.ulTipos}>
-                  {categorias.map(el => (
-                    <li style={{ color: '#373737' }} className={styles.liCategory} onClick={() => router.push(`/servicios-automotriz/${el.url}-Bogota,%20Colombia`)} key={el.nombre}>
-                      <img src={router.pathname === '/' ? `./${el.img}.png` : `../../${el.img}.png`} style={{ height: '20px', width: '20px' }} />
-                      {categoriaRouter === el.nombre || (router?.pathname === '/' && el.nombre === 'Alineación y balanceo') ?
-                        <p className={styles.textCategoriaTallerA}>{el.nombre}</p>
-                        :
-                        <p className={styles.textCategoriaTaller}>{el.nombre}</p>
-                      }
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div> */}
             <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/acceso'}>Tienes un Taller?</Link>
           </ul>
         </div>

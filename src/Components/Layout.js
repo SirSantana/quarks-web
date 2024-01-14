@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Footer from './Footer/Footer'
-import NewNavbarWithSearch2 from './Navbar/NewNavbar'
 import Nav from './Navbar/Nav'
 function generarMarcadoEstructurado(articulo) {
   if (articulo) {
@@ -64,7 +63,7 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta property="og:image:height" content='200' />
         <meta property="og:image:type" content='image/png' />
 
-        {tags?.map(tag => <meta property='article:tag' content={tag} />)}
+        {tags?.map(tag => <meta key={tag} property='article:tag' content={tag} />)}
         {fecha &&
           <>
             <meta property='article:published_time' content={fecha} />
@@ -80,14 +79,10 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         
         <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"></link>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
-        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+       
         {productoMarcado &&
           <script
             type="application/ld+json"

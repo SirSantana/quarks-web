@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
-    <img src={stars < index + 1 ? `../../star-outline.svg` : `../../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px`, }} />
+    <img alt='Calificacion taller mecanico' src={stars < index + 1 ? `../../star-outline.svg` : `../../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px`, }} />
   )
 }
 
@@ -26,7 +26,6 @@ export default function Reseñas({ id }) {
       <div onClick={handlerLoginOpinion} className={styles.containerHeaderCalendario} style={{ cursor: 'pointer', backgroundColor: '#373737', justifyContent: 'space-between', border: '1px solid #d6d6d6', display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '20px', boxSizing: 'border-box', gap: '16px', margin: '0 auto', borderRadius: '16px', maxWidth: '500px' }}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
           <ion-icon style={{ fontSize: '24px', color: 'white' }} name="add-circle"></ion-icon>
-
           <p style={{ fontSize: '16px', fontWeight: '700', color: 'white', }}>Agregar Reseña</p>
         </div>
 

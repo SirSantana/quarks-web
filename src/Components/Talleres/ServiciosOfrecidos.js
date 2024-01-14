@@ -11,6 +11,7 @@ import { MagicMotion } from 'react-magic-motion';
 import EditCategories from './EditServicios';
 import { client } from '@/client';
 import { GET_SERVICIOS_NEGOCIO } from '@/graphql/queries';
+import Image from 'next/image';
 
 export const categorias2 = [
   { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos', db: "Servicio de Accesorios y Lujos" },
@@ -116,11 +117,11 @@ export default function ServidosOfrecidos({ data, user, setEditModeHiddenButtons
         {categorias.map(el => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           return (
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
+            <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
               {category?.img
                 ?
                 <div style={{ borderRadius: '10px', width: '40px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center',  }}>
-                  <img src={`./${category?.img}.png`} style={{ width: '30px', height: '30px' }} />
+                  <Image width={30} height={30} alt={`Taller de ${category ? category?.nombre : el} de autos`} src={`/${category?.img}.png`}/>
                 </div>
                 :
                 <div style={{ position: 'relative', width: '40px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

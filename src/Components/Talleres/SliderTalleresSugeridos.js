@@ -5,6 +5,7 @@ import { categorias2 } from './ServiciosOfrecidos';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Image from 'next/image';
 
 export default function SliderTalleresSugeridos() {
 
@@ -29,18 +30,18 @@ export default function SliderTalleresSugeridos() {
 
         {talleresRecomendados.map(taller => (
 
-          <Link href={`/${taller.userName}`} className={styles.slide} >
+          <Link key={taller?.userName} href={`/${taller.userName}`} className={styles.slide} >
             <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '0 0 16px 0', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', flexDirection: 'row', gap: '8px' }}>
                 {taller?.fotoperfil
                   ?
-                  <img style={{ height: '48px', width: '48px', borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={taller?.fotoperfil} alt="Nombre del lugar" />
+                  <Image height={48} width={48} style={{  borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={taller?.fotoperfil} alt={`Taller de carros ${taller.userName}`} />
                   :
-                  <img style={{ height: '48px', width: '48px', borderRadius: '8px', objectFit: 'contain', }} src={'/EmojiTaller.png'} alt="Nombre del lugar" />
+                  <Image height={48} width={48}style={{ borderRadius: '8px', objectFit: 'contain', }} src={'/EmojiTaller.png'} alt={`Taller de carros ${taller.userName}`} />
 
                 }
                 <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '4px' }}>
-                  <h3 style={{ fontSize: taller?.nombre.length > 20 ? '14px' : taller?.nombre.length > 15 ? '16px' : '18px', fontWeight: '600' }}>{taller?.nombre}</h3>
+                  <h4 style={{ fontSize: taller?.nombre.length > 20 ? '14px' : taller?.nombre.length > 15 ? '16px' : '18px', fontWeight: '600' }}>{taller?.nombre}</h4>
                   <p style={{ margin: 0, fontSize: '12px', color: '#929292' }}>{taller?.direccion}</p>
                 </div>
               </div>
@@ -51,8 +52,8 @@ export default function SliderTalleresSugeridos() {
               {taller?.categorias.slice(0, 2).map(el => {
                 const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
                 return (
-                  <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
-                    {category?.img ? <img src={`./${category?.img}.png`} style={{ width: '20px', height: '20px' }} alt={el} /> : <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>}
+                  <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
+                    {category?.img ? <Image width={20} loading='lazy' height={20} src={`/${category?.img}.png`} alt={`Taller mecanico de ${category?.nombre} cerca a mi`} /> : <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>}
                     <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
                   </div>
                 )

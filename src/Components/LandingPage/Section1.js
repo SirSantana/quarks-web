@@ -1,12 +1,13 @@
 import styles from '@/styles/Landing.module.css'
 import Button, { ButtonSize, ButtonVariant } from '../Button/Button'
+import Image from 'next/image'
 
 export default function SectionVariedadTalleres() {
   return (
     <section className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column', alignItems: 'center' }}>
-          <img src='/carespejo.svg' className={styles.imgPrincipal} alt='Taller mecanico de carros'/>
+          <Image width={450} height={400} src='/carespejo.svg' className={styles.imgPrincipal} alt='Taller mecanico de carros'/>
           <a style={{ fontSize: '14px', }} href="https://storyset.com/transport">Illustrations by Storyset</a>
         </div>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>

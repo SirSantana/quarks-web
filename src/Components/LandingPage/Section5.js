@@ -25,8 +25,8 @@ export default function SectionCalculadoraCombustible() {
       <div style={{ width: '100%' }} className={styles.containerContent}>
         <div className={styles.containerInputs2}>
           <div className={styles.containerInput}>
-            <h5 className={styles.h4}>Distancia Recorrida</h5>
-            <h4 className={styles.h3}>{kilometros} Kms</h4>
+            <p className={styles.h4}>Distancia Recorrida</p>
+            <p className={styles.h3}>{kilometros} Kms</p>
             <Slider
               min={0}
               max={600}
@@ -43,8 +43,8 @@ export default function SectionCalculadoraCombustible() {
             </div>
           </div>
           <div className={styles.containerInput}>
-            <h5 className={styles.h4}>Galones Consumidos</h5>
-            <h4 className={styles.h3}>{galones} Gl</h4>
+            <p className={styles.h4}>Galones Consumidos</p>
+            <p className={styles.h3}>{galones} Gl</p>
             <Slider
               min={0}
               max={20}
@@ -68,11 +68,11 @@ export default function SectionCalculadoraCombustible() {
         <div className={styles.containerCardRendimiento}>
           <div>
             <p style={{ fontSize: '14px', color: 'white' }}>Consumo cada 100 kms </p>
-            <h3 className={styles.bigTitle}> {consumo?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ gl</b></h3>
+            <p className={styles.bigTitle}> {consumo?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ gl</b></p>
           </div>
           <div>
             <p style={{ fontSize: '14px', color: 'white' }}>Rendimiento por galon </p>
-            <h3 className={styles.bigTitle}> {galon?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ kms</b></h3>
+            <p className={styles.bigTitle}> {galon?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ kms</b></p>
           </div>
           <Link href={'/calculadora-de-combustible'} style={{ color: '#373737', outline: 'none' }}>
             <button className={styles.button}>

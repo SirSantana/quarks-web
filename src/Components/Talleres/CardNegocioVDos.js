@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import Icon, { IconCatalog } from "../Icon/Icon";
-import WidgetIcon from "../Icon/WidgetIcon";
 import DatosImportantes from "./DatosImportantes";
 import Horario from "./Horario";
 import styles from '@/styles/Components.module.css'
@@ -9,6 +8,7 @@ import { EDIT_NEGOCIO_VDOS } from "@/graphql/mutations";
 import { useMutation } from "@apollo/client";
 import AddFotoPerfil from "../Register/AddFotoPerfil";
 import { ModalEditHorario } from "@/utils/Modales";
+import Image from "next/image";
 
 
 let secondForm = {
@@ -98,7 +98,7 @@ export default function CardNegocioVDos({ data, user, setEditModeHiddenButtons }
   }, []);
   return (
     <>
-      <div
+      <section
         className={`${styles.cardContainerPrincipal} ${editMode ? styles.active : ''}`}
         onClick={handleClick}
       >
@@ -110,9 +110,9 @@ export default function CardNegocioVDos({ data, user, setEditModeHiddenButtons }
                 className={styles.skeletonFotoPerfil}
               />
               :
-              <img loading="lazy" className={styles.imgFotoPerfil} src={result?.data?.editNegocioVDos?.fotoperfil ? result?.data?.editNegocioVDos?.fotoperfil : prevImage ? prevImage : data?.fotoperfil} alt={`Taller automotriz ${data?.nombre}`} />
+              <Image width={48} height={48} loading="lazy" className={styles.imgFotoPerfil} src={result?.data?.editNegocioVDos?.fotoperfil ? result?.data?.editNegocioVDos?.fotoperfil : prevImage ? prevImage : data?.fotoperfil} alt={`Taller automotriz ${data?.nombre}`} />
             : user?.userName !== router?.query.id &&
-            <ion-icon style={{ fontSize: '50px' }} className={styles.imgPrincipalLugarMobile} name="storefront-outline"></ion-icon>
+            <ion-icon  style={{ fontSize: '50px' }} className={styles.imgPrincipalLugarMobile} name="storefront-outline"></ion-icon>
           }
           {/* <div style={{ cursor: 'pointer', position:'absolute', top:'-70px', right:'0px',background:'0.8', backgroundColor: 'white', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '8px', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '8px', width: 'fit-content', maxWidth: '600px' }}>
             <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', }}>
@@ -143,7 +143,7 @@ export default function CardNegocioVDos({ data, user, setEditModeHiddenButtons }
         }
 
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', boxSizing: 'border-box', padding: '5px 0 10px 0' }}>
-          <img style={{ width: '26px', height: '20px' }} src='./EmojiTaller.png' />
+          <Image alt={`Taller de autos ${data?.nombre}`} width={26} height={20} src='/EmojiTaller.png' />
           <h3 style={{ fontSize: '16px', fontWeight: '400', alignSelf: 'center', textAlign: 'center', color: '#969595' }}>Taller Automotriz</h3>
         </div>
 
@@ -177,7 +177,7 @@ export default function CardNegocioVDos({ data, user, setEditModeHiddenButtons }
             }
           </>
         )}
-      </div>
+      </section>
       {visibleModalEditHorario &&
         <ModalEditHorario setVisibleModalEditHorario={setVisibleModalEditHorario} horarioActual={data?.horario} />
       }

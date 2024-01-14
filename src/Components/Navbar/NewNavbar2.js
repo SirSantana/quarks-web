@@ -113,7 +113,7 @@ export default function NewNavbarWithSearch({ mode }) {
           </Link>
           <form onSubmit={handleSubmit} className={styles2.homeCard}>
             <div style={{ width: '100%', maxWidth: '100%' }}>
-              <CreatableSelect onChange={handleChange} options={talleresWithOptions} styles={customStyles} placeholder='Buscar taller' noOptionsMessage={() => 'No se encontro ningun repuesto'} isSearchable isClearable />
+              <CreatableSelect aria-label='Search' onChange={handleChange} options={talleresWithOptions} styles={customStyles} placeholder='Buscar taller' noOptionsMessage={() => 'No se encontro ningun repuesto'} isSearchable isClearable />
             </div>
             <div onClick={handleSubmit} style={{ cursor: 'pointer' }} className={styles2.buttonSearch}>
               <ion-icon style={{ color: 'white', fontSize: '20px' }} name="search-outline"></ion-icon>

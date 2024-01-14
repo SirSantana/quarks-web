@@ -46,16 +46,16 @@ export default function ButtonsFooter({ data, user }) {
         <>
 
           <button  className={styles.buttonFixedBlack} onClick={sendMessageWha} ><Icon name={IconCatalog.createOutline} style={{ color: 'white' }} size='md' /> Editar Taller</button>
-          <button className={styles.buttonFixedBlack2}  onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button>
+          <button aria-label='Ver direccion taller'className={styles.buttonFixedBlack2}  onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button>
 
-          <button className={styles.buttonFixedBlack2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button>
+          <button aria-label='Compartir perfil taller' className={styles.buttonFixedBlack2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button>
         </>
         :
         <>
           <button  className={styles.buttonFixedBlack} onClick={sendMessageWha} >Solicitar Revisión <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='md' /></button>
-          <button  className={styles.buttonFixedBlack2} onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button>
+          <button aria-label='Ver direccion taller'  className={styles.buttonFixedBlack2} onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button>
 
-          <button className={styles.buttonFixedBlack2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button>
+          <button aria-label='Compartir perfil taller' className={styles.buttonFixedBlack2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button>
         </>
       }
       {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />}

@@ -1,7 +1,5 @@
 import styles from '@/styles/Footer.module.css'
 import Link from 'next/link'
-import InstagramLogo from '@/public/FacebookLogo.png'
-import WhatsappLogo from '@/public/InstagramLogo.png'
 import Image from 'next/image'
 
 export default function Footer() {
@@ -10,7 +8,7 @@ export default function Footer() {
       <div className={styles.containerFooter}>
         <div className={styles.containerFooter2}>
           <div className={styles.containerText}>
-            <h4 className={styles.title2}>Talleres mecanicos</h4>
+            <h6 className={styles.title2}>Talleres mecanicos</h6>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/lujos'}>Talleres de Accesorios y Lujos</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Aire%20acondicionado-Bogota,%20Colombia'}>Talleres de Aire acondicionado</Link>
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Alineación%20y%20balanceo-Bogota,%20Colombia'}>Talleres de Alineación y balanceo</Link>
@@ -30,23 +28,23 @@ export default function Footer() {
             <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Sincronizacion-Bogota,%20Colombia'}>Talleres de Sincronización</Link>
           </div>
           <div className={styles.containerText}>
-            <h4 className={styles.title2}>Acerca de Nosotros</h4>
+            <h6 className={styles.title2}>Acerca de Nosotros</h6>
             <Link style={{ textDecoration: 'none' }} href={'/quienessomos'} ><p className={styles.subtitle}>¿Quienes somos?</p></Link>
           </div>
           <div className={styles.containerText}>
-            <h4 className={styles.title2}>Legal</h4>
+            <h6 className={styles.title2}>Legal</h6>
             <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.privacypolicies.com/live/09cd59af-1d7b-47b5-9dde-2e78d4dc9770' ><p className={styles.subtitle}>Politica de Privacidad</p></Link>
           </div>
         </div>
         <div className={styles.containerSocial}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: '8px', margin: '16px 0' }}>
-            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de instagram de Quarks' href='https://www.instagram.com/quarks_app/'><img src={WhatsappLogo.src} className={styles.logo} alt='Instagram Quarks Talleres Carros colombia' /></Link>
-            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de facebook de Quarks' href='https://www.facebook.com/profile.php?id=100092259191727'><img src={InstagramLogo.src} className={styles.logo} alt='Facebook Quarks Talleres Carros colombia' /></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de instagram de Quarks' href='https://www.instagram.com/quarks_app/'><Image src={'/InstagramLogo.png'} width={48} height={48} className={styles.logo} alt='Instagram Quarks Talleres Carros colombia' /></Link>
+            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} aria-label='Visitar perfil de facebook de Quarks' href='https://www.facebook.com/profile.php?id=100092259191727'><Image src={'/FacebookLogo.png'} width={48} height={48} className={styles.logo} alt='Facebook Quarks Talleres Carros colombia' /></Link>
           </div>
           <p className={styles.subtitleCopy}>(C) copyright Quarks 2023</p>
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'center', alignSelf: 'center' }}>
-          <h4 style={{ color: 'white', fontSize: '20px', marginBottom: '16px' }}>Quarks</h4>
+          <h6 style={{ color: 'white', fontSize: '20px', marginBottom: '16px' }}>Quarks</h6>
           <Image src={'/logoquarks200623.png'} width={50} height={50} alt={'Logo Quarks Talleres Mecanicos en Bogota'} />
         </div>
       </div>

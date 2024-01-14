@@ -39,7 +39,7 @@ export default function ActividadReciente() {
               src={`https://azurequarks.blob.core.windows.net/negocios/djclosboyacos270723.jpg`}
             />
             <div style={{ padding: '16px', display: 'flex', gap: '4px', flexDirection: 'column', justifyContent: 'center' }}>
-              <h4>Mecánica - DJC Los Boyacos</h4>
+              <p>Mecánica - DJC Los Boyacos</p>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>
                 {estrellas.map((el, index) => (
                   <div key={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
@@ -79,7 +79,7 @@ export default function ActividadReciente() {
               src={`https://azurequarks.blob.core.windows.net/avatares/tullanta.png`}
             />
             <div style={{ padding: '16px', display: 'flex', gap: '4px', flexDirection: 'column', justifyContent: 'center' }}>
-              <h4>Tu Llanta - Siete de Agosto</h4>
+              <p>Tu Llanta - Siete de Agosto</p>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>
                 {estrellas.map((el, index) => (
                   <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
@@ -122,7 +122,7 @@ export default function ActividadReciente() {
             />
 
             <div style={{ padding: '16px', display: 'flex', gap: '4px', flexDirection: 'column', justifyContent: 'center' }}>
-              <h4>Oil Filter´s 7 DE AGOSTO</h4>
+              <p>Oil Filter´s 7 DE AGOSTO</p>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>
                 {estrellas.map((el, index) => (
                   <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
