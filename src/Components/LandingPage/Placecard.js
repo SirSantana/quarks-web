@@ -96,7 +96,7 @@ const PlaceCard = ({ data }) => {
         <button style={{ height: '40px', fontSize: '12px',  borderRadius: '8px' }} className={styles.buttonFixedBlack} onClick={(e) => {
           e.preventDefault();
           sendMessageWha();
-        }} >Solicitar Revisión <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='sm' />
+        }} >{data?.userName === 'corsa-motors'?'Contactar':'Solicitar Revisión'} <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='sm' />
         </button>
         <button style={{ height: '40px', width: '40px', borderRadius: '8px' }} className={styles.buttonFixedBlack2} onClick={(e) => { e.stopPropagation(); handleClickMapa(data); }} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='sm' /> </button>
       </div>

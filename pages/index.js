@@ -67,7 +67,7 @@ export default function Home({ data }) {
         <meta property="og:image:height" content='1080' />
         <meta property="og:image:type" content='image/png' />
 
-        <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
+        <meta  name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="icon" href="/logoquarks200623.png" />
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />

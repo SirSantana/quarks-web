@@ -12,42 +12,50 @@ import styles from '@/styles/ServiciosAutomotriz.module.css'
 import ButtonsFooter from "@/src/Components/Talleres/ButtonsFooter";
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 // import Reseñas from "@/src/Components/Talleres/Reseñas";
-import SliderTalleresSugeridos from "@/src/Components/Talleres/SliderTalleresSugeridos";
+// import SliderTalleresSugeridos from "@/src/Components/Talleres/SliderTalleresSugeridos";
 // import SectionCreateTaller from "@/src/Components/Talleres/SectionCreateTaller";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
-const Reseñas = dynamic(()=> import('@/src/Components/Talleres/Reseñas'),
-{ ssr: false})
-const SectionCreateTaller = dynamic(()=> import('@/src/Components/Talleres/SectionCreateTaller'),
-{ ssr: false})
+const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
+  { ssr: false })
+const SectionCreateTaller = dynamic(() => import('@/src/Components/Talleres/SectionCreateTaller'),
+  { ssr: false })
+const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/SliderTalleresSugeridos'),
+  { ssr: false })
+// const MapaUbicacion = dynamic(()=> import('@/src/Components/Talleres/MapaUbicacion'))
+// const RedesSociales = dynamic(()=> import('@/src/Components/Talleres/RedesSociales'))
 
 export default function NegocioVDos({ data }) {
   const router = useRouter()
   const { user, logout } = useAuth()
+  const [loading, setLoading] = useState(true)
   const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
-      <Image
-      loading="lazy"
-      sizes="100vw"
-        width={500}
-        height={300}
-        className={styles.imgFotoPortada}
-        src={data?.fotoperfil}
-        alt={`Taller mecanico ${data?.nombre} Bogota`}
-      />
+        <Image
+          sizes="100vw"
+          width={500}
+          height={300}
+          className={styles.imgFotoPortada}
+          src={data?.fotoperfil}
+          loading="eager"
+          alt={`Taller mecanico ${data?.nombre} Bogota`}
+        />
       <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
       <div className={styles.containerMobile} >
 
         {/* {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} handleScroll={handleScroll} />}
         <DatosImportantes data={data} ref={reff} setVisibleModalTelefono={setVisibleModalTelefono} /> */}
-        {data?.categorias && <ServidosOfrecidos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />}
-
+        {data?.categorias &&
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <ServidosOfrecidos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
+          </section>
+        }
         {data?.urltallermaps && <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} />}
-        <section style={{display:'flex', gap:'20px',width:'100%', flexDirection:'column', alignItems:'center'}}>
+        <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SliderTalleresSugeridos />
         </section>
         {/* <Redes /> */}
@@ -55,11 +63,19 @@ export default function NegocioVDos({ data }) {
 
 
         {(data?.facebook || data?.instagram || data?.paginaweb || user?.userName === router?.query?.id) &&
-          <RedesSociales data={data} user={user} />
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <RedesSociales data={data} user={user} />
+          </section>
+
         }
-        <SectionCreateTaller />
+        <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+          <SectionCreateTaller />
+        </section>
+
         {data?.promediocalificacionesmaps &&
-          <Reseñas id={data?.id} />
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <Reseñas id={data?.id} />
+          </section>
         }
 
         {!editModeHiddenButtons &&
@@ -83,12 +99,12 @@ export async function getServerSideProps({ query, res }) {
       variables: { userName: parts.replace(/&/g, '') }
     }
   )
-  const result = await client.mutate(
-    {
-      mutation: CREATE_VISITA_ALMACEN,
-      variables: { id: parts }
-    }
-  )
+  // const result = await client.mutate(
+  //   {
+  //     mutation: CREATE_VISITA_ALMACEN,
+  //     variables: { id: parts }
+  //   }
+  // )
   if (parts == 's&i_master_paint') {
     res.setHeader('Location', '/si_master_paint');
     res.statusCode = 302; // Código de estado 302 para redirección temporal
