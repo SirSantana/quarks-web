@@ -35,15 +35,15 @@ export default function NegocioVDos({ data }) {
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
-        <Image
-          sizes="100vw"
-          width={500}
-          height={300}
-          className={styles.imgFotoPortada}
-          src={data?.fotoperfil}
-          loading="eager"
-          alt={`Taller mecanico ${data?.nombre} Bogota`}
-        />
+      <Image
+        sizes="100vw"
+        width={500}
+        height={300}
+        className={styles.imgFotoPortada}
+        src={data?.fotoperfil}
+        loading="eager"
+        alt={`Taller mecanico ${data?.nombre} Bogota`}
+      />
       <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
       <div className={styles.containerMobile} >
 
@@ -73,9 +73,7 @@ export default function NegocioVDos({ data }) {
         </section>
 
         {data?.promediocalificacionesmaps &&
-          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <Reseñas id={data?.id} />
-          </section>
+          <Reseñas id={data?.id} />
         }
 
         {!editModeHiddenButtons &&

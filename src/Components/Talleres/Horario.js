@@ -43,7 +43,7 @@ export default function Horario({ horariosSeparados, handleVisibleHorario, visib
               <Icon name={IconCatalog.calendarNumberOutline} size='lg' />
               <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', flex: 1 }}>
-                  {!visibleFullHorario && <h4 style={{ fontSize: '14px', fontWeight: '400' }}>{horariosSeparados[indiceDia].substring(0, 3)}</h4>}
+                  {!visibleFullHorario && <p style={{ fontSize: '14px', fontWeight: '400' }}>{horariosSeparados[indiceDia].substring(0, 3)}</p>}
                   <p style={{ fontSize: '14px', fontWeight: '600', }}>{visibleFullHorario ? 'Horario' : horariosSeparados[indiceDia].substring(3)}</p>
                 </div>
                 <ion-icon style={{ fontSize: '20px', color: '#757A7E' }} name={visibleFullHorario ? "chevron-up-outline" : "chevron-down-outline"}></ion-icon>
@@ -55,7 +55,7 @@ export default function Horario({ horariosSeparados, handleVisibleHorario, visib
                 const restoHorario = horario.substring(3);
                 return (
                   <div className={styles.containerHorarios} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%' }}>
-                    <h5 style={{ fontSize: '14px', fontWeight: '400', width: '40px' }}>{primeraTresLetras}</h5>
+                    <p style={{ fontSize: '14px', fontWeight: '400', width: '40px' }}>{primeraTresLetras}</p>
                     <p style={{ fontSize: '14px', fontWeight: '600', }}>{restoHorario}</p>
                   </div>
                 )

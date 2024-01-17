@@ -143,8 +143,8 @@ export default function CardNegocioVDos({ data, user, setEditModeHiddenButtons }
         }
 
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', boxSizing: 'border-box', padding: '5px 0 10px 0' }}>
-          <Image alt={`Taller de autos ${data?.nombre}`} width={26} height={20} src='/EmojiTaller.png' />
-          <h3 style={{ fontSize: '16px', fontWeight: '400', alignSelf: 'center', textAlign: 'center', color: '#969595' }}>{data?.userName === 'corsa-motors'?'Almacen de Repuestos':'Taller Automotriz'}</h3>
+          <Image alt={`Taller de autos ${data?.nombre}`} style={{objectFit:'contain'}} width={26} height={20} src='/EmojiTaller.png' />
+          <p style={{ fontSize: '16px', fontWeight: '400', alignSelf: 'center', textAlign: 'center', color: '#969595' }}>{data?.userName === 'corsa-motors'?'Almacen de Repuestos':'Taller Automotriz'}</p>
         </div>
 
 

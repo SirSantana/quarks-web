@@ -1,5 +1,4 @@
 
-import styles from '@/styles/Components.module.css'
 
 export const IconCatalog = {
   storefrontOutline: 'storefront-outline',
@@ -29,8 +28,9 @@ export const IconCatalog = {
   mapa: 'map',
   lista: 'list',
   arrowForwardOutline:'arrow-forward-outline',
-  searchOutline:'search-outline'
-
+  searchOutline:'search-outline',
+  addCircle:'add-circle',
+  star:'star'
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {

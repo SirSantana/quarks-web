@@ -16,21 +16,21 @@ import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Butto
 import { IconCatalog } from '@/src/Components/Icon/Icon'
 import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
 
-const SectonFilters = dynamic(()=> import('@/src/Components/LandingPage/SectionFilters'),
-{ ssr: false})
-const SectionGrowthTaller = dynamic(()=> import('@/src/Components/LandingPage/SectionGrowthTaller'),
-{ ssr: false})
-const SectionCalculadoraCombustible = dynamic(()=> import('@/src/Components/LandingPage/Section5'),
-{ ssr: false})
-const ActividadReciente = dynamic(()=> import('@/src/Components/LandingPage/ActividadReciente'),
-{ ssr: false})
+const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
+  { ssr: false })
+const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
+  { ssr: false })
+const SectionCalculadoraCombustible = dynamic(() => import('@/src/Components/LandingPage/Section5'),
+  { ssr: false })
+const ActividadReciente = dynamic(() => import('@/src/Components/LandingPage/ActividadReciente'),
+  { ssr: false })
 const Map = dynamic(
   () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
-  { ssr: false, loading: () => <div className={styles.skeleton}/> } // This line is important. It's what prevents server-side render
+  { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
 )
 
 export default function Home({ data }) {
-  
+
   const [mode, setMode] = useState(0)
 
   return (
@@ -67,12 +67,31 @@ export default function Home({ data }) {
         <meta property="og:image:height" content='1080' />
         <meta property="og:image:type" content='image/png' />
 
-        <meta  name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
+        <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="icon" href="/logoquarks200623.png" />
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
+        {/* <script async src="https://fundingchoicesmessages.google.com/i/pub-1233996863721897?ers=1" nonce="WKkivzNt4GwPI1Z9pOJtUg"></script>
+        <script nonce="WKkivzNt4GwPI1Z9pOJtUg">
+          {(function () {
+            function signalGooglefcPresent() {
+              if (!window.frames['googlefcPresent']) {
+                if (document.body) {
+                  const iframe = document.createElement('iframe');
+                  iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
+                  iframe.style.display = 'none';
+                  iframe.name = 'googlefcPresent';
+                  document.body.appendChild(iframe);
+                } else {
+                  setTimeout(signalGooglefcPresent, 0);
+                }
+              }
+            }
+            signalGooglefcPresent();
+          })()}
+        </script> */}
         {/* <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> */}
         {/* <script
           dangerouslySetInnerHTML={{
