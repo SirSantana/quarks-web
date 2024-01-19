@@ -16,7 +16,7 @@ export default function Reseñas({ id }) {
 
   return (
     <>
-      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600' }} className={styles.titleNegocio}>Reseñas </h2>
+      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display:'flex', gap:'16px' }} className={styles.titleNegocio}><Icon name={IconCatalog.ribbonOutline} size='lg'/>Reseñas </h2>
       <div onClick={handlerLoginOpinion} className={styles.containerHeaderCalendario} style={{ cursor: 'pointer', backgroundColor: '#373737', justifyContent: 'space-between', border: '1px solid #d6d6d6', display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '20px', boxSizing: 'border-box', gap: '16px', margin: '0 auto', borderRadius: '16px', maxWidth: '500px' }}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
           <Icon size='lg' style={{ color: 'white' }} name={IconCatalog.addCircle} />

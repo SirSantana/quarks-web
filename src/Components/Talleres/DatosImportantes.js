@@ -55,7 +55,7 @@ const DatosImportantes = forwardRef(({ data,  }, ref) => {
         className={styles.skeleton}
         />
       ) :
-        <WidgetComplete   name={'telefono'} onClick={ handleClickTelefono} withBorder={false} text={data?.telefono} icon={IconCatalog.callOutline} icon2={IconCatalog.callOutline} style={{ color: '#5c5c5c' }} />
+        <WidgetComplete name={'telefono'} onClick={ handleClickTelefono} withBorder={false} text={data?.telefono} icon={IconCatalog.callOutline} icon2={IconCatalog.callOutline} style={{ color: '#5c5c5c' }} />
       }
       {loading ? (
         // Muestra el esqueleto mientras se carga

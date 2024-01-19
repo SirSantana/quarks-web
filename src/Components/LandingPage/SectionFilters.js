@@ -71,7 +71,7 @@ export default function SectonFilters({ data }) {
           }
           {router?.pathname !== '/'
             ?
-            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} talleres de {router?.query?.id ?router?.query?.id.replace(/-/g, ' '):router.query.busqueda} cerca a mi en Bogota</h4>
+            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ?router?.query?.id.replace(/-/g, ' '):router.query.busqueda} cerca a mi en Bogota</h4>
             :
             <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
           }

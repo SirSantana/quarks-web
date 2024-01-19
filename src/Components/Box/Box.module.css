@@ -1,0 +1,62 @@
+.containerHeaderCalendario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #d6d6d6;
+  margin: 0 auto;
+  gap: 16px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  cursor: pointer;
+  transition: transform 0.4s ease, background-color 0.2s ease;
+  position: relative
+}
+
+.containerHeaderCalendario:active {
+  transform: scale(0.95)
+}
+
+.containerHeaderCalendario:hover {
+  background-color: #fbfbfb;
+}
+
+.itemBoxLink {
+  display: flex;
+  border-radius: 32px;
+  text-decoration: none;
+  flex-direction: row;
+  color: #373737;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+.pItemBoxLink{
+  font-size: 14px;
+  flex: 1;
+}
+.pItemBoxLink:hover{
+  text-decoration: underline;
+  font-weight: 500;
+  color:black
+}
+.containerIcon{
+border-radius: 10px;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 1px solid white
+}
+
+@media (max-width:600px) {
+  .containerHeaderCalendario {
+    width: 90%;
+  }
+
+}

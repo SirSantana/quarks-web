@@ -870,6 +870,7 @@
   }
   .containerMobile {
     width: 100%;
+    gap:16px
     /* background-color: #fbfbfb; */
 
   }

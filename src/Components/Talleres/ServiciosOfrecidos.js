@@ -44,7 +44,7 @@ export default function ServidosOfrecidos({ data,  }) {
                 </div>
                 :
                 <div style={{ position: 'relative', width: '40px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ width: '1px', height: '100%', backgroundColor: '#CACACA', alignSelf: 'center' }}></div>
+                  <div style={{ width: '0.5px', height: '100%', backgroundColor: '#c5c5c5', alignSelf: 'center' }}></div>
                 </div>
               }
               

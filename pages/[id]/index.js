@@ -1,5 +1,4 @@
 import { client } from "@/client";
-import { CREATE_VISITA_ALMACEN } from "@/graphql/mutations";
 import { GET_ONE_NEGOCIOVDOS } from "@/graphql/queries";
 import useAuth from "@/hooks/useAuth";
 import Layout from "@/src/Components/Layout";
@@ -7,17 +6,12 @@ import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import ServidosOfrecidos from "@/src/Components/Talleres/ServiciosOfrecidos";
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import {  useState } from "react";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import ButtonsFooter from "@/src/Components/Talleres/ButtonsFooter";
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
-// import Reseñas from "@/src/Components/Talleres/Reseñas";
-// import SliderTalleresSugeridos from "@/src/Components/Talleres/SliderTalleresSugeridos";
-// import SectionCreateTaller from "@/src/Components/Talleres/SectionCreateTaller";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import HeaderHorario from "@/src/Components/Talleres/HeaderHorario";
-import Horario from "@/src/Components/Talleres/Horario";
 import HorarioDias from "@/src/Components/Talleres/HorarioDias";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
@@ -66,7 +60,12 @@ export default function NegocioVDos({ data }) {
           </section>
         }
 
-        {data?.urltallermaps && <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} />}
+        {data?.urltallermaps &&
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} />
+          </section>
+
+        }
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SliderTalleresSugeridos />
         </section>

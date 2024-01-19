@@ -1,36 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import Icon, { IconCatalog } from "../Icon/Icon";
 import DatosImportantes from "./DatosImportantes";
 import Horario from "./Horario";
 import styles from '@/styles/Components.module.css'
-import { useRouter } from "next/router";
-import { EDIT_NEGOCIO_VDOS } from "@/graphql/mutations";
-import { useMutation } from "@apollo/client";
-import AddFotoPerfil from "../Register/AddFotoPerfil";
-import { ModalEditHorario } from "@/utils/Modales";
 import Image from "next/image";
 
-
-let secondForm = {
-  direccion: '',
-  fotoperfil: '',
-  nombre: '',
-  whatsapp: '',
-  telefono: ''
-}
-
 export default function CardNegocioVDos({ data,  }) {
-  const [visibleModalTelefono, setVisibleModalTelefono] = useState(false)
   const [visibleFullHorario, setVisibleFullHorario] = useState(false)
   const reff = useRef(null)
   const [loadingImage, setLoadingImage] = useState(true)
   const horariosSeparados = data?.horario?.split(',');
 
-
   const handleVisibleHorario = () => {
     setVisibleFullHorario(!visibleFullHorario)
   }
-
   useEffect(() => {
     // Simulamos una demora de 2 segundos para cargar los iconos
     const timeoutId = setTimeout(() => {
@@ -45,7 +27,7 @@ export default function CardNegocioVDos({ data,  }) {
       <section
         className={styles.cardContainerPrincipal}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
+        {/* <div style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}>
           {data?.fotoperfil ?
             loadingImage
               ?
@@ -57,7 +39,7 @@ export default function CardNegocioVDos({ data,  }) {
             :
             <ion-icon style={{ fontSize: '50px' }} className={styles.imgPrincipalLugarMobile} name="storefront-outline"></ion-icon>
           }
-        </div>
+        </div> */}
         <h1
           className={styles.nameNegocio}
           style={{ fontSize: (data?.nombre.length > 18) ? '22px' : (data?.nombre.length > 12) ? '26px' : '28px' }}

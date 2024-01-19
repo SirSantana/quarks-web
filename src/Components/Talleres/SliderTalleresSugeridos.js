@@ -25,7 +25,7 @@ export default function SliderTalleresSugeridos() {
   };
   return (
     <>
-      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display:'flex', gap:'16px'}} className={styles.titleNegocio}><Icon name={IconCatalog.rocketOuline} size='lg'/> Talleres sugeridos </h2>
+      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display:'flex', gap:'16px'}} className={styles.titleNegocio}><Icon name={IconCatalog.storefrontOutline} size='lg'/> Talleres sugeridos </h2>
 
       <Slider className={styles.slider}  {...settings}>
 

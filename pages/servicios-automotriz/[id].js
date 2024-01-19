@@ -9,59 +9,15 @@ export default function ServicioAutomotriz({ data }) {
   const router = useRouter()
   return (
     <Layout title={`Los mejores talleres mecanicos de ${router?.query?.id} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleSlider={true}>
-      <div style={{ marginTop: '8%' }}>
         <SectonFilters data={data} />
-      </div>
-
-
-
-      {/* <div className={styles.container2}>
-
-        <div className={styles.section1}>
-          <p style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>{parts?.[0]}{" > "} {parts?.[1]}</p>
-          <div className={styles.containerHeaderText}>
-            <h1 className={styles.titleHeader}>Los mejores talleres mecanicos de {parts?.[0]} cerca a mi en {parts?.[1]}</h1>
-            <div className={styles.containerFiltersBasic}>
-             
-              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <p className={styles.subtitleHeader}>Filtrar:</p>
-                <Select onChange={handleChange} options={options} isSearchable={false} styles={customStyles} defaultValue={options[servicioFiltrado?.index]} />
-                <Select onChange={handleChange2} options={options2} isSearchable={false} styles={customStyles} defaultValue={options2[servicioFiltrado2?.index]} />
-
-              </div>
-            </div>
-          </div>
-          <div style={{ width: '100%', height: '1px', marginTop: '24px', backgroundColor: '#d9d9d9' }} />
-
-
-
-          {data?.length > 0 ?
-            <>
-              <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D', marginTop: '16px' }}>Se encontraron {data?.length} talleres</h2>
-              {data.map(
-                el => {
-                  const horariosSeparados = el?.horario.split(',');
-                  return (
-                    <>
-                      <CardNegocioPrev el={el} horariosSeparados={horariosSeparados} />
-                    </>
-                  )
-                })}
-            </>
-            : <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>Proximamente...</h2>
-
-          }
-        </div>
-
-      </div> */}
-
+        <h4>Holaaa</h4>
     </Layout>
   )
 }
 
 export async function getServerSideProps({ query }) {
   let categoria = query?.id;
-  if(categoria.includes('Bogota')){
+  if (categoria.includes('Bogota')) {
     categoria = categoria.replace('-Bogota, Colombia', '').trim()
   }
   const levenshteinDistance = (s1, s2) => {

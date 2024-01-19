@@ -2,20 +2,19 @@ import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { MagicMotion, } from "react-magic-motion";
 import Icon, { IconCatalog } from '../Icon/Icon';
 import { useEffect, useState } from 'react';
+import Divider from '../Box/Divider';
 
-export default function Horario({ horariosSeparados, handleVisibleHorario, visibleFullHorario=true,  }) {
+export default function Horario({ horariosSeparados, handleVisibleHorario, visibleFullHorario = true, }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const [loading, setLoading] = useState(true);
 
   const handleClick = (e) => {
     e.stopPropagation()
-    if(handleVisibleHorario){
+    if (handleVisibleHorario) {
       handleVisibleHorario();
-
     }
   };
-
   useEffect(() => {
     // Simulamos una demora de 2 segundos para cargar los iconos
     const timeoutId = setTimeout(() => {
@@ -30,13 +29,15 @@ export default function Horario({ horariosSeparados, handleVisibleHorario, visib
         {loading
           ?
           <div
-           className={styles.skeleton}
+            className={styles.skeleton}
           />
           :
           <div onClick={handleClick} style={{ cursor: 'pointer', backgroundColor: 'white', display: 'flex', flexDirection: visibleFullHorario ? "column" : "row", alignItems: 'center', justifyContent: 'space-between', padding: '10px', boxSizing: 'border-box', gap: '10px', margin: '0 auto', borderRadius: '16px', width: '100%', maxWidth: '600px', transition: "height 0.5s ease" }}>
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', marginBottom: visibleFullHorario ? '8px' : '0px' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px',alignItems:'center', width: '100%', marginBottom: visibleFullHorario ? '8px' : '0px' }}>
               <Icon name={IconCatalog.calendarNumberOutline} size='lg' />
-              <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', justifyContent: 'space-between' }}>
+              <Divider />
+
+              <div style={{flex:1, display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', flex: 1 }}>
                   {!visibleFullHorario && <p style={{ fontSize: '14px', fontWeight: '600' }}>{horariosSeparados[indiceDia].substring(0, 3)}</p>}
                   <p style={{ fontSize: '14px', fontWeight: '400', }}>{visibleFullHorario ? 'Horario' : horariosSeparados[indiceDia].substring(3)}</p>

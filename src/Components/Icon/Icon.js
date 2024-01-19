@@ -32,7 +32,8 @@ export const IconCatalog = {
   addCircle:'add-circle',
   star:'star',
   colorWandOutline:"color-wand-outline",
-  rocketOuline:"rocket-outline"
+  rocketOuline:"rocket-outline",
+  ribbonOutline:"ribbon-outline"
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {
