@@ -1,38 +1,11 @@
 import styles from '@/styles/Landing.module.css'
 import CardNewTaller from './CardNewTaller'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
-import Select from 'react-select'
-import { options2 } from '../Main/Main'
 import { useRouter } from 'next/router'
-
-const customStyles = {
-  control: (provided,) => ({
-    ...provided,
-    border: 'none',
-    boxShadow: 'none',
-    fontSize: '14px',
-    fontWeight: '700',
-    width: '200px'
-  }),
-  option: (provided, state) => ({
-    ...provided,
-    fontSize: '14px',
-    backgroundColor: state.isSelected ? '#f50057' : 'white',
-    color: state.isSelected ? 'white' : 'black',
-    ':hover': {
-      backgroundColor: '#ffefef',
-      color: 'black',
-    },
-  }),
-};
 
 export default function SectonFilters({ data }) {
   const router = useRouter()
-  const parts = router?.query?.id?.split("-");
 
-  const handleChange2 = (e) => {
-    router.push(`/servicios-automotriz/${parts[0]}-${e.value}`)
-  }
   const levenshteinDistance = (s1, s2) => {
     const m = s1.length;
     const n = s2.length;
@@ -63,24 +36,22 @@ export default function SectonFilters({ data }) {
     levenshteinDistance(item.nombre.toLowerCase(), categoria.toLowerCase()) < 5 // Valor umbral de similitud
   );
   return (
-    <section className={styles.containerGridTalleres}>
-      <div className={styles.headerTalleres} >
-        <div >
-          {router?.pathname !== '/'
-            && <h1  className={styles.title2}>Taller automotriz de {router?.query?.id ?router?.query?.id.replace(/-/g, ' '):router.query.busqueda} </h1>
-          }
-          {router?.pathname !== '/'
-            ?
-            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ?router?.query?.id.replace(/-/g, ' '):router.query.busqueda} cerca a mi en Bogota</h4>
-            :
-            <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
-          }
-        </div>
+    <div className={styles.containerGridTalleres}>
+      <section className={styles.headerTalleres} >
+        {router?.pathname !== '/'
+          && <h1 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} </h1>
+        }
+        {router?.pathname !== '/'
+          ?
+          <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca a mi en Bogota</h4>
+          :
+          <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
+        }
         {/* {router?.pathname !== '/' && <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: '16px', }}>
           <Select onChange={handleChange2} options={options2} styles={customStyles} defaultValue={options2[0]} />
         </div>} */}
-      </div>
-      <div className={styles.gridCardTalleres} >
+      </section>
+      <section className={styles.gridCardTalleres} >
         {data?.length <= 0 && router.pathname !== '/' ? <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>No se encontraron resultados...</h2>
           :
           data?.length > 0 ? data?.map(el => (
@@ -90,7 +61,7 @@ export default function SectonFilters({ data }) {
               <CardNewTaller taller={el} />
             ))
         }
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

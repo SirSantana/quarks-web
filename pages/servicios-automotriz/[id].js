@@ -1,16 +1,27 @@
 import Layout from "@/src/Components/Layout";
 import { useRouter } from "next/router";
 import talleres from './talleres.json'
-import { options, options2 } from "@/src/Components/Main/Main";
+import { options } from "@/src/Components/Main/Main";
 import SectonFilters from "@/src/Components/LandingPage/SectionFilters";
-
-
+import dynamic from "next/dynamic";
+const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/SliderTalleresSugeridos'),
+  { ssr: false })
+  const SectionCreateTaller = dynamic(() => import('@/src/Components/Talleres/SectionCreateTaller'),
+  { ssr: false })
 export default function ServicioAutomotriz({ data }) {
   const router = useRouter()
   return (
     <Layout title={`Los mejores talleres mecanicos de ${router?.query?.id} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleSlider={true}>
-        <SectonFilters data={data} />
-        <h4>Holaaa</h4>
+      <SectonFilters data={data} />
+      <div style={{ height: '1px', backgroundColor: '#c5c5c5', maxWidth: '1200px', width: '90%', margin: '32px auto' }} />
+      
+      <section style={{ display: 'flex', maxWidth: '600px', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center', margin: '0 auto' }}>
+        <SliderTalleresSugeridos />
+      </section>
+      <section style={{ display: 'flex', margin: '0 auto', marginBottom:'64px', maxWidth: '600px', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+        <SectionCreateTaller />
+      </section>
+
     </Layout>
   )
 }

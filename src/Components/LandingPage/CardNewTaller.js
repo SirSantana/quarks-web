@@ -2,8 +2,8 @@ import { GET_CALIFICACION_OPINIONES } from '@/graphql/queries';
 import styles from '@/styles/Landing.module.css'
 import { useQuery } from '@apollo/client';
 import Link from 'next/link';
-import OpinionesPrev from '../Index/OpinionesPrev';
-import { useRouter } from 'next/router';
+import { categorias2 } from '../Talleres/ServiciosOfrecidos';
+import Image from 'next/image';
 
 
 export default function CardNewTaller({ taller }) {
@@ -13,55 +13,49 @@ export default function CardNewTaller({ taller }) {
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario.split(',');
   return (
-    <Link target="_blank" href={`/${taller?.userName}`} className={styles.cardNewTaller}>
-
-      <div className={styles.containerDataNewTaller}>
+    <article className={styles.cardNewTaller}>
+      <Link target="_blank" href={`/${taller?.userName}`} className={styles.containerDataNewTaller}>
         {taller?.fotoperfil &&
-          <img className={styles.imgPerfilTaller} src={taller?.fotoperfil} />
+          <Image width={160} height={160} className={styles.imgPerfilTaller} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`}/>
         }
 
-        <div style={{display:'flex', flexDirection:'column', padding:'8px', width:'100%'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems:'center' }}>
-            {taller?.fotoperfil &&
-              <img className={styles.imgPerfilTaller2} src={taller?.fotoperfil} />
+        <div style={{ display: 'flex', flexDirection: 'column', padding: '8px', width: '100%' }}>
+          <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
+              {taller?.fotoperfil &&
+                <Image width={160} height={160} className={styles.imgPerfilTaller2} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} />
+              }
+              <p style={{ fontSize: '12px', color: '#5C5C5C' }}>Hoy {horariosSeparados?.[indiceDia]}</p>
+            </div>
+            {result?.data?.getCalificacionOpiniones > 0 &&
+              <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: '4px' }}>
+                <ion-icon style={{ color: '#FBBC04' }} name="star"></ion-icon>
+                <p style={{ fontSize: '12px', margin: 0, color: '#464646' }}>{result?.data?.getCalificacionOpiniones}</p>
+              </div>
             }
-            <p style={{ fontSize: '12px', color: '#5C5C5C' }}>Hoy {horariosSeparados?.[indiceDia]}</p>
+          </header>
+          <h2 style={{ fontSize: '18px' }}>{taller?.nombre}</h2>
+          <p style={{ fontSize: '14px', fontWeight: '500' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
+          <div style={{ display: 'flex', marginTop: '16px', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+            {taller?.categorias.slice(0, 3).map(el => {
+              const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
+              return (
+                <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
+                  {category?.img && <Image src={`/${category?.img}.png`} width={20} height={20} alt={`Taller de autos de ${el}`} />}
+                  <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
+                </div>
+              )
+            })}
+            <p style={{ fontSize: '12px', color: '#5C5C5C', fontWeight: '600' }}>+{taller?.categorias?.length} servicios</p>
           </div>
-          {/* <p style={{ fontSize: '12px', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '2px' }}>
-            <ion-icon style={{ color: '#f50057' }} name="star"></ion-icon>
-            4.5</p> */}
-          {result?.data?.getCalificacionOpiniones > 0 &&
-            <OpinionesPrev id={taller?.id} />
-          }
+          <footer style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '8px', width: '100%', alignItems: 'flex-end' }}>
+            <button style={{ fontWeight: '600', fontSize: '12px', padding: '0', borderRadius: '2px', alignSelf: 'flex-end', color: '#f50057', backgroundColor: 'inherit', margin: 0, height: '28px' }} className={styles.button}>
+              Ver taller
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </button>
+          </footer>
         </div>
-        <h2 style={{ fontSize: '18px' }}>{taller?.nombre}</h2>
-        <h6 style={{ fontSize: '14px', fontWeight:'500' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</h6>
-        <div style={{ display: 'flex', marginTop: '16px', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-          {taller?.categorias.slice(0, 3).map(el => (
-            <div style={{ display: 'flex', gap: '4px', alignItems: 'center', backgroundColor: '#f1f1f1', borderRadius: '4px', padding: '4px 8px' }}>
-              {/* <img src={router?.pathname === '/'?`./${el}.png`:`../../${el}.png`} style={{ height: '14px', width: '14px' }} /> */}
-              <p style={{ fontSize: '12px', color: '#5C5C5C' }}>{el}</p>
-            </div>
-          )
-          )}
-          <p style={{ fontSize: '12px', color: '#5C5C5C', fontWeight: '600' }}>+{taller?.categorias?.length} servicios</p>
-          {/* {categorias.map(el => (
-            <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-              <img src={router.pathname === '/'?`./${el.img}.png`:`../../${el.img}.png`} style={{ height: '14px', width: '14px' }} />
-              <p style={{ fontSize: '12px', color: '#5C5C5C' }}>{el.nombre}</p>
-            </div>
-          ))} */}
-        </div>
-        <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '8px', width: '100%', alignItems: 'flex-end' }}>
-          <button style={{ fontWeight: '600', fontSize: '12px', padding: '0', borderRadius: '2px', alignSelf: 'flex-end', color: '#f50057', backgroundColor: 'inherit', margin: 0, height: '28px' }} className={styles.button}>
-            Ver taller
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </button>
-
-        </div>
-        </div>
-      </div>
-    </Link>
+      </Link>
+    </article>
   )
 }

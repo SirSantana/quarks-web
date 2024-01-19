@@ -58,9 +58,9 @@ const PlaceCard = ({ data }) => {
         <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%' }}>
           {data?.fotoperfil
             ?
-            <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={data?.fotoperfil} alt="Nombre del lugar" />
+            <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={data?.fotoperfil} alt={`Taller de carros ${data?.nombre}`} />
             :
-            <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'contain', }} src={'/EmojiTaller.png'} alt="Nombre del lugar" />
+            <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'contain', }} src={'/EmojiTaller.png'} alt={`Taller de carros ${data?.nombre}`} />
 
           }
           <div style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', width:'100%' }}>
