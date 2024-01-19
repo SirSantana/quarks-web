@@ -6,6 +6,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
+import Icon, { IconCatalog } from '../Icon/Icon';
 
 export default function SliderTalleresSugeridos() {
 
@@ -24,7 +25,7 @@ export default function SliderTalleresSugeridos() {
   };
   return (
     <>
-      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600' }} className={styles.titleNegocio}>Talleres sugeridos </h2>
+      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display:'flex', gap:'16px'}} className={styles.titleNegocio}><Icon name={IconCatalog.rocketOuline} size='lg'/> Talleres sugeridos </h2>
 
       <Slider className={styles.slider}  {...settings}>
 

@@ -7,7 +7,7 @@ import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import ServidosOfrecidos from "@/src/Components/Talleres/ServiciosOfrecidos";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import ButtonsFooter from "@/src/Components/Talleres/ButtonsFooter";
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
@@ -16,6 +16,9 @@ import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 // import SectionCreateTaller from "@/src/Components/Talleres/SectionCreateTaller";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import HeaderHorario from "@/src/Components/Talleres/HeaderHorario";
+import Horario from "@/src/Components/Talleres/Horario";
+import HorarioDias from "@/src/Components/Talleres/HorarioDias";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
@@ -33,6 +36,8 @@ export default function NegocioVDos({ data }) {
   const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
+  const horariosSeparados = data?.horario?.split(',');
+
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <Image
@@ -54,6 +59,13 @@ export default function NegocioVDos({ data }) {
             <ServidosOfrecidos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
           </section>
         }
+
+        {data?.horario &&
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <HorarioDias horariosSeparados={horariosSeparados} />
+          </section>
+        }
+
         {data?.urltallermaps && <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} />}
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SliderTalleresSugeridos />
@@ -73,13 +85,14 @@ export default function NegocioVDos({ data }) {
         </section>
 
         {data?.promediocalificacionesmaps &&
-          <Reseñas id={data?.id} />
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <Reseñas id={data?.id} />
+          </section>
         }
 
         {!editModeHiddenButtons &&
           <ButtonsFooter data={data} user={user} />
         }
-        {/* {data?.horario && <HeaderHorario handleScroll={handleScroll} visibleFullHorario={visibleFullHorario} setVisibleFullHorario={setVisibleFullHorario} horario={data?.horario} user={user} />} */}
 
       </div>
 

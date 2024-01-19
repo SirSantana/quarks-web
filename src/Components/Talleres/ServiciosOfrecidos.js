@@ -1,17 +1,7 @@
 
 import styles from '@/styles/ServiciosAutomotriz.module.css'
-import { ModalEditServicios } from '@/utils/Modales';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import AddServicios from '../Register/AddServicios';
-import Icon, { IconCatalog } from '../Icon/Icon';
-import { EDIT_NEGOCIO_VDOS } from '@/graphql/mutations';
-import { useMutation } from '@apollo/client';
-import { MagicMotion } from 'react-magic-motion';
-import EditCategories from './EditServicios';
-import { client } from '@/client';
-import { GET_SERVICIOS_NEGOCIO } from '@/graphql/queries';
 import Image from 'next/image';
+import Icon, { IconCatalog } from '../Icon/Icon';
 
 export const categorias2 = [
   { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos', db: "Servicio de Accesorios y Lujos" },
@@ -37,84 +27,13 @@ export const categorias2 = [
   { nombre: 'Mecanica Basica', img: 'mecanica-basica', url: '', db: 'Mecanica Basica' },
   { nombre: 'Mecanica Avanzada', img: 'mecanica-avanzada', url: '', db: 'Mecanica Avanzada' },
 ];
-export default function ServidosOfrecidos({ data, user, setEditModeHiddenButtons, }) {
-  const [editMode, setEditMode] = useState(false)
-  const [visibleModalEditServicios, setVisibleModalEditServicios] = useState(false)
-  const [categorias, setCategorias] = useState(data?.categorias)
-  const [addCategory, setAddCategory] = useState('')
-  const [otherCategorias, setOtherCategorias] = useState([])
-  const [editNegocioVDos, result] = useMutation(EDIT_NEGOCIO_VDOS)
-  const router = useRouter()
-
-
-  const handleClick = (e) => {
-    e.stopPropagation()
-    if ((user?.userName === router?.query?.id) && !editMode) {
-      setEditModeHiddenButtons(true)
-      return setEditMode(!editMode)
-    }
-  }
-  const handleChange = (category) => {
-    setCategorias((prevCategorias) => {
-      if (prevCategorias.includes(category)) {
-        // Si existe, elimínalo del array
-        return prevCategorias.filter((item) => item !== category);
-      } else {
-        // Si no existe, agrégalo al array
-        return [...prevCategorias, category];
-      }
-    });
-  }
-  const handleChange2 = (category) => {
-    setAddCategory('')
-    setOtherCategorias((prevCategorias) => {
-      if (prevCategorias.includes(category)) {
-        // Si existe, elimínalo del array
-        return prevCategorias.filter((item) => item !== category);
-      } else {
-        // Si no existe, agrégalo al array
-        return [...prevCategorias, category];
-      }
-    });
-  }
-
-  const handleSubmitCategory = (e) => {
-    e.preventDefault()
-    setOtherCategorias((prevCategorias) => {
-      if (prevCategorias.includes(addCategory)) {
-        // Si existe, elimínalo del array
-        return prevCategorias.filter((item) => item !== addCategory);
-      } else {
-        // Si no existe, agrégalo al array
-        return [...prevCategorias, addCategory];
-      }
-    });
-    setAddCategory('')
-
-  }
-  const handleClose = () => {
-    setCategorias(result?.data?.editNegocioVDos?.categorias ? result?.data.editNegocioVDos?.categorias : data?.categorias)
-    setEditMode(false)
-    setEditModeHiddenButtons(false)
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setEditMode(false)
-    let totalCategorias = categorias.concat(otherCategorias)
-    editNegocioVDos({ variables: { categorias: totalCategorias } });
-    setEditModeHiddenButtons(false)
-  }
-  useEffect(() => {
-    if (result?.data) {
-      setCategorias(result?.data?.editNegocioVDos?.categorias)
-    }
-  }, [result?.data])
+export default function ServidosOfrecidos({ data,  }) {
 
   return (
     <>
-      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600' }} className={styles.titleNegocio}>{data?.tipo !== 'Almacen' ? "Servicios Ofrecidos" : "Repuestos Manejados"} </h2>
-      <div  onClick={handleClick} className={`${styles.containerHeaderCalendario} ${editMode ? styles.active : ''}`} style={{ flexDirection: 'column', alignItems: 'center', gap:0}}>
-        {categorias.map(el => {
+      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600',display:'flex', gap:'16px' }} className={styles.titleNegocio}><Icon size='lg' name={IconCatalog.colorWandOutline}/> {data?.tipo !== 'Almacen' ? "Servicios Ofrecidos" : "Repuestos Manejados"} </h2>
+      <div className={styles.containerHeaderCalendario} style={{ flexDirection: 'column', alignItems: 'center', gap:0}}>
+        {data?.categorias.map(el => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           return (
             <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
@@ -128,132 +47,12 @@ export default function ServidosOfrecidos({ data, user, setEditModeHiddenButtons
                   <div style={{ width: '1px', height: '100%', backgroundColor: '#CACACA', alignSelf: 'center' }}></div>
                 </div>
               }
-
+              
               <p style={{ fontSize: '14px', flex: 1 }}>{category ? category?.nombre : el}</p>
-
             </div>
-            
           )
         })}
-
-
-        {/* {!editMode ? categorias.map(el => {
-          const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
-          return (
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
-              {category?.img
-                ?
-                <div style={{ borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid #c5c5c5', }}>
-                  <img src={`./${category?.img}.png`} style={{ width: '30px', height: '30px' }} />
-                </div>
-                :
-                <div style={{ position: 'relative', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ width: '1px', height: '100%', backgroundColor: '#CACACA', alignSelf: 'center' }}></div>
-                  <div style={{ position: 'absolute', width: '8px', height: '8px', backgroundColor: '#CACACA', borderRadius: '50%', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}></div>
-                </div>
-              }
-
-              <p style={{ fontSize: '14px', flex: 1 }}>{data?.tipo === 'Almacen' ? category.nombre : el}</p>
-
-            </div>
-          )
-        })
-          :
-          <MagicMotion>
-            {
-              categorias2.map(el => {
-                let categoryChecked = categorias.find(cat => cat?.toLocaleLowerCase() == el?.db.toLocaleLowerCase())
-
-                return (
-                  <div onClick={() => handleChange(el.db)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
-                    <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      {el?.img ? <img src={`./${el?.img}.png`} style={{ width: '30px', height: '30px' }} /> : <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>}
-                    </div>
-                    <p style={{ fontSize: '14px', flex: 1 }}>{el.nombre}</p>
-                    {categoryChecked
-                      ?
-                      <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76' }} name="checkbox"></ion-icon>
-                      :
-                      <div style={{ borderRadius: '4px', width: '18px', height: '18px', border: '1px solid black' }} />
-                    }
-                  </div>
-                )
-              })
-            }
-            {
-              categorias
-                .filter(el => !categorias2.some(cat => cat?.db?.toLocaleLowerCase() === el?.toLocaleLowerCase()))
-                .map(el => (
-                  <div onClick={() => handleChange(el)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
-                    <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                      <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>
-                    </div>
-                    <p style={{ fontSize: '14px', flex: 1 }}>{el}</p>
-                    {categorias.includes(el)
-                      ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76' }} name="checkbox"></ion-icon>
-                      : <div style={{ borderRadius: '4px', width: '18px', height: '18px', border: '1px solid black' }}>
-                      </div>
-                    }
-                  </div>
-                ))
-            }
-           
-            {
-              otherCategorias.map(el => (
-                <div onClick={() => handleChange2(el)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
-                  <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>
-                  </div>
-                  <p style={{ fontSize: '14px', flex: 1 }}>{el}</p>
-                  {otherCategorias.includes(el)
-                    ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76' }} name="checkbox"></ion-icon>
-                    : <div style={{ borderRadius: '4px', width: '18px', height: '18px', border: '1px solid black' }}>
-                    </div>
-                  }
-                </div>
-              ))
-            }
-            < form onSubmit={handleSubmitCategory} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', justifyContent: 'flex-start' }}>
-              <div onClick={() => handleChange2(addCategory)} style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <ion-icon name="add-outline" style={{ fontSize: '20px' }}></ion-icon>
-              </div>
-              <input value={addCategory} onChange={(e) => setAddCategory(e.target.value)} className={styles.inputsAddInfo} type='text' name='categoria' style={{ textAlign: 'left', flex: 1, backgroundColor: 'transparent', paddingLeft: '0' }} placeholder='Agregar otro' />
-
-              {otherCategorias.includes(addCategory)
-                ? <button type='submit'>
-                  <ion-icon style={{ fontSize: '24px', cursor: 'pointer' }} name="checkbox"></ion-icon>
-                </button>
-                : <div onClick={() => handleChange2(addCategory)} style={{ borderRadius: '4px', width: '19.5px', height: '19.5px', border: '1px solid black' }}>
-                </div>
-              }
-            </form>
-          </MagicMotion>
-        }
-
-        {editMode && (
-          <>
-            {(categorias !== data?.categorias || otherCategorias.length > 0) ?
-              <>
-                <button onClick={handleSubmit} className={styles.checkIcon}>
-                  <Icon name={IconCatalog.checkmarkOutline} size='md' style={{ color: 'white' }} />
-                </button>
-                <button onClick={handleClose} className={styles.cancelIcon}>
-                  <Icon name={IconCatalog.closeOutline} size='md' style={{ color: '#373737' }} />
-                </button>
-              </>
-              :
-              <button onClick={() => { setEditMode(false); setEditModeHiddenButtons(false) }} className={styles.editIcon}>
-                <Icon name={IconCatalog.pencilOutline} size='sm' style={{ color: 'white' }} />
-              </button>
-            }
-          </>
-        )} */}
       </div >
-      {/* {visibleModalEditServicios &&
-        <AddServicios setCategorias={setCategorias} addCategory={addCategory} setAddCategory={setAddCategory} categorias={categorias} otherCategorias={otherCategorias} setOtherCategorias={setOtherCategorias} />
-
-        //  <ModalEditServicios setCategorias={setCategorias} addCategory={addCategory} setAddCategory={setAddCategory} categorias={categorias} otherCategorias={otherCategorias} setOtherCategorias={setOtherCategorias}/>
-      } */}
     </>
   )
 }

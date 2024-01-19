@@ -5,25 +5,20 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 
-export default function HeaderHorario({ handleScroll, setVisibleFullHorario, visibleFullHorario, horario, user }) {
+export default function HeaderHorario({ handleScroll, setVisibleFullHorario, visibleFullHorario, horario }) {
   const numeroDia = new Date().getDay();
-  const [visibleModalEditHorario, setVisibleModalEditHorario] = useState(false)
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = horario.split(',');
-  const router = useRouter()
   const [editMode, setEditMode] = useState(false)
 
   const handleClick = () => {
-    if (user?.userName === router?.query?.id) {
-      return setEditMode(!editMode)
-    }
     handleScroll()
     setVisibleFullHorario(!visibleFullHorario)
   }
 
   return (
     <>
-      <div onClick={handleClick} className={`${styles.containerHeaderCalendario} ${editMode ? styles.active : ''}`}>
+      <div onClick={handleClick} className={styles.containerHeaderCalendario}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%' }}>
           <ion-icon style={{ fontSize: '20px' }} name="calendar-number-outline"></ion-icon>
           <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', justifyContent: 'space-between' }}>
@@ -34,19 +29,7 @@ export default function HeaderHorario({ handleScroll, setVisibleFullHorario, vis
           </div>
         </div>
 
-        {editMode && (
-          <button onClick={()=>{setVisibleModalEditHorario(true),setEditMode(false)}} className={styles.editIcon}>
-            <ion-icon
-              style={{ fontSize: '16px', color: 'white' }}
-              name="pencil-outline"
-            ></ion-icon>
-          </button>
-        )}
-
       </div>
-      {visibleModalEditHorario &&
-        <ModalEditHorario setVisibleModalEditHorario={setVisibleModalEditHorario} horarioActual={horario} />
-      }
     </>
   )
 }
