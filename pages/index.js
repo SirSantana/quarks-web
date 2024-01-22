@@ -15,9 +15,9 @@ import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTaller
 import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
 import { IconCatalog } from '@/src/Components/Icon/Icon'
 import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
-
-const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
-  { ssr: false })
+import SectonFilters from  '@/src/Components/LandingPage/SectionFilters'
+// const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
+//   { ssr: false })
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
 const SectionCalculadoraCombustible = dynamic(() => import('@/src/Components/LandingPage/Section5'),
@@ -31,7 +31,7 @@ const Map = dynamic(
 
 export default function Home({ data }) {
 
-  const [mode, setMode] = useState(0)
+  const [mode, setMode] = useState(1)
 
   return (
     <>
@@ -106,22 +106,25 @@ export default function Home({ data }) {
         /> */}
       </Head>
       <main className={styles.main}>
-        <NewNavbarWithSearch mode={mode} />
 
         {mode
           ?
-          <SectonFilters />
+          <>
+            <NewNavbarWithSearch mode={mode} />
+            <SectonFilters />
+            <ListTalleresLanding />
+            <SectionTalleresServicios />
+            <ActividadReciente />
+            <SectionCotizaciones />
+            <SectionVariedadTalleres />
+            <SectionPasos />
+            <SectionGrowthTaller />
+            <SectionCalculadoraCombustible />
+          </>
           :
-          <Map talleres={data} />
+          <Map talleres={data} mode={mode} />
         }
-        <ListTalleresLanding />
-        <SectionTalleresServicios />
-        <ActividadReciente />
-        <SectionCotizaciones />
-        <SectionVariedadTalleres />
-        <SectionPasos />
-        <SectionGrowthTaller />
-        <SectionCalculadoraCombustible />
+
         <Button style={{
           zIndex: '1000',
           position: 'fixed',
