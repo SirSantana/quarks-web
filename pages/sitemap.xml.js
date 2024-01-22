@@ -15,7 +15,8 @@ const generateSiteMap = (data) => {
     ${posts && posts.map(item => {
     return `<url>
         <loc>
-          https://www.quarks.com.co/servicios-automotriz/${item.nombre.replace(/ /g,'-')}
+          https://www.quarks.com.co/servicios-automotriz/${item.nombre.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-').normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+          .replace(/[\u0300-\u036f]/g, '')}
         </loc>
       </url>`;
   }).join('')}

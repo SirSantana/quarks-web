@@ -10,6 +10,7 @@ const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/
   { ssr: false })
 export default function ServicioAutomotriz({ data }) {
   const router = useRouter()
+  let servicio = router?.query?.id.toLowerCase().replace(/[^a-z]/g, '')
   return (
     <Layout title={`Los mejores talleres mecanicos de ${router?.query?.id} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleSlider={true}>
       <SectonFilters data={data} />

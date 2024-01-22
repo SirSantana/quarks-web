@@ -44,7 +44,9 @@ export default function CategoriasSlider({ categorias, mode }) {
           prefetch={false}
             href={mode
               ?
-              `/servicios-automotriz/${categoria.url.replace(/ /g,'-')}`
+              `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
+              .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+              .replace(/[\u0300-\u036f]/g, '')}`
               :  `/?servicio=${categoria.nombre.replace(/ /g,'-')}`
             }
             key={index}
