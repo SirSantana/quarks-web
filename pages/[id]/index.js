@@ -6,13 +6,15 @@ import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import ServidosOfrecidos from "@/src/Components/Talleres/ServiciosOfrecidos";
 import { useRouter } from "next/router";
-import {  useState } from "react";
+import { useState } from "react";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import ButtonsFooter from "@/src/Components/Talleres/ButtonsFooter";
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import HorarioDias from "@/src/Components/Talleres/HorarioDias";
+import CalificacionWidget from "@/src/Components/Talleres/CalificacionWidget";
+import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
@@ -44,9 +46,13 @@ export default function NegocioVDos({ data }) {
         loading="eager"
         alt={`Taller mecanico ${data?.nombre} Bogota`}
       />
+      <ButtonsHeader />
       <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
-      <div className={styles.containerMobile} >
 
+      <div className={styles.containerMobile} >
+        <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+          <CalificacionWidget id={data?.id} />
+        </section>
         {/* {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} handleScroll={handleScroll} />}
         <DatosImportantes data={data} ref={reff} setVisibleModalTelefono={setVisibleModalTelefono} /> */}
         {data?.categorias &&

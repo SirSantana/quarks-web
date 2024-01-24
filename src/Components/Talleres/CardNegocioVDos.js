@@ -52,7 +52,7 @@ export default function CardNegocioVDos({ data,  }) {
         </div>
 
 
-        <div style={{ height: '1px', backgroundColor: '#f1f1f1', width: '90%' }} />
+        <div style={{ height: '1px', backgroundColor: '#dddddd', width: '90%' }} />
         {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} />}
         <DatosImportantes data={data} ref={reff}     />
       </section>

@@ -18,19 +18,17 @@ const userIcon = () => new L.Icon({
 
 });
 
-function MyComponent({ setZoomLevel }) {
+function MyComponent({ setZoomLevel, }) {
 
   const mapEvents = useMapEvents({
     // move:()=>{
     //   console.log(mapEvents);
     // },
-
+    
     zoomend: () => {
       setZoomLevel(mapEvents.getZoom());
     },
   });
-
-
   return null
 }
 
@@ -40,47 +38,25 @@ export default function Map({ talleres }) {
   const [zoomLevel, setZoomLevel] = useState(5); // initial zoom level provided for MapContainer
   const router = useRouter()
   const [isHovered, setIsHovered] = useState(false);
+  const [zoomMap, setZoomMap] = useState(15)
   // const [createClickNegocioPrevMap] = useMutation(CREATE_CLICK_NEGOCIO_PREV_MAP)
 
   let { servicio } = router?.query
-  // const handleMarkerDragEnd = (event) => {
-  //   const { lat, lng } = event.target.getLatLng();
-  //   setUserLocation([lat, lng]);
-  // };
-  // useEffect(() => {
-  //   // Obtener la ubicación del usuario
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (position) => {
-  //         const { latitude, longitude } = position.coords;
-  //         setUserLocation([latitude, longitude]);
-  //         setMapCenter([latitude, longitude]);
-  //       },
-  //       (error) => {
-  //         console.error('Error al obtener la ubicación:', error.message);
-  //       }
-  //     );
-  //   } else {
-  //     console.error('La geolocalización no es compatible con este navegador.');
-  //   }
-  // }, [])
 
-
-  // const talleresFilter = talleres?.talleres.filter(taller => taller?.lat)
   let emoji = categorias.find(cat => cat.url === servicio)
   const handleMarkerClick = ({id}) => {
-    console.log('hpña');
     // createClickNegocioPrevMap({ variables: { id } });
   };
+
   return (
 
     <MapContainer
-      className={styles.map} center={userLocation ? userLocation : mapCenter} zoom={15} zoomControl={false} scrollWheelZoom={true}>
+      className={styles.map}  center={userLocation ? userLocation : mapCenter} zoom={zoomMap} zoomControl={false} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
       />
-      <MyComponent setZoomLevel={setZoomLevel} />
+      <MyComponent setZoomLevel={setZoomLevel}  />
       {/* {userLocation && (
         <Marker icon={userIcon()} position={userLocation}
           draggable={true}

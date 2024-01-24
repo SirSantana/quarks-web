@@ -74,7 +74,6 @@ export default function CategoriasSlider({ categorias, mode }) {
         ))}
       </Slider>
 
-
     </div>
   );
 }
