@@ -39,7 +39,7 @@ export default function Home({ data }) {
         <title>Talleres mecanicos automotrices de Bogotá</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={`Encuentra los mejores talleres de carros con reseñas de usuarios y recomendaciones en Bogota. Taller automotriz de Servicios de ${options?.map(el => " " + el.value)}`} />
-        <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia"} />
+        <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia, taller carro, talleres de carros"} />
         <meta name='robots' content='follow, index, max-image-preview:large' />
         <meta name='bingbot' content='follow, index' />
         <meta name='GOOGLEBOT' content='follow, index' />
@@ -73,37 +73,6 @@ export default function Home({ data }) {
         <link  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
-        {/* <script async src="https://fundingchoicesmessages.google.com/i/pub-1233996863721897?ers=1" nonce="WKkivzNt4GwPI1Z9pOJtUg"></script>
-        <script nonce="WKkivzNt4GwPI1Z9pOJtUg">
-          {(function () {
-            function signalGooglefcPresent() {
-              if (!window.frames['googlefcPresent']) {
-                if (document.body) {
-                  const iframe = document.createElement('iframe');
-                  iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
-                  iframe.style.display = 'none';
-                  iframe.name = 'googlefcPresent';
-                  document.body.appendChild(iframe);
-                } else {
-                  setTimeout(signalGooglefcPresent, 0);
-                }
-              }
-            }
-            signalGooglefcPresent();
-          })()}
-        </script> */}
-        {/* <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> */}
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "jh3neqgrnc");
-            `,
-          }}
-        /> */}
       </Head>
       <main className={styles.main}>
         <NewNavbarWithSearch mode={mode} />

@@ -98,10 +98,12 @@ const PlaceCard = ({ data }) => {
           </div>}
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', marginTop: '16px' }}>
-        <button style={{ height: '40px', fontSize: '14px', borderRadius: '8px', fontWeight: '600' }} className={styles.buttonFixedBlack} onClick={(e) => {
-          e.preventDefault();
-          sendMessageWha();
-        }} >{data?.userName === 'corsa-motors' ? 'Ver perfil' : 'Ver perfil'}
+        <button style={{ height: '40px', fontSize: '14px', borderRadius: '8px', fontWeight: '600' }} className={styles.buttonFixedBlack} 
+        // onClick={(e) => {
+        //   e.preventDefault();
+        //   sendMessageWha();
+        // }} 
+        >{data?.userName === 'corsa-motors' ? 'Ver perfil' : 'Ver perfil'}
           {/* <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='sm' /> */}
 
         </button>

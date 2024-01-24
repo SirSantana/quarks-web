@@ -10,7 +10,7 @@ export default function SectionCotizaciones() {
     <section style={{ backgroundColor: '#FDFDFD' }} className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
-          <h2 className={styles.title2}>Informacion de cada taller automotriz</h2>
+          <h2 className={styles.title2}>Mecanico automotriz</h2>
           <p className={styles.subtitle2}>Cada taller automotriz, tienen su horario de servicio, direccion, numeros de contacto, servicios ofrecidos, y mas.</p>
           <Button link={true} href={'/servicios-automotriz/Taller-mecanico'} variant={ButtonVariant.primary} size={ButtonSize.base} icon={IconCatalog.arrowForwardOutline}>
             Mirar talleres

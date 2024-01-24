@@ -7,7 +7,7 @@ export default function SectionPasos() {
     <section className={styles.containerListTalleres}>
       <div className={styles.containerVariedadTalleres}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
-          <h2 className={styles.title2}>Encuentra el mejor taller para tu carro</h2>
+          <h2 className={styles.title2}>Talleres de carro</h2>
           <Button link={true} href={'/'} variant={ButtonVariant.primary} size={ButtonSize.base} >
             Encuentra aqui
           </Button>

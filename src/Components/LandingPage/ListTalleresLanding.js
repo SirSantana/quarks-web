@@ -29,7 +29,7 @@ export default function ListTalleresLanding() {
   return (
     <section className={styles.containerListTalleres}>
       <h1 className={styles.title2} style={{ textAlign: 'center', color: '#373737' }}>
-        Los Mejores Talleres de carros de Bogota en un solo Lugar
+        Talleres de carros
       </h1>
       <div className={styles.containerImgTalleres}>
         {imagesTalleres.map((el, index) => (
