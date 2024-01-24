@@ -15,9 +15,9 @@ import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTaller
 import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
 import { IconCatalog } from '@/src/Components/Icon/Icon'
 import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
-import SectonFilters from  '@/src/Components/LandingPage/SectionFilters'
-// const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
-//   { ssr: false })
+
+const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
+  { ssr: false })
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
 const SectionCalculadoraCombustible = dynamic(() => import('@/src/Components/LandingPage/Section5'),
@@ -31,7 +31,7 @@ const Map = dynamic(
 
 export default function Home({ data }) {
 
-  const [mode, setMode] = useState(1)
+  const [mode, setMode] = useState(0)
 
   return (
     <>
@@ -70,7 +70,7 @@ export default function Home({ data }) {
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="icon" href="/logoquarks200623.png" />
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
         {/* <script async src="https://fundingchoicesmessages.google.com/i/pub-1233996863721897?ers=1" nonce="WKkivzNt4GwPI1Z9pOJtUg"></script>
@@ -106,25 +106,22 @@ export default function Home({ data }) {
         /> */}
       </Head>
       <main className={styles.main}>
+        <NewNavbarWithSearch mode={mode} />
 
         {mode
           ?
-          <>
-            <NewNavbarWithSearch mode={mode} />
-            <SectonFilters />
-            <ListTalleresLanding />
-            <SectionTalleresServicios />
-            <ActividadReciente />
-            <SectionCotizaciones />
-            <SectionVariedadTalleres />
-            <SectionPasos />
-            <SectionGrowthTaller />
-            <SectionCalculadoraCombustible />
-          </>
+          <SectonFilters />
           :
-          <Map talleres={data} mode={mode} />
+          <Map talleres={data} />
         }
-
+        <ListTalleresLanding />
+        <SectionTalleresServicios />
+        <ActividadReciente />
+        <SectionCotizaciones />
+        <SectionVariedadTalleres />
+        <SectionPasos />
+        <SectionGrowthTaller />
+        <SectionCalculadoraCombustible />
         <Button style={{
           zIndex: '1000',
           position: 'fixed',

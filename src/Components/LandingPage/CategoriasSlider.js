@@ -47,7 +47,9 @@ export default function CategoriasSlider({ categorias, mode }) {
               `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
               .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
               .replace(/[\u0300-\u036f]/g, '')}`
-              :  `/?servicio=${categoria.nombre.replace(/ /g,'-')}`
+              :  `/?servicio=${categoria.nombre.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
+              .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+              .replace(/[\u0300-\u036f]/g, '')}`
             }
             key={index}
             style={{ width: 140 }}

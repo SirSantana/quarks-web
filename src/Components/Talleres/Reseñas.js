@@ -13,7 +13,6 @@ export default function Reseñas({ id }) {
   const handlerLoginOpinion = () => {
     router.push(`${router.asPath}/crear-resena?ide=${id}`);
   }
-
   return (
     <>
       <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display:'flex', gap:'16px' }} className={styles.titleNegocio}><Icon name={IconCatalog.ribbonOutline} size='lg'/>Reseñas </h2>

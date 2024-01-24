@@ -36,11 +36,12 @@ export default function SliderCatVDos({ categorias, mode }) {
     variableWidth: true,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
+    
   };
   return (
-    <div className={styles.categoriasSlider}>
+    <div  className={styles.categoriasSlider}>
 
-      <Slider  {...settings}>
+      <Slider   {...settings}>
         {categorias.map((categoria, index) => (
           <Link
             prefetch={false}
@@ -49,7 +50,9 @@ export default function SliderCatVDos({ categorias, mode }) {
               `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
                 .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
                 .replace(/[\u0300-\u036f]/g, '')}`
-              : `/?servicio=${categoria.nombre.replace(/ /g, '-')}`
+              : `/?servicio=${categoria.nombre.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
+              .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+              .replace(/[\u0300-\u036f]/g, '')}`
             }
             key={index}
             className={styles.categoria}

@@ -42,7 +42,6 @@ export default function ListTalleresLanding() {
               <div className={styles.skeletonLoader} />
             ) : (
               <Image
-                loading='lazy'
                 className={styles.imgFotoTaller}
                 width={64}
                 height={64}

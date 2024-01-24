@@ -145,6 +145,16 @@ mutation createClickCompartido($id:ID){
   createClickCompartido(id:$id)
 }
 `
+export const CREATE_CLICK_NEGOCIO_PREV_MAP = gql`
+mutation createClickNegocioPrevMap($id:ID){
+  createClickNegocioPrevMap(id:$id)
+}
+`
+export const CREATE_CLICK_NEGOCIO_MAP = gql`
+mutation createClickNegocioMap($id:ID){
+  createClickNegocioMap(id:$id)
+}
+`
 export const CREATE_CLICK_MAPA = gql`
 mutation createClickMapaDireccion($id:ID){
   createClickMapaDireccion(id:$id)

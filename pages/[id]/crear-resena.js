@@ -153,7 +153,7 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
   const [email, setEmail] = useState(null)
   const { id, ide } = router.query
   const [visibleModalLogin, setVisibleModalLogin] = useState(false)
-  const { data: session } = useSession()
+  const { data: session} = useSession()
   const [createOpinion, { data, error, loading }] = useMutation(CREATE_OPINION,  {
     update: (cache, result) => {
       // Intentar leer los datos de la cache
@@ -186,7 +186,6 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
     // Actualizar el estado con el nuevo array de servicios
     setForm({ ...form, servicios: selectedValues });
   }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!session) {
@@ -196,7 +195,7 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
       return alert('Cuentanos mas sobre tu experiencia en este lugar!')
     }
     setForm({ ...form, almacen: ide, nombre: session?.user?.name, foto: session?.user?.image, email: session?.user?.email })
-    if (form.email !== '' && form.descripcion!== '' && form.referencia !== '' && form.servicios.length> 0) {
+    if (form.email !== '' && form.descripcion!== '' && form.referencia !== '' && form.servicios.length> 0 && form.almacen !== '') {
       createOpinion({ variables: form })
       // setCalificated(true)
     } else {
@@ -216,8 +215,8 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
     if(!session){
       return setVisibleModalLogin(true)
     }
+    setForm({ ...form,almacen: ide,  nombre: session?.user?.name, foto: session?.user?.image, email: session?.user?.email })
     setVisibleModalLogin(false)
-    setForm({ ...form, almacen: ide, nombre: session?.user?.name, foto: session?.user?.image, email: session?.user?.email })
   }, [session]);
   return (
     <Layout title={'Crear reseña'} visibleNavbar={false}>

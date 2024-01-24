@@ -7,7 +7,7 @@ import { GET_CALIFICACION_OPINIONES } from '@/graphql/queries';
 import ButtonsFooter from '../Talleres/ButtonsFooter';
 // Asegúrate de importar el archivo de estilos
 import styles from '@/styles/ServiciosAutomotriz.module.css'
-import { CREATE_CLICK_COMPARTIDO, CREATE_CLICK_MAPA, CREATE_VISITA_WHATSAPP } from '@/graphql/mutations';
+import { CREATE_CLICK_COMPARTIDO, CREATE_CLICK_MAPA, CREATE_CLICK_NEGOCIO_MAP, CREATE_VISITA_WHATSAPP } from '@/graphql/mutations';
 import { useRouter } from 'next/router';
 
 let servicios = [
@@ -30,6 +30,8 @@ const PlaceCard = ({ data }) => {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter()
   const [createClickMapaDireccion] = useMutation(CREATE_CLICK_MAPA)
+  const [createClickNegocioMap] = useMutation(CREATE_CLICK_NEGOCIO_MAP)
+
 
   const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
 
@@ -53,7 +55,7 @@ const PlaceCard = ({ data }) => {
     abrirGoogleMaps(data?.direccion)
   }
   return (
-    <Link href={`/${data?.userName}`} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
+    <Link href={`/${data?.userName}`} onClick={()=> createClickNegocioMap({ variables: { id: data?.id } })} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '16px 0 8px 0', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%' }}>
           {data?.fotoperfil
@@ -61,25 +63,25 @@ const PlaceCard = ({ data }) => {
             <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={data?.fotoperfil} alt={`Taller de carros ${data?.nombre}`} />
             :
             <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'contain', }} src={'/EmojiTaller.png'} alt={`Taller de carros ${data?.nombre}`} />
-
           }
-          <div style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', width:'100%' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width:'100%', alignItems:'center'}}>
+          <div style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%' }}>
+
+            <h3 style={{ fontSize: data?.nombre.length > 20 ? '16px' : data?.nombre.length > 15 ? '18px' : '20px', fontWeight: '700', }}>{data?.nombre}</h3>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
               <p style={{ margin: 0, fontSize: '12px', color: '#929292' }}>{data?.direccion}</p>
               {result?.data?.getCalificacionOpiniones > 0 &&
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: '4px' }}>
                   <ion-icon style={{ color: '#FBBC04' }} name="star"></ion-icon>
-                  <p style={{ fontSize: '12px', margin: 0, color: '#464646' }}>{result?.data?.getCalificacionOpiniones}</p>
+                  <p style={{fontWeight:'500', fontSize: '12px', margin: 0, color: '#464646' }}>{result?.data?.getCalificacionOpiniones}</p>
                 </div>
               }
             </div>
-            <h3 style={{ fontSize: data?.nombre.length > 20 ? '16px' : data?.nombre.length > 15 ? '18px' : '20px', fontWeight: '700', }}>{data?.nombre}</h3>
           </div>
         </div>
 
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '6px', width: '100%' }}>
-        <p style={{ fontSize: '12px', margin: 0, color: '#464646', width: '100%', fontWeight: '600' }}>{data?.nombre === 'Corsa Motors' ? 'Almacen de Repuestos' : 'Taller Mecanico'}</p>
+        {/* <p style={{ fontSize: '12px', margin: 0, color: '#464646', width: '100%', fontWeight: '600' }}>{data?.nombre === 'Corsa Motors' ? 'Almacen de Repuestos' : 'Taller Mecanico'}</p> */}
         {data?.categorias.slice(0, 2).map(el => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           return (
@@ -91,15 +93,17 @@ const PlaceCard = ({ data }) => {
         })}
 
         {data?.categorias.length > 2 &&
-          <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', border: '1px solid #c1c1c1', borderRadius: '50%', width: '32px', justifyContent: 'center', height: '32px' }}>
-            <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>+{data?.categorias.length - 2}</p>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', }}>
+            <p style={{ margin: 0, fontSize: '12px', fontWeight: '600', color: '#464646' }}>+{data?.categorias.length - 2} servicios</p>
           </div>}
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', marginTop: '16px' }}>
-        <button style={{ height: '40px', fontSize: '12px', borderRadius: '8px' }} className={styles.buttonFixedBlack} onClick={(e) => {
+        <button style={{ height: '40px', fontSize: '14px', borderRadius: '8px', fontWeight: '600' }} className={styles.buttonFixedBlack} onClick={(e) => {
           e.preventDefault();
           sendMessageWha();
-        }} >{data?.userName === 'corsa-motors' ? 'Contactar' : 'Solicitar Revisión'} <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='sm' />
+        }} >{data?.userName === 'corsa-motors' ? 'Ver perfil' : 'Ver perfil'}
+          {/* <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='sm' /> */}
+
         </button>
         <button style={{ height: '40px', width: '40px', borderRadius: '8px' }} className={styles.buttonFixedBlack2} onClick={(e) => { e.stopPropagation(); handleClickMapa(data); }} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='sm' /> </button>
       </div>

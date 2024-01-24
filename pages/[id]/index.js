@@ -40,6 +40,7 @@ export default function NegocioVDos({ data }) {
         height={300}
         className={styles.imgFotoPortada}
         src={data?.fotoperfil}
+        priority={true}
         loading="eager"
         alt={`Taller mecanico ${data?.nombre} Bogota`}
       />
