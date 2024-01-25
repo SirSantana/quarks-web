@@ -6,7 +6,7 @@ import Select from 'react-select';
 import styles from '@/styles/Almacenes.module.css'
 import { categorias2 } from "@/src/Components/Talleres/ServiciosOfrecidos";
 import Icon, { IconCatalog } from "@/src/Components/Icon/Icon";
-import { CREATE_VISITA_WHATSAPP } from "@/graphql/mutations";
+import { CREATE_SOLICITUD_SERVICIO, CREATE_VISITA_WHATSAPP } from "@/graphql/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_WHATSAPP_NEGOCIO } from "@/graphql/queries";
 
@@ -35,7 +35,8 @@ export default function SolicitarRevision() {
   const [email, setEmail] = useState(null)
   const { id, ide } = router.query
   const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
-  const result = useQuery(GET_WHATSAPP_NEGOCIO,{variables:{id:ide}} )
+  const [createSolicitudServicio] = useMutation(CREATE_SOLICITUD_SERVICIO)
+  const result = useQuery(GET_WHATSAPP_NEGOCIO, { variables: { id: ide } })
 
   const whatsapp = result?.data?.getWhatsappNegocio
   const handleChangeServices = (selectedOptions) => {
@@ -51,9 +52,9 @@ export default function SolicitarRevision() {
     if (form.descripcion.length < 12) {
       return alert('Cuentanos mas sobre el problema de tu vehiculo!')
     }
-    if (form.referencia !== '' && form.servicios.length > 0) {
-    createVisitaWhatsapp({ variables: { id: ide } })
-
+    if (form.referencia !== '' && form.servicios.length > 0 && whatsapp) {
+      createVisitaWhatsapp({ variables: { id: ide } })
+      createSolicitudServicio({ variables: { ...form, almacen: ide } })
       const message = `¡Hola! Estoy interesado en sus servicios.
 
       🛠️  *Descripción del Problema:* ${form.descripcion} 
@@ -62,8 +63,8 @@ export default function SolicitarRevision() {
       🔍  *Referencia del Vehículo:* ${form.referencia} 
       
 Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
-      let url = `https://api.whatsapp.com/send?phone=57${whatsapp.replace(/\s/g, '')}`;
-      
+      let url = `https://api.whatsapp.com/send?phone=57${whatsapp?.replace(/\s/g, '')}`;
+
       url += `&text=${encodeURIComponent(message)}&app_absent=0`;
       window.open(url);
     } else {
