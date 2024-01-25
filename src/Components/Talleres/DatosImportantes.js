@@ -4,10 +4,11 @@ import { useMutation } from '@apollo/client';
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { MagicMotion } from 'react-magic-motion';
 import WidgetComplete from '../Icon/WidgetComplete';
-import { IconCatalog } from '../Icon/Icon';
+import Icon, { IconCatalog } from '../Icon/Icon';
+import Divider from '../Box/Divider';
 
 
-const DatosImportantes = forwardRef(({ data,  }, ref) => {
+const DatosImportantes = forwardRef(({ data, }, ref) => {
   const myRef = useRef(null);
   const [createClickTelefono] = useMutation(CREATE_CLICK_TELEFONO)
   const [createClickMapaDireccion] = useMutation(CREATE_CLICK_MAPA)
@@ -49,22 +50,31 @@ const DatosImportantes = forwardRef(({ data,  }, ref) => {
   }, []);
   return (
     <MagicMotion>
-      {loading ? (
+       {loading ? (
         // Muestra el esqueleto mientras se carga
         <div
-        className={styles.skeleton}
+          className={styles.skeleton}
         />
       ) :
-        <WidgetComplete name={'telefono'} onClick={ handleClickTelefono} withBorder={false} text={data?.telefono} icon={IconCatalog.callOutline} icon2={IconCatalog.callOutline} style={{ color: '#5c5c5c' }} />
+        <WidgetComplete name={'tienda'}  withBorder={false} text={data?.userName === 'corsa-motors' ? 'Almacen de Repuestos' : 'Taller Automotriz'} icon={IconCatalog.storefrontOutline}  style={{ color: '#5c5c5c' }} />
       }
       {loading ? (
         // Muestra el esqueleto mientras se carga
         <div
-        className={styles.skeleton}
+          className={styles.skeleton}
         />
       ) :
-        <WidgetComplete  name={'direccion'} onClick={() => handleClickMapa(data)} withBorder={false} text={data?.direccion} icon={IconCatalog.compassOutline} icon2={IconCatalog.openOutline}  style={{ color: '#5c5c5c' }} />
+        <WidgetComplete name={'telefono'} onClick={handleClickTelefono} withBorder={false} text={data?.telefono} icon={IconCatalog.callOutline} icon2={IconCatalog.callOutline} style={{ color: '#5c5c5c' }} />
       }
+      {loading ? (
+        // Muestra el esqueleto mientras se carga
+        <div
+          className={styles.skeleton}
+        />
+      ) :
+        <WidgetComplete name={'direccion'} onClick={() => handleClickMapa(data)} withBorder={false} text={data?.direccion} icon={IconCatalog.compassOutline} icon2={IconCatalog.openOutline} style={{ color: '#5c5c5c' }} />
+      }
+      
 
     </MagicMotion>
   )

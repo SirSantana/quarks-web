@@ -12,12 +12,14 @@ import dynamic from 'next/dynamic'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import { useState } from 'react'
 import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTalleresServicios'
+import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
+
 import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
 import { IconCatalog } from '@/src/Components/Icon/Icon'
 import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
 
-const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
-  { ssr: false })
+// const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
+//   { ssr: false })
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
 const SectionCalculadoraCombustible = dynamic(() => import('@/src/Components/LandingPage/Section5'),
@@ -32,7 +34,6 @@ const Map = dynamic(
 export default function Home({ data }) {
 
   const [mode, setMode] = useState(1)
-
   return (
     <>
       <Head>
@@ -79,12 +80,13 @@ export default function Home({ data }) {
 
         {mode
           ?
-          <SectonFilters />
+          <SectonFilters data={data.reverse()}/>
           :
           <Map talleres={data} />
         }
-        <ListTalleresLanding />
         <SectionTalleresServicios />
+        <ListTalleresLanding />
+
         <ActividadReciente />
         <SectionCotizaciones />
         <SectionVariedadTalleres />
@@ -139,14 +141,18 @@ export async function getServerSideProps({ query }) {
     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
       categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
       levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
-
+    return{
+      props:{
+        data:filter
+      }
+    }
   }
   function normalizeString(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
   return {
     props: {
-      data: filter ? filter : talleresFilter
+      data: talleresFilter
     },
   }
 

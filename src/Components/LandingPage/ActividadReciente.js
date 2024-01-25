@@ -82,7 +82,7 @@ export default function ActividadReciente() {
               <p>Tu Llanta - Siete de Agosto</p>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>
                 {estrellas.map((el, index) => (
-                  <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
+                  <div key={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
                     <Star index={index} stars={4} tamaño={'14'} />
                   </div>
                 ))}
@@ -125,7 +125,7 @@ export default function ActividadReciente() {
               <p>Oil Filter´s 7 DE AGOSTO</p>
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', lineHeight: '12px', marginBottom: '4px' }}>
                 {estrellas.map((el, index) => (
-                  <div id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
+                  <div key={index} id={index} style={{ marginRight: '8px', cursor: 'pointer', }} >
                     <Star index={index} stars={5} tamaño={'14'} />
                   </div>
                 ))}

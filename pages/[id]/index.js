@@ -15,6 +15,7 @@ import dynamic from "next/dynamic";
 import HorarioDias from "@/src/Components/Talleres/HorarioDias";
 import CalificacionWidget from "@/src/Components/Talleres/CalificacionWidget";
 import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
+import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
@@ -50,22 +51,17 @@ export default function NegocioVDos({ data }) {
         loading="eager"
         alt={`Taller mecanico ${data?.nombre} Bogota`}
       />
+      
       <ButtonsHeader />
-      <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
+      <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} onClick={handleClickReseñasSection}/>
 
       <div className={styles.containerMobile} >
-        {data?.promediocalificacionesmaps &&
-          <section 
-          onClick={handleClickReseñasSection}
-          style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <CalificacionWidget id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps}/>
-          </section>
-        }
+        <RecomiendasTaller onClick={handleClickReseñasSection}/>
         {/* {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} handleScroll={handleScroll} />}
         <DatosImportantes data={data} ref={reff} setVisibleModalTelefono={setVisibleModalTelefono} /> */}
         {data?.categorias &&
           <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <ServidosOfrecidos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
+            <ServidosOfrecidos  data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
           </section>
         }
 

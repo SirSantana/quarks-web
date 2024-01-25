@@ -14,33 +14,36 @@ const Star = ({ index, stars, tamaño, }) => {
 }
 let estrellas = [1, 2, 3, 4, 5]
 
-export default function CalificacionWidget({ id, ctdCalificaciones }) {
+export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data, loading } = useQuery(GET_OPINIONES, { variables: { id: id } })
-
   return (
 
-    <div className={styles.containerHeaderCalendario} style={{ flexDirection: 'row', backgroundColor: '#FFFCE4', alignItems: 'center', gap: '16px', borderColor: '#FBBC04' }}>
+    <div onClick={onClick} className={styles.containerHeaderCalendario} style={{border:'none', padding:'0', margin:'0 auto', marginBottom:'16px'}}>
       {loading
         ?
         <div
           className={styles.skeleton}
         />
         :
-        <>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <p style={{ fontSize: '14px', fontWeight: '600' }}>{result?.data?.getCalificacionOpiniones}</p>
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '4px', }}>
-              {estrellas.map((el, index) => (
-                <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'16'} />
-              ))}
-            </div>
+        data?.getOpiniones.length > 0
+          &&
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', width:'100%', justifyContent:'center'}}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <p style={{ fontSize: '14px', fontWeight: '600' }}>{result?.data?.getCalificacionOpiniones}</p>
+              <div style={{ display: 'flex', flexDirection: 'row', gap: '4px', }}>
+                {estrellas.map((el, index) => (
+                  <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'16'} />
+                ))}
+              </div>
 
+            </div>
+            <Divider backgroundColor={'#FBBC04'} />
+            <p style={{ fontSize: '14px', fontWeight: '600' }}>{Number(ctdCalificaciones) + data.getOpiniones.length} reseñas</p>
           </div>
-          <Divider backgroundColor={'#FBBC04'} />
-          <p style={{ fontSize: '14px', fontWeight: '600' }}>{Number(ctdCalificaciones) + data.getOpiniones.length} reseñas</p>
-        </>
+         
       }
+
     </div>
 
   )

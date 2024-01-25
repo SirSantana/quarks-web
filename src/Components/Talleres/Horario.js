@@ -34,7 +34,7 @@ export default function Horario({ horariosSeparados, handleVisibleHorario, visib
           :
           <div onClick={handleClick} style={{ cursor: 'pointer', backgroundColor: 'white', display: 'flex', flexDirection: visibleFullHorario ? "column" : "row", alignItems: 'center', justifyContent: 'space-between', padding: '10px', boxSizing: 'border-box', gap: '10px', margin: '0 auto', borderRadius: '16px', width: '100%', maxWidth: '600px', transition: "height 0.5s ease" }}>
             <div style={{ display: 'flex', flexDirection: 'row', gap: '16px',alignItems:'center', width: '100%', marginBottom: visibleFullHorario ? '8px' : '0px' }}>
-              <Icon name={IconCatalog.calendarNumberOutline} size='lg' />
+              <Icon name={IconCatalog.calendarNumberOutline} size='lg' style={{color:'#5c5c5c'}}  />
               <Divider />
 
               <div style={{flex:1, display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', justifyContent: 'space-between' }}>

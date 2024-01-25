@@ -40,7 +40,7 @@ export default function CardNewTaller({ taller }) {
             {taller?.categorias.slice(0, 3).map(el => {
               const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
               return (
-                <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
+                <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
                   {category?.img && <Image src={`/${category?.img}.png`} width={20} height={20} alt={`Taller de autos de ${el}`} />}
                   <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
                 </div>
