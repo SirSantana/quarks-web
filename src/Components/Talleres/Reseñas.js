@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import Icon, { IconCatalog } from '../Icon/Icon'
 
 
-export default function Reseñas({ id }) {
+export default function Reseñas({ id, ctdCalificaciones}) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data } = useQuery(GET_OPINIONES, { variables: { id: id } })
   const router = useRouter()
@@ -29,7 +29,7 @@ export default function Reseñas({ id }) {
             ?
             <>
               <p style={{ fontSize: '28px', fontWeight: '700', color: '#373737', }}>{result?.data?.getCalificacionOpiniones}</p>
-              <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({data?.getOpiniones.length} reseñas)</p>
+              <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({ctdCalificaciones} reseñas)</p>
             </>
             :
         <p>Sin reseñas todavia</p>

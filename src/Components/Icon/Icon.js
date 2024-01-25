@@ -24,6 +24,7 @@ export const IconCatalog = {
   logoFacebook: 'logo-facebook',
   logoInstagram: 'logo-instagram',
   logoTiktok: 'logo-tiktok',
+  logoGoogle:'logo-google',
   globeOutline: 'globe-outline',
   mapa: 'map',
   lista: 'list',

@@ -6,7 +6,7 @@ import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import ServidosOfrecidos from "@/src/Components/Talleres/ServiciosOfrecidos";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import ButtonsFooter from "@/src/Components/Talleres/ButtonsFooter";
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
@@ -29,11 +29,15 @@ export default function NegocioVDos({ data }) {
   const router = useRouter()
   const { user, logout } = useAuth()
   const [loading, setLoading] = useState(true)
+  const reseñasSectionRef = useRef(null);
   const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
   const horariosSeparados = data?.horario?.split(',');
-
+  const handleClickReseñasSection = () => {
+    // Hacer scroll hasta el section de Reseñas
+    reseñasSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <Image
@@ -50,9 +54,13 @@ export default function NegocioVDos({ data }) {
       <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
 
       <div className={styles.containerMobile} >
-        <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-          <CalificacionWidget id={data?.id} />
-        </section>
+        {data?.promediocalificacionesmaps &&
+          <section 
+          onClick={handleClickReseñasSection}
+          style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <CalificacionWidget id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps}/>
+          </section>
+        }
         {/* {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} handleScroll={handleScroll} />}
         <DatosImportantes data={data} ref={reff} setVisibleModalTelefono={setVisibleModalTelefono} /> */}
         {data?.categorias &&
@@ -61,6 +69,19 @@ export default function NegocioVDos({ data }) {
           </section>
         }
 
+
+
+
+        {/* <Redes /> */}
+
+
+
+        {(data?.facebook || data?.instagram || data?.paginaweb || user?.userName === router?.query?.id) &&
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <RedesSociales data={data} user={user} />
+          </section>
+
+        }
         {data?.horario &&
           <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
             <HorarioDias horariosSeparados={horariosSeparados} />
@@ -76,23 +97,12 @@ export default function NegocioVDos({ data }) {
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SliderTalleresSugeridos />
         </section>
-        {/* <Redes /> */}
-
-
-
-        {(data?.facebook || data?.instagram || data?.paginaweb || user?.userName === router?.query?.id) &&
-          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <RedesSociales data={data} user={user} />
-          </section>
-
-        }
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SectionCreateTaller />
         </section>
-
         {data?.promediocalificacionesmaps &&
-          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <Reseñas id={data?.id} />
+          <section ref={reseñasSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} />
           </section>
         }
 
