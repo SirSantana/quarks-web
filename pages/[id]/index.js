@@ -78,17 +78,17 @@ export default function NegocioVDos({ data }) {
           </section>
 
         }
-        {data?.horario &&
-          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <HorarioDias horariosSeparados={horariosSeparados} />
-          </section>
-        }
 
         {data?.urltallermaps &&
           <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
             <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} />
           </section>
 
+        }
+         {data?.horario &&
+          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <HorarioDias horariosSeparados={horariosSeparados} />
+          </section>
         }
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SliderTalleresSugeridos />
@@ -98,7 +98,7 @@ export default function NegocioVDos({ data }) {
         </section>
         {data?.promediocalificacionesmaps &&
           <section ref={reseñasSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} />
+            <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} />
           </section>
         }
 

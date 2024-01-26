@@ -35,16 +35,14 @@ export default function SectonFilters({ data }) {
   //   levenshteinDistance(item.nombre.toLowerCase(), categoria.toLowerCase()) < 5 // Valor umbral de similitud
   // );
   return (
-    <div className={styles.containerGridTalleres}>
+    <div style={{marginTop:router?.pathname === '/' && '0px'}} className={styles.containerGridTalleres}>
       <section className={styles.headerTalleres} >
         {router?.pathname !== '/'
           && <h1 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} </h1>
         }
         {router?.pathname !== '/'
-          ?
+          &&
           <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca a mi en Bogota</h4>
-          :
-          <h4 style={{ textAlign: 'left' }} className={styles.subtitle2}>Mas de 100 talleres mecanicos cerca a mi</h4>
         }
         {/* {router?.pathname !== '/' && <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-end', gap: '16px', }}>
           <Select onChange={handleChange2} options={options2} styles={customStyles} defaultValue={options2[0]} />
@@ -60,18 +58,18 @@ export default function SectonFilters({ data }) {
               <CardNewTaller key={el.nombre} taller={el} />
             ))
         } */}
-          {data?.length <= 0 && router.pathname !== '/' 
+        {data?.length <= 0 && router.pathname !== '/'
           ? <h2 style={{ fontSize: '14px', fontWeight: '500', color: '#6D6D6D' }}>No se encontraron resultados...</h2>
           :
           data?.length > 0 && router.pathname !== '/' ?
-          data?.map(el => (
-            <CardNewTaller key={el.nombre} taller={el} />
-          ))
-          :
-          data?.slice(0, 10).map(el => (
-            <CardNewTaller key={el.nombre} taller={el} />
-          ))
-}
+            data?.map(el => (
+              <CardNewTaller key={el.nombre} taller={el} />
+            ))
+            :
+            data?.slice(0, 10).map(el => (
+              <CardNewTaller key={el.nombre} taller={el} />
+            ))
+        }
       </section>
     </div>
   )

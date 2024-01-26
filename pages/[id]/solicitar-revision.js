@@ -1,6 +1,6 @@
 import Layout from "@/src/Components/Layout";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { customStyles, customStyles2, formatOptionLabel, marcas, marcasWithOptions, repuestosWithOptions } from "./crear-resena";
 import Select from 'react-select';
 import styles from '@/styles/Almacenes.module.css'
@@ -9,6 +9,8 @@ import Icon, { IconCatalog } from "@/src/Components/Icon/Icon";
 import { CREATE_SOLICITUD_SERVICIO, CREATE_VISITA_WHATSAPP } from "@/graphql/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_WHATSAPP_NEGOCIO } from "@/graphql/queries";
+import Button, { ButtonVariant } from "@/src/Components/Button/Button";
+import { ModalError, ModalLoading, ModalSuccessfull } from "@/utils/Modales";
 
 
 let initialForm = {
@@ -16,7 +18,9 @@ let initialForm = {
   almacen: '',
   servicios: [],
   marca: 'Chevrolet',
-  referencia: ''
+  referencia: '',
+  nombre: '',
+  celular: ''
 }
 export const formatOptionLabel2 = ({ value, index, label }, { selectValue }) => {
 
@@ -33,10 +37,12 @@ export default function SolicitarRevision() {
   const [form, setForm] = useState(initialForm)
   const router = useRouter()
   const [email, setEmail] = useState(null)
-  const { id, ide } = router.query
-  const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
-  const [createSolicitudServicio] = useMutation(CREATE_SOLICITUD_SERVICIO)
+  const { id, ide, contactme } = router.query
+  const [createVisitaWhatsapp] = useMutation(CREATE_VISITA_WHATSAPP)
+  const [createSolicitudServicio, { loading, data, error }] = useMutation(CREATE_SOLICITUD_SERVICIO)
   const result = useQuery(GET_WHATSAPP_NEGOCIO, { variables: { id: ide } })
+
+  console.log(contactme);
 
   const whatsapp = result?.data?.getWhatsappNegocio
   const handleChangeServices = (selectedOptions) => {
@@ -55,23 +61,33 @@ export default function SolicitarRevision() {
     if (form.referencia !== '' && form.servicios.length > 0 && whatsapp) {
       createVisitaWhatsapp({ variables: { id: ide } })
       createSolicitudServicio({ variables: { ...form, almacen: ide } })
-      const message = `¡Hola! Estoy interesado en sus servicios.
+      if (!contactme) {
+        const message = `¡Hola! Estoy interesado en sus servicios.
 
-      🛠️  *Descripción del Problema:* ${form.descripcion} 
-      ⚙️  *Servicio:* ${form.servicios} 
-      🚗  *Marca del Vehículo:* ${form.marca} 
-      🔍  *Referencia del Vehículo:* ${form.referencia} 
-      
-Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
-      let url = `https://api.whatsapp.com/send?phone=57${whatsapp?.replace(/\s/g, '')}`;
+        🛠️  *Descripción del Problema:* ${form.descripcion} 
+        ⚙️  *Servicio:* ${form.servicios} 
+        🚗  *Marca del Vehículo:* ${form.marca} 
+        🔍  *Referencia del Vehículo:* ${form.referencia} 
+        
+  Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
+        let url = `https://api.whatsapp.com/send?phone=57${whatsapp?.replace(/\s/g, '')}`;
 
-      url += `&text=${encodeURIComponent(message)}&app_absent=0`;
-      window.open(url);
+        url += `&text=${encodeURIComponent(message)}&app_absent=0`;
+        window.open(url);
+      }
+
     } else {
       return alert('Completa los campos')
     }
 
   }
+  useEffect(() => {
+    if (data) {
+      setTimeout(() => {
+        router.back()
+      }, 3000)
+    }
+  }, [data])
   return (
     <Layout title={'Crear reseña'} visibleNavbar={false}>
       <div style={{ maxWidth: '400px', width: '90%', margin: '0 auto', display: 'flex', flexDirection: 'column', padding: '16px 0', boxSizing: 'border-box', gap: '40px' }}>
@@ -83,6 +99,16 @@ Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
           </div>
           <div style={{ width: '100%', backgroundColor: '#f1f1f1', height: '1px' }} />
         </header>
+
+        {contactme &&
+          <div style={{ width: '100%', gap: '8px', height: 'fitContent', display: 'flex', flexDirection: 'column' }}>
+            <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>Tus datos</h4>
+            <div style={{ display: 'flex', width: '100%', gap: '8px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+              <input required id="nombre" type='text' onChange={handleChange} name='nombre' value={form.nombre} className={styles.inputChooseMarca} style={{ width: '48%' }} placeholder='Andres Garcia' />
+              <input required id="celular" type='text' onChange={handleChange} name='celular' value={form.celular} className={styles.inputChooseMarca} placeholder='Celular (3143903***)' />
+            </div>
+          </div>
+        }
 
         <div style={{ width: '100%', gap: '8px', height: 'fitContent', display: 'flex', flexDirection: 'column' }}>
           <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>¿Qué servicio necesita tu vehículo?</h4>
@@ -107,26 +133,24 @@ Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
           </div>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', margin: '32px 0 16px 0', gap: '16px' }}>
-          <button onClick={handleSubmit} style={{ width: '100%', fontSize: '14px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '16px' }} className={styles.button}><Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='md' />Solicitar revision</button>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', margin: '16px 0 16px 0', gap: '16px' }}>
+          <Button onClick={handleSubmit} fullWidth variant={ButtonVariant.primary}>
+            Solicitar revision
+          </Button>
           {/* <button onClick={() => { setVisibleOpinion(false), setForm(initialForm) }} style={{ width: '100%', fontSize: '14px', backgroundColor: 'white', border: '1px solid #f50057', color: '#f50057', }} className={styles.button}>Regresar</button> */}
         </div>
       </div>
 
-      {/* {loading &&
-        <ModalLoading title={'Publicando...'} />}
-      {data &&
-        <ModalSuccessfull title={'Reseña compartida!'} />}
+
+      {loading &&
+        <ModalLoading title={'Enviando... '} />
+      }
       {error &&
         <ModalError title={'Ha ocurrido un error'} subtitle={error?.message} />
       }
-      {visibleModalLogin &&
-        <div className={styles.modal}>
-          <ModalLoginFacebook setVisibleModalLogin={setVisibleModalLogin} />
-        </div>
-      } */}
-
-
+      {data &&
+        <ModalSuccessfull title={'Genial'} subtitle={'Tu solicitud ha sido enviada al negocio. Se pondran en conctacto contigo pronto!'} />
+      }
     </Layout>
   )
 }

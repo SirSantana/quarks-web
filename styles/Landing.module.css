@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   /* margin-top: 10%; */
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 .sectionSliderShow {
@@ -95,7 +95,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px 16px;
-  margin-top: 32px;
+  margin-top: 0px;
   flex-wrap: wrap;
 }
 
@@ -464,6 +464,9 @@
     width: 60%;
   }
 
+  .gridCardTalleres {
+    margin-top: 32px;
+  }
   .containerParent {
     width: 95%;
   }
@@ -515,7 +518,7 @@
 @media (max-width: 900px) {
   .containerParent {
     flex-direction: column;
-    margin-top: 15%;
+    margin-top: 10%;
     width: 95%;
   }
 

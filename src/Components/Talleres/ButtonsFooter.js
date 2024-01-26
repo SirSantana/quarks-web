@@ -6,6 +6,8 @@ import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Icon, { IconCatalog } from '../Icon/Icon';
+import ModalButtonsContacto from './ModalButtonsContacto';
+import Button, { ButtonVariant } from '../Button/Button';
 
 
 export default function ButtonsFooter({ data, user }) {
@@ -16,9 +18,11 @@ export default function ButtonsFooter({ data, user }) {
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
   const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
   const [createClickCompartido] = useMutation(CREATE_CLICK_COMPARTIDO)
+  const [visibleModalButtons, setVisibleModalButtons] = useState(false)
 
   const sendMessageWha = () => {
-    router.push(`/${router.query.id}/solicitar-revision?ide=${data?.id}`);
+    // router.push(`/${router.query.id}/solicitar-revision?ide=${data?.id}`);
+    setVisibleModalButtons(true)
 
     // createVisitaWhatsapp({ variables: { id: data?.id } })
     // let url = `https://api.whatsapp.com/send?phone=57${data?.whatsapp}`;
@@ -42,11 +46,14 @@ export default function ButtonsFooter({ data, user }) {
   return (
     <div className={styles.divFixed}>
       <>
-        <button style={{fontWeight:'500'}} className={styles.buttonFixedBlack} onClick={sendMessageWha} >{data?.userName === 'corsa-motors' ? 'Contactar' : 'Solicitar Revisión'} <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='md' /></button>
-        <button aria-label='Ver direccion taller' className={styles.buttonFixedBlack2} onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button>
+        <Button onClick={sendMessageWha} style={{height:'48px'}} variant={ButtonVariant.primary} fullWidth>
+          Contactar al negocio
+        </Button>
+        {/* <button aria-label='Ver direccion taller' className={styles.buttonFixedBlack2} onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button> */}
 
-        <button aria-label='Compartir perfil taller' className={styles.buttonFixedBlack2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button>
+        {/* <button aria-label='Compartir perfil taller' className={styles.buttonFixedBlack2} onClick={handleClickCompartir} ><Icon name={IconCatalog.paperPlaneOutline} style={{ color: '#373737' }} size='md' /> </button> */}
       </>
+      {visibleModalButtons && <ModalButtonsContacto data={data} setVisibleModalButtons={setVisibleModalButtons} />}
       {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />}
     </div>
 

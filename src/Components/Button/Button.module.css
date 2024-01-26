@@ -17,7 +17,7 @@
 }
 
 .button-primary {
-  background-color: #f50057;
+  background-color: #E50051;
   color: #fff;
 }
 
@@ -54,7 +54,9 @@
 .button:hover {
   filter: brightness(1.2);
 }
-
+.button-outlined:hover{
+  background-color: #c5c5c5;
+}
 .button:active {
   transform: scale(0.98);
 }

@@ -369,7 +369,6 @@ export function ModalEditHorario({ setVisibleModalEditHorario, horarioActual }) 
     editNegocioVDos({ variables: dataImportante })
   }
   const handleClose = () => {
-    console.log('hii');
     setVisibleModalEditHorario(false)
   }
   useEffect(() => {

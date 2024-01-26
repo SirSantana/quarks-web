@@ -220,7 +220,7 @@
 
 
 .categoriasSlider {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 }
 
@@ -284,15 +284,26 @@
 .customNextArrow {
   font-size: 24px;
   line-height: 1;
-  color: #717171;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 30%;
+  transform: translateX(40px);
+  border:1px solid #c5c5c5;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  z-index: 1000;
+}
+.customNextArrow{
+  transform: translateX(-40px);
 
 }
 .customNextArrow:hover, .customPrevArrow:hover{
-  color: #373737;
+  border-color: #464646;
+  box-shadow: rgba(0, 0, 0, 0.15) 3px 4px 2px;
 
 
 }
@@ -312,7 +323,7 @@
     width: 100%;
   }
   .categoriasSlider {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
   }
   
@@ -343,7 +354,11 @@
     width: 90%;
   }
 }
-
+@media (max-width: 900px) {
+  .categoriasSlider {
+    width: 95%;
+  }
+}
 @media (max-width: 800px) {
   .containerCardTrivia {
     padding: 16px;

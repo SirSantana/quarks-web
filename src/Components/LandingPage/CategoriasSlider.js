@@ -6,6 +6,7 @@ import styles from '@/styles/HomeArticulos.module.css'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Icon, { IconCatalog } from '../Icon/Icon';
 
 export default function CategoriasSlider({ categorias, mode }) {
   const router = useRouter()
@@ -15,18 +16,19 @@ export default function CategoriasSlider({ categorias, mode }) {
 
   const CustomPrevArrow = (props) => (
     <div className={styles.customPrevArrow} onClick={props.onClick}>
-      <ion-icon name="chevron-back-circle-outline"></ion-icon>
+      <Icon size='sm' name={IconCatalog.chevronBackOutline}/>
+      {/* <ion-icon style={{color:'#464646'}} name="chevron-back-"></ion-icon> */}
     </div>
   );
   const CustomNextArrow = (props) => (
     <div className={styles.customNextArrow} onClick={props.onClick}>
-      <ion-icon name="chevron-forward-circle-outline"></ion-icon>
+      <Icon size='sm' name={IconCatalog.chevronForwardOutline}/>
     </div>
   );
   const settings = {
     horizontal: true,
     vertical: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     speed: 500,
     slidesToShow: 1, // Muestra una slide a la vez
