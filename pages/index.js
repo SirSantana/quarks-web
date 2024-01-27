@@ -33,7 +33,7 @@ const Map = dynamic(
 
 export default function Home({ data }) {
 
-  const [mode, setMode] = useState(1)
+  const [mode, setMode] = useState(0)
   return (
     <>
       <Head>

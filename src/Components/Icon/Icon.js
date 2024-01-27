@@ -36,7 +36,8 @@ export const IconCatalog = {
   colorWandOutline:"color-wand-outline",
   rocketOuline:"rocket-outline",
   ribbonOutline:"ribbon-outline",
-  shareSocialOutline:'share-social-outline'
+  shareSocialOutline:'share-social-outline',
+  image:'image'
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {
