@@ -93,7 +93,7 @@ export default function Home({ data }) {
         <SectionPasos />
         <SectionGrowthTaller />
         <SectionCalculadoraCombustible />
-        <Button style={{
+        {/* <Button style={{
           zIndex: '1000',
           position: 'fixed',
           bottom: '50px', // Puedes ajustar esta propiedad para controlar la distancia desde la parte inferior
@@ -101,7 +101,7 @@ export default function Home({ data }) {
           transform: 'translateX(-50%)', // Centrar horizontalmente
         }} onClick={() => setMode(mode === 0 ? 1 : 0)} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode ? IconCatalog.mapa : IconCatalog.lista}>
           Mostrar {mode ? 'Mapa' : 'Lista'}
-        </Button>
+        </Button> */}
 
       </main>
       <Footer />

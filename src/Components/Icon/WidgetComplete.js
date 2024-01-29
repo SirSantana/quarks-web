@@ -6,7 +6,7 @@ export default function WidgetComplete({ withBorder = true, onClick=undefined, i
       <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems:'center'}}>
         <Icon name={icon} size="lg" style={style}/>
         <Divider/>
-          <p style={{ fontSize: '14px', alignSelf:'center' }}>{ text}</p>
+          <p style={{ fontSize: '14px', alignSelf:'center', flex:1}}>{ text}</p>
       </div>
     </div>
   )

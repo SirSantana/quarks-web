@@ -25,7 +25,9 @@ export default function Reseña({ reseña }) {
               <p style={{ fontSize: '14px', fontWeight: '400', color: '#5c5c5c' }}>{reseña?.marca} · {reseña?.referencia}</p>
             )}
           </div>
-          {!reseña?.email && <Icon name={IconCatalog.logoGoogle} style={{ color: '#EA4335' }} size="md" />}
+          {!reseña?.email && !reseña?.pagina && <Icon name={IconCatalog.logoGoogle} style={{ color: '#EA4335' }} size="md" />}
+          {reseña?.pagina === 'Facebook' && <Icon name={IconCatalog.logoFacebook} style={{ color: '#0080FF' }} size="md" />}
+
         </div>
         <p style={{ fontSize: '16px', lineHeight: '22px', }}>
           {reseña?.descripcion}
@@ -51,7 +53,7 @@ export default function Reseña({ reseña }) {
           </p>
           <div style={{ display: 'flex', flexDirection: 'row', gap: '4px', }}>
             {estrellas.map((el, index) => (
-              <Star index={index} stars={Math.round(reseña?.calificacion)} tamaño={'16'} />
+              <Star key={el} index={index} stars={Math.round(reseña?.calificacion)} tamaño={'16'} />
             ))}
           </div>
 

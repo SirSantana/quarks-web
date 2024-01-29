@@ -15,7 +15,7 @@ const Star = ({ index, stars, tamaño, }) => {
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
-export default function CardNegocioVDos({ data, onClick}) {
+export default function CardNegocioVDos({ data, onClick, onClickDos}) {
   const [visibleFullHorario, setVisibleFullHorario] = useState(false)
   const reff = useRef(null)
   const [loadingImage, setLoadingImage] = useState(true)
@@ -66,7 +66,7 @@ export default function CardNegocioVDos({ data, onClick}) {
 
 
         {/* <div style={{ height: '1px', backgroundColor: '#dddddd', width: '90%' }} /> */}
-        <DatosImportantes data={data} ref={reff} />
+        <DatosImportantes data={data} ref={reff} onClick={onClickDos} />
         {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} />}
       </section>
     </>

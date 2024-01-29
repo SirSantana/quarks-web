@@ -14,7 +14,6 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps }) {
   const handlerLoginOpinion = () => {
     router.push(`${router.asPath}/crear-resena?ide=${id}`);
   }
-
   return (
     <>
       <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}><Icon name={IconCatalog.ribbonOutline} size='lg' />Reseñas </h2>
@@ -39,10 +38,10 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps }) {
         </div>
       </div>
       {data?.getOpiniones.map(reseña => (
-        <Reseña reseña={reseña} />
+        <Reseña reseña={reseña} key={reseña.id}/>
       ))}
       <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',  boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '90%', maxWidth: '600px' }}>
-        {data?.getOpiniones.length > 0 &&
+        {data?.getOpiniones.length > 0 && urlMaps&&
           <Button variant={ButtonVariant.outlined} fullWidth link href={urlMaps}>
             Mostrar reseñas
           </Button>

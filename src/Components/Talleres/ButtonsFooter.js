@@ -10,7 +10,7 @@ import ModalButtonsContacto from './ModalButtonsContacto';
 import Button, { ButtonVariant } from '../Button/Button';
 
 
-export default function ButtonsFooter({ data, user }) {
+export default function ButtonsFooter({ data, user, tipo }) {
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter()
   const [createClickMapaDireccion] = useMutation(CREATE_CLICK_MAPA)
@@ -47,7 +47,7 @@ export default function ButtonsFooter({ data, user }) {
     <div className={styles.divFixed}>
       <>
         <Button onClick={sendMessageWha} style={{height:'48px'}} variant={ButtonVariant.primary} fullWidth>
-          Contactar al negocio
+          Contactar
         </Button>
         {/* <button aria-label='Ver direccion taller' className={styles.buttonFixedBlack2} onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button> */}
 

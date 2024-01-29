@@ -21,13 +21,13 @@ export default function ModalButtonsContacto({data, setVisibleModalButtons}) {
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', }}>
             <Icon name={IconCatalog.callOutline} />
             <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
-              <p style={{ fontSize: '16px', fontWeight: '600', }}>Contactar al negocio</p>
+              <p style={{ fontSize: '16px', fontWeight: '600', }}>Contacta a {data?.nombre}</p>
             </div>
           </div>
           <ion-icon onClick={() => setVisibleModalButtons(false)} style={{ fontSize: '20px' }} name={"close-outline"}></ion-icon>
         </div>
 
-        <p style={{ fontSize: '14px', marginBottom:'16px' }}>Escoge una opcion para contactarte con el negocio</p>
+        <p style={{ fontSize: '14px', marginBottom:'16px' }}>Escoge una opcion para contactarte con el {data?.tipo === 'Mecanico a Domicilio' ?'mecanico':'negocio'}</p>
         <Button onClick={sendMessageWha} variant={ButtonVariant.secondary} fullWidth>
           Contactar por WhatsApp
         </Button>

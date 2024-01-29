@@ -315,6 +315,7 @@ query getOpiniones($id:ID) {
     marca
     referencia
     servicios
+    pagina
   }
 }
 `;

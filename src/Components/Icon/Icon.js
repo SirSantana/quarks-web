@@ -37,7 +37,8 @@ export const IconCatalog = {
   rocketOuline:"rocket-outline",
   ribbonOutline:"ribbon-outline",
   shareSocialOutline:'share-social-outline',
-  image:'image'
+  image:'image',
+  peopleOutline:'people-outline'
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {
