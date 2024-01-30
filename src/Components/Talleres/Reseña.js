@@ -18,7 +18,28 @@ export default function Reseña({ reseña }) {
     <div className={styles.containerReseña}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center' }}>
-          <img style={{ width: '48px', height: '48px', borderRadius: '50%' }} src={reseña?.foto} alt={`Reseña de ${reseña?.nombre}`} />
+          {reseña?.pagina === 'Facebook'
+            ?
+            <div
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '50%',
+                backgroundColor: '#ffff',
+                border:'1px solid #c5c5c5',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#373737',
+                fontSize: '16px',
+                fontWeight: '600',
+              }}
+            >
+              {reseña.nombre[0]}
+            </div>
+            :
+            <img style={{ width: '48px', height: '48px', borderRadius: '50%' }} src={reseña?.foto} alt={`Reseña de ${reseña?.nombre}`} />
+          }
           <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
             <p style={{ fontSize: '16px', fontWeight: '600' }}>{reseña?.nombre}</p>
             {reseña?.marca && (
@@ -38,7 +59,7 @@ export default function Reseña({ reseña }) {
             return (
               <div style={{ borderRadius: '4px', padding: '4px 12px', border: '1px solid #c5c5c5', width: 'fitContent', display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
                 <img style={{ width: '20px', height: '20px', borderRadius: '50%' }} src={`../${image?.img}.png`} alt={`Servicio de ${el}`} />
-                <p style={{ fontSize: '12px', color: '#5c5c5c', fontWeight:'500' }}>
+                <p style={{ fontSize: '12px', color: '#5c5c5c', fontWeight: '500' }}>
                   {el}
                 </p>
               </div>

@@ -122,6 +122,7 @@
   justify-content: center;
   gap: 48px;
 }
+
 .inputsAddInfo {
   border: none;
   outline: none;
@@ -273,6 +274,7 @@
   width: 100%;
   justify-content: space-between;
 }
+
 .containerForm {
   display: flex;
   flex-direction: column;
@@ -291,9 +293,11 @@
   padding: 12px 24px;
   border-radius: 8px;
 }
-.inputAcceso::placeholder{
-  color:#5c5c5c
+
+.inputAcceso::placeholder {
+  color: #5c5c5c
 }
+
 .inputsEmailPass {
   border: none;
   background-color: #f1f1f1;
@@ -310,11 +314,13 @@
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
+
 .inputsEmailPass:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
   -webkit-text-fill-color: #1b333d;
 }
-.cardServicioHome{
+
+.cardServicioHome {
   position: relative;
   margin-bottom: 60px;
   padding: 20px;
@@ -325,15 +331,68 @@
   cursor: pointer;
   border: 1px solid #ccc;
   transition: 0.3s;
-text-decoration: none;
-color:#373737;
+  text-decoration: none;
+  color: #373737;
 }
-.cardServicioHome:hover{
+
+.cardServicioHome:hover {
   background-color: #373737;
   color: white;
   transform: scale(1.1);
-  
 
+
+}
+
+.containerPlan {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 32px
+}
+
+.containerOnePlan {
+  position: relative;
+  border: 1px solid #c5c5c5;
+  border-radius: 16px;
+  flex: 1;
+  height: fit-content;
+  min-width: 300px;
+  padding: 32px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  /* Agregar transición para suavizar el efecto */
+}
+
+.tooltipOnePlanMaster {
+  background-color: #f50057;
+  height: 40px;
+  width: 200px;
+  border-radius: 32px;
+  position: absolute;
+  top: -20px; /* Colocar en la mitad vertical del contenedor padre */
+  right: 30px;
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerOnePlan:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Efecto de sombra al pasar el mouse */
+}
+.onePlanList{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.onePlanP{
+  font-size: 14px;
+  flex: 1;
+  font-weight: 500;
 }
 @media (max-width: 1200px) {
   .containerContent {
@@ -382,14 +441,16 @@ color:#373737;
     gap: 32px;
     margin: 16px 0;
   }
-  .containerInputAcceso{
+
+  .containerInputAcceso {
     flex-direction: column;
   }
+
   .containerAcceso {
     width: 90%;
     gap: 64px;
     margin: 80px auto;
-    
+
   }
 
   .containerInput {
@@ -434,7 +495,6 @@ color:#373737;
   .input {
     width: 90%;
   }
-
   .titleAccess {
     font-size: 24px;
     line-height: 32px;
@@ -493,9 +553,10 @@ color:#373737;
     width: 90%;
   }
 }
+
 @media (max-width: 370px) {
-  .cardServicioHome{
+  .cardServicioHome {
     width: 100%;
-  
+
   }
 }
