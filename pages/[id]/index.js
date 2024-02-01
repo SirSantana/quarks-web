@@ -6,9 +6,8 @@ import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import ServidosOfrecidos from "@/src/Components/Talleres/ServiciosOfrecidos";
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
-import ButtonsFooter from "@/src/Components/Talleres/ButtonsFooter";
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -17,6 +16,7 @@ import CalificacionWidget from "@/src/Components/Talleres/CalificacionWidget";
 import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
 import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
+import ModalSolicitaServicio from "@/src/Components/Talleres/ModalSolicitaServicio";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
@@ -26,6 +26,12 @@ const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/
   { ssr: false })
 const BogotaMap = dynamic(() => import('@/src/Components/Talleres/MapaBogotaCobertura'),
   { ssr: false })
+const FooterSectionFixed = dynamic(() => import('@/src/Components/Talleres/FooterSectionFixed'),
+  { ssr: false })
+const ButtonsFooter = dynamic(() => import('@/src/Components/Talleres/ButtonsFooter'),
+  { ssr: false })
+  const ButtonTestWhatsapp = dynamic(() => import('@/src/Components/Talleres/ButtonTestWhatsapp'),
+  { ssr: false })
 // const MapaUbicacion = dynamic(()=> import('@/src/Components/Talleres/MapaUbicacion'))
 // const RedesSociales = dynamic(()=> import('@/src/Components/Talleres/RedesSociales'))
 
@@ -34,12 +40,13 @@ export default function NegocioVDos({ data }) {
   const { user, logout } = useAuth()
   const [loading, setLoading] = useState(true)
   const reseñasSectionRef = useRef(null);
+  const [visibleModalSolicitaServicio, setVisibleModalSolicitaServicio] = useState(false)
   const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionMecanico = `Mecanico a domicilio, zona de cobertura Bogota y alrededores. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Servicio especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
 
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
-  
+
   const horariosSeparados = data?.horario?.split(',');
   const mapSectionRef = useRef(null);
 
@@ -51,8 +58,17 @@ export default function NegocioVDos({ data }) {
     mapSectionRef.current.scrollIntoView({ behavior: 'smooth' });
 
   }
+  useEffect(() => {
+    // Utilizamos setTimeout para esperar 10 segundos antes de mostrar el modal
+    const timer = setTimeout(() => {
+      setVisibleModalSolicitaServicio(true);
+    }, 20000);
+    console.log(visibleModalSolicitaServicio);
+    // Limpiamos el temporizador al desmontar el componente
+    return () => clearTimeout(timer);
+  }, []); 
   return (
-    <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio'?descripcionMecanico: descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
+    <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <Image
         sizes="100vw"
         width={500}
@@ -109,7 +125,7 @@ export default function NegocioVDos({ data }) {
         }
         {data?.acercanegocio &&
           <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio}/>
+            <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio} />
           </section>
         }
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
@@ -122,10 +138,20 @@ export default function NegocioVDos({ data }) {
           <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} />
         </section>
 
-        {!editModeHiddenButtons &&
-          <ButtonsFooter data={data} user={user} />
+        {data?.userName === 'multiservicios_ismael_sanchez'
+          ?
+          <FooterSectionFixed data={data} />
+          : data?.userName === 'optra_club_colombia'
+            ? <ButtonTestWhatsapp whatsapp={data?.whatsapp} id={data?.id}/>
+            :
+            <ButtonsFooter data={data} user={user} />
         }
 
+        {/* {!editModeHiddenButtons &&
+          <ButtonsFooter data={data} user={user} />
+        } */}
+        {/* <FooterSectionFixed/> */}
+        {visibleModalSolicitaServicio && <ModalSolicitaServicio data={data} setVisibleModalSolicitaServicio={setVisibleModalSolicitaServicio}/>}
       </div>
 
     </Layout>

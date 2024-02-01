@@ -34,7 +34,11 @@
   border: 1px solid #373737;
   color: #373737;
 }
-
+.button-gradient {
+  background: linear-gradient(180deg,#E50051, #9C0037);
+  border: none;
+  color: white;
+}
 .button-sm {
   padding: 10px 20px;
 }

@@ -14,6 +14,8 @@ export const ButtonVariant = {
   secondary: 'secondary',
   terciary: 'terciary',
   outlined: 'outlined',
+  gradient: 'gradient',
+
 }
 
 export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null }) {

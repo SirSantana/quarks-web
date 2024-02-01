@@ -40,7 +40,7 @@ export default function Reseña({ reseña }) {
             :
             <img style={{ width: '48px', height: '48px', borderRadius: '50%' }} src={reseña?.foto} alt={`Reseña de ${reseña?.nombre}`} />
           }
-          <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, flex:1 }}>
             <p style={{ fontSize: '16px', fontWeight: '600' }}>{reseña?.nombre}</p>
             {reseña?.marca && (
               <p style={{ fontSize: '14px', fontWeight: '400', color: '#5c5c5c' }}>{reseña?.marca} · {reseña?.referencia}</p>
