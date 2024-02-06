@@ -47,7 +47,7 @@ export default function ButtonsFooter({ data, user, tipo }) {
     <div className={styles.divFixed}>
       <>
         <Button onClick={sendMessageWha} size='lg' variant={ButtonVariant.gradient} fullWidth>
-          Contactar
+          Solicitar cotizacion
         </Button>
         {/* <button aria-label='Ver direccion taller' className={styles.buttonFixedBlack2} onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button> */}
 

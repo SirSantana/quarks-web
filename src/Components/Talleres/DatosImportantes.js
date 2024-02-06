@@ -74,7 +74,14 @@ const DatosImportantes = forwardRef(({ data, onClick}, ref) => {
       ) :
         <WidgetComplete name={'direccion'} onClick={onClick} withBorder={false} text={data?.direccion == 'Servicio a Domicilio'?'Zona de cobertura. Bogota y alrededores':data?.direccion} icon={IconCatalog.compassOutline} icon2={IconCatalog.openOutline} style={{ color: '#5c5c5c' }} />
       }
-      
+      {/* {loading ? (
+        // Muestra el esqueleto mientras se carga
+        <div
+          className={styles.skeleton}
+        />
+      ) :
+        <WidgetComplete name={'revisiones'} onClick={onClick} withBorder={false} text={'2 Solicitudes de revision'} icon={IconCatalog.readerOutline}  style={{ color: '#5c5c5c' }} />
+      } */}
 
     </MagicMotion>
   )

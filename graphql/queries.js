@@ -324,7 +324,18 @@ query getCalificacionOpiniones($id:ID) {
   getCalificacionOpiniones(id:$id) 
 }
 `;
-
+export const GET_REVISIONES= gql`
+query getRevisiones($id:ID) {
+  getRevisiones(id:$id) {
+    id
+    fecha
+    marca
+    referencia
+    descripcion
+    servicios
+  }
+}
+`;
 //CARROS
 export const GET_VEHICLES = gql`
   query getCars{
@@ -408,6 +419,7 @@ export const GET_ONE_NEGOCIOVDOS = gql`
       tipo
       fotossecundarias
       userName
+      revisiones
     }
   }
 `

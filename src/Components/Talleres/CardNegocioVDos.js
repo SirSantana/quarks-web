@@ -18,22 +18,12 @@ let estrellas = [1, 2, 3, 4, 5]
 export default function CardNegocioVDos({ data, onClick, onClickDos}) {
   const [visibleFullHorario, setVisibleFullHorario] = useState(false)
   const reff = useRef(null)
-  const [loadingImage, setLoadingImage] = useState(true)
   const horariosSeparados = data?.horario?.split(',');
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: data?.id } })
 
   const handleVisibleHorario = () => {
     setVisibleFullHorario(!visibleFullHorario)
   }
-  useEffect(() => {
-    // Simulamos una demora de 2 segundos para cargar los iconos
-    const timeoutId = setTimeout(() => {
-      setLoadingImage(false);
-    }, 800);
-
-    // Limpieza del temporizador en caso de que el componente se desmonte antes de que termine la carga simulada
-    return () => clearTimeout(timeoutId);
-  }, []);
   return (
     <>
       <section

@@ -4,15 +4,15 @@ import talleres from './talleres.json'
 import { options } from "@/src/Components/Main/Main";
 import SectonFilters from "@/src/Components/LandingPage/SectionFilters";
 import dynamic from "next/dynamic";
+import { categorias } from "@/src/Components/LandingPage/SliderTiposTalleres";
 const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/SliderTalleresSugeridos'),
   { ssr: false })
   const SectionCreateTaller = dynamic(() => import('@/src/Components/Talleres/SectionCreateTaller'),
   { ssr: false })
-export default function ServicioAutomotriz({ data }) {
+export default function ServicioAutomotriz({ data, iconImg}) {
   const router = useRouter()
-  let servicio = router?.query?.id.toLowerCase().replace(/[^a-z]/g, '')
   return (
-    <Layout title={`Los mejores talleres mecanicos de ${router?.query?.id} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} image={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleSlider={true}>
+    <Layout title={`Talleres de ${router?.query?.id} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} icon={iconImg?.img&&`/${iconImg?.img}.png`} image={iconImg?.img?`/${iconImg?.img}.png`:'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleSlider={true}>
       <SectonFilters data={data} />
       <div style={{ height: '1px', backgroundColor: '#c5c5c5', maxWidth: '1200px', width: '90%', margin: '32px auto' }} />
       
@@ -77,9 +77,12 @@ export async function getServerSideProps({ query }) {
     return array;
   }
   const resultados2 = shuffleArray(filter);
+  const iconImg = categorias?.find(cat => cat.url?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == categoria?.replace(/-/g, ' ').toLocaleLowerCase())
+  console.log(iconImg, 'd');
   return {
     props: {
-      data: resultados2
+      data: resultados2,
+      iconImg:iconImg
     },
   };
 }

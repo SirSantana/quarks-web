@@ -17,6 +17,8 @@ import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
 import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
 import { IconCatalog } from '@/src/Components/Icon/Icon'
 import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
+import { useRouter } from 'next/router'
+import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 
 // const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
 //   { ssr: false })
@@ -34,10 +36,13 @@ const Map = dynamic(
 export default function Home({ data }) {
 
   const [mode, setMode] = useState(0)
+  const { query } = useRouter()
+  const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
+ let title = query?.servicio?`Talleres de ${iconImg.nombre} en Bogota`:'Talleres mecanicos automotrices de Bogotá'
   return (
     <>
       <Head>
-        <title>Talleres mecanicos automotrices de Bogotá</title>
+        <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={`Encuentra los mejores talleres de carros con reseñas de usuarios y recomendaciones en Bogota. Taller automotriz de Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia, taller carro, talleres de carros"} />
@@ -50,16 +55,17 @@ export default function Home({ data }) {
         <meta name="twitter:site" content="@quarks-automotriz" />
         <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={"Directorio de Talleres de carros en Bogotá "} />
-        <meta name="twitter:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
+        <meta name="twitter:image" content={query?.servicio ? `./${iconImg.img}.png` :'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
         <meta name="url" content={`https://www.quarks.com.co/`} />
         <meta property="url" content={`https://www.quarks.com.co/`} />
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
-        <meta property="og:image" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
-        <meta property="og:image:url" content={"https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png"} />
+        <meta property="og:image" content={query?.servicio ? `./${iconImg.img}.png` :'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
+        <meta property="og:image:url" content={query?.servicio ? `./${iconImg.img}.png` :'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property='og:url' content={`https://www.quarks.com.co/`} />
+        
 
         <meta property='og:locale' content='es_CO' />
         <meta property='og:locale:alternate' content='es_CO' />
@@ -69,9 +75,9 @@ export default function Home({ data }) {
         <meta property="og:image:type" content='image/png' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href="/logoquarks200623.png" />
+        <link rel="icon" href={query?.servicio ? `./${iconImg.img}.png` : '/logoquarks200623.png'} />
 
-        <link  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
       </Head>
@@ -80,7 +86,7 @@ export default function Home({ data }) {
 
         {mode
           ?
-          <SectonFilters data={data.reverse()}/>
+          <SectonFilters data={data.reverse()} />
           :
           <Map talleres={data} />
         }
@@ -93,7 +99,7 @@ export default function Home({ data }) {
         <SectionPasos />
         <SectionGrowthTaller />
         <SectionCalculadoraCombustible />
-        {/* <Button style={{
+        <Button style={{
           zIndex: '1000',
           position: 'fixed',
           bottom: '50px', // Puedes ajustar esta propiedad para controlar la distancia desde la parte inferior
@@ -101,7 +107,7 @@ export default function Home({ data }) {
           transform: 'translateX(-50%)', // Centrar horizontalmente
         }} onClick={() => setMode(mode === 0 ? 1 : 0)} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode ? IconCatalog.mapa : IconCatalog.lista}>
           Mostrar {mode ? 'Mapa' : 'Lista'}
-        </Button> */}
+        </Button>
 
       </main>
       <Footer />
@@ -141,9 +147,9 @@ export async function getServerSideProps({ query }) {
     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
       categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
       levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
-    return{
-      props:{
-        data:filter
+    return {
+      props: {
+        data: filter
       }
     }
   }

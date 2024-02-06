@@ -42,7 +42,6 @@ export default function SolicitarRevision() {
   const [createSolicitudServicio, { loading, data, error }] = useMutation(CREATE_SOLICITUD_SERVICIO)
   const result = useQuery(GET_WHATSAPP_NEGOCIO, { variables: { id: ide } })
 
-  console.log(contactme);
 
   const whatsapp = result?.data?.getWhatsappNegocio
   const handleChangeServices = (selectedOptions) => {

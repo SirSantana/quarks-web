@@ -2,6 +2,7 @@ import { timeSince } from "@/utils/dateEs";
 import { categorias2 } from "./ServiciosOfrecidos";
 import styles from '@/styles/Components.module.css'
 import Icon, { IconCatalog } from "../Icon/Icon";
+import Box from "../Box/Box";
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
@@ -15,7 +16,7 @@ let estrellas = [1, 2, 3, 4, 5]
 
 export default function Reseña({ reseña }) {
   return (
-    <div className={styles.containerReseña}>
+    <Box >
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%' }}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center' }}>
           {reseña?.pagina === 'Facebook'
@@ -80,6 +81,6 @@ export default function Reseña({ reseña }) {
 
         </div>
       </div>
-    </div>
+    </Box>
   )
 }
