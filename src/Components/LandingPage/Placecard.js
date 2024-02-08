@@ -86,7 +86,7 @@ const PlaceCard = ({ data }) => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           return (
             <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
-              {category?.img && <img src={`./${category?.img}.png`} style={{ width: '20px', height: '20px' }} alt={el} />}
+              {category?.img && <img src={`/${category?.img}.png`} style={{ width: '20px', height: '20px' }} alt={el} />}
               <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
             </div>
           )

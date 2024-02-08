@@ -82,8 +82,8 @@ export default function Map({ talleres }) {
           icon={
             L.divIcon({
               html: `
-                   <div style="display: flex;gap:8px;align-items:center; padding:8px 16px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;    box-shadow: 0 4px 4px rgba(200, 200, 200, 0.1); border-radius:8px; background-color:#f50057">
-                     <img loading="lazy" src="servicio-carroceria.png" alt="Icon" preload style="object-fit:cover;width:24px; height:24px; ">
+                   <div style="display: flex;gap:8px;align-items:center; padding:8px 16px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;    box-shadow: 0 4px 4px rgba(200, 200, 200, 0.1); border-radius:8px;background: linear-gradient(180deg,#E50051, #9C0037);">
+                     <img loading="lazy" src="/mecanico.png" alt="Icon" preload style="object-fit:cover;width:24px; height:24px; ">
                      <p style="margin: 0;color:white;font-size:12px; font-weight:600; white-space:nowrap">Anuncie su taller aqui</p>
                    </div>
                  `,
@@ -126,13 +126,12 @@ export default function Map({ talleres }) {
         <Marker
           key={taller.id}
           position={[taller.lat, taller.lng]}
-          
           icon={
             L.divIcon({
               html: `
-                   <div style="display: ${servicio ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius:8px; background-color:white">
+                   <div style="display: ${servicio || router.pathname === '/servicios-automotriz/[id]' ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius:8px; background-color:white">
                      <img loading="lazy" src="${ taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png"}" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; height: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; ">
-                     <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${servicio ? taller?.nombre : taller.servicio}</p>
+                     <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${servicio ||router.pathname === '/servicios-automotriz/[id]' ? taller?.nombre : taller.servicio}</p>
                    </div>
                  `,
               //  iconSize: [32, 32],

@@ -1,28 +1,33 @@
 import Head from 'next/head'
 import Footer from './Footer/Footer'
 import Nav from './Navbar/Nav'
+import NewNavbarWithSearch from './Navbar/NewNavbar2';
+import { useState } from 'react';
+
 function generarMarcadoEstructurado(articulo) {
   if (articulo) {
-    return  {
+    return {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": articulo.titulo,
       "image": [
         articulo.image
-       ],
-       "url":articulo.url,
+      ],
+      "url": articulo.url,
       "datePublished": articulo?.fecha,
       "dateModified": articulo?.fecha,
       "author": [{
-          "@type": "Person",
-          "name": "Miguel Salazar",
-          "url": "https://scontent.fbog4-2.fna.fbcdn.net/v/t1.6435-9/118200733_104636334698420_6059036456657205315_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2be8e3&_nc_ohc=JlxtUCVL6iMAX-V2mU7&_nc_oc=AQk0DHIhyaER-NyXkFMhauXNynNSMDkMDDdkIrv0NwoMNcMS2S1xpel-d0VZDoJgxec&_nc_ht=scontent.fbog4-2.fna&oh=00_AfA3DyUAGymCxzo0gzHFBXH_EccrnPpEriqXWY9FWM3Anw&oe=65BBF572"
-    }]
+        "@type": "Person",
+        "name": "Miguel Salazar",
+        "url": "https://scontent.fbog4-2.fna.fbcdn.net/v/t1.6435-9/118200733_104636334698420_6059036456657205315_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2be8e3&_nc_ohc=JlxtUCVL6iMAX-V2mU7&_nc_oc=AQk0DHIhyaER-NyXkFMhauXNynNSMDkMDDdkIrv0NwoMNcMS2S1xpel-d0VZDoJgxec&_nc_ht=scontent.fbog4-2.fna&oh=00_AfA3DyUAGymCxzo0gzHFBXH_EccrnPpEriqXWY9FWM3Anw&oe=65BBF572"
+      }]
     }
   }
 }
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar=true, productoMarcado }) {
+
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
+
   return (
     <>
       <Head>
@@ -81,7 +86,7 @@ export default function Layout({ children, title, description, type, price, keyw
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
-       
+
         {productoMarcado &&
           <script
             type="application/ld+json"
@@ -92,8 +97,10 @@ export default function Layout({ children, title, description, type, price, keyw
       <main >
         {/* <Nav /> */}
         {/* <NewNavbar/> */}
-        {visibleNavbar &&<Nav/>}
+
+        {visibleNavbar && <NewNavbarWithSearch visibleSlider={visibleSlider} />}
         {children}
+       
         <Footer />
 
       </main>

@@ -61,7 +61,7 @@ export const customStyles = {
 };
 
 
-export default function NewNavbarWithSearch({ mode }) {
+export default function NewNavbarWithSearch({ mode, visibleSlider = false }) {
   const router = useRouter()
   const ref = useRef(null)
 
@@ -73,16 +73,16 @@ export default function NewNavbarWithSearch({ mode }) {
             <Image loading='lazy' alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} width={32} height={32} />
             <h4 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks Talleres</h4>
           </Link>
-          <FormSearchTaller/>
+          <FormSearchTaller />
           <nav className={styles.navv}>
             <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/acceso'}>Tienes un Taller?</Link>
           </nav>
         </div>
-        <section className={styles.sectionSliderShowNav}>
+        {visibleSlider && <section className={styles.sectionSliderShowNav}>
           <CategoriasSlider categorias={categorias} mode={mode} />
-        </section>
+        </section>}
       </div>
-      <FirstNewScreen mode={mode} />
+      {visibleSlider && <FirstNewScreen mode={mode} />}
     </header>
 
   )

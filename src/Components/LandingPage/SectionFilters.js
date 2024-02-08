@@ -35,7 +35,7 @@ export default function SectonFilters({ data }) {
   //   levenshteinDistance(item.nombre.toLowerCase(), categoria.toLowerCase()) < 5 // Valor umbral de similitud
   // );
   return (
-    <div style={{marginTop:router?.pathname === '/' && '0px'}} className={styles.containerGridTalleres}>
+    <div style={{marginTop:router?.pathname === '/' || router.pathname ==='/servicios-automotriz/[id]' && '0px'}} className={styles.containerGridTalleres}>
       <section className={styles.headerTalleres} >
         {router?.pathname !== '/'
           && <h1 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} </h1>

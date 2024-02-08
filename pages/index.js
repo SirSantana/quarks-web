@@ -33,12 +33,11 @@ const Map = dynamic(
   { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
 )
 
-export default function Home({ data }) {
-
+export default function Home({ data, iconImg}) {
   const [mode, setMode] = useState(0)
   const { query } = useRouter()
-  const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
- let title = query?.servicio?`Talleres de ${iconImg.nombre} en Bogota`:'Talleres mecanicos automotrices de Bogotá'
+  // const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
+  let title = query?.servicio ? `Talleres de clutch en Bogota` : 'Talleres mecanicos automotrices de Bogotá'
   return (
     <>
       <Head>
@@ -65,7 +64,7 @@ export default function Home({ data }) {
         <meta property="og:image:url" content={query?.servicio ? `./${iconImg.img}.png` :'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property='og:url' content={`https://www.quarks.com.co/`} />
-        
+
 
         <meta property='og:locale' content='es_CO' />
         <meta property='og:locale:alternate' content='es_CO' />
@@ -82,7 +81,7 @@ export default function Home({ data }) {
           crossorigin="anonymous"></script>
       </Head>
       <main className={styles.main}>
-        <NewNavbarWithSearch mode={mode} />
+        <NewNavbarWithSearch mode={mode} visibleSlider={true}/>
 
         {mode
           ?
@@ -147,18 +146,21 @@ export async function getServerSideProps({ query }) {
     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
       categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
       levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
+    const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
     return {
       props: {
-        data: filter
+        data: filter,
+        iconImg: iconImg
       }
     }
   }
   function normalizeString(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
+
   return {
     props: {
-      data: talleresFilter
+      data: talleresFilter,
     },
   }
 

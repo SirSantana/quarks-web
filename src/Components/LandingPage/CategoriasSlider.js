@@ -42,22 +42,35 @@ export default function CategoriasSlider({ categorias, mode }) {
 
       <Slider  {...settings}>
         {categorias.map((categoria, index) => (
+          // <Link
+          // prefetch={false}
+          //   href={mode
+          //     ?
+          //     `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
+          //     .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+          //     .replace(/[\u0300-\u036f]/g, '')}`
+          //     :  `/?servicio=${categoria.nombre.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
+          //     .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+          //     .replace(/[\u0300-\u036f]/g, '')}`
+          //   }
+          //   key={index}
+          //   style={{ width: 140 }}
+          //   className={styles.categoria}
+          // >
           <Link
           prefetch={false}
-            href={mode
-              ?
+          scroll={true}
+            href={
               `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
               .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
               .replace(/[\u0300-\u036f]/g, '')}`
-              :  `/?servicio=${categoria.nombre.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
-              .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
-              .replace(/[\u0300-\u036f]/g, '')}`
             }
+
             key={index}
             style={{ width: 140 }}
             className={styles.categoria}
           >
-            <div className={styles.centeredContent}>
+            <div style={{opacity:categoria.url == router.route}} className={styles.centeredContent}>
               <Image  src={`/${categoria.img}.png`} width={32} height={32}  alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
               {categoriaServicio?.replace(/-/g,' ') === categoria.nombre ?
                 <>
