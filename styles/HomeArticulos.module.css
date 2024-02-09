@@ -242,6 +242,7 @@
 .centeredContent:hover{
   opacity: 1;
 }
+
 .categoria img {
   max-width: 50px;
   max-height: 50px;
@@ -272,13 +273,18 @@
   font-size: 12px;
   color: #717171;
   font-weight: 600;
-  white-space: nowrap
+  white-space: nowrap;
+  margin-bottom: 10px;
 }
 .textCategoriaTallerA{
   font-size: 12px;
   color: #373737;
   font-weight: 600;
   white-space: nowrap
+}
+.activeCategory{
+  opacity: 1;
+  color:black
 }
 .customPrevArrow,
 .customNextArrow {

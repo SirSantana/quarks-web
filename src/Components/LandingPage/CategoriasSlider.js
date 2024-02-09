@@ -12,8 +12,13 @@ export default function CategoriasSlider({ categorias, mode }) {
   const router = useRouter()
   // const categoriaRouter = router?.query?.id?.split("-")[0]
 
-  const categoriaServicio = router?.query.servicio
-
+  const categoriaServicio = router?.query.id
+  const initialSlideIndex = categorias.findIndex(
+    (categoria) =>
+      categoria.url.toLowerCase().replace(/ /g, '-').replace(/-/g,' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '')  ==
+      categoriaServicio?.toLocaleLowerCase().replace(/-/g,' ')
+      
+  );
   const CustomPrevArrow = (props) => (
     <div className={styles.customPrevArrow} onClick={props.onClick}>
       <Icon size='sm' name={IconCatalog.chevronBackOutline}/>
@@ -27,8 +32,8 @@ export default function CategoriasSlider({ categorias, mode }) {
   );
   const settings = {
     horizontal: true,
-    vertical: false,
     infinite: true,
+    draggable: true,
     speed: 500,
     speed: 500,
     slidesToShow: 1, // Muestra una slide a la vez
@@ -36,11 +41,12 @@ export default function CategoriasSlider({ categorias, mode }) {
     variableWidth: true,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
+    initialSlide: initialSlideIndex !== -1 ? initialSlideIndex-1 : 0,
   };
   return (
     <div className={styles.categoriasSlider}>
 
-      <Slider  {...settings}>
+      <Slider   {...settings}>
         {categorias.map((categoria, index) => (
           // <Link
           // prefetch={false}
@@ -65,22 +71,21 @@ export default function CategoriasSlider({ categorias, mode }) {
               .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
               .replace(/[\u0300-\u036f]/g, '')}`
             }
-
             key={index}
             style={{ width: 140 }}
             className={styles.categoria}
           >
-            <div style={{opacity:categoria.url == router.route}} className={styles.centeredContent}>
+            <div style={{opacity:categoria.url == router.route}} className={`${styles.centeredContent} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>
               <Image  src={`/${categoria.img}.png`} width={32} height={32}  alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
               {categoriaServicio?.replace(/-/g,' ') === categoria.nombre ?
                 <>
-                  <h3 className={styles.textCategoriaTallerA}>{categoria.nombre}</h3>
+                  <h3 className={`${styles.textCategoriaTallerA} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>{categoria.nombre}</h3>
                   <div className={styles.lineaDivisoraA} />
                 </>
                 :
                 <>
-                  <h3 className={styles.textCategoriaTaller}>{categoria.nombre}</h3>
-                  <div className={styles.lineaDivisora} />
+                  <h3 className={`${styles.textCategoriaTaller} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>{categoria.nombre}</h3>
+                  <div className={` ${initialSlideIndex === index ? styles.lineaDivisoraA : styles.lineaDivisora}`} />
                 </>
               }
 

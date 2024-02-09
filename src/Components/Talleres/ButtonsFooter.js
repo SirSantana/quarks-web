@@ -1,48 +1,27 @@
 
-import { CREATE_CLICK_COMPARTIDO, CREATE_CLICK_MAPA, CREATE_VISITA_WHATSAPP } from '@/graphql/mutations';
+import { CREATE_ACCION,  } from '@/graphql/mutations';
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { ModalShareArticulo } from '@/utils/Modales';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import Icon, { IconCatalog } from '../Icon/Icon';
+import {  useState } from 'react';
 import ModalButtonsContacto from './ModalButtonsContacto';
 import Button, { ButtonVariant } from '../Button/Button';
 
 
 export default function ButtonsFooter({ data, user, tipo }) {
-  const [scrolled, setScrolled] = useState(false);
   const router = useRouter()
-  const [createClickMapaDireccion] = useMutation(CREATE_CLICK_MAPA)
-
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
-  const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
-  const [createClickCompartido] = useMutation(CREATE_CLICK_COMPARTIDO)
   const [visibleModalButtons, setVisibleModalButtons] = useState(false)
+  const [createAccion, result] = useMutation(CREATE_ACCION)
 
   const sendMessageWha = () => {
-    // router.push(`/${router.query.id}/solicitar-revision?ide=${data?.id}`);
     setVisibleModalButtons(true)
-
-    // createVisitaWhatsapp({ variables: { id: data?.id } })
-    // let url = `https://api.whatsapp.com/send?phone=57${data?.whatsapp}`;
-    // url += `&text=${encodeURI(`Buenos dia, vi su negocio en https://quarks.com.co${router?.asPath}, estoy interesado en...`)}&app_absent=0`
-    // window.open(url);
+    if (process.env.NODE_ENV === 'production') {
+    return  createAccion({variables:{almacen:data?.id, tipo:'btn-solicitar-revision', estado:'production'}})
+    }
   }
 
-  const handleClickCompartir = () => {
-    setVisibleShareArticulo(true)
-    createClickCompartido({ variables: { id: data?.id } })
-  }
-  const abrirGoogleMaps = (direccion) => {
-    const direccionFormatoURL = encodeURIComponent(direccion);
-    const url = `https://www.google.com/maps/search/?api=1&query=${direccionFormatoURL}`;
-    window.open(url, '_blank');
-  };
-  const handleClickMapa = (data) => {
-    createClickMapaDireccion({ variables: { id: data?.id } })
-    abrirGoogleMaps(data?.direccion)
-  }
   return (
     <div className={styles.divFixed}>
       <>

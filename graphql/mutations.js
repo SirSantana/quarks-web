@@ -102,6 +102,11 @@ mutation createSolicitudServicio($descripcion:String,$almacen:ID, $nombre:String
   createSolicitudServicio(input:{descripcion:$descripcion, almacen:$almacen, nombre:$nombre, marca:$marca, referencia:$referencia, servicios:$servicios, celular:$celular})  
 }
 `
+export const CREATE_ACCION = gql`
+mutation createAccion($almacen:ID,$tipo:String,$estado:String ){
+  createAccion(input:{ almacen:$almacen, tipo:$tipo,estado:$estado})  
+}
+`
 export const CREATE_VISITA_ALMACEN = gql`
 mutation createVisitaAlmacen($id:ID){
   createVisitaAlmacen(id:$id)
