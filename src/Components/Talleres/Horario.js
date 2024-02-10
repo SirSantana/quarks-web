@@ -3,14 +3,20 @@ import { MagicMotion, } from "react-magic-motion";
 import Icon, { IconCatalog } from '../Icon/Icon';
 import { useEffect, useState } from 'react';
 import Divider from '../Box/Divider';
+import { useMutation } from '@apollo/client';
+import { CREATE_ACCION } from '@/graphql/mutations';
 
-export default function Horario({ horariosSeparados, handleVisibleHorario, visibleFullHorario = true, }) {
+export default function Horario({ horariosSeparados, handleVisibleHorario, visibleFullHorario = true, idNegocio }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const [loading, setLoading] = useState(true);
+  const [createAccion, result] = useMutation(CREATE_ACCION)
 
   const handleClick = (e) => {
     e.stopPropagation()
+    if (process.env.NODE_ENV === 'production') {
+      createAccion({ variables: { almacen: idNegocio, tipo: 'btn-horario', estado: 'production' } });
+    }
     if (handleVisibleHorario) {
       handleVisibleHorario();
     }
@@ -59,8 +65,6 @@ export default function Horario({ horariosSeparados, handleVisibleHorario, visib
               )
             }
           </div>
-
-
         }
       </MagicMotion>
 

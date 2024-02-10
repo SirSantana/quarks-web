@@ -5,11 +5,14 @@ import { ModalShareArticulo } from "@/utils/Modales";
 import { useRouter } from "next/router";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import ModalSolicitaServicio from "./ModalSolicitaServicio";
+import { CREATE_ACCION } from "@/graphql/mutations";
+import { useMutation } from "@apollo/client";
 
 
 export default function ButtonsHeader({data}) {
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
   const [visibleModalSolicitaServicio, setVisibleModalSolicitaServicio] = useState(false)
+  const [createAccion, result] = useMutation(CREATE_ACCION)
 
   const router = useRouter()
 
@@ -17,15 +20,15 @@ export default function ButtonsHeader({data}) {
       router.back();
   };
   const handleClickCompartir = () => {
+    if (process.env.NODE_ENV === 'development') {
+      createAccion({ variables: { almacen: data?.id, tipo: 'btn-compartir', estado: 'production' } });
+    }
     setVisibleShareArticulo(true)
   }
   useEffect(() => {
-    // Utilizamos setTimeout para esperar 10 segundos antes de mostrar el modal
     const timer = setTimeout(() => {
       setVisibleModalSolicitaServicio(true);
     }, 20000);
-    console.log(visibleModalSolicitaServicio);
-    // Limpiamos el temporizador al desmontar el componente
     return () => clearTimeout(timer);
   }, []); 
   return (

@@ -3,7 +3,7 @@ import styles from '@/styles/Main.module.css'
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 import Button, { ButtonVariant } from '../Button/Button';
-import { CREATE_VISITA_WHATSAPP } from '@/graphql/mutations';
+import { CREATE_ACCION, CREATE_VISITA_WHATSAPP } from '@/graphql/mutations';
 import { useMutation } from '@apollo/client';
 import CalificacionWidget from './CalificacionWidget';
 
@@ -11,15 +11,13 @@ import CalificacionWidget from './CalificacionWidget';
 
 export default function ModalSolicitaServicio({ data, setVisibleModalSolicitaServicio }) {
   const router = useRouter()
-  const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
+  const [createAccion, result] = useMutation(CREATE_ACCION)
 
   const handleWhatsAppClick = () => {
-    // createVisitaWhatsapp({ variables: { id: data?.id } })
+    if (process.env.NODE_ENV === 'production') {
+      createAccion({ variables: { almacen: data?.id, tipo: 'btn-solicitar-modal', estado: 'production' } });
+    }
     router.push(`/${router.query.id}/solicitar-revision?ide=${data?.id}`);
-    
-    // let url = `https://api.whatsapp.com/send?phone=57${data?.whatsapp}`;
-    // url += `&text=${encodeURI(`Buen dia, encontre su taller en https://quarks.com.co${router?.asPath}, tengo el siguiente problema...`)}&app_absent=0`
-    // window.open(url);
   };
   return (
     <div className={styles.modal} style={{ zIndex: '10000' }}>

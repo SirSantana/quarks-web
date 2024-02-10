@@ -57,7 +57,7 @@ export default function CardNegocioVDos({ data, onClick, onClickDos}) {
 
         {/* <div style={{ height: '1px', backgroundColor: '#dddddd', width: '90%' }} /> */}
         <DatosImportantes data={data} ref={reff} onClick={onClickDos} />
-        {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} />}
+        {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} idNegocio={data?.id} />}
       </section>
     </>
   )

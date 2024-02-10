@@ -1,19 +1,21 @@
 import { useRouter } from "next/router";
 import Icon, { IconCatalog } from "../Icon/Icon";
-import { CREATE_VISITA_WHATSAPP } from "@/graphql/mutations";
+import sendWhatsappMessage from "@/utils/scripts";
 import { useMutation } from "@apollo/client";
+import { CREATE_ACCION } from "@/graphql/mutations";
 
 
 
 export default function ButtonTestWhatsapp({whatsapp, id}) {
   const router = useRouter()
-  const [createVisitaWhatsapp, { loading }] = useMutation(CREATE_VISITA_WHATSAPP)
+  const [createAccion, result] = useMutation(CREATE_ACCION)
+
   const handleWhatsAppClick = () => {
-     createVisitaWhatsapp({ variables: { id: id } })
-    let url = `https://api.whatsapp.com/send?phone=57${whatsapp}`;
-    url += `&text=${encodeURI(`Buen dia, encontre su taller en https://quarks.com.co${router?.asPath}, tengo el siguiente problema...`)}&app_absent=0`
-    window.open(url);
-  };
+     if (process.env.NODE_ENV === 'production') {
+      createAccion({ variables: { almacen: id, tipo: 'btn-solicitar-revision', estado: 'production' } });
+    }
+     sendWhatsappMessage({numero:whatsapp, path:router?.asPath})
+  }
   return (
     <div
       style={{

@@ -3,11 +3,11 @@ import styles from './Box.module.css'
 import Link from 'next/link'
 import Divider from './Divider'
 
-export default function ItemBox({ link, icon, color = '#373737', textIcon = false, textItem }) {
+export default function ItemBox({ link, icon, color = '#373737', textIcon = false, textItem, onClick }) {
   return (
     link
       ?
-      <Link href={link} target='_blank' className={styles.itemBoxLink} >
+      <Link onClick={onClick} href={link} target='_blank' className={styles.itemBoxLink} >
         <div className={styles.containerIcon}>
           {textIcon
             ?
@@ -20,7 +20,7 @@ export default function ItemBox({ link, icon, color = '#373737', textIcon = fals
         <p className={styles.pItemBoxLink} >{textItem}</p>
       </Link>
       :
-      <div className={styles.itemBoxLink} >
+      <div onClick={onClick} className={styles.itemBoxLink} >
         <div className={styles.containerIcon}>
           {textIcon
             ?

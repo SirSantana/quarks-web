@@ -91,7 +91,7 @@ export default function NegocioVDos({ data }) {
 
 
 
-        {(data?.facebook || data?.instagram || data?.paginaweb || user?.userName === router?.query?.id) &&
+        {(data?.facebook || data?.instagram || data?.whatsapp || data?.paginaweb || user?.userName === router?.query?.id) &&
           <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
             <RedesSociales data={data} user={user} />
           </section>
@@ -100,7 +100,7 @@ export default function NegocioVDos({ data }) {
 
         {data?.urltallermaps &&
           <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} />
+            <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id}/>
           </section>
 
         }
