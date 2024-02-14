@@ -27,9 +27,9 @@ export default function SliderTiposTalleres({ quantity, mode }) {
   const router = useRouter()
 
   return (
-    <section className={styles.sectionSliderShow} style={{width:'100%',marginTop:'16px'}}>
+    <nav className={styles.sectionSliderShow} style={{width:'100%',marginTop:'16px'}}>
       <CategoriasSlider categorias={categorias} mode={mode}/>
-    </section>
+    </nav>
 
 
   )

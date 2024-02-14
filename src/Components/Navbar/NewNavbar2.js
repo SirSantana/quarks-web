@@ -78,9 +78,9 @@ export default function NewNavbarWithSearch({ mode, visibleSlider = false }) {
             <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/acceso'}>Tienes un Taller?</Link>
           </nav>
         </div>
-        {visibleSlider && <section className={styles.sectionSliderShowNav}>
+        {visibleSlider && <nav className={styles.sectionSliderShowNav}>
           <CategoriasSlider categorias={categorias} mode={mode} />
-        </section>}
+        </nav>}
       </div>
       {visibleSlider && <FirstNewScreen mode={mode} />}
     </header>

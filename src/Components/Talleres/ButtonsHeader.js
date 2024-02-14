@@ -20,7 +20,7 @@ export default function ButtonsHeader({data}) {
       router.back();
   };
   const handleClickCompartir = () => {
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'production') {
       createAccion({ variables: { almacen: data?.id, tipo: 'btn-compartir', estado: 'production' } });
     }
     setVisibleShareArticulo(true)

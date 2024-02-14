@@ -55,7 +55,7 @@ const PlaceCard = ({ data }) => {
     abrirGoogleMaps(data?.direccion)
   }
   return (
-    <Link href={`/${data?.userName}`} onClick={()=> createClickNegocioMap({ variables: { id: data?.id } })} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
+    <Link href={`/${data?.userName}`} onClick={() => createClickNegocioMap({ variables: { id: data?.id } })} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '16px 0 8px 0', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%' }}>
           {data?.fotoperfil
@@ -72,7 +72,7 @@ const PlaceCard = ({ data }) => {
               {result?.data?.getCalificacionOpiniones > 0 &&
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: '4px' }}>
                   <ion-icon style={{ color: '#FBBC04' }} name="star"></ion-icon>
-                  <p style={{fontWeight:'500', fontSize: '12px', margin: 0, color: '#464646' }}>{result?.data?.getCalificacionOpiniones}</p>
+                  <p style={{ fontWeight: '500', fontSize: '12px', margin: 0, color: '#464646' }}>{result?.data?.getCalificacionOpiniones}</p>
                 </div>
               }
             </div>
@@ -82,9 +82,10 @@ const PlaceCard = ({ data }) => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '6px', width: '100%' }}>
         {/* <p style={{ fontSize: '12px', margin: 0, color: '#464646', width: '100%', fontWeight: '600' }}>{data?.nombre === 'Corsa Motors' ? 'Almacen de Repuestos' : 'Taller Mecanico'}</p> */}
-        {data?.categorias.slice(0, 2).map(el => {
+        {data?.categorias.slice(0, 3).map(el => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           return (
+            category &&
             <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
               {category?.img && <img src={`/${category?.img}.png`} style={{ width: '20px', height: '20px' }} alt={el} />}
               <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
@@ -98,7 +99,7 @@ const PlaceCard = ({ data }) => {
           </div>}
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', marginTop: '16px' }}>
-        <button style={{ height: '40px', fontSize: '14px', borderRadius: '8px', fontWeight: '600' }} className={styles.buttonFixedBlack} 
+        <button style={{ height: '40px', fontSize: '14px', borderRadius: '8px', fontWeight: '600' }} className={styles.buttonFixedBlack}
         // onClick={(e) => {
         //   e.preventDefault();
         //   sendMessageWha();

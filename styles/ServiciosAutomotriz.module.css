@@ -54,11 +54,13 @@
   font-weight: 700;
   margin-top: 24px;
 }
-.maps{
+
+.maps {
   max-width: 500px;
   height: 260px;
   width: 100%;
 }
+
 .containerCardLugar {
   display: flex;
   flex-direction: row;
@@ -84,20 +86,25 @@
   padding: 20px;
   gap: 16px;
   box-sizing: border-box;
-  border: 1px solid #d6d6d6;
+  border: 1px solid #dddddd;
   margin: 0 auto;
   border-radius: 8px;
   width: 100%;
   max-width: 500px;
   cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: white;
   transition: transform 0.4s ease, background-color 0.2s ease;
   position: relative
 }
+
 .skeleton {
   width: 500;
   height: 300;
-  background-color: #f0f0f0; /* Color de fondo del esqueleto */
-  animation: loading 1s infinite; /* Animación de carga */
+  background-color: #f0f0f0;
+  /* Color de fondo del esqueleto */
+  animation: loading 1s infinite;
+  /* Animación de carga */
 }
 
 .editIcon {
@@ -219,7 +226,8 @@
 }
 
 .containerHeaderCalendario:hover {
-  background-color: #fbfbfb;
+  transform: scale(1.02)
+
 }
 
 .active {
@@ -249,18 +257,24 @@
   justify-content: center;
   padding: 0 8px;
 }
-.slider{
+
+.slider {
   width: 90%;
+  background-color: white;
 }
-.slide{
-  padding: 16px !important;;
-  border:1px solid #c5c5c5!important;
-  border-radius: 8px !important;;
+
+.slide {
+  padding: 16px !important;
+  ;
+  border: 1px solid #c5c5c5 !important;
+  border-radius: 8px !important;
+  ;
   width: 98% !important;
-  height: 100%  !important;
+  height: 100% !important;
   text-decoration: none;
   color: #373737;
 }
+
 .textCategory {
   font-size: 16px;
   color: #373737;
@@ -501,15 +515,19 @@
   display: block;
   /* Asegura que sea un bloque y no un elemento en línea */
 }
+
 .skeletonFoto {
   width: 100%;
   max-width: 500px;
   margin-top: 10vh;
   height: 30vh;
   margin: auto;
-  background-color: #f0f0f0; /* Color de fondo del esqueleto */
-  animation: loading 1s infinite; /* Animación de carga */
+  background-color: #f0f0f0;
+  /* Color de fondo del esqueleto */
+  animation: loading 1s infinite;
+  /* Animación de carga */
 }
+
 @keyframes loading {
   0% {
     opacity: 0.2;
@@ -523,6 +541,7 @@
     opacity: 0.2;
   }
 }
+
 .imgFotoRegister {
   width: 160px;
   height: 160px;
@@ -734,7 +753,8 @@
   justify-content: center;
   display: flex;
 }
-.containerButtonsHeader{
+
+.containerButtonsHeader {
   position: absolute;
   top: 10px;
   z-index: 1000;
@@ -747,6 +767,7 @@
   padding: 0 16px;
   width: 100%;
 }
+
 @media (max-width:1380px) {
   .sectionTwoNegocioFixed {
     width: 300px;
@@ -877,16 +898,19 @@
     margin-top: 80px;
     display: none
   }
-  .containerButtonsHeader{
+
+  .containerButtonsHeader {
     display: flex;
   }
-  .maps{
+
+  .maps {
     width: 90%;
   }
+
   .containerMobile {
     width: 100%;
-    gap:16px
-    /* background-color: #fbfbfb; */
+    gap: 16px
+      /* background-color: #fbfbfb; */
 
   }
 
@@ -953,12 +977,14 @@
     display: flex;
     font-size: 12px;
   }
-  .imgFotoPortada{
+
+  .imgFotoPortada {
     margin-top: 0;
     box-shadow: none;
     border-radius: 0;
   }
-  .skeletonFoto{
+
+  .skeletonFoto {
     margin-top: 0;
 
   }

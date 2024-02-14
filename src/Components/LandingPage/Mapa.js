@@ -39,7 +39,7 @@ export default function Map({ talleres }) {
   const [zoomLevel, setZoomLevel] = useState(5); // initial zoom level provided for MapContainer
   const router = useRouter()
   const [isHovered, setIsHovered] = useState(false);
-  const [zoomMap, setZoomMap] = useState(15)
+  const [zoomMap, setZoomMap] = useState(14)
   // const [createClickNegocioPrevMap] = useMutation(CREATE_CLICK_NEGOCIO_PREV_MAP)
 
   let { servicio } = router?.query

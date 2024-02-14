@@ -44,25 +44,10 @@ export default function CategoriasSlider({ categorias, mode }) {
     initialSlide: initialSlideIndex !== -1 ? initialSlideIndex-1 : 0,
   };
   return (
-    <div className={styles.categoriasSlider}>
+    <ul className={styles.categoriasSlider}>
 
       <Slider   {...settings}>
         {categorias.map((categoria, index) => (
-          // <Link
-          // prefetch={false}
-          //   href={mode
-          //     ?
-          //     `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
-          //     .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
-          //     .replace(/[\u0300-\u036f]/g, '')}`
-          //     :  `/?servicio=${categoria.nombre.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
-          //     .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
-          //     .replace(/[\u0300-\u036f]/g, '')}`
-          //   }
-          //   key={index}
-          //   style={{ width: 140 }}
-          //   className={styles.categoria}
-          // >
           <Link
           prefetch={false}
           scroll={true}
@@ -75,7 +60,7 @@ export default function CategoriasSlider({ categorias, mode }) {
             style={{ width: 140 }}
             className={styles.categoria}
           >
-            <div style={{opacity:categoria.url == router.route}} className={`${styles.centeredContent} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>
+            <li style={{opacity:categoria.url == router.route}} className={`${styles.centeredContent} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>
               <Image  src={`/${categoria.img}.png`} width={32} height={32}  alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
               {categoriaServicio?.replace(/-/g,' ') === categoria.nombre ?
                 <>
@@ -89,11 +74,11 @@ export default function CategoriasSlider({ categorias, mode }) {
                 </>
               }
 
-            </div>
+            </li>
           </Link>
         ))}
       </Slider>
 
-    </div>
+    </ul>
   );
 }

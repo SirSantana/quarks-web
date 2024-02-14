@@ -15,7 +15,6 @@ export default function RecomiendasTaller({onClick, nombre}) {
           <p style={{ fontSize: '12px', fontWeight: '400' }}>Comparte tu experiencia con la comunidad</p>
         </div>
       </div>
-
     </div>
   )
 }

@@ -19,9 +19,9 @@ const SectionCreateTaller = dynamic(() => import('@/src/Components/Talleres/Sect
     () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
     { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
   )
-export default function ServicioAutomotriz({ data, iconImg }) {
+export default function ServicioAutomotriz({ data, iconImg, }) {
   const router = useRouter()
-  const [mode, setMode] = useState(0)
+  const [mode, setMode] = useState(router.query.id === 'mecanico-a-domicilio'?1:0)
   const handleClick = () => {
     // Desplázate hacia arriba cuando se hace clic en el botón
     setMode(mode === 0 ? 1 : 0)
@@ -33,7 +33,7 @@ export default function ServicioAutomotriz({ data, iconImg }) {
         ?
         <SectonFilters data={data.reverse()} />
         :
-        <Map talleres={data} />
+        <Map talleres={data}  />
       }
       <div style={{ height: '1px', backgroundColor: '#c5c5c5', maxWidth: '1200px', width: '90%', margin: '32px auto' }} />
 
@@ -111,7 +111,7 @@ export async function getServerSideProps({ query }) {
   return {
     props: {
       data: resultados2,
-      iconImg: iconImg
+      iconImg: iconImg?iconImg:null,
     },
   };
 }

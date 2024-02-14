@@ -38,7 +38,7 @@ export default function SectonFilters({ data }) {
     <div style={{marginTop:router?.pathname === '/' || router.pathname ==='/servicios-automotriz/[id]' && '0px'}} className={styles.containerGridTalleres}>
       <section className={styles.headerTalleres} >
         {router?.pathname !== '/'
-          && <h1 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} </h1>
+          && <h1 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca de mi</h1>
         }
         {router?.pathname !== '/'
           &&

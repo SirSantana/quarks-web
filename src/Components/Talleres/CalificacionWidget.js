@@ -19,7 +19,7 @@ export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
   const { data, loading } = useQuery(GET_OPINIONES, { variables: { id: id } })
   return (
 
-    <div onClick={onClick} className={styles.containerHeaderCalendario} style={{border:'none', padding:'0', margin:'0 auto', marginBottom:'16px'}}>
+    <div onClick={onClick} className={styles.containerHeaderCalendario} style={{border:'none', padding:'0', margin:'0 auto', border:0, boxShadow:'none', marginBottom:'16px'}}>
       {loading
         ?
         <div
