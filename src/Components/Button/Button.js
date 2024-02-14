@@ -15,7 +15,7 @@ export const ButtonVariant = {
   terciary: 'terciary',
   outlined: 'outlined',
   gradient: 'gradient',
-
+  whatsapp:'whatsapp'
 }
 
 export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null }) {
@@ -35,8 +35,8 @@ export default function Button({ children, size = ButtonSize.base, active = fals
         className={`${styles.button} ${variantButton} ${sizeButton}`}
         style={{ ...style, width: fullWidth && '100%' }}
       >
-        {children}
         {icon && <Icon name={icon} size='md' style={{ fontSize: '20px', color: 'white' }} />}
+        {children}
       </button>
   )
 }

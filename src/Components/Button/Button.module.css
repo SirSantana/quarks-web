@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 8px;
+  gap: 16px;
   border: none;
   color: #fff;
   margin: 0 auto;
@@ -36,6 +36,11 @@
 }
 .button-gradient {
   background: linear-gradient(180deg,#E50051, #9C0037);
+  border: none;
+  color: white;
+}
+.button-whatsapp {
+  background-color: #25d366;
   border: none;
   color: white;
 }

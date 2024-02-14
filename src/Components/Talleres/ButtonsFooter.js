@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import {  useState } from 'react';
 import ModalButtonsContacto from './ModalButtonsContacto';
 import Button, { ButtonVariant } from '../Button/Button';
+import { IconCatalog } from '../Icon/Icon';
 
 
 export default function ButtonsFooter({ data, user, tipo }) {
@@ -25,8 +26,11 @@ export default function ButtonsFooter({ data, user, tipo }) {
   return (
     <div className={styles.divFixed}>
       <>
-        <Button onClick={sendMessageWha} size='lg' variant={ButtonVariant.gradient} fullWidth>
+        {/* <Button onClick={sendMessageWha} size='lg' variant={ButtonVariant.gradient} fullWidt0h icon={IconCatalog.logoWhatsapp}>
           Solicitar cotizacion
+        </Button> */}
+        <Button style={{fontSize:'14px'}} onClick={sendMessageWha} size='lg' variant={ButtonVariant.whatsapp} fullWidth icon={IconCatalog.logoWhatsapp}>
+          Enviar mensaje
         </Button>
         {/* <button aria-label='Ver direccion taller' className={styles.buttonFixedBlack2} onClick={() => handleClickMapa(data)} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='md' /> </button> */}
 
