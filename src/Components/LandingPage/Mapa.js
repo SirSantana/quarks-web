@@ -1,14 +1,13 @@
 import { MapContainer, Marker, Popup, TileLayer, useMapEvents, LayerGroup} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'; // Asegúrate de importar Leaflet
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import styles from '@/styles/Home.module.css'
 
 import PlaceCard from './Placecard';
 import { useRouter } from 'next/router';
 import { categorias } from '../Navbar/NewNavbar2';
-import { CREATE_CLICK_NEGOCIO_PREV_MAP } from '@/graphql/mutations';
-import { useMutation } from '@apollo/client';
+
 import PlacecardAnuncio from './PlacecardAnuncio';
 import PlacecardAnuncioPastillas from './PlacecardAnuncioPastillas';
 
