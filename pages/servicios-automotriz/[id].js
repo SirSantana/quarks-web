@@ -5,10 +5,13 @@ import { options } from "@/src/Components/Main/Main";
 import SectonFilters from "@/src/Components/LandingPage/SectionFilters";
 import dynamic from "next/dynamic";
 import { categorias } from "@/src/Components/LandingPage/SliderTiposTalleres";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button, { ButtonSize, ButtonVariant } from "@/src/Components/Button/Button";
 import { IconCatalog } from "@/src/Components/Icon/Icon";
 import styles from '@/styles/Home.module.css'
+import { CREATE_ACCION } from "@/graphql/mutations";
+import { client } from "@/client";
+import { useMutation } from "@apollo/client";
 
 const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/SliderTalleresSugeridos'),
   { ssr: false })
@@ -56,6 +59,7 @@ export default function ServicioAutomotriz({ data, iconImg, }) {
   )
 }
 
+
 export async function getServerSideProps({ query }) {
   let categoria = query?.id;
   if (categoria.includes('Bogota')) {
@@ -99,14 +103,16 @@ export async function getServerSideProps({ query }) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
-  function shuffleArray(array) {
+    function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
   }
-  const resultados2 = shuffleArray(filter);
+  const resultados2 =  shuffleArray(filter);
+
+ 
   const iconImg = categorias?.find(cat => cat.url?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == categoria?.replace(/-/g, ' ').toLocaleLowerCase())
   return {
     props: {

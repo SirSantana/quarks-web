@@ -60,14 +60,14 @@ export default function SolicitarRevision() {
     if (form.referencia !== '' && form.servicios.length > 0 && whatsapp) {
       createVisitaWhatsapp({ variables: { id: ide } })
       createSolicitudServicio({ variables: { ...form, almacen: ide } })
-      if (!contactme) {
+      if (!contactme && process.env.NODE_ENV === 'production') {
         const message = `¡Hola! Estoy interesado en sus servicios.
 
         🛠️  *Descripción del Problema:* ${form.descripcion} 
         ⚙️  *Servicio:* ${form.servicios} 
         🚗  *Marca del Vehículo:* ${form.marca} 
         🔍  *Referencia del Vehículo:* ${form.referencia} 
-        
+        Perfil del Taller: https://www.quarks.com.co/${router.query?.id}
   Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
         let url = `https://api.whatsapp.com/send?phone=57${whatsapp?.replace(/\s/g, '')}`;
 

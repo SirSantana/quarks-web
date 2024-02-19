@@ -335,12 +335,38 @@
   color: #373737;
 }
 
+.cardServicioNegocio {
+  position: relative;
+  margin-bottom: 32px;
+  margin-right: 16px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  color: #373737;
+  border: 1px solid #dddddd !important;
+  border-radius: 8px !important;
+  width: 140px !important;
+  height: 160px !important;
+  text-decoration: none;
+  color: #373737;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+.cardServicioNegocio:hover {
+  background-color: #f7f7f7;
+}
+.slider {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .cardServicioHome:hover {
   background-color: #373737;
   color: white;
   transform: scale(1.1);
-
-
 }
 
 .containerPlan {
@@ -370,9 +396,10 @@
   width: 200px;
   border-radius: 32px;
   position: absolute;
-  top: -20px; /* Colocar en la mitad vertical del contenedor padre */
+  top: -20px;
+  /* Colocar en la mitad vertical del contenedor padre */
   right: 30px;
-  color:white;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,17 +410,20 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* Efecto de sombra al pasar el mouse */
 }
-.onePlanList{
+
+.onePlanList {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 }
-.onePlanP{
+
+.onePlanP {
   font-size: 14px;
   flex: 1;
   font-weight: 500;
 }
+
 @media (max-width: 1200px) {
   .containerContent {
     display: flex;
@@ -494,6 +524,9 @@
 @media (max-width: 700px) {
   .input {
     width: 90%;
+  }
+  .slider {
+    padding-left: 20px;
   }
   .titleAccess {
     font-size: 24px;

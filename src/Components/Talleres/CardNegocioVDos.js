@@ -15,11 +15,12 @@ const Star = ({ index, stars, tamaño, }) => {
   )
 }
 let estrellas = [1, 2, 3, 4, 5]
-export default function CardNegocioVDos({ data, onClick, onClickDos}) {
+export default function CardNegocioVDos({ data, onClick, onClickDos }) {
   const [visibleFullHorario, setVisibleFullHorario] = useState(false)
   const reff = useRef(null)
   const horariosSeparados = data?.horario?.split(',');
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: data?.id } })
+  const [recomendado, setRecomendado] = useState(false)
 
   const handleVisibleHorario = () => {
     setVisibleFullHorario(!visibleFullHorario)
@@ -42,13 +43,23 @@ export default function CardNegocioVDos({ data, onClick, onClickDos}) {
             <ion-icon style={{ fontSize: '50px' }} className={styles.imgPrincipalLugarMobile} name="storefront-outline"></ion-icon>
           }
         </div> */}
+        {/* {recomendado
+          ?
+          <div onClick={()=> setRecomendado(prev=> !prev)} style={{ position: 'absolute', fontSize: '14px', padding: '4px 8px', alignItems: 'center', top: '-40px', right: '10px', border: '1px solid #FBBC04',  borderRadius: '8px', fontWeight: '600', backgroundColor: '#FBBC04' }}>
+            👍 Recomendado!
+          </div>
+          :
+          <div onClick={()=> setRecomendado(prev=> !prev)} style={{ position: 'absolute', fontSize: '14px', padding: '4px 8px', alignItems: 'center', top: '-40px', right: '10px', border: '1px solid #FBBC04', borderRadius: '8px', fontWeight: '600', backgroundColor: '#FFFCE4' }}>
+            👍 Lo recomiendas?
+          </div>
+        } */}
         <h1
           className={styles.nameNegocio}
-          style={{ textAlign: 'center', fontSize: (data?.nombre.length > 18) ? '22px' : (data?.nombre.length > 12) ? '26px' : '28px', width:'100%' }}
+          style={{ textAlign: 'center', fontSize: (data?.nombre.length > 18) ? '22px' : (data?.nombre.length > 12) ? '26px' : '28px', width: '100%' }}
         >
           {data?.nombre}
         </h1>
-          <CalificacionWidget onClick={onClick} id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} />
+        <CalificacionWidget onClick={onClick} id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} />
         {/* <div style={{ display: 'flex', width: '100%', flexDirection: 'row', gap: '16px', alignItems: 'center', boxSizing: 'border-box', padding: '0px 10px 10px 10px' }}>
           <Image alt={`Taller de autos ${data?.nombre}`} style={{ objectFit: 'contain' }} width={26} height={20} src='/EmojiTaller.png' />
           <p style={{ fontSize: '16px', fontWeight: '400', alignSelf: 'center', textAlign: 'center', color: '#969595' }}>{data?.userName === 'corsa-motors' ? 'Almacen de Repuestos' : 'Taller Automotriz'}</p>

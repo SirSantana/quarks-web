@@ -6,7 +6,7 @@ import styles from '@/styles/ServiciosAutomotriz.module.css'
 
 export default function RecomiendasTaller({onClick, nombre}) {
   return (
-    <div onClick={onClick} className={styles.containerHeaderCalendario} style={{ flexDirection: 'row', backgroundColor: '#FFFCE4', alignItems: 'center', gap: '16px', borderColor: '#FBBC04' }}>
+    <div onClick={onClick} className={styles.containerHeaderCalendario} style={{ flexDirection: 'row', backgroundColor: '#FFFCE4', alignItems: 'center', gap: '16px',marginTop:'32px', borderColor: '#FBBC04' }}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', }}>
         <Icon size='sm' name={IconCatalog.star} style={{ color: '#FBBC04', fontSize: '24px' }} />
         <Divider backgroundColor={'#FBBC04'} />

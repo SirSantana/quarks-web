@@ -16,6 +16,7 @@ import CalificacionWidget from "@/src/Components/Talleres/CalificacionWidget";
 import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
 import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
+import { CREATE_ACCION } from "@/graphql/mutations";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
@@ -60,22 +61,25 @@ export default function NegocioVDos({ data }) {
 
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
-      <Image
-        sizes="100vw"
-        width={500}
-        height={300}
-        className={styles.imgFotoPortada}
-        src={data?.fotoperfil}
-        priority={true}
-        loading="eager"
-        alt={`Taller mecanico ${data?.nombre} Bogota`}
-      />
+      <div className={styles.containerAlmacen}>
+      <div>
 
-      <ButtonsHeader data={data} />
-      <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} onClick={handleClickReseñasSection} onClickDos={handleClickMapSection} />
+        <Image
+          sizes="100vw"
+          width={500}
+          height={300}
+          className={styles.imgFotoPortada}
+          src={data?.fotoperfil}
+          priority={true}
+          loading="eager"
+          alt={`Taller mecanico ${data?.nombre} Bogota`}
+        />
+
+        <ButtonsHeader data={data} />
+        <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} onClick={handleClickReseñasSection} onClickDos={handleClickMapSection} />
+      </div>
 
       <div className={styles.containerMobile} >
-        <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
         {/* {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} handleScroll={handleScroll} />}
         <DatosImportantes data={data} ref={reff} setVisibleModalTelefono={setVisibleModalTelefono} /> */}
         {data?.categorias &&
@@ -83,6 +87,7 @@ export default function NegocioVDos({ data }) {
             <ServidosOfrecidos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
           </section>
         }
+        <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
 
 
 
@@ -100,7 +105,7 @@ export default function NegocioVDos({ data }) {
 
         {data?.urltallermaps &&
           <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id}/>
+            <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} />
           </section>
 
         }
@@ -149,6 +154,7 @@ export default function NegocioVDos({ data }) {
         } */}
         {/* <FooterSectionFixed/> */}
       </div>
+      </div>
 
     </Layout>
 
@@ -164,12 +170,8 @@ export async function getServerSideProps({ query, res }) {
       variables: { userName: parts.replace(/&/g, '') }
     }
   )
-  // const result = await client.mutate(
-  //   {
-  //     mutation: CREATE_VISITA_ALMACEN,
-  //     variables: { id: parts }
-  //   }
-  // )
+
+ 
   if (parts == 's&i_master_paint') {
     res.setHeader('Location', '/si_master_paint');
     res.statusCode = 302; // Código de estado 302 para redirección temporal
@@ -188,7 +190,14 @@ export async function getServerSideProps({ query, res }) {
     res.end();
     return { props: {} };
   }
-
+  if (process.env.NODE_ENV === 'production' && data) {
+    await client.mutate(
+      {
+        mutation: CREATE_ACCION,
+        variables: { almacen: data?.getOneNegocioVDos?.id, tipo: 'visita-perfil', estado: 'production'}
+      }
+    )
+  }
   return {
     props: {
       data: data?.getOneNegocioVDos,

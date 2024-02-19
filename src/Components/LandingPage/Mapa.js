@@ -10,6 +10,7 @@ import { categorias } from '../Navbar/NewNavbar2';
 import { CREATE_CLICK_NEGOCIO_PREV_MAP } from '@/graphql/mutations';
 import { useMutation } from '@apollo/client';
 import PlacecardAnuncio from './PlacecardAnuncio';
+import PlacecardAnuncioPastillas from './PlacecardAnuncioPastillas';
 
 const userIcon = () => new L.Icon({
   iconUrl: 'person.svg',
@@ -95,6 +96,27 @@ export default function Map({ talleres }) {
         >
           <Popup className={styles.card}>
             <PlacecardAnuncio/>
+          </Popup>
+        </Marker>
+
+        <Marker
+          key={'Cupon pastillas de freno'}
+          position={[4.661882, -74.063614]}
+          icon={
+            L.divIcon({
+              html: `
+                   <div style="display: flex;gap:8px;align-items:center; padding:8px 16px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;    box-shadow: 0 4px 4px rgba(200, 200, 200, 0.1); border-radius:8px; background-color:rgba(249, 136, 11, 1);">
+                     <p style="margin: 0;color:white;font-size:12px; font-weight:600; white-space:nowrap">Bono de 15% en Pastillas de freno</p>
+                   </div>
+                 `,
+              //  iconSize: [32, 32],
+              //  iconAnchor: [16, 32],
+              //  popupAnchor: [0, -32],
+            })
+          }
+        >
+          <Popup className={styles.card}>
+            <PlacecardAnuncioPastillas/>
           </Popup>
         </Marker>
 

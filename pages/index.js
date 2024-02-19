@@ -48,20 +48,20 @@ export default function Home({ data, iconImg}) {
         <meta name='robots' content='follow, index, max-image-preview:large' />
         <meta name='bingbot' content='follow, index' />
         <meta name='GOOGLEBOT' content='follow, index' />
-        <meta name='language' content='spanish' />
+        <meta name='language' content='es' />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@quarks-automotriz" />
         <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={"Directorio de Talleres de carros en Bogotá "} />
-        <meta name="twitter:image" content={query?.servicio ? `./${iconImg.img}.png` :'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
+        <meta name="twitter:image" content={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
         <meta name="url" content={`https://www.quarks.com.co/`} />
         <meta property="url" content={`https://www.quarks.com.co/`} />
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
-        <meta property="og:image" content={query?.servicio ? `./${iconImg.img}.png` :'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
-        <meta property="og:image:url" content={query?.servicio ? `./${iconImg.img}.png` :'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
+        <meta property="og:image" content={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
+        <meta property="og:image:url" content={'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
         <meta property='og:url' content={`https://www.quarks.com.co/`} />
 
@@ -74,7 +74,7 @@ export default function Home({ data, iconImg}) {
         <meta property="og:image:type" content='image/png' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href={query?.servicio ? `./${iconImg.img}.png` : '/logoquarks200623.png'} />
+        <link rel="icon" href={'/logoquarks200623.png'} />
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"

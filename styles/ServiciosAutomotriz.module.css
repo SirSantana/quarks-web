@@ -201,6 +201,14 @@
 .containerHeaderCalendario:active {
   transform: scale(0.95)
 }
+.containerAlmacen{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin:0 auto;
+  padding-top: 64px;
+  justify-content: space-evenly;
+}
 
 .containerCardPerfil {
   height: 500px;
@@ -507,7 +515,6 @@
   object-fit: cover;
   /* Mantiene la proporción de aspecto y cubre completamente el contenedor */
   margin: auto;
-  margin-top: 10vh;
   border-radius: 10px 10px 0 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
 
@@ -746,10 +753,9 @@
 .containerMobile {
   flex-direction: column;
   gap: 4vh;
-  margin: 0 auto;
   margin-bottom: 48px;
   align-items: center;
-  width: 500px;
+  max-width: 500px;
   justify-content: center;
   display: flex;
 }
@@ -780,7 +786,9 @@
     width: 90%;
     margin-top: 96px;
   }
-
+  .containerAlmacen{
+    width: 90%;
+  }
   .container2 {
     width: 90%;
     margin-top: 96px;
@@ -813,7 +821,11 @@
     width: 250px;
     right: 3%;
   }
-
+  .containerAlmacen{
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
 }
 
 @media (max-width:900px) {

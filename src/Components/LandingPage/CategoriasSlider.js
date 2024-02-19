@@ -15,19 +15,19 @@ export default function CategoriasSlider({ categorias, mode }) {
   const categoriaServicio = router?.query.id
   const initialSlideIndex = categorias.findIndex(
     (categoria) =>
-      categoria.url.toLowerCase().replace(/ /g, '-').replace(/-/g,' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '')  ==
-      categoriaServicio?.toLocaleLowerCase().replace(/-/g,' ')
-      
+      categoria.url.toLowerCase().replace(/ /g, '-').replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '') ==
+      categoriaServicio?.toLocaleLowerCase().replace(/-/g, ' ')
+
   );
   const CustomPrevArrow = (props) => (
     <div className={styles.customPrevArrow} onClick={props.onClick}>
-      <Icon size='sm' name={IconCatalog.chevronBackOutline}/>
+      <Icon size='sm' name={IconCatalog.chevronBackOutline} />
       {/* <ion-icon style={{color:'#464646'}} name="chevron-back-"></ion-icon> */}
     </div>
   );
   const CustomNextArrow = (props) => (
     <div className={styles.customNextArrow} onClick={props.onClick}>
-      <Icon size='sm' name={IconCatalog.chevronForwardOutline}/>
+      <Icon size='sm' name={IconCatalog.chevronForwardOutline} />
     </div>
   );
   const settings = {
@@ -41,41 +41,58 @@ export default function CategoriasSlider({ categorias, mode }) {
     variableWidth: true,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
-    initialSlide: initialSlideIndex !== -1 ? initialSlideIndex-1 : 0,
+    initialSlide: initialSlideIndex !== -1 ? initialSlideIndex - 1 : 0,
   };
   return (
     <ul className={styles.categoriasSlider}>
 
       <Slider   {...settings}>
         {categorias.map((categoria, index) => (
-          <Link
-          prefetch={false}
-          scroll={true}
-            href={
-              `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
-              .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
-              .replace(/[\u0300-\u036f]/g, '')}`
-            }
-            key={index}
+          <div
             style={{ width: 140 }}
             className={styles.categoria}
           >
-            <li style={{opacity:categoria.url == router.route}} className={`${styles.centeredContent} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>
-              <Image  src={`/${categoria.img}.png`} width={32} height={32}  alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
-              {categoriaServicio?.replace(/-/g,' ') === categoria.nombre ?
+            <li style={{ opacity: categoria.url == router.route }} className={`${styles.centeredContent} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>
+              <Image src={`/${categoria.img}.png`} width={32} height={32} alt={`Taller mecanico cerca de mi de ${categoria.nombre}`} />
+              {categoriaServicio?.replace(/-/g, ' ') === categoria.nombre ?
                 <>
-                  <h3 className={`${styles.textCategoriaTallerA} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>{categoria.nombre}</h3>
+                  <Link
+                    prefetch={false}
+                    scroll={true}
+                    href={
+                      `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
+                        .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+                        .replace(/[\u0300-\u036f]/g, '')}`
+                    }
+                    key={index}
+                    style={{ width: 140 }}
+                    className={styles.categoria}
+                  >
+                    <h3 className={`${styles.textCategoriaTallerA} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>{categoria.nombre}</h3>
+                  </Link>
                   <div className={styles.lineaDivisoraA} />
                 </>
                 :
                 <>
-                  <h3 className={`${styles.textCategoriaTaller} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>{categoria.nombre}</h3>
+                  <Link
+                    prefetch={false}
+                    scroll={true}
+                    href={
+                      `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
+                        .normalize("NFD")     // Normalizar para descomponer caracteres acentuados
+                        .replace(/[\u0300-\u036f]/g, '')}`
+                    }
+                    key={index}
+                    style={{ width: 140, textDecoration:'none', textAlign:'center' }}
+                  >
+                    <h3 className={`${styles.textCategoriaTaller} ${initialSlideIndex === index ? styles.activeCategory : ''}`}>{categoria.nombre}</h3>
+                  </Link>
                   <div className={` ${initialSlideIndex === index ? styles.lineaDivisoraA : styles.lineaDivisora}`} />
                 </>
               }
 
             </li>
-          </Link>
+          </div>
         ))}
       </Slider>
 
