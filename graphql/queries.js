@@ -364,7 +364,16 @@ export const GET_GASTOS_MONTH = gql`
     }
   }
 `
-
+export const GET_ALL_ADMIN_ACCION = gql`
+  query getAllAdminAccion{
+    getAllAdminAccion{
+      tipo
+      almacen
+      fecha
+      id
+    }
+  }
+`
 export const GET_RECORDATORIOS = gql`
     query getRecordatorios($id:ID){
         getRecordatorios(id:$id){

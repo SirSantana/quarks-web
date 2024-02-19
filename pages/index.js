@@ -33,7 +33,7 @@ const Map = dynamic(
   { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
 )
 
-export default function Home({ data, iconImg}) {
+export default function Home({ data, iconImg }) {
   const [mode, setMode] = useState(0)
   const { query } = useRouter()
   // const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
@@ -79,9 +79,21 @@ export default function Home({ data, iconImg}) {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "jh3neqgrnc");
+            `,
+          }}
+        />
       </Head>
       <main className={styles.main}>
-        <NewNavbarWithSearch mode={mode} visibleSlider={true}/>
+        <NewNavbarWithSearch mode={mode} visibleSlider={true} />
 
         {mode
           ?
