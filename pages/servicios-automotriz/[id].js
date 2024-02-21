@@ -5,38 +5,45 @@ import { options } from "@/src/Components/Main/Main";
 import SectonFilters from "@/src/Components/LandingPage/SectionFilters";
 import dynamic from "next/dynamic";
 import { categorias } from "@/src/Components/LandingPage/SliderTiposTalleres";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button, { ButtonSize, ButtonVariant } from "@/src/Components/Button/Button";
 import { IconCatalog } from "@/src/Components/Icon/Icon";
 import styles from '@/styles/Home.module.css'
-import { CREATE_ACCION } from "@/graphql/mutations";
-import { client } from "@/client";
-import { useMutation } from "@apollo/client";
 
 const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/SliderTalleresSugeridos'),
   { ssr: false })
 const SectionCreateTaller = dynamic(() => import('@/src/Components/Talleres/SectionCreateTaller'),
   { ssr: false })
 
-  const Map = dynamic(
-    () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
-    { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
-  )
+const tagsFix = [
+  'talleres abiertos hoy cerca de mi',
+  'taller mecánico 24 horas cerca de mi',
+  'paginas web de talleres mecanicos',
+  'taller automotriz a domicilio'
+]
+
+const Map = dynamic(
+  () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
+  { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
+)
 export default function ServicioAutomotriz({ data, iconImg, }) {
   const router = useRouter()
-  const [mode, setMode] = useState(router.query.id === 'mecanico-a-domicilio'?1:0)
+  const [mode, setMode] = useState(router.query.id === 'mecanico-a-domicilio' ? 1 : 0)
   const handleClick = () => {
     // Desplázate hacia arriba cuando se hace clic en el botón
     setMode(mode === 0 ? 1 : 0)
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   return (
-    <Layout title={`Talleres de  ${router?.query?.id.replace(/-/g,' ')} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id.replace(/-/g,' ')} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} icon={iconImg?.img && `/${iconImg?.img}.png`} image={iconImg?.img ? `./${iconImg?.img}.png` : 'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleSlider={true}>
+    <Layout title={`Talleres de  ${router?.query?.id.replace(/-/g, ' ')} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id.replace(/-/g, ' ')} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} icon={iconImg?.img && `/${iconImg?.img}.png`} image={iconImg?.img ? `./${iconImg?.img}.png` : 'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleSlider={true}>
       {mode
         ?
         <SectonFilters data={data.reverse()} />
         :
-        <Map talleres={data}  />
+        <>
+          <Map talleres={data} />
+          <SectonFilters data={data.reverse()} />
+        </>
       }
       <div style={{ height: '1px', backgroundColor: '#c5c5c5', maxWidth: '1200px', width: '90%', margin: '32px auto' }} />
 
@@ -45,6 +52,11 @@ export default function ServicioAutomotriz({ data, iconImg, }) {
       </section>
       <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '600px', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
         <SectionCreateTaller />
+      </section>
+      <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '600px', gap: '8px', width: '100%',flexWrap:'wrap', flexDirection: 'row', alignItems: 'center' }}>
+        {tagsFix.concat(iconImg?.tags).map(tag => (
+          <p key={tag} style={{fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white'}}>{tag}</p>
+        ))}
       </section>
       <Button style={{
         zIndex: '1000',
@@ -103,21 +115,21 @@ export async function getServerSideProps({ query }) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
-    function shuffleArray(array) {
+  function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
   }
-  const resultados2 =  shuffleArray(filter);
+  const resultados2 = shuffleArray(filter);
 
- 
+
   const iconImg = categorias?.find(cat => cat.url?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == categoria?.replace(/-/g, ' ').toLocaleLowerCase())
   return {
     props: {
       data: resultados2,
-      iconImg: iconImg?iconImg:null,
+      iconImg: iconImg ? iconImg : null,
     },
   };
 }

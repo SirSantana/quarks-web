@@ -32,7 +32,72 @@ const Map = dynamic(
   () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
   { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
 )
-
+const tagsFix = [
+  'talleres abiertos hoy cerca de mi',
+  'taller mecánico 24 horas cerca de mi',
+  'paginas web de talleres mecanicos',
+  'taller mecanicos cerca de mi',
+  'taller de reparacion de automoviles',
+  'talleres de carro',
+  'mecanico cerca de mi',
+  'taller automotriz cerca de mi',
+  'talleres abiertos hoy cerca de mi',
+  'taller de coches cerca de mi',
+  'mecanico cerca',
+  'taller de coches',
+  'talleres abiertos hoy',
+  'talleres de carros cerca de mi',
+  'taller coche',
+  'talleres de autos cerca de mi',
+  'taller coches cerca de mi',
+  'taller mecanico cerca',
+  'servicio mecanico cerca de mi',
+  'talleres mecánicos cerca de mi',
+  'taller hispano cerca de mí',
+  'taller mecanico abierto cerca de mi',
+  'taller de mantenimiento automotriz',
+  'taller mecanico chevrolet',
+  'talleres automotrices cerca de mi',
+  'talleres de carro cerca de mi',
+  'mejor taller mecanico cerca de mi',
+  'talleres cerca de mi abiertos',
+  'taller de servicio automotriz',
+  'talleres abiertos cerca de mí',
+  'taller automotor',
+  'taller mecanico cerca de mi abierto hoy',
+  'un mecanico cerca de mi',
+  'taller automotriz 24 horas',
+  'taller mecanico abierto',
+  'taller mantenimiento automotriz',
+  'talleres abiertos los domingos',
+  'paginas de talleres mecanicos',
+  'talleres mecánicos abiertos hoy',
+  'mecanico cerca de mi ubicacion',
+  'buenos mecanicos',
+  'el mejor taller mecanico',
+  'empresas de talleres mecánicos',
+  'los mejores talleres mecanicos',
+  'mecanicos abiertos cerca de mi',
+  'mecánicos cerca de aquí',
+  'mejor taller automotriz',
+  'promociones de talleres automotrices',
+  'promociones en talleres mecanicos',
+  'promociones de taller mecanico',
+  'promociones taller mecanico',
+  'servicio taller mecanico',
+  'taller automecanica',
+  'taller automotriz cerca',
+  'taller automotriz chevrolet',
+  'taller coches abierto hoy',
+  'taller de carros 24 horas',
+  'taller de coche abierto hoy',
+  'taller de coches cerca',
+  'taller de coches más cercano',
+  'taller de diagnostico automotriz',
+  'taller de reparacion automotriz',
+  'taller de reparación de coches',
+  'taller diagnostico automotriz',
+]
 export default function Home({ data, iconImg }) {
   const [mode, setMode] = useState(0)
   const { query } = useRouter()
@@ -110,6 +175,11 @@ export default function Home({ data, iconImg }) {
         <SectionPasos />
         <SectionGrowthTaller />
         <SectionCalculadoraCombustible />
+        <section  style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '900px', gap: '8px', width: '90%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
+          {tagsFix.map(tag => (
+            <p key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</p>
+          ))}
+        </section>
         <Button style={{
           zIndex: '1000',
           position: 'fixed',

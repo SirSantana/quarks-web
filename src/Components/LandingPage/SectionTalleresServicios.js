@@ -10,7 +10,7 @@ import Image from 'next/image'
 export default function SectionTalleresServicios() {
   return (
     <section className={styles2.containerListTalleres}>
-      <Text fontWeight={TextWeight[600]} As={TextAs.h2} alignment={TextAlignment.center} >
+      <Text fontWeight={TextWeight[600]} As={TextAs.h1} alignment={TextAlignment.center} >
         Taller mecanico cerca de mi
       </Text>
       <p style={{textAlign:'center', marginBottom:'40px', marginTop:'16px'}} className={styles2.subtitle2}>Los mejores talleres de carros para el servicio que estas buscando</p>
@@ -18,8 +18,8 @@ export default function SectionTalleresServicios() {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center', marginTop: '32px' }}>
 
         {categorias.map(el => (
-          <Link href={`/servicios-automotriz/${el.url.replace(/ /g, '-')}`} key={el.nombre} className={styles.cardServicioHome}>
-            <h3 style={{ marginBottom: '4px', fontWeight: '500', lineHeight: '1.1', overflow: 'hidden', textOverflow: 'ellipsis', }}>{el.nombre}</h3>
+          <Link href={`/servicios-automotriz/${el.url.replace(/ /g, '-').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '')}`} key={el.nombre} className={styles.cardServicioHome}>
+            <h3 style={{ marginBottom: '4px', fontWeight: '500', lineHeight: '1.1', overflow: 'hidden', textOverflow: 'ellipsis', }}>Taller {el.nombre}</h3>
             <p style={{color:'#737373',fontSize:'14px'}}>+{el.cantidad} talleres</p>
             <Image
               src={`/${el.img}.png`}

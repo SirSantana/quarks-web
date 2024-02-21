@@ -28,9 +28,9 @@ export default function ListTalleresLanding() {
   }, []);
   return (
     <section className={styles.containerListTalleres}>
-      <h1 className={styles.title2} style={{ textAlign: 'center', color: '#373737' }}>
+      <h2 className={styles.title2} style={{ textAlign: 'center', color: '#373737' }}>
         Talleres de carros
-      </h1>
+      </h2>
       <div className={styles.containerImgTalleres}>
         {imagesTalleres.map((el, index) => (
           <Link
