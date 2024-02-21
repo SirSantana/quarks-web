@@ -92,6 +92,17 @@ export default function Layout({ children, title, description, type, price, keyw
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(marcadoEstructurado) }}
           />}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "jh3neqgrnc");
+            `,
+          }}
+        />
       </Head>
 
       <main >
@@ -100,7 +111,7 @@ export default function Layout({ children, title, description, type, price, keyw
 
         {visibleNavbar && <NewNavbarWithSearch visibleSlider={visibleSlider} />}
         {children}
-       
+
         <Footer />
 
       </main>
