@@ -20,7 +20,7 @@ export default function ModalSolicitaServicio({ data, setVisibleModalSolicitaSer
     router.push(`/${router.query.id}/solicitar-revision?ide=${data?.id}`);
   };
   return (
-    <div className={styles.modal} style={{ zIndex: '10000' }}>
+    <div className={styles.modal} style={{ zIndex: '1' }}>
       <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: '90%', maxWidth: '400px', height: 'fit-content' }} className={styles.modalContent}>
         <header style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'flex-end', alignItems: 'center' }}>

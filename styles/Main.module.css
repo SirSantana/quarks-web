@@ -349,7 +349,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 999;
+  z-index: 100000;
 }
 
 .modalContent {

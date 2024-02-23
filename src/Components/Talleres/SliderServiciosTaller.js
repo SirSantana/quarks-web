@@ -20,7 +20,7 @@ export default function SliderServiciosTaller({categorias}) {
   };
   return (
 
-    <Slider className={styles.slider}  {...settings}>
+    <Slider style={{zIndex:'-1'}}  className={styles.slider}  {...settings}>
       {categorias.map(el => (
         <div className={styles.cardServicioNegocio}>
           <h3 style={{fontSize:'16px', marginBottom: '4px', fontWeight: '500', lineHeight: '1.1', overflow: 'hidden', textOverflow: 'ellipsis', }}>{el.nombre}</h3>

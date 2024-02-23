@@ -209,8 +209,14 @@
   padding-top: 64px;
   gap:64px;
   justify-content: space-evenly;
+  align-items: start;
 }
-
+.containerSticky{
+  width: 100%;
+  max-width: 440px;
+  position: sticky;
+  top: 40px;
+}
 .containerCardPerfil {
   height: 500px;
   background-color: white;
@@ -772,7 +778,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  width: 100%;
+  width: 90%;
 }
 
 @media (max-width:1380px) {
@@ -831,6 +837,10 @@
   gap:0;
  align-items: center;
 
+  }
+  .containerSticky{
+    position: static;
+    margin-top: 40px;
   }
 }
 
@@ -916,9 +926,12 @@
     margin-top: 80px;
     display: none
   }
-
+  .containerSticky{
+    margin-top: 0;
+  }
   .containerButtonsHeader {
     display: flex;
+    width: 100%;
   }
 
   .maps {

@@ -48,6 +48,7 @@ export default function Icon({ name, size = "md", style, onClick }) {
       onClick={onClick}
       style={{
         cursor: onClick ? 'pointer' : null,
+        
         fontSize: size === 'sm' && '16px' || size === 'md' && '20px' || size === 'lg' && '24px',
         ...style
       }} name={name}></ion-icon>
