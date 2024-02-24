@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Icon, { IconCatalog } from '../Icon/Icon';
 
-export default function CategoriasSlider({ categorias, mode }) {
+export default function CategoriasSlider({ categorias, type='Home' }) {
   const router = useRouter()
   // const categoriaRouter = router?.query?.id?.split("-")[0]
 
@@ -41,10 +41,11 @@ export default function CategoriasSlider({ categorias, mode }) {
     variableWidth: true,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
+    arrows:type==='Taller'?false:true,
     initialSlide: initialSlideIndex !== -1 ? initialSlideIndex - 1 : 0,
   };
   return (
-    <ul className={styles.categoriasSlider}>
+    <ul style={{width:type==='taller'&&'100%'}} className={styles.categoriasSlider}>
 
       <Slider   {...settings}>
         {categorias.map((categoria, index) => (

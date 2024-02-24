@@ -20,6 +20,8 @@ import { CREATE_ACCION } from "@/graphql/mutations";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
+  const MiraMasTalleres = dynamic(() => import('@/src/Components/Talleres/MiraMasTalleres'),
+  { ssr: false })
 const SectionCreateTaller = dynamic(() => import('@/src/Components/Talleres/SectionCreateTaller'),
   { ssr: false })
 const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/SliderTalleresSugeridos'),
@@ -130,8 +132,11 @@ export default function NegocioVDos({ data }) {
           </section>
         }
 
-        <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+        {/* <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SliderTalleresSugeridos />
+        </section> */}
+        <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+          <MiraMasTalleres/>
         </section>
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <SectionCreateTaller />
