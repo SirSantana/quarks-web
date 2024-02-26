@@ -45,7 +45,15 @@ export default function CategoriasSlider({ categorias, type='Home' }) {
     initialSlide: initialSlideIndex !== -1 ? initialSlideIndex - 1 : 0,
   };
   return (
-    <ul style={{width:type==='taller'&&'100%'}} className={styles.categoriasSlider}>
+    <ul 
+    style={{
+      width: type === 'Taller' && '100%',
+      backgroundColor: type === 'Taller' && 'white',
+      border: type === 'Taller' && '1px solid #dddddd' ,
+      boxShadow: type === 'Taller' && '0px 4px 6px rgba(0, 0, 0, 0.1)',
+      paddingTop:type === 'Taller' && '12px'
+    }}
+    className={styles.categoriasSlider}>
 
       <Slider   {...settings}>
         {categorias.map((categoria, index) => (
