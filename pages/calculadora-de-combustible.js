@@ -1,8 +1,10 @@
 
-import { CREATE_CONSUMO } from '@/graphql/mutations';
+import { CREATE_CONSUMO, CREATE_SUGERENCIA } from '@/graphql/mutations';
 import { GET_CONSUMOS } from '@/graphql/queries';
+import Button, { ButtonVariant } from '@/src/Components/Button/Button';
 import Layout from '@/src/Components/Layout'
 import styles from '@/styles/Faq.module.css'
+import { ModalLoading, ModalSuccessfull } from '@/utils/Modales';
 import { useMutation, useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
 import Slider, { Range } from 'rc-slider';
@@ -22,7 +24,25 @@ export default function CalculadoraDeCombustible() {
   const [registros, setRegistros] = useState([]);
   const [check, setCheck] = useState(false)
   const [createConsumo, result] = useMutation(CREATE_CONSUMO)
-  const { data, error, loading } = useQuery(GET_CONSUMOS)
+  // const { data, error, loading } = useQuery(GET_CONSUMOS)
+  const [createSugerencia, { data, loading }] = useMutation(CREATE_SUGERENCIA)
+  const [sugerencia, setSugerencia] = useState('')
+
+  const handleSugerenciaChange = (e) => {
+    // Eliminar espacios al inicio y al final
+
+    // Asegurarse de que solo haya letras y números
+    const cleanedValue = e.target.value.replace(/[^a-zA-Z0-9\s]/g, '');
+
+    setSugerencia(cleanedValue);
+  };
+  const handleSendSugerencia = (e) => {
+    e.preventDefault()
+    if (sugerencia.length <= 10) {
+      return alert('Cuentanos la sugerencia que tienes!')
+    }
+    createSugerencia({ variables: { sugerencia: sugerencia.trim(), tipo: 'calculadora-combustible' } })
+  }
   useEffect(() => {
     // Cargar registros desde el localStorage al montar el componente
     const savedRegistros = JSON.parse(localStorage.getItem('registros'));
@@ -54,7 +74,13 @@ export default function CalculadoraDeCombustible() {
     setGalon(kilometros / galones)
     setCheck(false)
   }, [galones, kilometros])
-
+  useEffect(() => {
+    if (data) {
+      setTimeout(() => {
+        router.reload()
+      }, 3000)
+    }
+  }, [data])
   return (
     <Layout title={'La mejor Calculadora de consumo de combustible'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadoradecombustible.png'} keywords={'Calculadora de combustible, calculador de consumo de combustible, calculadora de rendimiento de combustible, calculadora combustible, calculador combustible,  '} url={router?.asPath}>
       <div className={styles.container}>
@@ -121,15 +147,41 @@ export default function CalculadoraDeCombustible() {
             </button>
           </div>
 
+
         </div>
+        <div style={{ display: 'flex', marginTop: '40px', flexDirection: 'column', gap: '16px', width: '100%', maxWidth: '500px' }}>
+          <label htmlFor="sugerencia">Tienes alguna sugerencia? Es para mejorar ✌🏼</label>
+          <textarea
+            onChange={handleSugerenciaChange}
+            style={{
+              width: '100%',
+              padding: '10px',
+              fontSize: '14px',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              resize: 'none',
+              height: '100px'
+            }}
+            id="sugerencia"
+            name="sugerencia"
+            rows="4"
+            cols="50"
+            value={sugerencia}
+            placeholder="Escribe tu sugerencia / cambio / mejora / problema aquí..."
+          ></textarea>
+          <Button onClick={handleSendSugerencia} fullWidth variant={ButtonVariant.secondary} size='sm'>
+            Enviar
+          </Button>
+        </div>
+
 
         <Tabs className={styles.tabs}>
           <TabList style={{ marginBottom: '32px' }}>
-            <Tab>Comunidad</Tab>
+            {/* <Tab>Comunidad</Tab> */}
             <Tab>Mi actividad</Tab>
           </TabList>
 
-          <TabPanel>
+          {/* <TabPanel>
             <div className={styles.gridContainer}>
               {data?.getConsumos.map(el => (
                 <div className={styles.miniContainerCardRendimiento}>
@@ -148,7 +200,7 @@ export default function CalculadoraDeCombustible() {
               ))}
             </div>
 
-          </TabPanel>
+          </TabPanel> */}
           <TabPanel>
             <div className={styles.gridContainer}>
               {registros.map(el => (
@@ -174,16 +226,16 @@ export default function CalculadoraDeCombustible() {
         <div>
           <h2 >Optimiza Tu Consumo de Combustible: Consejos para Ahorrar en cada Kilómetro</h2>
           <br />
-          <p style={{lineHeight: "1.8;"}}>¿Quieres reducir tus gastos en combustible y contribuir a un medio ambiente más limpio? ¡Estás en el lugar correcto! <br /><br />En esta guía, exploraremos todo lo relacionado con el consumo de combustible y te proporcionaremos consejos prácticos para maximizar la eficiencia de cada gota de combustible que quemes en tu motor.</p>
+          <p style={{ lineHeight: "1.8;" }}>¿Quieres reducir tus gastos en combustible y contribuir a un medio ambiente más limpio? ¡Estás en el lugar correcto! <br /><br />En esta guía, exploraremos todo lo relacionado con el consumo de combustible y te proporcionaremos consejos prácticos para maximizar la eficiencia de cada gota de combustible que quemes en tu motor.</p>
           <br /><br />
           <h2 >El Papel del Consumo de Combustible</h2>
           <br />
-          <p style={{lineHeight: "1.8;"}}>El consumo de combustible es uno de los aspectos más importantes a considerar al usar un vehículo.<br /><br /> Además de influir en tus gastos, también tiene un impacto directo en las emisiones de gases de efecto invernadero y la contaminación del aire. <br /><br />Cuanto más eficiente sea tu consumo de combustible, menos recursos gastarás y menos daño causarás al medio ambiente.</p>
+          <p style={{ lineHeight: "1.8;" }}>El consumo de combustible es uno de los aspectos más importantes a considerar al usar un vehículo.<br /><br /> Además de influir en tus gastos, también tiene un impacto directo en las emisiones de gases de efecto invernadero y la contaminación del aire. <br /><br />Cuanto más eficiente sea tu consumo de combustible, menos recursos gastarás y menos daño causarás al medio ambiente.</p>
           <br /><br />
           <h2 >Factores que Influyen en el Consumo de Combustible</h2>
           <br />
-          <p style={{lineHeight: "1.8;"}}>El consumo de combustible de tu vehículo no es estático; está influenciado por varios factores. Algunos de los más relevantes son:</p><br />
-          <ul style={{lineHeight: "1.8;"}}>
+          <p style={{ lineHeight: "1.8;" }}>El consumo de combustible de tu vehículo no es estático; está influenciado por varios factores. Algunos de los más relevantes son:</p><br />
+          <ul style={{ lineHeight: "1.8;" }}>
             <li>Tipo de Conducción: La forma en que manejas tiene un gran impacto en el consumo de combustible. Arranques bruscos, frenados fuertes y altas velocidades pueden aumentar drásticamente el consumo.</li><br />
             <li>Mantenimiento del Vehículo: Un vehículo bien mantenido, con neumáticos inflados correctamente, filtros limpios y un motor afinado, tiende a ser más eficiente en el uso de combustible.</li><br />
             <li>Peso y Carga: Cuanto más pesado sea el vehículo o mayor sea la carga que transporta, más esfuerzo requerirá el motor para moverlo y, por lo tanto, más combustible consumirá.</li><br />
@@ -192,8 +244,8 @@ export default function CalculadoraDeCombustible() {
           <br /><br />
           <h2 >Consejos para Ahorrar Combustible</h2>
           <br />
-          <p style={{lineHeight: "1.8;"}}>Ahora, la pregunta importante: ¿cómo puedes mejorar la eficiencia de tu consumo de combustible? Aquí hay algunos consejos prácticos:</p>
-          <ol style={{lineHeight: "1.8;"}}><br />
+          <p style={{ lineHeight: "1.8;" }}>Ahora, la pregunta importante: ¿cómo puedes mejorar la eficiencia de tu consumo de combustible? Aquí hay algunos consejos prácticos:</p>
+          <ol style={{ lineHeight: "1.8;" }}><br />
             <li>Mantén una Conducción Suave: Evita aceleraciones bruscas y frenados repentinos. Mantén una velocidad constante y anticipa las paradas para reducir la necesidad de frenar.</li><br />
             <li>Mantén tu Vehículo Afinado: Realiza un mantenimiento regular, como cambios de aceite, limpieza de filtros y ajustes de motor. Un vehículo en buen estado funciona de manera más eficiente.</li><br />
             <li>Evita el Exceso de Peso: No cargues tu vehículo innecesariamente. Cuanto más peso llevas, más combustible necesitarás para moverte.</li><br />
@@ -204,12 +256,16 @@ export default function CalculadoraDeCombustible() {
           </ol>
           <br /><br />
           <h2 >Calcula el rendimiento de tu auto</h2><br />
-          <p style={{lineHeight: "1.8;"}}>No olvides aprovechar nuestra calculadora de consumo de combustible en esta página. <br /><br />Ingresa la información sobre tu vehículo y tus hábitos de conducción para obtener una estimación personalizada de cuánto combustible estás utilizando. <br /><br />¡Es una herramienta práctica para monitorear y ajustar tu consumo!</p>
+          <p style={{ lineHeight: "1.8;" }}>No olvides aprovechar nuestra calculadora de consumo de combustible en esta página. <br /><br />Ingresa la información sobre tu vehículo y tus hábitos de conducción para obtener una estimación personalizada de cuánto combustible estás utilizando. <br /><br />¡Es una herramienta práctica para monitorear y ajustar tu consumo!</p>
           <br /><br />
         </div>
       </div>
-
-
+      {loading &&
+        <ModalLoading title={'Enviando Sugerencia ... '} />
+      }
+      {data &&
+        <ModalSuccessfull title={'Gracias'} subtitle={'Por compartir tu opinion, la tendremos en cuenta para mejorar!'} />
+      }
 
     </Layout>
 

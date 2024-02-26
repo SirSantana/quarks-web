@@ -239,3 +239,8 @@ mutation signInNegocio($email:String, $password:String){
   }
 }
 `
+export const CREATE_SUGERENCIA = gql`
+mutation createSugerencia($tipo:String,$sugerencia:String ){
+  createSugerencia(input:{tipo:$tipo,sugerencia:$sugerencia})  
+}
+`
