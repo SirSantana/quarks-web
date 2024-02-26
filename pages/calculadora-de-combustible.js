@@ -29,11 +29,7 @@ export default function CalculadoraDeCombustible() {
   const [sugerencia, setSugerencia] = useState('')
 
   const handleSugerenciaChange = (e) => {
-    // Eliminar espacios al inicio y al final
-
-    // Asegurarse de que solo haya letras y números
     const cleanedValue = e.target.value.replace(/[^a-zA-Z0-9\s]/g, '');
-
     setSugerencia(cleanedValue);
   };
   const handleSendSugerencia = (e) => {
