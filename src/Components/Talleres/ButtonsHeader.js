@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ModalShareArticulo } from "@/utils/Modales";
 import { useRouter } from "next/router";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
-import ModalSolicitaServicio from "./ModalSolicitaServicio";
 import { CREATE_ACCION } from "@/graphql/mutations";
 import { useMutation } from "@apollo/client";
 

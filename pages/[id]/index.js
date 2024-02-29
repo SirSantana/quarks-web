@@ -119,7 +119,7 @@ export default function NegocioVDos({ data }) {
         }
         {data?.horario &&
           <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <HorarioDias horariosSeparados={horariosSeparados} />
+            <HorarioDias horariosSeparados={horariosSeparados}  data={data} />
           </section>
         }
         {data?.acercanegocio &&
@@ -140,7 +140,7 @@ export default function NegocioVDos({ data }) {
           <MiraMasTalleres/>
         </section>
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-          <SectionCreateTaller data={data}/>
+          <SectionCreateTaller/>
         </section>
         <section ref={reseñasSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} />
