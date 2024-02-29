@@ -14,7 +14,7 @@ export default function DashboardAdmin() {
   const handleClickNegocio=({almacen})=>{
     let taller = talleres.talleres.find(taller=> taller.id == almacen)
     console.log(taller, talleres);
-    router.push(`/${taller.userName}`)
+    router.push(`/${taller?.userName}`)
   }
   const almacenCount = {};
   if (data?.getAllAdminAccion?.length > 0) {

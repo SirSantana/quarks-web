@@ -70,7 +70,7 @@ export default function ServidosOfrecidos({ data, }) {
           <div className={styles.containerHeaderCalendario} style={{ flexDirection: 'column', alignItems: 'center', gap: 0 }}>
             {sinImagen?.map(category => (
               <div key={category} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
-                <div style={{ position: 'relative', width: '40px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '40px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <div style={{ width: '0.5px', height: '100%', backgroundColor: '#c5c5c5', alignSelf: 'center' }}></div>
                 </div>
                 <p style={{ fontSize: '14px', flex: 1 }}>{category}</p>

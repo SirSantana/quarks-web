@@ -349,7 +349,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 100000;
+  z-index: 100000 !important
 }
 
 .modalContent {
@@ -361,6 +361,7 @@
   width: 300px;
   border-radius: 16px;
   padding: 16px;
+  z-index: 2;
 }
 .containerTalleres{
   width: 100%;

@@ -106,7 +106,7 @@
   height: fit-content;
   display: flex;
   flex-direction: column;
-  gap:8px;
+  gap: 8px;
   z-index: 10000;
 }
 
@@ -202,6 +202,11 @@
   white-space: nowrap
 }
 
+.divBtnFooter {
+  display: none;
+  
+}
+
 @keyframes loading {
   0% {
     opacity: 0.7;
@@ -242,11 +247,19 @@
 } */
 
 @media (max-width: 700px) {
-  .categoriasSlider{
+  .categoriasSlider {
     width: 100%;
     margin-left: 10px;
   }
- 
+
+  .divBtnFooter {
+    display: flex;
+    z-index: 10000;
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%);
+  }
 
   /* .map {
     margin-top: 40px;

@@ -54,7 +54,8 @@ export default function NegocioVDos({ data }) {
 
   const handleClickReseñasSection = () => {
     // Hacer scroll hasta el section de Reseñas
-    reseñasSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    // reseñasSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      router.push(`${router.asPath}/crear-resena?ide=${data?.id}`);
   };
   const handleClickMapSection = () => {
     mapSectionRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -139,7 +140,7 @@ export default function NegocioVDos({ data }) {
           <MiraMasTalleres/>
         </section>
         <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-          <SectionCreateTaller />
+          <SectionCreateTaller data={data}/>
         </section>
         <section ref={reseñasSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
           <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} />

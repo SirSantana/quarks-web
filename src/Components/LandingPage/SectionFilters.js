@@ -5,35 +5,6 @@ import { useRouter } from 'next/router'
 
 export default function SectonFilters({ data }) {
   const router = useRouter()
-  // const levenshteinDistance = (s1, s2) => {
-  //   const m = s1.length;
-  //   const n = s2.length;
-
-  //   // Inicializar una matriz m × n con 0
-  //   const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
-
-  //   // Llenar la matriz con los valores de distancia
-  //   for (let i = 0; i <= m; i++) {
-  //     for (let j = 0; j <= n; j++) {
-  //       if (i === 0) {
-  //         dp[i][j] = j;
-  //       } else if (j === 0) {
-  //         dp[i][j] = i;
-  //       } else if (s1[i - 1] === s2[j - 1]) {
-  //         dp[i][j] = dp[i - 1][j - 1];
-  //       } else {
-  //         dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-  //       }
-  //     }
-  //   }
-
-  //   return dp[m][n];
-  // };
-  // let categoria = 'Alineación y balanceo'
-  // const filteredItems = talleres.talleres.filter(item =>
-  //   item.categorias.some(categoriaa => categoriaa.toLowerCase().includes(categoria.toLowerCase())) ||
-  //   levenshteinDistance(item.nombre.toLowerCase(), categoria.toLowerCase()) < 5 // Valor umbral de similitud
-  // );
   return (
     <div style={{marginTop:router?.pathname === '/' || router.pathname ==='/servicios-automotriz/[id]' && '0px'}} className={styles.containerGridTalleres}>
       <section className={styles.headerTalleres} >

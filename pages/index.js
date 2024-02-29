@@ -19,6 +19,7 @@ import { IconCatalog } from '@/src/Components/Icon/Icon'
 import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
 import { useRouter } from 'next/router'
 import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
+import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
 
 // const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
 //   { ssr: false })
@@ -99,7 +100,12 @@ const tagsFix = [
   'taller diagnostico automotriz',
 ]
 export default function Home({ data, iconImg }) {
-  const [mode, setMode] = useState(0)
+  const [mode, setMode] = useState('Lista')
+  const handleClick = () => {
+    // Desplázate hacia arriba cuando se hace clic en el botón
+    setMode(mode === 'Lista' ? 'Mapa' : 'Lista')
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   const { query } = useRouter()
   // const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
   let title = query?.servicio ? `Talleres de clutch en Bogota` : 'Talleres mecanicos automotrices de Bogotá'
@@ -158,14 +164,14 @@ export default function Home({ data, iconImg }) {
         />
       </Head>
       <main className={styles.main}>
-        <NewNavbarWithSearch mode={mode} visibleSlider={true} />
-
-        {mode
+        {/* <NewNavbarWithSearch mode={mode} visibleSlider={true} /> */}
+        <HomeMarch data={data} mode={mode} />
+        {/* {mode
           ?
           <SectonFilters data={data.reverse()} />
           :
           <Map talleres={data} />
-        }
+        } */}
         <SectionTalleresServicios />
         <ListTalleresLanding />
 
@@ -175,20 +181,16 @@ export default function Home({ data, iconImg }) {
         <SectionPasos />
         <SectionGrowthTaller />
         <SectionCalculadoraCombustible />
-        <section  style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '900px', gap: '8px', width: '90%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
+        <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '900px', gap: '8px', width: '90%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
           {tagsFix.map(tag => (
             <p key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</p>
           ))}
         </section>
-        <Button style={{
-          zIndex: '1000',
-          position: 'fixed',
-          bottom: '50px', // Puedes ajustar esta propiedad para controlar la distancia desde la parte inferior
-          left: '50%',
-          transform: 'translateX(-50%)', // Centrar horizontalmente
-        }} onClick={() => setMode(mode === 0 ? 1 : 0)} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode ? IconCatalog.mapa : IconCatalog.lista}>
-          Mostrar {mode ? 'Mapa' : 'Lista'}
-        </Button>
+        <div className={styles.divBtnFooter}>
+          <Button  onClick={handleClick} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode==='Lista' ? IconCatalog.mapa : IconCatalog.lista}>
+            Mostrar {mode === 'Mapa' ? 'Lista' : 'Mapa'}
+          </Button>
+        </div>
 
       </main>
       <Footer />

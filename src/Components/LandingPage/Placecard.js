@@ -57,10 +57,10 @@ const PlaceCard = ({ data }) => {
   return (
     <Link href={`/${data?.userName}`} onClick={() => createClickNegocioMap({ variables: { id: data?.id } })} style={{ width: '100%', textDecoration: 'none', color: '#373737' }}>
       <div style={{ display: 'flex', flexDirection: 'row', width: '100%', gap: '8px', margin: '16px 0 8px 0', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
           {data?.fotoperfil
             ?
-            <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={data?.fotoperfil} alt={`Taller de carros ${data?.nombre}`} />
+            <img style={{ height: '140px', width: '100%', borderRadius: '8px', objectFit: 'cover', border: '1px solid #f1f1f1' }} src={data?.fotoperfil} alt={`Taller de carros ${data?.nombre}`} />
             :
             <img style={{ height: '64px', width: '64px', borderRadius: '8px', objectFit: 'contain', }} src={'/EmojiTaller.png'} alt={`Taller de carros ${data?.nombre}`} />
           }
@@ -80,8 +80,7 @@ const PlaceCard = ({ data }) => {
         </div>
 
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '6px', width: '100%' }}>
-        {/* <p style={{ fontSize: '12px', margin: 0, color: '#464646', width: '100%', fontWeight: '600' }}>{data?.nombre === 'Corsa Motors' ? 'Almacen de Repuestos' : 'Taller Mecanico'}</p> */}
+      {/* <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '6px', width: '100%' }}>
         {data?.categorias.slice(0, 3).map(el => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
           return (
@@ -97,19 +96,14 @@ const PlaceCard = ({ data }) => {
           <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', }}>
             <p style={{ margin: 0, fontSize: '12px', fontWeight: '600', color: '#464646' }}>+{data?.categorias.length - 2} servicios</p>
           </div>}
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', marginTop: '16px' }}>
+      </div> */}
+      {/* <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', marginTop: '16px' }}>
         <button style={{ height: '40px', fontSize: '14px', borderRadius: '8px', fontWeight: '600' }} className={styles.buttonFixedBlack}
-        // onClick={(e) => {
-        //   e.preventDefault();
-        //   sendMessageWha();
-        // }} 
+         
         >{data?.userName === 'corsa-motors' ? 'Ver perfil' : 'Ver perfil'}
-          {/* <Icon name={IconCatalog.logoWhatsapp} style={{ color: 'white' }} size='sm' /> */}
-
         </button>
         <button style={{ height: '40px', width: '40px', borderRadius: '8px' }} className={styles.buttonFixedBlack2} onClick={(e) => { e.stopPropagation(); handleClickMapa(data); }} ><Icon name={IconCatalog.earthOutline} style={{ color: '#373737' }} size='sm' /> </button>
-      </div>
+      </div> */}
     </Link>
 
   );

@@ -31,7 +31,7 @@
 }
 .button-outlined {
   background-color: transparent;
-  border: 1px solid #373737;
+  border: 1px solid #DCE0E6;
   color: #373737;
 }
 .button-gradient {
@@ -44,6 +44,7 @@
   border: none;
   color: white;
 }
+
 .button-sm {
   padding: 10px 20px;
 }
@@ -64,7 +65,8 @@
   filter: brightness(1.2);
 }
 .button-outlined:hover{
-  background-color: #c5c5c5;
+  background-color: #e7e7e7;
+  border-color: #373737;
 }
 .button:active {
   transform: scale(0.98);
@@ -91,5 +93,4 @@
   .button-sm {
     font-size: 12px;
   }
- 
 }

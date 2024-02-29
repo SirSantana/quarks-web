@@ -11,7 +11,6 @@ import { useMutation } from "@apollo/client";
 
 export default function ButtonsHeader({data}) {
   const [visibleShareArticulo, setVisibleShareArticulo] = useState(false)
-  const [visibleModalSolicitaServicio, setVisibleModalSolicitaServicio] = useState(false)
   const [createAccion, result] = useMutation(CREATE_ACCION)
 
   const router = useRouter()
@@ -25,12 +24,7 @@ export default function ButtonsHeader({data}) {
     }
     setVisibleShareArticulo(true)
   }
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisibleModalSolicitaServicio(true);
-    }, 20000);
-    return () => clearTimeout(timer);
-  }, []); 
+ 
   return (
     <>
       <div className={styles.containerButtonsHeader}>
@@ -41,7 +35,6 @@ export default function ButtonsHeader({data}) {
           <Icon name={IconCatalog.shareSocialOutline} size="md" />
         </div>
       </div>
-      {visibleModalSolicitaServicio && <ModalSolicitaServicio data={data} setVisibleModalSolicitaServicio={setVisibleModalSolicitaServicio} />}
 
       {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />}
 

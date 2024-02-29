@@ -95,7 +95,6 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   background-color: white;
   transition: transform 0.4s ease, background-color 0.2s ease;
-  position: relative
 }
 
 .skeleton {

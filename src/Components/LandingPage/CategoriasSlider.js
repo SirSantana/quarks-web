@@ -7,8 +7,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Icon, { IconCatalog } from '../Icon/Icon';
+import { useEffect } from 'react';
 
-export default function CategoriasSlider({ categorias, type='Home' }) {
+export default function CategoriasSlider({ categorias, type='Home', onClick}) {
   const router = useRouter()
   // const categoriaRouter = router?.query?.id?.split("-")[0]
 
@@ -41,17 +42,22 @@ export default function CategoriasSlider({ categorias, type='Home' }) {
     variableWidth: true,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
-    arrows:type==='Taller'?false:true,
+    // arrows:type==='Taller'?false:true,
     initialSlide: initialSlideIndex !== -1 ? initialSlideIndex - 1 : 0,
   };
+  useEffect(() => {
+    if(router.pathname !== '/'&& onClick){
+      return onClick();
+    }
+  }, [router, ]);
   return (
     <ul 
     style={{
       width: type === 'Taller' && '100%',
-      backgroundColor: type === 'Taller' && 'white',
-      border: type === 'Taller' && '1px solid #dddddd' ,
-      boxShadow: type === 'Taller' && '0px 4px 6px rgba(0, 0, 0, 0.1)',
-      paddingTop:type === 'Taller' && '12px'
+      // backgroundColor: type === 'Taller' && 'white',
+      // border: type === 'Taller' && '1px solid #dddddd' ,
+      // boxShadow: type === 'Taller' && '0px 4px 6px rgba(0, 0, 0, 0.1)',
+      // paddingTop:type === 'Taller' && '12px'
     }}
     className={styles.categoriasSlider}>
 
@@ -66,8 +72,8 @@ export default function CategoriasSlider({ categorias, type='Home' }) {
               {categoriaServicio?.replace(/-/g, ' ') === categoria.nombre ?
                 <>
                   <Link
-                    prefetch={false}
-                    scroll={true}
+                    prefetch={true}
+                    scroll={false}
                     href={
                       `/servicios-automotriz/${categoria.url.toLowerCase().replace(/ /g, '-').replace(/\s+/g, '-') // Reemplazar espacios con guiones
                         .normalize("NFD")     // Normalizar para descomponer caracteres acentuados

@@ -18,9 +18,10 @@ export const ButtonVariant = {
   whatsapp:'whatsapp'
 }
 
-export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null }) {
+export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null, }) {
   const variantButton = styles[`button-${variant}`];
   const sizeButton = styles[`button-${size}`]
+
   return (
     link
       ?

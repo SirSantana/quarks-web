@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/client';
 import Link from 'next/link';
 import { categorias2 } from '../Talleres/ServiciosOfrecidos';
 import Image from 'next/image';
+import Button, { ButtonVariant } from '../Button/Button';
 
 
 export default function CardNewTaller({ taller }) {
@@ -36,7 +37,7 @@ export default function CardNewTaller({ taller }) {
           </header>
           <h2 style={{ fontSize: '18px' }}>{taller?.nombre}</h2>
           <p style={{ fontSize: '14px', fontWeight: '500' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
-          <div style={{ display: 'flex', marginTop: '16px', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             {taller?.categorias.slice(0, 3).map(el => {
               const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
               return (
@@ -50,11 +51,15 @@ export default function CardNewTaller({ taller }) {
             <p style={{ fontSize: '12px', color: '#5C5C5C', fontWeight: '600' }}>+{taller?.categorias?.length} servicios</p>
           </div>
           <footer style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '8px', width: '100%', alignItems: 'flex-end' }}>
-            <button style={{ fontWeight: '600', fontSize: '12px', padding: '0', borderRadius: '2px', alignSelf: 'flex-end', color: '#f50057', backgroundColor: 'inherit', margin: 0, height: '28px' }} className={styles.button}>
+            {/* <button style={{ fontWeight: '600', fontSize: '12px', padding: '0', borderRadius: '2px', alignSelf: 'flex-end', color: '#f50057', backgroundColor: 'inherit', margin: 0, height: '28px' }} className={styles.button}>
               Ver taller
               <ion-icon name="chevron-forward-outline"></ion-icon>
-            </button>
+            </button> */}
+            <Button variant={ButtonVariant.outlined} size='sm' style={{alignSelf:'flex-end', margin:0, borderRadius:'4px'}}>
+              Solicitar Revisión
+            </Button>
           </footer>
+          
         </div>
       </Link>
     </article>
