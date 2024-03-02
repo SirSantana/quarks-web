@@ -29,7 +29,13 @@ export function ModalSuccessfull({ title, subtitle }) {
     </div>
   )
 }
-
+export function ModalImagePerfil({ img, setVisibleModalImage}) {
+  return (
+    <div className={styles.modal} onClick={()=> setVisibleModalImage(false)}>
+      <img src={img} style={{width:'90%', height:'400px', objectFit:'contain', maxWidth:'500px'}}/>
+    </div>
+  )
+}
 
 export function ModalLoading({ title }) {
   return (

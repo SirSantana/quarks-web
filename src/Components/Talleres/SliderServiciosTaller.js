@@ -5,9 +5,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import styles from '@/styles/Faq.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-export default function SliderServiciosTaller({categorias}) {
-
+export default function SliderServiciosTaller({categorias, id}) {
+  const router = useRouter()
   const settings = {
     horizontal: true,
     infinite: true,
@@ -22,7 +23,7 @@ export default function SliderServiciosTaller({categorias}) {
 
     <Slider  className={styles.slider}  {...settings}>
       {categorias.map(el => (
-        <div className={styles.cardServicioNegocio}>
+        <div onClick={()=> router.push(`/${router.query.id}/solicitar-revision?ide=${id}`)} className={styles.cardServicioNegocio}>
           <h3 style={{fontSize:'16px', marginBottom: '4px', fontWeight: '500', lineHeight: '1.1', overflow: 'hidden', textOverflow: 'ellipsis', }}>{el.nombre}</h3>
           {/* <p style={{ color: '#737373', fontSize: '12px' }}>Solicitar servicio</p> */}
           <Image

@@ -42,7 +42,7 @@ export default function ServidosOfrecidos({ data, }) {
     <>
       <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}><Icon size='lg' name={IconCatalog.colorWandOutline} /> {data?.tipo !== 'Almacen' ? "Servicios Ofrecidos" : "Repuestos Manejados"} </h2>
 
-      <SliderServiciosTaller categorias={conImagen} />
+      <SliderServiciosTaller categorias={conImagen} id={data?.id}/>
       {/* <div className={styles.containerHeaderCalendario} style={{ flexDirection: 'column', alignItems: 'center', gap:0}}>
         {data?.categorias.map(el => {
           const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())

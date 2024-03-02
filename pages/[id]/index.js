@@ -17,6 +17,7 @@ import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
 import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
 import { CREATE_ACCION } from "@/graphql/mutations";
+import { ModalImagePerfil } from "@/utils/Modales";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
@@ -43,6 +44,7 @@ export default function NegocioVDos({ data }) {
   const router = useRouter()
   const { user, logout } = useAuth()
   const reseñasSectionRef = useRef(null);
+  const [visibleModalImage, setVisibleModalImage] = useState(false)
   const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionMecanico = `Mecanico a domicilio, zona de cobertura Bogota y alrededores. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Servicio especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
@@ -75,6 +77,7 @@ export default function NegocioVDos({ data }) {
           src={data?.fotoperfil}
           priority={true}
           loading="eager"
+          onClick={()=> setVisibleModalImage(true)}
           alt={`Taller mecanico ${data?.nombre} Bogota`}
         />
 
@@ -161,7 +164,8 @@ export default function NegocioVDos({ data }) {
         {/* <FooterSectionFixed/> */}
       </div>
       </div>
-
+        {visibleModalImage && 
+        <ModalImagePerfil img={data?.fotoperfil} setVisibleModalImage={setVisibleModalImage}/>}
     </Layout>
 
 

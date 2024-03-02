@@ -87,7 +87,11 @@ export default function CalculadoraDeCombustible() {
           <div className={styles.containerInputs2}>
             <div className={styles.containerInput}>
               <h4 className={styles.h4}>Distancia Recorrida</h4>
-              <h3 className={styles.h3}>{kilometros} Kms</h3>
+              <div style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'flex-start', width:'100%'}}>
+                <input className={styles.h3} step="0.1" style={{border:'none', width:'100px' }} type="number" onChange={(e) => setKilometros(e.target.value)} value={kilometros} />
+                <label className={styles.h3}>Kms</label>
+              </div>
+              {/* <h3 className={styles.h3}>{kilometros} Kms</h3> */}
 
               <Slider
                 min={0}
@@ -107,7 +111,10 @@ export default function CalculadoraDeCombustible() {
             </div>
             <div className={styles.containerInput}>
               <h4 className={styles.h4}>Galones Consumidos</h4>
-              <h3 className={styles.h3}>{galones} Gl</h3>
+              <div style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'flex-start', width:'100%'}}>
+                <input className={styles.h3} step="0.1" style={{border:'none', width:'80px' }} type="number" onChange={(e) => setGalones(e.target.value)} value={galones} />
+                <label className={styles.h3}>Gl</label>
+              </div>
               <Slider
                 min={0}
                 max={20}
@@ -137,10 +144,10 @@ export default function CalculadoraDeCombustible() {
               <p style={{ fontSize: '14px', color: 'white' }}>Rendimiento por galon </p>
               <h2 className={styles.bigTitle}> {galon?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ kms</b></h2>
             </div>
-            <button onClick={handleGuardar} className={styles.button}>
+            {/* <button onClick={handleGuardar} className={styles.button}>
               {check ? 'Guardado' : 'Guardar'}
               <ion-icon style={{ fontSize: '20px' }} name={check ? 'bookmark' : 'bookmark-outline'}></ion-icon>
-            </button>
+            </button> */}
           </div>
 
 
