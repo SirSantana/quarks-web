@@ -223,7 +223,7 @@ export async function getServerSideProps({ query }) {
 
     return dp[m][n];
   };
-  const talleresFilter = talleres?.talleres.filter(taller => taller?.lat)
+  const talleresFilter = talleres?.talleres.filter(taller => taller?.lat && taller.userName !== 'corsa-motors')
   let filter;
   if (query.servicio) {
     let categoriaNormalized = normalizeString(query.servicio.replace(/-/g, ' ').toLowerCase())

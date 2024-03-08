@@ -1516,6 +1516,35 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 1:30 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1704487329478!6m8!1m7!1sCOKQwNx-nA7vT3kJSqA_nQ!2m2!1d4.685086339858933!2d-74.10267763997695!3f295.96845881879483!4f1.2833428196287997!5f0.4000000000000002"
+    },
+    {
+      "nombre": "Fapipe Store",
+      "direccion": "Cl. 63c #28-22",
+      "categorias": [
+        "Servicio de Accesorios y Lujos",
+        "Servicio de Eléctricos",
+        "Sonido",
+        "Alarmas",
+        "Nanoceramica",
+        "Radios",
+        "Polarizados",
+        "Nanocarbono",
+        "Mecanica Basica"
+      ],
+      "userName": "fapipe_store",
+      "servicio": "Alarmas y cerrajeria / Polarizados / Radios",
+      "emojisservicio": "servicio-lujos",
+      "lat": 4.654426,
+      "lng": -74.075866,
+      "localidad": "Barrios Unidos",
+      "id": "65eb7ed169533c926f9cfbd7",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/papipestore080324.webp",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "nivel": 2,
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 1:30 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1709931903972!6m8!1m7!1sRdgSDOMW8T4dzd2lpsMyFw!2m2!1d4.654446183325077!2d-74.07593157992328!3f355.4802523528578!4f0.05810320085348053!5f0.7820865974627469"
     }
   ]
 }

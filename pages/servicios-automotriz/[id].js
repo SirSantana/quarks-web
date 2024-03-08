@@ -102,7 +102,8 @@ export async function getServerSideProps({ query }) {
   };
 
   let filter;
-  const talleresFilter = talleres?.talleres.filter(taller => taller?.lat)
+  const talleresFilter = talleres?.talleres.filter(taller => taller?.lat&& taller.userName !== 'corsa-motors')
+
   if (categoria) {
     let categoriaNormalized = normalizeString(categoria.replace(/-/g, ' ').toLowerCase())
     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>

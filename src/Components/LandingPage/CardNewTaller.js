@@ -15,11 +15,13 @@ export default function CardNewTaller({ taller }) {
   const horariosSeparados = taller?.horario.split(',');
   return (
     <article className={styles.cardNewTaller}>
-      <Link target="_blank" href={`/${taller?.userName}`} className={styles.containerDataNewTaller}>
+      <Link target="_blank" href={`/${taller?.userName}`} style={{position:'relative'}} className={styles.containerDataNewTaller}>
         {taller?.fotoperfil &&
-          <Image width={160} height={160} className={styles.imgPerfilTaller} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} />
+          <Image width={160} height={160} className={styles.imgPerfilTaller} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} loading='lazy' />
         }
-
+        {/* <div style={{position:'absolute', top:'-24px', left:'70%', backgroundColor:'#fbbc04',border:'1px solid #d9d9d9', borderRadius:'8px', padding:'4px 8px' }}>
+          <p style={{color:'#373737', fontWeight:'600', fontSize:'12px'}}>Accesorios y Lujos</p>
+        </div> */}
         <div style={{ display: 'flex', flexDirection: 'column', padding: '8px', width: '100%' }}>
           <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
@@ -42,7 +44,7 @@ export default function CardNewTaller({ taller }) {
               const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
               return (
                 category &&
-                <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
+                <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center',backgroundColor:'#f3f3f3' , borderRadius: '8px', padding: '4px 8px', }}>
                   {category?.img && <Image src={`/${category?.img}.png`} width={20} height={20} alt={`Taller de autos de ${el}`} />}
                   <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
                 </div>

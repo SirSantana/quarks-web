@@ -60,7 +60,7 @@ export default function HomeMarch({ data, mode }) {
       </div>
 
       <div  className={`${styles.containerMapList} ${mode === 'Lista' ? `${styles.listMode}` :`${styles.mapaMode}`}`}  ref={ref} >
-        <div className={styles.listTalleres}>
+        <div className={styles.listTalleres} style={{gap:'32px'}}>
           <div style={{ width: '100%', marginBottom: '16px' }}>
             <h2 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca de mi</h2>
             <h4 className={styles.title3}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca a mi en Bogota</h4>
