@@ -5,17 +5,22 @@ import Link from 'next/link';
 import { categorias2 } from '../Talleres/ServiciosOfrecidos';
 import Image from 'next/image';
 import Button, { ButtonVariant } from '../Button/Button';
+import { useRouter } from 'next/router';
 
 
-export default function CardNewTaller({ taller }) {
+export default function CardNewTaller({ taller, setVisibleModal}) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
 
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario.split(',');
+  const router = useRouter()
+  
   return (
-    <article className={styles.cardNewTaller}>
-      <Link target="_blank" href={`/${taller?.userName}`} style={{position:'relative'}} className={styles.containerDataNewTaller}>
+    <article onClick={()=> router.push(`?visible-negocio=${taller?.userName}`, undefined, { shallow: true })} className={styles.cardNewTaller}>
+      <div 
+      // href={`/${taller?.userName}`}
+       style={{position:'relative'}} className={styles.containerDataNewTaller}>
         {taller?.fotoperfil &&
           <Image width={160} height={160} className={styles.imgPerfilTaller} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} loading='lazy' />
         }
@@ -58,12 +63,12 @@ export default function CardNewTaller({ taller }) {
               <ion-icon name="chevron-forward-outline"></ion-icon>
             </button> */}
             <Button variant={ButtonVariant.outlined} size='sm' style={{alignSelf:'flex-end', margin:0, borderRadius:'4px'}}>
-              Solicitar Revisión
+              Ver taller
             </Button>
           </footer>
           
         </div>
-      </Link>
+      </div>
     </article>
   )
 }

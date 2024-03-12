@@ -7,12 +7,12 @@ import Icon, { IconCatalog } from '../Icon/Icon'
 import Button, { ButtonVariant } from '../Button/Button'
 
 
-export default function Reseñas({ id, ctdCalificaciones, urlMaps }) {
+export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName}) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data } = useQuery(GET_OPINIONES, { variables: { id: id } })
   const router = useRouter()
   const handlerLoginOpinion = () => {
-    router.push(`${router.asPath}/crear-resena?ide=${id}`);
+    router.push(`${userName?userName:router.asPath}/crear-resena?ide=${id}`);
   }
   return (
     <>

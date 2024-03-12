@@ -11,19 +11,20 @@ const Map = dynamic(
 import dynamic from "next/dynamic";
 import CardNewTaller from "./CardNewTaller";
 import { useRouter } from "next/router";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
+import ModalPrevTaller from "../Talleres/ModalPrevTaller";
 
 
 
 export default function HomeMarch({ data, mode }) {
   const router = useRouter()
   const ref = useRef(null)
+  const [visibleModal, setVisibleModal] = useState(false)
 
   const handleClickMapSection = () => {
     ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
   return (
     <>
       <div className={styles.containerImageNavBar} >
@@ -66,7 +67,7 @@ export default function HomeMarch({ data, mode }) {
             <h4 className={styles.title3}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca a mi en Bogota</h4>
           </div>
           {data.reverse()?.map(el => (
-            <CardNewTaller key={el.nombre} taller={el} />
+            <CardNewTaller key={el.nombre} taller={el} setVisibleModal={setVisibleModal} />
           ))}
 
         </div>
@@ -74,6 +75,7 @@ export default function HomeMarch({ data, mode }) {
           <Map talleres={data} />
         </div>
       </div>
+      {router?.query?.['visible-negocio'] && <ModalPrevTaller userName={router?.query?.['visible-negocio']}/>}
     </>
   )
 }

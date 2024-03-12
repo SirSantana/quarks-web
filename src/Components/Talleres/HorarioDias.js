@@ -5,15 +5,19 @@ import Box from '../Box/Box';
 import ItemBox from '../Box/ItemBox';
 import { useEffect, useState } from 'react';
 import ModalSolicitaServicio from './ModalSolicitaServicio';
+import { useRouter } from 'next/router';
 
 
 export default function HorarioDias({horariosSeparados, data}) {
   const [visibleModalSolicitaServicio, setVisibleModalSolicitaServicio] = useState(false)
+  const router = useRouter()
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisibleModalSolicitaServicio(true);
-    }, 20000);
-    return () => clearTimeout(timer);
+    if(!router.query.length>0){
+      const timer = setTimeout(() => {
+        setVisibleModalSolicitaServicio(true);
+      }, 20000);
+      return () => clearTimeout(timer);
+    }
   }, []);
   return (
     <>

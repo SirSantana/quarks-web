@@ -27,7 +27,7 @@
   margin-bottom: 64px;
 }
 
-.containerPopulares{
+.containerPopulares {
   margin-top: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -135,6 +135,7 @@
   align-items: center;
   gap: 16px;
 }
+
 .popular1:hover,
 .popular2:hover,
 .popular3:hover,
@@ -146,6 +147,7 @@
   background-color: #ffefef;
   border: 1px solid #5b0221;
 }
+
 .title {
   color: white;
   font-size: 48px;
@@ -298,6 +300,28 @@
 
 }
 
+.containerHeaderModalPrevTaller {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+}
+
+.imgHeaderModalPrevTaller {
+  width: 40%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.sectionPrincipalDataModalPrevTaller {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 60%;
+}
+
 .buttonPrimary {
   background-color: #f50057;
   border: none;
@@ -338,6 +362,16 @@
   height: 100%;
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
 .modal {
   position: fixed;
   left: 0;
@@ -349,51 +383,88 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  z-index: 100000 !important
+  z-index: 100000 !important;
+  animation: slideIn 0.5s ease;
 }
 
 .modalContent {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   background-color: white;
   width: 300px;
   border-radius: 16px;
   padding: 16px;
-  z-index: 2;
 }
-.containerTalleres{
+
+.modalContentComplete {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+  cursor: pointer;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 700px;
+  gap: 16px;
+  height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.skeleton {
+  width: 100%;
+  height: 52px;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  /* Color del esqueleto */
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+    background-color: #f0f0f0;
+    /* Color alternativo del esqueleto */
+  }
+}
+
+.containerTalleres {
   width: 100%;
   padding-bottom: 120px;
   padding-left: 8px;
 }
-.containerTalleres2{
+
+.containerTalleres2 {
   width: 100%;
   padding-left: 8px;
   margin-top: 24px;
 
 }
+
 .separador {
   height: 1px;
   width: 100%;
   background-color: #d9d9d9;
   display: none
 }
-.separador1{
+
+.separador1 {
   height: 50px;
   background-color: #d9d9d9;
   width: 1px;
 }
-.titleSections{
+
+.titleSections {
   font-size: 24px;
   font-weight: 700;
 }
-.containerSlide{
+
+.containerSlide {
   margin-right: 16px;
   width: 100%;
 }
-.buttonSecondary{
+
+.buttonSecondary {
   border: 1px solid #a7a7a7;
   border-radius: 8px;
   width: 100%;
@@ -401,22 +472,29 @@
   height: 40px;
   cursor: pointer;
 }
-.buttonSecondary:hover{
+
+.buttonSecondary:hover {
   background-color: #ffefef;
   border: 1px solid #5b0221;
 }
-.icon{
+
+.icon {
   height: 48px;
   width: 48px;
   font-size: 48px;
 }
-.textCategory{
+
+.textCategory {
   font-size: 14px;
 }
-.imgTallerDefault{
+
+.imgTallerDefault {
   width: 250px;
   height: 280px;
   object-fit: cover;
+}
+.sectionsModalPrevTaller{
+  margin-top: 24px;
 }
 @media (max-width: 1200px) {
   .select1 {
@@ -430,7 +508,8 @@
   .containerIcons {
     margin-top: 15%;
   }
-  .containerPopulares{
+
+  .containerPopulares {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas:
@@ -439,7 +518,7 @@
       "popular7 popular8 . ";
 
   }
-  
+
   .homeCard {
     top: 50%;
     flex-direction: column;
@@ -489,23 +568,49 @@
 }
 
 @media (max-width: 900px) {
-  .separador1{
+  .containerHeaderModalPrevTaller {
+    flex-direction: column;
+  }
+
+  .imgHeaderModalPrevTaller {
+    width: 100%;
+  }
+
+  .sectionPrincipalDataModalPrevTaller {
+    width: 100%;
+    padding: 16px;
+    padding-top: 0;
+  }
+
+  .separador1 {
     display: none;
   }
-  .icon{
+
+  .modalContentComplete {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .sectionsModalPrevTaller{
+    padding: 16px;
+  }
+  .icon {
     width: 32px;
     height: 32px;
-  font-size: 32px;
+    font-size: 32px;
 
   }
-  .imgTallerDefault{
+
+  .imgTallerDefault {
     width: 130px;
     height: 150px;
   }
+
   .containerIcons {
     margin-top: 20%;
   }
-  .containerPopulares{
+
+  .containerPopulares {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas:
@@ -514,38 +619,47 @@
       "popular5 popular6 "
       "popular7 popular8  ";
   }
-  .containerServicios{
+
+  .containerServicios {
     width: 80%;
     margin-bottom: 48px;
   }
+
   .homeCard {
     width: 80%;
   }
-  .titleSections{
+
+  .titleSections {
     font-size: 20px;
   }
+
   .cardIcon {
     width: 80px;
   }
-  .textCategory{
+
+  .textCategory {
     font-size: 12px;
   }
 }
+
 @media (max-width: 700px) {
   .containerIcons {
     margin-top: 25%;
   }
 }
+
 @media (max-width: 600px) {
   .divContainer {
     height: 70vh;
   }
-  .icon{
+
+  .icon {
     width: 24px;
     height: 24px;
-  font-size: 24px;
+    font-size: 24px;
 
   }
+
   .label {
     font-size: 14px;
   }
@@ -572,10 +686,11 @@
     color: white;
     font-size: 32px;
     font-weight: 700;
-    line-height:3rem;
+    line-height: 3rem;
     width: 90%;
   }
-  .containerPopulares{
+
+  .containerPopulares {
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas:
@@ -588,21 +703,24 @@
       "popular7 "
       "popular8 ";
   }
+
   .containerServicios {
     width: 90%;
     margin-top: 48px;
   }
-  .containerSlide{
+
+  .containerSlide {
     width: 100vw;
-    gap:16px
+    gap: 16px
   }
-  .containerSli{
+
+  .containerSli {
     width: 95%;
     margin-right: 16px;
 
   }
-  .containerTalleres2{
+
+  .containerTalleres2 {
     width: 100vw;
   }
 }
-

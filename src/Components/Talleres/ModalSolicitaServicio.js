@@ -17,14 +17,14 @@ export default function ModalSolicitaServicio({ data, setVisibleModalSolicitaSer
     if (process.env.NODE_ENV === 'production') {
       createAccion({ variables: { almacen: data?.id, tipo: 'btn-solicitar-modal', estado: 'production' } });
     }
-    router.push(`/${router.query.id}/solicitar-revision?ide=${data?.id}`);
+    router.push(`/${data?.userName}/solicitar-revision?ide=${data?.id}`);
   };
   return (
     <div className={styles.modal}>
       <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: '90%', maxWidth: '400px', height: 'fit-content' }} className={styles.modalContent}>
         <header style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'flex-end', alignItems: 'center' }}>
-            <p style={{ flex: 1, fontWeight: '500', alignSelf: 'center', textAlign: 'center', fontSize: '14px' }}>{data?.nombre.slice(0,25)}</p>
+            <p style={{ flex: 1, fontWeight: '500', alignSelf: 'center', textAlign: 'center', fontSize: '14px' }}>{data?.nombre?.slice(0,25)}</p>
             <ion-icon onClick={() => setVisibleModalSolicitaServicio(false)} style={{ fontSize: '24px', alignSelf: 'flex-end', cursor: 'pointer' }} name="close-outline"></ion-icon>
           </div>
         </header>

@@ -12,7 +12,6 @@ import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import HorarioDias from "@/src/Components/Talleres/HorarioDias";
-import CalificacionWidget from "@/src/Components/Talleres/CalificacionWidget";
 import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
 import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
@@ -70,7 +69,6 @@ export default function NegocioVDos({ data }) {
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <div className={styles.containerAlmacen}>
         <div className={styles.containerSticky}>
-
           <Image
             sizes="100vw"
             width={500}

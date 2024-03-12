@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Icon, { IconCatalog } from "../Icon/Icon";
 import { useEffect, useState } from "react";
 import { ModalShareArticulo } from "@/utils/Modales";
@@ -15,7 +14,7 @@ export default function ButtonsHeader({data}) {
   const router = useRouter()
 
   const handleBack = () => {
-      router.back();
+      router.push('/', undefined,{ shallow: true });
   };
   const handleClickCompartir = () => {
     if (process.env.NODE_ENV === 'production') {
@@ -35,7 +34,7 @@ export default function ButtonsHeader({data}) {
         </div>
       </div>
 
-      {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />}
+      {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co/${data?.userName}`} />}
 
     </>
   )

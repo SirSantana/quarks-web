@@ -21,18 +21,13 @@ import { useRouter } from 'next/router'
 import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
 
-// const SectonFilters = dynamic(() => import('@/src/Components/LandingPage/SectionFilters'),
-//   { ssr: false })
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
 const SectionCalculadoraCombustible = dynamic(() => import('@/src/Components/LandingPage/Section5'),
   { ssr: false })
 const ActividadReciente = dynamic(() => import('@/src/Components/LandingPage/ActividadReciente'),
   { ssr: false })
-const Map = dynamic(
-  () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
-  { ssr: false, loading: () => <div className={styles.skeleton} /> } // This line is important. It's what prevents server-side render
-)
+
 const tagsFix = [
   'talleres abiertos hoy cerca de mi',
   'taller mecánico 24 horas cerca de mi',
@@ -164,17 +159,9 @@ export default function Home({ data, iconImg }) {
         />
       </Head>
       <main className={styles.main}>
-        {/* <NewNavbarWithSearch mode={mode} visibleSlider={true} /> */}
         <HomeMarch data={data} mode={mode} />
-        {/* {mode
-          ?
-          <SectonFilters data={data.reverse()} />
-          :
-          <Map talleres={data} />
-        } */}
         <SectionTalleresServicios />
         <ListTalleresLanding />
-
         <ActividadReciente />
         <SectionCotizaciones />
         <SectionVariedadTalleres />

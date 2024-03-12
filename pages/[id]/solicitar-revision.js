@@ -60,7 +60,7 @@ export default function SolicitarRevision() {
     if (form.referencia !== '' && form.servicios.length > 0 && whatsapp) {
       createVisitaWhatsapp({ variables: { id: ide } })
       createSolicitudServicio({ variables: { ...form, almacen: ide } })
-      if (!contactme && process.env.NODE_ENV === 'production') {
+      if (!contactme && process.env.NODE_ENV === 'development') {
         const message = `¡Hola! Estoy interesado en sus servicios.
 
         🛠️  *Descripción del Problema:* ${form.descripcion} 
@@ -76,6 +76,7 @@ export default function SolicitarRevision() {
       }
 
     } else {
+      console.log(form);
       return alert('Completa los campos')
     }
 
@@ -88,7 +89,7 @@ export default function SolicitarRevision() {
     }
   }, [data])
   return (
-    <Layout title={'Crear reseña'} visibleNavbar={false}>
+    <Layout title={'Solicitar revision'} visibleNavbar={false}>
       <div style={{ maxWidth: '400px', width: '90%', margin: '0 auto', display: 'flex', flexDirection: 'column', padding: '16px 0', boxSizing: 'border-box', gap: '40px' }}>
 
         <header style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -147,9 +148,9 @@ export default function SolicitarRevision() {
       {error &&
         <ModalError title={'Ha ocurrido un error'} subtitle={error?.message} />
       }
-      {data &&
+      {/* {data &&
         <ModalSuccessfull title={'Genial'} subtitle={'Tu solicitud ha sido enviada al negocio. Se pondran en conctacto contigo pronto!'} />
-      }
+      } */}
     </Layout>
   )
 }
