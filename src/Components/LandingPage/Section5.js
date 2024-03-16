@@ -6,6 +6,7 @@ import 'rc-slider/assets/index.css';
 import { CREATE_CONSUMO } from '@/graphql/mutations';
 import { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
+import  { useRouter } from 'next/router';
 
 
 
@@ -14,6 +15,7 @@ export default function SectionCalculadoraCombustible() {
   const [galones, setGalones] = useState(12);
   const [consumo, setConsumo] = useState()
   const [galon, setGalon] = useState()
+  const router = useRouter()
 
   useEffect(() => {
     setConsumo((galones / kilometros) * 100)
@@ -82,11 +84,16 @@ export default function SectionCalculadoraCombustible() {
         </div>
 
       </div>
-      <Link href={'/calculadora-de-cilindraje-de-un-vehiculo'} style={{marginTop:'36px', color: '#373737', textDecoration: 'none', outline: 'none' }}>
+      <Link href={'/calculadora-de-cilindraje-de-un-vehiculo'} style={{ marginTop: '36px', color: '#373737', textDecoration: 'none', outline: 'none' }}>
         <button style={{ cursor: 'pointer' }} className={styles2.button}>
           Calcular cilindrada
         </button>
       </Link>
+      <div onClick={()=> router.push('/pico-y-placa-hoy-bogota')} style={{cursor:'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+        <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+          <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA</h4>
+        </div>
+      </div>
     </section>
   )
 }

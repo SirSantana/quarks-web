@@ -1,0 +1,267 @@
+{
+  "picoyplaca": [
+    {
+      "fechaFormat": "01-de-Marzo-2024",
+      "titulo": "Viernes-01-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 01 2024"
+    },
+    {
+      "fechaFormat": "02-de-Marzo-2024",
+      "titulo": "Sábado-02-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 02 2024"
+    },
+    {
+      "fechaFormat": "03-de-Marzo-2024",
+      "titulo": "Domingo-03-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 03 2024"
+    },
+    {
+      "fechaFormat": "04-de-Marzo-2024",
+      "titulo": "Lunes-04-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 04 2024"
+    },
+    {
+      "fechaFormat": "05-de-Marzo-2024",
+      "titulo": "Martes-05-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 05 2024"
+    },
+    {
+      "fechaFormat": "06-de-Marzo-2024",
+      "titulo": "Miércoles-06-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 06 2024"
+    },
+    {
+      "fechaFormat": "07-de-Marzo-2024",
+      "titulo": "Jueves-07-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 07 2024"
+    },
+    {
+      "fechaFormat": "08-de-Marzo-2024",
+      "titulo": "Viernes-08-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 08 2024"
+    },
+    {
+      "fechaFormat": "09-de-Marzo-2024",
+      "titulo": "Sábado-09-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 09 2024"
+    },
+    {
+      "fechaFormat": "10-de-Marzo-2024",
+      "titulo": "Domingo-10-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 10 2024"
+    },
+    {
+      "fechaFormat": "11-de-Marzo-2024",
+      "titulo": "Lunes-11-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 11 2024"
+    },
+    {
+      "fechaFormat": "12-de-Marzo-2024",
+      "titulo": "Martes-12-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 12 2024"
+    },
+    {
+      "fechaFormat": "13-de-Marzo-2024",
+      "titulo": "Miércoles-13-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 13 2024"
+    },
+    {
+      "fechaFormat": "14-de-Marzo-2024",
+      "titulo": "Jueves-14-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 14 2024"
+
+    },
+    {
+      "fechaFormat": "15-de-Marzo-2024",
+      "titulo": "Viernes-15-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 15 2024"
+    },
+    {
+      "fechaFormat": "16-de-Marzo-2024",
+      "titulo": "Sábado-16-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 16 2024"
+    },
+    {
+      "fechaFormat": "17-de-Marzo-2024",
+      "titulo": "Domingo-17-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 17 2024"
+    },
+    {
+      "fechaFormat": "18-de-Marzo-2024",
+      "titulo": "Lunes-18-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 18 2024"
+    },
+    {
+      "fechaFormat": "19-de-Marzo-2024",
+      "titulo": "Martes-19-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 19 2024"
+    },
+    {
+      "fechaFormat": "20-de-Marzo-2024",
+      "titulo": "Miércoles-20-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 20 2024"
+    },
+    {
+      "fechaFormat": "21-de-Marzo-2024",
+      "titulo": "Jueves-21-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 21 2024"
+    },
+    {
+      "fechaFormat": "22-de-Marzo-2024",
+      "titulo": "Viernes-22-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 22 2024"
+    },
+    {
+      "fechaFormat": "23-de-Marzo-2024",
+      "titulo": "Sábado-23-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 23 2024"
+    },
+    {
+      "fechaFormat": "24-de-Marzo-2024",
+      "titulo": "Domingo-24-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 24 2024"
+    },
+    {
+      "fechaFormat": "25-de-Marzo-2024",
+      "titulo": "Lunes-festivo-25-de-Marzo-2024",
+      "placas": [
+        "1-3-5-7-9",
+        "0-2-4-6-8"
+      ],
+      "horario": [
+        "12:00 PM - 4:00 PM",
+        "4:00 PM - 8:00PM"
+      ],
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 25 2024",
+      "especial": true
+    },
+    {
+      "fechaFormat": "26-de-Marzo-2024",
+      "titulo": "Martes-26-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 26 2024"
+    },
+    {
+      "fechaFormat": "27-de-Marzo-2024",
+      "titulo": "Miércoles-27-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 27 2024"
+    },
+    {
+      "fechaFormat": "28-de-Marzo-2024",
+      "titulo": "Jueves-28-de-Marzo-2024",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 28 2024"
+    },
+    {
+      "fechaFormat": "29-de-Marzo-2024",
+      "titulo": "Viernes-29-de-Marzo-2024",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 29 2024"
+    },
+    {
+      "fechaFormat": "30-de-Marzo-2024",
+      "titulo": "Sábado-30-de-Marzo-2024",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 30 2024"
+    },
+    {
+      "fechaFormat": "31-de-Marzo-2024",
+      "titulo": "Domingo-31-de-Marzo-2024",
+      "placas": [
+        "1-3-5-7-9",
+        "0-2-4-6-8"
+      ],
+      "horario": [
+        "12:00 PM - 4:00 PM",
+        "4:00 PM - 8:00PM"
+      ],
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 31 2024",
+      "especial": true
+    }
+  ]
+}

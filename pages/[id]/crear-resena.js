@@ -223,29 +223,29 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
 
       <div style={{ maxWidth: '400px', width: '90%', margin: '0 auto', display: 'flex', flexDirection: 'column', padding: '16px 0', boxSizing: 'border-box', gap: '40px' }}>
 
-        <header style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+        <section style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'flex-end', alignItems: 'center' }}>
             <p style={{ flex: 1, fontWeight: '500', alignSelf: 'center', textAlign: 'center', fontSize: '14px' }}>Comparte tu experiencia</p>
             <ion-icon onClick={() => router.push(`/${id}`)} style={{ fontSize: '24px', alignSelf: 'flex-end', cursor: 'pointer' }} name="close-outline"></ion-icon>
           </div>
           <div style={{ width: '100%', backgroundColor: '#f1f1f1', height: '1px' }} />
-        </header>
+        </section>
 
-        <div style={{ width: '100%', gap: '8px', height: 'fitContent', display: 'flex', flexDirection: 'column' }}>
+        <section style={{ width: '100%', gap: '8px', height: 'fitContent', display: 'flex', flexDirection: 'column' }}>
           <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>¿Que servicios tomaste?</h4>
           <Select isSearchable={false} formatOptionLabel={formatOptionLabel} isMulti onChange={handleChangeServices} options={repuestosWithOptions} styles={customStyles} placeholder='Seleccionar servicio' noOptionsMessage={() => 'No se encontro ningun repuesto'} />
-        </div>
+        </section>
 
 
-        <div style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column', }}>
+        <section style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column', }}>
           <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>Tú vehículo</h4>
           <div style={{ display: 'flex', width: '100%', gap: '8px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <Select onChange={(e) => setForm({ ...form, marca: e.value })} options={marcasWithOptions} isSearchable={false} styles={customStyles2} placeholder={<img src={marcas[0].img} style={{ width: '30px', height: '30px', marginTop: '4px' }} />} defaultValue={marcas[0].img} />
             <input required id="referencia" type='text' onChange={handleChange} name='referencia' value={form.referencia} className={styles.inputChooseMarca} placeholder='Modelo - Cilindraje - Año' />
           </div>
-        </div>
+        </section>
 
-        <div style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column' }}>
+        <section style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column' }}>
 
           <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>Tú experiencia</h4>
 
@@ -260,12 +260,12 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
             </div>
             <textarea required onChange={handleChange} name='descripcion' rows="5" value={form?.descripcion} style={{ width: '100%', fontSize: '14px', border: 'none', outline: 'none', padding: '0', resize: 'none', margin: 0 }} type={'text'} placeholder={'Comparte detalles de tu experiencia'} className={styles.input} />
           </div>
-        </div>
+        </section>
 
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', margin: '32px 0 16px 0', gap: '16px' }}>
+        <section style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', margin: '32px 0 16px 0', gap: '16px' }}>
           <button disabled={loading} onClick={handleSubmit} style={{ width: '100%', fontSize: '14px', }} className={styles.button}>Publicar</button>
           <button onClick={() => { setVisibleOpinion(false), setForm(initialForm) }} style={{ width: '100%', fontSize: '14px', backgroundColor: 'white', border: '1px solid #f50057', color: '#f50057', }} className={styles.button}>Regresar</button>
-        </div>
+        </section>
         {loading &&
           <ModalLoading title={'Publicando...'} />}
         {data &&
@@ -278,7 +278,6 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
             <ModalLoginFacebook setVisibleModalLogin={setVisibleModalLogin} />
           </div>
         }
-
       </div>
     </Layout>
 

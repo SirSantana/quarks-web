@@ -1,0 +1,239 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+  margin: 128px auto;
+  max-width: 1000px;
+
+}
+
+.containerPlaca {
+  width: 100%;
+  border-radius: 10px;
+  padding: 8px;
+  max-width: 1000px;
+  margin: 32px 0;
+  background-color: #FFC003;
+  height: 340px;
+}
+
+.containerMiniPlaca {
+  width: 240px;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 32px 0;
+  background-color: #FFC003;
+  height: 100px;
+}
+
+.containerCardOnePico {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  max-width: 800px;
+}
+
+.title {
+  font-size: 40px;
+  text-align: center;
+}
+
+.textOne {
+  font-family: fantasy;
+  font-size: 32px;
+  font-weight: 500;
+  color: black;
+  display: flex;
+  text-align: center;
+}
+
+.horario {
+  font-family: fantasy;
+  font-size: 40px;
+  font-weight: 500;
+  color: black;
+}
+
+.placas {
+  line-height: 1.2;
+  font-family: fantasy;
+  font-size: 164px;
+  font-weight: 500;
+  color: black;
+  letter-spacing: 20px;
+}
+
+.placas2 {
+  line-height: 1.2;
+  font-family: fantasy;
+  font-size: 64px;
+  font-weight: 500;
+  color: black;
+  letter-spacing: 20px;
+}
+
+.containerPlacasEspecial {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+  height: 80%;
+  align-items: center;
+}
+
+.horario2 {
+  font-family: fantasy;
+  font-size: 24px;
+  font-weight: 500;
+  color: black;
+}
+
+@media (max-width:900px) {
+  .container {
+    margin: 96px auto;
+
+  }
+
+  .containerPlaca {
+    height: 300px;
+  }
+
+  .placas {
+    font-size: 96px;
+  }
+
+  .placas2 {
+    font-size: 48px;
+    letter-spacing: 12px;
+
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .textOne {
+    font-size: 24px;
+  }
+}
+
+@media (max-width:700px) {
+  .placas {
+    font-size: 64px;
+  }
+
+  .containerPlaca {
+    height: 260px;
+  }
+
+  .placas2 {
+    font-size: 32px;
+    letter-spacing: 8px;
+
+  }
+.containerCardOnePico{
+  flex-direction: column;
+  align-items: flex-start;
+}
+.containerMiniPlaca{
+  align-self: center;
+}
+  .horario2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width:540px) {
+  .container {
+    margin: 82px auto;
+
+  }
+
+  .horario2 {
+    font-size: 14px;
+  }
+
+  .placas2 {
+    font-size: 28px;
+    letter-spacing: 4px;
+  }
+
+  .containerPlaca {
+    height: 200px;
+  }
+
+  .horario {
+    font-size: 20px;
+  }
+
+  .placas {
+    font-size: 56px;
+    letter-spacing: 10px;
+  }
+
+  .textOne {
+    font-size: 16px;
+    font-weight: 100;
+  }
+
+  .title {
+    font-size: 24px;
+
+  }
+}
+
+@media (max-width:420px) {
+  .placas2 {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+
+  .horario {
+    font-size: 16px;
+  }
+
+  .placas {
+    font-size: 56px;
+    letter-spacing: 8px;
+  }
+
+  .textOne {
+    font-size: 12px;
+  }
+
+  .title {
+    font-size: 24px;
+
+  }
+}
+
+@media (max-width:380px) {
+  .placas2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  .horario2 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+@media (max-width:320px) {
+  .placas2 {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+
+  .horario2 {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .placas {
+    font-size: 40px;
+  }
+}

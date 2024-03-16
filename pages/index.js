@@ -20,6 +20,7 @@ import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
 import { useRouter } from 'next/router'
 import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
+import Link from 'next/link'
 
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
@@ -167,12 +168,15 @@ export default function Home({ data, iconImg }) {
         <SectionVariedadTalleres />
         <SectionPasos />
         <SectionGrowthTaller />
+        
         <SectionCalculadoraCombustible />
+       
         <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '900px', gap: '8px', width: '90%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
           {tagsFix.map(tag => (
             <p key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</p>
           ))}
         </section>
+        
         <div className={styles.divBtnFooter}>
           <Button  onClick={handleClick} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode==='Lista' ? IconCatalog.mapa : IconCatalog.lista}>
             Mostrar {mode === 'Mapa' ? 'Lista' : 'Mapa'}

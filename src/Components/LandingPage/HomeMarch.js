@@ -43,13 +43,23 @@ export default function HomeMarch({ data, mode }) {
           sizes="100vw"
           width={100}
           height={100}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', position:'relative' }}
           src={'/img-back-taller2.webp'}
           priority={true}
           loading="eager"
           alt={`Taller mecanico Bogota`}
         />
-
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: '50%', // Ajusta la altura del degradado según tu preferencia
+            backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9))',
+            pointerEvents: 'none', // Para permitir que los clics pasen a través del degradado
+          }}
+          />
         <div style={{ position: 'absolute', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', zIndex: '1', width: '80%', }}>
           <h1 className={styles.title}>{router?.pathname !== '/' ? `Talleres de ${router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} en Bogotá` : 'Encuentra el mejor taller para tu carro'}</h1>
           {/* <p style={{marginTop:'16px',maxWidth:'40ch', fontSize:'14px', color:'white'}}>Los mejores talleres, con calificaciones, reseñas y todos sus datos en un solo lugar.</p> */}
@@ -60,8 +70,8 @@ export default function HomeMarch({ data, mode }) {
         <CategoriasSlider categorias={categorias} type='Taller' onClick={handleClickMapSection} />
       </div>
 
-      <div  className={`${styles.containerMapList} ${mode === 'Lista' ? `${styles.listMode}` :`${styles.mapaMode}`}`}  ref={ref} >
-        <div className={styles.listTalleres} style={{gap:'32px'}}>
+      <div className={`${styles.containerMapList} ${mode === 'Lista' ? `${styles.listMode}` : `${styles.mapaMode}`}`} ref={ref} >
+        <div className={styles.listTalleres} style={{ gap: '32px' }}>
           <div style={{ width: '100%', marginBottom: '16px' }}>
             <h2 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca de mi</h2>
             <h4 className={styles.title3}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca a mi en Bogota</h4>
@@ -75,7 +85,7 @@ export default function HomeMarch({ data, mode }) {
           <Map talleres={data} />
         </div>
       </div>
-      {router?.query?.['visible-negocio'] && <ModalPrevTaller userName={router?.query?.['visible-negocio']}/>}
+      {router?.query?.['visible-negocio'] && <ModalPrevTaller userName={router?.query?.['visible-negocio']} />}
     </>
   )
 }
