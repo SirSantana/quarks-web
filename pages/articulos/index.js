@@ -11,13 +11,21 @@ export default function ArticulosHome({ data }) {
       <div className={styles.containerBlog}>
         <h1 style={{ textAlign: 'center' }} className={styles.title}>Novedades del mundo automotor</h1>
         <h4 style={{ textAlign: 'center', lineHeight: '20px' }} className={styles.response}>Descubre las noticias mas relevantes del sector automotriz, como novedades tecnologias, reseñas y mas.</h4>
-        <Link href={'/pico-y-placa-hoy-bogota'} style={{textDecoration:'none',color:'#373737', width: '280px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+        
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', gap: '24px', marginTop: '48px' }}>
+        <Link href={'/pico-y-placa-hoy-bogota'} style={{ textDecoration: 'none', color: '#373737', width: '280px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
           <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA</h4>
           </div>
         </Link>
-        <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', gap: '24px', marginTop: '48px' }}>
-
+        <Link href={'/calculadora-de-cilindraje-de-un-vehiculo'} style={{ textDecoration: 'none', color: 'white', width: '280px', borderRadius: '10px', padding: '16px', margin: '32px 0', backgroundColor: '#373737', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}} >
+          <h4 style={{  fontSize: '48px', }}>1600cc</h4>
+          <p style={{color:'white', fontSize:'14px', textAlign:'end', alignSelf:'flex-end'}}>Calcula tu cilindrada aquí</p>
+        </Link>
+        <Link href={'/engine-displacement-calculator'} style={{ textDecoration: 'none', color: 'white', width: '280px', borderRadius: '10px', padding: '16px', margin: '32px 0', backgroundColor: '#373737', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}} >
+          <h4 style={{  fontSize: '48px', }}>1600cc</h4>
+          <p style={{color:'white', fontSize:'14px', textAlign:'end', alignSelf:'flex-end'}}>Displacement Engine calculator</p>
+        </Link>
           {data?.map(articulo => {
             const fechaFormateada = new Date(articulo.fecha).toLocaleDateString('es-US', {
               year: 'numeric',
