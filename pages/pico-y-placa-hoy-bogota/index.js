@@ -3,8 +3,6 @@ import styles from '@/styles/PicoYPlaca.module.css'
 import data from '@/pages/picoyplaca.json'
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-
 export default function PicoYPlaca({ data }) {
   const router = useRouter();
   return (

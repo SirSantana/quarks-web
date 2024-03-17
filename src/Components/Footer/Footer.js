@@ -29,7 +29,12 @@ export default function Footer() {
           </div>
           <div className={styles.containerText}>
             <h6 className={styles.title2}>Acerca de Nosotros</h6>
+            <Link style={{ textDecoration: 'none' }} href={'/articulos'} ><p className={styles.subtitle}>Articulos / Blog</p></Link>
             <Link style={{ textDecoration: 'none' }} href={'/quienessomos'} ><p className={styles.subtitle}>¿Quienes somos?</p></Link>
+            <Link style={{ textDecoration: 'none' }} href={'/calculadora-de-combustible'} ><p className={styles.subtitle}>Calculadora Consumo Combustible</p></Link>
+            <Link style={{ textDecoration: 'none' }} href={'/calculadora-de-cilindraje-de-un-vehiculo'} ><p className={styles.subtitle}>Calculadora Cilindrada Español</p></Link>
+            <Link style={{ textDecoration: 'none' }} href={'/engine-displacement-calculator'} ><p className={styles.subtitle}>Calculadora Cilindrada Ingles</p></Link>
+            <Link style={{ textDecoration: 'none' }} href={'/pico-y-placa-hoy-bogota'} ><p className={styles.subtitle}>Pico y Placa Hoy</p></Link>
           </div>
           <div className={styles.containerText}>
             <h6 className={styles.title2}>Legal</h6>
