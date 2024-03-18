@@ -1,8 +1,6 @@
 import Head from 'next/head'
 import Footer from './Footer/Footer'
-import Nav from './Navbar/Nav'
 import NewNavbarWithSearch from './Navbar/NewNavbar2';
-import { useState } from 'react';
 
 function generarMarcadoEstructurado(articulo) {
   if (articulo) {
@@ -25,7 +23,7 @@ function generarMarcadoEstructurado(articulo) {
   }
 }
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified=false }) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
 
   return (
@@ -67,8 +65,8 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta property="og:image:width" content='200' />
         <meta property="og:image:height" content='200' />
         <meta property="og:image:type" content='image/png' />
-        {lastModified && 
-        <meta http-equiv="Last-Modified" content={lastModified}/>
+        {lastModified &&
+          <meta http-equiv="Last-Modified" content={lastModified} />
         }
         {tags?.map(tag => <meta key={tag} property='article:tag' content={tag} />)}
         {fecha &&
@@ -84,7 +82,7 @@ export default function Layout({ children, title, description, type, price, keyw
           </>}
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
+        <link rel="icon" href={icon ? icon : "/logoquarks200623.png"}/>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
@@ -118,7 +116,7 @@ export default function Layout({ children, title, description, type, price, keyw
 
       </main>
 
-
+     
     </>
   )
 }

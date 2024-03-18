@@ -27,7 +27,7 @@ let keyWords = [
 ]
 export default function PicoYPlaceHoyBogota({ data }) {
   return (
-    <Layout title={`Pico y Placa Bogota Hoy ${data?.titulo?.replaceAll('-', ' ')}`} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
+    <Layout title={`Pico y Placa Bogota Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
         <h1 className={styles.title}>Pico y Placa Hoy {data?.titulo.replaceAll('-', ' ')}</h1>
         <div className={styles.containerPlaca}>
