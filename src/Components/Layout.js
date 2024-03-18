@@ -25,7 +25,7 @@ function generarMarcadoEstructurado(articulo) {
   }
 }
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado }) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified=false }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
 
   return (
@@ -67,7 +67,9 @@ export default function Layout({ children, title, description, type, price, keyw
         <meta property="og:image:width" content='200' />
         <meta property="og:image:height" content='200' />
         <meta property="og:image:type" content='image/png' />
-
+        {lastModified && 
+        <meta http-equiv="Last-Modified" content={lastModified}/>
+        }
         {tags?.map(tag => <meta key={tag} property='article:tag' content={tag} />)}
         {fecha &&
           <>
