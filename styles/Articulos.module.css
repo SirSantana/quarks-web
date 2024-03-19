@@ -245,6 +245,26 @@
   margin: 16px 0 32px 0;
   flex-wrap: wrap;
 }
+.containerCc{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap:32px;
+  margin-top: 32px;
+}
+.containerInputsCc{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap:32px
+}
+.containerAnimation{  
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 @media (max-width: 1200px) {
   .gridContainer{
     grid-template-columns: repeat(3, 1fr);
@@ -253,6 +273,15 @@
 @media (max-width: 900px) {
   .gridContainer{
     grid-template-columns: repeat(2, 1fr);
+  }
+  .containerCc{
+    flex-direction: column;
+  }
+  .containerInputsCc{
+    width: 100%;
+  }
+  .containerAnimation{
+    width: 100%;
   }
   .imgOtroArticulos{
     height: 140px;
