@@ -48,7 +48,7 @@ export default function EngineDisplacementCalculator() {
 
   const onChangeCrankShaft = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 40 || newValue > 300)) {
+    if (!isNaN(newValue) && (newValue < 2 || newValue > 300)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, carrera: e.target.value });
@@ -56,7 +56,7 @@ export default function EngineDisplacementCalculator() {
   }
   const onChangeBoreSize = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 40 || newValue > 300)) {
+    if (!isNaN(newValue) && (newValue < 2 || newValue > 300)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, diametro: e.target.value });
