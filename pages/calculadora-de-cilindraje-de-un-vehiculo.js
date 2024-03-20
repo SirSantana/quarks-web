@@ -225,7 +225,7 @@ import styles from '@/styles/Articulos.module.css'
 import { ModalLoading, ModalSuccessfull } from "@/utils/Modales";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const initialData = {
   diametro: '80.5',
@@ -238,11 +238,17 @@ let description = 'Ingresa los datos y obtén la cilindrada o el volumen de tu c
 export default function EngineDisplacementCalculator() {
   const [calcular, setCalcular] = useState(initialData);
   const router = useRouter()
-
+  const ref = useRef()
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
+    if (ref.current) {
+      window.scrollTo({
+        top: ref.current.offsetTop,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const [cilindrajeTotal, setCilindrajeTotal] = useState(0)
@@ -299,6 +305,7 @@ export default function EngineDisplacementCalculator() {
       setCalcular({ ...calcular, rpm: e.target.value });
     }
   }
+
   useEffect(() => {
     if (data) {
       setTimeout(() => {
@@ -375,7 +382,7 @@ export default function EngineDisplacementCalculator() {
                   <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='base'>
                     {isPlaying ? 'Pause' : 'Play'}
                   </Button>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                  <div ref={ref}  style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                     <label style={{ fontSize: '14px' }}>RPM</label>
 
                     <input max={14000} onKeyPress={(e) => {
@@ -388,8 +395,8 @@ export default function EngineDisplacementCalculator() {
                   </div>
                 </div>
               </div>
-              <AnimationCalculator calcular={calcular} cylinderHeight={cylinderHeight} cylinderWidth={cylinderWidth} pistonHeight={pistonHeight} setCilindrajeTotal={setCilindrajeTotal} cilindrajeTotal={cilindrajeTotal} isPlaying={isPlaying} />
-              <div style={{ margin: '32px 0 48px 0', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', alignItems: 'center' }}>
+              <AnimationCalculator  calcular={calcular} cylinderHeight={cylinderHeight} cylinderWidth={cylinderWidth} pistonHeight={pistonHeight} setCilindrajeTotal={setCilindrajeTotal} cilindrajeTotal={cilindrajeTotal} isPlaying={isPlaying} />
+              <div  style={{ margin: '32px 0 48px 0', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', alignItems: 'center' }}>
                 {Array.from({ length: calcular.cilindros }, (_, index) => (
                   <AnimationCalculator
                     key={index}

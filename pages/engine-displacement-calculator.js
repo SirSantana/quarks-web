@@ -6,7 +6,7 @@ import styles from '@/styles/Articulos.module.css'
 import { ModalLoading, ModalSuccessfull } from "@/utils/Modales";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const initialData = {
   diametro: '80.5',
@@ -18,11 +18,18 @@ let description = 'Enter the data and get the displacement or volume of your cyl
 export default function EngineDisplacementCalculator() {
   const [calcular, setCalcular] = useState(initialData);
   const router = useRouter()
+  const ref = useRef()
 
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
+    if (ref.current) {
+      window.scrollTo({
+        top: ref.current.offsetTop,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const [cilindrajeTotal, setCilindrajeTotal] = useState(0)
@@ -102,7 +109,7 @@ export default function EngineDisplacementCalculator() {
             <div style={{ display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
               <h2 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '24px' }}>Measures</h2>
               <label style={{ fontSize: '14px' }}>Bore Size</label>
-              <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
+              <div  style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
 
                 <input onKeyPress={(e) => {
                   const charCode = e.which ? e.which : e.keyCode;
@@ -155,7 +162,7 @@ export default function EngineDisplacementCalculator() {
                   <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='base'>
                     {isPlaying ? 'Pause' : 'Play'}
                   </Button>
-                  <div style={{display:'flex', flexDirection:'column', alignItems:'flex-end'}}>
+                  <div ref={ref} style={{display:'flex', flexDirection:'column', alignItems:'flex-end'}}>
                     <label style={{ fontSize: '14px' }}>RPM</label>
 
                     <input max={14000} onKeyPress={(e) => {
