@@ -1,6 +1,7 @@
 import Layout from "@/src/Components/Layout";
 import data from '@/pages/picoyplaca.json'
 import styles from '@/styles/PicoYPlaca.module.css'
+import { useRouter } from "next/router";
 
 let keyWords = [
   "Pico y Placa Bogotá",
@@ -26,6 +27,7 @@ let keyWords = [
   "Movilidad urbana"
 ]
 export default function PicoYPlaceHoyBogota({ data }) {
+  const router = useRouter()
   return (
     <Layout title={`Pico y Placa Bogota Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
@@ -84,7 +86,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa Hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en Bogotá, no podrán circular vehiculos con placas terminas en {data?.placas}, desde las {data?.horario}</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en Bogotá, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' &&', desde las ' +data?.horario}</p>
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Pl</h2>
@@ -93,11 +95,19 @@ export default function PicoYPlaceHoyBogota({ data }) {
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>hora pico y placa bogota</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA'?'NO APLICA':<>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>pico y placa bogota hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA'?'NO APLICA':<>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Conoce el pico y placa del mes de Marzo</h2>
+          <div onClick={()=> router.push('/pico-y-placa-hoy-bogota')} style={{cursor:'pointer', marginTop: '4px', width:'300px' }} className={styles.containerMiniPlaca}>
+            <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+              <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>
