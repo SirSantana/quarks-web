@@ -274,7 +274,7 @@ export default function EngineDisplacementCalculator() {
 
   const onChangeCrankShaft = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 2 || newValue > 300)) {
+    if (!isNaN(newValue) && (newValue < 1 || newValue > 300)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, carrera: e.target.value });
@@ -282,7 +282,7 @@ export default function EngineDisplacementCalculator() {
   }
   const onChangeBoreSize = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 2 || newValue > 300)) {
+    if (!isNaN(newValue) && (newValue < 1 || newValue > 300)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, diametro: e.target.value });
@@ -339,6 +339,8 @@ export default function EngineDisplacementCalculator() {
                 }} step="0.01" type="number"
                   onChange={onChangeBoreSize}
                   value={calcular.diametro}
+                  min={10}
+                  max={300}
                   style={{ border: 'none', width: '100%', fontSize: '16px', fontWeight: '500' }} />
                 <div style={{ height: '100%', backgroundColor: '#d9d9d9', width: '1px' }} />
                 <span style={{ fontSize: '14px', fontWeight: '500' }}>mm</span>
@@ -347,8 +349,8 @@ export default function EngineDisplacementCalculator() {
               <label style={{ fontSize: '14px' }}>Carrera piston</label>
               <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
                 <input
-                  min={20}
-                  max={200}
+                  min={10}
+                  max={300}
                   onKeyPress={(e) => {
                     const charCode = e.which ? e.which : e.keyCode;
                     if (charCode !== 44 && (charCode < 48 || charCode > 57)) {

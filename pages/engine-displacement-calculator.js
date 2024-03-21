@@ -55,7 +55,7 @@ export default function EngineDisplacementCalculator() {
 
   const onChangeCrankShaft = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 2 || newValue > 300)) {
+    if (!isNaN(newValue) && (newValue <1 || newValue > 300)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, carrera: e.target.value });
@@ -63,7 +63,7 @@ export default function EngineDisplacementCalculator() {
   }
   const onChangeBoreSize = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 2 || newValue > 300)) {
+    if (!isNaN(newValue) && (newValue < 1 || newValue > 300)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, diametro: e.target.value });
@@ -71,7 +71,7 @@ export default function EngineDisplacementCalculator() {
   }
   const onChangeQuantity = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 1 || newValue > 12)) {
+    if (!isNaN(newValue) && (newValue <= 1 || newValue > 12)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, cilindros: e.target.value });
@@ -106,7 +106,7 @@ export default function EngineDisplacementCalculator() {
               <p style={{ fontSize: '64px', fontWeight: '700', textAlign: 'center', color: 'white' }}>{cilindrajeTotal}</p>
               <p style={{ fontSize: '14px', color: '#ABABAB', textAlign: 'end' }}>Cubic Inches</p>
             </div>
-            <div style={{ display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
+            <div style={{ display: 'flex',  width: '100%', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
               <h2 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '24px' }}>Measures</h2>
               <label style={{ fontSize: '14px' }}>Bore Size</label>
               <div  style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
@@ -119,6 +119,8 @@ export default function EngineDisplacementCalculator() {
                 }} step="0.01" type="number"
                   onChange={onChangeBoreSize}
                   value={calcular.diametro}
+                  min={10}
+                  max={300}
                   style={{ border: 'none', width: '100%', fontSize: '16px', fontWeight: '500' }} />
                 <div style={{ height: '100%', backgroundColor: '#d9d9d9', width: '1px' }} />
                 <span style={{ fontSize: '14px', fontWeight: '500' }}>mm</span>
@@ -127,8 +129,8 @@ export default function EngineDisplacementCalculator() {
               <label style={{ fontSize: '14px' }}>Crankshaft stroke length</label>
               <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
                 <input
-                  min={20}
-                  max={200}
+                  min={10}
+                  max={300}
                   onKeyPress={(e) => {
                     const charCode = e.which ? e.which : e.keyCode;
                     if (charCode !== 44 && (charCode < 48 || charCode > 57)) {
@@ -157,7 +159,6 @@ export default function EngineDisplacementCalculator() {
             <div style={{ display: 'flex', width: '100%', flexDirection: 'column', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
                 <h2 style={{ fontSize: '14px', fontWeight: '600', }}>Animation / Ilustration</h2>
-                {/* <div style={{margin:'0 auto',marginTop:'32px', backgroundColor:'#373737', height:'1px', width:`${cylinderWidth+ 'px'}`}}/> */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='base'>
                     {isPlaying ? 'Pause' : 'Play'}
