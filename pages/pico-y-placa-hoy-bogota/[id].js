@@ -90,14 +90,14 @@ export default function PicoYPlaceHoyBogota({ data }) {
                     <h3 style={{ marginTop: '16px' }}>{el.horario[0]}</h3>
                     <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
                       <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
                       </div>
                     </div>
                     <h3 style={{ marginTop: '16px' }}>{el.horario[1]}</h3>
 
                     <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
                       <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
                       </div>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
                   :
                   <div className={styles.containerMiniPlaca}>
                     <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                      <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
+                      <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
                     </div>
                   </div>
                 }
@@ -130,14 +130,14 @@ export default function PicoYPlaceHoyBogota({ data }) {
                     <h3 style={{ marginTop: '16px' }}>{el.horario[0]}</h3>
                     <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
                       <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
                       </div>
                     </div>
                     <h3 style={{ marginTop: '16px' }}>{el.horario[1]}</h3>
 
                     <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
                       <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
                       </div>
                     </div>
                   </div>
@@ -145,7 +145,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
                   :
                   <div className={styles.containerMiniPlaca}>
                     <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                      <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
+                      <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
                     </div>
                   </div>
                 }
@@ -158,7 +158,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
           <h2>Conoce el pico y placa del mes de Marzo</h2>
           <div onClick={() => router.push('/pico-y-placa-hoy-bogota')} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
             <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-              <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
+              <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
             </div>
           </div>
         </div>
