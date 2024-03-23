@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 export default function PicoYPlaca({ data }) {
   const router = useRouter();
+
   return (
     <Layout title={'Pico y Placa Bogota Marzo'} description={'Consulta el Pico y Placa de Bogotá para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Bogotá, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>

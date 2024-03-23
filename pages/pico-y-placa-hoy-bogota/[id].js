@@ -1,7 +1,8 @@
 import Layout from "@/src/Components/Layout";
-import data from '@/pages/picoyplaca.json'
+import picoyplaca from '@/pages/picoyplaca.json'
 import styles from '@/styles/PicoYPlaca.module.css'
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 let keyWords = [
   "Pico y Placa Bogotá",
@@ -28,6 +29,11 @@ let keyWords = [
 ]
 export default function PicoYPlaceHoyBogota({ data }) {
   const router = useRouter()
+
+  const picoyplacaAnteriores = picoyplaca.picoyplaca.filter(el => el.index < data?.index).reverse().slice(0, 3)
+  const picoyplacaDespues = picoyplaca.picoyplaca.filter(el => el.index > data?.index).slice(0, 3)
+
+  console.log(picoyplacaDespues);
   return (
     <Layout title={`Pico y Placa Bogota Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
@@ -63,6 +69,99 @@ export default function PicoYPlaceHoyBogota({ data }) {
             }
           </div>
         </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa Hoy</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en Bogotá, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
+        </div>
+
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa anteriores dias de Marzo</h2>
+          {picoyplacaAnteriores?.map(el => (
+            <Link scroll={true} href={`/pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
+              <div className={styles.containerCardOnePico} >
+                <div>
+                  <h3>{el.titulo.replaceAll('-', ' ')}</h3>
+                  <p>Vehículos Particulares</p>
+                  <h3 style={{ marginTop: '16px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h3>
+                </div>
+                {el?.especial
+                  ?
+                  <div>
+                    <h3 style={{ marginTop: '16px' }}>{el.horario[0]}</h3>
+                    <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
+                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
+                      </div>
+                    </div>
+                    <h3 style={{ marginTop: '16px' }}>{el.horario[1]}</h3>
+
+                    <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
+                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  :
+                  <div className={styles.containerMiniPlaca}>
+                    <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                      <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
+                    </div>
+                  </div>
+                }
+              </div>
+              <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
+            </Link>
+          ))}
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa siguientes dias de Marzo</h2>
+          {picoyplacaDespues?.map(el => (
+            <Link scroll={true} href={`/pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
+              <div className={styles.containerCardOnePico} >
+                <div>
+                  <h3>{el.titulo.replaceAll('-', ' ')}</h3>
+                  <p>Vehículos Particulares</p>
+                  <h3 style={{ marginTop: '16px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h3>
+                </div>
+                {el?.especial
+                  ?
+                  <div>
+                    <h3 style={{ marginTop: '16px' }}>{el.horario[0]}</h3>
+                    <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
+                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
+                      </div>
+                    </div>
+                    <h3 style={{ marginTop: '16px' }}>{el.horario[1]}</h3>
+
+                    <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
+                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                        <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
+                      </div>
+                    </div>
+                  </div>
+
+                  :
+                  <div className={styles.containerMiniPlaca}>
+                    <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                      <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
+                    </div>
+                  </div>
+                }
+              </div>
+              <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
+            </Link>
+          ))}
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Conoce el pico y placa del mes de Marzo</h2>
+          <div onClick={() => router.push('/pico-y-placa-hoy-bogota')} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
+            <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+              <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
+            </div>
+          </div>
+        </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px' }}>
           <h2>Pico y Placa</h2>
           <p>Conoce el Pico y Placa en Bogotá para este {data?.titulo.replaceAll('-', ' ')}</p>
@@ -84,10 +183,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
             }
           </div>
         </div>
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Placa Hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en Bogotá, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' &&', desde las ' +data?.horario}</p>
-        </div>
+       
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Pl</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Bogotá: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
@@ -95,19 +191,11 @@ export default function PicoYPlaceHoyBogota({ data }) {
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>hora pico y placa bogota</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA'?'NO APLICA':<>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>pico y placa bogota hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA'?'NO APLICA':<>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
-        </div>
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Conoce el pico y placa del mes de Marzo</h2>
-          <div onClick={()=> router.push('/pico-y-placa-hoy-bogota')} style={{cursor:'pointer', marginTop: '4px', width:'300px' }} className={styles.containerMiniPlaca}>
-            <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-              <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
-            </div>
-          </div>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
         </div>
       </div>
     </Layout>
@@ -116,7 +204,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
 
 export async function getServerSideProps({ query }) {
 
-  let picoYplacaHoy = data?.picoyplaca.find(el => el.fechaFormat.toLowerCase() == String(query.id))
+  let picoYplacaHoy = picoyplaca?.picoyplaca.find(el => el.fechaFormat.toLowerCase() == String(query.id))
   return {
     props: {
       data:
