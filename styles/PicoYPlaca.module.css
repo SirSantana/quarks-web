@@ -42,7 +42,7 @@
 }
 
 .textOne {
-  font-family: fantasy;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 32px;
   font-weight: 500;
   color: black;
@@ -51,7 +51,7 @@
 }
 
 .horario {
-  font-family: fantasy;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 40px;
   font-weight: 500;
   color: black;
@@ -59,7 +59,7 @@
 
 .placas {
   line-height: 1.2;
-  font-family: fantasy;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 164px;
   font-weight: 500;
   color: black;
@@ -68,7 +68,7 @@
 
 .placas2 {
   line-height: 1.2;
-  font-family: fantasy;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 64px;
   font-weight: 500;
   color: black;
@@ -85,7 +85,7 @@
 }
 
 .horario2 {
-  font-family: fantasy;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 24px;
   font-weight: 500;
   color: black;
