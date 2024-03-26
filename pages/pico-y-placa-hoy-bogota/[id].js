@@ -75,7 +75,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
         </div>
 
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Placa anteriores dias de Marzo</h2>
+          <h3>Pico y Placa anteriores dias de Marzo</h3>
           {picoyplacaAnteriores?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
               <div className={styles.containerCardOnePico} >
@@ -115,7 +115,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
           ))}
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Placa siguientes dias de Marzo</h2>
+          <h3>Pico y Placa siguientes dias de Marzo</h3>
           {picoyplacaDespues?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
               <div className={styles.containerCardOnePico} >
@@ -155,7 +155,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
           ))}
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Conoce el pico y placa del mes de Marzo</h2>
+          <h3>Conoce el pico y placa del mes de Marzo</h3>
           <div onClick={() => router.push('/pico-y-placa-hoy-bogota')} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
             <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
               <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
@@ -196,6 +196,15 @@ export default function PicoYPlaceHoyBogota({ data }) {
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>pico y placa bogota hoy</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} no podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa Bogotá {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
+          <h2>Pico y Placa Bogotá {data?.titulo.replaceAll('-', ' ')}</h2>
+
         </div>
       </div>
     </Layout>
