@@ -31,7 +31,7 @@ export default function HomeMarch({ data, mode }) {
         <div className={styles.containerNav}>
           <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
             <Image alt={'Cotiza tus repuestos logo'} width={32} height={32} src={'/logoquarks200623.png'} />
-            <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.titleNav}>Quarks Talleres</h3>
+            <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none' }} className={styles.titleNav}>Quarks</h3>
           </Link>
           <nav style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
             {/* <p style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>Servicios</p> */}
