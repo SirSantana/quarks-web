@@ -12,7 +12,7 @@ const initialData = {
   diametro: '80.5',
   carrera: '79.5',
   cilindros: 4,
-  rpm:500
+  rpm: 500
 };
 let description = 'Enter the data and get the displacement or volume of your cylinder quickly and easily. The online tool to calculate the displacement of vehicle engines, calculate displacement of a motorcycle, calculate displacement of a car, calculate cc of a cylinder, cc calculator. '
 export default function EngineDisplacementCalculator() {
@@ -55,7 +55,7 @@ export default function EngineDisplacementCalculator() {
 
   const onChangeCrankShaft = (e) => {
     const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue <1 || newValue > 300)) {
+    if (!isNaN(newValue) && (newValue < 1 || newValue > 300)) {
       e.preventDefault();
     } else {
       setCalcular({ ...calcular, carrera: e.target.value });
@@ -98,7 +98,7 @@ export default function EngineDisplacementCalculator() {
       <div style={{ marginTop: '32px', width: '95%', maxWidth: '1100px', backgroundColor: 'white' }} className={styles.container}>
         <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Displacement Engine Calculator</h1>
         <p className={styles.response}>Calculate the displacement of your motorcycle, car or engine. Enter your data in millimeters with a comma (80.5).</p>
-        
+
         <div className={styles.containerCc}>
           <div className={styles.containerInputsCc}>
             <div style={{ display: 'flex', width: '100%', height: '180px', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#373737', borderRadius: '12px', padding: '16px' }}>
@@ -106,10 +106,10 @@ export default function EngineDisplacementCalculator() {
               <p style={{ fontSize: '64px', fontWeight: '700', textAlign: 'center', color: 'white' }}>{cilindrajeTotal}</p>
               <p style={{ fontSize: '14px', color: '#ABABAB', textAlign: 'end' }}>Cubic Inches</p>
             </div>
-            <div style={{ display: 'flex',  width: '100%', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
+            <div style={{ display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
               <h2 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '24px' }}>Measures</h2>
               <label style={{ fontSize: '14px' }}>Bore Size</label>
-              <div  style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
+              <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
 
                 <input onKeyPress={(e) => {
                   const charCode = e.which ? e.which : e.keyCode;
@@ -152,6 +152,9 @@ export default function EngineDisplacementCalculator() {
                 }} type="number" onChange={onChangeQuantity} value={calcular.cilindros}
                   style={{ border: 'none', width: '100%', fontSize: '16px', fontWeight: '500' }} />
               </div>
+              <Button size="base" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} fullWidth className={styles.btnCalcular} style={{ marginTop: '16px' }}>
+                Calculate
+              </Button>
             </div>
           </div>
 
@@ -160,10 +163,10 @@ export default function EngineDisplacementCalculator() {
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
                 <h2 style={{ fontSize: '14px', fontWeight: '600', }}>Animation / Ilustration</h2>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='base'>
+                  <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='sm'>
                     {isPlaying ? 'Pause' : 'Play'}
                   </Button>
-                  <div ref={ref} style={{display:'flex', flexDirection:'column', alignItems:'flex-end'}}>
+                  <div ref={ref} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                     <label style={{ fontSize: '14px' }}>RPM</label>
 
                     <input max={14000} onKeyPress={(e) => {
@@ -172,7 +175,7 @@ export default function EngineDisplacementCalculator() {
                         e.preventDefault();
                       }
                     }} type="number" onChange={onChangeRpm} value={calcular.rpm}
-                      style={{ padding:'4px 8px', textAlign:'end', border: 'none', width: '80px', fontSize: '16px', fontWeight: '500' }} />
+                      style={{ padding: '4px 8px', textAlign: 'end', border: 'none', width: '80px', fontSize: '16px', fontWeight: '500' }} />
                   </div>
                 </div>
               </div>
