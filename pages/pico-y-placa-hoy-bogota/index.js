@@ -4,16 +4,17 @@ import data from '@/pages/picoyplaca.json'
 import Link from "next/link";
 import { useRouter } from "next/router";
 export default function PicoYPlaca({ data }) {
-  const router = useRouter();
+  const {query, asPath} = useRouter();
+
 
   return (
-    <Layout title={'Pico y Placa Bogota Marzo'} description={'Consulta el Pico y Placa de Bogotá para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Bogotá, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
+    <Layout title={`Pico y Placa Bogota ${query.month.split('-')[0]}`} description={'Consulta el Pico y Placa de Bogotá para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Bogotá, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
-        <h1  className={styles.title}>Pico y Placa Marzo. Bogotá </h1>
+        <h1  className={styles.title}>Pico y Placa {query.month.split('-')[0]}. Bogotá </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para el mes de Marzo en Bogotá.</p>
 
         {data?.map(el => (
-          <Link href={`${router.asPath}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin:'0 auto' }}>
+          <Link href={`pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin:'0 auto' }}>
             <div className={styles.containerCardOnePico} >
               <div>
                 <h2>{el.titulo.replaceAll('-', ' ')}</h2>
@@ -56,11 +57,11 @@ export default function PicoYPlaca({ data }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({query}) {
   return {
     props: {
       data:
-        data?.picoyplaca
+        data?.picoyplaca[query.month.split('-')[1]]
     }
 
   }

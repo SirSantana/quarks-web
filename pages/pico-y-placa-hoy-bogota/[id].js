@@ -29,9 +29,11 @@ let keyWords = [
 ]
 export default function PicoYPlaceHoyBogota({ data }) {
   const router = useRouter()
+  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const numeroMes = meses.indexOf(router.query.id.split('-')[2]);
 
-  const picoyplacaAnteriores = picoyplaca.picoyplaca.filter(el => el.index < data?.index).reverse().slice(0, 3)
-  const picoyplacaDespues = picoyplaca.picoyplaca.filter(el => el.index > data?.index).slice(0, 3)
+  const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
+  const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
 
   return (
     <Layout title={`Pico y Placa Bogota Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
@@ -74,7 +76,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
         </section>
 
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h3 style={{marginBottom:'16px'}}>Pico y Placa anteriores dias de Marzo</h3>
+          <h3 style={{ marginBottom: '16px' }}>Pico y Placa anteriores dias de {meses[numeroMes]}</h3>
           {picoyplacaAnteriores?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
               <div className={styles.containerCardOnePico} >
@@ -114,7 +116,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
           ))}
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h3 style={{marginBottom:'16px'}}>Pico y Placa siguientes dias de Marzo</h3>
+          <h3 style={{ marginBottom: '16px' }}>Pico y Placa siguientes dias de {meses[numeroMes]}</h3>
           {picoyplacaDespues?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
               <div className={styles.containerCardOnePico} >
@@ -154,8 +156,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
           ))}
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h3 style={{marginBottom:'16px'}}>Conoce el pico y placa del mes de Marzo</h3>
-          <div onClick={() => router.push('/pico-y-placa-hoy-bogota')} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
+          <h3 style={{ marginBottom: '16px' }}>Conoce el pico y placa del mes de {meses[numeroMes]}</h3>
+          <div onClick={() => router.push(`/pico-y-placa-hoy-bogota?month=${meses[numeroMes]}-${numeroMes}`)} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
             <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
               <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
             </div>
@@ -182,8 +184,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
             }
           </div>
         </section>
-       
-        <section  style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Pl</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Bogotá: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
           <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Bogotá. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
@@ -212,7 +214,9 @@ export default function PicoYPlaceHoyBogota({ data }) {
 
 export async function getServerSideProps({ query }) {
 
-  let picoYplacaHoy = picoyplaca?.picoyplaca.find(el => el.fechaFormat.toLowerCase() == String(query.id))
+  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const numeroMes = meses.indexOf(query.id.split('-')[2]);
+  let picoYplacaHoy = picoyplaca?.picoyplaca[[numeroMes]].find(el => el.fechaFormat.toLowerCase() == String(query.id))
   return {
     props: {
       data:
