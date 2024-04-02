@@ -7,20 +7,16 @@ import SectionVariedadTalleres from '@/src/Components/LandingPage/Section1'
 import SectionCotizaciones from '@/src/Components/LandingPage/Section2'
 import SectionGlosario from '@/src/Components/LandingPage/Section3'
 import SectionPasos from '@/src/Components/LandingPage/Section4'
-import NewNavbarWithSearch from '@/src/Components/Navbar/NewNavbar2'
 import dynamic from 'next/dynamic'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import { useState } from 'react'
 import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTalleresServicios'
-import SectonFilters from '@/src/Components/LandingPage/SectionFilters'
 
 import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
 import { IconCatalog } from '@/src/Components/Icon/Icon'
-import Text, { TextAs, TextTone, TextWeight } from '@/src/Components/Text/Text'
 import { useRouter } from 'next/router'
 import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
-import Link from 'next/link'
 
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
