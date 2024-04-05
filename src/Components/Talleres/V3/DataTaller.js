@@ -29,7 +29,7 @@ export default function DataTaller({ data, mobile}) {
         style={{borderRadius:'50%', objectFit:'cover'}}
       />
       <div style={{width:'90%',}}>
-        <h1 className={styles.textTitle} style={{ whiteSpace: isSticky ? 'nowrap' : 'normal', maxWidth: isSticky ? '90%' : 'none'}}>{data?.nombre}</h1>
+        <h1 className={styles.textTitle} style={{lineHeight:'1.2', marginBottom:'4px', whiteSpace: isSticky ? 'nowrap' : 'normal', maxWidth: isSticky ? '90%' : 'none'}}>{data?.nombre}</h1>
         <h2 className={styles.textDireccion}>{data?.direccion}</h2>
         <p className={styles.textTipo}>{data?.tipo === 'Mecanico a Domicilio' ? 'Mecanico a Domicilio' : data?.tipo === 'Almacen' ? 'Almacen de Repuestos' : 'Taller Automotriz'}</p>
       </div>
