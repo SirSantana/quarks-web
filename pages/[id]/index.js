@@ -1,37 +1,30 @@
 import { client } from "@/client";
 import { GET_ONE_NEGOCIOVDOS } from "@/graphql/queries";
-import useAuth from "@/hooks/useAuth";
 import Layout from "@/src/Components/Layout";
 import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
-import ServidosOfrecidos from "@/src/Components/Talleres/ServiciosOfrecidos";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
-import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import HorarioDias from "@/src/Components/Talleres/HorarioDias";
 import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
 import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
 import { CREATE_ACCION } from "@/graphql/mutations";
 import { ModalImagePerfil } from "@/utils/Modales";
-import DataTaller from "@/src/Components/Talleres/V3/DataTaller";
-import WidgetMenu from "@/src/Components/Talleres/V3/WidgetMenu";
-import SliderTab from "@/src/Components/Talleres/V3/SliderTab";
-import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
-import Horario from "@/src/Components/Talleres/V3/Horario";
 
+const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
+  { ssr: false })
+const WidgetMenu = dynamic(() => import('@/src/Components/Talleres/V3/WidgetMenu'),
+  { ssr: false })
+const ServiciosTab = dynamic(() => import('@/src/Components/Talleres/V3/ServiciosTab'),
+  { ssr: false })
+const SliderTab = dynamic(() => import('@/src/Components/Talleres/V3/SliderTab'),
+  { ssr: false })
+const Horario = dynamic(() => import('@/src/Components/Talleres/V3/Horario'),
+  { ssr: false })
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
-  { ssr: false })
-const NotFoundInfo = dynamic(() => import('@/src/Components/Talleres/NotFoundInfo'),
-  { ssr: false })
-const MiraMasTalleres = dynamic(() => import('@/src/Components/Talleres/MiraMasTalleres'),
-  { ssr: false })
-const SectionCreateTaller = dynamic(() => import('@/src/Components/Talleres/SectionCreateTaller'),
-  { ssr: false })
-const SliderTalleresSugeridos = dynamic(() => import('@/src/Components/Talleres/SliderTalleresSugeridos'),
   { ssr: false })
 const BogotaMap = dynamic(() => import('@/src/Components/Talleres/MapaBogotaCobertura'),
   { ssr: false })
@@ -41,20 +34,12 @@ const ButtonsFooter = dynamic(() => import('@/src/Components/Talleres/ButtonsFoo
   { ssr: false })
 const ButtonTestWhatsapp = dynamic(() => import('@/src/Components/Talleres/ButtonTestWhatsapp'),
   { ssr: false })
-const Revisiones = dynamic(() => import('@/src/Components/Talleres/Revisiones'),
-  { ssr: false })
-// const MapaUbicacion = dynamic(()=> import('@/src/Components/Talleres/MapaUbicacion'))
-// const RedesSociales = dynamic(()=> import('@/src/Components/Talleres/RedesSociales'))
 
 export default function NegocioVDos({ data }) {
   const router = useRouter()
-  const { user, logout } = useAuth()
-  const reseñasSectionRef = useRef(null);
   const [visibleModalImage, setVisibleModalImage] = useState(false)
-  const [editModeHiddenButtons, setEditModeHiddenButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionMecanico = `Mecanico a domicilio, zona de cobertura Bogota y alrededores. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Servicio especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
-
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
 
   const horariosSeparados = data?.horario?.split(',');
@@ -92,38 +77,18 @@ export default function NegocioVDos({ data }) {
               alt={`Taller mecanico ${data?.nombre} Bogota`}
             />
             <div
-            className={styles.opacityImg}
-             
+              className={styles.opacityImg}
             />
-            <div  className={styles.cardDataDesktop} >
+            <div className={styles.cardDataDesktop} >
               <DataTaller data={data} />
             </div>
-          <ButtonsHeader data={data} />
-
+            <ButtonsHeader data={data} />
           </div>
         </div>
 
-        {/* <div className={styles.containerSticky}>
-          <Image
-            sizes="100vw"
-            width={500}
-            height={300}
-            className={styles.imgFotoPortada}
-            src={data?.fotoperfil}
-            priority={true}
-            loading="eager"
-            onClick={() => setVisibleModalImage(true)}
-            alt={`Taller mecanico ${data?.nombre} Bogota`}
-          />
-
-        </div> */}
-
-
         <div className={styles.containerSectionsTaller}>
-        <DataTaller data={data} mobile={true} />
-
+          <DataTaller data={data} mobile={true} />
           <div style={{ marginBottom: '16px' }} className={styles.containerMobile} >
-
             <WidgetMenu data={data} onClick={handleClickReseñasSection} handleChangeSection={handleChangeSection} mapSectionRef={mapSectionRef} refReseñas={refReseñas} />
             {data?.userName === 'multiservicios_ismael_sanchez'
               ?
@@ -131,7 +96,7 @@ export default function NegocioVDos({ data }) {
               : data?.userName === 'optra_club_colombia'
                 ? <ButtonTestWhatsapp whatsapp={data?.whatsapp} id={data?.id} />
                 :
-                <ButtonsFooter data={data} user={user} />
+                <ButtonsFooter data={data} />
             }
           </div>
           <SliderTab handleChangeSection={handleChangeSection} refs={{
@@ -147,8 +112,6 @@ export default function NegocioVDos({ data }) {
               <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} />
             </section>
             <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
-
-
             {data?.urltallermaps &&
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} />
@@ -163,9 +126,9 @@ export default function NegocioVDos({ data }) {
               <Horario horariosSeparados={horariosSeparados} />
             </section>
 
-            {(data?.facebook || data?.instagram || data?.whatsapp || data?.paginaweb || user?.userName === router?.query?.id) &&
+            {(data?.facebook || data?.instagram || data?.whatsapp || data?.paginaweb) &&
               <section ref={refRedes} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <RedesSociales data={data} user={user} />
+                <RedesSociales data={data} />
               </section>
 
             }
