@@ -3,7 +3,6 @@ import { GET_CALIFICACION_OPINIONES, GET_OPINIONES } from '@/graphql/queries'
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { useQuery } from '@apollo/client'
 import Icon, { IconCatalog } from '../Icon/Icon'
-import Divider from '../Box/Divider'
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
@@ -19,7 +18,7 @@ export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
   const { data, loading } = useQuery(GET_OPINIONES, { variables: { id: id } })
   return (
 
-    <div onClick={onClick} className={styles.containerHeaderCalendario} style={{border:'none', padding:'0', margin:'0 auto', border:0, boxShadow:'none', marginBottom:'16px'}}>
+    <div onClick={onClick} className={styles.containerHeaderCalendario} style={{border:'none', padding:'0', margin:'0 auto', border:0, boxShadow:'none', width:'33%'}}>
       {loading
         ?
         <div
@@ -28,7 +27,7 @@ export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
         :
         data?.getOpiniones.length > 0
           &&
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', width:'100%', justifyContent:'center'}}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', width:'100%', justifyContent:'center'}}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <p style={{ fontSize: '14px', fontWeight: '600' }}>{result?.data?.getCalificacionOpiniones}</p>
               <div style={{ display: 'flex', flexDirection: 'row', gap: '4px', }}>
@@ -38,8 +37,8 @@ export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
               </div>
 
             </div>
-            <Divider backgroundColor={'#FBBC04'} />
-            <p style={{ fontSize: '14px', fontWeight: '600' }}>{Number(ctdCalificaciones) + data.getOpiniones.length} reseñas</p>
+            {/* <Divider backgroundColor={'#FBBC04'} /> */}
+            <p style={{ fontSize: '12px', fontWeight: '400' }}>{Number(ctdCalificaciones) + data.getOpiniones.length} reseñas</p>
           </div>
          
       }

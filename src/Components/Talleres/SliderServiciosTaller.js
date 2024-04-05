@@ -4,7 +4,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from '@/styles/Faq.module.css'
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function SliderServiciosTaller({categorias, id}) {

@@ -9,6 +9,8 @@ export const IconCatalog = {
   alertCircle: 'alert-circle',
   alertCircleOutline: 'alert-circle-outline',
   chevronBackOutline: 'chevron-back-outline',
+  chevronDownOutline: 'chevron-down-outline',
+  chevronUpOutline: 'chevron-up-outline',
   chevronForwardOutline: 'chevron-forward-outline',
   compassOutline: 'compass-outline',
   earthOutline: 'earth-outline',

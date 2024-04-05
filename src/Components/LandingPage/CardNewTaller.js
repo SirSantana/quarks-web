@@ -14,10 +14,9 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario.split(',');
-  const router = useRouter()
   
   return (
-    <article onClick={()=> router.push(`?visible-negocio=${taller?.userName}`, undefined, { shallow: true })} className={styles.cardNewTaller}>
+    <Link href={`/${taller?.userName}`} className={styles.cardNewTaller}>
       <div 
       // href={`/${taller?.userName}`}
        style={{position:'relative'}} className={styles.containerDataNewTaller}>
@@ -69,6 +68,6 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
           
         </div>
       </div>
-    </article>
+    </Link>
   )
 }

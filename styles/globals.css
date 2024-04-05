@@ -21,7 +21,7 @@ body {
   background-color: #f0f0f0; /* Color de fondo principal */
 
   background: white;
-  background-image: radial-gradient(rgb(197, 197, 197) 1px, transparent 0);
+  /* background-image: radial-gradient(rgb(197, 197, 197) 1px, transparent 0); */
   background-size: 40px 40px;
   background-position: -19px -19px;
 }

@@ -200,22 +200,69 @@
 .containerHeaderCalendario:active {
   transform: scale(0.95)
 }
-.containerAlmacen{
+
+.containerAlmacen {
   display: flex;
   flex-direction: row;
-  width: 80%;
-  margin:0 auto;
-  padding-top: 64px;
-  gap:64px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 64px;
   justify-content: space-evenly;
   align-items: start;
 }
-.containerSticky{
-  width: 100%;
-  max-width: 440px;
-  position: sticky;
-  top: 40px;
+.containerSectionsTaller{
+  width: 55%;
+  margin-top: 10vh;
 }
+
+/* width: '45%', height: '100vh', backgroundColor: '#373737', position: 'sticky', top: 0, alignItems: 'center', display: 'flex', justifyContent: 'center'  */
+.containerSticky {
+  width: 45%;
+  height: 100vh;
+  background-color: #373737;
+  top: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+}
+.cardDataDesktop{
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  border-radius: 24px;
+  width: 100%;
+  z-index: 2;
+  display:flex;
+  padding:0 16px 8px 16px;
+  flex-direction:column;
+  gap:16px
+}
+.imgFotoPortada2 {
+  width: 100%;
+  max-width: 500px;
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 24px;
+  box-shadow: none;
+  display: block;
+}
+.divDesktopCard{
+  position: relative;
+}
+.opacityImg{
+position: absolute;
+bottom: 0;
+left: 0;
+border-radius: 24px;
+width: 100%;
+height: 80%;
+z-index: 1;
+background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+}
+
 .containerCardPerfil {
   height: 500px;
   background-color: white;
@@ -241,7 +288,6 @@
 
 .containerHeaderCalendario:hover {
   transform: scale(1.02)
-
 }
 
 .active {
@@ -516,7 +562,7 @@
   /* La imagen ocupa el 100% del ancho del contenedor */
   max-width: 500px;
   /* Limita el ancho máximo de la imagen a 600px */
-  height: 35vh;
+  height: 25vh;
   /* Establece la altura de la imagen al 30% de la altura del viewport */
   object-fit: cover;
   /* Mantiene la proporción de aspecto y cubre completamente el contenedor */
@@ -780,6 +826,24 @@
   width: 100%;
 }
 
+/* border:'1px solid #EFEFEF', borderRadius:'50%', padding:'8px', width:'36px', height:'36px', display:'flex', alignItems:'center' */
+.btnMenuPerfil {
+  border: 1px solid #efefef;
+  border-radius: 50%;
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.btnMenuPerfil:hover {
+  border-color: #373737;
+  color: #373737;
+}
+
 @media (max-width:1380px) {
   .sectionTwoNegocioFixed {
     width: 300px;
@@ -792,11 +856,13 @@
     width: 90%;
     margin-top: 96px;
   }
-  .containerAlmacen{
-    width: 90%;
-  gap:32px;
+
+  .containerAlmacen {
+    width: 100%;
+    gap: 32px;
 
   }
+
   .container2 {
     width: 90%;
     margin-top: 96px;
@@ -829,18 +895,54 @@
     width: 250px;
     right: 3%;
   }
-  .containerAlmacen{
+
+  .containerAlmacen {
     flex-direction: column;
     width: 100%;
     padding: 0;
-  gap:0;
- align-items: center;
+    gap: 0;
+    align-items: center;
 
   }
-  .containerSticky{
+
+  .containerSticky {
     position: static;
     margin-top: 40px;
+    width: 100%;
+    top: 40px;
+    height: fit-content;
+    background-color: white;
   }
+  .containerSectionsTaller{
+    width: 100%;
+    margin-top: 0;
+  }
+  .divDesktopCard{
+    width: 100%;
+  }
+  .opacityImg{
+    display: none;
+  }
+  .cardDataDesktop{
+    display: none;
+  }
+.imgFotoPortada2 {
+  width: 100%;
+  /* La imagen ocupa el 100% del ancho del contenedor */
+  max-width: 500px;
+  /* Limita el ancho máximo de la imagen a 600px */
+  height: 25vh;
+  /* Establece la altura de la imagen al 30% de la altura del viewport */
+  object-fit: cover;
+  /* Mantiene la proporción de aspecto y cubre completamente el contenedor */
+  margin: auto;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.8);
+
+  /* Centra horizontalmente usando margen automático */
+  display: block;
+  /* Asegura que sea un bloque y no un elemento en línea */
+}
 }
 
 @media (max-width:900px) {
@@ -925,9 +1027,11 @@
     margin-top: 80px;
     display: none
   }
-  .containerSticky{
+
+  .containerSticky {
     margin-top: 0;
   }
+
   .containerButtonsHeader {
     display: flex;
     width: 100%;
@@ -939,8 +1043,8 @@
 
   .containerMobile {
     width: 100%;
-    gap: 16px
-      /* background-color: #fbfbfb; */
+    gap: 16px;
+    /* background-color: #fbfbfb; */
 
   }
 
@@ -1013,7 +1117,11 @@
     box-shadow: none;
     border-radius: 0;
   }
-
+  .imgFotoPortada2 {
+    margin-top: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
   .skeletonFoto {
     margin-top: 0;
 

@@ -6,7 +6,7 @@ import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import ServidosOfrecidos from "@/src/Components/Talleres/ServiciosOfrecidos";
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import CardNegocioVDos from "@/src/Components/Talleres/CardNegocioVDos";
 import Image from "next/image";
@@ -17,6 +17,11 @@ import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
 import { CREATE_ACCION } from "@/graphql/mutations";
 import { ModalImagePerfil } from "@/utils/Modales";
+import DataTaller from "@/src/Components/Talleres/V3/DataTaller";
+import WidgetMenu from "@/src/Components/Talleres/V3/WidgetMenu";
+import SliderTab from "@/src/Components/Talleres/V3/SliderTab";
+import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
+import Horario from "@/src/Components/Talleres/V3/Horario";
 
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
@@ -54,21 +59,51 @@ export default function NegocioVDos({ data }) {
 
   const horariosSeparados = data?.horario?.split(',');
   const mapSectionRef = useRef(null);
+  const refServicios = useRef(null)
+  const refHorarios = useRef(null)
+  const refReseñas = useRef(null)
+  const refAcercaDe = useRef(null)
+  const refRedes = useRef(null)
 
   const handleClickReseñasSection = () => {
-    // Hacer scroll hasta el section de Reseñas
-    // reseñasSectionRef.current.scrollIntoView({ behavior: 'smooth' });
     router.push(`${router.asPath}/crear-resena?ide=${data?.id}`);
   };
-  const handleClickMapSection = () => {
-    mapSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-
+  const handleChangeSection = ({ ref }) => {
+    if (!ref.current) {
+      return
+    }
+    ref.current.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <div className={styles.containerAlmacen}>
         <div className={styles.containerSticky}>
+          <div className={styles.divDesktopCard}>
+            <Image
+              sizes="100vw"
+              width={400}
+              height={500}
+              className={styles.imgFotoPortada2}
+              src={data?.fotoperfil}
+              priority={true}
+              loading="eager"
+              onClick={() => setVisibleModalImage(true)}
+              alt={`Taller mecanico ${data?.nombre} Bogota`}
+            />
+            <div
+            className={styles.opacityImg}
+             
+            />
+            <div  className={styles.cardDataDesktop} >
+              <DataTaller data={data} />
+            </div>
+          <ButtonsHeader data={data} />
+
+          </div>
+        </div>
+
+        {/* <div className={styles.containerSticky}>
           <Image
             sizes="100vw"
             width={500}
@@ -81,90 +116,68 @@ export default function NegocioVDos({ data }) {
             alt={`Taller mecanico ${data?.nombre} Bogota`}
           />
 
-          <ButtonsHeader data={data} />
-          <CardNegocioVDos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} onClick={handleClickReseñasSection} onClickDos={handleClickMapSection} />
-        </div>
+        </div> */}
 
-        <div className={styles.containerMobile} >
-          {/* {data?.horario && <Horario horariosSeparados={horariosSeparados} handleVisibleHorario={handleVisibleHorario} visibleFullHorario={visibleFullHorario} handleScroll={handleScroll} />}
-        <DatosImportantes data={data} ref={reff} setVisibleModalTelefono={setVisibleModalTelefono} /> */}
-          {data?.categorias &&
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <ServidosOfrecidos data={data} user={user} setEditModeHiddenButtons={setEditModeHiddenButtons} />
+
+        <div className={styles.containerSectionsTaller}>
+        <DataTaller data={data} mobile={true} />
+
+          <div style={{ marginBottom: '16px' }} className={styles.containerMobile} >
+
+            <WidgetMenu data={data} onClick={handleClickReseñasSection} handleChangeSection={handleChangeSection} mapSectionRef={mapSectionRef} refReseñas={refReseñas} />
+            {data?.userName === 'multiservicios_ismael_sanchez'
+              ?
+              <FooterSectionFixed data={data} />
+              : data?.userName === 'optra_club_colombia'
+                ? <ButtonTestWhatsapp whatsapp={data?.whatsapp} id={data?.id} />
+                :
+                <ButtonsFooter data={data} user={user} />
+            }
+          </div>
+          <SliderTab handleChangeSection={handleChangeSection} refs={{
+            mapSectionRef,
+            refServicios,
+            refHorarios,
+            refReseñas,
+            refAcercaDe,
+            refRedes
+          }} />
+          <div className={styles.containerMobile} >
+            <section ref={refServicios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
+              <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} />
             </section>
-          }
-          <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
+            <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
 
 
-
-
-          {/* <Redes /> */}
-
-
-
-          {(data?.facebook || data?.instagram || data?.whatsapp || data?.paginaweb || user?.userName === router?.query?.id) &&
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <RedesSociales data={data} user={user} />
+            {data?.urltallermaps &&
+              <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} />
+              </section>
+            }
+            {data?.tipo === 'Mecanico a Domicilio' &&
+              <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <BogotaMap />
+              </section>
+            }
+            <section ref={refHorarios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
+              <Horario horariosSeparados={horariosSeparados} />
             </section>
 
-          }
+            {(data?.facebook || data?.instagram || data?.whatsapp || data?.paginaweb || user?.userName === router?.query?.id) &&
+              <section ref={refRedes} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <RedesSociales data={data} user={user} />
+              </section>
 
-          {data?.urltallermaps &&
-            <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} />
+            }
+            {data?.acercanegocio &&
+              <section ref={refAcercaDe} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio} />
+              </section>
+            }
+            <section ref={refReseñas} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+              <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} />
             </section>
-
-          }
-          {data?.tipo === 'Mecanico a Domicilio' &&
-            <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <BogotaMap />
-            </section>
-          }
-          {data?.horario &&
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <HorarioDias horariosSeparados={horariosSeparados} data={data} />
-            </section>
-          }
-          {data?.acercanegocio &&
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio} />
-            </section>
-          }
-          {data?.revisiones?.length > 0 &&
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <Revisiones id={data?.id} />
-            </section>
-          }
-
-          {/* <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-          <SliderTalleresSugeridos />
-        </section> */}
-          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <MiraMasTalleres />
-          </section>
-          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <SectionCreateTaller />
-          </section>
-          <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <NotFoundInfo />
-          </section>
-          <section ref={reseñasSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-            <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} />
-          </section>
-
-          {data?.userName === 'multiservicios_ismael_sanchez'
-            ?
-            <FooterSectionFixed data={data} />
-            : data?.userName === 'optra_club_colombia'
-              ? <ButtonTestWhatsapp whatsapp={data?.whatsapp} id={data?.id} />
-              :
-              <ButtonsFooter data={data} user={user} />
-          }
-
-          {/* {!editModeHiddenButtons &&
-          <ButtonsFooter data={data} user={user} />
-        } */}
-          {/* <FooterSectionFixed/> */}
+          </div>
         </div>
       </div>
       {visibleModalImage &&
