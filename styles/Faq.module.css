@@ -389,13 +389,28 @@
   width: 100%;
   position: sticky;
 }
+/* display: 'flex', flexDirection: 'column', justifyContent: 'space-between', maxWidth:'360px' */
+.containerServiceTab{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 360px;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+.containerServiceTab:hover{
+  transform: scale(1.03);
+
+}
 
 .containerSliderTab {
   z-index: 2;
-  width: 100%;
+  width: 95%;
   background-color: white;
   border: 1px solid #efefef;
   padding: 8px 0;
+  box-shadow: 0px 4px 6px rgba(134, 134, 134, 0.1);
 }
 
 .textTab {
@@ -591,7 +606,8 @@
 
   .containerSliderTab {
     position: sticky;
-    top: 40px
+    top: 40px;
+    width: 100%;
   }
 
   .containerInputAcceso {

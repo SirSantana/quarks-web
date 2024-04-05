@@ -4,7 +4,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from '@/styles/Faq.module.css'
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 let tabs = ['Servicios', 'Ubicacion', 'Horario','Redes Sociales', 'Acerca de',  'Reseñas'];
 export default function SliderTab({ handleChangeSection, refs }) {
