@@ -111,7 +111,7 @@ export default function NegocioVDos({ data }) {
           }} />
           <div className={styles.containerMobile} >
             <section ref={refServicios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
-              <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} />
+              <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} id={data?.id}/>
             </section>
             <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
             {data?.urltallermaps &&
