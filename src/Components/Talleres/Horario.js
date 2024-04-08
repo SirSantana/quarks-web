@@ -6,7 +6,7 @@ import Divider from '../Box/Divider';
 import { useMutation } from '@apollo/client';
 import { CREATE_ACCION } from '@/graphql/mutations';
 
-export default function Horario({ horariosSeparados, handleVisibleHorario, visibleFullHorario = true, idNegocio }) {
+export default function Horario({ horariosSeparados, handleVisibleHorario, visibleFullHorario = false, idNegocio }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const [loading, setLoading] = useState(true);
@@ -45,10 +45,10 @@ export default function Horario({ horariosSeparados, handleVisibleHorario, visib
 
               <div style={{flex:1, display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', flex: 1 }}>
-                  {!visibleFullHorario && <p style={{ fontSize: '14px', fontWeight: '600' }}>{horariosSeparados[indiceDia].substring(0, 3)}</p>}
+                  {!visibleFullHorario && <p style={{ fontSize: '14px', fontWeight: '600' }}>Hoy {horariosSeparados[indiceDia].substring(0, 3)}</p>}
                   <p style={{ fontSize: '14px', fontWeight: '400', }}>{visibleFullHorario ? 'Horario' : horariosSeparados[indiceDia].substring(3)}</p>
                 </div>
-                <ion-icon style={{ fontSize: '20px', color: '#757A7E' }} name={visibleFullHorario ? "chevron-up-outline" : "chevron-down-outline"}></ion-icon>
+                {visibleFullHorario && <ion-icon style={{ fontSize: '20px', color: '#757A7E' }} name={visibleFullHorario ? "chevron-up-outline" : "chevron-down-outline"}></ion-icon>}
               </div>
             </div>
             {visibleFullHorario &&

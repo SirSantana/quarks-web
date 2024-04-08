@@ -22,11 +22,11 @@ export default function ServiciosTab({ categorias, tipo }) {
       <h2 style={{ fontSize: '18px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '16px' }} >{tipo !== 'Almacen' ? "Servicios Ofrecidos" : "Repuestos Manejados"} </h2>
       <div style={{display:'flex', flexDirection:'row', flexWrap:'wrap', width:'100%', gap:'16px', justifyContent:'space-between'}}>
         {conImagen.map(servicio => (
-          <div className={styles.containerServiceTab} style={{ }}>
+          <div s className={styles.containerServiceTab} style={{width:'100%' }}>
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '16px 0' }}>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <h3 style={{ fontSize: '16px', fontWeight: '400', color: '#373737' }}>{servicio.nombre}</h3>
-                <p style={{ fontSize: '12px', color: '#5C5C5C', maxWidth: '90%' }}>{servicio.descripcion?.slice(0, 60) + '...'}</p>
+                {servicio.descripcion && <p style={{ fontSize: '12px', color: '#5C5C5C', maxWidth: '90%' }}>{servicio.descripcion?.slice(0, 60) + '...'}</p>}
                 <p style={{ fontSize: '14px', fontWeight: '600' }}>Desde $-</p>
               </div>
               <Image

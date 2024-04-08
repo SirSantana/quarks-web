@@ -13,6 +13,8 @@ import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
 import { CREATE_ACCION } from "@/graphql/mutations";
 import { ModalImagePerfil } from "@/utils/Modales";
+import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
+import SectionPreguntasFrecuentes from "@/src/Components/Talleres/V3/SectionPreguntasFrecuentes";
 
 const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
   { ssr: false })
@@ -114,7 +116,7 @@ export default function NegocioVDos({ data }) {
             <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
             {data?.urltallermaps &&
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} />
+                <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data?.direccion + ' ' + data?.localidad + ' ' + data?.ciudad + '. ' + data?.pais} />
               </section>
             }
             {data?.tipo === 'Mecanico a Domicilio' &&
@@ -122,6 +124,9 @@ export default function NegocioVDos({ data }) {
                 <BogotaMap />
               </section>
             }
+            <section style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
+              <SectionDataSeo data={data} />
+            </section>
             <section ref={refHorarios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
               <Horario horariosSeparados={horariosSeparados} />
             </section>
@@ -137,8 +142,12 @@ export default function NegocioVDos({ data }) {
                 <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio} />
               </section>
             }
+
             <section ref={refReseñas} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} />
+              <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} />
+            </section>
+            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+              <SectionPreguntasFrecuentes data={data} />
             </section>
           </div>
         </div>
