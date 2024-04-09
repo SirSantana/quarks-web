@@ -15,6 +15,7 @@ export const IconCatalog = {
   compassOutline: 'compass-outline',
   earthOutline: 'earth-outline',
   callOutline: 'call-outline',
+  call: 'call',
   logoWhatsapp: 'logo-whatsapp',
   calendarOutline: 'calendar-outline',
   paperPlaneOutline: 'paper-plane-outline',

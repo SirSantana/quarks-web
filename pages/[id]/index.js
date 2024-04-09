@@ -9,19 +9,21 @@ import styles from '@/styles/ServiciosAutomotriz.module.css'
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
-import RecomiendasTaller from "@/src/Components/Talleres/RecomiendasTaller";
 import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
 import { CREATE_ACCION } from "@/graphql/mutations";
 import { ModalImagePerfil } from "@/utils/Modales";
 import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
 import SectionPreguntasFrecuentes from "@/src/Components/Talleres/V3/SectionPreguntasFrecuentes";
+import SectionDescription from "@/src/Components/Talleres/V3/SectionDescription";
+import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
 
 const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
   { ssr: false })
+const RecomiendasTaller = dynamic(() => import('@/src/Components/Talleres/RecomiendasTaller'),
+  { ssr: false })
 const WidgetMenu = dynamic(() => import('@/src/Components/Talleres/V3/WidgetMenu'),
   { ssr: false })
-const ServiciosTab = dynamic(() => import('@/src/Components/Talleres/V3/ServiciosTab'),
-  { ssr: false })
+
 const SliderTab = dynamic(() => import('@/src/Components/Talleres/V3/SliderTab'),
   { ssr: false })
 const Horario = dynamic(() => import('@/src/Components/Talleres/V3/Horario'),
@@ -111,7 +113,7 @@ export default function NegocioVDos({ data }) {
           }} />
           <div className={styles.containerMobile} >
             <section ref={refServicios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
-              <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} id={data?.id}/>
+              <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} id={data?.id} />
             </section>
             <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
             {data?.urltallermaps &&
@@ -148,6 +150,9 @@ export default function NegocioVDos({ data }) {
             </section>
             <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
               <SectionPreguntasFrecuentes data={data} />
+            </section>
+            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+              <SectionDescription data={data} />
             </section>
           </div>
         </div>

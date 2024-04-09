@@ -23,7 +23,7 @@ export default function RedesSociales({ data, }) {
   };
   return (
     <>
-      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}>Redes Sociales {data?.nombre}</h2>
+      <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}>Redes Sociales de {data?.nombre}</h2>
       <Box>
         {data?.facebook &&
           <ItemBox onClick={() => handleAccion({ red: 'btn-social-facebook' })} link={data?.facebook} icon={IconCatalog.logoFacebook} color={'#0080FF'} textItem={'Ver perfil'} />
