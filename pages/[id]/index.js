@@ -66,6 +66,7 @@ export default function NegocioVDos({ data }) {
     }
     ref.current.scrollIntoView({ behavior: 'smooth' });
   }
+  console.log(data);
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <div className={styles.containerAlmacen}>
@@ -128,7 +129,7 @@ export default function NegocioVDos({ data }) {
               <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} id={data?.id} />
             </section>
             <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
-            {(data?.urltallermaps || data?.coordenadas?.length > 0) &&
+            {(data?.urltallermaps || data?.coordenadas?.length > 0 !== (data?.tipo === 'Mecanico a Domicilio' || data?.tipo === 'Mecanico')) &&
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data
                   ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
@@ -139,7 +140,7 @@ export default function NegocioVDos({ data }) {
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <BogotaMap coordenadas={data?.coordenadas} img={data?.fotoperfil} direccion={data
                   ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
-                  : ''} />
+                  : ''} nombre={data?.nombre}/>
               </section>
             }
             <section style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>

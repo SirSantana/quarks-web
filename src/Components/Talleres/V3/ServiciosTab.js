@@ -67,7 +67,7 @@ export default function ServiciosTab({ categorias, tipo, id }) {
             <h2 style={{ fontSize: '18px', fontWeight: '600' }}>Otros servicios </h2>
             <Icon  name={visibleOtrosServicios ? IconCatalog.chevronUpOutline : IconCatalog.chevronDownOutline} />
           </div>
-          <div style={{ display: 'flex',  flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex',  flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px', width:'100%'}}>
             {visibleOtrosServicios &&
               sinImagen?.map(el => (
                 <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#f3f3f3', borderRadius: '8px', padding: '4px 12px',  }}>

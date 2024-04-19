@@ -431,6 +431,7 @@ export const GET_ONE_NEGOCIOVDOS = gql`
       revisiones
       coordenadas
       indicativo
+      vehiculo
     }
   }
 `
