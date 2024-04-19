@@ -60,7 +60,7 @@ export default function SolicitarRevision() {
     if (form.referencia !== '' && form.servicios.length > 0 && whatsapp) {
       createVisitaWhatsapp({ variables: { id: ide } })
       createSolicitudServicio({ variables: { ...form, almacen: ide } })
-      if (!contactme && process.env.NODE_ENV === 'development') {
+      if (!contactme && process.env.NODE_ENV !== 'development') {
         const message = `¡Hola! Estoy interesado en sus servicios.
 
         🛠️  *Descripción del Problema:* ${form.descripcion} 
