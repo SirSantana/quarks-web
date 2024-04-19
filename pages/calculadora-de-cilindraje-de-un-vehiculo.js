@@ -14,7 +14,15 @@ const initialData = {
   cilindros: 4,
   rpm: 500
 };
+const tagsFix = [
+  'calcular cilindrada',
+  'calculadora cilindrada',
+  'calculadora de cilindrada',
+  'calculador de cilindrada',
+  'cc calculator',
+  'calculadora de cc',
 
+]
 let description = 'Ingresa los datos y obtén la cilindrada o el volumen de tu cilindro de manera rápida y fácil. La herramienta en línea para calcular la cilindrada de motores de vehículos, calcular cilindrada de una moto, calcular cilindrada de un auto, calcular cc de un cilindro, calculadora cc. '
 export default function EngineDisplacementCalculator() {
   const [calcular, setCalcular] = useState(initialData);
@@ -153,7 +161,7 @@ export default function EngineDisplacementCalculator() {
                 }} type="number" onChange={onChangeQuantity} value={calcular.cilindros}
                   style={{ border: 'none', width: '100%', fontSize: '16px', fontWeight: '500' }} />
               </div>
-              <Button onClick={()=> window.scrollTo({top:0, behavior:'smooth'})} fullWidth className={styles.btnCalcular} style={{marginTop:'16px'}}>
+              <Button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} fullWidth className={styles.btnCalcular} style={{ marginTop: '16px' }}>
                 Calcular
               </Button>
             </div>
@@ -168,7 +176,7 @@ export default function EngineDisplacementCalculator() {
                   <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='base'>
                     {isPlaying ? 'Pause' : 'Play'}
                   </Button>
-                  <div ref={ref}  style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                  <div ref={ref} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                     <label style={{ fontSize: '14px' }}>RPM</label>
 
                     <input max={14000} onKeyPress={(e) => {
@@ -181,7 +189,7 @@ export default function EngineDisplacementCalculator() {
                   </div>
                 </div>
               </div>
-              <AnimationCalculator  calcular={calcular} cylinderHeight={cylinderHeight} cylinderWidth={cylinderWidth} pistonHeight={pistonHeight} setCilindrajeTotal={setCilindrajeTotal} cilindrajeTotal={cilindrajeTotal} isPlaying={isPlaying} />
+              <AnimationCalculator calcular={calcular} cylinderHeight={cylinderHeight} cylinderWidth={cylinderWidth} pistonHeight={pistonHeight} setCilindrajeTotal={setCilindrajeTotal} cilindrajeTotal={cilindrajeTotal} isPlaying={isPlaying} />
               {/* <div  style={{ margin: '32px 0 48px 0', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', alignItems: 'center' }}>
                 {Array.from({ length: calcular.cilindros }, (_, index) => (
                   <AnimationCalculator
@@ -241,6 +249,11 @@ export default function EngineDisplacementCalculator() {
             <h2>Problemas a la Hora de calcular cc de un cilindro</h2>
             <br />
             <p style={{ lineHeight: '1.8' }}> A veces, el calculo de cilindrada no es tan sencillo. <br /><br />Puede haber problemas que dificulten la precisión de la medición. Uno de los desafíos comunes es la variación en la forma de los cilindros. <br /><br />Si un cilindro no es perfectamente circular, los cálculos se vuelven más complejos. Además, si los cilindros no tienen la misma forma o tamaño, el cálculo se complica aún más.</p>
+          </section>
+          <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '600px', gap: '8px', width: '100%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
+            {tagsFix.map(tag => (
+              <h2 key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</h2>
+            ))}
           </section>
         </div>
       </div>
