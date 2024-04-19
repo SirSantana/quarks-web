@@ -93,6 +93,8 @@ export default function NegocioVDos({ data }) {
         </div>
 
         <div className={styles.containerSectionsTaller}>
+          
+        <DataTaller data={data} sizes={true}/>
 
           <div style={{ marginBottom: '16px' }} className={styles.containerMobile} >
             <SliderTab handleChangeSection={handleChangeSection} refs={{
@@ -103,7 +105,6 @@ export default function NegocioVDos({ data }) {
               refAcercaDe,
               refRedes
             }} desktop={true} />
-            <DataTaller data={data} sizes={true}/>
             <WidgetMenu data={data} onClick={handleClickReseñasSection} handleChangeSection={handleChangeSection} mapSectionRef={mapSectionRef} refReseñas={refReseñas} indicativo={data?.indicativo} />
             {data?.userName === 'multiservicios_ismael_sanchez'
               ?
