@@ -1,88 +1,62 @@
 
 import { CHECK_VERIFY_USERNAME } from '@/graphql/queries'
-import Layout from '@/src/Components/Layout'
 import styles from '@/styles/Faq.module.css'
-import { useLazyQuery, useQuery } from '@apollo/client'
+import { useLazyQuery } from '@apollo/client'
 import Image from 'next/image'
-import { useState } from 'react'
-import { useDebouncedCallback } from 'use-debounce'
+import Button, { ButtonVariant } from '../Button/Button'
+import Input from '../Input/Input'
+import { useEffect } from 'react'
 
 
-export default function VerifyUsername({ setPage, setForm, form }) {
+export default function VerifyUsername({ setPage, setForm, form,setDataImportante, dataImportante, router }) {
   const [verifyAccountCheck, { loading, data, error }] = useLazyQuery(CHECK_VERIFY_USERNAME)
-  // const [form, setForm] = useState(initialForm)
+ 
+  const handleChange = (e) => {
+    setForm({ ...form, nombre:e.target.value.replace(/[^a-zA-Z0-9\s]/g, ''), userName: e.target.value, checked: false, pageCheck:1})
+    
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(data?.verifyAccountCheck || form?.checked){
-      setPage(1)
-      setForm({...form, checked:true})      
+    if (form.userName?.replace(/\s/g, '').length >= 3) {
+      setForm({...form, checked:true, nombre:form.nombre.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, ' ').trim()})
+      verifyAccountCheck({ variables: { userName: form.userName.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, ' ').trim() } })
     }
   }
-  const handleChange = useDebouncedCallback((e) => {
-    console.log(e.target.value);
-    // setForm({ ...form, [e.target.name]: e.target.value.replace(/\s/g, '-').replace(/[^a-zA-Z0-9-]/g, ''), checked:false })
-    setForm({ ...form, [e.target.name]: e.target.value.replace(/[^a-zA-Z0-9\s]/g, ''), checked:false })
-    
-    if (e.target.value.replace(/\s/g, '').length >= 3) {
-      verifyAccountCheck({ variables: { username: e.target.value.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, ' ').trim() } })
+  let changePage =()=>{
+    router.push(`/signup?page=2`)
+  }
+  useEffect(()=>{
+    if (!data?.verifyAccountCheck && form.checked) {
+      setPage(2)
+      changePage()
+      setForm({ ...form, pageCheck: 2, checked:false  })
+      setDataImportante({...dataImportante, nombre:form.nombre, userName:form.userName.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, ' ').trim().replace(/\s/g, '-').toLowerCase()})
     }
-  }, 500)
+  },[data])
+  console.log(form);
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
+    <div style={{ margin: '32px 0 64px 0', display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box', maxWidth: '600px', width: '100%' }}>
       {/* <p style={{ fontSize: '14px', color: '#4EDD76', fontWeight: '600', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}><ion-icon style={{ color: '#4EDD76', fontSize: '24px' }} name="ribbon-outline"></ion-icon>+50 talleres y almacenes registrados</p> */}
-      <h1 className={styles.titleAccess}>Empecemos por el nombre de tu taller!</h1>
+      <h2 className={styles.titleAccess}>{form.tipo === 'Taller' ? 'Empecemos por el nombre de tu taller!' : 'Empecemos por tu nombre!'}</h2>
       <p style={{ margin: '8px 0 32px 0', color: '#5c5c5c' }}>
-        Crea tú perfil en linea personalizado y consigue mas <span style={{ fontWeight: '700' }}>clientes</span>
+        Este sera el nombre con el que seras conocido por los demas.
       </p>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.containerInputAcceso}>
-          <input
-            onChange={(e)=>handleChange(e)}
-            name="username"
-            required
-            type="text"
-            placeholder="Nombre del Negocio"
-            // value={form.username}
-            className={styles.inputAcceso}
-          />
-          {loading && <Image src="/loader.svg" alt="loader" width={24} height={24} />}
-          {((data?.verifyAccountCheck && form.username.length >= 3)|| form?.checked) && (
-            <ion-icon
-              style={{ color: '#4EDD76', fontSize: '20px' }}
-              name="checkmark-circle"
-            ></ion-icon>
-          )}
-          {data?.verifyAccountCheck === false && (
-            <ion-icon
-              onClick={()=> setForm({...form, username:'', checked:false})}
-              style={{ color: '#5c5c5c', fontSize: '20px', alignSelf:'center' }}
-              name="close"
-            ></ion-icon>
-          )}
+      <form >
+        <div style={{ marginBottom: '64px' }} className={styles.containerInputAcceso}>
+          <Input type={'text'} name={'nombre'} value={form.nombre} placeholder={'Tu nombre / Nombre del Taller'} onChange={handleChange} error={data?.verifyAccountCheck && 'Este nombre ya está en uso, prueba otro nombre'} required />
         </div>
-        {data?.verifyAccountCheck === false && (
-          <p
-            style={{
-              color: '#f50057',
-              fontSize: '14px',
-              marginTop: '16px',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-          >
-            <ion-icon style={{ fontSize: '20px' }} name="alert-circle"></ion-icon>
-            Este nombre ya está en uso, prueba otro nombre
-          </p>
+
+        {form.userName?.length >= 3 &&!loading && (
+          <Button onClick={handleSubmit} size='lg' style={{ backgroundColor: loading ? '#d9d9d9' : '#373737' }} variant={ButtonVariant.secondary}>
+            {loading ? <Image src="/loader.svg" alt="loader" width={24} height={24} /> : 'Siguiente'}
+          </Button>
         )}
-        {!data?.verifyAccountCheck && <div style={{ height: '82px' }}></div>}
-        {(data?.verifyAccountCheck || form?.checked) && (
-          <button type="submit" className={styles.button2}>
-            Crear perfil
-          </button>
+        {loading && (
+          <Button size='lg' variant={ButtonVariant.secondary}>
+            <Image src="/loader.svg" alt="loader" width={24} height={24} />
+          </Button>
         )}
-        
+
       </form>
     </div>
   )

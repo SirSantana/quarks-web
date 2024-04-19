@@ -206,25 +206,24 @@
   flex-direction: row;
   width: 100%;
   margin: 0 auto;
-  gap: 64px;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: start;
 }
 .containerSectionsTaller{
-  width: 55%;
-  margin-top: 10vh;
+  width: 60%;
+  margin-top: 20vh;
+  max-width: 760px;
 }
 
 /* width: '45%', height: '100vh', backgroundColor: '#373737', position: 'sticky', top: 0, alignItems: 'center', display: 'flex', justifyContent: 'center'  */
 .containerSticky {
   width: 45%;
   height: 100vh;
-  background-color: #373737;
+  /* background-color: #373737; */
   top: 0;
-  align-items: center;
   display: flex;
-  justify-content: center;
   position: sticky;
+  padding: 32px;
 }
 .cardDataDesktop{
   position: absolute;
@@ -241,8 +240,8 @@
 .imgFotoPortada2 {
   width: 100%;
   max-width: 500px;
-  width: 400px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   margin: auto;
   border-radius: 24px;
@@ -909,6 +908,8 @@ background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
     margin-top: 40px;
     width: 100%;
     top: 40px;
+  padding: 0px;
+
     height: fit-content;
     background-color: white;
   }

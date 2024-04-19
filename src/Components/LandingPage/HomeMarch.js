@@ -35,7 +35,7 @@ export default function HomeMarch({ data, mode }) {
           </Link>
           <nav style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
             {/* <p style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>Servicios</p> */}
-            <Link style={{ textDecoration: 'none', color: 'white', fontSize: '12px', fontWeight: '600' }} href={'/acceso'}>Tienes un Taller?</Link>
+            <Link style={{ textDecoration: 'none', color: 'white', fontSize: '12px', fontWeight: '600' }} href={'/signup'}>Tienes un Taller?</Link>
             {/* <p style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>Tienes un taller?</p> */}
           </nav>
         </div>

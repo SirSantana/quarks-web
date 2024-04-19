@@ -2,8 +2,6 @@ import { GET_CALIFICACION_OPINIONES } from "@/graphql/queries"
 import { useQuery } from "@apollo/client"
 
 
-
-
 export default function SectionDescription({data}) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: data?.id } })
   return (

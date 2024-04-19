@@ -40,12 +40,12 @@ export default function ServiciosTab({ categorias, tipo, id }) {
       <h2 style={{ fontSize: '18px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '16px' }} >{tipo !== 'Almacen' ? "Servicios Ofrecidos" : "Repuestos Manejados"} </h2>
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', width: '100%', gap: '16px', justifyContent: 'space-between' }}>
         {conImagen.map(servicio => (
-          <div onClick={() => handleSolicitarServicio({ servicio: servicio.nombre })} className={styles.containerServiceTab} style={{ width: '100%' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '16px 0' }}>
+          <div onClick={() => handleSolicitarServicio({ servicio: servicio.nombre })} className={styles.containerServiceTab} >
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '400', color: '#373737' }}>{servicio.nombre}</h3>
-                {servicio.descripcion && <p style={{ fontSize: '12px', color: '#5C5C5C', maxWidth: '90%' }}>{servicio.descripcion?.slice(0, 60) + '...'}</p>}
-                <p style={{ fontSize: '14px', fontWeight: '600' }}>Desde $-</p>
+                <h3 style={{ fontSize: '16px', fontWeight: '500', color: '#373737' }}>{servicio.nombre}</h3>
+                {servicio.descripcion && <p style={{ fontSize: '12px', color: '#5C5C5C', maxWidth: '90%', lineHeight:'1.5' }}>{servicio.descripcion?.slice(0, 60) + '...'}</p>}
+                {/* <p style={{ fontSize: '14px', fontWeight: '600' }}>Desde $-</p> */}
               </div>
               <Image
                 src={`/${servicio.img}.png`}
@@ -57,7 +57,7 @@ export default function ServiciosTab({ categorias, tipo, id }) {
                 alt={`Talleres de ${servicio.nombre} cerca a mi en Bogotá`}
               />
             </div>
-            <div style={{ width: '90%', margin: '0 auto', backgroundColor: '#EFEFEF', height: '1px' }} />
+            {/* <div style={{ width: '90%', margin: '0 auto', backgroundColor: '#EFEFEF', height: '1px' }} /> */}
           </div>
         ))}
       </div>
@@ -68,10 +68,9 @@ export default function ServiciosTab({ categorias, tipo, id }) {
             <Icon  name={visibleOtrosServicios ? IconCatalog.chevronUpOutline : IconCatalog.chevronDownOutline} />
           </div>
           <div style={{ display: 'flex',  flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-
             {visibleOtrosServicios &&
               sinImagen?.map(el => (
-                <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#f3f3f3', borderRadius: '8px', padding: '4px 12px', height: '40px', }}>
+                <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#f3f3f3', borderRadius: '8px', padding: '4px 12px',  }}>
                   <p style={{ margin: 0, fontSize: '14px', color: '#464646', fontWeight: '500' }}>{el}</p>
                 </div>
               ))}

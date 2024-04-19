@@ -42,7 +42,8 @@ export const IconCatalog = {
   shareSocialOutline:'share-social-outline',
   image:'image',
   peopleOutline:'people-outline',
-  readerOutline:'reader-outline'
+  readerOutline:'reader-outline',
+  ellipseOultine:'ellipse-outline'
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {

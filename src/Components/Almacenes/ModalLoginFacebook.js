@@ -4,7 +4,6 @@ import { signIn, signOut, useSession, } from 'next-auth/react'
 export default function ModalLoginFacebook({ setVisibleModalLogin, }) {
 
   const { data: session } = useSession()
-  console.log(session);
 
   return (
     <div className={styles.modalContent} style={{ width: '90%', borderRadius: '8px', maxWidth: '400px', padding: '16px', boxSizing: 'border-box' }}>

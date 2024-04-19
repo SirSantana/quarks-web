@@ -69,7 +69,7 @@ export default function NewNavbarWithSearch2({ visibleSlider }) {
             </div>
           </form>
           <ul className={styles.navv}>
-            <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/acceso'}>Tienes un Taller?</Link>
+            <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/signup'}>Tienes un Taller?</Link>
           </ul>
         </div>
         {visibleSlider && <section  className={styles.sectionSliderShowNav}>

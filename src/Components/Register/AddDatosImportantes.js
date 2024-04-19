@@ -11,28 +11,50 @@ import Image from 'next/image'
 import useAuth from '@/hooks/useAuth'
 import AddFotoPerfil from './AddFotoPerfil'
 import { GET_NEGOCIOVDOS_ONE } from '@/graphql/queries'
+import SelectIndicativo from './SelectIndicativo'
+import dynamic from 'next/dynamic'
+import Button, { ButtonVariant } from '../Button/Button'
+import Input from '../Input/Input'
 
-export default function AddDatosImportantes({ setPage, setDataImportante, dataImportante }) {
-  const [editNegocioVDos, { loading, data, error }] = useMutation(EDIT_NEGOCIO_VDOS, {refetchQueries:[{query:GET_NEGOCIOVDOS_ONE}]})
+const MapDireccion = dynamic(
+  () => import('./MapDireccion'), // replace '@components/map' with your component's location
+  { ssr: false } // This line is important. It's what prevents server-side render
+)
+const MapCobertura = dynamic(
+  () => import('./MapCobertura'), // replace '@components/map' with your component's location
+  { ssr: false } // This line is important. It's what prevents server-side render
+)
+export default function AddDatosImportantes({ setPage, setDataImportante, dataImportante, setForm, form, router }) {
+  const [editNegocioVDos, { loading, data, error }] = useMutation(EDIT_NEGOCIO_VDOS, { refetchQueries: [{ query: GET_NEGOCIOVDOS_ONE }] })
   const [errorInput, setErrorInput] = useState(false)
-  const router = useRouter()
 
 
   const handleChange = (e) => {
-    setDataImportante({ ...dataImportante, [e.target.name]: e.target.value })
+    setDataImportante({ ...dataImportante, [e?.target?.name]: e?.target?.value })
+    if (e.target.name === 'telefono') {
+      setDataImportante({ ...dataImportante, whatsapp: e?.target?.value, telefono: e?.target?.value, })
+    }
+    setErrorInput(false)
+  }
+  const handleChangeIndicativo = (e) => {
+    setDataImportante({ ...dataImportante, [e?.target?.name ? e.target.name : e.index]: e?.target?.value ? e?.target?.value : e?.value })
     setErrorInput(false)
   }
 
-
-
-  let disabled = dataImportante.ciudad.length <= 0 || dataImportante?.pais.length <= 0 || dataImportante?.direccion.length <= 0 || dataImportante?.telefono.length <= 0 || dataImportante?.whatsapp.length <= 0
-
+  let disabled = dataImportante.ciudad?.length <= 0 || dataImportante?.pais?.length <= 0 || dataImportante?.direccion?.length <= 0 || dataImportante?.telefono?.length <= 0 || dataImportante.coordenadas?.length <= 1 || dataImportante.fotoperfil.length <= 0
   const handleSubmit = (e) => {
     e.preventDefault()
     if (disabled) {
-      return setErrorInput('Debes completar todos los campos')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return setErrorInput(true)
     }
-    editNegocioVDos({ variables: dataImportante })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setPage(4)
+    router.push(`/signup?page=4`)
+    setForm({ ...form, pageCheck: 4 })
+    let dataRegistroString = JSON.stringify(dataImportante);
+    localStorage.setItem('dataRegistro', dataRegistroString);
+    // editNegocioVDos({ variables: dataImportante })
   }
   useEffect(() => {
     if (data) {
@@ -40,95 +62,60 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
     }
   }, [data])
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
-      <Icon name={IconCatalog.chevronBackOutline} size={'md'} onClick={() => setPage(2)} />
+    <div style={{ margin: '32px 0 64px 0', display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box', maxWidth: '600px', width: '100%' }}>
 
-      <h1 className={styles.titleAccess}>Agreguemos la foto de tu taller y unos datos de contacto.</h1>
-      <AddFotoPerfil setDataImportante={setDataImportante} dataImportante={dataImportante} fotoRegister={true} />
-
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
+      <h2 className={styles.titleAccess}>Ya casi finalizamos!</h2>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', margin: '32px 0 16px 0' }}>
         <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Icon name={IconCatalog.compassOutline} size='md' />
-
+          <Icon name={IconCatalog.readerOutline} size='md' />
         </div>
-        <input value={dataImportante.direccion} onChange={handleChange} className={styles.inputsAddInfo} type='text' name='direccion' placeholder='Agregar direccion' />
-        {dataImportante?.direccion?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
+        <p style={{ fontSize: '16px', fontWeight: '600' }}>Datos Basicos</p>
+      </div>
+      <AddFotoPerfil setDataImportante={setDataImportante} dataImportante={dataImportante} fotoRegister={true} error={errorInput && !dataImportante.fotoperfil} />
+
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', marginTop: '12px', }}>
+        <SelectIndicativo handleChange={handleChangeIndicativo} name={'indicativo'} value={dataImportante.indicativo} setDataImportante={setDataImportante} dataImportante={dataImportante} />
+        <Input type={'number'} name={'telefono'} placeholder={'Tú movil'} onChange={handleChange} value={dataImportante.telefono} error={errorInput && dataImportante.telefono?.length <= 0 && 'Es requerido'} required inputMode={'numeric'} />
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
-        <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Icon name={IconCatalog.earthOutline} size='md' />
-        </div>
-        <input value={dataImportante.ciudad} onChange={handleChange} className={styles.inputsAddInfo} type='text' name='ciudad' placeholder='Agregar ciudad' />
-        {dataImportante?.ciudad?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', marginTop: '12px', }}>
+        <Input type={'text'} name={'ciudad'} placeholder={'Agregar ciudad'} onChange={handleChange} value={dataImportante.ciudad} error={errorInput && dataImportante.ciudad?.length <= 0 && 'Es requerido'} required />
+        <SelectIndicativo handleChange={handleChangeIndicativo} name={'pais'} value={dataImportante.pais} setDataImportante={setDataImportante} dataImportante={dataImportante} />
 
+        {/* <Input type={'text'} name={'pais'} placeholder={'Agregar pais'} onChange={handleChange} value={dataImportante.pais} error={errorInput && dataImportante.pais?.length <= 0 && 'Es requerido'} required /> */}
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
-        <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Icon name={IconCatalog.earthOutline} size='md' />
-        </div>
-        <input value={dataImportante.pais} onChange={handleChange} className={styles.inputsAddInfo} type='text' name='pais' placeholder='Agregar pais' />
-        {dataImportante?.pais?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
-
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
-        <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Icon name={IconCatalog.callOutline} size='md' />
-        </div>
-        <input value={dataImportante.telefono} onChange={handleChange} className={styles.inputsAddInfo} type='tel' name='telefono' placeholder='Agregar numero de telefono' />
-        {dataImportante?.telefono?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
-
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
-        <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Icon name={IconCatalog.logoWhatsapp} size='md' />
-        </div>
-        <input value={dataImportante.whatsapp} onChange={handleChange} className={styles.inputsAddInfo} type='tel' name='whatsapp' placeholder='Agregar numero de WhatsApp' />
-        {dataImportante?.whatsapp?.length > 3 ? <Icon name={IconCatalog.checkmarkCircle} size='md' style={{ color: '#4EDD76', }} /> : <Icon name={IconCatalog.alertCircleOutline} size='md' style={{ color: '#f50057', }} />}
-
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', marginTop: '12px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', marginTop: '48px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', marginBottom: '16px' }}>
           <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Icon name={IconCatalog.calendarOutline} size='md' />
           </div>
-          <p style={{ fontSize: '14px', fontWeight: '600' }}>Horario</p>
+          <p style={{ fontSize: '16px', fontWeight: '600' }}>Horario</p>
         </div>
-
-        {/* <input value={dataImportante.horario} onChange={handleChange} className={styles.inputsAddInfo} type='text' name='horario' placeholder='Agregar horario' />
-				{dataImportante?.horario?.length > 3 ? <ion-icon style={{ fontSize: '20px', color: '#4EDD76', }} name="checkmark-circle"></ion-icon> : <ion-icon style={{ fontSize: '20px', }} name="ellipse-outline"></ion-icon>} */}
         <AddHorario setDataImportante={setDataImportante} dataImportante={dataImportante} />
       </div>
-      {(error || errorInput) && (
-        <p
-          style={{
-            color: '#f50057',
-            fontSize: '14px',
-            marginTop: '16px',
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: '8px',
-          }}
-        >
-          <Icon name={IconCatalog.alertCircle} size='md' />
-          {error?.message || errorInput}
-        </p>
-      )}
-      <button style={{ backgroundColor: !disabled || loading ? '#f50057' : '#c5c5c5' }} onClick={handleSubmit} type="submit" className={styles.button2}>
-        {loading ?
-          <p style={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-            Guardando
-            <Image src="/loader.svg" alt="loader" width={24} height={24} />
-          </p>
-          : 'Guardar cambios'
-        }
 
-      </button>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', margin: '32px 0 32px 0' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', marginBottom: '16px' }}>
+          <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Icon name={IconCatalog.globeOutline} size='md' />
+          </div>
+          <p style={{ fontSize: '16px', fontWeight: '600' }}>Direccion y Ubicacion</p>
+        </div>
+        <Input type={'text'} name={'direccion'} placeholder={'Agregar direccion'} onChange={handleChange} value={dataImportante.direccion} error={errorInput && dataImportante.direccion?.length <= 0 && 'Es requerido'} required />
+        <p style={{ fontSize: '14px', marginTop: '8px', fontWeight: '600', color: errorInput && dataImportante.coordenadas?.length <= 1 && '#f50057' }}>{dataImportante.tipo === 'Taller' ? 'Ubica el punto en el mapa. Esta sera ubicacion que veran los demas' : 'Ajusta tu posicion y el rango de disponibilidad de tus servicios.'}</p>
+
+        {dataImportante.tipo === 'Taller'
+          ?
+          <MapDireccion setDataImportante={setDataImportante} dataImportante={dataImportante} />
+          :
+          <MapCobertura setDataImportante={setDataImportante} dataImportante={dataImportante} />
+        }
+      </div>
+
+      <Button disable={disabled} onClick={handleSubmit} size='lg' variant={ButtonVariant.secondary}>
+        Siguiente
+      </Button>
 
     </div>
   )

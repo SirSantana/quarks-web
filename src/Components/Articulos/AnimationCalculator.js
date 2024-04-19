@@ -59,7 +59,6 @@ export default function AnimationCalculator({ calcular, cylinderHeight, cylinder
       <svg style={{ marginTop: '8px' }} width={cylinderWidth} 
        height={middle ? cylinderHeight / 2 : cylinderHeight - 2}
       >
-        {/* Rectángulo para representar el pistón */}
         <rect
           x={0}
           y={cylinderHeight - pistonHeight * cylinderHeight - position}
@@ -69,7 +68,6 @@ export default function AnimationCalculator({ calcular, cylinderHeight, cylinder
           stroke="black"
           strokeWidth="2"
         />
-        {/* Otro SVG para ocultar el borde inferior del cilindro */}
         <svg width={cylinderWidth} height={middle ? cylinderHeight / 2 : cylinderHeight - 2}>
           <rect
             x={0}

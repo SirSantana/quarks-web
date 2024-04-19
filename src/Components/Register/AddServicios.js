@@ -1,17 +1,18 @@
 
 import styles from '@/styles/Faq.module.css'
 import { categorias2 } from '../Talleres/ServiciosOfrecidos'
-import { useState } from 'react'
 import { MagicMotion } from "react-magic-motion";
-import useAuth from '@/hooks/useAuth';
+import Button, { ButtonVariant } from '../Button/Button';
+import { useState } from 'react';
+import Input from '../Input/Input';
 
 
-export default function AddServicios({ setPage, setCategorias, addCategory, setAddCategory, categorias, otherCategorias, setOtherCategorias }) {
+export default function AddServicios({ setPage, setCategorias, categorias, setForm, form, setDataImportante, dataImportante, router }) {
+  const [addCategory, setAddCategory] = useState('')
+  const [otherCategorias, setOtherCategorias] = useState([])
 
-const {user} = useAuth()
-
-console.log(user);
   const handleChange = (category) => {
+    setForm({ ...form, pageCheck: 2 })
     setCategorias((prevCategorias) => {
       if (prevCategorias.includes(category)) {
         // Si existe, elimínalo del array
@@ -24,6 +25,8 @@ console.log(user);
   }
   const handleChange2 = (category) => {
     setAddCategory('')
+    setForm({ ...form, pageCheck: 2 })
+
     setOtherCategorias((prevCategorias) => {
       if (prevCategorias.includes(category)) {
         // Si existe, elimínalo del array
@@ -49,23 +52,30 @@ console.log(user);
     setAddCategory('')
 
   }
+  const changePage = (e) => {
+    if (categorias?.length >= 1) {
+      router.push(`/signup?page=3`)
+      setPage(3), window.scrollTo({ top: 0, behavior: 'smooth' }), setForm({ ...form, pageCheck: 3 })
+      setDataImportante({ ...dataImportante, categorias: categorias.concat(otherCategorias) })
+    }
+  }
   return (
     <MagicMotion>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
+      <div style={{ margin: '32px 0 64px 0', display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'flex-end', boxSizing: 'border-box', maxWidth: '600px', width: '100%' }}>
         <h1 className={styles.titleAccess}>Agreguemos los servicios que manejas para que tus usuarios lo sepan!</h1>
 
         <ul
           style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', boxSizing: 'border-box', gap: '20px', marginTop: '32px', width: '100%', justifyContent: 'space-between' }}
         >
           {categorias2.map(category => (
-            <div onClick={() => handleChange(category.db)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
+            <div key={category.nombre} onClick={() => handleChange(category.db)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
               <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {category?.img ? <img src={`./${category?.img}.png`} style={{ width: '30px', height: '30px' }} /> : <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>}
               </div>
               <p style={{ fontSize: '14px', flex: 1 }}>{category.nombre}</p>
               {categorias.includes(category.db)
-                ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76' }} name="checkbox"></ion-icon>
-                : <div style={{ borderRadius: '4px', width: '18px', height: '18px', border: '1px solid black', margin:'2px' }}>
+                ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#373737' }} name="checkbox"></ion-icon>
+                : <div style={{ borderRadius: '4px', width: '18px', height: '18px', border: '1px solid black', margin: '2px' }}>
                 </div>
               }
 
@@ -77,13 +87,13 @@ console.log(user);
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', boxSizing: 'border-box', gap: '20px', marginTop: '12px', width: '100%', justifyContent: 'space-between' }}
           >
             {otherCategorias.map(category => (
-              <div onClick={() => handleChange2(category)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
+              <div key={category} onClick={() => handleChange2(category)} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
                 <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>
                 </div>
                 <p style={{ fontSize: '14px', flex: 1 }}>{category}</p>
                 {otherCategorias.includes(category)
-                  ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#4EDD76'}} name="checkbox"></ion-icon>
+                  ? <ion-icon style={{ fontSize: '24px', cursor: 'pointer', color: '#373737' }} name="checkbox"></ion-icon>
                   : <div style={{ borderRadius: '4px', width: '19.5px', height: '19.5px', border: '1px solid black' }}>
                   </div>
                 }
@@ -93,24 +103,28 @@ console.log(user);
           </ul>
 
         }
-        <form onSubmit={handleSubmitCategory} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px' }}>
+        <form onSubmit={handleSubmitCategory} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', marginTop: '12px', marginBottom: '32px', }}>
           <div onClick={() => handleChange2(addCategory)} style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <ion-icon name="add-outline" style={{ fontSize: '20px' }}></ion-icon>
           </div>
-          <input value={addCategory} onChange={(e) => setAddCategory(e.target.value)} className={styles.inputsAddInfo} type='text' name='categoria' placeholder='Agregar otro' />
+          <Input style={{flex:1}} type={'text'} name={'categoria'} placeholder={'Agregar otro servicio. Ej: Tapiceria'} onChange={(e) => setAddCategory(e.target.value)} value={addCategory} />
+
+          {/* <input value={addCategory} onChange={(e) => setAddCategory(e.target.value)} className={styles.inputsAddInfo} type='text' name='categoria' placeholder='Agregar otro' /> */}
 
           {otherCategorias.includes(addCategory)
             ? <button type='submit'>
-              <ion-icon  style={{ fontSize: '24px', cursor: 'pointer' }} name="checkbox"></ion-icon>
+              <ion-icon style={{ fontSize: '24px', cursor: 'pointer', }} name="checkbox"></ion-icon>
             </button>
             : <div onClick={() => handleChange2(addCategory)} style={{ borderRadius: '4px', width: '19.5px', height: '19.5px', border: '1px solid black' }}>
             </div>
           }
         </form>
-
-        <button onClick={() => { setPage(3), window.scrollTo({ top: 0, behavior: 'smooth' }) }} type="submit" className={styles.button2}>
+        <Button onClick={changePage} size='lg' variant={ButtonVariant.secondary}>
           Siguiente
-        </button>
+        </Button>
+        {/* <button onClick={() => { setPage(3), , setForm({ ...form, pageCheck: 3 }) }} type="submit" className={styles.button2}>
+          Siguiente
+        </button> */}
       </div>
     </MagicMotion>
   )

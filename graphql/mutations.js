@@ -200,15 +200,13 @@ mutation createNegocioVDos($email:String, $password:String, $username:String){
 `
 
 export const EDIT_NEGOCIO_VDOS = gql`
-mutation editNegocioVDos($direccion:String,  $ciudad:String,$pais:String, $whatsapp:String, $telefono:String, $horario:String, $fotoperfil:String, $categorias:[String], $nombre:String){
-  editNegocioVDos(input:{direccion:$direccion, ciudad:$ciudad,pais:$pais,  whatsapp:$whatsapp, telefono:$telefono,horario:$horario, fotoperfil:$fotoperfil,categorias:$categorias, nombre:$nombre} ){
-      nombre
-      direccion
+mutation editNegocioVDos($direccion:String,  $ciudad:String,$pais:String, $whatsapp:String, $telefono:String, $horario:String, $fotoperfil:String, $categorias:[String], $nombre:String, $userName:String, $email:String, $indicativo:String, $tipo:String, $vehiculo:String, $coordenadas:[Float]){
+  editNegocioVDos(input:{direccion:$direccion, ciudad:$ciudad,pais:$pais,  whatsapp:$whatsapp, telefono:$telefono,horario:$horario, fotoperfil:$fotoperfil,categorias:$categorias, nombre:$nombre, userName:$userName, email:$email, indicativo:$indicativo, tipo:$tipo, vehiculo:$vehiculo, coordenadas:$coordenadas} ){
       userName
+      nombre
       fotoperfil
-      categorias
-      telefono
-      whatsapp
+      direccion
+      tipo
       id
   }
 }

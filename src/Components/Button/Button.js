@@ -34,7 +34,7 @@ export default function Button({ children, size = ButtonSize.base, active = fals
       <button
         onClick={onClick}
         className={`${styles.button} ${variantButton} ${sizeButton}`}
-        style={{ ...style, width: fullWidth && '100%' }}
+        style={{ ...style, width: fullWidth && '100%', opacity:disable && '0.5', cursor:disable &&'not-allowed' }}
       >
         {icon && <Icon name={icon} size='md' style={{ fontSize: '20px', color: 'white' }} />}
         {children}

@@ -42,27 +42,6 @@ export default function ServidosOfrecidos({ data, }) {
       <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}><Icon size='lg' name={IconCatalog.colorWandOutline} /> {data?.tipo !== 'Almacen' ? "Servicios Ofrecidos" : "Repuestos Manejados"} </h2>
 
       <SliderServiciosTaller categorias={conImagen} id={data?.id}/>
-      {/* <div className={styles.containerHeaderCalendario} style={{ flexDirection: 'column', alignItems: 'center', gap:0}}>
-        {data?.categorias.map(el => {
-          const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
-          return (
-            <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
-              {category?.img
-                ?
-                <div style={{ borderRadius: '10px', width: '40px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center',  }}>
-                  <Image width={30} height={30} alt={`Taller de ${category ? category?.nombre : el} de autos`} src={`/${category?.img}.png`}/>
-                </div>
-                :
-                <div style={{ position: 'relative', width: '40px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ width: '0.5px', height: '100%', backgroundColor: '#c5c5c5', alignSelf: 'center' }}></div>
-                </div>
-              }
-              
-              <p style={{ fontSize: '14px', flex: 1 }}>{category ? category?.nombre : el}</p>
-            </div>
-          )
-        })}
-      </div > */}
       {sinImagen.length>0 &&
         <>
           <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}><Icon size='lg' name={IconCatalog.colorWandOutline} />Otros servicios </h2>

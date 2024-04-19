@@ -25,7 +25,7 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
       </div>
       <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '90%', maxWidth: '600px' }}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-          <Icon size='lg' name={IconCatalog.star} style={{ color: '#FBBC04' }} />
+          <Icon size='lg' name={IconCatalog.star} style={{ color: '#FBBC04'}} />
           {data?.getOpiniones.length > 0
             ?
             <>

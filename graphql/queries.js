@@ -429,7 +429,14 @@ export const GET_ONE_NEGOCIOVDOS = gql`
       fotossecundarias
       userName
       revisiones
+      coordenadas
+      indicativo
     }
+  }
+`
+export const GET_NEGOCIOVDOS_BY_EMAIL = gql`
+  query getNegocioVDosByEmail($email:String){
+    getNegocioVDosByEmail(email:$email)
   }
 `
 export const GET_WHATSAPP_NEGOCIO = gql`
@@ -594,8 +601,8 @@ query getConsumos{
 `
 
 export const CHECK_VERIFY_USERNAME = gql`
-query verifyAccountCheck($username:String){
-  verifyAccountCheck(username:$username)
+query verifyAccountCheck($userName:String){
+  verifyAccountCheck(userName:$userName)
 }
 `
 

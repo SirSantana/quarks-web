@@ -23,7 +23,7 @@ function generarMarcadoEstructurado(articulo) {
   }
 }
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false }) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
   return (
     <>
@@ -104,7 +104,7 @@ export default function Layout({ children, title, description, type, price, keyw
         />
       </Head>
 
-      <main >
+      <main  >
         {/* <Nav /> */}
         {/* <NewNavbar/> */}
 

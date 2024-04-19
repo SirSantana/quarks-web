@@ -6,7 +6,7 @@ import styles from '@/styles/Faq.module.css'
 import { useState } from 'react';
 
 let tabs = ['Servicios', 'Ubicacion', 'Horario','Redes Sociales', 'Acerca de',  'Reseñas'];
-export default function SliderTab({ handleChangeSection, refs }) {
+export default function SliderTab({ handleChangeSection, refs, desktop}) {
   const [activeTab, setActiveTab] = useState(-1); // Estado para mantener la pestaña activa
   const [disableClick, setDisableClick] = useState(false);
   const settings = {
@@ -40,7 +40,7 @@ export default function SliderTab({ handleChangeSection, refs }) {
   };
 
   return (
-    <div className={styles.containerSliderTab} >
+    <div className={desktop?styles.containerSliderTabDesktop:styles.containerSliderTab} >
       <Slider className={styles.sliderTab} {...settings}>
         {tabs.map((el, index) => (
           <div key={index} className={index === activeTab ? styles.activeTab : styles.tab}>

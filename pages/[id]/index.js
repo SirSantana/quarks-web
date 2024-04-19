@@ -1,7 +1,6 @@
 import { client } from "@/client";
 import { GET_ONE_NEGOCIOVDOS } from "@/graphql/queries";
 import Layout from "@/src/Components/Layout";
-import MapaUbicacion from "@/src/Components/Talleres/MapaUbicacion";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
@@ -16,6 +15,7 @@ import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
 import SectionPreguntasFrecuentes from "@/src/Components/Talleres/V3/SectionPreguntasFrecuentes";
 import SectionDescription from "@/src/Components/Talleres/V3/SectionDescription";
 import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
+import ModalButtonsContacto from "@/src/Components/Talleres/ModalButtonsContacto";
 
 const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
   { ssr: false })
@@ -32,6 +32,8 @@ const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
 const BogotaMap = dynamic(() => import('@/src/Components/Talleres/MapaBogotaCobertura'),
   { ssr: false })
+const MapaUbicacion = dynamic(() => import('@/src/Components/Talleres/MapaUbicacion'),
+  { ssr: false })
 const FooterSectionFixed = dynamic(() => import('@/src/Components/Talleres/FooterSectionFixed'),
   { ssr: false })
 const ButtonsFooter = dynamic(() => import('@/src/Components/Talleres/ButtonsFooter'),
@@ -42,6 +44,7 @@ const ButtonTestWhatsapp = dynamic(() => import('@/src/Components/Talleres/Butto
 export default function NegocioVDos({ data }) {
   const router = useRouter()
   const [visibleModalImage, setVisibleModalImage] = useState(false)
+  const [visibleModalButtons, setVisibleModalButtons] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionMecanico = `Mecanico a domicilio, zona de cobertura Bogota y alrededores. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Servicio especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
@@ -63,7 +66,6 @@ export default function NegocioVDos({ data }) {
     }
     ref.current.scrollIntoView({ behavior: 'smooth' });
   }
-
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <div className={styles.containerAlmacen}>
@@ -84,23 +86,32 @@ export default function NegocioVDos({ data }) {
               className={styles.opacityImg}
             />
             <div className={styles.cardDataDesktop} >
-              <DataTaller data={data} />
+              <DataTaller data={data} mobile={true} />
             </div>
             <ButtonsHeader data={data} />
           </div>
         </div>
 
         <div className={styles.containerSectionsTaller}>
-          <DataTaller data={data} mobile={true} />
+
           <div style={{ marginBottom: '16px' }} className={styles.containerMobile} >
-            <WidgetMenu data={data} onClick={handleClickReseñasSection} handleChangeSection={handleChangeSection} mapSectionRef={mapSectionRef} refReseñas={refReseñas} />
+            <SliderTab handleChangeSection={handleChangeSection} refs={{
+              mapSectionRef,
+              refServicios,
+              refHorarios,
+              refReseñas,
+              refAcercaDe,
+              refRedes
+            }} desktop={true} />
+            <DataTaller data={data} sizes={true}/>
+            <WidgetMenu data={data} onClick={handleClickReseñasSection} handleChangeSection={handleChangeSection} mapSectionRef={mapSectionRef} refReseñas={refReseñas} indicativo={data?.indicativo} />
             {data?.userName === 'multiservicios_ismael_sanchez'
               ?
               <FooterSectionFixed data={data} />
               : data?.userName === 'optra_club_colombia'
                 ? <ButtonTestWhatsapp whatsapp={data?.whatsapp} id={data?.id} />
                 :
-                <ButtonsFooter data={data} />
+                <ButtonsFooter data={data} setVisibleModalButtons={setVisibleModalButtons} />
             }
           </div>
           <SliderTab handleChangeSection={handleChangeSection} refs={{
@@ -110,20 +121,24 @@ export default function NegocioVDos({ data }) {
             refReseñas,
             refAcercaDe,
             refRedes
-          }} />
+          }} desktop={false} />
           <div className={styles.containerMobile} >
             <section ref={refServicios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
               <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} id={data?.id} />
             </section>
             <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
-            {data?.urltallermaps &&
+            {(data?.urltallermaps || data?.coordenadas?.length > 0) &&
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data?.direccion + ' ' + data?.localidad + ' ' + data?.ciudad + '. ' + data?.pais} />
+                <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data
+                  ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
+                  : ''} coordenadas={data?.coordenadas} img={data?.fotoperfil} />
               </section>
             }
-            {data?.tipo === 'Mecanico a Domicilio' &&
+            {(data?.tipo === 'Mecanico a Domicilio' || data?.tipo === 'Mecanico') &&
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <BogotaMap />
+                <BogotaMap coordenadas={data?.coordenadas} img={data?.fotoperfil} direccion={data
+                  ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
+                  : ''} />
               </section>
             }
             <section style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
@@ -159,6 +174,8 @@ export default function NegocioVDos({ data }) {
       </div>
       {visibleModalImage &&
         <ModalImagePerfil img={data?.fotoperfil} setVisibleModalImage={setVisibleModalImage} />}
+      {visibleModalButtons && <ModalButtonsContacto data={data} setVisibleModalButtons={setVisibleModalButtons} />}
+
     </Layout>
 
 

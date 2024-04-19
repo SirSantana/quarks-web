@@ -75,7 +75,7 @@ export default function NewNavbarWithSearch({ mode, visibleSlider = false }) {
           </Link>
           <FormSearchTaller />
           <nav className={styles.navv}>
-            <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/acceso'}>Tienes un Taller?</Link>
+            <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/signup'}>Tienes un Taller?</Link>
           </nav>
         </div>
         {visibleSlider && <nav className={styles.sectionSliderShowNav}>

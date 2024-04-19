@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import styles2 from '@/styles/Components.module.css'
 
 
-export default function AddFotoPerfil({ setDataImportante, dataImportante, setEditMode, editMode, fotoActual, setPrevImage, fotoRegister=false}) {
+export default function AddFotoPerfil({ setDataImportante, dataImportante, setEditMode, editMode, fotoActual, setPrevImage, fotoRegister=false, error}) {
   const [selectedFile, setSelectedFile] = useState()
   const [preview, setPreview] = useState()
   const onSelectFile = async (e) => {
@@ -56,8 +56,8 @@ export default function AddFotoPerfil({ setDataImportante, dataImportante, setEd
     return () => URL.revokeObjectURL(objectUrl)
   }, [selectedFile])
   return (
-    <label onClick={editModeChose} style={fotoRegister ?{display:'flex', flexDirection:'column', height:'160px',borderRadius:'50%',alignItems:'center', justifyContent:'center', border:'1px solid #d9d9d9', width:'160px'}:null}>
-      <div style={{alignItems:'center', justifyContent:'center', display:'flex', flexDirection:'column', gap:'8px'}}>
+    <label onClick={editModeChose} style={fotoRegister ?{display:'flex', flexDirection:'column', height:'160px',borderRadius:'50%',alignItems:'center', justifyContent:'center', border:'1px solid #d9d9d9', width:'160px', borderColor:error? '#f50057':'#d9d9d9'}:null}>
+      <div style={{alignItems:'center',cursor:'pointer', justifyContent:'center', display:'flex', flexDirection:'column', gap:'8px'}}>
         <input id='image' style={{ display: 'none',  }} onChange={onSelectFile} type='file' accept="image/png,image/jpeg" />
         {preview || fotoActual ?
           <img src={preview || fotoActual} className={fotoRegister?styles.imgFotoRegister:styles2.imgFotoPerfil} />
