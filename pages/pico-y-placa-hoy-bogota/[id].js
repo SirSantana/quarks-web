@@ -27,6 +27,38 @@ let keyWords = [
   "Regulación de tráfico",
   "Movilidad urbana"
 ]
+let repuestos = [
+  {
+    "repuesto": "Pastillas de freno Chevrolet Corsa",
+    "precio": "90.000",
+    "precioAnt": "98.000",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_783125-MCO71919736666_092023-F.webp",
+    "stock": 3,
+    "fabricante": "Autotec U.S.A",
+    "descuento": 3,
+    "ventas": 4,
+  },
+  {
+    "repuesto": "Muñecos / Bieleta Barra Estabilizadora Chevrolet Aveo",
+    "precio": "76.000",
+    "precioAnt": "85.000",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_787143-MCO72599235153_102023-F.webp",
+    "stock": 2,
+    "fabricante": "Saher",
+    "descuento": 0,
+    "ventas": 2,
+  },
+  {
+    "repuesto": "Impulsadores Chevrolet Captiva 2.4 - 3.0 - 3.6 (X16 Unds)",
+    "precio": "380.000",
+    "precioAnt": "410.000",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_918317-MCO72595597482_112023-F.webp",
+    "stock": 2,
+    "fabricante": "Krammer U.S.A",
+    "descuento": 0,
+    "ventas": 2,
+  }
+]
 export default function PicoYPlaceHoyBogota({ data }) {
   const router = useRouter()
   const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -74,7 +106,18 @@ export default function PicoYPlaceHoyBogota({ data }) {
           <h2>Pico y Placa Hoy</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en Bogotá, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
         </section>
-
+        <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+          {repuestos.map(repuesto => (
+            <Link href={'https://www.cotizatusrepuestos.com/'} style={{textDecoration:'none', display: 'flex', flexDirection: 'column', padding: '16px', border: '1px solid #d9d9d9', borderRadius: '8px', maxWidth: '100%', width: '300px', margin:'0 auto' }}>
+              <img src={repuesto?.imagen} style={{ width: '80%', height: '280px', objectFit: 'contain', margin: '0 auto' }} alt={repuesto?.repuesto} />
+              <p>{repuesto.repuesto}</p>
+              <p style={{ fontSize: '14px', marginTop: '8px' }}>{repuesto.fabricante}</p>
+              <p style={{ fontWeight: '600', color: '#f50057', fontSize: '12px', marginTop: '8px' }}>Antes ${repuesto.precioAnt}</p>
+              <p style={{ fontWeight: '600', fontSize: '24px', marginTop: '8px' }}>${repuesto.precio}</p>
+            </Link>
+          ))}
+        </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Pico y Placa anteriores dias de {meses[numeroMes]}</h3>
           {picoyplacaAnteriores?.map(el => (
