@@ -700,8 +700,12 @@
   text-overflow: ellipsis;
 }
 .textTitleDesk{
-  font-size: 64px;
+  font-size: 48px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
   color: #373737;
+  overflow: hidden;
+
 }
 
 .textDireccion {
@@ -778,6 +782,7 @@
   }
   .textTitleDesk{
     font-size:24px;
+    line-height: 1.4;
   }
   .textDireccion {
     color: #373737;
