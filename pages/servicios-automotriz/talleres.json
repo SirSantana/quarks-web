@@ -1545,6 +1545,31 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 1:30 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1709931903972!6m8!1m7!1sRdgSDOMW8T4dzd2lpsMyFw!2m2!1d4.654446183325077!2d-74.07593157992328!3f355.4802523528578!4f0.05810320085348053!5f0.7820865974627469"
+    },
+    {
+      "nombre": "EVOLVE • PERFORMANCE",
+      "direccion": "Cll 116 N 70F-16",
+      "categorias": [
+        "Servicio de Accesorios y Lujos",
+        "Polarizados",
+        "Servicio de Frenos",
+        "Embellecimiento general detailing",
+        "Mecanica Basica"
+      ],
+      "userName": "evolve_performance",
+      "servicio": "Lujos y Accesorios",
+      "emojisservicio": "servicio-lujos",
+      "lat": 4.654426,
+      "lng": -74.075866,
+      "localidad": "Suba",
+      "id": "6626ca21a3c26111a32f9349",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/evolveperformance220424.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "nivel": 3,
+      "pais": "Colombia",
+      "horario": "Lun Solo con Cita,Mar Solo con Cita,Mié Solo con Cita,Jue Solo con Cita,Vie Solo con Cita,Sáb Solo con Cita,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3976.3929737930816!2d-74.0815!3d4.7016!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9ad7b11edc65%3A0x363e56660e999483!2sAc%20116%20%2370f-16%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1713819203577!5m2!1ses!2sco"
     }
   ]
 }
