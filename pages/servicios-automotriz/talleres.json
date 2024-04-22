@@ -1552,6 +1552,7 @@
       "categorias": [
         "Servicio de Accesorios y Lujos",
         "Polarizados",
+        "Servicio de Latoneria y pintura",
         "Servicio de Frenos",
         "Embellecimiento general detailing",
         "Mecanica Basica"
@@ -1559,8 +1560,8 @@
       "userName": "evolve_performance",
       "servicio": "Lujos y Accesorios",
       "emojisservicio": "servicio-lujos",
-      "lat": 4.654426,
-      "lng": -74.075866,
+      "lat": 4.698628,
+      "lng": -74.075127,
       "localidad": "Suba",
       "id": "6626ca21a3c26111a32f9349",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/evolveperformance220424.jpg",
