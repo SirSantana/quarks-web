@@ -144,20 +144,34 @@ export default function Map({ talleres }) {
         </Marker>
       ))} */}
       {talleres.map((taller) => (
+        // <Marker
+        //   key={taller.id}
+        //   position={[taller.lat, taller.lng]}
+        //   icon={
+        //     L.divIcon({
+        //       html: `
+        //            <div style="display: ${servicio || router.pathname === '/servicios-automotriz/[id]' ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius:8px; background-color:white">
+        //              <img loading="lazy" src="${ taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png"}" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; height: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; ">
+        //              <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${taller?.nombre.slice(0,15)}</p>
+        //            </div>
+        //          `,
+        //     })
+        //   }
+        // >
+        //   <Popup className={styles.card}>
+        //     <PlaceCard data={taller} />
+        //   </Popup>
+        // </Marker>
         <Marker
           key={taller.id}
           position={[taller.lat, taller.lng]}
           icon={
             L.divIcon({
               html: `
-                   <div style="display: ${servicio || router.pathname === '/servicios-automotriz/[id]' ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius:8px; background-color:white">
-                     <img loading="lazy" src="${ taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png"}" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; height: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; ">
-                     <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${taller?.nombre.slice(0,15)}</p>
+                   <div style="display: ${servicio || router.pathname === '/servicios-automotriz/[id]' ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:2px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-radius:50%; background-color:white">
+                     <img loading="lazy" src="${ taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png"}" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '28px' : '28px'}; height: ${servicio ? '28px' : '28px'}; border-radius:50% ">
                    </div>
                  `,
-              //  iconSize: [32, 32],
-              //  iconAnchor: [16, 32],
-              //  popupAnchor: [0, -32],
             })
           }
         >
