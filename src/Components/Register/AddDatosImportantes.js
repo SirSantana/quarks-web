@@ -1,14 +1,9 @@
 import { EDIT_NEGOCIO_VDOS } from '@/graphql/mutations'
 import styles from '@/styles/Faq.module.css'
-import { handleFileUpload } from '@/utils/base64'
 import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import AddHorario from './AddHorario'
-import imageCompression from 'browser-image-compression';
-import { useRouter } from 'next/router'
 import Icon, { IconCatalog } from '../Icon/Icon'
-import Image from 'next/image'
-import useAuth from '@/hooks/useAuth'
 import AddFotoPerfil from './AddFotoPerfil'
 import { GET_NEGOCIOVDOS_ONE } from '@/graphql/queries'
 import SelectIndicativo from './SelectIndicativo'
@@ -54,7 +49,6 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
     setForm({ ...form, pageCheck: 4 })
     let dataRegistroString = JSON.stringify(dataImportante);
     localStorage.setItem('dataRegistro', dataRegistroString);
-    // editNegocioVDos({ variables: dataImportante })
   }
   useEffect(() => {
     if (data) {
@@ -73,12 +67,12 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
       </div>
       <AddFotoPerfil setDataImportante={setDataImportante} dataImportante={dataImportante} fotoRegister={true} error={errorInput && !dataImportante.fotoperfil} />
 
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', marginTop: '12px', }}>
+      <div className={styles.containerInputsRegister}>
         <SelectIndicativo handleChange={handleChangeIndicativo} name={'indicativo'} value={dataImportante.indicativo} setDataImportante={setDataImportante} dataImportante={dataImportante} />
         <Input type={'number'} name={'telefono'} placeholder={'Tú movil'} onChange={handleChange} value={dataImportante.telefono} error={errorInput && dataImportante.telefono?.length <= 0 && 'Es requerido'} required inputMode={'numeric'} />
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', marginTop: '12px', }}>
+      <div className={styles.containerInputsRegister} >
         <Input type={'text'} name={'ciudad'} placeholder={'Agregar ciudad'} onChange={handleChange} value={dataImportante.ciudad} error={errorInput && dataImportante.ciudad?.length <= 0 && 'Es requerido'} required />
         <SelectIndicativo handleChange={handleChangeIndicativo} name={'pais'} value={dataImportante.pais} setDataImportante={setDataImportante} dataImportante={dataImportante} />
 
@@ -100,9 +94,9 @@ export default function AddDatosImportantes({ setPage, setDataImportante, dataIm
           <div style={{ border: '1px solid #c5c5c5', borderRadius: '10px', width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Icon name={IconCatalog.globeOutline} size='md' />
           </div>
-          <p style={{ fontSize: '16px', fontWeight: '600' }}>Direccion y Ubicacion</p>
+          <p style={{ fontSize: '16px', fontWeight: '600' }}>{dataImportante.tipo === 'Taller'?'Direccion y Ubicacion':'Zona de cobertura'}</p>
         </div>
-        <Input type={'text'} name={'direccion'} placeholder={'Agregar direccion'} onChange={handleChange} value={dataImportante.direccion} error={errorInput && dataImportante.direccion?.length <= 0 && 'Es requerido'} required />
+        <Input type={'text'} name={'direccion'} placeholder={dataImportante.tipo === 'Taller'?'Agregar direccion':'Ejemplo: Bogota y alrededores...'} onChange={handleChange} value={dataImportante.direccion} error={errorInput && dataImportante.direccion?.length <= 0 && 'Es requerido'} required />
         <p style={{ fontSize: '14px', marginTop: '8px', fontWeight: '600', color: errorInput && dataImportante.coordenadas?.length <= 1 && '#f50057' }}>{dataImportante.tipo === 'Taller' ? 'Ubica el punto en el mapa. Esta sera ubicacion que veran los demas' : 'Ajusta tu posicion y el rango de disponibilidad de tus servicios.'}</p>
 
         {dataImportante.tipo === 'Taller'

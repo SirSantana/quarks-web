@@ -122,7 +122,13 @@
   justify-content: center;
   gap: 48px;
 }
-
+.containerInputsRegister{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  margin-top: 12px;
+}
 .inputsAddInfo {
   border: none;
   outline: none;
@@ -941,6 +947,9 @@
   .containerInputs {
     justify-content: space-between;
     width: 90%;
+  }
+  .containerInputsRegister{
+    flex-direction: column;
   }
 }
 

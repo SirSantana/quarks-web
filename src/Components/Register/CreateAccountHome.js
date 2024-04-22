@@ -8,18 +8,21 @@ import Slider from 'react-slick';
 import { useEffect, useState } from 'react';
 import DataTaller from '../Talleres/V3/DataTaller';
 import Button, { ButtonVariant } from '../Button/Button';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, useSession, signOut } from 'next-auth/react';
 import { useLazyQuery } from '@apollo/client';
 import { GET_NEGOCIOVDOS_BY_EMAIL } from '@/graphql/queries';
 
 
 export default function CreateAccountHome({ setPage, router }) {
   const [disableClick, setDisableClick] = useState(false);
-  const [getNegocioVDosByEmail, result] = useLazyQuery(GET_NEGOCIOVDOS_BY_EMAIL)
   const { data } = useSession()
+  const [getNegocioVDosByEmail, result] = useLazyQuery(GET_NEGOCIOVDOS_BY_EMAIL,)
 
   const getNegocioVDos = () => {
     getNegocioVDosByEmail({ variables: { email: data?.user.email } })
+    // if(!result?.data?.getNegocioVDosByEmail && !result?.loading){
+    //   setPage(0), router.push('/signup?page=0')
+    // }
   }
   useEffect(() => {
     if (result?.data?.getNegocioVDosByEmail) {
@@ -82,18 +85,23 @@ export default function CreateAccountHome({ setPage, router }) {
         <p style={{ margin: '8px 0 32px 0', color: '#5c5c5c' }}>
           Decenas de mecanicos y talleres ya se unieron <span style={{ fontWeight: '700' }}>¿Que esperas para unirte?</span>
         </p>
-        {data
+        {data 
           ?
-          <Button onClick={getNegocioVDos} size='lg' variant={ButtonVariant.primary}>
-            Ya tienes un perfil, Ver perfil
-          </Button>
+          <>
+            <Button onClick={getNegocioVDos} size='lg' variant={ButtonVariant.primary}>
+              Ya tienes un perfil, Ver perfil
+            </Button>
+            <Button onClick={() => signOut()} style={{ marginTop: '16px' }} size='lg' variant={ButtonVariant.outlined}>
+              Cerrar Sesion
+            </Button>
+          </>
           :
           <>
             <Button onClick={() => { setPage(0), router.push('/signup?page=0') }} size='lg' variant={ButtonVariant.primary}>
               Crea tu perfil Gratis!
             </Button>
-            <div style={{width:'100%', height:'1px ', backgroundColor:'#d9d9d9', margin:'16px 0'}}/>
-            <Button onClick={() =>  signIn('google')} size='lg' variant={ButtonVariant.outlined}>
+            <div style={{ width: '100%', height: '1px ', backgroundColor: '#d9d9d9', margin: '16px 0' }} />
+            <Button onClick={() => signIn('google')} size='lg' variant={ButtonVariant.outlined}>
               Ya tienes una cuenta?
             </Button>
           </>
