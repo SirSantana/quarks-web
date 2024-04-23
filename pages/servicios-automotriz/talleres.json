@@ -1592,7 +1592,7 @@
       "emojisservicio": "servicio-motor",
       "lat": 4.682793,
       "lng": -74.094740,
-      "localidad": "Barrios Unidos",
+      "localidad": "Engativa",
       "id": "6627cce4c2021bbab0a4f317",
       "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/servitecagaitan230424.jpg",
       "ciudad": "Bogotá",
@@ -1601,6 +1601,36 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 2:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63624.01264847163!2d-74.0947008!3d4.6826725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9afccc72cd8d%3A0x67b575d908c5f0af!2sServiteca%20Gait%C3%A1n!5e0!3m2!1ses-419!2sco!4v1713884779675!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "World on Wheels",
+      "direccion": "Cl. 153 #7h - 92",
+      "categorias": [
+        "Servicio de Motor",
+        "Servicio de Frenos",
+        "Servicio de Direccion y Suspensión",
+        "Servicio de Caja y Transmision",
+        "Servicio de Accesorios y Lujos",
+        "Servicio de Clutch",
+        "Cambio de aceite",
+        "Servicios Especializado Captiva",
+        "Mecanica Basica",
+        "Mecanica Avanzada"
+      ],
+      "userName": "world_on_wheels",
+      "servicio": "Especialistas Captiva",
+      "emojisservicio": "servicio-motor",
+      "lat": 4.730150,
+      "lng": -74.029722,
+      "localidad": "Usaquen",
+      "id": "6627e05dc2021bbab0a4f318",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/worldonwheels240424.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "nivel": 3,
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.057348136296!2d-74.029872!3d4.730172800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f85776555f0fd%3A0x650784489d369619!2sWorld%20on%20Wheels!5e0!3m2!1ses-419!2sco!4v1713889853980!5m2!1ses-419!2sco"
     }
   ]
 }

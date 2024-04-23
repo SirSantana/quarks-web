@@ -107,9 +107,10 @@ export async function getServerSideProps({ query }) {
   if (categoria) {
     let categoriaNormalized = normalizeString(categoria.replace(/-/g, ' ').toLowerCase())
     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
-      categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
-      levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
-
+      categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) 
+      // ||
+      // levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
+    )
   }
   function normalizeString(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");

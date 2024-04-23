@@ -25,8 +25,8 @@ export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
           className={styles.skeleton}
         />
         :
-        data?.getOpiniones.length > 0
-          &&
+        // data?.getOpiniones.length > 0
+        //   &&
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', width:'100%', justifyContent:'center'}}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <p style={{ fontSize: '14px', fontWeight: '600' }}>{result?.data?.getCalificacionOpiniones}</p>

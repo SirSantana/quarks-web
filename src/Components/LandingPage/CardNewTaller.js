@@ -21,12 +21,12 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
       // href={`/${taller?.userName}`}
        style={{position:'relative'}} className={styles.containerDataNewTaller}>
         {taller?.fotoperfil &&
-          <Image width={160} height={160} className={styles.imgPerfilTaller} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} loading='lazy' />
+          <Image width={160} height={160}  className={styles.imgPerfilTaller} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} loading='lazy' />
         }
         {/* <div style={{position:'absolute', top:'-24px', left:'70%', backgroundColor:'#fbbc04',border:'1px solid #d9d9d9', borderRadius:'8px', padding:'4px 8px' }}>
           <p style={{color:'#373737', fontWeight:'600', fontSize:'12px'}}>Accesorios y Lujos</p>
         </div> */}
-        <div style={{ display: 'flex', flexDirection: 'column', padding: '8px', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', padding: '8px', width: '100%', flex:1 }}>
           <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
               {taller?.fotoperfil &&
