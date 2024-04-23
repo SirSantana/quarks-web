@@ -1631,6 +1631,34 @@
       "pais": "Colombia",
       "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.057348136296!2d-74.029872!3d4.730172800000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f85776555f0fd%3A0x650784489d369619!2sWorld%20on%20Wheels!5e0!3m2!1ses-419!2sco!4v1713889853980!5m2!1ses-419!2sco"
+    },
+    {
+      "nombre": "Lucho Garagoa",
+      "direccion": "Cra. 26 #75a-20",
+      "categorias": [
+        "Servicio de Clutch",
+        "Cambio de aceite",
+        "Servicio de Motor",
+        "Servicio de Frenos",
+        "Servicio de Direccion y Suspensión",
+        "Servicios Especializado Captiva",
+        "Mecanica Basica",
+        "Mecanica Avanzada"
+      ],
+      "userName": "lucho_garagoa",
+      "servicio": "Especialistas Captiva",
+      "emojisservicio": "servicio-motor",
+      "lat": 4.730150,
+      "lng": -74.029722,
+      "localidad": "Barrios Unidos",
+      "id": "6627e857c2021bbab0a4f319",
+      "fotoperfil": "https://azurequarks.blob.core.windows.net/negocios/luchogaragoa230424.jpg",
+      "ciudad": "Bogotá",
+      "nivelnegocio": "0",
+      "nivel": 3,
+      "pais": "Colombia",
+      "horario": "Lun 8:00 AM - 6:00 PM,Mar 8:00 AM - 6:00 PM,Mié 8:00 AM - 6:00 PM,Jue 8:00 AM - 6:00 PM,Vie 8:00 AM - 6:00 PM,Sáb 8:30 AM - 1:00 PM,Dom Cerrado",
+      "ubicacionmaps": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5906942715574!2d-74.06568690410322!3d4.666831109265151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9be9380c4299%3A0xe1a2d08498321245!2sLucho%20Garagoa%20Servicio%20Automotriz!5e0!3m2!1ses-419!2sco!4v1713891603243!5m2!1ses-419!2sco"
     }
   ]
 }
