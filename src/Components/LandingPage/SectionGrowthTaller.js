@@ -8,7 +8,7 @@ export default function SectionGrowthTaller() {
       <div className={styles.containerGrowth}>
         <div style={{ display: 'flex', gap: '40px', flexDirection: 'column' }}>
           <h2 className={styles.title}>Haz crecer tu negocio con nosotros!</h2>
-          <Button link={true} href={'/acceso'} variant={ButtonVariant.primary} size={ButtonSize.base} >
+          <Button link={true} href={'/signup'} variant={ButtonVariant.primary} size={ButtonSize.base} >
             Conoce mas
           </Button>
         </div>

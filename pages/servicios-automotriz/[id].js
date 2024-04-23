@@ -2,7 +2,6 @@ import Layout from "@/src/Components/Layout";
 import { useRouter } from "next/router";
 import talleres from './talleres.json'
 import { options } from "@/src/Components/Main/Main";
-import SectonFilters from "@/src/Components/LandingPage/SectionFilters";
 import dynamic from "next/dynamic";
 import { categorias } from "@/src/Components/LandingPage/SliderTiposTalleres";
 import { useState } from "react";
@@ -36,7 +35,7 @@ export default function ServicioAutomotriz({ data, iconImg, }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   return (
-    <Layout title={`Talleres de  ${router?.query?.id.replace(/-/g, ' ')} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id.replace(/-/g, ' ')} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} icon={iconImg?.img && `/${iconImg?.img}.png`} image={iconImg?.img ? `./${iconImg?.img}.png` : 'https://azurequarks.blob.core.windows.net/negocios/bannertalleresquarks.png'} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleNavbar={false} visibleSlider={false}>
+    <Layout title={`Talleres de  ${router?.query?.id.replace(/-/g, ' ')} cerca a mi en Bogota, Colombia`} description={`Talleres de carros para ${router?.query?.id.replace(/-/g, ' ')} en Bogota, Colombia, encuentra el taller ideal para tu carro, conoce horarios, calificaciones, contacto y mas informacion util para ti y tu vehiculo.`} icon={iconImg?.img ?`/${iconImg?.img}.png`:data[0].fotoperfil} image={iconImg?.img ? `./${iconImg?.img}.png` : data[0].fotoperfil} url={router?.asPath} keywords={`Talleres de carros en bogota,  ${options.map(el => " taller de " + el.value + " en " + " Bogota, Colombia")}`} visibleNavbar={false} visibleSlider={false}>
       {/* {mode
         ?
         <SectonFilters data={data.reverse()} />
@@ -47,7 +46,9 @@ export default function ServicioAutomotriz({ data, iconImg, }) {
         </>
       } */}
       <HomeMarch data={data} mode={mode} />
-
+      <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '600px', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+        <SectionCreateTaller />
+      </section>
       <div style={{ height: '1px', backgroundColor: '#c5c5c5', maxWidth: '1200px', width: '90%', margin: '32px auto' }} />
 
       <section style={{ display: 'flex', maxWidth: '600px', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center', margin: '0 auto' }}>
@@ -61,6 +62,7 @@ export default function ServicioAutomotriz({ data, iconImg, }) {
           <p key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</p>
         ))}
       </section>
+      
       <div className={styles.divBtnFooter}>
         <Button onClick={handleClick} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode==='Lista' ? IconCatalog.mapa : IconCatalog.lista}>
           Mostrar  {mode === 'Lista' ? 'Mapa' : 'Lista'}
