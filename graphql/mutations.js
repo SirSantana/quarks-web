@@ -212,15 +212,13 @@ mutation editNegocioVDos($direccion:String,  $ciudad:String,$pais:String, $whats
 }
 `
 export const EDIT_NEGOCIO_VDOS_REDES =gql`
-mutation editNegocioVDosRedes($facebook:String,  $instagram:String, $paginaweb:String, ){
-  editNegocioVDosRedes(input:{facebook:$facebook, instagram:$instagram, paginaweb:$paginaweb, } ){
-      nombre
+mutation editNegocioVDosRedes($facebook:String,  $instagram:String, $paginaweb:String, $email:String,$direccion:String,  $ciudad:String,$pais:String, $whatsapp:String, $telefono:String, $horario:String, $fotoperfil:String, $categorias:[String], $nombre:String,$indicativo:String,$coordenadas:[Float]){
+  editNegocioVDosRedes(input:{facebook:$facebook, instagram:$instagram, paginaweb:$paginaweb, email:$email,direccion:$direccion, ciudad:$ciudad,pais:$pais, whatsapp:$whatsapp, telefono:$telefono,horario:$horario, fotoperfil:$fotoperfil,categorias:$categorias, nombre:$nombre,indicativo:$indicativo,coordenadas:$coordenadas} ){
       facebook
       instagram
       paginaweb
-      whatsapp
       id
-      userName
+      categorias
   }
 }
 `

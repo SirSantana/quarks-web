@@ -16,6 +16,7 @@ import SectionPreguntasFrecuentes from "@/src/Components/Talleres/V3/SectionPreg
 import SectionDescription from "@/src/Components/Talleres/V3/SectionDescription";
 import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
 import ModalButtonsContacto from "@/src/Components/Talleres/ModalButtonsContacto";
+import Button, { ButtonVariant } from "@/src/Components/Button/Button";
 
 const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
   { ssr: false })
@@ -93,8 +94,8 @@ export default function NegocioVDos({ data }) {
         </div>
 
         <div className={styles.containerSectionsTaller}>
-          
-        <DataTaller data={data} sizes={true}/>
+
+          <DataTaller data={data} sizes={true} />
 
           <div style={{ marginBottom: '16px' }} className={styles.containerMobile} >
             <SliderTab handleChangeSection={handleChangeSection} refs={{
@@ -114,7 +115,14 @@ export default function NegocioVDos({ data }) {
                 :
                 <ButtonsFooter data={data} setVisibleModalButtons={setVisibleModalButtons} />
             }
+            {/* <div style={{width:'90%'}}>
+              <Button fullWidth  variant={ButtonVariant.secondary} size="sm">
+                Editar perfil
+              </Button>
+            </div> */}
+
           </div>
+
           <SliderTab handleChangeSection={handleChangeSection} refs={{
             mapSectionRef,
             refServicios,
@@ -139,7 +147,7 @@ export default function NegocioVDos({ data }) {
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <BogotaMap coordenadas={data?.coordenadas} img={data?.fotoperfil} direccion={data
                   ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
-                  : ''} nombre={data?.nombre}/>
+                  : ''} nombre={data?.nombre} />
               </section>
             }
             <section style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
@@ -162,7 +170,7 @@ export default function NegocioVDos({ data }) {
             }
 
             <section ref={refReseñas} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps}/>
+              <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps} />
             </section>
             <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
               <SectionPreguntasFrecuentes data={data} />
