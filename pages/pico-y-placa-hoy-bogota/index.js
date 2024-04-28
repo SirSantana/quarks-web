@@ -79,7 +79,6 @@ export async function getServerSideProps({ query }) {
         data:
           data?.picoyplaca[query?.month?.split('-')[1]]
       }
-  
     }
   }
   return {

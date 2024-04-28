@@ -1,0 +1,88 @@
+{
+  "gasolineras": [
+    {
+      "empresa": "Terpel",
+      "nombre": "Gasolinera La Floresta",
+      "direccion": "Cra 7 # 150-80",
+      "localidad": "Usaquén",
+      "coordenadas": {
+        "latitud": 4.717695,
+        "longitud": -74.034942
+      },
+      "calificacion": {
+        "numero_resenas": 25,
+        "puntuacion": 4
+      }
+    },
+    {
+      "empresa": "Texaco",
+      "nombre": "Gasolinera Petrox",
+      "direccion": "Calle 63 # 14-23",
+      "localidad": "Chapinero",
+      "coordenadas": {
+        "latitud": 4.644306,
+        "longitud": -74.062633
+      },
+      "calificacion": {
+        "numero_resenas": 18,
+        "puntuacion": 4.1
+      }
+    },
+    {
+      "empresa": "Ecopetrol",
+      "nombre": "Gasolina y Energía",
+      "direccion": "Av. Caracas # 45-78",
+      "localidad": "Santa Fe",
+      "coordenadas": {
+        "latitud": 4.623880,
+        "longitud": -74.066984
+      },
+      "calificacion": {
+        "numero_resenas": 12,
+        "puntuacion": 4.5
+      }
+    },
+    {
+      "empresa": "Terpel",
+      "nombre": "Gasolinera La Floresta",
+      "direccion": "Cra 7 # 150-80",
+      "localidad": "Usaquén",
+      "coordenadas": {
+        "latitud": 4.717695,
+        "longitud": -74.034942
+      },
+      "calificacion": {
+        "numero_resenas": 25,
+        "puntuacion": 4
+      }
+    },
+    {
+      "empresa": "Texaco",
+      "nombre": "Gasolinera Petrox",
+      "direccion": "Calle 63 # 14-23",
+      "localidad": "Chapinero",
+      "coordenadas": {
+        "latitud": 4.644306,
+        "longitud": -74.062633
+      },
+      "calificacion": {
+        "numero_resenas": 18,
+        "puntuacion": 4.1
+      }
+    },
+    {
+      "empresa": "Ecopetrol",
+      "nombre": "Gasolina y Energía",
+      "direccion": "Av. Caracas # 45-78",
+      "localidad": "Santa Fe",
+      "coordenadas": {
+        "latitud": 4.623880,
+        "longitud": -74.066984
+      },
+      "calificacion": {
+        "numero_resenas": 12,
+        "puntuacion": 4.5
+      }
+    }
+  ]
+}
