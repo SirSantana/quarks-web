@@ -35,7 +35,7 @@ export default function Gasolineras({ data }) {
 
       <div style={{ width: '100%', height: '100%', boxSizing: 'border-box', margin: '0', padding: '0', position: 'relative' }}>
         <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} />
-        <div style={{ zIndex:2, position: 'absolute', top: 24, left: 24, display: 'flex', flexDirection: 'column', gap: '24px', height: '100vh', }}>
+        <div style={{ zIndex:1, position: 'absolute', top: 24, left: 24, display: 'flex', flexDirection: 'column', gap: '24px', }}>
 
           <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9' }}>
             <h1>Gasolineras</h1>
