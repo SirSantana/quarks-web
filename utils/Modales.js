@@ -12,6 +12,11 @@ import { MagicMotion } from 'react-magic-motion'
 import AddServicios from '@/src/Components/Register/AddServicios'
 import WidgetComplete from '@/src/Components/Icon/WidgetComplete'
 import { IconCatalog } from '@/src/Components/Icon/Icon'
+import Image from 'next/image'
+import PriceFormat from './priceFormat'
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css';
+import Input from '@/src/Components/Input/Input'
 
 
 
@@ -19,20 +24,20 @@ export function ModalSuccessfull({ title, subtitle }) {
   return (
     <div className={styles.modal} >
       <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '8px', flexDirection: 'column', justifyContent: 'left', gap: '16px', }} className={styles.modalContent}>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',gap:'8px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
           <ion-icon style={{ color: '#4EDD76', fontSize: '20px' }} name="checkmark-circle"></ion-icon>
           <p style={{ fontSize: '16px', fontWeight: '700', color: '#4EDD76', margin: 0 }}>{title}</p>
         </div>
-        <p style={{ fontSize: '14px', color: '#373737', margin: 0, textAlign:'center' }}>{subtitle} </p>
+        <p style={{ fontSize: '14px', color: '#373737', margin: 0, textAlign: 'center' }}>{subtitle} </p>
 
       </div>
     </div>
   )
 }
-export function ModalImagePerfil({ img, setVisibleModalImage}) {
+export function ModalImagePerfil({ img, setVisibleModalImage }) {
   return (
-    <div className={styles.modal} onClick={()=> setVisibleModalImage(false)}>
-      <img src={img} style={{width:'90%', height:'400px', objectFit:'contain', maxWidth:'500px'}}/>
+    <div className={styles.modal} onClick={() => setVisibleModalImage(false)}>
+      <img src={img} style={{ width: '90%', height: '400px', objectFit: 'contain', maxWidth: '500px' }} />
     </div>
   )
 }
@@ -50,17 +55,17 @@ export function ModalLoading({ title }) {
 
 export function ModalError({ title, subtitle }) {
   return (
-  
-    <div className={styles.modal} >
-    <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '8px', flexDirection: 'column', justifyContent: 'left', gap: '16px', }} className={styles.modalContent}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center',gap:'8px' }}>
-        <ion-icon style={{ color: '#f50057', fontSize: '20px' }} name="close-circle"></ion-icon>
-        <p style={{ fontSize: '16px', fontWeight: '700', color: '#f50057', margin: 0 }}>{title}</p>
-      </div>
-      <p style={{ fontSize: '14px', color: '#373737', margin: 0, textAlign:'center' }}>{subtitle} </p>
 
+    <div className={styles.modal} >
+      <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '8px', flexDirection: 'column', justifyContent: 'left', gap: '16px', }} className={styles.modalContent}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          <ion-icon style={{ color: '#f50057', fontSize: '20px' }} name="close-circle"></ion-icon>
+          <p style={{ fontSize: '16px', fontWeight: '700', color: '#f50057', margin: 0 }}>{title}</p>
+        </div>
+        <p style={{ fontSize: '14px', color: '#373737', margin: 0, textAlign: 'center' }}>{subtitle} </p>
+
+      </div>
     </div>
-  </div>
   )
 }
 
@@ -466,5 +471,101 @@ export function ModalEditServicios({ setVisibleModalEditServicios, setCategorias
         <ModalLoading title={'Actualizando horario...'} />
       } */}
     </div >
+  )
+}
+
+
+export function ModalGasolineraCard({ data, setVisibleModal, precioAlto }) {
+  const [galonesBase, setGalonesBase] = useState(12)
+  const [descuento, setDescuento] = useState((precioAlto.price - data?.price) * galonesBase)
+  console.log((precioAlto.price - data?.price) * galonesBase, descuento);
+  const handleChange = (value) => {
+    setGalonesBase(value)
+    setDescuento((precioAlto.price - data?.price) * galonesBase)
+    console.log(descuento);
+  }
+  useEffect(()=>{
+    setDescuento((precioAlto.price - data?.price) * galonesBase)
+    
+  },[galonesBase])
+
+  return (
+    <div onClick={() => setVisibleModal(false)} className={styles.modal}>
+      <div style={{ gap: '16px', borderRadius: '8px', padding: '24px', width: '90%', maxWidth: '700px' }} className={styles.modalContent} >
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', }}>
+            <h3>{data?.nombre}</h3>
+            <p style={{ fontSize: '14px' }}>{data.direccion}</p>
+          </div>
+          <Image
+            width={48}
+            height={48}
+            src={`/${data.img}.png`}
+            alt={`Gasolinera ${data.empresa} ubicado en ${data.direccion}`}
+          />
+        </div>
+
+        <div>
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '5%', marginTop: '32px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
+              <p style={{ fontSize: '14px', fontWeight: '600' }}>Precio esta estacion</p>
+
+              <div style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
+                <p style={{ fontSize: '14px' }}>1gl</p>
+                <div style={{ width: '100%', flex: 1, height: '1px', backgroundColor: '#d9d9d9' }} />
+                <p style={{ fontSize: '14px', fontWeight: '600' }}>${PriceFormat({ price: data?.price.toString() })}</p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
+              <p style={{ fontSize: '14px', fontWeight: '600' }}>Precio estacion mas costosa</p>
+              <div style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
+                <p style={{ fontSize: '14px' }}>1gl</p>
+                <div style={{ width: '100%', flex: 1, height: '1px', backgroundColor: '#d9d9d9' }} />
+                <p style={{ fontSize: '14px', fontWeight: '600' }}>${PriceFormat({ price: precioAlto.price.toString() })}</p>
+              </div>
+            </div>
+          </div>
+
+          <div onClick={(e) => e.stopPropagation()} style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%', marginTop: '32px', alignItems: 'flex-end' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '50%' }}>
+              <p style={{ fontSize: '14px', fontWeight: '600' }}>Calcula tu Ahorro</p>
+
+              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', width: '100%' }}>
+                  <Input style={{ width: '75px' }} type={'number'} value={galonesBase}  onChange={(e) => handleChange(e.target.value)} max={100} />
+                  {/* <input step="1" style={{ border: 'none', width: '100px' }} type="number"  value={galonesBase} /> */}
+                  <label style={{ fontSize: '14px', marginLeft: '8px' }} >/Gl</label>
+                </div>
+                <Slider
+                  min={0}
+                  max={50}
+                  defaultValue={galonesBase}
+                  onChange={(value) => handleChange(value)}
+                  value={galonesBase}
+                  trackStyle={[{ backgroundColor: '#f50057', height: '8px' }]}
+                  handleStyle={[
+                    { backgroundColor: '#f50057', height: '18px', width: '18px' },
+                  ]}
+                />
+                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width:'100%' }}>
+                  <p style={{ fontSize: '14px' }}>0 gl</p>
+                  <p style={{ fontSize: '14px'}}>50 gl</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div style={{ width: '100%', flex: 1, height: '1px', backgroundColor: '#d9d9d9', margin: '32px 0' }} />
+
+
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', justifyContent: 'flex-end', alignItems: 'center', width: '100%' }}>
+            <p style={{ fontSize: '14px', fontWeight: '600' }}>Ahorro Total</p>
+            <p style={{ padding: '8px 12px', fontSize: '20px', backgroundColor: '#D3FFD7', borderRadius: '8px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: descuento.toString() })}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
