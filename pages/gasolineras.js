@@ -35,25 +35,25 @@ export default function Gasolineras({ data }) {
 
       <div style={{ width: '100%', height: '100%', boxSizing: 'border-box', margin: '0', padding: '0', position: 'relative' }}>
         <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} />
-        <div style={{ zIndex:1, position: 'absolute', top: 24, left: 24, display: 'flex', flexDirection: 'column', gap: '24px', }}>
+        <div style={{ zIndex: 1, position: 'absolute', top: 24, left: 24, display: 'flex', flexDirection: 'column', gap: '24px', }}>
 
           <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9' }}>
             <h1>Gasolineras</h1>
             <h2 style={{ fontSize: '16px', fontWeight: '400' }}>Gasolineras cerca a mi en Bogotá</h2>
             {/* <p onClick={() => setVisibleData(!visibleData)} style={{ fontSize: '14px', padding: '4px 8px', backgroundColor: '#f1f1f1', marginTop: '8px', cursor: 'pointer' }}>{visibleData ? 'Ocultar listado' : 'Mostrar listado'}</p> */}
-            <Button onClick={() => setVisibleData(!visibleData)}  variant={ButtonVariant.outlined} size='sm' style={{margin:'0', alignSelf: 'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius: '4px',  marginTop: '8px', fontWeight: '600' }}>
-                {visibleData ? 'Ocultar lista' : 'Mostrar lista'}
-              </Button>
+            <Button onClick={() => setVisibleData(!visibleData)} variant={ButtonVariant.outlined} size='sm' style={{ margin: '0', alignSelf: 'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius: '4px', marginTop: '8px', fontWeight: '600' }}>
+              {visibleData ? 'Ocultar lista' : 'Mostrar lista'}
+            </Button>
           </div>
           {visibleData
             &&
             <div style={{ height: '500px', overflowY: 'auto', backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', width: '390px', scrollbarWidth: 'thin', scrollbarColor: '#ccc transparent' }}>
               {/* <p  style={{alignSelf:'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius:'4px', backgroundColor: '#373737', marginTop: '8px', cursor: 'pointer', color:'white', fontWeight:'600' }} ></p> */}
-              <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', width:'100%', gap:'16px', alignItems:'center'}}>
-              <Button variant={ButtonVariant.secondary} size='sm' style={{margin:'0', alignSelf: 'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius: '4px', backgroundColor: '#373737', marginTop: '8px', color: 'white', fontWeight: '600' }}>
-                De menor a mayor precio
-              </Button>
-              
+              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', gap: '16px', alignItems: 'center' }}>
+                <Button variant={ButtonVariant.secondary} size='sm' style={{ margin: '0', alignSelf: 'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius: '4px', backgroundColor: '#373737', marginTop: '8px', color: 'white', fontWeight: '600' }}>
+                  De menor a mayor precio
+                </Button>
+
               </div>
               <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', }}>
                 {filteredData?.map(el => (
@@ -96,7 +96,27 @@ export default function Gasolineras({ data }) {
         </div>
 
       </div>
+      <div style={{width:'90%', maxWidth:'800px', display:'flex', flexDirection:'column', gap:'32px', margin:'64px auto', }}>
+        <section>
+          <h2>Bombas de Gasolina</h2>
+          <p>Encuentra fácilmente las bombas de gasolina más cercanas a ti. Nuestra plataforma te proporciona información detallada sobre las diferentes bombas de gasolina disponibles, sus ubicaciones exactas, horarios de atención y servicios adicionales que ofrecen.</p>
+        </section>
 
+        <section>
+          <h2>Gasolineras</h2>
+          <p>Explora nuestra extensa red de gasolineras en Bogotá y sus alrededores. Desde gasolina regular hasta combustibles premium, nuestras gasolineras están diseñadas para satisfacer las necesidades de cada conductor. Encuentra aquí información sobre las gasolineras disponibles, sus servicios y promociones actuales.</p>
+        </section>
+
+        <section>
+          <h2>Gasolineras Terpel</h2>
+          <p>Descubre las ventajas de abastecer tu vehículo en las gasolineras Terpel. Con una amplia cobertura en todo el país, las estaciones de servicio ofrecen combustibles de alta calidad y una experiencia de atención al cliente excepcional. Encuentra aquí todas las gasolineras Terpel disponibles en tu área, junto con detalles sobre sus servicios y ubicaciones.</p>
+        </section>
+
+        <section>
+          <h2>Estaciones de Servicio</h2>
+          <p>Encuentra aquí todas las estaciones de servicio disponibles en nuestra plataforma. Desde gasolineras convencionales hasta puntos de carga para vehículos eléctricos, te ofrecen una amplia variedad de opciones para abastecer tu vehículo y disfrutar de una experiencia de conducción sin preocupaciones. Explora las estaciones de servicio y encuentra la más cercana a ti.</p>
+        </section>
+      </div>
       {visibleModal &&
         <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} />}
     </Layout>
@@ -105,36 +125,14 @@ export default function Gasolineras({ data }) {
 }
 
 export async function getServerSideProps({ query }) {
-  // const response = await fetch('https://www.terpel.com/api/map_points/eds');
-  // console.log(response);
-  // return {
-  //   props: {
-  //     data:
-  //       gasolineras.gasolineras
-  //   }
 
-  // }
   try {
-    // Realizar la solicitud a la URL de la API
     const response = await fetch('https://www.terpel.com/api/map_points/eds');
-    // const responseShell = await fetch('https://shellretaillocator.geoapp.me/api/v2/locations/nearest_to?lat=4.710989&lng=-74.072092&limit=50&locale=es_CO');
-
-
-
-    // Verificar si la solicitud fue exitosa (código de estado 200)
     if (!response.ok) {
       throw new Error('No se pudo obtener los datos de la API');
     }
-
-    // Convertir la respuesta a formato JSON
     const data = await response.json();
-    // const dataShell = await responseShell.json()
-
-
     const filteredData = data.filter(obj => obj.ciu === 'Bogotá D.C.');
-    // const dataShell2 = dataShell?.locations?.filter(obj => obj.city === 'BOGOTA D.C.');
-
-
     let dataFormat = filteredData.map(item => ({
       price: item.price.find(ele => ele.id == 1)?.retailPrice ? item.price.find(ele => ele.id == 1)?.retailPrice : null,
       direccion: item.dir,
@@ -164,7 +162,6 @@ export async function getServerSideProps({ query }) {
       }
     };
   } catch (error) {
-    // Manejar errores si la solicitud falla
     console.error('Error al obtener los datos:', error);
     return {
       props: {
