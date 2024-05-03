@@ -11,7 +11,7 @@ import ModalFiltrosGasolineras from '@/src/Components/Gasolineras/ModalFiltros';
 import { useRouter } from 'next/router';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
-  { ssr: false, loading:() => <p style={{fontSize:'300px', color:'#373737'}}>Loading...</p> })
+  { ssr: false, loading:() => <div style={{ height:'100vh', width:'100vw', backgroundColor:'#d9d9d9'}}/>})
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
@@ -40,7 +40,7 @@ export default function Gasolineras({ data }) {
     <Layout title={'Mapa de Gasolineras en Bogota'} visibleNavbar={false} description={'Descubre y compara precios con mas de 85 bombas de gasolina en Bogota. Colombia. Estaciones de gasolina cerca con ubicacion y precios.'} keywords={'Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estacion de gasolina cerca, estación de servicio más cercana, bombas de gasolina cerca'}>
 
       <div style={{ width: '100%', height: '100%', boxSizing: 'border-box', margin: '0', padding: '0', position: 'relative' }}>
-        <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} />
+        <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} filtros={filtros}/>
         <div style={{ zIndex: 1, position: 'absolute', top: 24, left: 24, display: 'flex', flexDirection: 'column', gap: '24px', }}>
 
           <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9',maxWidth: '390px', width:'95%', }}>
@@ -60,7 +60,7 @@ export default function Gasolineras({ data }) {
                 </Button>
               <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', }}>
                 {(filtros?.includes('corriente') || filtros === undefined) && filteredData?.map(el => (
-                  <div onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
+                  <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
                     <Image
                       width={48}
                       height={48}
@@ -75,7 +75,7 @@ export default function Gasolineras({ data }) {
                 ))
                 }
                 {filtros?.includes('extra') && filteredDataExtra?.map(el => (
-                  <div onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
+                  <div key={el.nombre}  onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
                     <Image
                       width={48}
                       height={48}
