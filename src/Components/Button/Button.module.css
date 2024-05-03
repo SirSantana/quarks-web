@@ -29,6 +29,10 @@
   background-color: transparent;
   color: #373737;
 }
+.button-gray {
+  background-color: #F3F3F3;
+  color: #7D7D7D;
+}
 .button-outlined {
   background-color: transparent;
   border: 1px solid #DCE0E6;

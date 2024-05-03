@@ -3,6 +3,7 @@
 export const IconCatalog = {
   storefrontOutline: 'storefront-outline',
   checkmarkCircle: 'checkmark-circle',
+  checkbox:'checkbox',
   storefrontOutline: 'storefront-outline',
   eyeOutline: 'eye-outline',
   eyeOutlineOff: 'eye-off-outline',
@@ -44,7 +45,8 @@ export const IconCatalog = {
   peopleOutline:'people-outline',
   readerOutline:'reader-outline',
   ellipseOultine:'ellipse-outline',
-  settingsOutline:'settings-outline'
+  settingsOutline:'settings-outline',
+  optionsOutline:'options-outline'
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {
@@ -53,7 +55,6 @@ export default function Icon({ name, size = "md", style, onClick }) {
       onClick={onClick}
       style={{
         cursor: onClick ? 'pointer' : null,
-        
         fontSize: size === 'sm' && '16px' || size === 'md' && '20px' || size === 'lg' && '24px',
         ...style
       }} name={name}></ion-icon>

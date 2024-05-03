@@ -15,10 +15,11 @@ export const ButtonVariant = {
   terciary: 'terciary',
   outlined: 'outlined',
   gradient: 'gradient',
-  whatsapp:'whatsapp'
+  whatsapp:'whatsapp',
+  gray:'gray'
 }
 
-export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null, }) {
+export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null, iconColor='white', sizeIcon='md'}) {
   const variantButton = styles[`button-${variant}`];
   const sizeButton = styles[`button-${size}`]
 
@@ -28,7 +29,7 @@ export default function Button({ children, size = ButtonSize.base, active = fals
       <Link target='_blank' href={href} className={`${styles.button} ${variantButton} ${sizeButton}`}
         style={{ ...style, width: fullWidth && '100%' }}>
         {children}
-        {icon && <Icon name={icon} size='md' style={{ fontSize: '20px', color: 'white' }} />}
+        {icon && <Icon name={icon} size={sizeIcon}  />}
       </Link>
       :
       <button
@@ -36,8 +37,8 @@ export default function Button({ children, size = ButtonSize.base, active = fals
         className={`${styles.button} ${variantButton} ${sizeButton}`}
         style={{ ...style, width: fullWidth && '100%', opacity:disable && '0.5', cursor:disable &&'not-allowed' }}
       >
-        {icon && <Icon name={icon} size='md' style={{ fontSize: '20px', color: 'white' }} />}
         {children}
+        {icon && <Icon name={icon} size={sizeIcon} />}
       </button>
   )
 }

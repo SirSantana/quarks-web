@@ -4,12 +4,14 @@ import Image from 'next/image';
 import Icon, { IconCatalog } from '@/src/Components/Icon/Icon';
 import Layout from '@/src/Components/Layout';
 import { useState } from 'react';
-import { ModalGasolineraCard } from '@/utils/Modales';
 import PriceFormat from '@/utils/priceFormat';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
+import { ModalGasolineraCard } from '@/src/Components/Gasolineras/ModalCardGasolinera';
+import ModalFiltrosGasolineras from '@/src/Components/Gasolineras/ModalFiltros';
+import { useRouter } from 'next/router';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
-  { ssr: false })
+  { ssr: false, loading:() => <p style={{fontSize:'300px', color:'#373737'}}>Loading...</p> })
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
@@ -22,12 +24,16 @@ let estrellas = [0, 1, 2, 3, 4]
 let tagsFix = ['Gasolineras', 'Estaciones de Servicio', 'gasolineras cerca', 'bombas de gasolina', 'gasolinera cerca de mi', 'estación de servicio más cercana', 'bombas de gasolina cerca', 'bombas de gasolina cerca de mi', 'bombas gasolina cerca', 'gasolinera terpel']
 
 export default function Gasolineras({ data }) {
+  const {query} = useRouter()
   const [visibleData, setVisibleData] = useState(true)
   const [estacionCheck, setEstacionCheck] = useState(null)
   const [visibleModal, setVisibleModal] = useState(false)
+  const [visibleModalFiltros, setVisibleModalFiltros] = useState(false)
   const [filter, setFilter] = useState('marca')
-  let filteredData = data.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
+  let filteredData =  data.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
+  let filteredDataExtra = data.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos)
 
+  const filtros = query?.combustible?.split(',');
   const gasolineraEncontrada = data.find(gasolinera => gasolinera.nombre === estacionCheck);
 
   return (
@@ -37,7 +43,7 @@ export default function Gasolineras({ data }) {
         <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} />
         <div style={{ zIndex: 1, position: 'absolute', top: 24, left: 24, display: 'flex', flexDirection: 'column', gap: '24px', }}>
 
-          <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9' }}>
+          <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9',maxWidth: '390px', width:'95%', }}>
             <h1>Gasolineras</h1>
             <h2 style={{ fontSize: '16px', fontWeight: '400' }}>Gasolineras cerca a mi en Bogotá</h2>
             {/* <p onClick={() => setVisibleData(!visibleData)} style={{ fontSize: '14px', padding: '4px 8px', backgroundColor: '#f1f1f1', marginTop: '8px', cursor: 'pointer' }}>{visibleData ? 'Ocultar listado' : 'Mostrar listado'}</p> */}
@@ -47,16 +53,28 @@ export default function Gasolineras({ data }) {
           </div>
           {visibleData
             &&
-            <div style={{ height: '500px', overflowY: 'auto', backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', width: '390px', scrollbarWidth: 'thin', scrollbarColor: '#ccc transparent' }}>
+            <div style={{ height: '500px', overflowY: 'auto', backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', maxWidth: '390px', width:'95%', scrollbarWidth: 'thin', scrollbarColor: '#ccc transparent' }}>
               {/* <p  style={{alignSelf:'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius:'4px', backgroundColor: '#373737', marginTop: '8px', cursor: 'pointer', color:'white', fontWeight:'600' }} ></p> */}
-              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%', gap: '16px', alignItems: 'center' }}>
-                <Button variant={ButtonVariant.secondary} size='sm' style={{ margin: '0', alignSelf: 'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius: '4px', backgroundColor: '#373737', marginTop: '8px', color: 'white', fontWeight: '600' }}>
-                  De menor a mayor precio
+                <Button onClick={()=> setVisibleModalFiltros(true)} variant={ButtonVariant.secondary} size='sm' style={{ margin: '0', fontSize: '14px', padding: '4px 8px', borderRadius: '4px', backgroundColor: '#373737', marginTop: '8px', color: 'white', fontWeight: '500'}} sizeIcon='sm' icon={IconCatalog.optionsOutline}>
+                  Filtrar
                 </Button>
-
-              </div>
               <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', }}>
-                {filteredData?.map(el => (
+                {(filtros?.includes('corriente') || filtros === undefined) && filteredData?.map(el => (
+                  <div onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
+                    <Image
+                      width={48}
+                      height={48}
+                      src={`/${el.img}.png`}
+                      alt={`Gasolinera ${el.empresa} ubicado en ${el.direccion}`}
+                    />
+                    <h4 style={{ fontSize: '22px', fontWeight: '600', margin: '8px 0' }}>{el.empresa}</h4>
+                    <p style={{ fontSize: '12px', color: '#333333', margin: '4px 0 8px 0', textAlign:'center' }}>{el.direccion}</p>
+                    {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
+                    <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.price?.toString() })}</span>
+                  </div>
+                ))
+                }
+                {filtros?.includes('extra') && filteredDataExtra?.map(el => (
                   <div onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '160px', justifyContent: 'space-between' }}>
                     <Image
                       width={48}
@@ -67,19 +85,7 @@ export default function Gasolineras({ data }) {
                     <h4 style={{ fontSize: '22px', fontWeight: '600', margin: '8px 0' }}>{el.empresa}</h4>
                     <p style={{ fontSize: '14px', color: '#333333', margin: '4px 0 8px 0' }}>{el.direccion}</p>
                     {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
-                    <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.price?.toString() })}</span>
-                    {/* <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', width: '100%', justifyContent: 'center', marginTop: '8px' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <p style={{ fontSize: '12px', fontWeight: '600' }}>{el?.calificacion?.puntuacion} <span style={{ fontWeight: '400' }}>({el.calificacion.numero_resenas} votos)</span></p>
-                  <div style={{ display: 'flex', flexDirection: 'row', gap: '4px', }}>
-                    {estrellas.map((index) =>
-                    (
-                      <Star index={index} stars={Math.round(el?.calificacion?.puntuacion)} tamaño={'16'} />
-                    ))
-                    }
-                  </div>
-                </div>
-              </div> */}
+                    <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.priceDos?.toString() })}</span>
                   </div>
                 ))
                 }
@@ -96,7 +102,7 @@ export default function Gasolineras({ data }) {
         </div>
 
       </div>
-      <div style={{width:'90%', maxWidth:'800px', display:'flex', flexDirection:'column', gap:'32px', margin:'64px auto', }}>
+      <div style={{ width: '90%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '32px', margin: '64px auto', }}>
         <section>
           <h2>Bombas de Gasolina</h2>
           <p>Encuentra fácilmente las bombas de gasolina más cercanas a ti. Nuestra plataforma te proporciona información detallada sobre las diferentes bombas de gasolina disponibles, sus ubicaciones exactas, horarios de atención y servicios adicionales que ofrecen.</p>
@@ -118,7 +124,9 @@ export default function Gasolineras({ data }) {
         </section>
       </div>
       {visibleModal &&
-        <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} />}
+        <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]}/>}
+      {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros}/>}
+    
     </Layout>
 
   )
@@ -135,6 +143,10 @@ export async function getServerSideProps({ query }) {
     const filteredData = data.filter(obj => obj.ciu === 'Bogotá D.C.');
     let dataFormat = filteredData.map(item => ({
       price: item.price.find(ele => ele.id == 1)?.retailPrice ? item.price.find(ele => ele.id == 1)?.retailPrice : null,
+      priceDos: item.price.find(ele => ele.id == 2)?.retailPrice ? item.price.find(ele => ele.id == 2)?.retailPrice : null,
+      priceTres: item.price.find(ele => ele.id == 3)?.retailPrice ? item.price.find(ele => ele.id == 3)?.retailPrice : null,
+      priceCuatro: item.price.find(ele => ele.id == 4)?.retailPrice ? item.price.find(ele => ele.id == 4)?.retailPrice : null,
+      priceCinco: item.price.find(ele => ele.id == 5)?.retailPrice ? item.price.find(ele => ele.id == 5)?.retailPrice : null,
       direccion: item.dir,
       ciudad: item.ciu,
       lat: item?.lat,
