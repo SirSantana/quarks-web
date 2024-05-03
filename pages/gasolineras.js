@@ -75,7 +75,7 @@ export default function Gasolineras({ data }) {
                 ))
                 }
                 {filtros?.includes('extra') && filteredDataExtra?.map(el => (
-                  <div onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '160px', justifyContent: 'space-between' }}>
+                  <div onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
                     <Image
                       width={48}
                       height={48}
