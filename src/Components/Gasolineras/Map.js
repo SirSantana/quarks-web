@@ -21,9 +21,10 @@ function CalculatePrice({ price }) {
   let priceCalculate = PriceFormat({ price: price?.toString() }) ? PriceFormat({ price: price?.toString() }) : 'Precio desconocido'
   return priceCalculate
 }
-export default function Map({ data, estacionCheck, setVisibleModal, setEstacionCheck, filtros }) {
-  const [mapCenter, setMapCenter] = useState([4.657782, -74.073614]);
-  const [zoomLevel, setZoomLevel] = useState(5);
+export default function Map({ data, estacionCheck, setVisibleModal, setEstacionCheck, filtros, }) {
+  const [mapCenter, setMapCenter] = useState([data[0].lat, data[0].lng]);
+  
+  const [zoomLevel, setZoomLevel] = useState(12);
 
   const gasolineraEncontrada = data.find(gasolinera => gasolinera.nombre === estacionCheck);
 
@@ -31,7 +32,7 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
   return (
     <MapContainer
       style={{ width: '100vw', height: '100vh', zIndex: 1, maxWidth: '100%' }}
-      center={mapCenter} zoom={11} zoomControl={false} scrollWheelZoom={true}>
+      center={mapCenter} zoom={zoomLevel} zoomControl={false} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
@@ -47,7 +48,7 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
             L.divIcon({
               className: 'dummy',
               html: `
-                <div style="position: relative; display: flex; gap: 8px; align-items: center; padding: ${zoomLevel >= 14 ? '2px 4px' : '2px'}; width: fit-content; justify-content: space-between; flex-direction: row; align-items: center; border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-radius: ${zoomLevel >= 14 ? '8px' : '50%'}; background-color: white;">
+                <div style="position: relative; display: ${zoomLevel>=12 ?'flex':'none'}; gap: 8px; align-items: center; padding: ${zoomLevel >= 14 ? '2px 4px' : '2px'}; width: fit-content; justify-content: space-between; flex-direction: row; align-items: center; border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-radius: ${zoomLevel >= 14 ? '8px' : '50%'}; background-color: white;">
                 <img loading="lazy" src="/${gasolinera.img}.png" alt="Icon" preload style="object-fit: cover; width: 24px; height: 24px; border-radius: 50%;">
                 <p style="display: ${zoomLevel >= 14 ? 'flex' : 'none'}; margin: 0; color: #373737; font-size: 12px; font-weight: 600; white-space: nowrap;">
                   $${filtros?.includes('extra') ? CalculatePrice({ price: gasolinera?.priceDos }) : CalculatePrice({ price: gasolinera?.price })}

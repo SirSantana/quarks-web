@@ -77,7 +77,7 @@ export function ModalGasolineraCard({ data, setVisibleModal, precioAlto, precioA
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           <div style={{ display: 'flex', flexDirection: 'column', }}>
             <h3>{data?.nombre}</h3>
-            <p style={{ fontSize: '14px' }}>{data.direccion}</p>
+            <p style={{ fontSize: '14px' }}>{data.direccion}. <span style={{fontWeight:'500'}}>{data?.ciudad}</span></p>
           </div>
           <Image
             width={48}

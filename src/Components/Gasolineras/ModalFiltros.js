@@ -14,7 +14,7 @@ let combustibles = {
 
 export default function ModalFiltrosGasolineras({ setVisibleModalFiltros }) {
   const router = useRouter()
-  const queryString = router?.query?.combustible|| '';
+  const queryString = router?.query?.combustible || '';
   const corriente = queryString.includes('corriente');
   const extra = queryString.includes('extra');
 
@@ -27,14 +27,21 @@ export default function ModalFiltrosGasolineras({ setVisibleModalFiltros }) {
   const handleToggleCombustible = (tipo) => {
     setCombustible({ ...combustible, [tipo]: !combustible[tipo] });
   };
-
   const handleSubmit = () => {
     const queryParams = Object.entries(combustible)
       .filter(([_, value]) => value)
       .map(([key, _]) => key)
       .join(',');
+    if (router?.query?.slug?.length > 0) {
+      router.push({
+        pathname: '/gasolineras/[...slug]',
+        query: { slug:router?.query?.slug[0], combustible: queryParams }
+      });
+    } else {
+      console.log('holaa');
+      router.push(`?combustible=${queryParams}`);
 
-    router.push(`?combustible=${queryParams}`);
+    }
     setVisibleModalFiltros(false)
   };
   return (
