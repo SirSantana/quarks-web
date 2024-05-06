@@ -234,12 +234,10 @@ export default function EngineDisplacementCalculator() {
             <p style={{ lineHeight: '1.8' }}>The formula for the volume of a cylinder is not as difficult as it might seem. It is basic mathematics.<br /><br /> <span style={{ fontWeight: '600' }}>The formula for piston displacement (V) of a cylinder is V=πr2h</span>, where π represents the constant pi, approximately 3.14159. Here, r denotes the radius of the base of the cylinder, and ℎ h denotes the height of the cylinder. This painstaking calculation provides us with a volume value expressed in cubic units, such as cubic centimeters (cm³) or cubic meters (m³).
             </p>
           </section>
-          <h2>Engine displacement calculator</h2>
-          <h2>engine displacement</h2>
-          <h2>cc calculator</h2>
-          <h2>engine cc calculator</h2>
-
-
+          <h3>Engine displacement calculator</h3>
+          <h3>engine displacement</h3>
+          <h3>cc calculator</h3>
+          <h3>engine cc calculator</h3>
 
 
         </div>
