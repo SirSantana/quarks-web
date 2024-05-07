@@ -32,7 +32,7 @@ export default function Gasolineras({ data }) {
   const [estacionCheck, setEstacionCheck] = useState(null)
   const [visibleModal, setVisibleModal] = useState(false)
   const [visibleModalFiltros, setVisibleModalFiltros] = useState(false)
-  const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(true)
+  const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false)
   const [filter, setFilter] = useState('marca')
   let filteredData = data?.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
   let filteredDataExtra = data?.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos)
@@ -69,11 +69,11 @@ export default function Gasolineras({ data }) {
               &&
               <div style={{ height: '500px', overflowY: 'auto', backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', maxWidth: '390px', width: '95%', scrollbarWidth: 'thin', scrollbarColor: '#ccc transparent' }}>
                 {/* <p  style={{alignSelf:'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius:'4px', backgroundColor: '#373737', marginTop: '8px', cursor: 'pointer', color:'white', fontWeight:'600' }} ></p> */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center',gap: '16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', gap: '16px' }}>
                   <Button onClick={() => setVisibleModalFiltros(true)} variant={ButtonVariant.secondary} size='sm' style={{ margin: '0', fontSize: '14px', padding: '4px 8px', borderRadius: '4px', backgroundColor: '#373737', marginTop: '8px', color: 'white', fontWeight: '500' }} sizeIcon='sm' icon={IconCatalog.optionsOutline}>
                     Filtrar
                   </Button>
-                  <Icon onClick={()=>setVisibleData(!visibleData)} name={IconCatalog.closeOutline} />
+                  <Icon onClick={() => setVisibleData(!visibleData)} name={IconCatalog.closeOutline} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', }}>
@@ -118,7 +118,11 @@ export default function Gasolineras({ data }) {
             }
 
           </div>
-
+          <div onClick={()=> setVisibleModalPicoyPlaca(true)} style={{cursor:'pointer', backgroundColor:'#FFC003',padding:'2px',borderRadius:'8px', margin: '16px auto 0px auto', position:'absolute', bottom:'40px', right:'16px', zIndex:1 }}>
+            <div style={{ backgroundColor: 'transparent', border: '2px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+              <p style={{color:'black', fontSize: '16px', fontFamily: 'Impact',  fontWeight: '100' }}>Pico y Placa</p>
+            </div>
+          </div>
         </div>}
       <div style={{ width: '90%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '32px', margin: '64px auto', }}>
         <section>
@@ -144,7 +148,7 @@ export default function Gasolineras({ data }) {
       {visibleModal &&
         <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
       {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} />}
-      {/* {visibleModalPicoyPlaca && <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />} */}
+      {visibleModalPicoyPlaca && <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />}
 
 
     </Layout>
