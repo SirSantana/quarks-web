@@ -1,0 +1,175 @@
+import Layout from "@/src/Components/Layout";
+import styles from '@/styles/PicoYPlaca.module.css'
+import picoyplaca from '@/pages/picoyplaca.json'
+
+import Link from "next/link";
+import { useRouter } from "next/router";
+let keyWords = [
+  "Pico y Placa Medellín",
+  "Restricciones de circulación",
+  "Horario Pico y Placa",
+  "Consulta Pico y Placa",
+  "Movilidad en Medellín",
+  "Tráfico en Medellín",
+  "Multas Pico y Placa",
+  "Planificar ruta en Medellín",
+  "Calendario Pico y Placa",
+  "Pico y placa mañana",
+  "Pico y placa Medellín hoy",
+  "pico y placa hoy",
+  "pico y placa medellín mañana",
+  "pico y placa hoy en medellín",
+  "hora pico y placa medellín",
+  "Normativa de tránsito",
+  "Evitar sanciones Pico y Placa",
+  "Circulación vehicular",
+  "Desplazamientos en Medellín",
+  "Regulación de tráfico",
+  "Movilidad urbana"
+]
+let repuestos = [
+  {
+    "repuesto": "Pastillas de freno Chevrolet Corsa",
+    "precio": "90.000",
+    "precioAnt": "98.000",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_783125-MCO71919736666_092023-F.webp",
+    "stock": 3,
+    "fabricante": "Autotec U.S.A",
+    "descuento": 3,
+    "ventas": 4,
+  },
+  {
+    "repuesto": "Muñecos / Bieleta Barra Estabilizadora Chevrolet Aveo",
+    "precio": "76.000",
+    "precioAnt": "85.000",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_787143-MCO72599235153_102023-F.webp",
+    "stock": 2,
+    "fabricante": "Saher",
+    "descuento": 0,
+    "ventas": 2,
+  },
+  {
+    "repuesto": "Impulsadores Chevrolet Captiva 2.4 - 3.0 - 3.6 (X16 Unds)",
+    "precio": "380.000",
+    "precioAnt": "410.000",
+    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_918317-MCO72595597482_112023-F.webp",
+    "stock": 2,
+    "fabricante": "Krammer U.S.A",
+    "descuento": 0,
+    "ventas": 2,
+  }
+]
+export default function PicoYPlaca({ data }) {
+  const router = useRouter()
+  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const numeroMes = meses.indexOf(router.query.slug[1].split('-')[2]);
+
+  // const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
+  // const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
+
+  return (
+    <Layout title={`Pico y Placa Medellín Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Medellín hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Pico y Placa Hoy {data?.titulo.replaceAll('-', ' ')} en Medellín</h1>
+        <section className={styles.containerPlaca}>
+          <div style={{ backgroundColor: 'transparent', border: '5px solid black', borderRadius: '10px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+            {data?.placas !== 'NO APLICA'
+              &&
+              <p className={styles.textOne}>No pueden circular vehiculos con placas terminadas en:</p>
+            }
+            <p className={styles.placas}>{data?.placas}</p>
+            {data?.placas !== 'NO APLICA'
+              &&
+              <p className={styles.horario}>{data?.horario}</p>
+            }
+          </div>
+        </section>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa Hoy</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en Medellín, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
+        </section>
+       
+        
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h3 style={{ marginBottom: '16px' }}>Conoce el pico y placa del mes de {meses[numeroMes]}</h3>
+          <div onClick={() => router.push(`/pico-y-placa-hoy?ciudad=medellin&&month=${meses[numeroMes]}-${numeroMes}`)} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
+            <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+              <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
+            </div>
+          </div>
+        </section>
+        <h4>Encuentra los mejores repuestos para tu Chevrolet</h4>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+          {repuestos.map(repuesto => (
+            <Link href={'https://www.cotizatusrepuestos.com/'} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', padding: '16px', border: '1px solid #d9d9d9', borderRadius: '8px', maxWidth: '100%', width: '300px', margin: '0 auto' }}>
+              <img src={repuesto?.imagen} style={{ width: '80%', height: '280px', objectFit: 'contain', margin: '0 auto' }} alt={repuesto?.repuesto} />
+              <p>{repuesto.repuesto}</p>
+              <p style={{ fontSize: '14px', marginTop: '8px' }}>{repuesto.fabricante}</p>
+              <p style={{ fontWeight: '600', color: '#f50057', fontSize: '12px', marginTop: '8px' }}>Antes ${repuesto.precioAnt}</p>
+              <p style={{ fontWeight: '600', fontSize: '24px', marginTop: '8px' }}>${repuesto.precio}</p>
+            </Link>
+          ))}
+        </section>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px' }}>
+          <h2>Pico y Placa</h2>
+          <p>Conoce el Pico y Placa en Medellín para este {data?.titulo.replaceAll('-', ' ')}</p>
+          <div style={{ margin: '16px 0' }}>
+            <h3>Pico y Placa Carros Particulares:</h3>
+            {data?.placas === 'NO APLICA'
+              ?
+              <p style={{ marginTop: '8px' }}>Hoy {data?.fechaFormat.replaceAll('-', ' ')} <span style={{ fontWeight: '700' }}>NO  hay restricciones.</span></p>
+
+              :
+              data?.especial
+                ?
+                <>
+                  <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>NO podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[0]}</span>  de <span style={{ fontWeight: '700' }}> Horario:</span> {data?.horario[0]} y las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[1]}</span>  de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario[1]}</p>
+                </>
+
+                :
+                <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>NO podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas}</span> de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario}</p>
+            }
+          </div>
+        </section>
+
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Pl</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Medellín: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
+          <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Medellín. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
+        </section>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>hora pico y placa medellín</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
+        </section>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>pico y placa medellín hoy</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
+        </section>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} no podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
+        </section>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <h2>Pico y Placa Medellín {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
+          <h2>Pico y Placa Medellín {data?.titulo.replaceAll('-', ' ')}</h2>
+
+        </section>
+      </div>
+    </Layout>
+
+  )
+}
+
+export async function getServerSideProps({ query }) {
+  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  const numeroMes = meses.indexOf(query.slug[1].split('-')[2]);
+  let picoyplacafilterciudad = picoyplaca?.picoyplaca[[numeroMes]].filter(el => el?.ciudad?.toLowerCase() === query.slug[0].toLowerCase())
+  let picoYplacaHoy = picoyplacafilterciudad.find(el => el.fechaFormat.toLowerCase() == String(query.slug[1]))
+  return {
+    props: {
+      data:
+        picoYplacaHoy
+    }
+
+  }
+}
