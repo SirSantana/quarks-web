@@ -46,7 +46,7 @@ export default function ModalPicoYPlaca({setVisibleModalPicoyPlaca}) {
         </div>
         <div style={{ margin: '40px 0 0px 0', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%' }}>
           <Slider style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', fontSize: '20px', fontWeight: '700', textAlign: 'center', alignItems: 'center' }}  {...settings}>
-            {data?.picoyplaca[4].map(el => (
+            {data?.picoyplaca[4].filter(el=> !el.ciudad).map(el => (
               <>
                 <p style={{ margin: '0', fontSize: '20px', fontWeight: '700', textAlign: 'center', color:'#373737' }}>{el.titulo.replaceAll('-', ' ')}</p>
                 <div className={styles2.containerMiniPlaca} style={{ margin: '16px auto 0px auto' }}>
