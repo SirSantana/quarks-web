@@ -36,6 +36,8 @@ export default function Footer() {
             <Link style={{ textDecoration: 'none' }} href={'/engine-displacement-calculator'} ><p className={styles.subtitle}>Calculadora Cilindrada Ingles</p></Link>
             <Link style={{ textDecoration: 'none' }} href={'/pico-y-placa-hoy-bogota'} ><p className={styles.subtitle}>Pico y Placa Hoy Bogotá</p></Link>
             <Link style={{ textDecoration: 'none' }} href={'/pico-y-placa-hoy'} ><p className={styles.subtitle}>Pico y Placa Hoy Medellín</p></Link>
+            <Link style={{ textDecoration: 'none' }} href={'/pico-y-placa-hoy?ciudad=Bucaramanga&&month=mayo-4'} ><p className={styles.subtitle}>Pico y Placa Hoy Bucaramanga</p></Link>
+
             <Link style={{ textDecoration: 'none' }} href={'/gasolineras'} ><p className={styles.subtitle}>Gasolineras en Bogota</p></Link>
 
           </div>

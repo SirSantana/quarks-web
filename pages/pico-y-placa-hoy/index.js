@@ -10,7 +10,7 @@ export default function PicoYPlaca({ data }) {
   return (
     <Layout title={`Pico y Placa Medellín ${query?.month ? query?.month.split('-')[0] : ''}`} description={'Consulta el Pico y Placa de Medellín para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
-        <h1 className={styles.title}>Pico y Placa {query?.month && query.month.split('-')[0]}. Medellín </h1>
+        <h1 className={styles.title}>Pico y Placa {query?.month && query.month.split('-')[0]} {query.ciudad?query.ciudad:'Medellín'} </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query?.month ? query.month.split('-')[0] : 'el 2024'} en Medellín.</p>
 
         {data ? data?.map(el => (
@@ -32,7 +32,16 @@ export default function PicoYPlaca({ data }) {
         ))
           :
           <>
+          <h3>Medellín</h3>
             <div onClick={() => push('/pico-y-placa-hoy?ciudad=medellin&&month=Mayo-4')} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Mayo</h4>
+              </div>
+            </div>
+
+            <h3>Bucaramanga</h3>
+
+            <div onClick={() => push('/pico-y-placa-hoy?ciudad=bucaramanga&&month=Mayo-4')} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
               <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
                 <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Mayo</h4>
               </div>

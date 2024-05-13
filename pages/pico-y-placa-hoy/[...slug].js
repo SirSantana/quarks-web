@@ -4,29 +4,7 @@ import picoyplaca from '@/pages/picoyplaca.json'
 
 import Link from "next/link";
 import { useRouter } from "next/router";
-let keyWords = [
-  "Pico y Placa Medellín",
-  "Restricciones de circulación",
-  "Horario Pico y Placa",
-  "Consulta Pico y Placa",
-  "Movilidad en Medellín",
-  "Tráfico en Medellín",
-  "Multas Pico y Placa",
-  "Planificar ruta en Medellín",
-  "Calendario Pico y Placa",
-  "Pico y placa mañana",
-  "Pico y placa Medellín hoy",
-  "pico y placa hoy",
-  "pico y placa medellín mañana",
-  "pico y placa hoy en medellín",
-  "hora pico y placa medellín",
-  "Normativa de tránsito",
-  "Evitar sanciones Pico y Placa",
-  "Circulación vehicular",
-  "Desplazamientos en Medellín",
-  "Regulación de tráfico",
-  "Movilidad urbana"
-]
+
 let repuestos = [
   {
     "repuesto": "Pastillas de freno Chevrolet Corsa",
@@ -66,11 +44,33 @@ export default function PicoYPlaca({ data }) {
 
   // const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
   // const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
-
+  let keyWords = [
+    `Pico y Placa ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`,
+    "Restricciones de circulación",
+    "Horario Pico y Placa",
+    "Consulta Pico y Placa",
+    `Movilidad en ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`,
+    `Tráfico en ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`,
+    "Multas Pico y Placa",
+    `Planificar ruta en ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`,
+    "Calendario Pico y Placa",
+    "Pico y placa mañana",
+    `Pico y placa ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''} hoy`,
+    "pico y placa hoy",
+    `pico y placa ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''} mañana`,
+    `pico y placa hoy en ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`,
+    `hora pico y placa ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`,
+    "Normativa de tránsito",
+    "Evitar sanciones Pico y Placa",
+    "Circulación vehicular",
+    `Desplazamientos en ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`,
+    "Regulación de tráfico",
+    `Movilidad urbana en ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`
+  ];
   return (
-    <Layout title={`Pico y Placa Medellín Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Medellín hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
+    <Layout title={`Pico y Placa ${router.query.slug[0]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en ${router.query.slug[0]} hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
-        <h1 className={styles.title}>Pico y Placa Hoy {data?.titulo.replaceAll('-', ' ')} en Medellín</h1>
+        <h1 className={styles.title}>Pico y Placa Hoy {data?.titulo.replaceAll('-', ' ')} en {router.query.slug[0]}</h1>
         <section className={styles.containerPlaca}>
           <div style={{ backgroundColor: 'transparent', border: '5px solid black', borderRadius: '10px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             {data?.placas !== 'NO APLICA'
@@ -86,13 +86,13 @@ export default function PicoYPlaca({ data }) {
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa Hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en Medellín, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {router.query.slug[0]}, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
         </section>
        
         
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Conoce el pico y placa del mes de {meses[numeroMes]}</h3>
-          <div onClick={() => router.push(`/pico-y-placa-hoy?ciudad=medellin&&month=${meses[numeroMes]}-${numeroMes}`)} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
+          <div onClick={() => router.push(`/pico-y-placa-hoy?ciudad=${router.query.slug[0]}&&month=${meses[numeroMes]}-${numeroMes}`)} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
             <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
               <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
             </div>
@@ -112,7 +112,7 @@ export default function PicoYPlaca({ data }) {
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px' }}>
           <h2>Pico y Placa</h2>
-          <p>Conoce el Pico y Placa en Medellín para este {data?.titulo.replaceAll('-', ' ')}</p>
+          <p>Conoce el Pico y Placa en {router.query.slug[0]} para este {data?.titulo.replaceAll('-', ' ')}</p>
           <div style={{ margin: '16px 0' }}>
             <h3>Pico y Placa Carros Particulares:</h3>
             {data?.placas === 'NO APLICA'
@@ -134,15 +134,15 @@ export default function PicoYPlaca({ data }) {
 
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Pl</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Medellín: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
-          <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Medellín. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en {router.query.slug[0]}: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
+          <p>Infórmate sobre las reglas y restricciones del Pico y Placa en {router.query.slug[0]}. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>hora pico y placa medellín</h2>
+          <h2>hora pico y placa {router.query.slug[0]}</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>pico y placa medellín hoy</h2>
+          <h2>pico y placa {router.query.slug[0]} hoy</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
@@ -150,8 +150,8 @@ export default function PicoYPlaca({ data }) {
           <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} no podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
         </section>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Placa Medellín {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
-          <h2>Pico y Placa Medellín {data?.titulo.replaceAll('-', ' ')}</h2>
+          <h2>Pico y Placa {router.query.slug[0]} {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
+          <h2>Pico y Placa {router.query.slug[0]} {data?.titulo.replaceAll('-', ' ')}</h2>
 
         </section>
       </div>
