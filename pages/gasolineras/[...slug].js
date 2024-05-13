@@ -12,6 +12,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
+import { calcularDistancia } from '@/utils/scripts';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
   { ssr: false, loading: () => <div style={{ height: '100vh', width: '100vw', backgroundColor: '#d9d9d9' }} /> })
@@ -33,12 +34,23 @@ export default function Gasolineras({ data }) {
   const [visibleModal, setVisibleModal] = useState(false)
   const [visibleModalFiltros, setVisibleModalFiltros] = useState(false)
   const [filter, setFilter] = useState('marca')
+  const [userLocation, setUserLocation] = useState([0, 0]);
+
   let filteredData = data?.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
   let filteredDataExtra = data?.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos)
   const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false)
 
   const filtros = query?.combustible?.split(',');
   const gasolineraEncontrada = data?.find(gasolinera => gasolinera.nombre === estacionCheck);
+
+  const queryString2 = query?.ordernar || '';
+  const cerca = queryString2.includes('cerca');
+
+
+  data.forEach(estacion => {
+    estacion.distancia = calcularDistancia(userLocation[0], userLocation[1], estacion.lat, estacion.lng);
+  });
+  let res = data.sort((a, b) => a.distancia - b.distancia);
 
   return (
     <Layout title={`Mapa de Gasolineras en ${query?.slug?.[0].length > 0 ? query?.slug?.[0] : 'Bogota'}`} visibleNavbar={false} description={'Descubre y compara precios con mas de 85 bombas de gasolina en Bogota. Colombia. Estaciones de gasolina cerca con ubicacion y precios.'} keywords={'Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estacion de gasolina cerca, estación de servicio más cercana, bombas de gasolina cerca'}>
@@ -74,7 +86,8 @@ export default function Gasolineras({ data }) {
                 <Icon onClick={() => setVisibleData(!visibleData)} name={IconCatalog.closeOutline} />
               </div>
               <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', }}>
-                {(filtros?.includes('corriente') || filtros === undefined) && filteredData?.map(el => (
+                {(filtros?.includes('corriente') || filtros === undefined) &&(cerca ?
+                    res?.map(el => (
                   <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
                     <Image
                       width={48}
@@ -82,13 +95,29 @@ export default function Gasolineras({ data }) {
                       src={`/${el.img}.png`}
                       alt={`Gasolinera ${el.empresa} ubicado en ${el.direccion}`}
                     />
-                    <h4 style={{ fontSize: '18px', fontWeight: '600', margin: '8px 0', textAlign: 'center' }}>{el.ciudad}</h4>
-                    <p style={{ fontSize: '12px', color: '#333333', margin: '4px 0 8px 0', textAlign: 'center' }}>{el.direccion}</p>
+                    <h4 style={{ fontSize: '18px', fontWeight: '600', margin: '8px 0', textAlign: 'center' }}>A {el.distancia} <span style={{fontSize:'14px', fontWeight:'500'}}> kms</span></h4>
+                    <p style={{ fontSize: '12px', color: '#333333', margin: '4px 0 8px 0', textAlign: 'center' }}>{el.direccion} {el.ciudad}</p>
                     {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
                     <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.price?.toString() })}</span>
                   </div>
                 ))
-                }
+                :
+                  filteredData?.map(el => (
+                    <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
+                      <Image
+                        width={48}
+                        height={48}
+                        src={`/${el.img}.png`}
+                        alt={`Gasolinera ${el.empresa} ubicado en ${el.direccion}`}
+                      />
+                      <h4 style={{ fontSize: '18px', fontWeight: '600', margin: '8px 0', textAlign: 'center' }}>{el.ciudad}</h4>
+                      <p style={{ fontSize: '12px', color: '#333333', margin: '4px 0 8px 0', textAlign: 'center' }}>{el.direccion}</p>
+                      {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
+                      <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.price?.toString() })}</span>
+                    </div>
+                  ))
+                  )
+                  }
                 {filtros?.includes('extra') && filteredDataExtra?.map(el => (
                   <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
                     <Image
@@ -102,8 +131,7 @@ export default function Gasolineras({ data }) {
                     {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
                     <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.priceDos?.toString() })}</span>
                   </div>
-                ))
-                }
+                ))}
                 <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '900px', gap: '8px', width: '90%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
                   {tagsFix.map(tag => (
                     <h3 key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</h3>
@@ -143,7 +171,7 @@ export default function Gasolineras({ data }) {
       </div>
       {visibleModal &&
         <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
-      {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} />}
+      {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} setUserLocation={setUserLocation} userLocation={userLocation} />}
       {visibleModalPicoyPlaca && <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />}
 
     </Layout>

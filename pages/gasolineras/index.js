@@ -3,7 +3,7 @@ import gasolineras from '@/pages/gasolineras.json'
 import Image from 'next/image';
 import Icon, { IconCatalog } from '@/src/Components/Icon/Icon';
 import Layout from '@/src/Components/Layout';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PriceFormat from '@/utils/priceFormat';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
 import { ModalGasolineraCard } from '@/src/Components/Gasolineras/ModalCardGasolinera';
@@ -12,33 +12,42 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
+import { calcularDistancia } from '@/utils/scripts';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
   { ssr: false, loading: () => <div style={{ height: '100vh', width: '100vw', backgroundColor: '#d9d9d9' }} /> })
 
-const Star = ({ index, stars, tamaño, }) => {
-  return (
-    // <img src={stars < index + 1 ? `../../star-outline.svg` : `../../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} />
-    <Icon size='sm' name={IconCatalog.star} style={{ color: stars < index + 1 ? '#c5c5c5' : '#FBBC04', fontSize: '12px' }} />
 
-  )
-}
-let estrellas = [0, 1, 2, 3, 4]
 let tagsFix = ['Gasolineras', 'Estaciones de Servicio', 'gasolineras cerca', 'bombas de gasolina', 'gasolinera cerca de mi', 'estación de servicio más cercana', 'bombas de gasolina cerca', 'bombas de gasolina cerca de mi', 'bombas gasolina cerca', 'gasolinera terpel']
 
 export default function Gasolineras({ data }) {
-  const { query, push } = useRouter()
+  const router = useRouter()
   const [visibleData, setVisibleData] = useState(false)
   const [estacionCheck, setEstacionCheck] = useState(null)
   const [visibleModal, setVisibleModal] = useState(false)
   const [visibleModalFiltros, setVisibleModalFiltros] = useState(false)
   const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false)
-  const [filter, setFilter] = useState('marca')
+  const [userLocation, setUserLocation] = useState([0, 0]);
+  const [estacionesOrdenadasCerca, setEstacionesOrdenadasCerca] = useState([]);
+
+
   let filteredData = data?.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
   let filteredDataExtra = data?.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos)
 
-  const filtros = query?.combustible?.split(',');
+  const filtros = router.query?.combustible?.split(',');
   const gasolineraEncontrada = data?.find(gasolinera => gasolinera.nombre === estacionCheck);
+
+
+  const queryString2 = router?.query?.ordernar || '';
+  const cerca = queryString2.includes('cerca');
+
+  data.forEach(estacion => {
+    estacion.distancia = calcularDistancia(userLocation[0], userLocation[1], estacion.lat, estacion.lng);
+  });
+  let res = data.sort((a, b) => a.distancia - b.distancia);
+  // setEstacionesOrdenadasCerca(res)
+
+
   return (
     <Layout icon={'/logoterpel.png'} image={'/logoterpel.png'} title={'Mapa de Gasolineras en Bogota'} visibleNavbar={false} description={'Descubre y compara precios con mas de 85 bombas de gasolina en Bogota. Colombia. Estaciones de gasolina cerca con ubicacion y precios.'} keywords={'Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estacion de gasolina cerca, estación de servicio más cercana, bombas de gasolina cerca'}>
 
@@ -54,7 +63,7 @@ export default function Gasolineras({ data }) {
 
             <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9', maxWidth: '390px', minWidth: '300px', width: '95%', }}>
               <h1>Gasolineras</h1>
-              <h2 style={{ fontSize: '14px', fontWeight: '400' }}>Gasolineras cerca a mi {query?.slug?.[0]}</h2>
+              <h2 style={{ fontSize: '14px', fontWeight: '400' }}>Gasolineras cerca a mi {router.query?.slug?.[0]}</h2>
               {/* <p onClick={() => setVisibleData(!visibleData)} style={{ fontSize: '14px', padding: '4px 8px', backgroundColor: '#f1f1f1', marginTop: '8px', cursor: 'pointer' }}>{visibleData ? 'Ocultar listado' : 'Mostrar listado'}</p> */}
               <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', marginTop: '16px', gap: '16px' }}>
 
@@ -70,27 +79,44 @@ export default function Gasolineras({ data }) {
               <div style={{ height: '500px', overflowY: 'auto', backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', maxWidth: '390px', width: '95%', scrollbarWidth: 'thin', scrollbarColor: '#ccc transparent' }}>
                 {/* <p  style={{alignSelf:'flex-end', fontSize: '12px', padding: '4px 8px', borderRadius:'4px', backgroundColor: '#373737', marginTop: '8px', cursor: 'pointer', color:'white', fontWeight:'600' }} ></p> */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', gap: '16px' }}>
-                  <Button onClick={() => setVisibleModalFiltros(true)} variant={ButtonVariant.secondary} size='sm' style={{ margin: '0', fontSize: '14px', padding: '4px 8px', borderRadius: '4px', backgroundColor: '#373737', marginTop: '8px', color: 'white', fontWeight: '500' }} sizeIcon='sm' icon={IconCatalog.optionsOutline}>
+                  <Button onClick={(e) => { e.stopPropagation(), setVisibleModalFiltros(true), setVisibleData(true) }} variant={ButtonVariant.secondary} size='sm' style={{ margin: '0', fontSize: '14px', padding: '4px 8px', borderRadius: '4px', backgroundColor: '#373737', marginTop: '8px', color: 'white', fontWeight: '500' }} sizeIcon='sm' icon={IconCatalog.optionsOutline}>
                     Filtrar
                   </Button>
                   <Icon onClick={() => setVisibleData(!visibleData)} name={IconCatalog.closeOutline} />
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', }}>
-                  {(filtros?.includes('corriente') || filtros === undefined) && filteredData?.map(el => (
-                    <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
-                      <Image
-                        width={48}
-                        height={48}
-                        src={`/${el.img}.png`}
-                        alt={`Gasolinera ${el.empresa} ubicado en ${el.direccion}`}
-                      />
-                      <h4 style={{ fontSize: '18px', fontWeight: '600', margin: '8px 0', textAlign: 'center' }}>{el.ciudad}</h4>
-                      <p style={{ fontSize: '12px', color: '#333333', margin: '4px 0 8px 0', textAlign: 'center' }}>{el.direccion}</p>
-                      {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
-                      <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.price?.toString() })}</span>
-                    </div>
-                  ))
+                  {(filtros?.includes('corriente') || filtros === undefined) && (cerca ?
+                    res?.map(el => (
+                      <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
+                        <Image
+                          width={48}
+                          height={48}
+                          src={`/${el.img}.png`}
+                          alt={`Gasolinera ${el.empresa} ubicado en ${el.direccion}`}
+                        />
+                        <h4 style={{ fontSize: '18px', fontWeight: '600', margin: '8px 0', textAlign: 'center' }}>A {el.distancia} kms</h4>
+                        <p style={{ fontSize: '12px', color: '#333333', margin: '4px 0 8px 0', textAlign: 'center' }}>{el.direccion} {el.ciudad} </p>
+                        {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
+                        <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.price?.toString() })}</span>
+                      </div>
+                    ))
+                    :
+                    filteredData?.map(el => (
+                      <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
+                        <Image
+                          width={48}
+                          height={48}
+                          src={`/${el.img}.png`}
+                          alt={`Gasolinera ${el.empresa} ubicado en ${el.direccion}`}
+                        />
+                        <h4 style={{ fontSize: '18px', fontWeight: '600', margin: '8px 0', textAlign: 'center' }}>{el.ciudad}</h4>
+                        <p style={{ fontSize: '12px', color: '#333333', margin: '4px 0 8px 0', textAlign: 'center' }}>{el.direccion}</p>
+                        {/* <span style={{ padding: '4px 8px', backgroundColor: '#EAEAEA', borderRadius: '12px', fontSize: '12px', color: '#7C7C7C', fontWeight: '700' }}>{el.ciu}</span> */}
+                        <span style={{ padding: '4px 8px', backgroundColor: '#D3FFD7', margin: '4px 0 0 0', borderRadius: '12px', fontSize: '14px', color: '#2D6600', fontWeight: '700' }}>${PriceFormat({ price: el?.price?.toString() })}</span>
+                      </div>
+                    ))
+                  )
                   }
                   {filtros?.includes('extra') && filteredDataExtra?.map(el => (
                     <div key={el.nombre} onClick={() => { setEstacionCheck(el.nombre), setVisibleModal(true) }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '16px', borderRadius: '8px', border: '1px solid #d9d9d9', width: '140px', justifyContent: 'space-between' }}>
@@ -118,9 +144,9 @@ export default function Gasolineras({ data }) {
             }
 
           </div>
-          <div onClick={()=> setVisibleModalPicoyPlaca(true)} style={{cursor:'pointer', backgroundColor:'#FFC003',padding:'2px',borderRadius:'8px', margin: '16px auto 0px auto', position:'absolute', bottom:'40px', right:'16px', zIndex:1 }}>
+          <div onClick={() => setVisibleModalPicoyPlaca(true)} style={{ cursor: 'pointer', backgroundColor: '#FFC003', padding: '2px', borderRadius: '8px', margin: '16px auto 0px auto', position: 'absolute', bottom: '40px', right: '16px', zIndex: 1 }}>
             <div style={{ backgroundColor: 'transparent', border: '2px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-              <p style={{color:'black', fontSize: '16px', fontFamily: 'Impact',  fontWeight: '100' }}>Pico y Placa</p>
+              <p style={{ color: 'black', fontSize: '16px', fontFamily: 'Impact', fontWeight: '100' }}>Pico y Placa</p>
             </div>
           </div>
         </div>}
@@ -147,7 +173,7 @@ export default function Gasolineras({ data }) {
       </div>
       {visibleModal &&
         <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
-      {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} />}
+      {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} setUserLocation={setUserLocation} userLocation={userLocation} />}
       {visibleModalPicoyPlaca && <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />}
 
 

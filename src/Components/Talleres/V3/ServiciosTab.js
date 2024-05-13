@@ -24,16 +24,18 @@ export default function ServiciosTab({ categorias, tipo, id }) {
   const whatsapp = result?.data?.getWhatsappNegocio
 
   const handleSolicitarServicio = ({ servicio }) => {
-    const message = `
-    ¡Hola! Estoy interesado en sus servicios.
-        🛠️  *Servicio:* ${servicio} 
-        🚗  *Marca del Vehículo:* ...
-    Perfil del Taller: https://www.quarks.com.co/${router.query?.id}
-    Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
-    let url = `https://api.whatsapp.com/send?phone=57${whatsapp?.replace(/\s/g, '')}`;
-
-    url += `&text=${encodeURIComponent(message)}&app_absent=0`;
-    window.open(url);
+    if(whatsapp){
+      const message = `
+      ¡Hola! Estoy interesado en sus servicios.
+          🛠️  *Servicio:* ${servicio} 
+          🚗  *Marca del Vehículo:* ...
+      Perfil del Taller: https://www.quarks.com.co/${router.query?.id}
+      Quedo atento a tu pronta respuesta. ¡Gracias! 👍`;
+      let url = `https://api.whatsapp.com/send?phone=57${whatsapp?.replace(/\s/g, '')}`;
+  
+      url += `&text=${encodeURIComponent(message)}&app_absent=0`;
+      window.open(url);
+    }
   }
   return (
     <>
