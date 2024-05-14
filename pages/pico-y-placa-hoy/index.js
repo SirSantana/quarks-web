@@ -8,7 +8,7 @@ export default function PicoYPlaca({ data }) {
 
 
   return (
-    <Layout title={`Pico y Placa Medellín ${query?.month ? query?.month.split('-')[0] : ''}`} description={'Consulta el Pico y Placa de Medellín para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
+    <Layout title={`Pico y Placa  ${query.ciudad?query.ciudad:'Medellín'}  ${query?.month ? query?.month.split('-')[0] : ''}`} description={'Consulta el Pico y Placa de Medellín para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {query?.month && query.month.split('-')[0]} {query.ciudad?query.ciudad:'Medellín'} </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query?.month ? query.month.split('-')[0] : 'el 2024'} en Medellín.</p>
