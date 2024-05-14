@@ -17,6 +17,7 @@ import SectionDescription from "@/src/Components/Talleres/V3/SectionDescription"
 import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
 import ModalButtonsContacto from "@/src/Components/Talleres/ModalButtonsContacto";
 import Button, { ButtonVariant } from "@/src/Components/Button/Button";
+import Revisiones from "@/src/Components/Talleres/Revisiones";
 
 const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
   { ssr: false })
@@ -163,12 +164,15 @@ export default function NegocioVDos({ data }) {
               </section>
 
             }
+
             {data?.acercanegocio &&
               <section ref={refAcercaDe} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio} />
               </section>
             }
-
+            <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+              <Revisiones id={data?.id} />
+            </section>
             <section ref={refReseñas} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
               <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps} />
             </section>
