@@ -47,7 +47,7 @@ export default function Gasolineras({ data }) {
   let res = data.sort((a, b) => a.distancia - b.distancia);
   // setEstacionesOrdenadasCerca(res)
 
-
+  
   return (
     <Layout icon={'/logoterpel.png'} image={'/logoterpel.png'} title={'Mapa de Gasolineras en Bogota'} visibleNavbar={false} description={'Descubre y compara precios con mas de 85 bombas de gasolina en Bogota. Colombia. Estaciones de gasolina cerca con ubicacion y precios.'} keywords={'Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estacion de gasolina cerca, estación de servicio más cercana, bombas de gasolina cerca'}>
 
@@ -183,14 +183,13 @@ export default function Gasolineras({ data }) {
 }
 
 export async function getServerSideProps({ query }) {
-
   try {
     const response = await fetch('https://www.terpel.com/api/map_points/eds');
     if (!response.ok) {
       throw new Error('No se pudo obtener los datos de la API');
     }
     const data = await response.json();
-    const filteredData = data.filter(obj => obj.ciu === 'Bogotá D.C.' || obj.ciu === 'Chía' || obj.ciu === 'Cota' || obj.ciu === 'Medellín');
+    const filteredData = data.filter(obj => obj.ciu === 'Bogotá D.C.' || obj.ciu === 'Chía' || obj.ciu === 'Cota' || obj.ciu === 'Medellín' || obj.ciu === 'Bucaramanga');
     let dataFormat = filteredData.map(item => ({
       price: item.price.find(ele => ele.id == 1)?.retailPrice ? item.price.find(ele => ele.id == 1)?.retailPrice : null,
       priceDos: item.price.find(ele => ele.id == 2)?.retailPrice ? item.price.find(ele => ele.id == 2)?.retailPrice : null,

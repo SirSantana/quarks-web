@@ -58,12 +58,11 @@ export default function Gasolineras({ data }) {
       <div style={{ width: '100%', height: '100%', boxSizing: 'border-box', margin: '0', padding: '0', position: 'relative' }}>
         {data &&
           <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} filtros={filtros} />
-
         }
         <div style={{ zIndex: 1, position: 'absolute', top: 24, left: 24, display: 'flex', flexDirection: 'column', gap: '24px', }}>
 
           <div style={{ backgroundColor: 'white', padding: '16px', borderRadius: '12px', border: '1px solid #d9d9d9', maxWidth: '390px', minWidth: '300px', width: '95%', }}>
-            <h1>Gasolineras</h1>
+            <h1 style={{lineHeight:'1.2'}}>Gasolineras en {query?.slug?.[0]}</h1>
             <h2 style={{ fontSize: '14px', fontWeight: '400' }}>Gasolineras cerca a mi en {query?.slug?.[0]}</h2>
             {/* <p onClick={() => setVisibleData(!visibleData)} style={{ fontSize: '14px', padding: '4px 8px', backgroundColor: '#f1f1f1', marginTop: '8px', cursor: 'pointer' }}>{visibleData ? 'Ocultar listado' : 'Mostrar listado'}</p> */}
             <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', marginTop: '16px', gap: '16px' }}>

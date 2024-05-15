@@ -6,6 +6,8 @@ const optionsCombustibles = [
     { value: 'cota', label: 'Cota', index: 2 },
     { value: 'chia', label: 'Chía', index: 3 },
     { value: 'medellin', label: 'Medellín', index: 4 },
+    { value: 'bucaramanga', label: 'Bucaramanga', index: 5 },
+
   ]
   export const customStyles = {
     control: (provided) => ({
