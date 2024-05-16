@@ -9,7 +9,7 @@ export default function PrivacyPolicies() {
   return (
     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <h1 style={{ marginBottom: '16px' }}>Privacy Policy for Quarks</h1>
-      <p style={{ marginBottom: '8px' }}>Last updated: September 27, 2022</p>
+      <p style={{ marginBottom: '8px' }}>Last updated: May 16, 2024</p>
       <p>
         This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
       </p>
