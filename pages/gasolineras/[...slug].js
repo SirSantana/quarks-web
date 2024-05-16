@@ -6,13 +6,13 @@ import Layout from '@/src/Components/Layout';
 import { useState } from 'react';
 import PriceFormat from '@/utils/priceFormat';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
-import { ModalGasolineraCard } from '@/src/Components/Gasolineras/ModalCardGasolinera';
 import ModalFiltrosGasolineras from '@/src/Components/Gasolineras/ModalFiltros';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
 import { calcularDistancia } from '@/utils/scripts';
+import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
   { ssr: false, loading: () => <div style={{ height: '100vh', width: '100vw', backgroundColor: '#d9d9d9' }} /> })
@@ -169,7 +169,7 @@ export default function Gasolineras({ data }) {
         </section>
       </div>
       {visibleModal &&
-        <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
+        <ModalGasolinera data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
       {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} setUserLocation={setUserLocation} userLocation={userLocation} />}
       {visibleModalPicoyPlaca && <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />}
 

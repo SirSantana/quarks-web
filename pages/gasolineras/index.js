@@ -6,13 +6,13 @@ import Layout from '@/src/Components/Layout';
 import { useEffect, useState } from 'react';
 import PriceFormat from '@/utils/priceFormat';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
-import { ModalGasolineraCard } from '@/src/Components/Gasolineras/ModalCardGasolinera';
 import ModalFiltrosGasolineras from '@/src/Components/Gasolineras/ModalFiltros';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
 import { calcularDistancia } from '@/utils/scripts';
+import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
   { ssr: false, loading: () => <div style={{ height: '100vh', width: '100vw', backgroundColor: '#d9d9d9' }} /> })
@@ -29,14 +29,11 @@ export default function Gasolineras({ data }) {
   const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false)
   const [userLocation, setUserLocation] = useState([0, 0]);
   const [estacionesOrdenadasCerca, setEstacionesOrdenadasCerca] = useState([]);
-
-
-  let filteredData = data?.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
+  let filteredData = data?.filter(el => el.price !== null && el.ciudad === 'Bogotá D.C.').sort((a, b) => a.price - b.price)
   let filteredDataExtra = data?.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos)
 
   const filtros = router.query?.combustible?.split(',');
   const gasolineraEncontrada = data?.find(gasolinera => gasolinera.nombre === estacionCheck);
-
 
   const queryString2 = router?.query?.ordernar || '';
   const cerca = queryString2.includes('cerca');
@@ -47,7 +44,7 @@ export default function Gasolineras({ data }) {
   let res = data.sort((a, b) => a.distancia - b.distancia);
   // setEstacionesOrdenadasCerca(res)
 
-  
+
   return (
     <Layout icon={'/logoterpel.png'} image={'/logoterpel.png'} title={'Mapa de Gasolineras en Bogota'} visibleNavbar={false} description={'Descubre y compara precios con mas de 85 bombas de gasolina en Bogota. Colombia. Estaciones de gasolina cerca con ubicacion y precios.'} keywords={'Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estacion de gasolina cerca, estación de servicio más cercana, bombas de gasolina cerca'}>
 
@@ -172,7 +169,7 @@ export default function Gasolineras({ data }) {
         </section>
       </div>
       {visibleModal &&
-        <ModalGasolineraCard data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
+        <ModalGasolinera data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
       {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} setUserLocation={setUserLocation} userLocation={userLocation} />}
       {visibleModalPicoyPlaca && <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />}
 

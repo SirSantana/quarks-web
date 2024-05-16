@@ -21,18 +21,17 @@ function CalculatePrice({ price }) {
   let priceCalculate = PriceFormat({ price: price?.toString() }) ? PriceFormat({ price: price?.toString() }) : 'Precio desconocido'
   return priceCalculate
 }
-const MapRecenter= ({ lat, lng, zoomLevel }) => {
+const MapRecenter = ({ lat, lng, zoomLevel }) => {
   const map = useMap();
 
   useEffect(() => {
     // Fly to that coordinates and set new zoom level
-    map.flyTo([lat, lng], zoomLevel );
+    map.flyTo([lat, lng], zoomLevel);
   }, [lat, lng]);
   return null;
 
 };
 export default function Map({ data, estacionCheck, setVisibleModal, setEstacionCheck, filtros, }) {
-  console.log(data);
   const [mapCenter, setMapCenter] = useState([data[data.length - 1].lat, data[data.length - 1].lng]);
 
   const [zoomLevel, setZoomLevel] = useState(12);
@@ -44,7 +43,7 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
       style={{ width: '100vw', height: '100vh', zIndex: 1, maxWidth: '100%' }}
       center={mapCenter} zoom={zoomLevel} zoomControl={false} scrollWheelZoom={true}>
       {/* <ChangeView center={[data[0].lat, data[0].lng]} zoom={12} /> */}
-      <MapRecenter lat={data[Math.round(data.length / 2)].lat} lng={data[Math.round(data.length /2)].lng} zoomLevel={13} />
+      <MapRecenter lat={data[Math.round(data.length / 2)].lat} lng={data[Math.round(data.length / 2)].lng} zoomLevel={13} />
 
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -55,12 +54,17 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
       {data.map((gasolinera) => (
         <Marker
           key={gasolinera.nom}
+          eventHandlers={{
+            click: (e) => {
+              setVisibleModal(true), setEstacionCheck(gasolinera.nombre)
+            }
+          }}
           position={[gasolinera.lat, gasolinera.lng]}
           icon={
             L.divIcon({
               className: 'dummy',
               html: `
-                <div style="position: relative; display: ${zoomLevel >= 13 ? 'flex' : 'none'}; gap: 8px; align-items: center; padding: ${zoomLevel >= 13 ? '2px 4px' : '2px'}; width: fit-content; justify-content: space-between; flex-direction: row; align-items: center; border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-radius: ${zoomLevel >= 13 ? '8px' : '50%'}; background-color: white;">
+              <div style="position: relative; display: ${zoomLevel >= 13 ? 'flex' : 'none'}; gap: 8px; align-items: center; padding: ${zoomLevel >= 13 ? '2px 4px' : '2px'}; width: fit-content; justify-content: space-between; flex-direction: row; align-items: center; border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-radius: ${zoomLevel >= 13 ? '8px' : '50%'}; background-color: white;">
                 <img loading="lazy" src="/${gasolinera.img}.png" alt="Icon" preload style="object-fit: cover; width: 24px; height: 24px; border-radius: 50%;">
                 <p style="display: ${zoomLevel >= 13 ? 'flex' : 'none'}; margin: 0; color: #373737; font-size: 12px; font-weight: 600; white-space: nowrap;">
                   $${filtros?.includes('extra') ? CalculatePrice({ price: gasolinera?.priceDos }) : CalculatePrice({ price: gasolinera?.price })}
@@ -71,7 +75,7 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
             })
           }
         >
-          <Popup >
+          {/* <Popup >
             <p style={{ fontSize: '16px', fontWeight: '600', margin: 0, color: 'black' }}>{gasolinera.nombre}</p>
             <p style={{ fontSize: '14px', fontWeight: '400', margin: 0, color: '#727272' }}>{gasolinera.direccion}</p>
 
@@ -87,7 +91,7 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
             <Button onClick={() => { setVisibleModal(true), setEstacionCheck(gasolinera.nombre) }} style={{ marginTop: '16px' }} fullWidth={true} variant={ButtonVariant.gradient} size='sm'>
               Calcula tu Ahorro
             </Button>
-          </Popup>
+          </Popup> */}
         </Marker>
       ))
       }
