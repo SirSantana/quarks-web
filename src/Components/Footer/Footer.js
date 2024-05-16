@@ -43,7 +43,8 @@ export default function Footer() {
           </div>
           <div className={styles.containerText}>
             <h6 className={styles.title2}>Legal</h6>
-            <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.privacypolicies.com/live/09cd59af-1d7b-47b5-9dde-2e78d4dc9770' ><p className={styles.subtitle}>Politica de Privacidad</p></Link>
+            <Link style={{ textDecoration: 'none' }} href={'/privacy_policies'} ><p className={styles.subtitle}>Politicas de Privacidad</p></Link>
+            {/* <Link rel='noopener noreferrer' style={{ textDecoration: 'none' }} href='https://www.privacypolicies.com/live/09cd59af-1d7b-47b5-9dde-2e78d4dc9770' ><p className={styles.subtitle}>Politica de Privacidad</p></Link> */}
           </div>
         </div>
         <div className={styles.containerSocial}>
