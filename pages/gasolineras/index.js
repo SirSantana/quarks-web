@@ -13,9 +13,10 @@ import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
 import { calcularDistancia } from '@/utils/scripts';
 import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
+import Loader from '@/src/Components/Loaders/CardLoader';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
-  { ssr: false, loading: () => <div style={{ height: '100vh', width: '100vw', backgroundColor: '#d9d9d9' }} /> })
+  { ssr: false, loading: () => <Loader/> })
 
 
 let tagsFix = ['Gasolineras', 'Estaciones de Servicio', 'gasolineras cerca', 'bombas de gasolina', 'gasolinera cerca de mi', 'estación de servicio más cercana', 'bombas de gasolina cerca', 'bombas de gasolina cerca de mi', 'bombas gasolina cerca', 'gasolinera terpel']
