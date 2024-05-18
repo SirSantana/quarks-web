@@ -1,14 +1,12 @@
 import dynamic from 'next/dynamic'
-import gasolineras from '@/pages/gasolineras.json'
 import Image from 'next/image';
 import Icon, { IconCatalog } from '@/src/Components/Icon/Icon';
 import Layout from '@/src/Components/Layout';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import PriceFormat from '@/utils/priceFormat';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
 import ModalFiltrosGasolineras from '@/src/Components/Gasolineras/ModalFiltros';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
 import { calcularDistancia } from '@/utils/scripts';
@@ -28,6 +26,7 @@ export default function Gasolineras({ data }) {
   const [visibleModal, setVisibleModal] = useState(false)
   const [visibleModalFiltros, setVisibleModalFiltros] = useState(false)
   const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false)
+  
   const [userLocation, setUserLocation] = useState([0, 0]);
   const [estacionesOrdenadasCerca, setEstacionesOrdenadasCerca] = useState([]);
   let filteredData = data?.filter(el => el.price !== null && el.ciudad === 'Bogotá D.C.').sort((a, b) => a.price - b.price)
@@ -187,7 +186,7 @@ export async function getServerSideProps({ query }) {
       throw new Error('No se pudo obtener los datos de la API');
     }
     const data = await response.json();
-    const filteredData = data.filter(obj => obj.ciu === 'Bogotá D.C.' || obj.ciu === 'Chía' || obj.ciu === 'Cota' || obj.ciu === 'Medellín' || obj.ciu === 'Bucaramanga');
+    const filteredData = data.filter(obj => obj.ciu === 'Bogotá D.C.');
     let dataFormat = filteredData.map(item => ({
       price: item.price.find(ele => ele.id == 1)?.retailPrice ? item.price.find(ele => ele.id == 1)?.retailPrice : null,
       priceDos: item.price.find(ele => ele.id == 2)?.retailPrice ? item.price.find(ele => ele.id == 2)?.retailPrice : null,

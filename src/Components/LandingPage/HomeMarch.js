@@ -5,8 +5,8 @@ import styles from '@/styles/HomeMarch.module.css'
 import CategoriasSlider from "./CategoriasSlider";
 import { categorias } from "./SliderTiposTalleres";
 const Map = dynamic(
-  () => import('@/src/Components/LandingPage/Mapa'), // replace '@components/map' with your component's location
-  { ssr: false, loading: () => <div className={styles2.skeleton} /> } // This line is important. It's what prevents server-side render
+  () => import('@/src/Components/LandingPage/Mapa'), 
+  { ssr: false, loading: () => <div className={styles2.skeleton} /> } 
 )
 import dynamic from "next/dynamic";
 import CardNewTaller from "./CardNewTaller";
@@ -21,7 +21,6 @@ export default function HomeMarch({ data, mode }) {
   const router = useRouter()
   const ref = useRef(null)
   const [visibleModal, setVisibleModal] = useState(false)
-
   const handleClickMapSection = () => {
     ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
@@ -82,7 +81,8 @@ export default function HomeMarch({ data, mode }) {
 
         </div>
         <div className={styles.map}>
-          <Map talleres={data} />
+        {mode === 'Mapa' && <Map  talleres={data}/>}
+          {/* <Map talleres={data} /> */}
         </div>
       </div>
       {router?.query?.['visible-negocio'] && <ModalPrevTaller userName={router?.query?.['visible-negocio']} />}

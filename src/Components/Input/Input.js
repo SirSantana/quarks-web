@@ -2,7 +2,7 @@
 import styles from './Input.module.css'
 
 
-export default function Input({ label, placeholder, type, value, onChange, error, name, required = true, disabled = false, min, max, inputMode, style }) {
+export default function Input({ label, placeholder, type, value, onChange, error, name, required = true, disabled = false, min, max, inputMode, style, stylesInput }) {
   return (
     <div className={styles.containerInput} style={style}>
       <label>{label}</label>
@@ -18,6 +18,7 @@ export default function Input({ label, placeholder, type, value, onChange, error
         min={min}
         max={max}
         inputMode={inputMode}
+        style={stylesInput}
       />
       {error && <p className={styles.errorMessage}>{error}</p>}
     </div>

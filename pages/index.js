@@ -5,11 +5,10 @@ import Footer from '@/src/Components/Footer/Footer'
 import ListTalleresLanding from '@/src/Components/LandingPage/ListTalleresLanding'
 import SectionVariedadTalleres from '@/src/Components/LandingPage/Section1'
 import SectionCotizaciones from '@/src/Components/LandingPage/Section2'
-import SectionGlosario from '@/src/Components/LandingPage/Section3'
 import SectionPasos from '@/src/Components/LandingPage/Section4'
 import dynamic from 'next/dynamic'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTalleresServicios'
 
 import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
@@ -91,7 +90,7 @@ const tagsFix = [
   'taller de reparación de coches',
   'taller diagnostico automotriz',
 ]
-export default function Home({ data, iconImg }) {
+export default function Home({ initialQuery }) {
   const [mode, setMode] = useState('Lista')
   const handleClick = () => {
     // Desplázate hacia arriba cuando se hace clic en el botón
@@ -99,6 +98,32 @@ export default function Home({ data, iconImg }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   const { query } = useRouter()
+
+  const [data, setData] = useState(null);
+  const [iconImg, setIconImg] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const queryParams = new URLSearchParams();
+        if (initialQuery?.servicio) {
+          queryParams.append('servicio', initialQuery.servicio);
+        }
+        const response = await fetch(`/api/getTalleres?${queryParams.toString()}`);
+        const result = await response.json();
+        setData(result.data);
+        setIconImg(result.iconImg);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [initialQuery]);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
   // const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
   let title = query?.servicio ? `Talleres de clutch en Bogota` : 'Talleres mecanicos automotrices de Bogotá'
   return (
@@ -164,17 +189,17 @@ export default function Home({ data, iconImg }) {
         <SectionVariedadTalleres />
         <SectionPasos />
         <SectionGrowthTaller />
-        
+
         <SectionCalculadoraCombustible />
-       
+
         <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '900px', gap: '8px', width: '90%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
           {tagsFix.map(tag => (
             <p key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</p>
           ))}
         </section>
-        
+
         <div className={styles.divBtnFooter}>
-          <Button  onClick={handleClick} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode==='Lista' ? IconCatalog.mapa : IconCatalog.lista}>
+          <Button onClick={handleClick} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode === 'Lista' ? IconCatalog.mapa : IconCatalog.lista}>
             Mostrar {mode === 'Mapa' ? 'Lista' : 'Mapa'}
           </Button>
         </div>
@@ -186,53 +211,61 @@ export default function Home({ data, iconImg }) {
   )
 }
 export async function getServerSideProps({ query }) {
-  const levenshteinDistance = (s1, s2) => {
-    const m = s1.length;
-    const n = s2.length;
-
-    // Inicializar una matriz m × n con 0
-    const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
-
-    // Llenar la matriz con los valores de distancia
-    for (let i = 0; i <= m; i++) {
-      for (let j = 0; j <= n; j++) {
-        if (i === 0) {
-          dp[i][j] = j;
-        } else if (j === 0) {
-          dp[i][j] = i;
-        } else if (s1[i - 1] === s2[j - 1]) {
-          dp[i][j] = dp[i - 1][j - 1];
-        } else {
-          dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-        }
-      }
-    }
-
-    return dp[m][n];
-  };
-  const talleresFilter = talleres?.talleres.filter(taller => taller?.lat && taller.userName !== 'corsa-motors')
-  let filter;
-  if (query.servicio) {
-    let categoriaNormalized = normalizeString(query.servicio.replace(/-/g, ' ').toLowerCase())
-    filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
-      categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
-      levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
-    const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
-    return {
-      props: {
-        data: filter,
-        iconImg: iconImg
-      }
-    }
-  }
-  function normalizeString(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  }
-
   return {
     props: {
-      data: talleresFilter,
+      initialQuery: query,
     },
-  }
-
+  };
 }
+
+// export async function getServerSideProps({ query }) {
+//   const levenshteinDistance = (s1, s2) => {
+//     const m = s1.length;
+//     const n = s2.length;
+
+//     // Inicializar una matriz m × n con 0
+//     const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+
+//     // Llenar la matriz con los valores de distancia
+//     for (let i = 0; i <= m; i++) {
+//       for (let j = 0; j <= n; j++) {
+//         if (i === 0) {
+//           dp[i][j] = j;
+//         } else if (j === 0) {
+//           dp[i][j] = i;
+//         } else if (s1[i - 1] === s2[j - 1]) {
+//           dp[i][j] = dp[i - 1][j - 1];
+//         } else {
+//           dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+//         }
+//       }
+//     }
+
+//     return dp[m][n];
+//   };
+//   const talleresFilter = talleres?.talleres.filter(taller => taller?.lat && taller.userName !== 'corsa-motors')
+//   let filter;
+//   if (query.servicio) {
+//     let categoriaNormalized = normalizeString(query.servicio.replace(/-/g, ' ').toLowerCase())
+//     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
+//       categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
+//       levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
+//     const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
+//     return {
+//       props: {
+//         data: filter,
+//         iconImg: iconImg
+//       }
+//     }
+//   }
+//   function normalizeString(str) {
+//     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+//   }
+
+//   return {
+//     props: {
+//       data: talleresFilter,
+//     },
+//   }
+
+// }

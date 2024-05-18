@@ -240,3 +240,9 @@ mutation createSugerencia($tipo:String,$sugerencia:String ){
   createSugerencia(input:{tipo:$tipo,sugerencia:$sugerencia})  
 }
 `
+
+export const CREATE_REPORT_PRICE = gql`
+mutation createReportPrice($combustible:String, $precio:String,$nombre:String, $email:String, $gasolinera:String ){
+  createReportPrice(input:{combustible:$combustible, precio:$precio, nombre:$nombre, email:$email, gasolinera:$gasolinera})
+}
+`

@@ -1,5 +1,4 @@
 import { client } from '@/client'
-import { AuthProvider } from '@/Context/AuthContext'
 import '@/styles/globals.css'
 import { ApolloProvider } from '@apollo/client'
 import { SessionProvider } from "next-auth/react"
@@ -13,12 +12,10 @@ export default function App({ Component, pageProps, session }) {
   return <>
     <ApolloProvider client={client}>
       <SessionProvider session={session}>
-        <AuthProvider>
-          <main className={poppins.className}>
-            <Component {...pageProps} />
-          </main>
-          <Analytics />
-        </AuthProvider>
+        <main className={poppins.className}>
+          <Component {...pageProps} />
+        </main>
+        <Analytics />
       </SessionProvider>
     </ApolloProvider>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 
 export default function CardNewTaller({ taller, setVisibleModal}) {
-  const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
+  // const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
 
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
@@ -34,12 +34,12 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
               }
               <p style={{ fontSize: '12px', color: '#5C5C5C' }}>Hoy {horariosSeparados?.[indiceDia]}</p>
             </div>
-            {result?.data?.getCalificacionOpiniones > 0 &&
+            {/* {result?.data?.getCalificacionOpiniones > 0 &&
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: '4px' }}>
                 <ion-icon style={{ color: '#FBBC04' }} name="star"></ion-icon>
                 <p style={{ fontSize: '12px', margin: 0, color: '#464646' }}>{result?.data?.getCalificacionOpiniones}</p>
               </div>
-            }
+            } */}
           </header>
           <h2 style={{ fontSize: '18px' }}>{taller?.nombre}</h2>
           <p style={{ fontSize: '14px', fontWeight: '500' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
