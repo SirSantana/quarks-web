@@ -97,34 +97,7 @@ export default function Home({ initialQuery }) {
     setMode(mode === 'Lista' ? 'Mapa' : 'Lista')
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-  const { query } = useRouter()
-
-  const [data, setData] = useState(null);
-  const [iconImg, setIconImg] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const queryParams = new URLSearchParams();
-        if (initialQuery?.servicio) {
-          queryParams.append('servicio', initialQuery.servicio);
-        }
-        const response = await fetch(`/api/getTalleres?${queryParams.toString()}`);
-        const result = await response.json();
-        setData(result.data);
-        setIconImg(result.iconImg);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, [initialQuery]);
-
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-  // const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
+  const {query} = useRouter()
   let title = query?.servicio ? `Talleres de clutch en Bogota` : 'Talleres mecanicos automotrices de Bogotá'
   return (
     <>
@@ -181,7 +154,7 @@ export default function Home({ initialQuery }) {
         />
       </Head>
       <main className={styles.main}>
-        <HomeMarch data={data} mode={mode} />
+        <HomeMarch initialQuery={initialQuery} mode={mode} />
         <SectionTalleresServicios />
         <ListTalleresLanding />
         <ActividadReciente />
@@ -211,61 +184,10 @@ export default function Home({ initialQuery }) {
   )
 }
 export async function getServerSideProps({ query }) {
+  console.log(query, 'you');
   return {
     props: {
       initialQuery: query,
     },
   };
 }
-
-// export async function getServerSideProps({ query }) {
-//   const levenshteinDistance = (s1, s2) => {
-//     const m = s1.length;
-//     const n = s2.length;
-
-//     // Inicializar una matriz m × n con 0
-//     const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
-
-//     // Llenar la matriz con los valores de distancia
-//     for (let i = 0; i <= m; i++) {
-//       for (let j = 0; j <= n; j++) {
-//         if (i === 0) {
-//           dp[i][j] = j;
-//         } else if (j === 0) {
-//           dp[i][j] = i;
-//         } else if (s1[i - 1] === s2[j - 1]) {
-//           dp[i][j] = dp[i - 1][j - 1];
-//         } else {
-//           dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
-//         }
-//       }
-//     }
-
-//     return dp[m][n];
-//   };
-//   const talleresFilter = talleres?.talleres.filter(taller => taller?.lat && taller.userName !== 'corsa-motors')
-//   let filter;
-//   if (query.servicio) {
-//     let categoriaNormalized = normalizeString(query.servicio.replace(/-/g, ' ').toLowerCase())
-//     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
-//       categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
-//       levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
-//     const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
-//     return {
-//       props: {
-//         data: filter,
-//         iconImg: iconImg
-//       }
-//     }
-//   }
-//   function normalizeString(str) {
-//     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-//   }
-
-//   return {
-//     props: {
-//       data: talleresFilter,
-//     },
-//   }
-
-// }

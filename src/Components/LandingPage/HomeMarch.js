@@ -5,25 +5,47 @@ import styles from '@/styles/HomeMarch.module.css'
 import CategoriasSlider from "./CategoriasSlider";
 import { categorias } from "./SliderTiposTalleres";
 const Map = dynamic(
-  () => import('@/src/Components/LandingPage/Mapa'), 
-  { ssr: false, loading: () => <div className={styles2.skeleton} /> } 
+  () => import('@/src/Components/LandingPage/Mapa'),
+  { ssr: false, loading: () => <div className={styles2.skeleton} /> }
 )
 import dynamic from "next/dynamic";
 import CardNewTaller from "./CardNewTaller";
 import { useRouter } from "next/router";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import ModalPrevTaller from "../Talleres/ModalPrevTaller";
 
 
 
-export default function HomeMarch({ data, mode }) {
+export default function HomeMarch({ initialQuery, mode, setIconImg }) {
   const router = useRouter()
   const ref = useRef(null)
   const [visibleModal, setVisibleModal] = useState(false)
   const handleClickMapSection = () => {
     ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const queryParams = new URLSearchParams();
+        if (initialQuery?.id) {
+          queryParams.append('servicio', initialQuery.id);
+        }
+        const response = await fetch(`/api/getTalleres?${queryParams.toString()}`);
+        const result = await response.json();
+        setData(result.data);
+        setIconImg(result.iconImg);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [initialQuery]);
+
   return (
     <>
       <div className={styles.containerImageNavBar} >
@@ -42,7 +64,7 @@ export default function HomeMarch({ data, mode }) {
           sizes="100vw"
           width={100}
           height={100}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', position:'relative' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'relative' }}
           src={'/img-back-taller2.webp'}
           priority={true}
           loading="eager"
@@ -58,7 +80,7 @@ export default function HomeMarch({ data, mode }) {
             backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9))',
             pointerEvents: 'none', // Para permitir que los clics pasen a través del degradado
           }}
-          />
+        />
         <div style={{ position: 'absolute', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'white', zIndex: '1', width: '80%', }}>
           <h1 className={styles.title}>{router?.pathname !== '/' ? `Talleres de ${router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} en Bogotá` : 'Encuentra el mejor taller para tu carro'}</h1>
           {/* <p style={{marginTop:'16px',maxWidth:'40ch', fontSize:'14px', color:'white'}}>Los mejores talleres, con calificaciones, reseñas y todos sus datos en un solo lugar.</p> */}
@@ -75,13 +97,13 @@ export default function HomeMarch({ data, mode }) {
             <h2 className={styles.title2}>Taller automotriz de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca de mi</h2>
             <h4 className={styles.title3}>Se encontraron {data?.length} talleres mecanicos de {router?.query?.id ? router?.query?.id.replace(/-/g, ' ') : router.query.busqueda} cerca a mi en Bogota</h4>
           </div>
-          {data.reverse()?.map(el => (
+          {!data && <div>Loading...</div>}
+          {data?.reverse()?.map(el => (
             <CardNewTaller key={el.nombre} taller={el} setVisibleModal={setVisibleModal} />
           ))}
-
         </div>
         <div className={styles.map}>
-        {mode === 'Mapa' && <Map  talleres={data}/>}
+          {mode === 'Mapa' && <Map talleres={data} />}
           {/* <Map talleres={data} /> */}
         </div>
       </div>
