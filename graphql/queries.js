@@ -601,7 +601,18 @@ query getConsumos{
   }
 }
 `
-
+export const GET_REPORTS_PRICE = gql`
+query getReportsPrice($gasolinera:String){
+  getReportsPrice(gasolinera:$gasolinera){
+    fecha
+    precio
+    nombre
+    combustible
+    gasolinera
+    id
+  }
+}
+`
 export const CHECK_VERIFY_USERNAME = gql`
 query verifyAccountCheck($userName:String){
   verifyAccountCheck(userName:$userName)
