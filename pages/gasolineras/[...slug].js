@@ -185,7 +185,7 @@ export async function getServerSideProps({ query }) {
       throw new Error('No se pudo obtener los datos de la API');
     }
     const data = await response.json();
-    const filteredData = data.filter(obj => obj?.ciu?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == query?.slug[0]?.toLowerCase());
+    const filteredData = data.filter(obj => obj?.ciu?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == query?.slug[0]?.toLowerCase() || obj?.dep?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == query?.slug[0]?.toLowerCase());
     let dataFormat = filteredData.map(item => ({
       price: item.price.find(ele => ele.id == 1)?.retailPrice ? item.price.find(ele => ele.id == 1)?.retailPrice : null,
       priceDos: item.price.find(ele => ele.id == 2)?.retailPrice ? item.price.find(ele => ele.id == 2)?.retailPrice : null,

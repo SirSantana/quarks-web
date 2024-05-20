@@ -78,7 +78,7 @@ export default function ModalGasolinera({ data, setVisibleModal, precioAlto, pre
         </div> */}
 
         {visibleModalAhorro && <ModalCalcularAhorro data={data} setVisibleModal={setVisibleModalAhorro} precioAlto={precioAlto} precioAltoExtra={precioAltoExtra} />}
-        {visibleModalReportePrecio && <ModalCrearReportePrecio priceUno={data?.price} priceDos={data?.priceDos} setVisibleModalReportePrecio={setVisibleModalReportePrecio} />}
+        {visibleModalReportePrecio && <ModalCrearReportePrecio priceUno={data?.price} priceDos={data?.priceDos} gasolinera={data?.nombre} setVisibleModalReportePrecio={setVisibleModalReportePrecio} />}
 
       </div>
 

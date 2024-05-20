@@ -7,6 +7,8 @@ const optionsCombustibles = [
     { value: 'chia', label: 'Chía', index: 3 },
     { value: 'medellin', label: 'Medellín', index: 4 },
     { value: 'bucaramanga', label: 'Bucaramanga', index: 5 },
+    { value: 'santander', label: 'Santander', index: 6 },
+
     // { value: 'cucuta', label: 'Cúcuta', index: 6 },
 
 
