@@ -5,13 +5,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 export default function PicoYPlaca({ data }) {
   const { query, asPath, push } = useRouter();
-  
+
 
   return (
-    <Layout title={`Pico y Placa Bogota ${query?.month ? query?.month.split('-')[0]:''}`} description={'Consulta el Pico y Placa de Bogotá para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Bogotá, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
+    <Layout title={`Pico y Placa Bogota ${query?.month ? query?.month.split('-')[0] : ''}`} description={'Consulta el Pico y Placa de Bogotá para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Bogotá, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {query?.month && query.month.split('-')[0]}. Bogotá </h1>
-        <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query?.month ? query.month.split('-')[0]:'el 2024'} en Bogotá.</p>
+        <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query?.month ? query.month.split('-')[0] : 'el 2024'} en Bogotá.</p>
 
         {data ? data?.map(el => (
           <Link href={`pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
@@ -71,23 +71,29 @@ export default function PicoYPlaca({ data }) {
         }
       </div>
 
+      <section>
+        <h2>Pico y placa bogota hoy</h2>
+        <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Bogotá: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
+        <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Bogotá. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
+      </section>
+
     </Layout>
 
   )
 }
 
 export async function getServerSideProps({ query }) {
-  if(query.month){
+  if (query.month) {
     return {
       props: {
         data:
-          data?.picoyplaca[query?.month?.split('-')[1]].filter(el=> !el.ciudad)
+          data?.picoyplaca[query?.month?.split('-')[1]].filter(el => !el.ciudad)
       }
     }
   }
   return {
     props: {
-      
+
     }
 
   }
