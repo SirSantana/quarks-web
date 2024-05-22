@@ -46,7 +46,8 @@ export const IconCatalog = {
   readerOutline:'reader-outline',
   ellipseOultine:'ellipse-outline',
   settingsOutline:'settings-outline',
-  optionsOutline:'options-outline'
+  optionsOutline:'options-outline',
+  menuOutline: 'menu-outline'
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {

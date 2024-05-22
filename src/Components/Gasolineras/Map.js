@@ -18,7 +18,7 @@ function MyComponent({ setZoomLevel, }) {
   return null
 }
 function CalculatePrice({ price }) {
-  let priceCalculate = PriceFormat({ price: price?.toString() }) ? PriceFormat({ price: price?.toString() }) : 'Precio desconocido'
+  let priceCalculate = PriceFormat({ price: price?.toString() }) ? PriceFormat({ price: price?.toString() }) : ''
   return priceCalculate
 }
 const MapRecenter = ({ lat, lng, zoomLevel }) => {

@@ -19,7 +19,7 @@ let initialForm = {
   gasolinera: '',
   combustible: ''
 }
-export default function ModalCrearReportePrecio({ priceUno, priceDos, gasolinera, setVisibleModalReportePrecio, }) {
+export default function ModalCrearReportePrecio({ priceUno, priceDos, gasolinera, setVisibleModalReportePrecio, setVisibleModal}) {
   const [combustible, setCombustible] = useState({ nombre: 'Corriente', index: 1 })
   const [price, setPrice] = useState(combustible.nombre === 'Corriente' ? priceUno : priceDos)
   const [form, setForm] = useState(initialForm)
