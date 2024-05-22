@@ -8,10 +8,7 @@ const optionsCombustibles = [
   { value: 'medellin', label: 'Medellín', index: 4 },
   { value: 'bucaramanga', label: 'Bucaramanga', index: 5 },
   { value: 'santander', label: 'Santander', index: 6 },
-
-  // { value: 'cucuta', label: 'Cúcuta', index: 6 },
-
-
+  { value: 'cucuta', label: 'Cúcuta', index: 7 },
 ]
 export const customStyles = {
   control: (provided) => ({
@@ -63,8 +60,6 @@ export default function SelectCiudad() {
   const [combustible, setCombustible] = useState({ nombre: 'Bogota D.C.', index: 1 })
 
   const handleChangeCiudad = (e) => {
-    console.log(e);
-    // e.stopPropagation()
     router.push(`/gasolineras/${e.value}`)
     setCombustible({ nombre: e.value, index: e.index })
 
