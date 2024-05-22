@@ -19,7 +19,7 @@ export default function DrawerGasolineras({ setVisibleModalFiltros, filtros, fil
   return (
     <div onClick={() => visibleData && setVisibleData(false)} style={{ zIndex: 1, position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', gap: '24px', width: '100%', height: visibleData ? '300px' : '160px', transition: 'height 0.3s ease' }}>
       <div onClick={() => setVisibleData(!visibleData)} style={{ backgroundColor: 'white', padding: '32px', borderRadius: '12px 12px 0 0', paddingTop:'16px', border: '1px solid #d9d9d9', maxWidth: '820px', minWidth: '300px', width: '100%', margin: '0 auto', height: visibleData ? '300px' : '160px', scrollBehavior: 'auto', scrollbarWidth: 'thin', scrollbarColor: '#ccc transparent', overflowY: 'auto' }}>
-        <h1>Gasolineras</h1>
+        <h1>Gasolineras {router.query?.slug?.[0]}</h1>
         <h2 style={{ fontSize: '14px', fontWeight: '400' }}>Gasolineras cerca a mi {router.query?.slug?.[0]}</h2>
         <div onClick={(e) => { e.stopPropagation(), setVisibleData(true) }} style={{ display: 'flex', width: '100%', flexDirection: 'row', alignItems: 'flex-end', gap: '16px', margin: '16px 0 32px 0', }}>
           <SelectCiudad />
