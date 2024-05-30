@@ -1,7 +1,7 @@
-import { MapContainer, Marker, Popup, TileLayer, useMapEvents, LayerGroup} from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, useMapEvents, LayerGroup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'; // Asegúrate de importar Leaflet
-import {useState } from 'react';
+import { useState } from 'react';
 import styles from '@/styles/Home.module.css'
 
 import PlaceCard from './Placecard';
@@ -25,7 +25,7 @@ function MyComponent({ setZoomLevel, }) {
     // move:()=>{
     //   console.log(mapEvents);
     // },
-    
+
     zoomend: () => {
       setZoomLevel(mapEvents.getZoom());
     },
@@ -45,123 +45,57 @@ export default function Map({ talleres }) {
   let { servicio } = router?.query
 
   let emoji = categorias.find(cat => cat.url === servicio)
-  const handleMarkerClick = ({id}) => {
+  const handleMarkerClick = ({ id }) => {
     // createClickNegocioPrevMap({ variables: { id } });
   };
-
   return (
 
     <MapContainer
-      className={styles.map}  center={userLocation ? userLocation : mapCenter} zoom={zoomMap} zoomControl={false} scrollWheelZoom={true}>
+      className={styles.map} center={userLocation ? userLocation : mapCenter} zoom={zoomMap} zoomControl={false} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
       />
-      <MyComponent setZoomLevel={setZoomLevel}  />
-      {/* {userLocation && (
-        <Marker icon={userIcon()} position={userLocation}
-          draggable={true}
-          onDragEnd={handleMarkerDragEnd}
-        >
-          <Popup ><PlaceCard /></Popup>
-        </Marker>
-      )} */}
-      {/* {coordenadas.map((coordenada) => (
-            <Marker
-              key={coordenada.id}
-              icon={customIcon({ icon: coordenada.img})}
-              position={[coordenada.lat, coordenada.lng]}
-            >
-              <Popup className={styles.card}><PlaceCard data={coordenada}/></Popup>
-            </Marker>
-        ))} */}
-
-        <Marker
-          key={'Anuncie aqui'}
-          position={[4.661882, -74.083614]}
-          icon={
-            L.divIcon({
-              html: `
+      <MyComponent setZoomLevel={setZoomLevel} />
+      <Marker
+        key={'Anuncie aqui'}
+        position={[4.661882, -74.083614]}
+        icon={
+          L.divIcon({
+            html: `
                    <div style="display: flex;gap:8px;align-items:center; padding:8px 16px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;    box-shadow: 0 4px 4px rgba(200, 200, 200, 0.1); border-radius:8px;background: linear-gradient(180deg,#E50051, #9C0037);">
                      <img loading="lazy" src="/mecanico.png" alt="Icon" preload style="object-fit:cover;width:24px; height:24px; ">
                      <p style="margin: 0;color:white;font-size:12px; font-weight:600; white-space:nowrap">Anuncie su taller aqui</p>
                    </div>
                  `,
-              //  iconSize: [32, 32],
-              //  iconAnchor: [16, 32],
-              //  popupAnchor: [0, -32],
-            })
-          }
-        >
-          <Popup className={styles.card}>
-            <PlacecardAnuncio/>
-          </Popup>
-        </Marker>
-
-        <Marker
-          key={'Cupon pastillas de freno'}
-          position={[4.661882, -74.063614]}
-          icon={
-            L.divIcon({
-              html: `
+          })
+        }
+      >
+        <Popup className={styles.card}>
+          <PlacecardAnuncio />
+        </Popup>
+      </Marker>
+      <Marker
+        key={'Cupon pastillas de freno'}
+        position={[4.661882, -74.063614]}
+        icon={
+          L.divIcon({
+            html: `
                    <div style="display: flex;gap:8px;align-items:center; padding:8px 16px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;    box-shadow: 0 4px 4px rgba(200, 200, 200, 0.1); border-radius:8px; background-color:rgba(249, 136, 11, 1);">
                      <p style="margin: 0;color:white;font-size:12px; font-weight:600; white-space:nowrap">Bono de 15% en Pastillas de freno</p>
                    </div>
                  `,
-              //  iconSize: [32, 32],
-              //  iconAnchor: [16, 32],
-              //  popupAnchor: [0, -32],
-            })
-          }
-        >
-          <Popup className={styles.card}>
-            <PlacecardAnuncioPastillas/>
-          </Popup>
-        </Marker>
-
-      {/* {talleres.map((taller) => (
-        <Marker
-          key={taller.id}
-          position={[taller.lat, taller.lng]}
-          
-          icon={
-            L.divIcon({
-              html: `
-                   <div style="display: ${servicio ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;    box-shadow: 0 4px 4px rgba(200, 200, 200, 0.1); border-radius:8px; background-color:white">
-                     <img loading="lazy" src="${ taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png"}" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; height: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; ">
-                     <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${servicio ? taller?.nombre : taller.servicio}</p>
-                   </div>
-                 `,
-              //  iconSize: [32, 32],
-              //  iconAnchor: [16, 32],
-              //  popupAnchor: [0, -32],
-            })
-          }
-        >
-          <Popup className={styles.card}>
-            <PlaceCard data={taller} />
-          </Popup>
-        </Marker>
-      ))} */}
-      {talleres.map((taller) => (
-        // <Marker
-        //   key={taller.id}
-        //   position={[taller.lat, taller.lng]}
-        //   icon={
-        //     L.divIcon({
-        //       html: `
-        //            <div style="display: ${servicio || router.pathname === '/servicios-automotriz/[id]' ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius:8px; background-color:white">
-        //              <img loading="lazy" src="${ taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png"}" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; height: ${servicio ? '24px' : taller.nivel >= 3 ? '24px' : taller.nivel === 2 ? '20px' : '16px'}; ">
-        //              <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${taller?.nombre.slice(0,15)}</p>
-        //            </div>
-        //          `,
-        //     })
-        //   }
-        // >
-        //   <Popup className={styles.card}>
-        //     <PlaceCard data={taller} />
-        //   </Popup>
-        // </Marker>
+          })
+        }
+      >
+        <Popup className={styles.card}>
+          <PlacecardAnuncioPastillas />
+        </Popup>
+      </Marker>
+      {talleres.map((taller) => {
+        console.log(taller?.emojisservicio);
+        let img = categorias.find(cat=> cat.img === taller?.emojisservicio)
+        return(
         <Marker
           key={taller.id}
           position={[taller.lat, taller.lng]}
@@ -169,7 +103,9 @@ export default function Map({ talleres }) {
             L.divIcon({
               html: `
                    <div style="display: ${servicio || router.pathname === '/servicios-automotriz/[id]' ? 'flex' : taller.nivel >= 3 ? 'flex' : taller.nivel === 2 ? zoomLevel >= 15 ? 'flex' : 'none' : zoomLevel >= 17 ? 'flex' : 'none'};gap:8px;align-items:center; padding:2px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-radius:50%; background-color:white">
-                     <img loading="lazy" src="${ taller?.fotoperfil ? taller?.fotoperfil : '/' + taller.emojisservicio + ".png"}" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '28px' : '28px'}; height: ${servicio ? '28px' : '28px'}; border-radius:50% ">
+                    <div style="display:flex;border-radius:50%; background-color:${img?.back?img.back:'#f1f1f1'}; padding:4px"> 
+                    <img loading="lazy" src="${taller.emojisservicio ?'/' + taller.emojisservicio + ".png": taller?.fotoperfil  }" alt="Icon" preload style="object-fit:cover;width: ${servicio ? '28px' : '28px'}; height: ${servicio ? '28px' : '28px'}; border-radius:50% ">
+                    </div>
                    </div>
                  `,
             })
@@ -179,30 +115,7 @@ export default function Map({ talleres }) {
             <PlaceCard data={taller} />
           </Popup>
         </Marker>
-      ))}
-      {/* {coordenadas.map((coordenada) => (
-          <Marker
-            key={coordenada.id}
-            position={[coordenada.lat, coordenada.lng]}
-            icon={
-              L.divIcon({
-                html: `
-                   <div style="display: ${coordenada.nivel >=3 ?'flex':coordenada.nivel===2?zoomLevel >=13?'flex':'none':zoomLevel >=14?'flex':'none'};gap:8px;align-items:center; padding:4px 8px; width:fit-content;justify-content:space-between; flex-direction: row; align-items: center;border: 1px solid white;   box-shadow: 0 4px 8px rgba(200, 200, 200, 0.9); border-radius:8px; background-color:white">
-                     <img src="${coordenada.servicios[0].img}" alt="Icon" style="width: ${coordenada.nivel >=3 ?'24px': coordenada.nivel === 2 ?'20px':'16px'}; height: ${coordenada.nivel >=3 ?'24px': coordenada.nivel === 2 ?'20px':'16px'}; border-radius: 50%; ">
-                     <p style="margin: 0;color:#373737;font-size:12px; font-weight:600; white-space:nowrap">${coordenada.servicios[0].nombre}</p>
-                   </div>
-                 `,
-                //  iconSize: [32, 32],
-                //  iconAnchor: [16, 32],
-                //  popupAnchor: [0, -32],
-              })
-            }
-          >
-            <Popup className={styles.card}>
-              <PlaceCard data={coordenada} />
-            </Popup>
-          </Marker>
-        ))} */}
+)})}
     </MapContainer>
   )
 }

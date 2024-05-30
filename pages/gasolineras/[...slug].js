@@ -70,23 +70,23 @@ export default function Gasolineras({ data }) {
       </div>
       <div style={{ width: '90%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '32px', margin: '64px auto', }}>
         <section>
-          <h2>Bombas de Gasolina</h2>
+          <h2>Bombas de Gasolina {query?.slug?.[0]}</h2>
           <p>Encuentra fácilmente las bombas de gasolina más cercanas a ti. Nuestra plataforma te proporciona información detallada sobre las diferentes bombas de gasolina disponibles, sus ubicaciones exactas, horarios de atención y servicios adicionales que ofrecen.</p>
         </section>
 
         <section>
-          <h2>Gasolineras</h2>
-          <p>Explora nuestra extensa red de gasolineras en Bogotá y sus alrededores. Desde gasolina regular hasta combustibles premium, nuestras gasolineras están diseñadas para satisfacer las necesidades de cada conductor. Encuentra aquí información sobre las gasolineras disponibles, sus servicios y promociones actuales.</p>
+          <h2>Gasolineras </h2>
+          <p>Explora nuestra extensa red de gasolineras cerca en {query?.slug?.[0]} y sus alrededores. Desde gasolina regular hasta combustibles premium, nuestras gasolineras están diseñadas para satisfacer las necesidades de cada conductor. Encuentra aquí información sobre las gasolineras disponibles, sus servicios y promociones actuales.</p>
         </section>
 
         <section>
-          <h2>Gasolineras Terpel</h2>
+          <h2>Gasolineras cerca</h2>
           <p>Descubre las ventajas de abastecer tu vehículo en las gasolineras Terpel. Con una amplia cobertura en todo el país, las estaciones de servicio ofrecen combustibles de alta calidad y una experiencia de atención al cliente excepcional. Encuentra aquí todas las gasolineras Terpel disponibles en tu área, junto con detalles sobre sus servicios y ubicaciones.</p>
         </section>
 
         <section>
-          <h2>Estaciones de Servicio</h2>
-          <p>Encuentra aquí todas las estaciones de servicio disponibles en nuestra plataforma. Desde gasolineras convencionales hasta puntos de carga para vehículos eléctricos, te ofrecen una amplia variedad de opciones para abastecer tu vehículo y disfrutar de una experiencia de conducción sin preocupaciones. Explora las estaciones de servicio y encuentra la más cercana a ti.</p>
+          <h2>Estaciones de Servicio {query?.slug?.[0]}</h2>
+          <p>Encuentra aquí todas las estaciones de servicio disponibles en nuestra plataforma. Desde gasolineras convencionales hasta puntos de carga para vehículos eléctricos, te ofrecen una amplia variedad de opciones para abastecer tu vehículo y disfrutar de una experiencia de conducción sin preocupaciones. Explora las estaciones de servicio y encuentra la más cercana a ti. Gasolinera cerca de mi.</p>
         </section>
       </div>
       {visibleModal &&

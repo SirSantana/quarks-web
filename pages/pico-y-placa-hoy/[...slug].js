@@ -41,6 +41,7 @@ export default function PicoYPlaca({ data }) {
   const router = useRouter()
   const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   const numeroMes = meses.indexOf(router.query.slug[1].split('-')[2]);
+  let date = new Date(data?.fecha)
 
   // const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
   // const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
@@ -68,7 +69,7 @@ export default function PicoYPlaca({ data }) {
     `Movilidad urbana en ${router.query.slug && router.query.slug.length > 0 ? router.query.slug[0] : ''}`
   ];
   return (
-    <Layout title={`Pico y Placa ${router.query.slug[0]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en ${router.query.slug[0]} hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} lastModified={new Date(data?.fecha).toGMTString()}>
+    <Layout title={`Pico y Placa ${router.query.slug[0]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en ${router.query.slug[0]} hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} keywords={keyWords} fecha={new Date(data?.fecha).toISOString()} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
         <h1 className={styles.title}>Pico y Placa Hoy {data?.titulo.replaceAll('-', ' ')} en {router.query.slug[0]}</h1>
         <section className={styles.containerPlaca}>
@@ -152,7 +153,16 @@ export default function PicoYPlaca({ data }) {
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa {router.query.slug[0]} {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
           <h2>Pico y Placa {router.query.slug[0]} {data?.titulo.replaceAll('-', ' ')}</h2>
-
+          <time dateTime={new Date(data?.fecha).toISOString()} itemProp="datePublished">
+            {date.toLocaleDateString('es-ES', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              timeZoneName: 'short',
+            })}
+          </time>
         </section>
       </div>
     </Layout>
