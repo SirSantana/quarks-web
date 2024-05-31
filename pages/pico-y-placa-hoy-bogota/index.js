@@ -10,39 +10,38 @@ export default function PicoYPlaca({ data }) {
   return (
     <Layout title={`Pico y Placa Bogota ${query?.month ? query?.month.split('-')[0] : ''}`} description={'Consulta el Pico y Placa de Bogotá para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Bogotá, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
-        <h1 className={styles.title}>Pico y Placa {query?.month && query.month.split('-')[0]}. Bogotá </h1>
+        <h1 className={styles.title}>Pico y Placa {query?.month && query.month.split('-')[0]} en Bogotá </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query?.month ? query.month.split('-')[0] : 'el 2024'} en Bogotá.</p>
 
         {data ? data?.map(el => (
           <Link href={`pico-y-placa-hoy-bogota/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
             <div className={styles.containerCardOnePico} >
               <div>
-                <h2>{el.titulo.replaceAll('-', ' ')}</h2>
+                <h4>{el.titulo.replaceAll('-', ' ')}</h4>
                 <p>Vehículos Particulares</p>
-                <h3 style={{ marginTop: '16px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h3>
+                <h6 style={{ marginTop: '16px', fontSize: '18px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h6>
               </div>
               {el?.especial
                 ?
                 <div>
-                  <h3 style={{ marginTop: '16px' }}>{el.horario[0]}</h3>
+                  <h6 style={{ marginTop: '16px' }}>{el.horario[0]}</h6>
                   <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
                     <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                      <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
+                      <p style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</p>
                     </div>
                   </div>
                   <h3 style={{ marginTop: '16px' }}>{el.horario[1]}</h3>
 
                   <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
                     <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                      <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
+                      <p style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</p>
                     </div>
                   </div>
                 </div>
-
                 :
                 <div className={styles.containerMiniPlaca}>
                   <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                    <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
+                    <p style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</p>
                   </div>
                 </div>
               }
@@ -52,29 +51,58 @@ export default function PicoYPlaca({ data }) {
         ))
           :
           <>
-            <div onClick={() => push('/pico-y-placa-hoy-bogota?month=Marzo-2')} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+            <Link href={'/pico-y-placa-hoy-bogota?month=Marzo-2'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
               <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
                 <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Marzo</h4>
               </div>
-            </div>
-            <div onClick={() => push('/pico-y-placa-hoy-bogota?month=Abril-3')} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+            </Link>
+            <Link href={'/pico-y-placa-hoy-bogota?month=Abril-3'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
               <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
                 <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Abril</h4>
               </div>
-            </div>
-            <div onClick={() => push('/pico-y-placa-hoy-bogota?month=Mayo-4')} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+            </Link>
+            <Link href={'/pico-y-placa-hoy-bogota?month=Mayo-4'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
               <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
                 <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Mayo</h4>
               </div>
-            </div>
+            </Link>
+            <Link href={'/pico-y-placa-hoy-bogota?month=Junio-5'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Junio</h4>
+              </div>
+            </Link>
           </>
         }
       </div>
 
-      <section>
-        <h2>Pico y placa bogota hoy</h2>
-        <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Bogotá: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
-        <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Bogotá. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
+      <section style={{ width: '90%', maxWidth: '1400px', margin: '0 auto' }}>
+        <h2>Pico y Placa Bogotá mes de {query?.month ? query?.month.split('-')[0] : ''}</h2>
+        <p style={{ margin: '24px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Bogotá: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
+        <p style={{ margin: '8px 0px 16px 0 ' }}>Infórmate sobre las reglas y restricciones del Pico y Placa en Bogotá. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
+        <p style={{ margin: '8px 0px 16px 0 ' }}>En Bogotá, el Pico y Placa es una medida para reducir el tráfico. Conoce los horarios del Pico y Placa para carros y motos, y cómo afecta a las placas pares e impares. Consulta el calendario del Pico y Placa para el mes de {query?.month ? query?.month.split('-')[0] : ''} y organiza tu viaje de manera eficiente.</p>
+        <p style={{ margin: '8px 0px 16px 0 ' }}>Si estás buscando información actualizada sobre el Pico y Placa en Bogotá para el mes de {query?.month ? query?.month.split('-')[0] : ''}, has llegado al lugar indicado. Aquí encontrarás los días y horas en que se aplican las restricciones, así como recomendaciones para evitar infracciones.</p>
+        <p style={{ margin: '8px 0px 16px 0 ' }}>¿Te preguntas cómo funciona el Pico y Placa en Bogotá? Aquí te explicamos las reglas específicas y los cambios recientes en la normativa. Mantente informado y evita multas innecesarias mientras te desplazas por la ciudad.</p>
+        <p style={{ margin: '8px 0px 16px 0 ' }}>Además, te ofrecemos consejos útiles para planificar tus desplazamientos y aprovechar al máximo los horarios sin restricciones. Con nuestra guía sobre el Pico y Placa en Bogotá, estarás siempre un paso adelante.</p>
+        
+        <h2 style={{ margin: '32px 0px 16px 0 ' }}>Conoce las medidas de Pico y placa para {query?.month && query.month.split('-')[0]} en Bogota</h2>
+        
+        <h3 style={{ margin: '48px 0px 16px 0 ' }}>Consejos para Evitar Multas</h3>
+        <p>Para evitar multas y sanciones, sigue estos consejos:</p>
+        <ul>
+          <li>Revisa el calendario del Pico y Placa antes de planificar tu viaje.</li>
+          <li>Usa aplicaciones móviles para estar al tanto de las restricciones diarias.</li>
+          <li>Considera alternativas de transporte como el uso de bicicletas, transporte público o el carpooling.</li>
+        </ul>
+
+        <h3 style={{ margin: '32px 0px 16px 0 ' }}>Impacto del Pico y Placa en la Movilidad</h3>
+        <p>El Pico y Placa tiene un impacto significativo en la movilidad urbana. Ayuda a reducir la congestión vehicular, mejora la calidad del aire y fomenta el uso de transporte público.</p>
+
+        <h3 style={{ margin: '32px 0px 16px 0 ' }}>Excepciones y Vehículos Exentos</h3>
+        <p>Algunos vehículos están exentos de las restricciones del Pico y Placa, como los de emergencia, eléctricos y de servicio público. Consulta la normativa para obtener una lista completa de exenciones.</p>
+
+        <h3 style={{ margin: '32px 0px 16px 0 ' }}>Últimas Actualizaciones y Cambios en la Normativa</h3>
+        <p>Mantente informado sobre cualquier cambio en la normativa del Pico y Placa en Bogotá. Las autoridades pueden ajustar los horarios y las reglas en respuesta a las condiciones de tráfico y la calidad del aire.</p>
+
       </section>
 
     </Layout>
