@@ -94,9 +94,9 @@ export default function EngineDisplacementCalculator() {
     }
   }, [data])
   return (
-    <Layout title={'Engine Displacement Calculator'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} keywords={'Cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle'} url={router?.asPath} visibleNavbar={false}>
+    <Layout title={'CC Calculator'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} keywords={'Cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle'} url={router?.asPath} visibleNavbar={false}>
       <div style={{ marginTop: '32px', width: '95%', maxWidth: '1100px', backgroundColor: 'white' }} className={styles.container}>
-        <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Engine Displacement Calculator</h1>
+        <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Engine Displacement Calculator. cc calculator</h1>
         <p className={styles.response}>Calculate the displacement of your motorcycle, car or engine. Enter your data in millimeters with a comma (80.5).</p>
 
         <div className={styles.containerCc}>
@@ -107,7 +107,7 @@ export default function EngineDisplacementCalculator() {
               <p style={{ fontSize: '14px', color: '#ABABAB', textAlign: 'end' }}>Cubic Inches</p>
             </div>
             <div style={{ display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
-              <h3 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '24px' }}>Measures</h3>
+              <h4 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '24px' }}>Measures</h4>
               <label style={{ fontSize: '14px' }}>Bore Size</label>
               <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
 
@@ -161,7 +161,7 @@ export default function EngineDisplacementCalculator() {
           <div className={styles.containerAnimation}>
             <div style={{ display: 'flex', width: '100%', flexDirection: 'column', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
               <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-                <h3 style={{ fontSize: '14px', fontWeight: '600', }}>Animation / Ilustration</h3>
+                <h4 style={{ fontSize: '14px', fontWeight: '600', }}>Animation / Ilustration</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='sm'>
                     {isPlaying ? 'Pause' : 'Play'}
