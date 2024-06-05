@@ -94,9 +94,9 @@ export default function EngineDisplacementCalculator() {
     }
   }, [data])
   return (
-    <Layout title={'CC Calculator'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} keywords={'Cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle'} url={router?.asPath} visibleNavbar={false}>
+    <Layout title={'CC Calculator'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} keywords={'Cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle, cc calculator, cc engine calculator'} url={router?.asPath} visibleNavbar={false}>
       <div style={{ marginTop: '32px', width: '95%', maxWidth: '1100px', backgroundColor: 'white' }} className={styles.container}>
-        <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Engine Displacement Calculator. cc calculator</h1>
+        <h1  className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Engine Displacement Calculator. cc calculator</h1>
         <p className={styles.response}>Calculate the displacement of your motorcycle, car or engine. Enter your data in millimeters with a comma (80.5).</p>
 
         <div className={styles.containerCc}>
@@ -234,9 +234,25 @@ export default function EngineDisplacementCalculator() {
             <p style={{ lineHeight: '1.8' }}>The formula for the volume of a cylinder is not as difficult as it might seem. It is basic mathematics.<br /><br /> <span style={{ fontWeight: '600' }}>The formula for piston displacement (V) of a cylinder is V=πr2h</span>, where π represents the constant pi, approximately 3.14159. Here, r denotes the radius of the base of the cylinder, and ℎ h denotes the height of the cylinder. This painstaking calculation provides us with a volume value expressed in cubic units, such as cubic centimeters (cm³) or cubic meters (m³).
             </p>
           </section>
+
+          <section style={{ marginBottom: '32px' }}>
+            <h2>CC Calculator</h2>
+            <br />
+            <p style={{ lineHeight: '1.8' }}>
+              Use our <span style={{ fontWeight: '600' }}>engine displacement calculator</span> to determine the total volume of the cylinders in your engine. This tool is essential for vehicle enthusiasts and mechanics who need to calculate displacement accurately and quickly. <br /><br /> Our <span style={{ fontWeight: '600' }}>cc calculator</span> allows you to input your engine dimensions and get the total displacement in seconds. This is crucial for understanding the performance and capacity of your vehicle.
+            </p>
+          </section>
+
+          <section style={{ marginBottom: '32px' }}>
+            <h2>Importance of Engine Displacement</h2>
+            <br />
+            <p style={{ lineHeight: '1.8' }}>
+              The <span style={{ fontWeight: '600' }}>engine displacement</span> is a fundamental metric in the automotive world. It not only affects the power and performance of your vehicle but also influences fuel economy and emissions. <br /><br /> By using our <span style={{ fontWeight: '600' }}>displacement calculator</span>, you can gain a deeper understanding of how your engine works and how to optimize its performance. This information is vital for making adjustments and improvements to your vehicle.
+            </p>
+          </section>
+
           <h3>Engine displacement calculator</h3>
           <h3>engine displacement</h3>
-          <h3>cc calculator</h3>
           <h3>engine cc calculator</h3>
 
 
