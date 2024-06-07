@@ -89,7 +89,7 @@ export default function SectionCalculadoraCombustible() {
           Calcular cilindrada
         </button>
       </Link>
-      <div onClick={()=> router.push('/pico-y-placa-hoy-bogota')} style={{cursor:'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+      <div onClick={()=> router.push('/pico-y-placa-hoy-bogota')} style={{cursor:'pointer', textDecoration: 'none', color: '#373737',maxWidth:'400px', width: '90%', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
         <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
           <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA</h4>
         </div>
