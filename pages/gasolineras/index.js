@@ -9,6 +9,7 @@ import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 import Loader from '@/src/Components/Loaders/CardLoader';
 import Sidebar from '@/src/Components/Sidebar/Sidebar';
 import DrawerGasolineras from '@/src/Components/Gasolineras/DrawerGasolineras';
+import HeaderNavTags from '@/src/Components/Gasolineras/HeaderNavTags';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
   { ssr: false, loading: () => <Loader /> })
@@ -59,6 +60,7 @@ export default function Gasolineras({ data }) {
             body={<p>This is the body content of the sidebar.</p>}
             footer={<button onClick={toggleSidebar}>Close Sidebar</button>}
           /> */}
+          <HeaderNavTags/>
           <DrawerGasolineras setVisibleModalFiltros={setVisibleModalFiltros} filtros={filtros} filteredData={filteredData} setVisibleModal={setVisibleModal} res={res} setEstacionCheck={setEstacionCheck} filteredDataExtra={filteredDataExtra} />
           {/* <div onClick={() => setVisibleModalPicoyPlaca(true)} style={{ cursor: 'pointer', backgroundColor: '#FFC003', padding: '2px', borderRadius: '8px', margin: '16px auto 0px auto', position: 'absolute', bottom: '40px', right: '16px', zIndex: 1 }}>
             <div style={{ backgroundColor: 'transparent', border: '2px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>

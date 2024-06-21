@@ -20,7 +20,7 @@ export default function ButtonsHeader({ data }) {
   const router = useRouter()
 
   const handleBack = () => {
-    router.push('/', undefined, { shallow: true });
+    router.back();
   };
   const handleClickCompartir = () => {
     if (process.env.NODE_ENV === 'production') {

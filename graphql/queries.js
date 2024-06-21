@@ -436,6 +436,44 @@ export const GET_ONE_NEGOCIOVDOS = gql`
     }
   }
 `
+export const GET_NEGOCIOSVDOS_BY_TIPO= gql`
+  query getNegociosVDosByTipo($tipo:String){
+    getNegociosVDosByTipo(tipo:$tipo){
+      nombre
+      direccion
+      fotoperfil
+      facebook
+      instagram
+      paginaweb
+      categorias
+      whatsapp
+      telefono
+      localidad
+      ciudad
+      pais
+      acercanegocio
+      sponsored
+      nivelnegocio
+      horario
+      ubicacionmaps
+      visitaswhatsapp
+      opiniones
+      numerocalificacionesmaps
+      promediocalificacionesmaps
+      urltallermaps
+      id
+      marcasAutos
+      tipo
+      fotossecundarias
+      userName
+      revisiones
+      coordenadas
+      indicativo
+      vehiculo
+      email
+    }
+  }
+`
 export const GET_NEGOCIOVDOS_BY_EMAIL = gql`
   query getNegocioVDosByEmail($email:String){
     getNegocioVDosByEmail(email:$email)

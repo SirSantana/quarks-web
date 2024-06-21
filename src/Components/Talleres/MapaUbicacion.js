@@ -4,17 +4,17 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet';
 
-export default function MapaUbicacion({ username, nombre, direccion, coordenadas, img }) {
+export default function MapaUbicacion({ username, nombre, direccion, coordenadas, img, ubicacion}) {
   let ubicacionMaps = talleres.talleres.find(el => el.userName == username)
   const position = { lat: coordenadas?.[0], lng: coordenadas?.[1] }
   const mapCenter= [coordenadas?.[0], coordenadas?.[1]];
   return (
-    ubicacionMaps
+    ubicacionMaps || ubicacion
       ?
       <>
         <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}> Ubicacion de {nombre}  </h2>
         <div className={styles.maps}>
-          <iframe title={`Ubicacion ${ubicacionMaps.nombre}`} style={{ height: '100%', width: '100%', borderRadius: '8px' }} src={ubicacionMaps.ubicacionmaps} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          <iframe title={`Ubicacion ${ubicacionMaps?.nombre? ubicacionMaps.nombre : nombre}`} style={{ height: '100%', width: '100%', borderRadius: '8px' }} src={ubicacionMaps?.ubicacionmaps? ubicacionMaps.ubicacionmaps : ubicacion} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <span style={{ textAlign: 'left', width: '90%' }}>{direccion}</span>
       </>

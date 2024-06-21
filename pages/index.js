@@ -184,7 +184,6 @@ export default function Home({ initialQuery }) {
   )
 }
 export async function getServerSideProps({ query }) {
-  console.log(query, 'you');
   return {
     props: {
       initialQuery: query,

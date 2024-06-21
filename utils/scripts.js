@@ -6,6 +6,19 @@ const sendWhatsappMessage = ({ numero, path = null, text }) => {
   window.open(url);
 }
 
+export const getLatLng = ({data}) => {
+  const latLngRegex = /1d(-?\d+\.\d+)!2d(-?\d+\.\d+)/;
+  const matches = data?.ubicacionmaps?.match(latLngRegex);
+  console.log(data, 'data');
+  if (matches) {
+    const lat = parseFloat(matches[1]);
+    const lng = parseFloat(matches[2]);
+    return [lat, lng];
+  }
+
+  return [4.673605, -74.082539]; // Coordenadas por defecto
+};
+
 export function calcularDistancia(lat1, lon1, lat2, lon2) {
   const radioTierraKm = 6371; // Radio de la Tierra en kilómetros
   const dLat = deg2rad(lat2 - lat1);

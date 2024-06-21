@@ -18,6 +18,7 @@ import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
 import ModalButtonsContacto from "@/src/Components/Talleres/ModalButtonsContacto";
 import Button, { ButtonVariant } from "@/src/Components/Button/Button";
 import Revisiones from "@/src/Components/Talleres/Revisiones";
+import { getLatLng } from "@/utils/scripts";
 
 const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
   { ssr: false })
@@ -68,6 +69,7 @@ export default function NegocioVDos({ data }) {
     }
     ref.current.scrollIntoView({ behavior: 'smooth' });
   }
+  const position = getLatLng({ data: data });
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       <div className={styles.containerAlmacen}>
@@ -139,9 +141,9 @@ export default function NegocioVDos({ data }) {
             <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
             {(data?.urltallermaps || data?.coordenadas?.length > 0 !== (data?.tipo === 'Mecanico a Domicilio' || data?.tipo === 'Mecanico')) &&
               <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <MapaUbicacion ubicacion={data?.urltallermaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data
+                <MapaUbicacion ubicacion={data?.ubicacionmaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data
                   ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
-                  : ''} coordenadas={data?.coordenadas} img={data?.fotoperfil} />
+                  : ''} coordenadas={data?.coordenadas ? data?.coordenadas : position} img={data?.fotoperfil} />
               </section>
             }
             {(data?.tipo === 'Mecanico a Domicilio' || data?.tipo === 'Mecanico') &&
@@ -170,7 +172,7 @@ export default function NegocioVDos({ data }) {
                 <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio} />
               </section>
             }
-            <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
               <Revisiones id={data?.id} />
             </section>
             <section ref={refReseñas} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
