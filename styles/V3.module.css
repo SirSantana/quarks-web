@@ -1,0 +1,171 @@
+.cardBussiness {
+    border: 1px solid #D5D5D5;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    animation: fadeInUp 1.5s forwards, fadeOutDown 1.5s normal;
+    opacity: 0;
+    width: 32%;
+}
+
+
+.cardBussiness:nth-child(1) {
+    animation-delay: 2s, 7s;
+    /* Primer tarjeta, 2 segundos de retraso */
+}
+
+.cardBussiness:nth-child(2) {
+    animation-delay: 3s, 7s;
+    /* Segunda tarjeta, 4 segundos de retraso */
+}
+
+.cardBussiness:nth-child(3) {
+    animation-delay: 4s, 7s;
+    /* Tercer tarjeta, 6 segundos de retraso */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes loadingAnimation {
+    0% {
+        background-position: 100% 0;
+        /* Inicio del gradiente */
+    }
+
+    100% {
+        background-position: 0 0;
+        /* Fin del gradiente */
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes zoom {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes swing {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+.control {
+    font-size: 18px;
+}
+
+.control::placeholder {
+    opacity: 0.7;
+}
+
+@keyframes fadeInOut {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.formV3 {
+    width: 100%;
+    max-width: 800px;
+    height: 80px;
+    margin: 0 auto;
+    margin-top: 16px;
+    border-radius: 8px;
+    border: 1px solid #D5D5D5;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F9F9F9;
+
+}
+
+@media (max-width: 600px) {
+    .control {
+        font-size: 14px;
+    }
+
+    .formV3 {
+        padding: 4px 8px;
+        height: 56px;
+    }
+}

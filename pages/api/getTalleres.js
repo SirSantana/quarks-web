@@ -31,7 +31,7 @@ const normalizeString = (str) => {
 
 export default function handler(req, res) {
   const { query } = req;
-  
+  console.log(query, 'query');
   const talleresFilter = talleres.talleres?.filter(taller => taller?.lat && taller.userName !== 'corsa-motors')
   let filter;
   if (query.servicio) {

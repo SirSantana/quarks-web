@@ -13,7 +13,7 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
 
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
-  const horariosSeparados = taller?.horario.split(',');
+  const horariosSeparados = taller?.horario?.split(',');
   
   return (
     <Link href={`/${taller?.userName}`} className={styles.cardNewTaller}>
@@ -37,24 +37,24 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
             {/* {result?.data?.getCalificacionOpiniones > 0 &&
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: '4px' }}>
                 <ion-icon style={{ color: '#FBBC04' }} name="star"></ion-icon>
-                <p style={{ fontSize: '12px', margin: 0, color: '#464646' }}>{result?.data?.getCalificacionOpiniones}</p>
+                <p style={{ fontSize: '12px', margin: 0, color: '#373737', fontWeight:'600' }}>{result?.data?.getCalificacionOpiniones} (203)</p>
               </div>
             } */}
           </header>
           <h2 style={{ fontSize: '18px' }}>{taller?.nombre}</h2>
-          <p style={{ fontSize: '14px', fontWeight: '500' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
+          <p style={{ fontSize: '14px', fontWeight: '500', color:'#929292' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
           <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-            {taller?.categorias.slice(0, 3).map(el => {
+            {taller?.categorias?.slice(0, 3).map(el => {
               const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
               return (
                 category &&
-                <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center',backgroundColor:'#f3f3f3' , borderRadius: '8px', padding: '4px 8px', }}>
+                <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center',backgroundColor:'#f3f3f3', border:'1px solid #d9d9d9', borderRadius: '8px', padding: '4px 8px', }}>
                   {category?.img && <Image src={`/${category?.img}.png`} width={20} height={20} alt={`Taller de autos de ${el}`} />}
-                  <p style={{ margin: 0, fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
+                  <p style={{ margin: 0,fontWeight:'500', fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
                 </div>
               )
             })}
-            <p style={{ fontSize: '12px', color: '#5C5C5C', fontWeight: '600' }}>+{taller?.categorias?.length} servicios</p>
+            <p style={{ fontSize: '12px', color: '#929292', fontWeight: '500' }}>+{taller?.categorias?.length} servicios</p>
           </div>
           <footer style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', gap: '8px', width: '100%', alignItems: 'flex-end' }}>
             {/* <button style={{ fontWeight: '600', fontSize: '12px', padding: '0', borderRadius: '2px', alignSelf: 'flex-end', color: '#f50057', backgroundColor: 'inherit', margin: 0, height: '28px' }} className={styles.button}>
@@ -62,6 +62,9 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
               <ion-icon name="chevron-forward-outline"></ion-icon>
             </button> */}
             <Button variant={ButtonVariant.outlined} size='sm' style={{alignSelf:'flex-end', margin:0, borderRadius:'4px'}}>
+              Abrir mapa
+            </Button>
+            <Button variant={ButtonVariant.primary} size='sm' style={{alignSelf:'flex-end', margin:0, borderRadius:'4px'}}>
               Ver taller
             </Button>
           </footer>

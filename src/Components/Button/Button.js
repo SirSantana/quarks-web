@@ -19,22 +19,24 @@ export const ButtonVariant = {
   gray:'gray'
 }
 
-export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null, iconColor='white', sizeIcon='md'}) {
+export default function Button({ children, size = ButtonSize.base, active = false, disable = false, onSubmit=undefined, onlyIcon = false, variant = ButtonVariant.primary, onClick, icon = false, fullWidth = false, style, link = false, href = null, iconColor='white', sizeIcon='md', className}) {
   const variantButton = styles[`button-${variant}`];
   const sizeButton = styles[`button-${size}`]
-
+  const classname = styles[className]
+  console.log(className);
   return (
     link
       ?
-      <Link target='_blank' href={href} className={`${styles.button} ${variantButton} ${sizeButton}`}
+      <Link target='_blank' href={href} className={`${styles.button} ${variantButton} ${sizeButton} ${className}`}
         style={{ ...style, width: fullWidth && '100%' }}>
         {children}
         {icon && <Icon name={icon} size={sizeIcon}  />}
       </Link>
       :
       <button
+      onSubmit={onSubmit?true:undefined}
         onClick={onClick}
-        className={`${styles.button} ${variantButton} ${sizeButton}`}
+        className={`${styles.button} ${variantButton} ${sizeButton} ${classname}`}
         style={{ ...style, width: fullWidth && '100%', opacity:disable && '0.5', cursor:disable &&'not-allowed' }}
       >
         {children}

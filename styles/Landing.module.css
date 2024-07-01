@@ -29,7 +29,7 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  padding: 64px 0;
+  padding: 32px 0;
   gap: 40px
 }
 
@@ -198,7 +198,7 @@
   color: #373737;
   outline: none;
   border: 1px solid #d9d9d9;
-  width: 100%;
+  width: 49%;
   border-radius: 16px;
   padding: 24px;
   box-sizing: border-box;
@@ -208,6 +208,18 @@
   gap: 16px;
   transition: 0.3s;
   background-color: white;
+}
+.cardNewTallerSkeleton{
+  text-decoration: none;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  width: 49%;
+  border-radius: 16px;
+  padding: 24px;
+  gap: 16px;
+  transition: 0.3s;
+  background-color: #f3f3f3;
+  height: 220px;
 }
 
 .headerTalleres {
@@ -496,8 +508,7 @@
   }
 
   .containerListTalleres {
-    width: 95%;
-    padding: 64px 0;
+    padding: 0;
   }
 
   .containerVariedadTalleres {
@@ -552,7 +563,9 @@
     align-items: center;
 
   }
-
+  .cardNewTaller{
+    width: 100%;
+  }
   .containerGrowth {
     flex-direction: column;
     width: 100%;

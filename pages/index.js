@@ -16,6 +16,7 @@ import { IconCatalog } from '@/src/Components/Icon/Icon'
 import { useRouter } from 'next/router'
 import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
+import BasicHome from '@/src/Components/LandingPage/BasicHome'
 
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
@@ -154,7 +155,8 @@ export default function Home({ initialQuery }) {
         />
       </Head>
       <main className={styles.main}>
-        <HomeMarch initialQuery={initialQuery} mode={mode} />
+        {/* <HomeMarch initialQuery={initialQuery} mode={mode} /> */}
+        <BasicHome />
         <SectionTalleresServicios />
         <ListTalleresLanding />
         <ActividadReciente />
@@ -171,11 +173,11 @@ export default function Home({ initialQuery }) {
           ))}
         </section>
 
-        <div className={styles.divBtnFooter}>
+        {/* <div className={styles.divBtnFooter}>
           <Button onClick={handleClick} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode === 'Lista' ? IconCatalog.mapa : IconCatalog.lista}>
             Mostrar {mode === 'Mapa' ? 'Lista' : 'Mapa'}
           </Button>
-        </div>
+        </div> */}
 
       </main>
       <Footer />

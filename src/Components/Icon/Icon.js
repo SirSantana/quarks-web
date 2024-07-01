@@ -47,7 +47,8 @@ export const IconCatalog = {
   ellipseOultine:'ellipse-outline',
   settingsOutline:'settings-outline',
   optionsOutline:'options-outline',
-  menuOutline: 'menu-outline'
+  menuOutline: 'menu-outline',
+  optionsOutline: 'options-outline'
 }
 
 export default function Icon({ name, size = "md", style, onClick }) {

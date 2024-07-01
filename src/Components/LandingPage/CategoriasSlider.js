@@ -59,7 +59,7 @@ export default function CategoriasSlider({ categorias, type='Home', onClick}) {
       // boxShadow: type === 'Taller' && '0px 4px 6px rgba(0, 0, 0, 0.1)',
       // paddingTop:type === 'Taller' && '12px'
     }}
-    className={styles.categoriasSlider}>
+    className={styles.categoriasSlider} >
 
       <Slider   {...settings}>
         {categorias.map((categoria, index) => (

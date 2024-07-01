@@ -10,7 +10,7 @@ import Image from 'next/image'
 export default function SectionTalleresServicios() {
   return (
     <section className={styles2.containerListTalleres}>
-      <Text fontWeight={TextWeight[600]} As={TextAs.h1} alignment={TextAlignment.center} >
+      <Text fontWeight={TextWeight[600]} As={TextAs.h2} alignment={TextAlignment.center} >
         Taller mecanico cerca de mi
       </Text>
       <p style={{textAlign:'center', marginBottom:'40px', marginTop:'16px'}} className={styles2.subtitle2}>Los mejores talleres de carros para el servicio que estas buscando</p>

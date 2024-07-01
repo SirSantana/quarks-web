@@ -20,7 +20,7 @@ export default function ModalNegocioV3({ setVisibleModal, data }) {
             alt={data.nombre}
             width={80}
             height={80}
-            style={{border:'4px solid white', position: 'absolute', top: '-64px', transform: 'translateX(-50%)', left: '50%', borderRadius: '50%', objectFit: 'cover', width: '80px', height: '80px' }}
+            style={{border:'4px solid white', position: 'absolute', top: '-64px', backgroundColor:'white', transform: 'translateX(-50%)', left: '50%', borderRadius: '50%', objectFit: 'cover', width: '80px', height: '80px' }}
           />
           {/* <Icon onClick={() => setVisibleModal(false)} name={IconCatalog.closeOutline} /> */}
           <p style={{ margin: '0', textAlign: 'center', flex: 1, fontSize: '22px', fontWeight: '600', margin: '32px 0 4px 0' }}>{data.nombre}</p>
