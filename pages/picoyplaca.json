@@ -2590,6 +2590,573 @@
         "vehiculo": "Particular",
         "fecha": "Wed Jul 31 2024",
         "index": 31
+      },{
+        "fechaFormat": "01-de-Julio-2024",
+        "titulo": "Lunes-01-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 01 2024",
+        "ciudad":"Medellin",
+        "index": 32
+      },
+      {
+        "fechaFormat": "02-de-Julio-2024",
+        "titulo": "Martes-02-de-Julio-2024",
+        "placas": "1-4",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 02 2024",
+        "ciudad":"Medellin",
+        "index": 33
+      },{
+        "fechaFormat": "03-de-Julio-2024",
+        "titulo": "Miercoles-03-de-Julio-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular (Carros y Motos)",
+        "fecha": "Wed Jul 03 2024",
+        "ciudad": "Medellin",
+        "index": 34
+      },
+      {
+        "fechaFormat": "04-de-Julio-2024",
+        "titulo": "Jueves-04-de-Julio-2024",
+        "placas": "3-6",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 04 2024",
+        "ciudad": "Medellin",
+        "index": 35
+      },
+      {
+        "fechaFormat": "05-de-Julio-2024",
+        "titulo": "Viernes-05-de-Julio-2024",
+        "placas": "2-0",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular (Carros y Motos)",
+        "fecha": "Fri Jul 05 2024",
+        "ciudad": "Medellin",
+        "index": 36
+      },
+      {
+        "fechaFormat": "06-de-Julio-2024",
+        "titulo": "Sabado-06-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 06 2024",
+        "ciudad": "Medellin",
+        "index": 37
+      },{
+        "fechaFormat": "07-de-Julio-2024",
+        "titulo": "Domingo-07-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 07 2024",
+        "ciudad": "Medellin",
+        "index": 38
+      },{
+        "fechaFormat": "08-de-Julio-2024",
+        "titulo": "Lunes-08-de-Julio-2024",
+        "placas": "5-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 08 2024",
+        "ciudad": "Medellin",
+        "index": 39
+      },{
+        "fechaFormat": "09-de-Julio-2024",
+        "titulo": "Martes-09-de-Julio-2024",
+        "placas": "1-4",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 09 2024",
+        "ciudad": "Medellin",
+        "index": 40
+      },{
+        "fechaFormat": "10-de-Julio-2024",
+        "titulo": "Miercoles-10-de-Julio-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular (Carros y Motos)",
+        "fecha": "Wed Jul 10 2024",
+        "ciudad": "Medellin",
+        "index": 41
+      },{
+        "fechaFormat": "11-de-Julio-2024",
+        "titulo": "Jueves-11-de-Julio-2024",
+        "placas": "3-6",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 11 2024",
+        "ciudad": "Medellin",
+        "index": 42
+      },{
+        "fechaFormat": "12-de-Julio-2024",
+        "titulo": "Viernes-12-de-Julio-2024",
+        "placas": "7-9",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Jul 12 2024",
+        "ciudad": "Medellin",
+        "index": 43
+      },{
+        "fechaFormat": "13-de-Julio-2024",
+        "titulo": "Sabado-13-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 13 2024",
+        "ciudad": "Medellin",
+        "index": 44
+      },{
+        "fechaFormat": "14-de-Julio-2024",
+        "titulo": "Domingo-14-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 14 2024",
+        "ciudad": "Medellin",
+        "index": 45
+      },{
+        "fechaFormat": "15-de-Julio-2024",
+        "titulo": "Lunes-15-de-Julio-2024",
+        "placas": "5-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 15 2024",
+        "ciudad": "Medellin",
+        "index": 46
+      },{
+        "fechaFormat": "16-de-Julio-2024",
+        "titulo": "Martes-16-de-Julio-2024",
+        "placas": "1-4",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 16 2024",
+        "ciudad": "Medellin",
+        "index": 47
+      },{
+        "fechaFormat": "17-de-Julio-2024",
+        "titulo": "Miercoles-17-de-Julio-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular (Carros y Motos)",
+        "fecha": "Wed Jul 17 2024",
+        "ciudad": "Medellin",
+        "index": 48
+      },{
+        "fechaFormat": "18-de-Julio-2024",
+        "titulo": "Jueves-18-de-Julio-2024",
+        "placas": "3-6",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 18 2024",
+        "ciudad": "Medellin",
+        "index": 49
+      },{
+        "fechaFormat": "19-de-Julio-2024",
+        "titulo": "Viernes-19-de-Julio-2024",
+        "placas": "7-9",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Jul 19 2024",
+        "ciudad": "Medellin",
+        "index": 50
+      },{
+        "fechaFormat": "20-de-Julio-2024",
+        "titulo": "Sabado-20-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 20 2024",
+        "ciudad": "Medellin",
+        "index": 51
+      },{
+        "fechaFormat": "21-de-Julio-2024",
+        "titulo": "Domingo-21-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 21 2024",
+        "ciudad": "Medellin",
+        "index": 52
+      },{
+        "fechaFormat": "22-de-Julio-2024",
+        "titulo": "Lunes-22-de-Julio-2024",
+        "placas": "5-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 22 2024",
+        "ciudad": "Medellin",
+        "index": 53
+      },{
+        "fechaFormat": "23-de-Julio-2024",
+        "titulo": "Martes-23-de-Julio-2024",
+        "placas": "1-4",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 23 2024",
+        "ciudad": "Medellin",
+        "index": 54
+      },{
+        "fechaFormat": "24-de-Julio-2024",
+        "titulo": "Miercoles-24-de-Julio-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular (Carros y Motos)",
+        "fecha": "Wed Jul 24 2024",
+        "ciudad": "Medellin",
+        "index": 55
+      },{
+        "fechaFormat": "25-de-Julio-2024",
+        "titulo": "Jueves-25-de-Julio-2024",
+        "placas": "3-6",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 25 2024",
+        "ciudad": "Medellin",
+        "index": 56
+      },{
+        "fechaFormat": "26-de-Julio-2024",
+        "titulo": "Viernes-26-de-Julio-2024",
+        "placas": "7-9",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Jul 26 2024",
+        "ciudad": "Medellin",
+        "index": 57
+      },{
+        "fechaFormat": "27-de-Julio-2024",
+        "titulo": "Sabado-27-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 27 2024",
+        "ciudad": "Medellin",
+        "index": 58
+      },{
+        "fechaFormat": "28-de-Julio-2024",
+        "titulo": "Domingo-28-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 28 2024",
+        "ciudad": "Medellin",
+        "index": 59
+      },{
+        "fechaFormat": "29-de-Julio-2024",
+        "titulo": "Lunes-29-de-Julio-2024",
+        "placas": "5-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 29 2024",
+        "ciudad": "Medellin",
+        "index": 60
+      },{
+        "fechaFormat": "30-de-Julio-2024",
+        "titulo": "Martes-30-de-Julio-2024",
+        "placas": "1-4",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 30 2024",
+        "ciudad": "Medellin",
+        "index": 61
+      },{
+        "fechaFormat": "31-de-Julio-2024",
+        "titulo": "Miercoles-31-de-Julio-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular (Carros y Motos)",
+        "fecha": "Wed Jul 31 2024",
+        "ciudad": "Medellin",
+        "index": 62
+      },{
+        "fechaFormat": "01-de-Julio-2024",
+        "titulo": "Lunes-01-de-Julio-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 01 2024",
+        "ciudad": "Bucaramanga",
+        "index": 63
+      },
+      {
+        "fechaFormat": "02-de-Julio-2024",
+        "titulo": "Martes-02-de-Julio-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 02 2024",
+        "ciudad": "Bucaramanga",
+        "index": 64
+      },
+      {
+        "fechaFormat": "03-de-Julio-2024",
+        "titulo": "Miercoles-03-de-Julio-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Jul 03 2024",
+        "ciudad": "Bucaramanga",
+        "index": 65
+      },
+      {
+        "fechaFormat": "04-de-Julio-2024",
+        "titulo": "Jue-04-de-Julio-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 04 2024",
+        "ciudad": "Bucaramanga",
+        "index": 66
+      },{
+        "fechaFormat": "05-de-Julio-2024",
+        "titulo": "Viernes-05-de-Julio-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular (Carros y Motos)",
+        "fecha": "Fri Jul 05 2024",
+        "ciudad": "Bucaramanga",
+        "index": 67
+      },
+      {
+        "fechaFormat": "06-de-Julio-2024",
+        "titulo": "Sabado-06-de-Julio-2024",
+        "placas": "1-2",
+        "horario": "9:00 AM - 1:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 06 2024",
+        "ciudad": "Bucaramanga",
+        "index": 68
+      },
+      {
+        "fechaFormat": "07-de-Julio-2024",
+        "titulo": "Domingo-07-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 07 2024",
+        "ciudad": "Bucaramanga",
+        "index": 69
+      },{
+        "fechaFormat": "08-de-Julio-2024",
+        "titulo": "Lunes-08-de-Julio-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 08 2024",
+        "ciudad": "Bucaramanga",
+        "index": 70
+      },{
+        "fechaFormat": "09-de-Julio-2024",
+        "titulo": "Martes-09-de-Julio-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 09 2024",
+        "ciudad": "Bucaramanga",
+        "index": 71
+      },{
+        "fechaFormat": "10-de-Julio-2024",
+        "titulo": "Miercoles-10-de-Julio-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Jul 10 2024",
+        "ciudad": "Bucaramanga",
+        "index": 72
+      },{
+        "fechaFormat": "11-de-Julio-2024",
+        "titulo": "Jueves-11-de-Julio-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 11 2024",
+        "ciudad": "Bucaramanga",
+        "index": 73
+      },{
+        "fechaFormat": "12-de-Julio-2024",
+        "titulo": "Viernes-12-de-Julio-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Jul 12 2024",
+        "ciudad": "Bucaramanga",
+        "index": 74
+      },{
+        "fechaFormat": "13-de-Julio-2024",
+        "titulo": "Sabado-13-de-Julio-2024",
+        "placas": "3-4",
+        "horario": "9:00 AM - 1:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 13 2024",
+        "ciudad": "Bucaramanga",
+        "index": 75
+      },{
+        "fechaFormat": "14-de-Julio-2024",
+        "titulo": "Domingo-14-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 14 2024",
+        "ciudad": "Bucaramanga",
+        "index": 76
+      },{
+        "fechaFormat": "15-de-Julio-2024",
+        "titulo": "Lunes-15-de-Julio-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 15 2024",
+        "ciudad": "Bucaramanga",
+        "index": 77
+      },{
+        "fechaFormat": "16-de-Julio-2024",
+        "titulo": "Martes-16-de-Julio-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 16 2024",
+        "ciudad": "Bucaramanga",
+        "index": 78
+      },{
+        "fechaFormat": "17-de-Julio-2024",
+        "titulo": "Miercoles-17-de-Julio-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Jul 17 2024",
+        "ciudad": "Bucaramanga",
+        "index": 79
+      },{
+        "fechaFormat": "18-de-Julio-2024",
+        "titulo": "Jueves-18-de-Julio-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 18 2024",
+        "ciudad": "Bucaramanga",
+        "index": 80
+      },{
+        "fechaFormat": "19-de-Julio-2024",
+        "titulo": "Viernes-19-de-Julio-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Jul 19 2024",
+        "ciudad": "Bucaramanga",
+        "index": 81
+      },{
+        "fechaFormat": "20-de-Julio-2024",
+        "titulo": "Sabado-20-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 20 2024",
+        "ciudad": "Bucaramanga",
+        "index": 82
+      },{
+        "fechaFormat": "21-de-Julio-2024",
+        "titulo": "Domingo-21-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 21 2024",
+        "ciudad": "Bucaramanga",
+        "index": 83
+      },{
+        "fechaFormat": "22-de-Julio-2024",
+        "titulo": "Lunes-22-de-Julio-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 22 2024",
+        "ciudad": "Bucaramanga",
+        "index": 84
+      },{
+        "fechaFormat": "23-de-Julio-2024",
+        "titulo": "Martes-23-de-Julio-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 23 2024",
+        "ciudad": "Bucaramanga",
+        "index": 85
+      },{
+        "fechaFormat": "24-de-Julio-2024",
+        "titulo": "Miercoles-24-de-Julio-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Jul 24 2024",
+        "ciudad": "Bucaramanga",
+        "index": 86
+      },{
+        "fechaFormat": "25-de-Julio-2024",
+        "titulo": "Jueves-25-de-Julio-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Jul 25 2024",
+        "ciudad": "Bucaramanga",
+        "index": 87
+      },{
+        "fechaFormat": "26-de-Julio-2024",
+        "titulo": "Viernes-26-de-Julio-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Jul 26 2024",
+        "ciudad": "Bucaramanga",
+        "index": 88
+      },{
+        "fechaFormat": "27-de-Julio-2024",
+        "titulo": "Sabado-27-de-Julio-2024",
+        "placas": "7-8",
+        "horario": "9:00 AM - 1:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Jul 27 2024",
+        "ciudad": "Bucaramanga",
+        "index": 89
+      },{
+        "fechaFormat": "28-de-Julio-2024",
+        "titulo": "Domingo-28-de-Julio-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Jul 28 2024",
+        "ciudad": "Bucaramanga",
+        "index": 90
+      },{
+        "fechaFormat": "29-de-Julio-2024",
+        "titulo": "Lunes-29-de-Julio-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Jul 29 2024",
+        "ciudad": "Bucaramanga",
+        "index": 91
+      },{
+        "fechaFormat": "30-de-Julio-2024",
+        "titulo": "Martes-30-de-Julio-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Jul 30 2024",
+        "ciudad": "Bucaramanga",
+        "index": 92
+      },{
+        "fechaFormat": "31-de-Julio-2024",
+        "titulo": "Miercoles-31-de-Julio-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Jul 31 2024",
+        "ciudad": "Bucaramanga",
+        "index": 93
       }
     ]
 
