@@ -1,80 +1,36 @@
 import Layout from "@/src/Components/Layout";
 import styles from '@/styles/PicoYPlaca.module.css'
-import data from '@/pages/picoyplaca.json'
 import Link from "next/link";
-import { useRouter } from "next/router";
-export default function PicoYPlaca({ data }) {
-  const { query, asPath, push } = useRouter();
-
+export default function PicoYPlaca() {
 
   return (
-    <Layout title={`Pico y Placa  ${query.ciudad ? query.ciudad : 'Medellín'}  ${query?.month ? query?.month.split('-')[0] : ''}`} description={'Consulta el Pico y Placa de Medellín para cada día del mes de marzo. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.'} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Marzo 2024, Vehículos particulares, Regulaciones de tráfico'}>
+    <Layout title={`Pico y Placa Colombia 2024`} description={'Consulta el Pico y Placa de Colombia. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías del pais.'} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, , Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
-        <h1 className={styles.title}>Pico y Placa {query?.month && query.month.split('-')[0]} {query.ciudad ? query.ciudad : 'Medellín'} </h1>
-        <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query?.month ? query.month.split('-')[0] : 'el 2024'} en Medellín.</p>
 
-        {data ? data?.map(el => (
-          <Link href={`pico-y-placa-hoy/${el.ciudad}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
-            <div className={styles.containerCardOnePico} >
-              <div>
-                <h2>{el.titulo.replaceAll('-', ' ')}</h2>
-                <p>Vehículos Particulares (Carros y Motos)</p>
-                <h3 style={{ marginTop: '16px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h3>
-              </div>
-              <div className={styles.containerMiniPlaca}>
-                <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                  <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
-                </div>
-              </div>
-            </div>
-            <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
-          </Link>
-        ))
-          :
-          <>
-            <h3>Medellín</h3>
-            <Link href={'/pico-y-placa-hoy?ciudad=medellin&&month=Mayo-4'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
-              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Mayo</h4>
-              </div>
-            </Link>
-            <Link href={'/pico-y-placa-hoy?ciudad=medellin&&month=Junio-5'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
-              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Junio</h4>
-              </div>
-            </Link>
-            <Link href={'/pico-y-placa-hoy?ciudad=medellin&&month=Julio-6'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
-              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Julio</h4>
-              </div>
-            </Link>
-            <h3>Bucaramanga</h3>
-
-            <Link href={'/pico-y-placa-hoy?ciudad=bucaramanga&&month=Mayo-4'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
-              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Mayo</h4>
-              </div>
-            </Link>
-            <Link href={'/pico-y-placa-hoy?ciudad=bucaramanga&&month=Junio-5'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
-              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Junio</h4>
-              </div>
-            </Link>
-            <Link href={'/pico-y-placa-hoy?ciudad=bucaramanga&&month=Julio-6'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
-              <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>PICO Y PLACA Julio</h4>
-              </div>
-            </Link>
-          </>
-        }
+        <h1 className={styles.title}>Pico y Placa principales ciudades de Colombia 2024</h1>
+        <Link href={'/pico-y-placa-hoy/bogota'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+          <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+            <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>Bogota</h4>
+          </div>
+        </Link>
+        <Link href={'/pico-y-placa-hoy/bucaramanga'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+          <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+            <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>Bucaramanga</h4>
+          </div>
+        </Link>
+        <Link href={'/pico-y-placa-hoy/medellin'} style={{ cursor: 'pointer', textDecoration: 'none', color: '#373737', width: '400px', borderRadius: '10px', padding: '8px', margin: '32px 0', backgroundColor: '#FFC003', height: '100px' }} >
+          <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+            <h4 style={{ fontSize: '32px', fontFamily: 'fantasy', letterSpacing: '6px', fontWeight: '100' }}>Medellín</h4>
+          </div>
+        </Link>
       </div>
-      <section style={{ width: '90%', maxWidth: '1400px', margin: '0 auto', marginBottom:'64px' }}>
-        <h2>Pico y placa hoy {query.ciudad ? query.ciudad : 'Medellín'}</h2>
-        <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en {query.ciudad ? query.ciudad : 'Medellín'}: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
-        <p>Infórmate sobre las reglas y restricciones del Pico y Placa en {query.ciudad ? query.ciudad : 'Medellín'}. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
-      
-        <h2 style={{ margin: '32px 0px 16px 0 ' }}>Conoce las medidas de Pico y placa para {query?.month && query.month.split('-')[0]} en {query.ciudad ? query.ciudad : 'Medellín'}</h2>
-      
+      <section style={{ width: '90%', maxWidth: '1400px', margin: '0 auto', marginBottom: '64px' }}>
+        <h2>Pico y placa hoy en Colombia</h2>
+        <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Colombia: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
+        <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Colombia. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
+
+        <h2 style={{ margin: '32px 0px 16px 0 ' }}>Conoce las medidas de Pico y placa para el 2024 en Colombia</h2>
+
         <h3 style={{ margin: '48px 0px 16px 0 ' }}>Consejos para Evitar Multas</h3>
         <p>Para evitar multas y sanciones, sigue estos consejos:</p>
         <ul>
@@ -89,28 +45,8 @@ export default function PicoYPlaca({ data }) {
         <h3 style={{ margin: '32px 0px 16px 0 ' }}>Excepciones y Vehículos Exentos</h3>
         <p>Algunos vehículos están exentos de las restricciones del Pico y Placa, como los de emergencia, eléctricos y de servicio público. Consulta la normativa para obtener una lista completa de exenciones.</p>
 
-        <h3 style={{ margin: '32px 0px 16px 0 ' }}>Últimas Actualizaciones y Cambios en la Normativa</h3>
-        <p>Mantente informado sobre cualquier cambio en la normativa del Pico y Placa en {query.ciudad ? query.ciudad : 'Medellín'}. Las autoridades pueden ajustar los horarios y las reglas en respuesta a las condiciones de tráfico y la calidad del aire.</p>
-
       </section>
     </Layout>
 
   )
-}
-
-export async function getServerSideProps({ query }) {
-  if (query.month) {
-    return {
-      props: {
-        data:
-          data?.picoyplaca[query?.month?.split('-')[1]].filter(el => el?.ciudad?.toLowerCase() === query.ciudad.toLowerCase())
-      }
-    }
-  }
-  return {
-    props: {
-
-    }
-
-  }
 }
