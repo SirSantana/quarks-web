@@ -18,7 +18,6 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
   return (
     <Link href={`/${taller?.userName}`} className={styles.cardNewTaller}>
       <div 
-      // href={`/${taller?.userName}`}
        style={{position:'relative'}} className={styles.containerDataNewTaller}>
         {taller?.fotoperfil &&
           <Image width={160} height={160}  className={styles.imgPerfilTaller} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} loading='lazy' />
@@ -41,7 +40,7 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
               </div>
             } */}
           </header>
-          <h2 style={{ fontSize: '18px' }}>{taller?.nombre}</h2>
+          <h3 style={{ fontSize: '18px' }}>{taller?.nombre}</h3>
           <p style={{ fontSize: '14px', fontWeight: '500', color:'#929292' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
           <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             {taller?.categorias?.slice(0, 3).map(el => {

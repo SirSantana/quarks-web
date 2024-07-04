@@ -31,7 +31,9 @@ export default function SectionFixedServicios({ home = false }) {
           {!router.query.id
             ? ' Encuentra el mejor taller para tu carro'
             :
-            `Mejores talleres de ${router.query.id.replace(/-/g, ' ')} cerca a mi en Bogotá`
+            router.query.id === 'cda'
+              ?`Mejores CDA cerca a mi en Bogotá`
+              :`Mejores talleres de ${router.query.id.replace(/-/g, ' ')} cerca a mi en Bogotá`
           }
         </h1>
 

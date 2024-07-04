@@ -10,6 +10,8 @@ import { client } from "@/client"
 import { GET_NEGOCIOSVDOS_BY_SERVICIO } from "@/graphql/queries"
 import { useQuery } from "@apollo/client"
 import { useEffect, useRef } from "react"
+import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPreguntasServicio"
+import SectionSeoServicios from "@/src/Components/LandingPage/SectionSeoServicios"
 
 
 export default function Servicio() {
@@ -23,13 +25,8 @@ export default function Servicio() {
       }
     }
   });
-  // useEffect(() => {
-  //   if (resultsRef.current) {
-  //     resultsRef.current.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // }, [data]);
   return (
-    <Layout visibleNavbar={false} title={`Talleres de  ${router?.query?.id?.replace(/-/g, ' ')} cerca a mi en Bogota, Colombia`} >
+    <Layout visibleNavbar={false} title={`Mejores ${router.query.id === 'cda' ? 'cda' : `Talleres de ${router?.query?.id?.replace(/-/g, ' ')}`} cerca a mi en Bogota`} >
       <SectionFixedServicios />
       <section  className={styles2.containerListTalleres} >
         <div ref={resultsRef} style={{ marginBottom: '32px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -60,6 +57,8 @@ export default function Servicio() {
             ))}
         </div>
       </section>
+      <SectionPreguntasServicio data={data?.getNegociosVDosByServicio}/>
+      <SectionSeoServicios data={data?.getNegociosVDosByServicio}/>
     </Layout>
   )
 }
