@@ -24,27 +24,35 @@ export default function PicoYPlaca() {
           </div>
         </Link>
       </div>
-      <section style={{ width: '90%', maxWidth: '1400px', margin: '0 auto', marginBottom: '64px' }}>
-        <h2>Pico y placa hoy en Colombia</h2>
-        <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Colombia: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
-        <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Colombia. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
+      <section style={{ width: '90%', maxWidth: '1100px', margin: '0 auto', marginBottom: '64px' }}>
+        <div>
+          <h2>Pico y placa hoy en Colombia</h2>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en Colombia: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
+          <p>Infórmate sobre las reglas y restricciones del Pico y Placa en Colombia. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
 
+        </div>
         <h2 style={{ margin: '32px 0px 16px 0 ' }}>Conoce las medidas de Pico y placa para el 2024 en Colombia</h2>
 
-        <h3 style={{ margin: '48px 0px 16px 0 ' }}>Consejos para Evitar Multas</h3>
-        <p>Para evitar multas y sanciones, sigue estos consejos:</p>
-        <ul>
-          <li>Revisa el calendario del Pico y Placa antes de planificar tu viaje.</li>
-          <li>Usa aplicaciones móviles para estar al tanto de las restricciones diarias.</li>
-          <li>Considera alternativas de transporte como el uso de bicicletas, transporte público o el carpooling.</li>
-        </ul>
+        <div>
+          <h3 style={{ margin: '48px 0px 16px 0 ' }}>Consejos para Evitar Multas</h3>
+          <p>Para evitar multas y sanciones, sigue estos consejos:</p>
+          <ul>
+            <li>Revisa el calendario del Pico y Placa antes de planificar tu viaje.</li>
+            <li>Usa aplicaciones móviles para estar al tanto de las restricciones diarias.</li>
+            <li>Considera alternativas de transporte como el uso de bicicletas, transporte público o el carpooling.</li>
+          </ul>
+        </div>
 
-        <h3 style={{ margin: '32px 0px 16px 0 ' }}>Impacto del Pico y Placa en la Movilidad</h3>
-        <p>El Pico y Placa tiene un impacto significativo en la movilidad urbana. Ayuda a reducir la congestión vehicular, mejora la calidad del aire y fomenta el uso de transporte público.</p>
+        <div>
+          <h3 style={{ margin: '32px 0px 16px 0 ' }}>Impacto del Pico y Placa en la Movilidad</h3>
+          <p>El Pico y Placa tiene un impacto significativo en la movilidad urbana. Ayuda a reducir la congestión vehicular, mejora la calidad del aire y fomenta el uso de transporte público.</p>
 
-        <h3 style={{ margin: '32px 0px 16px 0 ' }}>Excepciones y Vehículos Exentos</h3>
-        <p>Algunos vehículos están exentos de las restricciones del Pico y Placa, como los de emergencia, eléctricos y de servicio público. Consulta la normativa para obtener una lista completa de exenciones.</p>
+        </div>
+        <div>
+          <h3 style={{ margin: '32px 0px 16px 0 ' }}>Excepciones y Vehículos Exentos</h3>
+          <p>Algunos vehículos están exentos de las restricciones del Pico y Placa, como los de emergencia, eléctricos y de servicio público. Consulta la normativa para obtener una lista completa de exenciones.</p>
 
+        </div>
       </section>
     </Layout>
 

@@ -102,12 +102,12 @@ export default function PicoYPlaceHoyBogota({ data }) {
             }
           </div>
         </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa Hoy</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {router.query.ciudad}, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
-        </section>
+        </div>
 
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Pico y Placa anteriores dias de {meses[numeroMes]}</h3>
           {picoyplacaAnteriores?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
@@ -146,8 +146,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
               <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
             </Link>
           ))}
-        </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Pico y Placa siguientes dias de {meses[numeroMes]}</h3>
           {picoyplacaDespues?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
@@ -186,15 +186,15 @@ export default function PicoYPlaceHoyBogota({ data }) {
               <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
             </Link>
           ))}
-        </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Conoce el pico y placa del mes de {meses[numeroMes]}</h3>
           <div onClick={() => router.push(`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}`)} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
             <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
               <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
             </div>
           </div>
-        </section>
+        </div>
         <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
           {repuestos.map(repuesto => (
@@ -207,7 +207,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
             </Link>
           ))}
         </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px' }}>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px' }}>
           <h2>Pico y Placa</h2>
           <p>Conoce el Pico y Placa en {router.query.ciudad} para este {data?.titulo.replaceAll('-', ' ')}</p>
           <div style={{ margin: '16px 0' }}>
@@ -227,26 +227,26 @@ export default function PicoYPlaceHoyBogota({ data }) {
                 <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>NO podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas}</span> de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario}</p>
             }
           </div>
-        </section>
+        </div>
 
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Pl</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en {router.query.ciudad}: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
           <p>Infórmate sobre las reglas y restricciones del Pico y Placa en {router.query.ciudad}. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
-        </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>hora pico y placa {router.query.ciudad}</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
-        </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>pico y placa {router.query.ciudad} hoy</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>No podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
-        </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} no podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
-        </section>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        </div>
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
           <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replaceAll('-', ' ')}</h2>
           <time dateTime={new Date(data?.fecha).toISOString()} itemProp="datePublished">
@@ -259,7 +259,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
               timeZoneName: 'short',
             })}
           </time>
-        </section>
+        </div>
       </div>
     </Layout>
   )
