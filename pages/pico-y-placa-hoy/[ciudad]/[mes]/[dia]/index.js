@@ -278,7 +278,6 @@ export async function getServerSideProps({ query, res}) {
   } else {
     const filteredByCity = picoyplaca.picoyplaca[mesIndex].filter(el => el.ciudad && el.ciudad.toLowerCase() === query.ciudad.toLowerCase());
     picoYplacaHoy = filteredByCity.find(el => el.fechaFormat.toLowerCase() === String(query.dia).toLowerCase());
-    console.log(picoYplacaHoy, 'hii', filteredByCity);
   }
   if (picoYplacaHoy) {
     return {

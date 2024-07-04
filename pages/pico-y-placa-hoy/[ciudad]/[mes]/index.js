@@ -13,8 +13,9 @@ export default function PicoYPlaca({ data }) {
         <h1 className={styles.title}>Pico y Placa {query?.mes && query.mes} {query.ciudad ? query.ciudad : 'Medellín'} </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query.ciudad ? query.ciudad : 'Medellín'} en {query?.mes ? query.mes : 'el 2024'}.</p>
 
-        <section style={{width:'100%'}}>
-          {data && data?.map(el => (
+        {data && data?.map(el => (
+          <div style={{ width: '100%' }}>
+
             <Link href={`${asPath}/${el.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
               <div className={styles.containerCardOnePico} >
                 <div>
@@ -30,8 +31,8 @@ export default function PicoYPlaca({ data }) {
               </div>
               <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
             </Link>
-          ))}
-        </section>
+          </div>
+        ))}
       </div>
       <section style={{ width: '90%', maxWidth: '1100px', margin: '0 auto', marginBottom: '64px' }}>
         <div>
@@ -72,7 +73,6 @@ export default function PicoYPlaca({ data }) {
 
 export async function getServerSideProps({ query }) {
   let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-  console.log(query);
   if (query.mes) {
     let filteredData;
     if (query.ciudad === 'bogota') {
