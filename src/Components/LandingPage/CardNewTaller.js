@@ -9,14 +9,15 @@ import { useRouter } from 'next/router';
 
 
 export default function CardNewTaller({ taller, setVisibleModal}) {
-  // const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
+  const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
 
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario?.split(',');
   
   return (
-    <Link href={`/${taller?.userName}`} className={styles.cardNewTaller}>
+   <div className={styles.cardNewTaller}>
+    <Link href={`/${taller?.userName}`} style={{outline:'none', textDecoration:'none'}}>
       <div 
        style={{position:'relative'}} className={styles.containerDataNewTaller}>
         {taller?.fotoperfil &&
@@ -33,12 +34,12 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
               }
               <p style={{ fontSize: '12px', color: '#5C5C5C' }}>Hoy {horariosSeparados?.[indiceDia]}</p>
             </div>
-            {/* {result?.data?.getCalificacionOpiniones > 0 &&
+            {result?.data?.getCalificacionOpiniones > 0 &&
               <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: '4px' }}>
                 <ion-icon style={{ color: '#FBBC04' }} name="star"></ion-icon>
                 <p style={{ fontSize: '12px', margin: 0, color: '#373737', fontWeight:'600' }}>{result?.data?.getCalificacionOpiniones} (203)</p>
               </div>
-            } */}
+            }
           </header>
           <h3 style={{ fontSize: '18px' }}>{taller?.nombre}</h3>
           <p style={{ fontSize: '14px', fontWeight: '500', color:'#929292' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
@@ -71,5 +72,6 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
         </div>
       </div>
     </Link>
+    </div> 
   )
 }

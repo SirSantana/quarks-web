@@ -1,15 +1,12 @@
-import BuscadorBasico from "@/src/Components/LandingPage/BuscadorBasico"
 import SectionFixedServicios from "@/src/Components/LandingPage/SectionFixedServicios"
 import Layout from "@/src/Components/Layout"
-import Text, { TextAs, TextWeight } from "@/src/Components/Text/Text"
 import { useRouter } from "next/router"
 import styles2 from '@/styles/Landing.module.css'
 import CardNewTaller from "@/src/Components/LandingPage/CardNewTaller"
 import Icon, { IconCatalog } from "@/src/Components/Icon/Icon"
-import { client } from "@/client"
 import { GET_NEGOCIOSVDOS_BY_SERVICIO } from "@/graphql/queries"
 import { useQuery } from "@apollo/client"
-import { useEffect, useRef } from "react"
+import {  useRef } from "react"
 import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPreguntasServicio"
 import SectionSeoServicios from "@/src/Components/LandingPage/SectionSeoServicios"
 
@@ -28,7 +25,7 @@ export default function Servicio() {
   return (
     <Layout visibleNavbar={false} title={`Mejores ${router.query.id === 'cda' ? 'cda' : `Talleres de ${router?.query?.id?.replace(/-/g, ' ')}`} cerca a mi en Bogota`} >
       <SectionFixedServicios />
-      <section  className={styles2.containerListTalleres} >
+      <section className={styles2.containerListTalleres} >
         <div ref={resultsRef} style={{ marginBottom: '32px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <p>{router?.query?.id ? `Se encontraron ${data?.getNegociosVDosByServicio.length} talleres mecanicos de ${router.query.id.replace(/-/g, ' ')} cerca a mi en Bogota` : 'Se encontraron +100 talleres en Bogota'}</p>
 
@@ -53,12 +50,12 @@ export default function Servicio() {
 
             :
             data?.getNegociosVDosByServicio?.map((taller, index) => (
-              <CardNewTaller key={taller.nombre} taller={taller} />
+                <CardNewTaller key={taller.nombre} taller={taller} />
             ))}
         </div>
       </section>
-      <SectionPreguntasServicio data={data?.getNegociosVDosByServicio}/>
-      <SectionSeoServicios data={data?.getNegociosVDosByServicio}/>
+      <SectionPreguntasServicio data={data?.getNegociosVDosByServicio} />
+      <SectionSeoServicios data={data?.getNegociosVDosByServicio} />
     </Layout>
   )
 }

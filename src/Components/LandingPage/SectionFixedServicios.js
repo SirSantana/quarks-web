@@ -11,8 +11,7 @@ export default function SectionFixedServicios({ home = false }) {
   const router = useRouter()
 
   return (
-    <section style={{ position: 'relative', padding: '32px 0', marginBottom: '0px' }} className={styles2.containerListTalleres}>
-
+    <section  className={styles2.containerListTalleres}>
       <div style={{ width: '100%', maxWidth: '1100px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px', margin: '0 auto' }}>
         <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
           <Image alt={'Cotiza tus repuestos logo'} width={32} height={32} src={'/logoquarks200623.png'} />

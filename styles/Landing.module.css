@@ -566,6 +566,9 @@
   .cardNewTaller{
     width: 100%;
   }
+  .cardNewTallerSkeleton{
+    width: 100%;
+  }
   .containerGrowth {
     flex-direction: column;
     width: 100%;
