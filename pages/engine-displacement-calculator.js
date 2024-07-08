@@ -94,9 +94,9 @@ export default function EngineDisplacementCalculator() {
     }
   }, [data])
   return (
-    <Layout title={'CC Calculator'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} keywords={'Cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle, cc calculator, cc engine calculator'} url={router?.asPath} visibleNavbar={false}>
+    <Layout title={'Engine Displacement Calculator. '} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} keywords={'Cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle, cc calculator, cc engine calculator'} url={router?.asPath} visibleNavbar={false}>
       <div style={{ marginTop: '32px', width: '95%', maxWidth: '1100px', backgroundColor: 'white' }} className={styles.container}>
-        <h1  className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Engine Displacement Calculator. cc calculator</h1>
+        <h1  className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Cc calculator</h1>
         <p className={styles.response}>Calculate the displacement of your motorcycle, car or engine. Enter your data in millimeters with a comma (80.5).</p>
 
         <div className={styles.containerCc}>
