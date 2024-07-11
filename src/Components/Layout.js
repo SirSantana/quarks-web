@@ -23,8 +23,9 @@ function generarMarcadoEstructurado(articulo) {
   }
 }
 
-export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style }) {
+export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
+  console.log(picoyplacaStructured);
   return (
     <>
       <Head>
@@ -81,7 +82,7 @@ export default function Layout({ children, title, description, type, price, keyw
           </>}
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href={icon ? icon : "/logoquarks200623.png"}/>
+        <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
@@ -90,6 +91,11 @@ export default function Layout({ children, title, description, type, price, keyw
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(marcadoEstructurado) }}
+          />}
+        {picoyplacaStructured &&
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(picoyplacaStructured) }}
           />}
         <script
           dangerouslySetInnerHTML={{
@@ -115,7 +121,7 @@ export default function Layout({ children, title, description, type, price, keyw
 
       </main>
 
-     
+
     </>
   )
 }

@@ -9,8 +9,26 @@ import { useRouter } from 'next/router'
 export default function PicoYPlacaCiudad({ ciudad}) {
   const router = useRouter()
   console.log(ciudad);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `Pico y Placa ${ciudad}`,
+    "description": `Consulta la información oficial y actualizada sobre el Pico y Placa en ${ciudad}. Horarios, excepciones, multas y consejos para cumplir con la normativa.`,
+    "url": `https://quarks.com.co/pico-y-placa-hoy/${ciudad.toLowerCase()}`,
+    "datePublished": "2024-01-01T00:00:00+00:00", // Fecha de publicación inicial
+    "dateModified": new Date().toISOString(), // Fecha de última modificación
+    "author": {
+      "@type": "Organization",
+      "name": "Quarks Automotriz"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Quarks Automotriz",
+      
+    }
+  };
   return (
-    <Layout title={`Pico y Placa ${ciudad}`} description={`Consulta el Pico y Placa en la ciudad de ${ciudad}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en ${ciudad}.`} keywords={`Pico y Placa, ${ciudad}, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, , Vehículos particulares, Regulaciones de tráfico`}>
+    <Layout title={`Pico y Placa ${ciudad}`} picoyplacaStructured={structuredData} description={`Consulta el Pico y Placa en la ciudad de ${ciudad}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en ${ciudad}.`} keywords={`Pico y Placa, ${ciudad}, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, , Vehículos particulares, Regulaciones de tráfico`}>
       <div style={{ alignItems: 'flex-start', width: '90%', maxWidth: '1100px',  marginBottom: '64px' }} className={styles.container}>
 
 
