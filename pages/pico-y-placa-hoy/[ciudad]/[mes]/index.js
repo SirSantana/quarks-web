@@ -82,7 +82,7 @@ export default function PicoYPlaca({ data }) {
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {query?.mes && query.mes} {query.ciudad ? ciudades[query.ciudad] : 'Medellín'} </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query.ciudad ? ciudades[query.ciudad] : 'Medellín'} en {query?.mes ? query.mes : 'el 2024'}.</p>
-        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${query.ciudad}`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
+        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${query.ciudad} ${query.mes}`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
 
         {data && data?.map(el => (
           <div style={{ width: '100%' }}>

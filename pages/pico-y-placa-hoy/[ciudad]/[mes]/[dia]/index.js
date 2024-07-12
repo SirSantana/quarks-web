@@ -3,6 +3,7 @@ import picoyplaca from '@/pages/picoyplaca.json'
 import styles from '@/styles/PicoYPlaca.module.css'
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 
 // let keyWords = [
 //   "Pico y Placa Bogotá",
@@ -142,6 +143,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
     <Layout picoyplacaStructured={structuredData} title={`Pico y Placa ${ciudades[router.query.ciudad]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`}  fecha={new Date(data?.fecha).toISOString()} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {router.query.ciudad} Hoy {data?.titulo.replaceAll('-', ' ')}</h1>
+        <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para el {data?.titulo.replaceAll('-', ' ')} en {router.query.ciudad}.</p>
+
         <section className={styles.containerPlaca}>
           <div style={{ backgroundColor: 'transparent', border: '5px solid black', borderRadius: '10px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             {data?.placas !== 'NO APLICA'
@@ -258,6 +261,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
             </Link>
           ))}
         </div>
+        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${router.query.ciudad} ${data?.titulo.replaceAll('-', ' ')}`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
+
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Conoce el pico y placa del mes de {meses[numeroMes]}</h3>
           <div onClick={() => router.push(`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}`)} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
