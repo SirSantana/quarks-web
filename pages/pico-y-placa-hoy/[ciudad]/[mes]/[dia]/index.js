@@ -27,6 +27,19 @@ import Link from "next/link";
 //   "Regulación de tráfico",
 //   "Movilidad urbana"
 // ]
+let horariosCiudades={
+  "medellin": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
+  horarios:['05:00', '20:00']},
+  "bogota": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
+  horarios:['06:00', '21:00']},
+  "bucaramanga": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+  horarios:['06:00', '20:00']},
+}
+let ciudades={
+  'bogota': 'Bogotá',
+  'medellin': 'Medellín',
+  'bucaramanga': 'Bucaramanga',
+}
 let repuestos = [
   {
     "repuesto": "Pastillas de freno Chevrolet Corsa",
@@ -63,12 +76,70 @@ export default function PicoYPlaceHoyBogota({ data }) {
   const router = useRouter()
   const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   const numeroMes = meses.indexOf(router.query.mes);
-
   const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
   const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
   let date = new Date(data?.fecha)
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `Pico y Placa ${ciudades[router.query.ciudad]} ${data?.titulo?.replaceAll('-', ' ')}`,
+    "description": `Consulta la información oficial y actualizada sobre el Pico y Placa en ${ciudades[router.query.ciudad]} hoy ${data?.titulo?.replaceAll('-', ' ')}. Horarios, excepciones, multas y consejos para cumplir con la normativa.`,
+    "url": `https://quarks.com.co/pico-y-placa-hoy/${router.query.ciudad?.toLowerCase()}/${router.query.mes?.toLowerCase()}/${data?.fechaFormat.toLowerCase()}`,
+    "mainEntity": [{
+      "@type": "HowTo",
+      "name": `Cómo saber si tu vehiculo tiene restriccion de Pico y Placa en ${ciudades[router.query.ciudad]} el ${data?.titulo?.replaceAll('-', ' ').replace('Hoy', ' ')}`,
+      "step": [{
+        "@type": "HowToStep",
+        "text": "Identifica el último dígito de tu placa"
+      },{
+        "@type": "HowToStep",
+        "text": "Consulta el calendario de restricciones"
+      },{
+        "@type": "HowToStep",
+        "text": "Verifica si tu vehículo está exento"
+      }]
+    },{
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `¿Cómo funciona el Pico y Placa en ${ciudades[router.query.ciudad]} hoy ${data.titulo?.replaceAll('-', ' ')}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `El Pico y Placa hoy ${data.titulo?.replaceAll('-', ' ')} funcionara de la siguiente manera: Los vehiculos particulares con placas terminadas en ${data.placas} no podrán circular ${data.placas !== 'NO APLICA' && 'desde las ' + data.horario}. El pico y placa es una medida que restringe la circulación de vehículos según el último dígito de su placa en determinados días y horarios.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Pico y Placa ${data.titulo?.replaceAll('-', ' ')} ${ciudades[router.query.ciudad]}`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Las restriccion de Pico y Placa para el dia ${data.titulo?.replaceAll('-', ' ')} en ${router.query.ciudad} seran: Vehiculo con placas terminadas en ${data.placas} no podran circular. Consulta el calendario de restricciones para obtener la información actualizada.`
+          }
+        },
+      ]
+    }],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [horariosCiudades[router.query.ciudad]?.dias],
+      "opens": horariosCiudades[router.query.ciudad]?.horarios[0],
+      "closes": horariosCiudades[router.query.ciudad]?.horarios[1],
+    }],
+    "datePublished": `${new Date(data.fecha).toISOString()}`, // Fecha de publicación inicial
+    "dateModified": `${new Date().toISOString()}`, // Fecha de última modificación
+    "author": {
+      "@type": "Organization",
+      "name": "Quarks Automotriz"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Quarks Automotriz",
+      
+    }
+  };
   return (
-    <Layout title={`Pico y Placa ${router.query.ciudad} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`}  fecha={new Date(data?.fecha).toISOString()} lastModified={new Date(data?.fecha).toGMTString()}>
+    <Layout picoyplacaStructured={structuredData} title={`Pico y Placa ${ciudades[router.query.ciudad]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`}  fecha={new Date(data?.fecha).toISOString()} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {router.query.ciudad} Hoy {data?.titulo.replaceAll('-', ' ')}</h1>
         <section className={styles.containerPlaca}>

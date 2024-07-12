@@ -140,7 +140,6 @@ export async function getStaticPaths() {
   const paths = ciudades.map((ciudad) => ({
     params: { ciudad: ciudad.toLowerCase() },
   }))
-
   return { paths, fallback: true }
 }
 
@@ -150,7 +149,6 @@ export async function getStaticProps({ params }) {
       notFound: true,
     }
   }
-
   return {
     props: {
       ciudad: params.ciudad.charAt(0).toUpperCase() + params.ciudad.slice(1),

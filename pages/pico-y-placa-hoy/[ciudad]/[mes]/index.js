@@ -1,6 +1,7 @@
 import data from '@/pages/picoyplaca.json'
 import Layout from '@/src/Components/Layout'
 import styles from '@/styles/PicoYPlaca.module.css'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 let horariosCiudades={
@@ -11,13 +12,18 @@ let horariosCiudades={
   "bucaramanga": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
   horarios:['06:00', '20:00']},
 }
+let ciudades={
+  'bogota': 'Bogotá',
+  'medellin': 'Medellín',
+  'bucaramanga': 'Bucaramanga',
+}
 export default function PicoYPlaca({ data }) {
   const { query, asPath } = useRouter()
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": `Pico y Placa ${query.ciudad} ${query.mes}`,
-    "description": `Consulta la información oficial y actualizada sobre el Pico y Placa en ${query.ciudad} el mes de ${query.mes}. Horarios, excepciones, multas y consejos para cumplir con la normativa.`,
+    "name": `Pico y Placa ${ciudades[query.ciudad]} ${query.mes}`,
+    "description": `Consulta la información oficial y actualizada sobre el Pico y Placa en ${ciudades[query.ciudad]} el mes de ${query.mes}. Horarios, excepciones, multas y consejos para cumplir con la normativa.`,
     "url": `https://quarks.com.co/pico-y-placa-hoy/${query.ciudad?.toLowerCase()}/${query.mes?.toLowerCase()}`,
     "mainEntity": [{
       "@type": "HowTo",
@@ -72,10 +78,11 @@ export default function PicoYPlaca({ data }) {
     }
   };
   return (
-    <Layout title={`Pico y Placa ${query.mes} en ${query.ciudad ? query.ciudad : 'Medellín'} `} picoyplacaStructured={structuredData} description={`Consulta el Pico y Placa de ${query.ciudad} para cada día del mes de ${query.mes}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.`} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Vehículos particulares, Regulaciones de tráfico'}>
+    <Layout title={`Pico y Placa ${query.mes} en ${query.ciudad ? ciudades[query.ciudad] : 'Medellín'} `} picoyplacaStructured={structuredData} description={`Consulta el Pico y Placa de ${query.ciudad} para cada día del mes de ${query.mes}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.`} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
-        <h1 className={styles.title}>Pico y Placa {query?.mes && query.mes} {query.ciudad ? query.ciudad : 'Medellín'} </h1>
-        <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query.ciudad ? query.ciudad : 'Medellín'} en {query?.mes ? query.mes : 'el 2024'}.</p>
+        <h1 className={styles.title}>Pico y Placa {query?.mes && query.mes} {query.ciudad ? ciudades[query.ciudad] : 'Medellín'} </h1>
+        <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query.ciudad ? ciudades[query.ciudad] : 'Medellín'} en {query?.mes ? query.mes : 'el 2024'}.</p>
+        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${query.ciudad}`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
 
         {data && data?.map(el => (
           <div style={{ width: '100%' }}>
