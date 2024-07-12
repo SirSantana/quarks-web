@@ -5,16 +5,63 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
+let horariosCiudades={
+  "Medellin": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
+  horarios:['05:00', '20:00']},
+  "Bogotá": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
+  horarios:['06:00', '21:00']},
+  "Bucaramanga": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+  horarios:['06:00', '20:00']},
+}
 
-export default function PicoYPlacaCiudad({ ciudad}) {
+export default function PicoYPlacaCiudad({ciudad}) {
   const router = useRouter()
-  console.log(ciudad);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": `Pico y Placa ${ciudad}`,
     "description": `Consulta la información oficial y actualizada sobre el Pico y Placa en ${ciudad}. Horarios, excepciones, multas y consejos para cumplir con la normativa.`,
-    "url": `https://quarks.com.co/pico-y-placa-hoy/${ciudad.toLowerCase()}`,
+    "url": `https://quarks.com.co/pico-y-placa-hoy/${ciudad?.toLowerCase()}`,
+    "mainEntity": [{
+      "@type": "HowTo",
+      "name": `Cómo verificar el Pico y Placa en ${ciudad}`,
+      "step": [{
+        "@type": "HowToStep",
+        "text": "Identifica el último dígito de tu placa"
+      },{
+        "@type": "HowToStep",
+        "text": "Consulta el calendario de restricciones"
+      },{
+        "@type": "HowToStep",
+        "text": "Verifica si tu vehículo está exento"
+      }]
+    },{
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `¿Cómo funciona el Pico y Placa en ${ciudad}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `El Pico y Placa en ${ciudad} es una medida que restringe la circulación de vehículos según el último dígito de su placa en determinados días y horarios.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `¿Cuales son las restricciones del Pico y Placa en ${ciudad}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Las restriccion de Pico y Placa en ${ciudad} varian segun el dia y fecha. Consulta el calendario de restricciones para obtener la información actualizada.`
+          }
+        },
+      ]
+    }],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [horariosCiudades[ciudad]?.dias],
+      "opens": horariosCiudades[ciudad]?.horarios[0],
+      "closes": horariosCiudades[ciudad]?.horarios[1],
+    }],
     "datePublished": "2024-01-01T00:00:00+00:00", // Fecha de publicación inicial
     "dateModified": new Date().toISOString(), // Fecha de última modificación
     "author": {

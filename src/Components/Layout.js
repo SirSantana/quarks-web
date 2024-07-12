@@ -25,7 +25,6 @@ function generarMarcadoEstructurado(articulo) {
 
 export default function Layout({ children, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
-  console.log(picoyplacaStructured);
   return (
     <>
       <Head>

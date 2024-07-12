@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 
 export default function PicoYPlaca({ data }) {
   const { query, asPath } = useRouter()
-  console.log(data);
   return (
     <Layout title={`Pico y Placa ${query.mes} en ${query.ciudad ? query.ciudad : 'Medellín'} `} description={`Consulta el Pico y Placa de ${query.ciudad} para cada día del mes de ${query.mes}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.`} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
