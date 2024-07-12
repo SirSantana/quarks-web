@@ -3,11 +3,76 @@ import Layout from '@/src/Components/Layout'
 import styles from '@/styles/PicoYPlaca.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+let horariosCiudades={
+  "medellin": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
+  horarios:['05:00', '20:00']},
+  "bogota": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
+  horarios:['06:00', '21:00']},
+  "bucaramanga": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+  horarios:['06:00', '20:00']},
+}
 export default function PicoYPlaca({ data }) {
   const { query, asPath } = useRouter()
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `Pico y Placa ${query.ciudad} ${query.mes}`,
+    "description": `Consulta la información oficial y actualizada sobre el Pico y Placa en ${query.ciudad} el mes de ${query.mes}. Horarios, excepciones, multas y consejos para cumplir con la normativa.`,
+    "url": `https://quarks.com.co/pico-y-placa-hoy/${query.ciudad?.toLowerCase()}/${query.mes?.toLowerCase()}`,
+    "mainEntity": [{
+      "@type": "HowTo",
+      "name": `Cómo saber si tu vehiculo tiene restriccion de Pico y Placa en ${query.ciudad} el mes de ${query.mes}`,
+      "step": [{
+        "@type": "HowToStep",
+        "text": "Identifica el último dígito de tu placa"
+      },{
+        "@type": "HowToStep",
+        "text": "Consulta el calendario de restricciones"
+      },{
+        "@type": "HowToStep",
+        "text": "Verifica si tu vehículo está exento"
+      }]
+    },{
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `¿Cómo funciona el Pico y Placa en ${query.ciudad} el mes de ${query.mes}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `El Pico y Placa en ${query.ciudad} funcionara de la siguiente manera: ${data.map(el=> el.titulo.replaceAll('-', ' ')+ ' ' + el.placas)}. El pico y placa en ${query.ciudad} el mes de ${query.mes} es una medida que restringe la circulación de vehículos según el último dígito de su placa en determinados días y horarios.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `¿Cuales son las restricciones del Pico y Placa en ${query.ciudad} en ${query.mes}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Las restriccion de Pico y Placa en ${query.ciudad} varian segun el dia y fecha. Consulta el calendario de restricciones para obtener la información actualizada.`
+          }
+        },
+      ]
+    }],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [horariosCiudades[query.ciudad]?.dias],
+      "opens": horariosCiudades[query.ciudad]?.horarios[0],
+      "closes": horariosCiudades[query.ciudad]?.horarios[1],
+    }],
+    "datePublished": `${new Date(data[0].fecha).toISOString()}`, // Fecha de publicación inicial
+    "dateModified": `${new Date(data[0].fecha).toISOString()}`, // Fecha de última modificación
+    "author": {
+      "@type": "Organization",
+      "name": "Quarks Automotriz"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Quarks Automotriz",
+      
+    }
+  };
   return (
-    <Layout title={`Pico y Placa ${query.mes} en ${query.ciudad ? query.ciudad : 'Medellín'} `} description={`Consulta el Pico y Placa de ${query.ciudad} para cada día del mes de ${query.mes}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.`} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Vehículos particulares, Regulaciones de tráfico'}>
+    <Layout title={`Pico y Placa ${query.mes} en ${query.ciudad ? query.ciudad : 'Medellín'} `} picoyplacaStructured={structuredData} description={`Consulta el Pico y Placa de ${query.ciudad} para cada día del mes de ${query.mes}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en las vías de la ciudad.`} keywords={'Pico y Placa, Medellín, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, Vehículos particulares, Regulaciones de tráfico'}>
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {query?.mes && query.mes} {query.ciudad ? query.ciudad : 'Medellín'} </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query.ciudad ? query.ciudad : 'Medellín'} en {query?.mes ? query.mes : 'el 2024'}.</p>

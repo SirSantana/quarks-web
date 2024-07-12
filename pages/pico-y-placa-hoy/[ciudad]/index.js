@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 let horariosCiudades={
   "Medellin": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
   horarios:['05:00', '20:00']},
-  "Bogotá": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
+  "Bogota": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
   horarios:['06:00', '21:00']},
   "Bucaramanga": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
   horarios:['06:00', '20:00']},
