@@ -142,8 +142,14 @@ export default function PicoYPlaca({ data }) {
   )
 }
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({ query, res }) {
   let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+  if (!meses.includes(query.mes)) {
+    res.setHeader('Location', `/pico-y-placa-hoy/${query.ciudad}`); // Cambia '/nueva-ruta' a la ruta deseada
+    res.statusCode = 302; // Código de estado 302 para redirección temporal
+    res.end();
+    return { props: {} };
+  }
   if (query.mes) {
     let filteredData;
     if (query.ciudad === 'bogota') {

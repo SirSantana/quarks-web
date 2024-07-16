@@ -28,15 +28,21 @@ import Image from "next/image";
 //   "Regulación de tráfico",
 //   "Movilidad urbana"
 // ]
-let horariosCiudades={
-  "medellin": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
-  horarios:['05:00', '20:00']},
-  "bogota": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
-  horarios:['06:00', '21:00']},
-  "bucaramanga": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-  horarios:['06:00', '20:00']},
+let horariosCiudades = {
+  "medellin": {
+    dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+    horarios: ['05:00', '20:00']
+  },
+  "bogota": {
+    dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+    horarios: ['06:00', '21:00']
+  },
+  "bucaramanga": {
+    dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    horarios: ['06:00', '20:00']
+  },
 }
-let ciudades={
+let ciudades = {
   'bogota': 'Bogotá',
   'medellin': 'Medellín',
   'bucaramanga': 'Bucaramanga',
@@ -73,12 +79,13 @@ let repuestos = [
     "ventas": 2,
   }
 ]
+const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+
 export default function PicoYPlaceHoyBogota({ data }) {
   const router = useRouter()
-  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
   const numeroMes = meses.indexOf(router.query.mes);
-  const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
-  const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
+  // const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
+  // const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
   let date = new Date(data?.fecha)
 
   const structuredData = {
@@ -93,14 +100,14 @@ export default function PicoYPlaceHoyBogota({ data }) {
       "step": [{
         "@type": "HowToStep",
         "text": "Identifica el último dígito de tu placa"
-      },{
+      }, {
         "@type": "HowToStep",
         "text": "Consulta el calendario de restricciones"
-      },{
+      }, {
         "@type": "HowToStep",
         "text": "Verifica si tu vehículo está exento"
       }]
-    },{
+    }, {
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -136,11 +143,11 @@ export default function PicoYPlaceHoyBogota({ data }) {
     "publisher": {
       "@type": "Organization",
       "name": "Quarks Automotriz",
-      
+
     }
   };
   return (
-    <Layout picoyplacaStructured={structuredData} title={`Pico y Placa ${ciudades[router.query.ciudad]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`}  fecha={new Date(data?.fecha).toISOString()} lastModified={new Date(data?.fecha).toGMTString()}>
+    <Layout picoyplacaStructured={structuredData} title={`Pico y Placa ${ciudades[router.query.ciudad]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} fecha={new Date(data?.fecha).toISOString()} lastModified={new Date(data?.fecha).toGMTString()}>
       <div className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {router.query.ciudad} Hoy {data?.titulo.replaceAll('-', ' ')}</h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para el {data?.titulo.replaceAll('-', ' ')} en {router.query.ciudad}.</p>
@@ -181,7 +188,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
           <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {router.query.ciudad}, no podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
         </div>
 
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        {/* <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Pico y Placa anteriores dias de {meses[numeroMes]}</h3>
           {picoyplacaAnteriores?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
@@ -220,8 +227,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
               <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
             </Link>
           ))}
-        </div>
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+        </div> */}
+        {/* <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Pico y Placa siguientes dias de {meses[numeroMes]}</h3>
           {picoyplacaDespues?.map(el => (
             <Link scroll={true} href={`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
@@ -260,8 +267,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
               <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
             </Link>
           ))}
-        </div>
-        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${router.query.ciudad} ${data?.titulo.replaceAll('-', ' ')}`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
+        </div> */}
+        <Image loading='lazy' src={'/pico y placa banner.jpg'} alt={`Pico y placa ${router.query.ciudad} ${data?.titulo.replaceAll('-', ' ')}`} width={800} height={400} style={{ objectFit: 'cover', margin: '32px 0', width: '90%', maxWidth: '600px', height: '30%', maxHeight: '400px' }} />
 
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Conoce el pico y placa del mes de {meses[numeroMes]}</h3>
@@ -271,18 +278,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
             </div>
           </div>
         </div>
-        <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-          {repuestos.map(repuesto => (
-            <Link href={'https://www.cotizatusrepuestos.com/'} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', padding: '16px', border: '1px solid #d9d9d9', borderRadius: '8px', maxWidth: '100%', width: '300px', margin: '0 auto' }}>
-              <img src={repuesto?.imagen} style={{ width: '80%', height: '280px', objectFit: 'contain', margin: '0 auto' }} alt={repuesto?.repuesto} />
-              <p>{repuesto.repuesto}</p>
-              <p style={{ fontSize: '14px', marginTop: '8px' }}>{repuesto.fabricante}</p>
-              <p style={{ fontWeight: '600', color: '#f50057', fontSize: '12px', marginTop: '8px' }}>Antes ${repuesto.precioAnt}</p>
-              <p style={{ fontWeight: '600', fontSize: '24px', marginTop: '8px' }}>${repuesto.precio}</p>
-            </Link>
-          ))}
-        </section>
+        
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px' }}>
           <h2>Pico y Placa</h2>
           <p>Conoce el Pico y Placa en {router.query.ciudad} para este {data?.titulo.replaceAll('-', ' ')}</p>
@@ -322,6 +318,18 @@ export default function PicoYPlaceHoyBogota({ data }) {
           <h2>Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} no podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
         </div>
+        <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
+        <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+          {repuestos.map(repuesto => (
+            <Link href={'https://www.cotizatusrepuestos.com/'} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', padding: '16px', border: '1px solid #d9d9d9', borderRadius: '8px', maxWidth: '100%', width: '300px', margin: '0 auto' }}>
+              <img src={repuesto?.imagen} style={{ width: '80%', height: '280px', objectFit: 'contain', margin: '0 auto' }} alt={repuesto?.repuesto} />
+              <p>{repuesto.repuesto}</p>
+              <p style={{ fontSize: '14px', marginTop: '8px' }}>{repuesto.fabricante}</p>
+              <p style={{ fontWeight: '600', color: '#f50057', fontSize: '12px', marginTop: '8px' }}>Antes ${repuesto.precioAnt}</p>
+              <p style={{ fontWeight: '600', fontSize: '24px', marginTop: '8px' }}>${repuesto.precio}</p>
+            </Link>
+          ))}
+        </section>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
           <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replaceAll('-', ' ')}</h2>
@@ -341,7 +349,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
   )
 }
 
-export async function getServerSideProps({ query, res}) {
+export async function getServerSideProps({ query, res }) {
 
   const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
@@ -352,8 +360,8 @@ export async function getServerSideProps({ query, res}) {
   if (query.ciudad.toLowerCase() === 'bogota') {
     picoYplacaHoy = picoyplaca.picoyplaca[mesIndex].find(el => el.fechaFormat.toLowerCase() === String(query.dia).toLowerCase());
   } else {
-    const filteredByCity = picoyplaca.picoyplaca[mesIndex].filter(el => el.ciudad && el.ciudad.toLowerCase() === query.ciudad.toLowerCase());
-    picoYplacaHoy = filteredByCity.find(el => el.fechaFormat.toLowerCase() === String(query.dia).toLowerCase());
+    const filteredByCity = picoyplaca.picoyplaca[mesIndex]?.filter(el => el.ciudad && el.ciudad.toLowerCase() === query.ciudad.toLowerCase());
+    picoYplacaHoy = filteredByCity?.find(el => el.fechaFormat.toLowerCase() === String(query.dia).toLowerCase());
   }
   if (picoYplacaHoy) {
     return {
@@ -364,7 +372,7 @@ export async function getServerSideProps({ query, res}) {
     }
   }
   else {
-    res.setHeader('Location', '/404'); // Cambia '/nueva-ruta' a la ruta deseada
+    res.setHeader('Location', `/pico-y-placa-hoy/${query.ciudad}/${query.mes}`); // Cambia '/nueva-ruta' a la ruta deseada
     res.statusCode = 302; // Código de estado 302 para redirección temporal
     res.end();
     return { props: {} };
