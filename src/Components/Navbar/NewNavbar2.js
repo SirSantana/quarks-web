@@ -11,6 +11,7 @@ import talleres from '@/pages/servicios-automotriz/talleres.json'
 import CreatableSelect from 'react-select/creatable';
 import Image from 'next/image';
 import FormSearchTaller from '../LandingPage/FormSearchTaller';
+import BuscadorBasico from '../LandingPage/BuscadorBasico';
 
 export const categorias = [
   { nombre: 'Accesorios y Lujos', img: 'servicio-lujos', url: 'lujos', back:'#FF5E62'},
@@ -67,13 +68,15 @@ export default function NewNavbarWithSearch({ mode, visibleSlider = false }) {
 
   return (
     <header style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', }} >
-      <div ref={ref} className={styles.header}>
-        <div className={styles.navDiv}>
-          <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
+      <div ref={ref} className={styles.header} style={{boxShadow:'none'}}>
+        <div className={styles.navDiv} >
+          <Link style={{ textDecoration: 'none', marginRight:'8px', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
             <Image loading='lazy' alt={'Cotiza tus repuestos logo'} src={'/logoquarks200623.png'} width={32} height={32} />
             <h4 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737' }} className={styles.titleNav}>Quarks</h4>
           </Link>
-          <FormSearchTaller />
+          {/* <FormSearchTaller /> */}
+          <BuscadorBasico size='small' />
+          
           <nav className={styles.navv}>
             <Link style={{ textDecoration: 'none', color: router?.pathname === '/acceso' ? '#373737' : '#464646' }} className={styles.subtitle} href={'/signup'}>Tienes un Taller?</Link>
           </nav>

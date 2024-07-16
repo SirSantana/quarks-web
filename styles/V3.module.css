@@ -156,6 +156,20 @@
     align-items: center;
     justify-content: space-between;
     background-color: #F9F9F9;
+}
+.formV3Small {
+    width: 100%;
+    max-width: 800px;
+    height: 48px;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 1px solid #D5D5D5;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F9F9F9;
+    padding-right: 0;
 
 }
 
@@ -167,5 +181,9 @@
     .formV3 {
         padding: 4px 8px;
         height: 56px;
+    }
+    .formV3Small {
+        padding: 4px 8px;
+        width: 90%;
     }
 }

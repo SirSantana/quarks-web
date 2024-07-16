@@ -6,6 +6,7 @@ import ModalNegocioV3 from '@/src/Components/Talleres/ModalNegocioV3';
 import { client } from '@/client';
 import { GET_NEGOCIOSVDOS_BY_TIPO } from '@/graphql/queries';
 import HeaderNavTags from '@/src/Components/Gasolineras/HeaderNavTags';
+import BuscadorBasico from '@/src/Components/LandingPage/BuscadorBasico';
 // import MapV3 from '@/src/Components/Talleres/MapV3';
 const MapV3= dynamic(() => import('@/src/Components/Talleres/MapV3'),
   { ssr: false, loading: () => <Loader /> })
@@ -37,6 +38,9 @@ export default function CDA({data}) {
               <p style={{ color: 'black', fontSize: '16px', fontFamily: 'Impact', fontWeight: '100' }}>Pico y Placa</p>
             </div>
           </div> */}
+          <div style={{ zIndex: 2, position: 'absolute', top: '3%', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'row', gap: '24px', width: '100%', transition: 'height 0.3s ease' }}>
+            <BuscadorBasico size='small' />
+          </div>
           <HeaderNavTags/>
 
         </div>}
