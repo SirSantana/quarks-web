@@ -4,15 +4,21 @@ import styles from '@/styles/PicoYPlaca.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-let horariosCiudades={
-  "medellin": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
-  horarios:['05:00', '20:00']},
-  "bogota": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes'],
-  horarios:['06:00', '21:00']},
-  "bucaramanga": {dias:['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-  horarios:['06:00', '20:00']},
+let horariosCiudades = {
+  "medellin": {
+    dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+    horarios: ['05:00', '20:00']
+  },
+  "bogota": {
+    dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+    horarios: ['06:00', '21:00']
+  },
+  "bucaramanga": {
+    dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+    horarios: ['06:00', '20:00']
+  },
 }
-let ciudades={
+let ciudades = {
   'bogota': 'Bogotá',
   'medellin': 'Medellín',
   'bucaramanga': 'Bucaramanga',
@@ -31,14 +37,14 @@ export default function PicoYPlaca({ data }) {
       "step": [{
         "@type": "HowToStep",
         "text": "Identifica el último dígito de tu placa"
-      },{
+      }, {
         "@type": "HowToStep",
         "text": "Consulta el calendario de restricciones"
-      },{
+      }, {
         "@type": "HowToStep",
         "text": "Verifica si tu vehículo está exento"
       }]
-    },{
+    }, {
       "@type": "FAQPage",
       "mainEntity": [
         {
@@ -46,7 +52,7 @@ export default function PicoYPlaca({ data }) {
           "name": `¿Cómo funciona el Pico y Placa en ${query.ciudad} el mes de ${query.mes}?`,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": `El Pico y Placa en ${query.ciudad} funcionara de la siguiente manera: ${data.map(el=> el.titulo.replaceAll('-', ' ')+ ' ' + el.placas)}. El pico y placa en ${query.ciudad} el mes de ${query.mes} es una medida que restringe la circulación de vehículos según el último dígito de su placa en determinados días y horarios.`
+            "text": `El Pico y Placa en ${query.ciudad} funcionara de la siguiente manera: ${data.map(el => el.titulo.replaceAll('-', ' ') + ' ' + el.placas)}. El pico y placa en ${query.ciudad} el mes de ${query.mes} es una medida que restringe la circulación de vehículos según el último dígito de su placa en determinados días y horarios.`
           }
         },
         {
@@ -74,7 +80,7 @@ export default function PicoYPlaca({ data }) {
     "publisher": {
       "@type": "Organization",
       "name": "Quarks Automotriz",
-      
+
     }
   };
   return (
@@ -82,7 +88,7 @@ export default function PicoYPlaca({ data }) {
       <div style={{ alignItems: 'flex-start' }} className={styles.container}>
         <h1 className={styles.title}>Pico y Placa {query?.mes && query.mes} {query.ciudad ? ciudades[query.ciudad] : 'Medellín'} </h1>
         <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para {query.ciudad ? ciudades[query.ciudad] : 'Medellín'} en {query?.mes ? query.mes : 'el 2024'}.</p>
-        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${query.ciudad} ${query.mes}`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
+        <Image title={`Pico y Placa en ${query.ciudad}`} loading='lazy' src={'/pico y placa banner.jpg'} alt={`Pico y placa ${query.ciudad} ${query.mes}`} width={800} height={400} style={{ objectFit: 'cover', margin: '32px 0', width: '90%', maxWidth: '600px', height: '30%', maxHeight: '400px' }} />
 
         {data && data?.map(el => (
           <div style={{ width: '100%' }}>
@@ -110,7 +116,6 @@ export default function PicoYPlaca({ data }) {
           <h2>Pico y placa mes de {query.mes} en {query.ciudad ? query.ciudad : 'Medellín'}</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en {query.ciudad ? query.ciudad : 'Medellín'}: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
           <p>Infórmate sobre las reglas y restricciones del Pico y Placa en {query.ciudad ? query.ciudad : 'Medellín'}. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
-
         </div>
         <h2 style={{ margin: '32px 0px 16px 0 ' }}>Conoce las medidas de Pico y placa de {query.mes} en {query.ciudad ? query.ciudad : 'Medellín'}</h2>
 
@@ -127,12 +132,11 @@ export default function PicoYPlaca({ data }) {
         <div>
           <h3 style={{ margin: '32px 0px 16px 0 ' }}>Impacto del Pico y Placa en la Movilidad</h3>
           <p>El Pico y Placa tiene un impacto significativo en la movilidad urbana. Ayuda a reducir la congestión vehicular, mejora la calidad del aire y fomenta el uso de transporte público.</p>
-
         </div>
-        <div></div>
-        <h3 style={{ margin: '32px 0px 16px 0 ' }}>Excepciones y Vehículos Exentos</h3>
-        <p>Algunos vehículos están exentos de las restricciones del Pico y Placa, como los de emergencia, eléctricos y de servicio público. Consulta la normativa para obtener una lista completa de exenciones.</p>
-
+        <div>
+          <h3 style={{ margin: '32px 0px 16px 0 ' }}>Excepciones y Vehículos Exentos</h3>
+          <p>Algunos vehículos están exentos de las restricciones del Pico y Placa, como los de emergencia, eléctricos y de servicio público. Consulta la normativa para obtener una lista completa de exenciones.</p>
+        </div>
         <div>
           <h3 style={{ margin: '32px 0px 16px 0 ' }}>Últimas Actualizaciones y Cambios en la Normativa</h3>
           <p>Mantente informado sobre cualquier cambio en la normativa del Pico y Placa en {query.ciudad ? query.ciudad : 'Medellín'}. Las autoridades pueden ajustar los horarios y las reglas en respuesta a las condiciones de tráfico y la calidad del aire.</p>

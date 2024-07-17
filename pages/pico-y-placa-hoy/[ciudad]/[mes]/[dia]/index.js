@@ -318,7 +318,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
           <h2>Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
           <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} no podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
         </div>
-        <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
+        {/* <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
           {repuestos.map(repuesto => (
             <Link href={'https://www.cotizatusrepuestos.com/'} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', padding: '16px', border: '1px solid #d9d9d9', borderRadius: '8px', maxWidth: '100%', width: '300px', margin: '0 auto' }}>
@@ -329,7 +329,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
               <p style={{ fontWeight: '600', fontSize: '24px', marginTop: '8px' }}>${repuesto.precio}</p>
             </Link>
           ))}
-        </section>
+        </section> */}
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
           <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replaceAll('-', ' ')}</h2>

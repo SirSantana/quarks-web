@@ -71,7 +71,6 @@ export default function PicoYPlacaCiudad({ciudad}) {
     "publisher": {
       "@type": "Organization",
       "name": "Quarks Automotriz",
-      
     }
   };
   return (
@@ -81,7 +80,7 @@ export default function PicoYPlacaCiudad({ciudad}) {
 
         <h1 className={styles.title}>Pico y Placa en {ciudad} </h1>
         <p style={{fontSize:'14px'}}>Bienvenido a la guía definitiva del Pico y Placa en {ciudad}. Aquí encontrarás toda la información actualizada sobre las restricciones vehiculares en nuestra ciudad. </p>
-        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${ciudad}`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
+        <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${ciudad} 2024`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
         <Link href={`${router.asPath}/mayo`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
           <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             <h4 style={{ fontSize: '24px', fontWeight: '700' }}>PICO Y PLACA Mayo</h4>
@@ -105,6 +104,13 @@ export default function PicoYPlacaCiudad({ciudad}) {
           <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en {ciudad ? ciudad : 'Medellín'}: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
           <p>Infórmate sobre las reglas y restricciones del Pico y Placa en {ciudad ? ciudad : 'Medellín'}. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
         </div>
+
+        <div style={{ margin: '48px 0px 16px 0 ' }}>
+          <h2>hora pico y placa {ciudad ? ciudad : 'Medellín'}</h2>
+          <p>No podran circular los vehiculos particulares en {ciudad ? ciudad : 'Medellín'} desde {horariosCiudades[ciudad]?.horarios[0]} AM hasta las {horariosCiudades[ciudad]?.horarios[1]} PM</p>
+          
+        </div>
+
         <h2 style={{ margin: '32px 0px 16px 0 ' }}>Conoce las medidas de Pico y placa en {ciudad ? ciudad : 'Medellín'}</h2>
 
         <div>
