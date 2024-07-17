@@ -27,7 +27,7 @@ export default function Servicio() {
       <SectionFixedServicios />
       <section className={styles2.containerListTalleres} >
         <div ref={resultsRef} style={{ marginBottom: '32px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <p>{router?.query?.id ? `Se encontraron ${data?.getNegociosVDosByServicio.length} talleres mecanicos de ${router.query.id.replace(/-/g, ' ')} cerca de mi en Bogota` : 'Se encontraron +100 talleres en Bogota'}</p>
+          <p>{router?.query?.id ? `Se encontraron ${data?data?.getNegociosVDosByServicio.length:'10'} talleres mecanicos de ${router.query.id.replace(/-/g, ' ')} cerca de mi en Bogota` : 'Se encontraron +100 talleres en Bogota'}</p>
           <div>
             <div style={{ display: 'flex', flexDirection: 'row', padding: '8px 12px', width: 'fit-content', alignItems: 'center', gap: '8px', border: '1px solid #D5D5D5', borderRadius: '4px' }}>
               <Icon name={IconCatalog.optionsOutline} />

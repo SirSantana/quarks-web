@@ -9,23 +9,24 @@ export default function Footer() {
         <div className={styles.containerFooter2}>
           <div className={styles.containerText}>
             <h6 className={styles.title2}>Talleres mecanicos</h6>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/lujos'}>Talleres de Accesorios y Lujos</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Aire%20acondicionado-Bogota,%20Colombia'}>Talleres de Aire acondicionado</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Alineación%20y%20balanceo-Bogota,%20Colombia'}>Talleres de Alineación y balanceo</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Baterias-Bogota,%20Colombia'}>Talleres de Baterias</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Cajas-Bogota,%20Colombia'}>Talleres de Caja y transmisión</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Cambio%20de%20aceite-Bogota,%20Colombia'}>Talleres de Cambio de aceite</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Clutch-Bogota,%20Colombia'}>Talleres de Clutch</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Motor-Bogota,%20Colombia'}>Talleres de Correas</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Suspensión-Bogota,%20Colombia'}>Talleres de Direccion y suspension</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Eléctricos-Bogota,%20Colombia'}>Talleres de Eléctricos</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Frenos-Bogota,%20Colombia'}>Talleres de Frenos</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Inyeccion-Bogota,%20Colombia'}>Talleres de Inyeccion</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Latoneria%20y%20pintura-Bogota,%20Colombia'}>Talleres de Latonería y pintura</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/lujos'}>Talleres de Accesorios y Lujos</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/aire-acondicionado'}>Talleres de Aire acondicionado</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/alineación-y-balanceo'}>Talleres de Alineación y balanceo</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/cda'}>Talleres de Tecnico mecanica (CDA)</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/baterias'}>Talleres de Baterias</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/cajas'}>Talleres de Caja y transmisión</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/cambio-de-aceite'}>Talleres de Cambio de aceite</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/clutch'}>Talleres de Clutch</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/motor'}>Talleres de Correas</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/suspensión'}>Talleres de Direccion y suspension</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/eléctricos'}>Talleres de Eléctricos</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/frenos'}>Talleres de Frenos</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/inyeccion'}>Talleres de Inyeccion</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/latoneria-y-pintura'}>Talleres de Latonería y pintura</Link>
             {/* <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/Mecanico%20a%20Domicilio-Bogota,%20Colombia'}>Mecanico a domicilio</Link> */}
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Motor-Bogota,%20Colombia'}>Talleres de Motor</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Peritaje-Bogota,%20Colombia'}>Talleres de Peritaje</Link>
-            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios-automotriz/Sincronizacion-Bogota,%20Colombia'}>Talleres de Sincronización</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/motor'}>Talleres de Motor</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/peritaje'}>Talleres de Peritaje</Link>
+            <Link className={styles.subtitle} style={{ textDecoration: 'none', marginBottom: '8px' }} href={'/servicios/sincronizacion'}>Talleres de Sincronización</Link>
           </div>
           <div className={styles.containerText}>
             <h6 className={styles.title2}>Acerca de Nosotros</h6>

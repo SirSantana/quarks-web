@@ -31,14 +31,13 @@ const normalizeString = (str) => {
 
 export default function handler(req, res) {
   const { query } = req;
-  console.log(query, 'query');
   const talleresFilter = talleres.talleres?.filter(taller => taller?.lat && taller.userName !== 'corsa-motors')
   let filter;
   if (query.servicio) {
     let categoriaNormalized = normalizeString(query.servicio.replace(/-/g, ' ').toLowerCase())
     filter = talleresFilter.filter(taller => taller?.categorias?.some(categoriaa =>
-      categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())) ||
-      levenshteinDistance(taller.nombre.toLowerCase(), categoriaNormalized.toLowerCase()) < 10)
+      categoriaa.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(categoriaNormalized.toLowerCase())))
+
     const iconImg = categorias?.find(cat => cat.nombre?.replace(/-/g, ' ').normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase() == query?.servicio?.replace(/-/g, ' ').toLocaleLowerCase())
     res.status(200).json({ data: filter, iconImg });
   } else {
