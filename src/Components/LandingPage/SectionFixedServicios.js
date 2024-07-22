@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 export default function SectionFixedServicios({ home = false }) {
   const router = useRouter()
-  console.log(router.query.id)
+  console.log(router)
   return (
     <section  className={styles2.containerListTalleres}>
       <div style={{ width: '100%', maxWidth: '1100px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px', margin: '0 auto' }}>
@@ -28,7 +28,7 @@ export default function SectionFixedServicios({ home = false }) {
       <div style={{ margin: '32px 0' }}>
         <h1 className={styles2.title2} style={{ maxWidth: '700px', lineHeight: '1.2', margin: '0 auto', fontWeight: '600', textAlign: 'center' }}  >
           {!router.query.id
-            ? ' Encuentra el mejor taller para tu carro'
+            ? router.pathname === "/servicios/tecnicomecanica"?'Encuentra los mejores Centros de Diagnóstico Automotor (CDA) en Bogotá': ' Encuentra el mejor taller para tu carro'
             :
             router.query.id === 'cda'
               ?`Mejores CDA cerca a mi en Bogotá`
