@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 export default function SectionFixedServicios({ home = false }) {
   const router = useRouter()
-
+  console.log(router.query.id)
   return (
     <section  className={styles2.containerListTalleres}>
       <div style={{ width: '100%', maxWidth: '1100px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px', margin: '0 auto' }}>

@@ -23,7 +23,7 @@ export default function Servicio() {
     }
   });
   return (
-    <Layout visibleNavbar={false} title={`Mejores ${router.query.id === 'cda' ? 'cda' : `Talleres de ${router?.query?.id?.replace(/-/g, ' ')}`} cerca de mi`} >
+    <Layout visibleNavbar={false} title={`${router.query.id === 'cda' ? 'Revision tecnico mecanica' : `Talleres de ${router?.query?.id?.replace(/-/g, ' ')}`} en Bogotá`} >
       <SectionFixedServicios />
       <section className={styles2.containerListTalleres} >
         <div ref={resultsRef} style={{ marginBottom: '32px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
