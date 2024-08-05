@@ -21,8 +21,8 @@ let data = {
 export default function V3() {
   return (
     <Layout visibleNavbar={false} title={`${data.nombre}`} >
-      <div style={{ backgroundColor: 'white',height:'100dvh', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '90%', maxWidth: '500px', justifyContent: 'space-between', margin: '0 auto', margin: '64px auto 32px auto', alignItems: 'center' }}>
+      <div style={{ backgroundColor: '#fbfbfb',height:'100dvh', width: '100%',   display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%',maxWidth: '500px',justifyContent: 'space-between', margin: '0 auto', margin: '64px auto 32px auto', alignItems: 'center' }}>
           <img src={data.fotoperfil} alt={`Foto de ${data.nombre}`} style={{ borderRadius: '50%', height: '128px', width: '128px' }} />
 
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', margin: '0 auto', alignItems: 'center' }}>
