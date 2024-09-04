@@ -5,6 +5,7 @@ import L from 'leaflet'; // Asegúrate de importar Leaflet
 import { useEffect, useState } from "react";
 import PriceFormat from '@/utils/priceFormat';
 import Button, { ButtonVariant } from '../Button/Button';
+import Icon, { IconCatalog } from '../Icon/Icon';
 
 function MyComponent({ setZoomLevel, }) {
   const mapEvents = useMapEvents({
@@ -18,6 +19,7 @@ function MyComponent({ setZoomLevel, }) {
   return null
 }
 function CalculatePrice({ price }) {
+  if(price === null) return ''
   let priceCalculate = PriceFormat({ price: price?.toString() }) ? PriceFormat({ price: price?.toString() }) : ''
   return priceCalculate
 }
@@ -31,51 +33,68 @@ const MapRecenter = ({ lat, lng, zoomLevel }) => {
   return null;
 
 };
-export default function Map({ data, estacionCheck, setVisibleModal, setEstacionCheck, filtros, }) {
+export default function Map({ data, estacionCheck, setVisibleModal, setEstacionCheck, filtros, averagePrice }) {
   const [mapCenter, setMapCenter] = useState([data[data.length - 1].lat, data[data.length - 1].lng]);
 
   const [zoomLevel, setZoomLevel] = useState(12);
 
   const gasolineraEncontrada = data.find(gasolinera => gasolinera.nombre === estacionCheck);
-
+  const margin = 0.01 * averagePrice;
+  const priceToCheck =({price})=>{
+    if(!filtros) return price.price;
+    return filtros?.includes('extra') ? price.priceDos : filtros?.includes('corriente') ? price.price : price.priceCinco;
+  } 
   return (
     <MapContainer
-      style={{ width: '100vw', height: '100vh', zIndex: 1, maxWidth: '100%' }}
+      style={{position:'relative', width: '100vw', height: '80vh', zIndex: 1, maxWidth: '100%', borderRadius: '16px' }}
       center={mapCenter} zoom={zoomLevel} zoomControl={false} scrollWheelZoom={true}>
       {/* <ChangeView center={[data[0].lat, data[0].lng]} zoom={12} /> */}
       <MapRecenter lat={data[Math.round(data.length / 2)].lat} lng={data[Math.round(data.length / 2)].lng} zoomLevel={13} />
-
+     
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
       />
       <MyComponent setZoomLevel={setZoomLevel} />
+      <Icon name={IconCatalog.arrowForwardOutline} size={16} style={{ color: 'red' }} />
 
-      {data.map((gasolinera) => (
-        <Marker
-          key={gasolinera.nom}
-          eventHandlers={{
-            click: (e) => {
-              setVisibleModal(true), setEstacionCheck(gasolinera.nombre)
-            }
-          }}
-          position={[gasolinera.lat, gasolinera.lng]}
-          icon={
-            L.divIcon({
-              className: 'dummy',
-              html: `
-              <div style="position: relative; display: ${zoomLevel >= 13 ? 'flex' : 'none'}; gap: 8px; align-items: center; padding: ${zoomLevel >= 13 ? '2px 4px' : '2px'}; width: fit-content; justify-content: space-between; flex-direction: row; align-items: center; border: 1px solid white; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-radius: ${zoomLevel >= 13 ? '8px' : '50%'}; background-color: white;">
-                <img loading="lazy" src="/${gasolinera.img}.png" alt="Icon" preload style="object-fit: cover; width: 24px; height: 24px; border-radius: 50%;">
+      {data.map((gasolinera) => {
+        let price = priceToCheck({price: gasolinera});
+        const priceDifference = Math.abs(price - averagePrice);
+        const isSimilar = priceDifference <= margin;
+        const backgroundColor = isSimilar ? '#FFA500' : price > averagePrice ? '#FF3A33' : '#00A83E';
+        const svgIcon = isSimilar
+          ? `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M128 256h256"/></svg>`
+          : price > averagePrice
+            ? `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292"/></svg>`
+            : `<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 268l144 144 144-144M256 392V100"/></svg>`;
+        return (
+          <Marker
+            key={gasolinera.nom}
+            eventHandlers={{
+              click: (e) => {
+                setVisibleModal(true), setEstacionCheck(gasolinera.nombre)
+              }
+            }}
+            position={[gasolinera.lat, gasolinera.lng]}
+            icon={
+              L.divIcon({
+                className: 'dummy',
+                html: `
+              <div style="position: relative; display: ${!price?'none' :zoomLevel >= 12 ? 'flex' : 'none'}; gap: 8px; align-items: center; padding: ${zoomLevel >= 13 ? '2px 8px' : '2px'}; width: fit-content; justify-content: space-between; flex-direction: row; align-items: center; border: 1px solid #CFD5E1; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: ${zoomLevel >= 13 ? '4px' : '50%'}; background-color: white;">
                 <p style="display: ${zoomLevel >= 13 ? 'flex' : 'none'}; margin: 0; color: #373737; font-size: 12px; font-weight: 600; white-space: nowrap;">
-                  $${filtros?.includes('extra') ? CalculatePrice({ price: gasolinera?.priceDos }) : CalculatePrice({ price: gasolinera?.price })}
+                  $${ CalculatePrice({ price: price })}
                 </p>
-                <div style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 10px solid white;"></div>
+                ${gasolinera.price === null  ? '' : `
+                  <div style="position: absolute; top: -8px; right: -40%; transform: translateX(-50%); width: 22px; height: 22px;padding:2px; border-radius:50%; border: 1px solid white;color:white;  background-color: ${backgroundColor}">
+                ${svgIcon}
               </div>
+                  `}
                `,
-            })
-          }
-        >
-          {/* <Popup >
+              })
+            }
+          >
+            {/* <Popup >
             <p style={{ fontSize: '16px', fontWeight: '600', margin: 0, color: 'black' }}>{gasolinera.nombre}</p>
             <p style={{ fontSize: '14px', fontWeight: '400', margin: 0, color: '#727272' }}>{gasolinera.direccion}</p>
 
@@ -92,8 +111,9 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
               Calcula tu Ahorro
             </Button>
           </Popup> */}
-        </Marker>
-      ))
+          </Marker>
+        )
+      })
       }
 
     </MapContainer>

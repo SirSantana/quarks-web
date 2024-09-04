@@ -19,7 +19,7 @@ export default function ModalGasolinera({ data, setVisibleModal, precioAlto, pre
   const [visibleModalReportePrecio, setVisibleModalReportePrecio] = useState(false)
 
   const { data: reportesPrice, loading, error } = useQuery(GET_REPORTS_PRICE, { variables: { gasolinera: data?.nombre } })
-  let priceCombustible = combustible.index === 1 ? data?.price.toString() : combustible.index == 2 ? data?.priceDos?.toString() : data?.priceTres?.toString()
+  let priceCombustible = combustible.index === 1 ? data?.price?.toString() : combustible.index == 2 ? data?.priceDos?.toString() : data?.priceTres?.toString()
 
   return (
     <div onClick={() => setVisibleModal(false)} className={styles.modal} >

@@ -24,7 +24,6 @@ export default function ModalFiltrosGasolineras({ setVisibleModalFiltros, setUse
   const precio = queryString2.includes('precio');
   const cerca = queryString2.includes('cerca');
 
-  console.log(queryString2);
   const [ordernar, setOrdenar] = useState({
     precio: precio || (!router?.query?.precio ? true : false && !cerca),
     cerca: cerca
@@ -45,7 +44,6 @@ export default function ModalFiltrosGasolineras({ setVisibleModalFiltros, setUse
         updatedOrdenar[key] = key === tipo ? true : false;
       });
       if (tipo === 'cerca' && userLocation[0] === 0) {
-        console.log('hii');
         getLocalizacion(setUserLocation)
       }
       return updatedOrdenar;

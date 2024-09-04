@@ -15,6 +15,8 @@ import { calcularDistancia } from '@/utils/scripts';
 import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 import Loader from '@/src/Components/Loaders/CardLoader';
 import DrawerGasolineras from '@/src/Components/Gasolineras/DrawerGasolineras';
+import SelectOrderBy from '@/src/Components/Gasolineras/SelectOrderBy';
+import SelectTipoCombustible from '@/src/Components/Gasolineras/SelectTipoCombustible';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
   { ssr: false, loading: () => <Loader /> })
@@ -49,25 +51,134 @@ export default function Gasolineras({ data }) {
   const cerca = queryString2.includes('cerca');
 
 
-  data.forEach(estacion => {
+  data?.forEach(estacion => {
     estacion.distancia = calcularDistancia(userLocation[0], userLocation[1], estacion.lat, estacion.lng);
   });
-  let res = data.sort((a, b) => a.distancia - b.distancia);
+  const validPrices = data?.filter(gasolinera => {
+    if (filtros?.includes('extra')) {
+      return gasolinera.priceDos !== null && typeof gasolinera.priceDos === 'number';
+    }
+    if (filtros?.includes('corriente')) {
+      return gasolinera.price !== null && typeof gasolinera.price === 'number';
+    }
+    if (filtros?.includes('diesel')) {
+      return gasolinera.priceCinco !== null && typeof gasolinera.priceCinco === 'number';
+    }
+    // Si no hay filtros, usar 'corriente' por defecto
+    return gasolinera.price !== null && typeof gasolinera.price === 'number';
+  });
+
+  // Ordenar los datos filtrados por precio según el filtro seleccionado
+  const sortedData = validPrices?.sort((a, b) => {
+    if (filtros?.includes('extra')) {
+      return a.priceDos - b.priceDos;
+    }
+    if (filtros?.includes('corriente')) {
+      return a.price - b.price;
+    }
+    if (filtros?.includes('diesel')) {
+      return a.priceCinco - b.priceCinco;
+    }
+    // Si no hay filtros, usar 'corriente' por defecto
+    return a.price - b.price;
+  });
+
+  // Sumar todos los precios válidos según el filtro seleccionado
+  const totalPrice = validPrices?.reduce((accumulator, gasolinera) => {
+    if (filtros?.includes('extra')) {
+      return accumulator + gasolinera.priceDos;
+    }
+    if (filtros?.includes('corriente')) {
+      return accumulator + gasolinera.price;
+    }
+    if (filtros?.includes('diesel')) {
+      return accumulator + gasolinera.priceCinco;
+    }
+    // Si no hay filtros, usar 'corriente' por defecto
+    return accumulator + gasolinera.price;
+  }, 0);
+
+  // Calcular el precio promedio
+  const averagePrice = validPrices?.length > 0 ? totalPrice / validPrices.length : 0;
 
   return (
     <Layout title={`Mapa de Gasolineras en ${query?.slug?.[0].length > 0 ? query?.slug?.[0] : 'Bogota'}`} visibleNavbar={false} description={'Descubre y compara precios con mas de 85 bombas de gasolina en Bogota. Colombia. Estaciones de gasolina cerca con ubicacion y precios.'} keywords={'Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estacion de gasolina cerca, estación de servicio más cercana, bombas de gasolina cerca'}>
-      <div style={{ width: '100%', height: '100%', boxSizing: 'border-box', margin: '0', padding: '0', position: 'relative' }}>
-        {data &&
-          <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} filtros={filtros} />
-        }
-        <DrawerGasolineras setVisibleModalFiltros={setVisibleModalFiltros} filtros={filtros} filteredData={filteredData} setVisibleModal={setVisibleModal} res={res} setEstacionCheck={setEstacionCheck}filteredDataExtra={filteredDataExtra}/>
-
-        {/* <div onClick={() => setVisibleModalPicoyPlaca(true)} style={{ cursor: 'pointer', backgroundColor: '#FFC003', padding: '2px', borderRadius: '8px', margin: '16px auto 0px auto', position: 'absolute', bottom: '40px', right: '16px', zIndex: 1 }}>
-          <div style={{ backgroundColor: 'transparent', border: '2px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-            <p style={{ color: 'black', fontSize: '16px', fontFamily: 'Impact', fontWeight: '100' }}>Pico y Placa</p>
-          </div>
+      <section style={{
+        backgroundColor: 'white', // Fondo blanco
+        margin: '0px auto 0 auto',
+        padding: '24px 0 8px 0',
+        width: '90%',
+        maxWidth: '1200px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
+      }}>
+        <h1 style={{ color: '#182537' }}>Precio Gasolineras Terpel en {query?.slug?.[0].length > 0 ? query?.slug?.[0] : 'Bogota'}</h1>
+      </section>
+      <div style={{
+        position: 'sticky',
+        top: '0',  // Mantiene el div en la parte superior mientras se hace scroll
+        backgroundColor: 'white',  // Asegura que el fondo sea blanco mientras se desplaza
+        zIndex: 3,  // Asegura que el div se mantenga por encima de otros elementos
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '24px',
+        margin: '0px auto 0 auto',
+        alignItems: 'center',
+        width: '90%',
+        maxWidth: '1200px',
+        overflowX: 'auto',
+        height: 'fit-content',
+        padding: '16px 0'  // Añadir un poco de padding para mantener el diseño consistente
+      }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Ciudad</label>
+          <SelectCiudad />
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Tipo de Combustible</label>
+          <SelectTipoCombustible />
+        </div>
+        {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Orden por</label>
+          <SelectOrderBy />
         </div> */}
       </div>
+      <div style={{
+        width: '90%',
+        maxWidth: '1200px',
+        border: '1px solid #CFD5E1',
+        borderRadius: '16px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '32px',
+        margin: '32px auto',
+        position: 'relative',
+      }}>
+        <div style={{ position: 'absolute', bottom: '0px', right: '0px', backgroundColor: 'white', padding: '16px', borderRadius: '4px', zIndex: 2 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FF0000', }}>
+              <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292" /></svg>
+            </div>
+            <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas ALTO del promedio</p>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FFA500', }}>
+              <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M128 256h256" /></svg>
+            </div>
+            <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio promedio</p>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#00A83E', }}>
+              <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 268l144 144 144-144M256 392V100" /></svg>
+            </div>
+            <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas BAJO del promedio</p>
+          </div>
+
+        </div>
+        <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} filtros={filtros} averagePrice={averagePrice} />
+      </div>
+
       <div style={{ width: '90%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '32px', margin: '64px auto', }}>
         <section>
           <h2>Bombas de Gasolina {query?.slug?.[0]}</h2>
