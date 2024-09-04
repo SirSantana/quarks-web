@@ -856,7 +856,7 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular (Carros y Motos)",
         "fecha": "Wed May 01 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 32
       },
       {
@@ -866,7 +866,7 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu May 02 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 33
       },
       {
@@ -876,16 +876,17 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri May 03 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 34
-      },{
+      },
+      {
         "fechaFormat": "04-de-Mayo-2024",
         "titulo": "Sabado-04-de-Mayo-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat May 04 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 35
       },
       {
@@ -895,7 +896,7 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sun May 05 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 36
       },
       {
@@ -905,7 +906,7 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Mon May 06 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 37
       },
       {
@@ -915,9 +916,10 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue May 07 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 38
-      },{
+      },
+      {
         "fechaFormat": "08-de-Mayo-2024",
         "titulo": "Miércoles-08-de-Mayo-2024",
         "placas": "2-0",
@@ -1056,7 +1058,8 @@
         "fecha": "Tue May 21 2024",
         "ciudad": "Medellin",
         "index": 52
-      }, {
+      },
+      {
         "fechaFormat": "22-de-Mayo-2024",
         "titulo": "Miércoles-22-de-Mayo-2024",
         "placas": "2-0",
@@ -1125,7 +1128,8 @@
         "fecha": "Tue May 28 2024",
         "ciudad": "Medellin",
         "index": 59
-      },{
+      },
+      {
         "fechaFormat": "29-de-Mayo-2024",
         "titulo": "Miércoles-29-de-Mayo-2024",
         "placas": "2-0",
@@ -1162,7 +1166,7 @@
         "horario": "6:00 AM - 8:00 PM",
         "vehiculo": "Particular (Carros y Motos)",
         "fecha": "Wed May 01 2024",
-        "ciudad":"Bucaramanga",
+        "ciudad": "Bucaramanga",
         "index": 63
       },
       {
@@ -1172,7 +1176,7 @@
         "horario": "6:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu May 02 2024",
-        "ciudad":"Bucaramanga",
+        "ciudad": "Bucaramanga",
         "index": 64
       },
       {
@@ -1182,16 +1186,17 @@
         "horario": "6:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri May 03 2024",
-        "ciudad":"Bucaramanga",
+        "ciudad": "Bucaramanga",
         "index": 65
-      },{
+      },
+      {
         "fechaFormat": "04-de-Mayo-2024",
         "titulo": "Sabado-04-de-Mayo-2024",
         "placas": "3-4",
         "horario": "9:00 AM - 1:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat May 04 2024",
-        "ciudad":"Bucaramanga",
+        "ciudad": "Bucaramanga",
         "index": 66
       },
       {
@@ -1201,7 +1206,7 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sun May 05 2024",
-        "ciudad":"Bucaramanga",
+        "ciudad": "Bucaramanga",
         "index": 67
       },
       {
@@ -1211,7 +1216,7 @@
         "horario": "6:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Mon May 06 2024",
-        "ciudad":"Bucaramanga",
+        "ciudad": "Bucaramanga",
         "index": 68
       },
       {
@@ -1221,9 +1226,10 @@
         "horario": "6:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue May 07 2024",
-        "ciudad":"Bucaramanga",
+        "ciudad": "Bucaramanga",
         "index": 69
-      },{
+      },
+      {
         "fechaFormat": "08-de-Mayo-2024",
         "titulo": "Miércoles-08-de-Mayo-2024",
         "placas": "5-6",
@@ -1292,7 +1298,8 @@
         "fecha": "Tue May 14 2024",
         "ciudad": "Bucaramanga",
         "index": 76
-      },{
+      },
+      {
         "fechaFormat": "15-de-Mayo-2024",
         "titulo": "Miércoles-15-de-Mayo-2024",
         "placas": "5-6",
@@ -1361,7 +1368,8 @@
         "fecha": "Tue May 21 2024",
         "ciudad": "Bucaramanga",
         "index": 83
-      },{
+      },
+      {
         "fechaFormat": "22-de-Mayo-2024",
         "titulo": "Miércoles-22-de-Mayo-2024",
         "placas": "5-6",
@@ -1430,7 +1438,8 @@
         "fecha": "Tue May 28 2024",
         "ciudad": "Bucaramanga",
         "index": 90
-      },{
+      },
+      {
         "fechaFormat": "29-de-Mayo-2024",
         "titulo": "Miércoles-29-de-Mayo-2024",
         "placas": "5-6",
@@ -1460,7 +1469,8 @@
         "ciudad": "Bucaramanga",
         "index": 93
       }
-    ],[
+    ],
+    [
       {
         "fechaFormat": "01-de-Junio-2024",
         "titulo": "Sabado-01-de-Junio-2024",
@@ -1738,7 +1748,7 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat Jun 01 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 31
       },
       {
@@ -1748,9 +1758,10 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sun Jun 02 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 32
-      },{
+      },
+      {
         "fechaFormat": "03-de-Junio-2024",
         "titulo": "Lunes-03-de-Junio-2024",
         "placas": "NO APLICA",
@@ -2069,7 +2080,8 @@
         "fecha": "Tue Jun 04 2024",
         "ciudad": "Bucaramanga",
         "index": 64
-      },{
+      },
+      {
         "fechaFormat": "05-de-Junio-2024",
         "titulo": "Miércoles-05-de-Junio-2024",
         "placas": "5-6",
@@ -2329,7 +2341,8 @@
         "ciudad": "Bucaramanga",
         "index": 90
       }
-    ],[
+    ],
+    [
       {
         "fechaFormat": "01-de-Julio-2024",
         "titulo": "Lunes-01-de-Julio-2024",
@@ -2419,7 +2432,8 @@
         "vehiculo": "Particular",
         "fecha": "Wed Jul 10 2024",
         "index": 10
-      },{
+      },
+      {
         "fechaFormat": "11-de-Julio-2024",
         "titulo": "Jueves-11-de-Julio-2024",
         "placas": "6-7-8-9-0",
@@ -2445,7 +2459,8 @@
         "vehiculo": "Particular",
         "fecha": "Sat Jul 13 2024",
         "index": 13
-      },{
+      },
+      {
         "fechaFormat": "14-de-Julio-2024",
         "titulo": "Domingo-14-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2453,7 +2468,8 @@
         "vehiculo": "Particular",
         "fecha": "Sun Jul 14 2024",
         "index": 14
-      },{
+      },
+      {
         "fechaFormat": "15-de-Julio-2024",
         "titulo": "Lunes-15-de-Julio-2024",
         "placas": "6-7-8-9-0",
@@ -2461,7 +2477,8 @@
         "vehiculo": "Particular",
         "fecha": "Mon Jul 15 2024",
         "index": 15
-      },{
+      },
+      {
         "fechaFormat": "16-de-Julio-2024",
         "titulo": "Martes-16-de-Julio-2024",
         "placas": "1-2-3-4-5",
@@ -2469,7 +2486,8 @@
         "vehiculo": "Particular",
         "fecha": "Tue Jul 16 2024",
         "index": 16
-      },{
+      },
+      {
         "fechaFormat": "17-de-Julio-2024",
         "titulo": "Miércoles-17-de-Julio-2024",
         "placas": "6-7-8-9-0",
@@ -2477,7 +2495,8 @@
         "vehiculo": "Particular",
         "fecha": "Wed Jul 17 2024",
         "index": 17
-      },{
+      },
+      {
         "fechaFormat": "18-de-Julio-2024",
         "titulo": "Jueves-18-de-Julio-2024",
         "placas": "1-2-3-4-5",
@@ -2485,8 +2504,9 @@
         "vehiculo": "Particular",
         "fecha": "Thu Jul 18 2024",
         "index": 18
-      },{
-          "fechaFormat": "19-de-Julio-2024",
+      },
+      {
+        "fechaFormat": "19-de-Julio-2024",
         "titulo": "Viernes-19-de-Julio-2024",
         "placas": "6-7-8-9-0",
         "horario": "6:00 AM - 9:00 PM",
@@ -2502,7 +2522,8 @@
         "vehiculo": "Particular",
         "fecha": "Sat Jul 20 2024",
         "index": 20
-      },{
+      },
+      {
         "fechaFormat": "21-de-Julio-2024",
         "titulo": "Domingo-21-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2510,7 +2531,8 @@
         "vehiculo": "Particular",
         "fecha": "Sun Jul 21 2024",
         "index": 21
-      },{
+      },
+      {
         "fechaFormat": "22-de-Julio-2024",
         "titulo": "Lunes-22-de-Julio-2024",
         "placas": "1-2-3-4-5",
@@ -2518,7 +2540,8 @@
         "vehiculo": "Particular",
         "fecha": "Mon Jul 22 2024",
         "index": 22
-      },{
+      },
+      {
         "fechaFormat": "23-de-Julio-2024",
         "titulo": "Martes-23-de-Julio-2024",
         "placas": "6-7-8-9-0",
@@ -2526,7 +2549,8 @@
         "vehiculo": "Particular",
         "fecha": "Tue Jul 23 2024",
         "index": 23
-      },{
+      },
+      {
         "fechaFormat": "24-de-Julio-2024",
         "titulo": "Miércoles-24-de-Julio-2024",
         "placas": "1-2-3-4-5",
@@ -2534,7 +2558,8 @@
         "vehiculo": "Particular",
         "fecha": "Wed Jul 24 2024",
         "index": 24
-      },{
+      },
+      {
         "fechaFormat": "25-de-Julio-2024",
         "titulo": "Jueves-25-de-Julio-2024",
         "placas": "6-7-8-9-0",
@@ -2542,7 +2567,8 @@
         "vehiculo": "Particular",
         "fecha": "Thu Jul 25 2024",
         "index": 25
-      },{
+      },
+      {
         "fechaFormat": "26-de-Julio-2024",
         "titulo": "Viernes-26-de-Julio-2024",
         "placas": "1-2-3-4-5",
@@ -2550,7 +2576,8 @@
         "vehiculo": "Particular",
         "fecha": "Fri Jul 26 2024",
         "index": 26
-      },{
+      },
+      {
         "fechaFormat": "27-de-Julio-2024",
         "titulo": "Sábado-27-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2558,7 +2585,8 @@
         "vehiculo": "Particular",
         "fecha": "Sat Jul 27 2024",
         "index": 27
-      },{
+      },
+      {
         "fechaFormat": "28-de-Julio-2024",
         "titulo": "Domingo-28-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2566,7 +2594,8 @@
         "vehiculo": "Particular",
         "fecha": "Sun Jul 28 2024",
         "index": 28
-      },{
+      },
+      {
         "fechaFormat": "29-de-Julio-2024",
         "titulo": "Lunes-29-de-Julio-2024",
         "placas": "6-7-8-9-0",
@@ -2574,7 +2603,8 @@
         "vehiculo": "Particular",
         "fecha": "Mon Jul 29 2024",
         "index": 29
-      },{
+      },
+      {
         "fechaFormat": "30-de-Julio-2024",
         "titulo": "Martes-30-de-Julio-2024",
         "placas": "1-2-3-4-5",
@@ -2582,7 +2612,8 @@
         "vehiculo": "Particular",
         "fecha": "Tue Jul 30 2024",
         "index": 30
-      },{
+      },
+      {
         "fechaFormat": "31-de-Julio-2024",
         "titulo": "Miércoles-31-de-Julio-2024",
         "placas": "6-7-8-9-0",
@@ -2590,14 +2621,15 @@
         "vehiculo": "Particular",
         "fecha": "Wed Jul 31 2024",
         "index": 31
-      },{
+      },
+      {
         "fechaFormat": "01-de-Julio-2024",
         "titulo": "Lunes-01-de-Julio-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Mon Jul 01 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 32
       },
       {
@@ -2607,9 +2639,10 @@
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue Jul 02 2024",
-        "ciudad":"Medellin",
+        "ciudad": "Medellin",
         "index": 33
-      },{
+      },
+      {
         "fechaFormat": "03-de-Julio-2024",
         "titulo": "Miercoles-03-de-Julio-2024",
         "placas": "0-2",
@@ -2648,7 +2681,8 @@
         "fecha": "Sat Jul 06 2024",
         "ciudad": "Medellin",
         "index": 37
-      },{
+      },
+      {
         "fechaFormat": "07-de-Julio-2024",
         "titulo": "Domingo-07-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2657,7 +2691,8 @@
         "fecha": "Sun Jul 07 2024",
         "ciudad": "Medellin",
         "index": 38
-      },{
+      },
+      {
         "fechaFormat": "08-de-Julio-2024",
         "titulo": "Lunes-08-de-Julio-2024",
         "placas": "5-8",
@@ -2666,7 +2701,8 @@
         "fecha": "Mon Jul 08 2024",
         "ciudad": "Medellin",
         "index": 39
-      },{
+      },
+      {
         "fechaFormat": "09-de-Julio-2024",
         "titulo": "Martes-09-de-Julio-2024",
         "placas": "1-4",
@@ -2675,7 +2711,8 @@
         "fecha": "Tue Jul 09 2024",
         "ciudad": "Medellin",
         "index": 40
-      },{
+      },
+      {
         "fechaFormat": "10-de-Julio-2024",
         "titulo": "Miercoles-10-de-Julio-2024",
         "placas": "0-2",
@@ -2684,7 +2721,8 @@
         "fecha": "Wed Jul 10 2024",
         "ciudad": "Medellin",
         "index": 41
-      },{
+      },
+      {
         "fechaFormat": "11-de-Julio-2024",
         "titulo": "Jueves-11-de-Julio-2024",
         "placas": "3-6",
@@ -2693,7 +2731,8 @@
         "fecha": "Thu Jul 11 2024",
         "ciudad": "Medellin",
         "index": 42
-      },{
+      },
+      {
         "fechaFormat": "12-de-Julio-2024",
         "titulo": "Viernes-12-de-Julio-2024",
         "placas": "7-9",
@@ -2702,7 +2741,8 @@
         "fecha": "Fri Jul 12 2024",
         "ciudad": "Medellin",
         "index": 43
-      },{
+      },
+      {
         "fechaFormat": "13-de-Julio-2024",
         "titulo": "Sabado-13-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2711,7 +2751,8 @@
         "fecha": "Sat Jul 13 2024",
         "ciudad": "Medellin",
         "index": 44
-      },{
+      },
+      {
         "fechaFormat": "14-de-Julio-2024",
         "titulo": "Domingo-14-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2720,7 +2761,8 @@
         "fecha": "Sun Jul 14 2024",
         "ciudad": "Medellin",
         "index": 45
-      },{
+      },
+      {
         "fechaFormat": "15-de-Julio-2024",
         "titulo": "Lunes-15-de-Julio-2024",
         "placas": "5-8",
@@ -2729,7 +2771,8 @@
         "fecha": "Mon Jul 15 2024",
         "ciudad": "Medellin",
         "index": 46
-      },{
+      },
+      {
         "fechaFormat": "16-de-Julio-2024",
         "titulo": "Martes-16-de-Julio-2024",
         "placas": "1-4",
@@ -2738,7 +2781,8 @@
         "fecha": "Tue Jul 16 2024",
         "ciudad": "Medellin",
         "index": 47
-      },{
+      },
+      {
         "fechaFormat": "17-de-Julio-2024",
         "titulo": "Miercoles-17-de-Julio-2024",
         "placas": "0-2",
@@ -2747,7 +2791,8 @@
         "fecha": "Wed Jul 17 2024",
         "ciudad": "Medellin",
         "index": 48
-      },{
+      },
+      {
         "fechaFormat": "18-de-Julio-2024",
         "titulo": "Jueves-18-de-Julio-2024",
         "placas": "3-6",
@@ -2756,7 +2801,8 @@
         "fecha": "Thu Jul 18 2024",
         "ciudad": "Medellin",
         "index": 49
-      },{
+      },
+      {
         "fechaFormat": "19-de-Julio-2024",
         "titulo": "Viernes-19-de-Julio-2024",
         "placas": "7-9",
@@ -2765,7 +2811,8 @@
         "fecha": "Fri Jul 19 2024",
         "ciudad": "Medellin",
         "index": 50
-      },{
+      },
+      {
         "fechaFormat": "20-de-Julio-2024",
         "titulo": "Sabado-20-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2774,7 +2821,8 @@
         "fecha": "Sat Jul 20 2024",
         "ciudad": "Medellin",
         "index": 51
-      },{
+      },
+      {
         "fechaFormat": "21-de-Julio-2024",
         "titulo": "Domingo-21-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2783,7 +2831,8 @@
         "fecha": "Sun Jul 21 2024",
         "ciudad": "Medellin",
         "index": 52
-      },{
+      },
+      {
         "fechaFormat": "22-de-Julio-2024",
         "titulo": "Lunes-22-de-Julio-2024",
         "placas": "5-8",
@@ -2792,7 +2841,8 @@
         "fecha": "Mon Jul 22 2024",
         "ciudad": "Medellin",
         "index": 53
-      },{
+      },
+      {
         "fechaFormat": "23-de-Julio-2024",
         "titulo": "Martes-23-de-Julio-2024",
         "placas": "1-4",
@@ -2801,7 +2851,8 @@
         "fecha": "Tue Jul 23 2024",
         "ciudad": "Medellin",
         "index": 54
-      },{
+      },
+      {
         "fechaFormat": "24-de-Julio-2024",
         "titulo": "Miercoles-24-de-Julio-2024",
         "placas": "0-2",
@@ -2810,7 +2861,8 @@
         "fecha": "Wed Jul 24 2024",
         "ciudad": "Medellin",
         "index": 55
-      },{
+      },
+      {
         "fechaFormat": "25-de-Julio-2024",
         "titulo": "Jueves-25-de-Julio-2024",
         "placas": "3-6",
@@ -2819,7 +2871,8 @@
         "fecha": "Thu Jul 25 2024",
         "ciudad": "Medellin",
         "index": 56
-      },{
+      },
+      {
         "fechaFormat": "26-de-Julio-2024",
         "titulo": "Viernes-26-de-Julio-2024",
         "placas": "7-9",
@@ -2828,7 +2881,8 @@
         "fecha": "Fri Jul 26 2024",
         "ciudad": "Medellin",
         "index": 57
-      },{
+      },
+      {
         "fechaFormat": "27-de-Julio-2024",
         "titulo": "Sabado-27-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2837,7 +2891,8 @@
         "fecha": "Sat Jul 27 2024",
         "ciudad": "Medellin",
         "index": 58
-      },{
+      },
+      {
         "fechaFormat": "28-de-Julio-2024",
         "titulo": "Domingo-28-de-Julio-2024",
         "placas": "NO APLICA",
@@ -2846,7 +2901,8 @@
         "fecha": "Sun Jul 28 2024",
         "ciudad": "Medellin",
         "index": 59
-      },{
+      },
+      {
         "fechaFormat": "29-de-Julio-2024",
         "titulo": "Lunes-29-de-Julio-2024",
         "placas": "5-8",
@@ -2855,7 +2911,8 @@
         "fecha": "Mon Jul 29 2024",
         "ciudad": "Medellin",
         "index": 60
-      },{
+      },
+      {
         "fechaFormat": "30-de-Julio-2024",
         "titulo": "Martes-30-de-Julio-2024",
         "placas": "1-4",
@@ -2864,7 +2921,8 @@
         "fecha": "Tue Jul 30 2024",
         "ciudad": "Medellin",
         "index": 61
-      },{
+      },
+      {
         "fechaFormat": "31-de-Julio-2024",
         "titulo": "Miercoles-31-de-Julio-2024",
         "placas": "0-2",
@@ -2873,7 +2931,8 @@
         "fecha": "Wed Jul 31 2024",
         "ciudad": "Medellin",
         "index": 62
-      },{
+      },
+      {
         "fechaFormat": "01-de-Julio-2024",
         "titulo": "Lunes-01-de-Julio-2024",
         "placas": "3-4",
@@ -2912,7 +2971,8 @@
         "fecha": "Thu Jul 04 2024",
         "ciudad": "Bucaramanga",
         "index": 66
-      },{
+      },
+      {
         "fechaFormat": "05-de-Julio-2024",
         "titulo": "Viernes-05-de-Julio-2024",
         "placas": "1-2",
@@ -2941,7 +3001,8 @@
         "fecha": "Sun Jul 07 2024",
         "ciudad": "Bucaramanga",
         "index": 69
-      },{
+      },
+      {
         "fechaFormat": "08-de-Julio-2024",
         "titulo": "Lunes-08-de-Julio-2024",
         "placas": "3-4",
@@ -2950,7 +3011,8 @@
         "fecha": "Mon Jul 08 2024",
         "ciudad": "Bucaramanga",
         "index": 70
-      },{
+      },
+      {
         "fechaFormat": "09-de-Julio-2024",
         "titulo": "Martes-09-de-Julio-2024",
         "placas": "5-6",
@@ -2959,7 +3021,8 @@
         "fecha": "Tue Jul 09 2024",
         "ciudad": "Bucaramanga",
         "index": 71
-      },{
+      },
+      {
         "fechaFormat": "10-de-Julio-2024",
         "titulo": "Miercoles-10-de-Julio-2024",
         "placas": "7-8",
@@ -2968,7 +3031,8 @@
         "fecha": "Wed Jul 10 2024",
         "ciudad": "Bucaramanga",
         "index": 72
-      },{
+      },
+      {
         "fechaFormat": "11-de-Julio-2024",
         "titulo": "Jueves-11-de-Julio-2024",
         "placas": "9-0",
@@ -2977,7 +3041,8 @@
         "fecha": "Thu Jul 11 2024",
         "ciudad": "Bucaramanga",
         "index": 73
-      },{
+      },
+      {
         "fechaFormat": "12-de-Julio-2024",
         "titulo": "Viernes-12-de-Julio-2024",
         "placas": "1-2",
@@ -2986,7 +3051,8 @@
         "fecha": "Fri Jul 12 2024",
         "ciudad": "Bucaramanga",
         "index": 74
-      },{
+      },
+      {
         "fechaFormat": "13-de-Julio-2024",
         "titulo": "Sabado-13-de-Julio-2024",
         "placas": "3-4",
@@ -2995,7 +3061,8 @@
         "fecha": "Sat Jul 13 2024",
         "ciudad": "Bucaramanga",
         "index": 75
-      },{
+      },
+      {
         "fechaFormat": "14-de-Julio-2024",
         "titulo": "Domingo-14-de-Julio-2024",
         "placas": "NO APLICA",
@@ -3004,7 +3071,8 @@
         "fecha": "Sun Jul 14 2024",
         "ciudad": "Bucaramanga",
         "index": 76
-      },{
+      },
+      {
         "fechaFormat": "15-de-Julio-2024",
         "titulo": "Lunes-15-de-Julio-2024",
         "placas": "3-4",
@@ -3013,7 +3081,8 @@
         "fecha": "Mon Jul 15 2024",
         "ciudad": "Bucaramanga",
         "index": 77
-      },{
+      },
+      {
         "fechaFormat": "16-de-Julio-2024",
         "titulo": "Martes-16-de-Julio-2024",
         "placas": "5-6",
@@ -3022,7 +3091,8 @@
         "fecha": "Tue Jul 16 2024",
         "ciudad": "Bucaramanga",
         "index": 78
-      },{
+      },
+      {
         "fechaFormat": "17-de-Julio-2024",
         "titulo": "Miercoles-17-de-Julio-2024",
         "placas": "7-8",
@@ -3031,7 +3101,8 @@
         "fecha": "Wed Jul 17 2024",
         "ciudad": "Bucaramanga",
         "index": 79
-      },{
+      },
+      {
         "fechaFormat": "18-de-Julio-2024",
         "titulo": "Jueves-18-de-Julio-2024",
         "placas": "9-0",
@@ -3040,7 +3111,8 @@
         "fecha": "Thu Jul 18 2024",
         "ciudad": "Bucaramanga",
         "index": 80
-      },{
+      },
+      {
         "fechaFormat": "19-de-Julio-2024",
         "titulo": "Viernes-19-de-Julio-2024",
         "placas": "1-2",
@@ -3049,7 +3121,8 @@
         "fecha": "Fri Jul 19 2024",
         "ciudad": "Bucaramanga",
         "index": 81
-      },{
+      },
+      {
         "fechaFormat": "20-de-Julio-2024",
         "titulo": "Sabado-20-de-Julio-2024",
         "placas": "NO APLICA",
@@ -3058,7 +3131,8 @@
         "fecha": "Sat Jul 20 2024",
         "ciudad": "Bucaramanga",
         "index": 82
-      },{
+      },
+      {
         "fechaFormat": "21-de-Julio-2024",
         "titulo": "Domingo-21-de-Julio-2024",
         "placas": "NO APLICA",
@@ -3067,7 +3141,8 @@
         "fecha": "Sun Jul 21 2024",
         "ciudad": "Bucaramanga",
         "index": 83
-      },{
+      },
+      {
         "fechaFormat": "22-de-Julio-2024",
         "titulo": "Lunes-22-de-Julio-2024",
         "placas": "3-4",
@@ -3076,7 +3151,8 @@
         "fecha": "Mon Jul 22 2024",
         "ciudad": "Bucaramanga",
         "index": 84
-      },{
+      },
+      {
         "fechaFormat": "23-de-Julio-2024",
         "titulo": "Martes-23-de-Julio-2024",
         "placas": "5-6",
@@ -3085,7 +3161,8 @@
         "fecha": "Tue Jul 23 2024",
         "ciudad": "Bucaramanga",
         "index": 85
-      },{
+      },
+      {
         "fechaFormat": "24-de-Julio-2024",
         "titulo": "Miercoles-24-de-Julio-2024",
         "placas": "7-8",
@@ -3094,7 +3171,8 @@
         "fecha": "Wed Jul 24 2024",
         "ciudad": "Bucaramanga",
         "index": 86
-      },{
+      },
+      {
         "fechaFormat": "25-de-Julio-2024",
         "titulo": "Jueves-25-de-Julio-2024",
         "placas": "9-0",
@@ -3103,7 +3181,8 @@
         "fecha": "Thu Jul 25 2024",
         "ciudad": "Bucaramanga",
         "index": 87
-      },{
+      },
+      {
         "fechaFormat": "26-de-Julio-2024",
         "titulo": "Viernes-26-de-Julio-2024",
         "placas": "1-2",
@@ -3112,7 +3191,8 @@
         "fecha": "Fri Jul 26 2024",
         "ciudad": "Bucaramanga",
         "index": 88
-      },{
+      },
+      {
         "fechaFormat": "27-de-Julio-2024",
         "titulo": "Sabado-27-de-Julio-2024",
         "placas": "7-8",
@@ -3121,7 +3201,8 @@
         "fecha": "Sat Jul 27 2024",
         "ciudad": "Bucaramanga",
         "index": 89
-      },{
+      },
+      {
         "fechaFormat": "28-de-Julio-2024",
         "titulo": "Domingo-28-de-Julio-2024",
         "placas": "NO APLICA",
@@ -3130,7 +3211,8 @@
         "fecha": "Sun Jul 28 2024",
         "ciudad": "Bucaramanga",
         "index": 90
-      },{
+      },
+      {
         "fechaFormat": "29-de-Julio-2024",
         "titulo": "Lunes-29-de-Julio-2024",
         "placas": "3-4",
@@ -3139,7 +3221,8 @@
         "fecha": "Mon Jul 29 2024",
         "ciudad": "Bucaramanga",
         "index": 91
-      },{
+      },
+      {
         "fechaFormat": "30-de-Julio-2024",
         "titulo": "Martes-30-de-Julio-2024",
         "placas": "5-6",
@@ -3148,7 +3231,8 @@
         "fecha": "Tue Jul 30 2024",
         "ciudad": "Bucaramanga",
         "index": 92
-      },{
+      },
+      {
         "fechaFormat": "31-de-Julio-2024",
         "titulo": "Miercoles-31-de-Julio-2024",
         "placas": "7-8",
@@ -3158,7 +3242,8 @@
         "ciudad": "Bucaramanga",
         "index": 93
       }
-    ],[
+    ],
+    [
       {
         "fechaFormat": "01-de-Agosto-2024",
         "titulo": "Jueves-01-de-Agosto-2024",
@@ -3194,7 +3279,8 @@
         "vehiculo": "Particular",
         "fecha": "Sun Aug 4 2024",
         "index": 4
-      },{
+      },
+      {
         "fechaFormat": "05-de-Agosto-2024",
         "titulo": "Lunes-05-de-Agosto-2024",
         "placas": "6-7-8-9-0",
@@ -3202,23 +3288,26 @@
         "vehiculo": "Particular",
         "fecha": "Mon Aug 5 2024",
         "index": 5
-      },{
+      },
+      {
         "fechaFormat": "06-de-Agosto-2024",
         "titulo": "Martes-06-de-Agosto-2024",
         "placas": "1-2-3-4-5",
         "horario": "6:00 AM - 9:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue Aug 6 2024",
-        "index": 6  
-      },{
+        "index": 6
+      },
+      {
         "fechaFormat": "07-de-Agosto-2024",
         "titulo": "Miércoles-07-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "6:00 AM - 9:00 PM",
         "vehiculo": "Particular",
         "fecha": "Wed Aug 7 2024",
-        "index": 7  
-      },{
+        "index": 7
+      },
+      {
         "fechaFormat": "08-de-Agosto-2024",
         "titulo": "Jueves-08-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3226,15 +3315,17 @@
         "vehiculo": "Particular",
         "fecha": "Thu Aug 8 2024",
         "index": 8
-      },{
+      },
+      {
         "fechaFormat": "09-de-Agosto-2024",
         "titulo": "Viernes-09-de-Agosto-2024",
         "placas": "6-7-8-9-0",
         "horario": "6:00 AM - 9:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri Aug 9 2024",
-        "index": 9  
-      },{
+        "index": 9
+      },
+      {
         "fechaFormat": "10-de-Agosto-2024",
         "titulo": "Sábado-10-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3242,7 +3333,8 @@
         "vehiculo": "Particular",
         "fecha": "Sat Aug 10 2024",
         "index": 10
-      },{
+      },
+      {
         "fechaFormat": "11-de-Agosto-2024",
         "titulo": "Domingo-11-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3250,7 +3342,8 @@
         "vehiculo": "Particular",
         "fecha": "Sun Aug 11 2024",
         "index": 11
-      },{
+      },
+      {
         "fechaFormat": "12-de-Agosto-2024",
         "titulo": "Lunes-12-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3258,7 +3351,8 @@
         "vehiculo": "Particular",
         "fecha": "Mon Aug 12 2024",
         "index": 12
-      },{
+      },
+      {
         "fechaFormat": "13-de-Agosto-2024",
         "titulo": "Martes-13-de-Agosto-2024",
         "placas": "6-7-8-9-0",
@@ -3266,7 +3360,8 @@
         "vehiculo": "Particular",
         "fecha": "Tue Aug 13 2024",
         "index": 13
-      },{
+      },
+      {
         "fechaFormat": "14-de-Agosto-2024",
         "titulo": "Miércoles-14-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3274,7 +3369,8 @@
         "vehiculo": "Particular",
         "fecha": "Wed Aug 14 2024",
         "index": 14
-      },{
+      },
+      {
         "fechaFormat": "15-de-Agosto-2024",
         "titulo": "Jueves-15-de-Agosto-2024",
         "placas": "6-7-8-9-0",
@@ -3282,7 +3378,8 @@
         "vehiculo": "Particular",
         "fecha": "Thu Aug 15 2024",
         "index": 15
-      },{
+      },
+      {
         "fechaFormat": "16-de-Agosto-2024",
         "titulo": "Viernes-16-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3290,15 +3387,17 @@
         "vehiculo": "Particular",
         "fecha": "Fri Aug 16 2024",
         "index": 16
-      },{
-        "fechaFormat": "17-de-Agosto-2024", 
+      },
+      {
+        "fechaFormat": "17-de-Agosto-2024",
         "titulo": "Sábado-17-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "6:00 AM - 9:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat Aug 17 2024",
         "index": 17
-      },{
+      },
+      {
         "fechaFormat": "18-de-Agosto-2024",
         "titulo": "Domingo-18-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3306,7 +3405,8 @@
         "vehiculo": "Particular",
         "fecha": "Sun Aug 18 2024",
         "index": 18
-      },{
+      },
+      {
         "fechaFormat": "19-de-Agosto-2024",
         "titulo": "Lunes-19-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3314,7 +3414,8 @@
         "vehiculo": "Particular",
         "fecha": "Mon Aug 19 2024",
         "index": 19
-      },{
+      },
+      {
         "fechaFormat": "20-de-Agosto-2024",
         "titulo": "Martes-20-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3322,7 +3423,8 @@
         "vehiculo": "Particular",
         "fecha": "Tue Aug 20 2024",
         "index": 20
-      },{
+      },
+      {
         "fechaFormat": "21-de-Agosto-2024",
         "titulo": "Miércoles-21-de-Agosto-2024",
         "placas": "6-7-8-9-0",
@@ -3330,15 +3432,17 @@
         "vehiculo": "Particular",
         "fecha": "Wed Aug 21 2024",
         "index": 21
-      },{
+      },
+      {
         "fechaFormat": "22-de-Agosto-2024",
         "titulo": "Jueves-22-de-Agosto-2024",
         "placas": "1-2-3-4-5",
         "horario": "6:00 AM - 9:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu Aug 22 2024",
-        "index": 22 
-      },{
+        "index": 22
+      },
+      {
         "fechaFormat": "23-de-Agosto-2024",
         "titulo": "Viernes-23-de-Agosto-2024",
         "placas": "6-7-8-9-0",
@@ -3346,7 +3450,8 @@
         "vehiculo": "Particular",
         "fecha": "Fri Aug 23 2024",
         "index": 23
-      },{
+      },
+      {
         "fechaFormat": "24-de-Agosto-2024",
         "titulo": "Sábado-24-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3354,7 +3459,8 @@
         "vehiculo": "Particular",
         "fecha": "Sat Aug 24 2024",
         "index": 24
-      },{
+      },
+      {
         "fechaFormat": "25-de-Agosto-2024",
         "titulo": "Domingo-25-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3362,7 +3468,8 @@
         "vehiculo": "Particular",
         "fecha": "Sun Aug 25 2024",
         "index": 25
-      },{
+      },
+      {
         "fechaFormat": "26-de-Agosto-2024",
         "titulo": "Lunes-26-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3370,7 +3477,8 @@
         "vehiculo": "Particular",
         "fecha": "Mon Aug 26 2024",
         "index": 26
-      },{
+      },
+      {
         "fechaFormat": "27-de-Agosto-2024",
         "titulo": "Martes-27-de-Agosto-2024",
         "placas": "6-7-8-9-0",
@@ -3378,7 +3486,8 @@
         "vehiculo": "Particular",
         "fecha": "Tue Aug 27 2024",
         "index": 27
-      },{
+      },
+      {
         "fechaFormat": "28-de-Agosto-2024",
         "titulo": "Miércoles-28-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3386,7 +3495,8 @@
         "vehiculo": "Particular",
         "fecha": "Wed Aug 28 2024",
         "index": 28
-      },{
+      },
+      {
         "fechaFormat": "29-de-Agosto-2024",
         "titulo": "Jueves-29-de-Agosto-2024",
         "placas": "6-7-8-9-0",
@@ -3394,7 +3504,8 @@
         "vehiculo": "Particular",
         "fecha": "Thu Aug 29 2024",
         "index": 29
-      },{
+      },
+      {
         "fechaFormat": "30-de-Agosto-2024",
         "titulo": "Viernes-30-de-Agosto-2024",
         "placas": "1-2-3-4-5",
@@ -3402,7 +3513,8 @@
         "vehiculo": "Particular",
         "fecha": "Fri Aug 30 2024",
         "index": 30
-      },{
+      },
+      {
         "fechaFormat": "31-de-Agosto-2024",
         "titulo": "Sábado-31-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3410,286 +3522,318 @@
         "vehiculo": "Particular",
         "fecha": "Sat Aug 31 2024",
         "index": 31
-      },{
+      },
+      {
         "fechaFormat": "01-de-Agosto-2024",
         "titulo": "Jueves-01-de-Agosto-2024",
         "placas": "4-8",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu Aug 01 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 32
-      },{
+      },
+      {
         "fechaFormat": "02-de-Agosto-2024",
         "titulo": "Viernes-02-de-Agosto-2024",
         "placas": "1-5",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri Aug 02 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 33
-      },{
+      },
+      {
         "fechaFormat": "03-de-Agosto-2024",
         "titulo": "Sabado-03-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat Aug 03 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 34
-      },{
+      },
+      {
         "fechaFormat": "04-de-Agosto-2024",
         "titulo": "Domingo-04-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sun Aug 04 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 35
-      },{
+      },
+      {
         "fechaFormat": "05-de-Agosto-2024",
         "titulo": "Lunes-05-de-Agosto-2024",
         "placas": "0-2",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Mon Aug 05 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 36
-      },{
+      },
+      {
         "fechaFormat": "06-de-Agosto-2024",
         "titulo": "Martes-06-de-Agosto-2024",
         "placas": "6-9",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue Aug 06 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 37
-      },{
+      },
+      {
         "fechaFormat": "07-de-Agosto-2024",
         "titulo": "Miercoles-07-de-Agosto-2024",
         "placas": "3-7",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Wed Aug 07 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 38
-      },{
+      },
+      {
         "fechaFormat": "08-de-Agosto-2024",
         "titulo": "Jueves-08-de-Agosto-2024",
         "placas": "4-8",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu Aug 08 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 39
-      },{
+      },
+      {
         "fechaFormat": "09-de-Agosto-2024",
         "titulo": "Viernes-09-de-Agosto-2024",
         "placas": "1-5",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri Aug 09 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 40
-      },{
+      },
+      {
         "fechaFormat": "10-de-Agosto-2024",
         "titulo": "Sabado-10-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat Aug 10 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 41
-      },{
+      },
+      {
         "fechaFormat": "11-de-Agosto-2024",
         "titulo": "Domingo-11-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sun Aug 11 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 42
-      },{
+      },
+      {
         "fechaFormat": "12-de-Agosto-2024",
         "titulo": "Lunes-12-de-Agosto-2024",
         "placas": "0-2",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Mon Aug 12 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 43
-      },{
+      },
+      {
         "fechaFormat": "13-de-Agosto-2024",
         "titulo": "Martes-13-de-Agosto-2024",
         "placas": "6-9",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue Aug 13 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 44
-      },{
+      },
+      {
         "fechaFormat": "14-de-Agosto-2024",
         "titulo": "Miercoles-14-de-Agosto-2024",
         "placas": "3-7",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Wed Aug 14 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 45
-      },{
+      },
+      {
         "fechaFormat": "15-de-Agosto-2024",
         "titulo": "Jueves-15-de-Agosto-2024",
         "placas": "4-8",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu Aug 15 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 46
-      },{
+      },
+      {
         "fechaFormat": "16-de-Agosto-2024",
         "titulo": "Viernes-16-de-Agosto-2024",
         "placas": "1-5",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri Aug 16 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 47
-      },{
+      },
+      {
         "fechaFormat": "17-de-Agosto-2024",
         "titulo": "Sabado-17-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat Aug 17 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 48
-      },{
+      },
+      {
         "fechaFormat": "18-de-Agosto-2024",
         "titulo": "Domingo-18-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sun Aug 18 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 49
-      },{
+      },
+      {
         "fechaFormat": "19-de-Agosto-2024",
         "titulo": "Lunes-19-de-Agosto-2024",
         "placas": "0-2",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Mon Aug 19 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 50
-      },{
+      },
+      {
         "fechaFormat": "20-de-Agosto-2024",
         "titulo": "Martes-20-de-Agosto-2024",
         "placas": "6-9",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue Aug 20 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 51
-      },{
+      },
+      {
         "fechaFormat": "21-de-Agosto-2024",
         "titulo": "Miercoles-21-de-Agosto-2024",
         "placas": "3-7",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Wed Aug 21 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 52
-      },{
+      },
+      {
         "fechaFormat": "22-de-Agosto-2024",
         "titulo": "Jueves-22-de-Agosto-2024",
         "placas": "4-8",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu Aug 22 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 53
-      },{
+      },
+      {
         "fechaFormat": "23-de-Agosto-2024",
         "titulo": "Viernes-23-de-Agosto-2024",
         "placas": "1-5",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri Aug 23 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 54
-      },{
+      },
+      {
         "fechaFormat": "24-de-Agosto-2024",
         "titulo": "Sabado-24-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat Aug 24 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 55
-      },{
+      },
+      {
         "fechaFormat": "25-de-Agosto-2024",
         "titulo": "Domingo-25-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sun Aug 25 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 56
-      },{
+      },
+      {
         "fechaFormat": "26-de-Agosto-2024",
         "titulo": "Lunes-26-de-Agosto-2024",
         "placas": "0-2",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Mon Aug 26 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 57
-      },{
+      },
+      {
         "fechaFormat": "27-de-Agosto-2024",
         "titulo": "Martes-27-de-Agosto-2024",
         "placas": "6-9",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Tue Aug 27 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 58
-      },{
+      },
+      {
         "fechaFormat": "28-de-Agosto-2024",
         "titulo": "Miercoles-28-de-Agosto-2024",
         "placas": "3-7",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Wed Aug 28 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 59
-      },{
+      },
+      {
         "fechaFormat": "29-de-Agosto-2024",
         "titulo": "Jueves-29-de-Agosto-2024",
         "placas": "4-8",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Thu Aug 29 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 60
-      },{
+      },
+      {
         "fechaFormat": "30-de-Agosto-2024",
         "titulo": "Viernes-30-de-Agosto-2024",
         "placas": "1-5",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Fri Aug 30 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 61
-      },{
+      },
+      {
         "fechaFormat": "31-de-Agosto-2024",
         "titulo": "Sabado-31-de-Agosto-2024",
         "placas": "NO APLICA",
         "horario": "5:00 AM - 8:00 PM",
         "vehiculo": "Particular",
         "fecha": "Sat Aug 31 2024",
-        "ciudad":"Medellin",  
+        "ciudad": "Medellin",
         "index": 62
-      },{
+      },
+      {
         "fechaFormat": "01-de-Agosto-2024",
         "titulo": "Jueves-01-de-Agosto-2024",
         "placas": "9-0",
@@ -3698,7 +3842,8 @@
         "fecha": "Thu Aug 01 2024",
         "ciudad": "Bucaramanga",
         "index": 63
-      },{
+      },
+      {
         "fechaFormat": "02-de-Agosto-2024",
         "titulo": "Viernes-02-de-Agosto-2024",
         "placas": "1-2",
@@ -3707,7 +3852,8 @@
         "fecha": "Fri Aug 02 2024",
         "ciudad": "Bucaramanga",
         "index": 64
-      },{
+      },
+      {
         "fechaFormat": "03-de-Agosto-2024",
         "titulo": "Sabado-03-de-Agosto-2024",
         "placas": "9-0",
@@ -3716,7 +3862,8 @@
         "fecha": "Sat Aug 03 2024",
         "ciudad": "Bucaramanga",
         "index": 65
-      },{
+      },
+      {
         "fechaFormat": "04-de-Agosto-2024",
         "titulo": "Domingo-04-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3725,7 +3872,8 @@
         "fecha": "Sun Aug 04 2024",
         "ciudad": "Bucaramanga",
         "index": 66
-      },{
+      },
+      {
         "fechaFormat": "05-de-Agosto-2024",
         "titulo": "Lunes-05-de-Agosto-2024",
         "placas": "3-4",
@@ -3734,7 +3882,8 @@
         "fecha": "Mon Aug 05 2024",
         "ciudad": "Bucaramanga",
         "index": 67
-      },{
+      },
+      {
         "fechaFormat": "06-de-Agosto-2024",
         "titulo": "Martes-06-de-Agosto-2024",
         "placas": "5-6",
@@ -3743,7 +3892,8 @@
         "fecha": "Tue Aug 06 2024",
         "ciudad": "Bucaramanga",
         "index": 68
-      },{
+      },
+      {
         "fechaFormat": "07-de-Agosto-2024",
         "titulo": "Miercoles-07-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3752,7 +3902,8 @@
         "fecha": "Wed Aug 07 2024",
         "ciudad": "Bucaramanga",
         "index": 69
-      },{
+      },
+      {
         "fechaFormat": "08-de-Agosto-2024",
         "titulo": "Jueves-08-de-Agosto-2024",
         "placas": "9-0",
@@ -3761,7 +3912,8 @@
         "fecha": "Thu Aug 08 2024",
         "ciudad": "Bucaramanga",
         "index": 70
-      },{
+      },
+      {
         "fechaFormat": "09-de-Agosto-2024",
         "titulo": "Viernes-09-de-Agosto-2024",
         "placas": "1-2",
@@ -3770,7 +3922,8 @@
         "fecha": "Fri Aug 09 2024",
         "ciudad": "Bucaramanga",
         "index": 71
-      },{
+      },
+      {
         "fechaFormat": "10-de-Agosto-2024",
         "titulo": "Sabado-10-de-Agosto-2024",
         "placas": "1-2",
@@ -3779,7 +3932,8 @@
         "fecha": "Sat Aug 10 2024",
         "ciudad": "Bucaramanga",
         "index": 72
-      },{
+      },
+      {
         "fechaFormat": "11-de-Agosto-2024",
         "titulo": "Domingo-11-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3788,7 +3942,8 @@
         "fecha": "Sun Aug 11 2024",
         "ciudad": "Bucaramanga",
         "index": 73
-      },{
+      },
+      {
         "fechaFormat": "12-de-Agosto-2024",
         "titulo": "Lunes-12-de-Agosto-2024",
         "placas": "3-4",
@@ -3797,7 +3952,8 @@
         "fecha": "Mon Aug 12 2024",
         "ciudad": "Bucaramanga",
         "index": 74
-      },{
+      },
+      {
         "fechaFormat": "13-de-Agosto-2024",
         "titulo": "Martes-13-de-Agosto-2024",
         "placas": "5-6",
@@ -3806,7 +3962,8 @@
         "fecha": "Tue Aug 13 2024",
         "ciudad": "Bucaramanga",
         "index": 75
-      },{
+      },
+      {
         "fechaFormat": "14-de-Agosto-2024",
         "titulo": "Miercoles-14-de-Agosto-2024",
         "placas": "7-8",
@@ -3815,7 +3972,8 @@
         "fecha": "Wed Aug 14 2024",
         "ciudad": "Bucaramanga",
         "index": 76
-      },{
+      },
+      {
         "fechaFormat": "15-de-Agosto-2024",
         "titulo": "Jueves-15-de-Agosto-2024",
         "placas": "9-0",
@@ -3824,7 +3982,8 @@
         "fecha": "Thu Aug 15 2024",
         "ciudad": "Bucaramanga",
         "index": 77
-      },{
+      },
+      {
         "fechaFormat": "16-de-Agosto-2024",
         "titulo": "Viernes-16-de-Agosto-2024",
         "placas": "1-2",
@@ -3833,7 +3992,8 @@
         "fecha": "Fri Aug 16 2024",
         "ciudad": "Bucaramanga",
         "index": 78
-      },{
+      },
+      {
         "fechaFormat": "17-de-Agosto-2024",
         "titulo": "Sabado-17-de-Agosto-2024",
         "placas": "3-4",
@@ -3842,7 +4002,8 @@
         "fecha": "Sat Aug 10 2024",
         "ciudad": "Bucaramanga",
         "index": 79
-      },{
+      },
+      {
         "fechaFormat": "18-de-Agosto-2024",
         "titulo": "Domingo-18-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3851,7 +4012,8 @@
         "fecha": "Sun Aug 18 2024",
         "ciudad": "Bucaramanga",
         "index": 80
-      },{
+      },
+      {
         "fechaFormat": "19-de-Agosto-2024",
         "titulo": "Lunes-19-de-Agosto-2024",
         "placas": "3-4",
@@ -3860,7 +4022,8 @@
         "fecha": "Mon Aug 19 2024",
         "ciudad": "Bucaramanga",
         "index": 81
-      },{
+      },
+      {
         "fechaFormat": "20-de-Agosto-2024",
         "titulo": "Martes-20-de-Agosto-2024",
         "placas": "5-6",
@@ -3869,7 +4032,8 @@
         "fecha": "Tue Aug 20 2024",
         "ciudad": "Bucaramanga",
         "index": 82
-      },{
+      },
+      {
         "fechaFormat": "21-de-Agosto-2024",
         "titulo": "Miercoles-21-de-Agosto-2024",
         "placas": "7-8",
@@ -3878,7 +4042,8 @@
         "fecha": "Wed Aug 21 2024",
         "ciudad": "Bucaramanga",
         "index": 83
-      },{
+      },
+      {
         "fechaFormat": "22-de-Agosto-2024",
         "titulo": "Jueves-22-de-Agosto-2024",
         "placas": "9-0",
@@ -3887,7 +4052,8 @@
         "fecha": "Thu Aug 22 2024",
         "ciudad": "Bucaramanga",
         "index": 84
-      },{
+      },
+      {
         "fechaFormat": "23-de-Agosto-2024",
         "titulo": "Viernes-23-de-Agosto-2024",
         "placas": "1-2",
@@ -3896,7 +4062,8 @@
         "fecha": "Fri Aug 23 2024",
         "ciudad": "Bucaramanga",
         "index": 85
-      },{
+      },
+      {
         "fechaFormat": "24-de-Agosto-2024",
         "titulo": "Sabado-24-de-Agosto-2024",
         "placas": "5-6",
@@ -3905,7 +4072,8 @@
         "fecha": "Sat Aug 24 2024",
         "ciudad": "Bucaramanga",
         "index": 86
-      },{
+      },
+      {
         "fechaFormat": "25-de-Agosto-2024",
         "titulo": "Domingo-25-de-Agosto-2024",
         "placas": "NO APLICA",
@@ -3914,7 +4082,8 @@
         "fecha": "Sun Aug 25 2024",
         "ciudad": "Bucaramanga",
         "index": 87
-      },{
+      },
+      {
         "fechaFormat": "26-de-Agosto-2024",
         "titulo": "Lunes-26-de-Agosto-2024",
         "placas": "3-4",
@@ -3923,7 +4092,8 @@
         "fecha": "Mon Aug 26 2024",
         "ciudad": "Bucaramanga",
         "index": 88
-      },{
+      },
+      {
         "fechaFormat": "27-de-Agosto-2024",
         "titulo": "Martes-27-de-Agosto-2024",
         "placas": "5-6",
@@ -3932,7 +4102,8 @@
         "fecha": "Tue Aug 27 2024",
         "ciudad": "Bucaramanga",
         "index": 89
-      },{
+      },
+      {
         "fechaFormat": "28-de-Agosto-2024",
         "titulo": "Miercoles-28-de-Agosto-2024",
         "placas": "7-8",
@@ -3941,7 +4112,8 @@
         "fecha": "Wed Aug 28 2024",
         "ciudad": "Bucaramanga",
         "index": 90
-      },{
+      },
+      {
         "fechaFormat": "29-de-Agosto-2024",
         "titulo": "Jueves-29-de-Agosto-2024",
         "placas": "9-0",
@@ -3950,7 +4122,8 @@
         "fecha": "Thu Aug 29 2024",
         "ciudad": "Bucaramanga",
         "index": 91
-      },{
+      },
+      {
         "fechaFormat": "30-de-Agosto-2024",
         "titulo": "Viernes-30-de-Agosto-2024",
         "placas": "1-2",
@@ -3959,7 +4132,8 @@
         "fecha": "Fri Aug 30 2024",
         "ciudad": "Bucaramanga",
         "index": 92
-      },{
+      },
+      {
         "fechaFormat": "31-de-Agosto-2024",
         "titulo": "Sabado-31-de-Agosto-2024",
         "placas": "7-8",
@@ -3969,7 +4143,864 @@
         "ciudad": "Bucaramanga",
         "index": 93
       }
+    ],
+    [
+      {
+        "fechaFormat": "01-de-Septiembre-2024",
+        "titulo": "Domingo-01-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 1 2024",
+        "index": 1
+      },
+      {
+        "fechaFormat": "02-de-Septiembre-2024",
+        "titulo": "Lunes-02-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 2 2024",
+        "index": 2
+      },
+      {
+        "fechaFormat": "03-de-Septiembre-2024",
+        "titulo": "Martes-03-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 3 2024",
+        "index": 3
+      },
+      {
+        "fechaFormat": "04-de-Septiembre-2024",
+        "titulo": "Miercoles-04-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 4 2024",
+        "index": 4
+      },
+      {
+        "fechaFormat": "05-de-Septiembre-2024",
+        "titulo": "Jueves-05-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 5 2024",
+        "index": 5
+      },
+      {
+        "fechaFormat": "06-de-Septiembre-2024",
+        "titulo": "Viernes-06-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 6 2024",
+        "index": 6
+      },
+      {
+        "fechaFormat": "07-de-Septiembre-2024",
+        "titulo": "Sábado-07-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 7 2024",
+        "index": 7
+      },
+      {
+        "fechaFormat": "08-de-Septiembre-2024",
+        "titulo": "Domingo-08-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 8 2024",
+        "index": 8
+      },
+      {
+        "fechaFormat": "09-de-Septiembre-2024",
+        "titulo": "Lunes-09-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 9 2024",
+        "index": 9
+      },
+      {
+        "fechaFormat": "10-de-Septiembre-2024",
+        "titulo": "Martes-10-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 10 2024",
+        "index": 10
+      },
+      {
+        "fechaFormat": "11-de-Septiembre-2024",
+        "titulo": "Miercoles-11-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 11 2024",
+        "index": 11
+      },
+      {
+        "fechaFormat": "12-de-Septiembre-2024",
+        "titulo": "Jueves-12-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 12 2024",
+        "index": 12
+      },
+      {
+        "fechaFormat": "13-de-Septiembre-2024",
+        "titulo": "Viernes-13-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 13 2024",
+        "index": 13
+      },
+      {
+        "fechaFormat": "14-de-Septiembre-2024",
+        "titulo": "Sábado-14-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 14 2024",
+        "index": 14
+      },
+      {
+        "fechaFormat": "15-de-Septiembre-2024",
+        "titulo": "Domingo-15-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 15 2024",
+        "index": 15
+      },
+      {
+        "fechaFormat": "16-de-Septiembre-2024",
+        "titulo": "Lunes-16-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 16 2024",
+        "index": 16
+      },
+      {
+        "fechaFormat": "17-de-Septiembre-2024",
+        "titulo": "Martes-17-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 17 2024",
+        "index": 17
+      },
+      {
+        "fechaFormat": "18-de-Septiembre-2024",
+        "titulo": "Miercoles-18-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 18 2024",
+        "index": 18
+      },
+      {
+        "fechaFormat": "19-de-Septiembre-2024",
+        "titulo": "Jueves-19-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 19 2024",
+        "index": 19
+      },
+      {
+        "fechaFormat": "20-de-Septiembre-2024",
+        "titulo": "Viernes-20-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 20 2024",
+        "index": 20
+      },
+      {
+        "fechaFormat": "21-de-Septiembre-2024",
+        "titulo": "Sábado-21-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 21 2024",
+        "index": 21
+      },
+      {
+        "fechaFormat": "22-de-Septiembre-2024",
+        "titulo": "Domingo-22-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 22 2024",
+        "index": 22
+      },
+      {
+        "fechaFormat": "23-de-Septiembre-2024",
+        "titulo": "Lunes-23-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 23 2024",
+        "index": 23
+      },
+      {
+        "fechaFormat": "24-de-Septiembre-2024",
+        "titulo": "Martes-24-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 24 2024",
+        "index": 24
+      },
+      {
+        "fechaFormat": "25-de-Septiembre-2024",
+        "titulo": "Miercoles-25-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 25 2024",
+        "index": 25
+      },
+      {
+        "fechaFormat": "26-de-Septiembre-2024",
+        "titulo": "Jueves-26-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 26 2024",
+        "index": 26
+      },
+      {
+        "fechaFormat": "27-de-Septiembre-2024",
+        "titulo": "Viernes-27-de-Septiembre-2024",
+        "placas": "6-7-8-9-0",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 27 2024",
+        "index": 27
+      },
+      {
+        "fechaFormat": "28-de-Septiembre-2024",
+        "titulo": "Sábado-28-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 28 2024",
+        "index": 28
+      },
+      {
+        "fechaFormat": "29-de-Septiembre-2024",
+        "titulo": "Domingo-29-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 29 2024",
+        "index": 29
+      },
+      {
+        "fechaFormat": "30-de-Septiembre-2024",
+        "titulo": "Lunes-30-de-Septiembre-2024",
+        "placas": "1-2-3-4-5",
+        "horario": "6:00 AM - 9:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 30 2024",
+        "index": 30
+      },
+      {
+        "fechaFormat": "01-de-Septiembre-2024",
+        "titulo": "Domingo-01-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 01 2024",
+        "ciudad": "Medellin",
+        "index": 31
+      },
+      {
+        "fechaFormat": "02-de-Septiembre-2024",
+        "titulo": "Lunes-02-de-Septiembre-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 02 2024",
+        "ciudad": "Medellin",
+        "index": 32
+      },
+      {
+        "fechaFormat": "03-de-Septiembre-2024",
+        "titulo": "Martes-03-de-Septiembre-2024",
+        "placas": "6-9",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 03 2024",
+        "ciudad": "Medellin",
+        "index": 33
+      },
+      {
+        "fechaFormat": "04-de-Septiembre-2024",
+        "titulo": "Miercoles-04-de-Septiembre-2024",
+        "placas": "3-7",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 04 2024",
+        "ciudad": "Medellin",
+        "index": 34
+      },
+      {
+        "fechaFormat": "05-de-Septiembre-2024",
+        "titulo": "Jueves-05-de-Septiembre-2024",
+        "placas": "4-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 05 2024",
+        "ciudad": "Medellin",
+        "index": 35
+      },
+      {
+        "fechaFormat": "06-de-Septiembre-2024",
+        "titulo": "Viernes-06-de-Septiembre-2024",
+        "placas": "1-5",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 06 2024",
+        "ciudad": "Medellin",
+        "index": 36
+      },
+      {
+        "fechaFormat": "07-de-Septiembre-2024",
+        "titulo": "Sábado-07-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 07 2024",
+        "ciudad": "Medellin",
+        "index": 37
+      },
+      {
+        "fechaFormat": "08-de-Septiembre-2024",
+        "titulo": "Domingo-08-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 08 2024",
+        "ciudad": "Medellin",
+        "index": 38
+      },
+      {
+        "fechaFormat": "09-de-Septiembre-2024",
+        "titulo": "Lunes-09-de-Septiembre-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 09 2024",
+        "ciudad": "Medellin",
+        "index": 39
+      },
+      {
+        "fechaFormat": "10-de-Septiembre-2024",
+        "titulo": "Martes-10-de-Septiembre-2024",
+        "placas": "6-9",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 10 2024",
+        "ciudad": "Medellin",
+        "index": 40
+      },
+      {
+        "fechaFormat": "11-de-Septiembre-2024",
+        "titulo": "Miercoles-11-de-Septiembre-2024",
+        "placas": "3-7",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 11 2024",
+        "ciudad": "Medellin",
+        "index": 41
+      },
+      {
+        "fechaFormat": "12-de-Septiembre-2024",
+        "titulo": "Jueves-12-de-Septiembre-2024",
+        "placas": "4-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 12 2024",
+        "ciudad": "Medellin",
+        "index": 42
+      },
+      {
+        "fechaFormat": "13-de-Septiembre-2024",
+        "titulo": "Viernes-13-de-Septiembre-2024",
+        "placas": "1-5",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 13 2024",
+        "ciudad": "Medellin",
+        "index": 43
+      },
+      {
+        "fechaFormat": "14-de-Septiembre-2024",
+        "titulo": "Sabado-14-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 14 2024",
+        "ciudad": "Medellin",
+        "index": 44
+      },
+      {
+        "fechaFormat": "15-de-Septiembre-2024",
+        "titulo": "Domingo-15-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 15 2024",
+        "ciudad": "Medellin",
+        "index": 45
+      },
+      {
+        "fechaFormat": "16-de-Septiembre-2024",
+        "titulo": "Lunes-16-de-Septiembre-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 16 2024",
+        "ciudad": "Medellin",
+        "index": 46
+      },
+      {
+        "fechaFormat": "17-de-Septiembre-2024",
+        "titulo": "Martes-17-de-Septiembre-2024",
+        "placas": "6-9",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 17 2024",
+        "ciudad": "Medellin",
+        "index": 47
+      },
+      {
+        "fechaFormat": "18-de-Septiembre-2024",
+        "titulo": "Miercoles-18-de-Septiembre-2024",
+        "placas": "3-7",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 18 2024",
+        "ciudad": "Medellin",
+        "index": 48
+      },
+      {
+        "fechaFormat": "19-de-Septiembre-2024",
+        "titulo": "Jueves-19-de-Septiembre-2024",
+        "placas": "4-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 19 2024",
+        "ciudad": "Medellin",
+        "index": 49
+      },
+      {
+        "fechaFormat": "20-de-Septiembre-2024",
+        "titulo": "Viernes-20-de-Septiembre-2024",
+        "placas": "1-5",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 20 2024",
+        "ciudad": "Medellin",
+        "index": 50
+      },
+      {
+        "fechaFormat": "21-de-Septiembre-2024",
+        "titulo": "Sabado-21-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 21 2024",
+        "ciudad": "Medellin",
+        "index": 51
+      },
+      {
+        "fechaFormat": "22-de-Septiembre-2024",
+        "titulo": "Domingo-22-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 22 2024",
+        "ciudad": "Medellin",
+        "index": 52
+      },
+      {
+        "fechaFormat": "23-de-Septiembre-2024",
+        "titulo": "Lunes-23-de-Septiembre-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 23 2024",
+        "ciudad": "Medellin",
+        "index": 53
+      },
+      {
+        "fechaFormat": "24-de-Septiembre-2024",
+        "titulo": "Martes-24-de-Septiembre-2024",
+        "placas": "6-9",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 24 2024",
+        "ciudad": "Medellin",
+        "index": 54
+      },
+      {
+        "fechaFormat": "25-de-Septiembre-2024",
+        "titulo": "Miercoles-25-de-Septiembre-2024",
+        "placas": "3-7",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 25 2024",
+        "ciudad": "Medellin",
+        "index": 55
+      },
+      {
+        "fechaFormat": "26-de-Septiembre-2024",
+        "titulo": "Jueves-26-de-Septiembre-2024",
+        "placas": "4-8",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 26 2024",
+        "ciudad": "Medellin",
+        "index": 56
+      },
+      {
+        "fechaFormat": "27-de-Septiembre-2024",
+        "titulo": "Viernes-27-de-Septiembre-2024",
+        "placas": "1-5",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 27 2024",
+        "ciudad": "Medellin",
+        "index": 57
+      },
+      {
+        "fechaFormat": "28-de-Septiembre-2024",
+        "titulo": "Sabado-28-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 28 2024",
+        "ciudad": "Medellin",
+        "index": 58
+      },
+      {
+        "fechaFormat": "29-de-Septiembre-2024",
+        "titulo": "Domingo-29-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 29 2024",
+        "ciudad": "Medellin",
+        "index": 59
+      },
+      {
+        "fechaFormat": "30-de-Septiembre-2024",
+        "titulo": "Lunes-30-de-Septiembre-2024",
+        "placas": "0-2",
+        "horario": "5:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 30 2024",
+        "ciudad": "Medellin",
+        "index": 60
+      },
+      {
+        "fechaFormat": "01-de-Septiembre-2024",
+        "titulo": "Domingo-01-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 01 2024",
+        "ciudad": "Bucaramanga",
+        "index": 61
+      },{
+          "fechaFormat": "02-de-Septiembre-2024",
+          "titulo": "Lunes-02-de-Septiembre-2024",
+          "placas": "3-4",
+          "horario": "6:00 AM - 8:00 PM",
+          "vehiculo": "Particular",
+          "fecha": "Mon Sep 02 2024",
+          "ciudad": "Bucaramanga",
+          "index": 62
+      },
+      {
+        "fechaFormat": "03-de-Septiembre-2024",
+        "titulo": "Martes-03-de-Septiembre-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 03 2024",
+        "ciudad": "Bucaramanga",
+        "index": 63
+      },
+      {
+        "fechaFormat": "04-de-Septiembre-2024",
+        "titulo": "Miercoles-04-de-Septiembre-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 04 2024",
+        "ciudad": "Bucaramanga",
+        "index": 64
+      },
+      {
+        "fechaFormat": "05-de-Septiembre-2024",
+        "titulo": "Jueves-05-de-Septiembre-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 05 2024",
+        "ciudad": "Bucaramanga",
+        "index": 65
+      },
+      {
+        "fechaFormat": "06-de-Septiembre-2024",
+        "titulo": "Viernes-06-de-Septiembre-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 06 2024",
+        "ciudad": "Bucaramanga",
+        "index": 66
+      },
+      {
+        "fechaFormat": "07-de-Septiembre-2024",
+        "titulo": "Sabado-07-de-Septiembre-2024",
+        "placas": "9-0",
+        "horario": "9:00 AM - 1:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 07 2024",
+        "ciudad": "Bucaramanga",
+        "index": 67
+      },
+      {
+        "fechaFormat": "08-de-Septiembre-2024",
+        "titulo": "Domingo-08-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 08 2024",
+        "ciudad": "Bucaramanga",
+        "index": 68
+      },
+      {
+        "fechaFormat": "09-de-Septiembre-2024",
+        "titulo": "Lunes-09-de-Septiembre-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 09 2024",
+        "ciudad": "Bucaramanga",
+        "index": 69
+      },
+      {
+        "fechaFormat": "10-de-Septiembre-2024",
+        "titulo": "Martes-10-de-Septiembre-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 10 2024",
+        "ciudad": "Bucaramanga",
+        "index": 70
+      },{
+        "fechaFormat": "11-de-Septiembre-2024",
+        "titulo": "Miercoles-11-de-Septiembre-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 11 2024",
+        "ciudad": "Bucaramanga",
+        "index": 71
+      },
+      {
+        "fechaFormat": "12-de-Septiembre-2024",
+        "titulo": "Jueves-12-de-Septiembre-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 12 2024",
+        "ciudad": "Bucaramanga",
+        "index": 72
+      },{
+        "fechaFormat": "13-de-Septiembre-2024",
+        "titulo": "Viernes-13-de-Septiembre-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 13 2024",
+        "ciudad": "Bucaramanga",
+        "index": 73
+      },{
+        "fechaFormat": "14-de-Septiembre-2024",
+        "titulo": "Sábado-14-de-Septiembre-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 14 2024",
+        "ciudad": "Bucaramanga",
+        "index": 74
+      },{
+        "fechaFormat": "15-de-Septiembre-2024",
+        "titulo": "Domingo-15-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 15 2024",
+        "ciudad": "Bucaramanga",
+        "index": 75
+      },{
+        "fechaFormat": "16-de-Septiembre-2024",
+        "titulo": "Lunes-16-de-Septiembre-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 16 2024",
+        "ciudad": "Bucaramanga",
+        "index": 76
+      },{
+        "fechaFormat": "17-de-Septiembre-2024",
+        "titulo": "Martes-17-de-Septiembre-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 17 2024",
+        "ciudad": "Bucaramanga",
+        "index": 77
+      },{
+        "fechaFormat": "18-de-Septiembre-2024",
+        "titulo": "Miercoles-18-de-Septiembre-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 18 2024",
+        "ciudad": "Bucaramanga",
+        "index": 78
+      },{
+        "fechaFormat": "19-de-Septiembre-2024",
+        "titulo": "Jueves-19-de-Septiembre-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 19 2024",
+        "ciudad": "Bucaramanga",
+        "index": 79
+      },{
+        "fechaFormat": "20-de-Septiembre-2024",
+        "titulo": "Viernes-20-de-Septiembre-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 20 2024",
+        "ciudad": "Bucaramanga",
+        "index": 80
+      },{
+        "fechaFormat": "21-de-Septiembre-2024",
+        "titulo": "Sabado-21-de-Septiembre-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 21 2024",
+        "ciudad": "Bucaramanga",
+        "index": 81
+      },{
+        "fechaFormat": "22-de-Septiembre-2024",
+        "titulo": "Domingo-22-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 22 2024",
+        "ciudad": "Bucaramanga",
+        "index": 82
+      },{
+        "fechaFormat": "23-de-Septiembre-2024",
+        "titulo": "Lunes-23-de-Septiembre-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 23 2024",
+        "ciudad": "Bucaramanga",
+        "index": 83
+      },{
+        "fechaFormat": "24-de-Septiembre-2024",
+        "titulo": "Martes-24-de-Septiembre-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Tue Sep 24 2024",
+        "ciudad": "Bucaramanga",
+        "index": 84
+      },
+      {
+        "fechaFormat": "25-de-Septiembre-2024",
+        "titulo": "Miercoles-25-de-Septiembre-2024",
+        "placas": "7-8",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Wed Sep 25 2024",
+        "ciudad": "Bucaramanga",
+        "index": 85
+      },
+      {
+        "fechaFormat": "26-de-Septiembre-2024",
+        "titulo": "Jueves-26-de-Septiembre-2024",
+        "placas": "9-0",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Thu Sep 26 2024",
+        "ciudad": "Bucaramanga",
+        "index": 86
+      },
+      {
+        "fechaFormat": "27-de-Septiembre-2024",
+        "titulo": "Viernes-27-de-Septiembre-2024",
+        "placas": "1-2",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Fri Sep 27 2024",
+        "ciudad": "Bucaramanga",
+        "index": 87
+      },
+      {
+        "fechaFormat": "28-de-Septiembre-2024",
+        "titulo": "Sabado-28-de-Septiembre-2024",
+        "placas": "5-6",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sat Sep 28 2024",
+        "ciudad": "Bucaramanga",
+        "index": 88
+      },
+      {
+        "fechaFormat": "29-de-Septiembre-2024",
+        "titulo": "Domingo-29-de-Septiembre-2024",
+        "placas": "NO APLICA",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Sun Sep 29 2024",
+        "ciudad": "Bucaramanga",
+        "index": 89
+      },
+      {
+        "fechaFormat": "30-de-Septiembre-2024",
+        "titulo": "Lunes-30-de-Septiembre-2024",
+        "placas": "3-4",
+        "horario": "6:00 AM - 8:00 PM",
+        "vehiculo": "Particular",
+        "fecha": "Mon Sep 30 2024",
+        "ciudad": "Bucaramanga",
+        "index": 90
+      }
     ]
-
   ]
 }

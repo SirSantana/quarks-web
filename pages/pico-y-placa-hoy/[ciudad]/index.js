@@ -101,6 +101,11 @@ export default function PicoYPlacaCiudad({ciudad}) {
             <h4 style={{ fontSize: '24px',  fontWeight: '700' }}>PICO Y PLACA Agosto</h4>
           </div>
         </Link>
+        <Link href={`${router.asPath}/septiembre`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
+          <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+            <h4 style={{ fontSize: '24px',  fontWeight: '700' }}>PICO Y PLACA Septiembre</h4>
+          </div>
+        </Link>
       </div>
 
       <section style={{ width: '90%', maxWidth: '1100px', margin: '0 auto', marginBottom: '64px' }}>
