@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
-import { calcularDistancia } from '@/utils/scripts';
+import { calcularDistancia, priceToCheck } from '@/utils/scripts';
 import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 import Loader from '@/src/Components/Loaders/CardLoader';
 import DrawerGasolineras from '@/src/Components/Gasolineras/DrawerGasolineras';
@@ -39,7 +39,8 @@ export default function Gasolineras({ data }) {
   const [visibleModalFiltros, setVisibleModalFiltros] = useState(false)
   const [filter, setFilter] = useState('marca')
   const [userLocation, setUserLocation] = useState([0, 0]);
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [visibleListado, setVisibleListado] = useState(false)
   let filteredData = data?.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
   let filteredDataExtra = data?.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos)
   const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false)
@@ -126,59 +127,107 @@ export default function Gasolineras({ data }) {
         margin: '0px auto 0 auto',
         alignItems: 'center',
         width: '90%',
+        justifyContent: 'space-between',
         maxWidth: '1200px',
         overflowX: 'auto',
         height: 'fit-content',
         padding: '16px 0'  // Añadir un poco de padding para mantener el diseño consistente
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Ciudad</label>
-          <SelectCiudad />
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '24px', alignItems: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Ciudad</label>
+            <SelectCiudad setIsLoading={setIsLoading} />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Tipo de Combustible</label>
+            <SelectTipoCombustible />
+          </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Tipo de Combustible</label>
-          <SelectTipoCombustible />
-        </div>
+        <button onClick={() => setVisibleListado(!visibleListado)} style={{
+          cursor: 'pointer', border: '1px solid #6C788E', padding: '8px 12px', borderRadius: '4px', fontSize: '12px', color: '#6C788E', backgroundColor: 'white', fontWeight: '500', marginTop: '16px', whiteSpace: 'nowrap', // Asegura que el texto no se rompa en varias líneas
+          display: 'inline-block'
+        }}>
+          {visibleListado ? 'Ver Mapa' : 'Ver Lista'}
+        </button>
         {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Orden por</label>
           <SelectOrderBy />
         </div> */}
       </div>
-      <div style={{
-        width: '90%',
-        maxWidth: '1200px',
-        border: '1px solid #CFD5E1',
-        borderRadius: '16px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '32px',
-        margin: '32px auto',
-        position: 'relative',
-      }}>
-        <div style={{ position: 'absolute', bottom: '0px', right: '0px', backgroundColor: 'white', padding: '16px', borderRadius: '4px', zIndex: 2 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FF0000', }}>
-              <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292" /></svg>
+      {isLoading ?
+        <div style={{
+          width: '90%',
+          maxWidth: '1200px',
+          border: '1px solid #CFD5E1',
+          borderRadius: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '32px',
+          backgroundColor: "#f3f3f3",
+          margin: '32px auto',
+          position: 'relative',
+          height: '70vh'
+        }} />
+        :
+        <div style={{
+          width: '90%',
+          maxWidth: '1200px',
+          border: '1px solid #CFD5E1',
+          borderRadius: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '32px',
+          margin: '32px auto',
+          position: 'relative',
+        }}>
+          {visibleListado && <div style={{ border: '1px solid #CFD5E1', boxShadow: '', position: 'absolute', height: '90%', top: '16px', left: '16px', bottom: '16px', backgroundColor: 'white', width: '300px', padding: '16px 0px 16px 16px', borderRadius: '8px', zIndex: 2 }}>
+            <ul
+              style={{ listStyleType: 'none', transition: 'overflow 1s ease-in-out', padding: 0, paddingRight: '16px', scrollbarWidth: 'thin', overflowY: 'hidden', height: '100%', display: 'flex', flexDirection: 'column', gap: '32px' }}
+              onMouseEnter={(e) => { e.currentTarget.style.overflowY = 'auto', e.currentTarget.style.padding = '0 4.8px 0 0' }} // Muestra el scroll al hacer hover
+              onMouseLeave={(e) => { e.currentTarget.style.overflowY = 'hidden', e.currentTarget.style.padding = '0 16px 0 0' }}
+            >
+              {data.map(el => {
+                let price = priceToCheck({ price: el, filtros });
+                return (
+                  <li style={{ display: 'flex', flexDirection: 'column', width: '100%', justifyContent: 'space-between', gap: '8px' }}>
+                    <p style={{ fontSize: '14px', color: '#182537', fontWeight: '500' }}>{el.nombre}</p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
+                      <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <p style={{ fontSize: '14px', color: '#6C788E' }}>Precio:</p><p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>${PriceFormat({ price: price?.toString() })}</p>
+                      </div>
+                      {/* <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <p style={{ fontSize: '14px', color: '#6C788E' }}>Distancia:</p><p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>{el?.distancia}</p>
+                    </div> */}
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>}
+          <div style={{ position: 'absolute', bottom: '0px', right: '0px', backgroundColor: 'white', padding: '16px', borderRadius: '4px', zIndex: 2 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FF0000', }}>
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292" /></svg>
+              </div>
+              <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas ALTO del promedio</p>
             </div>
-            <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas ALTO del promedio</p>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FFA500', }}>
-              <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M128 256h256" /></svg>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FFA500', }}>
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M128 256h256" /></svg>
+              </div>
+              <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio promedio</p>
             </div>
-            <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio promedio</p>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#00A83E', }}>
-              <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 268l144 144 144-144M256 392V100" /></svg>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#00A83E', }}>
+                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 268l144 144 144-144M256 392V100" /></svg>
+              </div>
+              <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas BAJO del promedio</p>
             </div>
-            <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas BAJO del promedio</p>
-          </div>
 
+          </div>
+          <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} filtros={filtros} averagePrice={averagePrice} />
         </div>
-        <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} filtros={filtros} averagePrice={averagePrice} />
-      </div>
-
+      }
       <div style={{ width: '90%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '32px', margin: '64px auto', }}>
         <section>
           <h2>Bombas de Gasolina {query?.slug?.[0]}</h2>

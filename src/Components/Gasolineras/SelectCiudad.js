@@ -27,7 +27,7 @@ export const customStyles = {
     ':active': {
       borderColor: '#CFD5E1',
     },
-    position:'relative',
+    position: 'relative',
     cursor: 'pointer',
   }),
   menu: (provided) => ({
@@ -40,7 +40,7 @@ export const customStyles = {
     ...provided,
     padding: '12px',
     borderRadius: '8px',
-    border:'none',
+    border: 'none',
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,
@@ -54,7 +54,7 @@ export const customStyles = {
     ':hover': {
       color: '#CFD5E1',
     },
-    backgroundColor:  '#EDEDF2', // Cambia el color de la línea separadora del dropdown
+    backgroundColor: '#EDEDF2', // Cambia el color de la línea separadora del dropdown
   }),
   option: (provided, state) => ({
     ...provided,
@@ -75,20 +75,20 @@ export const customStyles = {
   }),
 };
 
-export default function SelectCiudad() {
+export default function SelectCiudad({setIsLoading}) {
   const router = useRouter();
   const slug = router.query.slug ? router.query.slug[0] : 'bogota d.c.';
   const initialOption = optionsCombustibles.find(el => el.value === slug) || { value: 'bogota d.c.', label: 'Bogotá D.C.', index: 1 };
-
   const [combustible, setCombustible] = useState(initialOption);
-  
-  let ciudad = router?.query?.slug?.length > 0 ? optionsCombustibles.find(el=> el.value ==router?.query?.slug?.[0])?.label   : 'Bogota D.C.';
+
+  let ciudad = router?.query?.slug?.length > 0 ? optionsCombustibles.find(el => el.value == router?.query?.slug?.[0])?.label : 'Bogota D.C.';
 
   const handleChangeCiudad = (e) => {
-    router.push(`/gasolineras/${e.value}?combustible=${router.query.combustible? router.query.combustible : 'Corriente'}`);
+    setIsLoading(true);
+    router.push(`/gasolineras/${e.value}?combustible=${router.query.combustible ? router.query.combustible : 'Corriente'}`).finally(() => setIsLoading(false));
     setCombustible({ value: e.value, index: e.index, label: e.label });
   };
-  
+
   const formatOptionLabel = ({ label, value }) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <div
@@ -104,16 +104,17 @@ export default function SelectCiudad() {
     </div>
   );
 
+
   return (
-    <Select
-      isSearchable={false}
-      onChange={(e) => handleChangeCiudad(e)}
-      options={optionsCombustibles}
-      styles={customStyles}
-      menuPosition='fixed'
-      placeholder={combustible.label}
-      value={combustible}
-      formatOptionLabel={formatOptionLabel}
-    />
+      <Select
+        isSearchable={false}
+        onChange={(e) => handleChangeCiudad(e)}
+        options={optionsCombustibles}
+        styles={customStyles}
+        menuPosition='fixed'
+        placeholder={combustible.label}
+        value={combustible}
+        formatOptionLabel={formatOptionLabel}
+      />
   );
 }

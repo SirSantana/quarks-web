@@ -31,7 +31,10 @@ export function calcularDistancia(lat1, lon1, lat2, lon2) {
   const distancia = radioTierraKm * c; // Distancia en kilómetros
   return distancia.toFixed(1);
 }
-
+export const priceToCheck =({price, filtros})=>{
+  if(!filtros) return price.price;
+  return filtros?.includes('extra') ? price.priceDos : filtros?.includes('corriente') ? price.price : price.priceCinco;
+} 
 export function deg2rad(deg) {
   return deg * (Math.PI / 180);
 }

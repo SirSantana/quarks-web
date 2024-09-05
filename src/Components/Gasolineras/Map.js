@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import PriceFormat from '@/utils/priceFormat';
 import Button, { ButtonVariant } from '../Button/Button';
 import Icon, { IconCatalog } from '../Icon/Icon';
+import { priceToCheck } from '@/utils/scripts';
 
 function MyComponent({ setZoomLevel, }) {
   const mapEvents = useMapEvents({
@@ -33,6 +34,7 @@ const MapRecenter = ({ lat, lng, zoomLevel }) => {
   return null;
 
 };
+
 export default function Map({ data, estacionCheck, setVisibleModal, setEstacionCheck, filtros, averagePrice }) {
   const [mapCenter, setMapCenter] = useState([data[data.length - 1].lat, data[data.length - 1].lng]);
 
@@ -40,10 +42,7 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
 
   const gasolineraEncontrada = data.find(gasolinera => gasolinera.nombre === estacionCheck);
   const margin = 0.01 * averagePrice;
-  const priceToCheck =({price})=>{
-    if(!filtros) return price.price;
-    return filtros?.includes('extra') ? price.priceDos : filtros?.includes('corriente') ? price.price : price.priceCinco;
-  } 
+  
   return (
     <MapContainer
       style={{position:'relative', width: '100vw', height: '80vh', zIndex: 1, maxWidth: '100%', borderRadius: '16px' }}
@@ -59,7 +58,7 @@ export default function Map({ data, estacionCheck, setVisibleModal, setEstacionC
       <Icon name={IconCatalog.arrowForwardOutline} size={16} style={{ color: 'red' }} />
 
       {data.map((gasolinera) => {
-        let price = priceToCheck({price: gasolinera});
+        let price = priceToCheck({price: gasolinera, filtros});
         const priceDifference = Math.abs(price - averagePrice);
         const isSimilar = priceDifference <= margin;
         const backgroundColor = isSimilar ? '#FFA500' : price > averagePrice ? '#FF3A33' : '#00A83E';
