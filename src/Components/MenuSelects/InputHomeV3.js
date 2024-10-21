@@ -15,6 +15,12 @@ export const customStyles = {
     flex: 1,
     backgroundColor: '#EDEDF2',
   }),
+  placeholder: (provided) => ({
+    ...provided,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  }),
   menu: (provided) => ({
     ...provided,
     borderRadius: '8px',
