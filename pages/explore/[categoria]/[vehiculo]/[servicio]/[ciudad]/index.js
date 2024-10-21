@@ -74,8 +74,6 @@ export async function getServerSideProps(context) {
         variables: { tipo: servicio.replace(/-/g, ' ') },
       });
       talleresData = data?.getNegociosVDosByServicio || [];
-      console.log(data, 'data');
-      
     } catch (error) {
       console.error('Error fetching data:', error);
     }

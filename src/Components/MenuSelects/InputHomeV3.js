@@ -9,7 +9,6 @@ export const customStyles = {
     ...provided,
     border: 'none', // Quitar el borde
     boxShadow: 'none',
-    // fontSize: '18px',
     fontWeight: '500',
     color: '#929292',
     width: '100%',

@@ -125,6 +125,7 @@
 
 .control {
     font-size: 18px;
+    touch-action: manipulation;
 }
 
 .control::placeholder {
