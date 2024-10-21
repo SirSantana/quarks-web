@@ -150,12 +150,12 @@
     margin: 0 auto;
     margin-top: 16px;
     border-radius: 8px;
-    border: 1px solid #D5D5D5;
+    border: 1px solid #CFD5E1;
     padding: 8px 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #F9F9F9;
+    background-color: #EDEDF2;
 }
 .formV3Small {
     width: 100%;
@@ -163,12 +163,12 @@
     height: 48px;
     margin: 0 auto;
     border-radius: 8px;
-    border: 1px solid #D5D5D5;
+    border: 1px solid #CFD5E1;
     padding: 6px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #F9F9F9;
+    background-color: #EDEDF2;
     padding-right: 0;
 
 }

@@ -17,6 +17,7 @@ import { useRouter } from 'next/router'
 import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
 import BasicHome from '@/src/Components/LandingPage/BasicHome'
+import HomeSep from '@/src/Components/LandingPage/HomeSep'
 
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
@@ -156,8 +157,9 @@ export default function Home({ initialQuery }) {
       </Head>
       <main className={styles.main}>
         {/* <HomeMarch initialQuery={initialQuery} mode={mode} /> */}
-        <BasicHome />
-        <SectionTalleresServicios />
+        {/* <BasicHome /> */}
+        <HomeSep/>
+        {/* <SectionTalleresServicios />
         <ListTalleresLanding />
         <ActividadReciente />
         <SectionCotizaciones />
@@ -171,7 +173,7 @@ export default function Home({ initialQuery }) {
           {tagsFix.map(tag => (
             <p key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</p>
           ))}
-        </section>
+        </section> */}
 
         {/* <div className={styles.divBtnFooter}>
           <Button onClick={handleClick} size={ButtonSize.sm} variant={ButtonVariant.secondary} icon={mode === 'Lista' ? IconCatalog.mapa : IconCatalog.lista}>

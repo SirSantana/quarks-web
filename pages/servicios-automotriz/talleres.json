@@ -20,7 +20,8 @@
       "lat": 4.740293,
       "lng": -74.041391,
       "emojisservicio": "servicio-bateria",
-      "servicio": "Baterias"
+      "servicio": "Baterias",
+      "tipo": "Taller Mecánico"
     },
     {
       "nombre": "Pelaez Hermanos - Siete de Agosto",
@@ -42,7 +43,9 @@
       "lat": 4.658190,
       "lng": -74.072442,
       "emojisservicio": "servicio-bateria",
-      "servicio": "Baterias"
+      "servicio": "Baterias",
+      "tipo": "Taller Mecánico"
+
     },
     {
       "nombre": "Tu Llanta - 7 de Agosto",
@@ -67,7 +70,9 @@
       "lat": 4.665440,
       "lng": -74.075006,
       "emojisservicio": "servicio-llantas",
-      "servicio": "Mecanica General"
+      "servicio": "Mecanica General",
+      "tipo": "Taller Mecánico"
+
     },
     {
       "nombre": "Taller Mecánico Seikou",
@@ -97,7 +102,9 @@
       "lng": -74.068119,
       "lat": 4.656088,
       "servicio": "Mecanica General",
-      "emojisservicio": "servicio-llantas"
+      "emojisservicio": "servicio-llantas",
+      "tipo": "Taller Mecánico"
+
     },
     {
       "nombre": "Pelaez Hermanos - Usaquen",
@@ -123,6 +130,7 @@
       "pais": "Colombia",
       "servicio": "Mecanica General",
       "emojisservicio": "servicio-llantas",
+      "tipo": "Taller Mecánico",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 4:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162129488!6m8!1m7!1saIUEzzHIXSg63fxVFoOdIA!2m2!1d4.700875468790908!2d-74.02915647359494!3f195.70583!4f0!5f0.7820865974627469"
     },
@@ -145,6 +153,7 @@
       "pais": "Colombia",
       "servicio": "Baterias",
       "emojisservicio": "servicio-bateria",
+      "tipo": "Taller Mecánico",
       "horario": "Lun 8:00 AM - 5:30 PM,Mar 8:00 AM - 5:30 PM,Mié 8:00 AM - 5:30 PM,Jue 8:00 AM - 5:30 PM,Vie 8:00 AM - 5:30 PM,Sáb 8:00 AM - 2:30 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162278982!6m8!1m7!1sO_r0e2L3FV8YOpCCN7NA8A!2m2!1d4.676199022338025!2d-74.08506935899389!3f229.3291484884948!4f0.6437859110347972!5f0.7820865974627469"
     },
@@ -168,6 +177,7 @@
       "nivelnegocio": "0",
       "servicio": "Suspension",
       "emojisservicio": "servicio-suspension",
+      "tipo": "Taller Mecánico",
       "pais": "Colombia",
       "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162464984!6m8!1m7!1s03guPx2-WwD8DLENQqr0ww!2m2!1d4.656880201943785!2d-74.07250085493116!3f119.8154953875689!4f1.8617991652810417!5f0.7820865974627469"
@@ -193,6 +203,7 @@
       "servicio": "Suspension",
       "emojisservicio": "servicio-suspension",
       "pais": "Colombia",
+      "tipo": "Taller Mecánico",
       "horario": "Lun 8:30 AM - 6:00 PM,Mar 8:30 AM - 6:00 PM,Mié 8:30 AM - 6:00 PM,Jue 8:30 AM - 6:00 PM,Vie 8:30 AM - 6:00 PM,Sáb 8:30 AM - 3:00 PM,Dom Cerrado",
       "ubicacionmaps": "https://www.google.com/maps/embed?pb=!4v1705162590801!6m8!1m7!1sQw-fRg7sSnfPSICzFFc5zg!2m2!1d4.717097160909637!2d-74.05327111518302!3f278.0995635623693!4f-8.01428068130167!5f0.7820865974627469"
     },
@@ -212,6 +223,7 @@
       "nivel": 2,
       "localidad": "Fontibon",
       "servicio": "Mecanica General",
+      "tipo": "Taller Mecánico",
       "emojisservicio": "servicio-llantas",
       "lng": -74.153858,
       "lat": 4.679444,
@@ -236,6 +248,7 @@
       "localidad": "",
       "servicio": "Cajas",
       "emojisservicio": "servicio-cajas",
+      "tipo": "Mecanico a Domicilio",
       "id": "64b7d0bfcbf32fcc68b63588",
       "userName": "motores_y_cajas_ruben",
       "fotoperfil": "",
@@ -263,6 +276,7 @@
         "Mecanica Avanzada"
       ],
       "userName": "math_autos",
+      "tipo": "Taller Mecánico",
       "servicio": "Mecanica General",
       "emojisservicio": "servicio-llantas",
       "nivel": 1,
@@ -280,6 +294,7 @@
     {
       "nombre": "Multiservicios Ismael Sanchez",
       "direccion": "Servicio a Domicilio",
+      "tipo": "Mecanico a Domicilio",
       "categorias": [
         "Servicio de Caja y transmisión",
         "Especialista en Cajas Automaticas Optra / Vivant ZF-4HP16",

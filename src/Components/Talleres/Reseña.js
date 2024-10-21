@@ -1,8 +1,7 @@
 import { timeSince } from "@/utils/dateEs";
-import { categorias2 } from "./ServiciosOfrecidos";
-import styles from '@/styles/Components.module.css'
 import Icon, { IconCatalog } from "../Icon/Icon";
 import Box from "../Box/Box";
+import { categorias } from "@/src/data/Categorias";
 
 const Star = ({ index, stars, tamaño, }) => {
   return (
@@ -56,18 +55,16 @@ export default function Reseña({ reseña }) {
         </p>
         <div style={{ width: 'fitContent', display: 'flex', flexWrap: 'wrap', flexDirection: 'row', gap: '8px' }}>
           {reseña?.servicios?.map(el => {
-            let image = categorias2.find(category => category.nombre == el)
+            let image = categorias.find(category => category.nombre == el)
             return (
-              <div style={{ borderRadius: '4px', padding: '4px 12px', border: '1px solid #c5c5c5', width: 'fitContent', display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
-                <img style={{ width: '20px', height: '20px', borderRadius: '50%' }} src={`../${image?.img}.png`} alt={`Servicio de ${el}`} />
+              <div key={el} style={{ borderRadius: '4px', padding: '4px 12px', border: '1px solid #c5c5c5', width: 'fitContent', display: 'flex', flexDirection: 'row', gap: '8px', alignItems: 'center' }}>
+                <img style={{ width: '20px', height: '20px', borderRadius: '50%' }} src={`/${image?.img}`} alt={`Servicio de ${el}`} />
                 <p style={{ fontSize: '12px', color: '#5c5c5c', fontWeight: '500' }}>
                   {el}
                 </p>
               </div>
-
             )
           })}
-
         </div>
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
           <p style={{ fontSize: '12px', lineHeight: '22px', color: '#969595' }}>

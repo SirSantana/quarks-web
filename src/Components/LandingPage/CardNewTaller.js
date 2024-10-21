@@ -1,11 +1,8 @@
-import { GET_CALIFICACION_OPINIONES } from '@/graphql/queries';
 import styles from '@/styles/Landing.module.css'
-import { useQuery } from '@apollo/client';
 import Link from 'next/link';
-import { categorias2 } from '../Talleres/ServiciosOfrecidos';
 import Image from 'next/image';
 import Button, { ButtonVariant } from '../Button/Button';
-import { useRouter } from 'next/router';
+import { categorias } from '@/src/data/Categorias';
 
 
 export default function CardNewTaller({ taller, setVisibleModal}) {
@@ -45,11 +42,11 @@ export default function CardNewTaller({ taller, setVisibleModal}) {
           <p style={{ fontSize: '14px', fontWeight: '500', color:'#929292' }}>{taller?.direccion}. {taller?.localidad}, {taller?.ciudad}</p>
           <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             {taller?.categorias?.slice(0, 3).map(el => {
-              const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
+              const category = categorias?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
               return (
                 category &&
                 <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center',backgroundColor:'#f3f3f3', border:'1px solid #d9d9d9', borderRadius: '8px', padding: '4px 8px', }}>
-                  {category?.img && <Image src={`/${category?.img}.png`} width={20} height={20} alt={`Taller de autos de ${el}`} />}
+                  {category?.img && <Image src={`/${category?.img}`} width={20} height={20} alt={`Taller de autos de ${el}`} />}
                   <p style={{ margin: 0,fontWeight:'500', fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
                 </div>
               )

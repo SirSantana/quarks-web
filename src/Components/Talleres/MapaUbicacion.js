@@ -12,15 +12,15 @@ export default function MapaUbicacion({ username, nombre, direccion, coordenadas
     ubicacionMaps || ubicacion
       ?
       <>
-        <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}> Ubicacion de {nombre}  </h2>
+        {/* <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}> Ubicacion de {nombre}  </h2> */}
         <div className={styles.maps}>
           <iframe title={`Ubicacion ${ubicacionMaps?.nombre? ubicacionMaps.nombre : nombre}`} style={{ height: '100%', width: '100%', borderRadius: '8px' }} src={ubicacionMaps?.ubicacionmaps? ubicacionMaps.ubicacionmaps : ubicacion} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <span style={{ textAlign: 'left', width: '90%' }}>{direccion}</span>
+        {/* <span style={{ textAlign: 'left', width: '90%' }}>{direccion}</span> */}
       </>
       :
       <>
-        <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}> Ubicacion de {nombre}  </h2>
+        {/* <h2 style={{ fontSize: '18px', marginLeft: '36px', alignSelf: 'flex-start', marginTop: '32px', fontWeight: '600', display: 'flex', gap: '16px' }} className={styles.titleNegocio}> Ubicacion de {nombre}  </h2> */}
         <MapContainer
           className={styles.maps}
           center={mapCenter} zoom={11} zoomControl={false} scrollWheelZoom={true}>
@@ -47,7 +47,7 @@ export default function MapaUbicacion({ username, nombre, direccion, coordenadas
             </Popup>
           </Marker>
         </MapContainer>
-        <span style={{ textAlign: 'left', width: '90%' }}>{direccion}</span>
+        {/* <span style={{ textAlign: 'left', width: '90%' }}>{direccion}</span> */}
 
       </>
 

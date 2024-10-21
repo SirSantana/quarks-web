@@ -6,10 +6,13 @@ const sendWhatsappMessage = ({ numero, path = null, text }) => {
   window.open(url);
 }
 
+export const removeAccents=(str)=> {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+}
+
 export const getLatLng = ({data}) => {
   const latLngRegex = /1d(-?\d+\.\d+)!2d(-?\d+\.\d+)/;
   const matches = data?.ubicacionmaps?.match(latLngRegex);
-  console.log(data, 'data');
   if (matches) {
     const lat = parseFloat(matches[1]);
     const lng = parseFloat(matches[2]);

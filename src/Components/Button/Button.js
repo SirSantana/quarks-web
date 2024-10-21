@@ -23,7 +23,6 @@ export default function Button({ children, size = ButtonSize.base, active = fals
   const variantButton = styles[`button-${variant}`];
   const sizeButton = styles[`button-${size}`]
   const classname = styles[className]
-  console.log(className);
   return (
     link
       ?

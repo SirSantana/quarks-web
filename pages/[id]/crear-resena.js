@@ -7,32 +7,13 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { signOut, useSession } from 'next-auth/react'
 import Select from 'react-select';
-import { categorias2 } from '@/src/Components/Talleres/ServiciosOfrecidos'
 import Layout from '@/src/Components/Layout'
 import ModalLoginFacebook from '@/src/Components/Almacenes/ModalLoginFacebook'
+import { categorias } from '@/src/data/Categorias'
+import { marcasAuto } from '@/src/data/Marcas'
 
 
-export const marcas = [
-  { value: 'Chevrolet', label: 'Chevrolet', img: '../Chevrolet.png' },
-  { value: 'Renault', label: 'Renault', img: '../Renault.png' },
-  { value: 'Nissan', label: 'Nissan', img: '../Nissan.png' },
-  { value: 'Mazda', label: 'Mazda', img: '../Mazda.png' },
-  { value: 'Toyota', label: 'Toyota', img: '../Toyota.png' },
-  { value: 'Ford', label: 'Ford', img: '../Ford.png' },
-  { value: 'Kia', label: 'Kia', img: '../Kia.png' },
-  { value: 'Hyundai', label: 'Hyundai', img: '../Hyundai.png' },
-  { value: 'Volkswagen', label: 'Volkswagen', img: '../Volkswagen.png' },
-  { value: 'Honda', label: 'Honda', img: '../Honda.png' },
-  { value: 'BMW', label: 'BMW', img: '../BMW.png' },
-  { value: 'Mercedes-Benz', label: 'Mercedes-Benz', img: '../MercedesBenz.png' },
-  { value: 'Audi', label: 'Audi', img: '../Audi.png' },
-  { value: 'Jeep', label: 'Jeep', img: '../Jeep.png' },
-  { value: 'Suzuki', label: 'Suzuki', img: '../Suzuki.png' },
-  { value: 'Peugeot', label: 'Peugeot', img: '../Peugeot.png' },
-  { value: 'Fiat', label: 'Fiat', img: '../Fiat.png' },
-  { value: 'Volvo', label: 'Volvo', img: '../Volvo.png' },
-  { value: 'Mitsubishi', label: 'Mitsubishi', img: '../Mitsubishi.png' },
-];
+
 export const customStyles = {
   control: (provided) => ({
     ...provided,
@@ -103,18 +84,18 @@ export const formatOptionLabel = ({ value, index, label }, { selectValue }) => {
         isValueSelected
           ?
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-            <img src={`../${categorias2[index].img}.png`} style={{ width: '30px', height: '30px' }} alt={categorias2[index].img} />
+            <img src={`../${categorias[index].img}.png`} style={{ width: '30px', height: '30px' }} alt={categorias[index].img} />
           </div>
           :
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-            <img src={`../${categorias2[index].img}.png`} style={{ width: '30px', height: '30px' }} alt={categorias2[index].img} />
-            <p style={{ fontSize: '12px', }}>{categorias2[index].nombre}</p>
+            <img src={`../${categorias[index].img}.png`} style={{ width: '30px', height: '30px' }} alt={categorias[index].img} />
+            <p style={{ fontSize: '12px', }}>{categorias[index].nombre}</p>
           </div>
       }
     </div>
   );
 }
-export const marcasWithOptions = marcas.map((marca, index) => ({
+export const marcasWithOptions = marcasAuto.map((marca, index) => ({
   value: marca.value,
   label: (
     <img src={marca.img} alt={marca.label} style={{ width: '30px', height: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} />
@@ -122,7 +103,7 @@ export const marcasWithOptions = marcas.map((marca, index) => ({
   index: index
 }));
 
-export const repuestosWithOptions = categorias2.map((categoria, index) => ({
+export const repuestosWithOptions = categorias.map((categoria, index) => ({
   value: categoria.db,
   label: categoria.nombre,
   index: index,
@@ -240,7 +221,7 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
         <section style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column', }}>
           <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>Tú vehículo</h4>
           <div style={{ display: 'flex', width: '100%', gap: '8px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Select onChange={(e) => setForm({ ...form, marca: e.value })} options={marcasWithOptions} isSearchable={false} styles={customStyles2} placeholder={<img src={marcas[0].img} style={{ width: '30px', height: '30px', marginTop: '4px' }} />} defaultValue={marcas[0].img} />
+            <Select onChange={(e) => setForm({ ...form, marca: e.value })} options={marcasWithOptions} isSearchable={false} styles={customStyles2} placeholder={<img src={marcasAuto[0].img} style={{ width: '30px', height: '30px', marginTop: '4px' }} />} defaultValue={marcasAuto[0].img} />
             <input required id="referencia" type='text' onChange={handleChange} name='referencia' value={form.referencia} className={styles.inputChooseMarca} placeholder='Modelo - Cilindraje - Año' />
           </div>
         </section>

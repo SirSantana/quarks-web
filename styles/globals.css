@@ -25,3 +25,9 @@ body {
   background-size: 40px 40px;
   background-position: -19px -19px;
 }
+.marker-cluster-small {
+  background-color: rgba(195, 215, 255, 0.6) !important; /* Color de fondo más claro */
+}
+.marker-cluster-small div {
+  background-color: #407BFF !important; /* Color del círculo para clusters pequeños */
+}

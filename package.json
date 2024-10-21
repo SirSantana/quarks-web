@@ -24,6 +24,7 @@
     "graphql": "15.8.0",
     "html-react-parser": "4.0.0",
     "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
     "next": "13.4.19",
     "next-auth": "^4.22.1",
     "rc-slider": "^10.2.1",

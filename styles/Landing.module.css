@@ -41,6 +41,53 @@
   flex-direction: row;
   gap: 20%
 }
+.transitionWord {
+  display: inline-block;
+  color: #407BFF;
+  min-width: 120px; /* Asegura que haya espacio reservado para la palabra más larga */
+  text-align: center;
+  white-space: nowrap;
+}
+.containerTagsSearch{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.tagSearch{
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #A6AEC1;
+  text-decoration: none;
+  color: #6C788E;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.tagSearch:hover{
+  background-color: #EDEDF2;
+}
+.tagSearch:active {
+  background-color: #CFD5E1; /* Color de fondo al hacer clic */
+  color: #000000; /* Cambia el color del texto al hacer clic */
+  transform: scale(0.95); /* Pequeña reducción de tamaño al hacer clic */
+}
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
 .containerGrowth {
   display: flex;
@@ -131,10 +178,14 @@
 }
 
 .title2 {
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 110%;
-  color: #373737;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #182537;
+  max-width: 700px;
+  text-align: center;
+  text-wrap: balance;
+  margin: 0 auto;
 }
 
 .subtitle {
@@ -426,8 +477,7 @@
 
 @media (max-width: 1380px) {
   .containerListTalleres {
-    width: 90%;
-    padding: 80px 0;
+    width: 80%;
   }
 
   .containerGrowth {
@@ -466,9 +516,7 @@
     font-size: 44px;
   }
 
-  .title2 {
-    font-size: 34px;
-  }
+ 
 }
 
 @media (max-width: 1080px) {
@@ -508,7 +556,8 @@
   }
 
   .containerListTalleres {
-    padding: 0;
+    padding: 20px;
+    width: 100%;
   }
 
   .containerVariedadTalleres {
@@ -579,9 +628,7 @@
     min-width: 36px;
   }
 
-  .title2 {
-    text-align: center;
-  }
+  
 
   .containerCardOpinion {
     gap: 0px;
@@ -606,9 +653,10 @@
   }
 
   .title2 {
-    font-size: 32px;
+    font-size: 40px;
     text-align: center;
     margin-bottom: 16px;
+    max-width: 500px;
   }
 }
 
@@ -639,7 +687,8 @@
   }
 
   .title2 {
-    font-size: 24px;
+    font-size: 32px;
+    margin-top: 16px;
   }
 
   .imgTaller {
@@ -685,6 +734,24 @@
     display: block;
   }
 
+  
 
+}
+@media (max-width: 600px) {
+  .title2 {
+    font-size: 28px;
+  }
+  .containerTagsSearch{
+    gap: 16px 8px;
+  }
+  .tagSearch{
+    padding: 6px 12px;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .transitionWord{
+  width: calc(8ch);
+
+  }
 
 }

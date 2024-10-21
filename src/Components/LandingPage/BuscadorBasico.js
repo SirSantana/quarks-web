@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/V3.module.css";
 import Icon, { IconCatalog } from "../Icon/Icon";
-import InputHomeV3 from "./InputHomeV3";
+import InputHomeV3 from "../MenuSelects/InputHomeV3";
 
 
 let cardsBussiness = [
@@ -29,35 +29,51 @@ let cardsBussiness = [
   { nombre: 'Serviteca Gaitán', img: 'https://azurequarks.blob.core.windows.net/negocios/servitecagaitan230424.jpg', direccion: 'Cl. 69b #70C-04 Bogotá. Colombia', db: 'Mazda' },
   ],
 ]
-export default function BuscadorBasico({size='large'}) {
+export default function BuscadorBasico({ size = 'large' }) {
   const [service, setService] = useState({ new: false, value: '' })
   const router = useRouter()
+  const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    router.push(`/servicios/${service.value.replaceAll(' ', '-')}`)
+    if (service.new) {
+      router.push(`/servicios/${service.value.replaceAll(' ', '-')}`)
+    } else {
+      router.push(`/explore/talleres/carro/${service.value.replaceAll(' ', '-')}/bogota`)
+    }
+    // router.push(`/servicios/${service.value.replaceAll(' ', '-')}`)
+    // router.push(`/explore/talleres/carro/${service.value.replaceAll(' ', '-')}/bogota`)
     // router.push(`/servicios/${service}`)
-
   }
+  
   const handleChange = (e) => {
     if (e?.index) {
+      setInputValue(e?.value.toLowerCase())
       setService({ new: false, value: e?.index.toLowerCase() })
+
       // router.push(`/servicios/${e.index}`)
     } else {
+      setInputValue(e?.value.toLowerCase())
       setService({ new: true, value: e?.value.toLowerCase() })
       // router.push(`/catalogo-pastas-freno?busqueda=${e.value}`)
     }
   }
+  const onInputChange = (inputValue, event) => {
+    if (event.action === 'input-change') {
+      setService({ new: true, value: inputValue.toLowerCase() })
+      setInputValue(inputValue.toLowerCase())
+    }
+  }
 
   return (
-    <>
+    <search>
       <form onSubmit={handleSubmit} className={size === 'large' ? styles.formV3 : styles.formV3Small} >
-        <div  style={{ flexGrow: 1, }} >
-         <InputHomeV3 handleChange={handleChange} />
+        <div style={{ flexGrow: 1, }} >
+          <InputHomeV3 handleChange={handleChange} inputValue={service.new ? service.value : inputValue} onInputChange={onInputChange} />
         </div>
-        <Button className={'desktopButton'}  style={{ margin: '0' }} >Buscar</Button>
-        <Button className={'mobileButton'} style={{ margin: '0', padding:'12px' }}  icon={IconCatalog.searchOutline} iconColor="white"/>
+        <Button className={'desktopButton'} style={{ margin: '0', backgroundColor: '#407BFF' }} >Buscar</Button>
+        <Button className={'mobileButton'} style={{ margin: '0', padding: '12px', backgroundColor: '#407BFF' }} icon={IconCatalog.searchOutline} iconColor="white" />
       </form>
-    </>
+    </search>
   )
 }

@@ -76,8 +76,6 @@ export default function PicoYPlacaCiudad({ciudad}) {
   return (
     <Layout title={`Pico y Placa ${ciudad}`} picoyplacaStructured={structuredData} description={`Consulta el Pico y Placa en la ciudad de ${ciudad}. Entérate de las restricciones vehiculares y planifica tu viaje de manera eficiente para evitar contratiempos en ${ciudad}.`} keywords={`Pico y Placa, ${ciudad}, Colombia, Restricciones vehiculares, Tráfico, Movilidad, Horarios, Automóviles, Calendario, , Vehículos particulares, Regulaciones de tráfico`}>
       <div style={{ alignItems: 'flex-start', width: '90%', maxWidth: '1100px',  marginBottom: '64px' }} className={styles.container}>
-
-
         <h1 className={styles.title}>Pico y Placa en {ciudad} </h1>
         <p style={{fontSize:'14px'}}>Bienvenido a la guía definitiva del Pico y Placa en {ciudad}. Aquí encontrarás toda la información actualizada sobre las restricciones vehiculares en nuestra ciudad. </p>
         <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${ciudad} 2024`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />

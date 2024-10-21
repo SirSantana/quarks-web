@@ -32,7 +32,7 @@ export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
               <p style={{ fontSize: '14px', fontWeight: '600' }}>{result?.data?.getCalificacionOpiniones}</p>
               <div style={{ display: 'flex', flexDirection: 'row', gap: '4px', }}>
                 {estrellas.map((el, index) => (
-                  <Star index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'16'} />
+                  <Star key={index} index={index} stars={Math.round(result?.data?.getCalificacionOpiniones)} tamaño={'16'} />
                 ))}
               </div>
 

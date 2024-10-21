@@ -409,7 +409,7 @@
   /* Espacio entre pestañas */
   padding-bottom: 5px;
   /* Espacio para la línea debajo del texto */
-  border-bottom: 4px solid #f50057;
+  border-bottom: 4px solid #407BFF;
   /* Línea debajo del texto (color azul en este ejemplo) */
 }
 
@@ -490,7 +490,7 @@
 }
 
 .containerSliderTab {
-  z-index: 1;
+  z-index: 0;
   width: 95%;
   background-color: white;
   border: 1px solid #CFD5E1;
@@ -500,7 +500,7 @@
 }
 
 .containerSliderTabDesktop {
-  z-index: 1;
+  z-index: 0;
   width: 90%;
   background-color: white;
   padding: 8px 0;
@@ -517,7 +517,7 @@
 }
 
 .activeTextTab {
-  color: #f50057
+  color: #407BFF
 }
 
 .cardServicioHome:hover {

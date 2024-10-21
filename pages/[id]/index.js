@@ -4,7 +4,7 @@ import Layout from "@/src/Components/Layout";
 import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
-import styles from '@/styles/ServiciosAutomotriz.module.css'
+import styles from '@/styles/Negocio.module.css'
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
@@ -19,7 +19,12 @@ import ModalButtonsContacto from "@/src/Components/Talleres/ModalButtonsContacto
 import Button, { ButtonVariant } from "@/src/Components/Button/Button";
 import Revisiones from "@/src/Components/Talleres/Revisiones";
 import { getLatLng } from "@/utils/scripts";
-
+import SectionCategorias from "@/src/Components/Talleres/V3/SectionCategorias";
+import CardSolicitarServicio from "@/src/Components/Talleres/V3/CardSolicitarServicio";
+import ModalSolicitarServicio from "@/src/Components/Talleres/V3/ModalSolicitarServicio";
+import Link from "next/link";
+const OnlyMap = dynamic(() => import('@/src/Components/Talleres/OnlyMap'),
+  { ssr: false, loading: () => <div className={styles.skeletonMap} /> })
 const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
   { ssr: false })
 const RecomiendasTaller = dynamic(() => import('@/src/Components/Talleres/RecomiendasTaller'),
@@ -28,7 +33,7 @@ const WidgetMenu = dynamic(() => import('@/src/Components/Talleres/V3/WidgetMenu
   { ssr: false })
 
 const SliderTab = dynamic(() => import('@/src/Components/Talleres/V3/SliderTab'),
-  { ssr: false })
+  { ssr: false, loading: () => <div className={styles.skeletonSlider} /> })
 const Horario = dynamic(() => import('@/src/Components/Talleres/V3/Horario'),
   { ssr: false })
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
@@ -36,7 +41,7 @@ const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
 const BogotaMap = dynamic(() => import('@/src/Components/Talleres/MapaBogotaCobertura'),
   { ssr: false })
 const MapaUbicacion = dynamic(() => import('@/src/Components/Talleres/MapaUbicacion'),
-  { ssr: false })
+  { ssr: false, loading: () => <div className={styles.skeletonMap} /> })
 const FooterSectionFixed = dynamic(() => import('@/src/Components/Talleres/FooterSectionFixed'),
   { ssr: false })
 const ButtonsFooter = dynamic(() => import('@/src/Components/Talleres/ButtonsFooter'),
@@ -44,10 +49,21 @@ const ButtonsFooter = dynamic(() => import('@/src/Components/Talleres/ButtonsFoo
 const ButtonTestWhatsapp = dynamic(() => import('@/src/Components/Talleres/ButtonTestWhatsapp'),
   { ssr: false })
 
-export default function NegocioVDos({ data }) {
+const servicios = [
+  'Cambio de Aceite',
+  'Alineación y Balanceo',
+  'Revisión de frenos',
+  'Cambio de filtros',
+  'Reparación de suspensión',
+  'Revisión de batería',
+  'Diagnóstico electrónico',
+  'Cambio de llantas',
+];
+export default function NegocioVDos({ data, loading }) {
   const router = useRouter()
   const [visibleModalImage, setVisibleModalImage] = useState(false)
   const [visibleModalButtons, setVisibleModalButtons] = useState(false)
+  const [visibleModalSolicitarServicio, setVisibleModalSolicitarServicio] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionMecanico = `Mecanico a domicilio, zona de cobertura Bogota y alrededores. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Servicio especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionAlmacen = `Almacen de repuestos especializado en${data?.marcasAutos?.map(el => " " + el)}. Estamos ubicados en la ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}`
@@ -70,62 +86,45 @@ export default function NegocioVDos({ data }) {
     ref.current.scrollIntoView({ behavior: 'smooth' });
   }
   const position = getLatLng({ data: data });
+  const openModal = () => {
+    router.push(`${router.asPath}?modalSolicitar=${data.id}`, undefined, { shallow: true,scroll: false });
+    setVisibleModalSolicitarServicio(true);
+  };
+  // if(loading){return <h1>Cargando...</h1>}
+  
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
-      <div className={styles.containerAlmacen}>
-        <div className={styles.containerSticky}>
-          <div className={styles.divDesktopCard}>
+      <section className={styles.sectionMain}>
+        <section
+          className={styles.sectionMainImage}
+          style={{
+            backgroundImage: `url(${data?.fotoperfil})`,
+          }} />
+        <div className={styles.cardContainer} >
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center' }}>
             <Image
-              sizes="100vw"
-              width={400}
-              height={500}
-              className={styles.imgFotoPortada2}
+              width={120}
+              height={120}
+              className={styles.profileImage}
               src={data?.fotoperfil}
               priority={true}
               loading="eager"
               onClick={() => setVisibleModalImage(true)}
               alt={`Taller mecanico ${data?.nombre} Bogota`}
             />
-            <div
-              className={styles.opacityImg}
-            />
-            <div className={styles.cardDataDesktop} >
-              <DataTaller data={data} mobile={true} />
+            <div>
+              {/* <h3 className={styles.headerDetails}>Centro de diagnóstico automotriz</h3> */}
+              <h3 className={styles.headerDetails}>{data?.tipo == 'Almacen' ? "Almacén de Autopartes" : data?.tipo == 'Mecanico a Domicilio' ? "Mecánico a domicilio" : "Taller Mecánico"}</h3>
+
+              <h1 className={styles.headerTitle}>{data?.nombre}</h1>
             </div>
-            <ButtonsHeader data={data} />
           </div>
+          <Button onClick={openModal} style={{ alignSelf: 'flex-end', margin: '0', backgroundColor: '#407BFF', whiteSpace: 'noWrap' }} >Solicitar Revision</Button>
         </div>
+      </section>
 
-        <div className={styles.containerSectionsTaller}>
-
-          <DataTaller data={data} sizes={true} />
-
-          <div style={{ marginBottom: '16px' }} className={styles.containerMobile} >
-            <SliderTab handleChangeSection={handleChangeSection} refs={{
-              mapSectionRef,
-              refServicios,
-              refHorarios,
-              refReseñas,
-              refAcercaDe,
-              refRedes
-            }} desktop={true} />
-            <WidgetMenu data={data} onClick={handleClickReseñasSection} handleChangeSection={handleChangeSection} mapSectionRef={mapSectionRef} refReseñas={refReseñas} indicativo={data?.indicativo} />
-            {data?.userName === 'multiservicios_ismael_sanchez'
-              ?
-              <FooterSectionFixed data={data} />
-              : data?.userName === 'optra_club_colombia'
-                ? <ButtonTestWhatsapp whatsapp={data?.whatsapp} id={data?.id} />
-                :
-                <ButtonsFooter data={data} setVisibleModalButtons={setVisibleModalButtons} />
-            }
-            {/* <div style={{width:'90%'}}>
-              <Button fullWidth  variant={ButtonVariant.secondary} size="sm">
-                Editar perfil
-              </Button>
-            </div> */}
-
-          </div>
-
+      <section className={styles.sectionContent}>
+        <div ref={mapSectionRef} className={styles.contentContainer} >
           <SliderTab handleChangeSection={handleChangeSection} refs={{
             mapSectionRef,
             refServicios,
@@ -133,67 +132,94 @@ export default function NegocioVDos({ data }) {
             refReseñas,
             refAcercaDe,
             refRedes
-          }} desktop={false} />
-          <div className={styles.containerMobile} >
-            <section ref={refServicios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
-              <ServiciosTab categorias={data?.categorias} tipo={data?.tipo} id={data?.id} />
-            </section>
-            <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
-            {(data?.urltallermaps || data?.coordenadas?.length > 0 !== (data?.tipo === 'Mecanico a Domicilio' || data?.tipo === 'Mecanico')) &&
-              <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+          }} desktop={true} />
+          <section className={styles.sectionMainContent} >
+            <div className={styles.mapSection} >
+              <section >
+                <h2 className={styles.sectionTitle}>Ubicacion de {data?.nombre}</h2>
+                {/* <OnlyMap username={data?.userName} maxWidth="700px" nombre={data?.nombre} direccion={data
+                  ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
+                  : ''} coordenadas={data?.coordenadas ? data?.coordenadas : position} img={data?.fotoperfil} /> */}
                 <MapaUbicacion ubicacion={data?.ubicacionmaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data
                   ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
                   : ''} coordenadas={data?.coordenadas ? data?.coordenadas : position} img={data?.fotoperfil} />
+                <div className={styles.containerFooterUbicacion} >
+                  <div className={styles.containerFooterUbicacionDos} >
+                    <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexDirection: 'row' }}>
+                      <span style={{ fontSize: '20px', width: '24px' }}>📍</span>
+                      <div>
+                        <p style={{ fontWeight: '500', color: '#182537', fontSize: '16px', lineHeight: '1.05' }}>{data?.direccion}</p>
+                        <p style={{ color: '#6C788E', fontSize: '14px' }}>Ubicacion</p>
+                      </div>
+                    </div>
+                    {/* <Link href={data?.urltallermaps}  className={styles.buttonIcon}> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-corner-up-right"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M6 18v-6a3 3 0 0 1 3 -3h10l-4 -4m0 8l4 -4" /></svg></Link> */}
+                  </div>
+                </div>
               </section>
-            }
-            {(data?.tipo === 'Mecanico a Domicilio' || data?.tipo === 'Mecanico') &&
-              <section ref={mapSectionRef} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <BogotaMap coordenadas={data?.coordenadas} img={data?.fotoperfil} direccion={data
-                  ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
-                  : ''} nombre={data?.nombre} />
+
+              <div ref={refServicios} style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '16px 0 48px 0' }} />
+
+              <SectionCategorias data={data} />
+              <section className={styles.sectionCardContainer}>
+                <div style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
+                <CardSolicitarServicio visibleModalSolicitarServicio={visibleModalSolicitarServicio} setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} openModal={openModal} />
               </section>
-            }
-            <section style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
-              <SectionDataSeo data={data} />
-            </section>
-            <section ref={refHorarios} style={{ display: 'flex', gap: '8px', width: '90%', flexDirection: 'column', alignItems: 'center' }}>
+
+              <div style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
+
+              <RecomiendasTaller onClick={handleClickReseñasSection} nombre={data?.nombre} />
+
+              <section style={{ display: 'flex', gap: '8px', flexDirection: 'column', alignItems: 'center' }}>
+                <SectionDataSeo data={data} />
+              </section>
+
+              <div ref={refHorarios} style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
               <Horario horariosSeparados={horariosSeparados} />
-            </section>
 
-            {(data?.facebook || data?.instagram || data?.whatsapp || data?.paginaweb) &&
-              <section ref={refRedes} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <RedesSociales data={data} />
+
+              {(data?.facebook || data?.instagram || data?.whatsapp || data?.paginaweb) &&
+                <>
+                  <div ref={refRedes} style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0' }} />
+                  <RedesSociales data={data} />
+                </>
+              }
+
+              <div  style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
+
+              <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <Revisiones id={data?.id} />
               </section>
 
-            }
+              <div ref={refReseñas} style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
 
-            {data?.acercanegocio &&
-              <section ref={refAcercaDe} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                <SectionAcercaDe nombre={data?.nombre} texto={data?.acercanegocio} />
+              <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps} />
               </section>
-            }
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <Revisiones id={data?.id} />
-            </section>
-            <section ref={refReseñas} style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps} />
-            </section>
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <SectionPreguntasFrecuentes data={data} />
-            </section>
-            <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-              <SectionDescription data={data} />
-            </section>
-          </div>
+
+              <div style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
+
+              <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <SectionPreguntasFrecuentes data={data} />
+              </section>
+              <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                <SectionDescription data={data} />
+              </section>
+            </div>
+            <aside className={styles.stickyAside} >
+              <CardSolicitarServicio visibleModalSolicitarServicio={visibleModalSolicitarServicio} setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} openModal={openModal} />
+            </aside>
+          </section>
         </div>
-      </div>
+        <section className={styles.containerButtonsMobile}>
+          <Button  onClick={openModal} className={'mobileButton'} >Solicitar Revision</Button>
+        </section>
+      </section>
+
       {visibleModalImage &&
         <ModalImagePerfil img={data?.fotoperfil} setVisibleModalImage={setVisibleModalImage} />}
       {visibleModalButtons && <ModalButtonsContacto data={data} setVisibleModalButtons={setVisibleModalButtons} />}
-
+      {/* {visibleModalSolicitarServicio && <ModalSolicitarServicio setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} />} */}
     </Layout>
-
-
   )
 }
 
@@ -214,7 +240,6 @@ export async function getServerSideProps({ query, res }) {
     return {
       props: {
         data: data?.getOneNegocioVDos,
-
       },
     };
   }
@@ -236,7 +261,7 @@ export async function getServerSideProps({ query, res }) {
   return {
     props: {
       data: data?.getOneNegocioVDos,
-
+      loading
     },
   };
 }

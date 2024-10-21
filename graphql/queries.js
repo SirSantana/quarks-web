@@ -490,6 +490,22 @@ export const GET_NEGOCIOSVDOS_BY_SERVICIO= gql`
     }
   }
 `
+export const GET_SEARCH= gql`
+  query getSearch($text:String){
+    getSearch(text:$text){
+      nombre
+      direccion
+      fotoperfil
+      categorias
+      ciudad
+      pais
+      horario
+      id
+      tipo
+      userName
+    }
+  }
+`
 export const GET_NEGOCIOVDOS_BY_EMAIL = gql`
   query getNegocioVDosByEmail($email:String){
     getNegocioVDosByEmail(email:$email)

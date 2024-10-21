@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { MagicMotion } from "react-magic-motion";
-import { categorias2 } from "../ServiciosOfrecidos";
 import { GET_CALIFICACION_OPINIONES } from "@/graphql/queries";
 import { useQuery } from "@apollo/client";
-import Divider from "../../Box/Divider";
-
-
+import { categorias } from "@/src/data/Categorias";
 
 export default function SectionPreguntasFrecuentes({ data }) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: data?.id } })
@@ -18,7 +15,7 @@ export default function SectionPreguntasFrecuentes({ data }) {
   }
 
   let { conImagen, sinImagen } = data?.categorias?.reduce((result, el) => {
-    const categoriaActual = categorias2.find(cat => el.toLowerCase() === cat.db.toLowerCase());
+    const categoriaActual = categorias.find(cat => el.toLowerCase() === cat.db.toLowerCase());
     if (categoriaActual) {
       result.conImagen.push(categoriaActual);
     } else {

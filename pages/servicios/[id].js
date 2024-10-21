@@ -1,33 +1,56 @@
-import SectionFixedServicios from "@/src/Components/LandingPage/SectionFixedServicios"
-import Layout from "@/src/Components/Layout"
-import { useRouter } from "next/router"
-import styles2 from '@/styles/Landing.module.css'
-import CardNewTaller from "@/src/Components/LandingPage/CardNewTaller"
-import Icon, { IconCatalog } from "@/src/Components/Icon/Icon"
-import { GET_NEGOCIOSVDOS_BY_SERVICIO } from "@/graphql/queries"
-import { useQuery } from "@apollo/client"
-import {  useRef } from "react"
-import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPreguntasServicio"
-import SectionSeoServicios from "@/src/Components/LandingPage/SectionSeoServicios"
+import SectionFixedServicios from "@/src/Components/LandingPage/SectionFixedServicios";
+import Layout from "@/src/Components/Layout";
+import { useRouter } from "next/router";
+import styles2 from '@/styles/Landing.module.css';
+import CardNewTaller from "@/src/Components/LandingPage/CardNewTaller";
+import Icon, { IconCatalog } from "@/src/Components/Icon/Icon";
+import { GET_NEGOCIOSVDOS_BY_SERVICIO, GET_SEARCH } from "@/graphql/queries";
+import { useQuery } from "@apollo/client";
+import { useRef } from "react";
+import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPreguntasServicio";
+import SectionSeoServicios from "@/src/Components/LandingPage/SectionSeoServicios";
+import CardTallerV2 from "@/src/Components/LandingPage/CardTallerV2";
 
+// Función getServerSideProps para renderizado del lado del servidor
+export async function getServerSideProps(context) {
+  const { id } = context.query;
 
-export default function Servicio() {
-  const router = useRouter()
-  const resultsRef = useRef(null)
-  const { loading, data, error } = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {
-    variables: { tipo: router?.query?.id?.replace(/-/g, ' ') },
+  let pageTitle = '';
+
+  if (!id) {
+    pageTitle = 'Encuentra los mejores talleres en Bogotá';
+  } else if (id === 'cda') {
+    pageTitle = 'Revisión técnico mecánica en Bogotá';
+  } else {
+    const formattedTitle = id.replace(/-/g, ' ').charAt(0).toUpperCase() + id.replace(/-/g, ' ').slice(1);
+    pageTitle = `Talleres de ${formattedTitle} en Bogotá`;
+  }
+
+  return {
+    props: {
+      pageTitle, // El título se pasa como props al componente
+    },
+  };
+}
+
+export default function Servicio({ pageTitle }) {
+  const router = useRouter();
+  const resultsRef = useRef(null);
+  const { loading, data } = useQuery(GET_SEARCH, {
+    variables: { text: router?.query?.id?.replace(/-/g, ' ') },
     onCompleted: () => {
       if (resultsRef.current) {
         resultsRef.current.scrollIntoView({ behavior: 'smooth' });
       }
     }
   });
+  
   return (
-    <Layout visibleNavbar={false} title={`${router.query.id === 'cda' ? 'Revision tecnico mecanica' : `Talleres de ${router?.query?.id?.replace(/-/g, ' ')}`} en Bogotá`} >
+    <Layout visibleNavbar={false} title={pageTitle}>
       <SectionFixedServicios />
-      <section className={styles2.containerListTalleres} >
+      <section className={styles2.containerListTalleres}>
         <div ref={resultsRef} style={{ marginBottom: '32px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <p>{router?.query?.id ? `Se encontraron ${data?data?.getNegociosVDosByServicio.length:'10'} talleres mecanicos de ${router.query.id.replace(/-/g, ' ')} cerca de mi en Bogota` : 'Se encontraron +100 talleres en Bogota'}</p>
+          <p>{router?.query?.id ? `Se encontraron ${data ? data?.getSearch.length : '10'} talleres mecánicos de ${router.query.id.replace(/-/g, ' ')} cerca de mí en Bogotá` : 'Se encontraron +100 talleres en Bogotá'}</p>
           <div>
             <div style={{ display: 'flex', flexDirection: 'row', padding: '8px 12px', width: 'fit-content', alignItems: 'center', gap: '8px', border: '1px solid #D5D5D5', borderRadius: '4px' }}>
               <Icon name={IconCatalog.optionsOutline} />
@@ -35,37 +58,33 @@ export default function Servicio() {
             </div>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', alignItems: 'flex-start', justifyContent: 'space-between' }} >
-          {loading
-            ?
+        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          {loading ? (
             <>
               <div className={styles2.cardNewTallerSkeleton} />
               <div className={styles2.cardNewTallerSkeleton} />
               <div className={styles2.cardNewTallerSkeleton} />
               <div className={styles2.cardNewTallerSkeleton} />
             </>
-
-            :
-            data?.getNegociosVDosByServicio?.map((taller, index) => (
-                <CardNewTaller key={taller.nombre} taller={taller} />
+          ) : 
+            <div
+            style={{
+              width:'100%',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gap: '24px',
+              alignItems: 'flex-start',
+            }}
+          >
+            {data?.getSearch?.map((taller, index) => (
+              <CardTallerV2 key={taller.nombre} taller={taller} />
             ))}
+          </div>
+          }
         </div>
       </section>
       <SectionPreguntasServicio data={data?.getNegociosVDosByServicio} />
       <SectionSeoServicios data={data?.getNegociosVDosByServicio} />
     </Layout>
-  )
+  );
 }
-// export async function getServerSideProps({ query }) {
-//   const { data, error, loading } = await client.query(
-//     {
-//       query: GET_NEGOCIOSVDOS_BY_SERVICIO,
-//       variables: { tipo: query.id.replace(/-/g, ' ') }
-//     }
-//   )
-//   return {
-//     props: {
-//       data: data.getNegociosVDosByServicio,
-//     },
-//   };
-// }

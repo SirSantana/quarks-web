@@ -1,0 +1,419 @@
+.sectionMain {
+  height: 50vh; /* Mantén la altura del 50% de la ventana */
+  position: relative; /* Asegúrate de que esta sección sea el contenedor relativo */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.sectionMainImage {
+  height: 100%; /* Mantén la altura del 50% de la ventana */
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  background-color: #EDEDF2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardContainer {
+  display: flex;
+  position: absolute; /* Posición absoluta por defecto */
+  bottom: -100px; /* Mueve el contenedor hacia abajo */
+  height: 200px;
+  border-radius: 24px;
+  border: 1px solid #CFD5E1;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  width: 90%;
+  padding: 40px;
+  max-width: 1100px;
+}
+
+.profileImage {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.headerDetails {
+  font-weight: 600;
+  font-size: 14px;
+  color: #407BFF;
+}
+
+.headerTitle {
+  font-weight: 600;
+  font-size: 32px;
+  color: #182537;
+  line-height: 1.2;
+}
+
+.requestButton {
+  align-self: flex-end;
+  margin: 0;
+  background-color: #407BFF;
+  white-space: nowrap;
+}
+
+.sectionContent {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 140px;
+  align-items: center;
+}
+.containerButtonsMobile{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerButtonsMobile button{
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  width: 90vw;
+  background-color: #407BFF;
+  white-space: nowrap;
+}
+.cardSolicitarServicio{
+  width: 100%;
+}
+/* alignSelf: 'flex-end', margin: '24px 0 0 0', backgroundColor: '#407BFF', whiteSpace: 'noWrap'  */
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: white;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.sectionMainContent {
+  margin-top: 0px;
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.mapSection {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.sectionTitle{
+  font-size: 20px;
+  align-self: flex-start;
+  font-weight: 600;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.containerFooterUbicacion{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0px;
+}
+.containerFooterUbicacionDos{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.buttonIcon{
+  display: flex;
+  width: 48px;
+  height: 48px;
+  border: 1px solid white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #6C788E;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+.buttonIcon:hover{
+  background-color: #EDEDF2;
+  border:1px solid #CFD5E1
+}
+.locationDetails {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-direction: row;
+}
+
+.locationIcon {
+  font-size: 20px;
+  width: 24px;
+}
+
+.locationText {
+  font-weight: 500;
+  color: #182537;
+  font-size: 16px;
+  line-height: 1.05;
+}
+
+.locationSubtitle {
+  color: #6C788E;
+  font-size: 14px;
+}
+.gridRevisiones{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  width: 100%;
+  align-items: start;
+  justify-items: start;
+}
+.iconButton {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  border: 1px solid white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: #6C788E;
+  background-color: white;
+}
+
+.gridCategorias{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  align-items: start;
+  justify-items: start;
+}
+
+.sectionCardContainer{
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.stickyAside {
+  position: sticky;
+  top:96px;
+  display: flex;
+  gap: 8px;
+  width: 340px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  border: 1px solid #CFD5E1;
+  padding: 32px;
+}
+.button{
+  align-self: flex-end;
+  margin: 0;
+  background-color: #407BFF;
+  white-space: noWrap;
+}
+
+
+.skeletonMap{
+  height: 260px;
+  width: 100%;
+  border-radius: 16px;
+  background-color: #CFD5E1;
+  animation: loading 1s infinite;
+
+}
+.skeletonSlider{
+  animation: loading 1s infinite;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  padding-top: 8px;
+  padding: 16px 0 0 0;
+  background-color: #CFD5E1;
+  z-index: 1;
+  height: 50px;
+  max-width: 600px;
+}
+@keyframes loading {
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.containerSliderTab {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  padding-top: 8px;
+  padding: 16px 0 0 0;
+  background-color: white;
+}
+
+.sliderTab {
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 0 16px;
+  gap: 16px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.sliderTab::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+
+
+
+.tab {
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.tab:hover{
+  border-bottom: 3px solid #CFD5E1;
+}
+/* Estilo para la pestaña activa */
+.activeTab {
+  /* Espacio entre pestañas */
+  padding: 10px;
+  text-align: center;
+  /* Espacio para la línea debajo del texto */
+  border-bottom: 3px solid #407BFF;
+  /* Línea debajo del texto (color azul en este ejemplo) */
+}
+
+.textTab{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+  color:#6C788E;
+}
+.activeTextTab{
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  white-space: nowrap;
+  color:#407BFF
+}
+
+
+@media (max-width:1100px) {
+.stickyAside{
+  display: none;
+}
+
+}
+@media (max-width:900px) {
+  .cardContainer{
+    padding: 24px;
+    height: fit-content;
+    border-radius: 16px;
+  }
+  .cardContainer button{
+    display: none;
+  }
+  .sectionMain{
+    height: 40vh;
+  }
+  .sectionMainContent{
+    margin-top: 0;
+  }
+  .gridRevisiones{
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+  }
+}
+@media (max-width:600px) {
+.profileImage{
+  height: 48px;
+  width: 48px;
+}
+
+.sectionCardContainer{
+  display: flex;
+  position: relative;
+}
+.sectionContent{
+  margin-top: 10px;
+
+}
+.sectionContent button{
+  display: flex;
+}
+.containerSliderTab{
+  max-width: 100vw;
+  width: 100%;
+  padding: 0;
+  padding-top: 8px;
+  border-bottom: #CFD5E1 solid 1px;
+  z-index: 1;
+
+}
+
+
+.button{
+  display: none;
+}
+.headerTitle {
+  font-size: 24px;
+}
+.sectionMain{
+  align-items: flex-start;
+}
+.cardContainer {
+  border: none;
+  width: 100%;
+  padding: 20px;
+  position: sticky; /* Cambiar a sticky */
+  top: 20px; /* Se fijará en la parte superior */
+  background-color: white; /* Asegúrate de que tenga un fondo para verse bien */
+  bottom: auto;
+}
+
+.activeTab {
+  padding-bottom: 16px;
+}
+.gridCategorias{
+  grid-template-columns: repeat(1, 1fr);
+}
+
+}
