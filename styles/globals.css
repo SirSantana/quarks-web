@@ -24,6 +24,7 @@ body {
   /* background-image: radial-gradient(rgb(197, 197, 197) 1px, transparent 0); */
   background-size: 40px 40px;
   background-position: -19px -19px;
+  -webkit-text-size-adjust: 100%;
 }
 .marker-cluster-small {
   background-color: rgba(195, 215, 255, 0.6) !important; /* Color de fondo más claro */
