@@ -1,10 +1,10 @@
 
 import styles from '@/styles/Faq.module.css'
-import { categorias2 } from '../Talleres/ServiciosOfrecidos'
 import { MagicMotion } from "react-magic-motion";
 import Button, { ButtonVariant } from '../Button/Button';
 import { useState } from 'react';
 import Input from '../Input/Input';
+import { categorias as categorias2 } from '@/src/data/Categorias';
 
 
 export default function AddServicios({ setPage, setCategorias, categorias, setForm, form, setDataImportante, dataImportante, router }) {

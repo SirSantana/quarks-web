@@ -1,6 +1,5 @@
 import { MagicMotion } from "react-magic-motion";
 import Icon, { IconCatalog } from "../../Icon/Icon";
-import { categorias2 } from "../ServiciosOfrecidos";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Button, { ButtonVariant } from "../../Button/Button";
@@ -9,6 +8,7 @@ import { EDIT_NEGOCIO_VDOS_REDES } from "@/graphql/mutations";
 import { GET_ONE_NEGOCIOVDOS } from "@/graphql/queries";
 import { useMutation } from "@apollo/client";
 import { ModalError, ModalLoading, ModalSuccessfull } from "@/utils/Modales";
+import { categorias as categorias2 } from '@/src/data/Categorias';
 
 export default function EditServicios({data, email}) {
   const [editNegocioVDosRedes, result] = useMutation(EDIT_NEGOCIO_VDOS_REDES, {refetchQueries:[GET_ONE_NEGOCIOVDOS, {variables: { userName: data?.userName } }]})

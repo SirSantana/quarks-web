@@ -1,10 +1,10 @@
 
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import Image from 'next/image'
-import { categorias2 } from './ServiciosOfrecidos'
 import Button, { ButtonVariant } from '../Button/Button'
 import { useRouter } from 'next/router'
 import WidgetMenu from './V3/WidgetMenu'
+import { categorias } from '@/src/data/Categorias'
 
 export default function ModalNegocioV3({ setVisibleModal, data }) {
   const router = useRouter()
@@ -33,7 +33,7 @@ export default function ModalNegocioV3({ setVisibleModal, data }) {
           
           <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             {data?.categorias.map(el => {
-              const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
+              const category = categorias?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
               return (
                 <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#f3f3f3', borderRadius: '8px', padding: '4px 8px', }}>
                   {category?.img && <Image src={`/${category?.img}.png`} width={20} height={20} alt={`Taller de autos de ${el}`} style={{objectFit:'contain'}}/>}

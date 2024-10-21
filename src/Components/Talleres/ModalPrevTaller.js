@@ -6,7 +6,8 @@ import Image from 'next/image'
 import Button, { ButtonVariant } from '../Button/Button';
 import WidgetComplete from '../Icon/WidgetComplete';
 import { IconCatalog } from '../Icon/Icon';
-import { categorias2 } from './ServiciosOfrecidos';
+import { categorias as categorias2 } from '@/src/data/Categorias'
+
 import { useRouter } from 'next/router';
 import HorarioDias from './HorarioDias';
 import dynamic from "next/dynamic";

@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { categorias2 } from "../ServiciosOfrecidos";
 import Icon, { IconCatalog } from "../../Icon/Icon";
 import { useState } from "react";
 import styles from '@/styles/Faq.module.css'
 import { GET_WHATSAPP_NEGOCIO } from "@/graphql/queries";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
+import {categorias as categorias2} from "@/src/data/Categorias";
 
 
 export default function ServiciosTab({ categorias, tipo, id }) {

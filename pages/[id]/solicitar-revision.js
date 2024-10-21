@@ -1,16 +1,16 @@
 import Layout from "@/src/Components/Layout";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { customStyles, customStyles2, formatOptionLabel, marcas, marcasWithOptions, repuestosWithOptions } from "./crear-resena";
+import { customStyles, customStyles2, formatOptionLabel,  marcasWithOptions, repuestosWithOptions } from "./crear-resena";
 import Select from 'react-select';
 import styles from '@/styles/Almacenes.module.css'
-import { categorias2 } from "@/src/Components/Talleres/ServiciosOfrecidos";
 import Icon, { IconCatalog } from "@/src/Components/Icon/Icon";
 import { CREATE_SOLICITUD_SERVICIO, CREATE_VISITA_WHATSAPP } from "@/graphql/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_WHATSAPP_NEGOCIO } from "@/graphql/queries";
 import Button, { ButtonVariant } from "@/src/Components/Button/Button";
 import { ModalError, ModalLoading, ModalSuccessfull } from "@/utils/Modales";
+import { marcasAuto } from "@/src/data/Marcas";
 
 
 let initialForm = {
@@ -119,7 +119,7 @@ export default function SolicitarRevision() {
         <div style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column', }}>
           <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>Tú vehículo</h4>
           <div style={{ display: 'flex', width: '100%', gap: '8px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Select onChange={(e) => setForm({ ...form, marca: e.value })} options={marcasWithOptions} isSearchable={false} styles={customStyles2} placeholder={<img src={marcas[0].img} style={{ width: '30px', height: '30px', marginTop: '4px' }} />} defaultValue={marcas[0].img} />
+            <Select onChange={(e) => setForm({ ...form, marca: e.value })} options={marcasWithOptions} isSearchable={false} styles={customStyles2} placeholder={<img src={marcasAuto[0].img} style={{ width: '30px', height: '30px', marginTop: '4px' }} />} defaultValue={marcasAuto[0].img} />
             <input required id="referencia" type='text' onChange={handleChange} name='referencia' value={form.referencia} className={styles.inputChooseMarca} placeholder='Modelo - Cilindraje - Año' />
           </div>
         </div>
