@@ -8,7 +8,7 @@ import MenuSelectsFilter from '@/src/Components/LandingPage/MenuSelectsFilter';
 import { GET_NEGOCIOSVDOS_BY_SERVICIO } from '@/graphql/queries';
 import { client } from '@/client';
 
-const CiudadPage = ({ categoria, vehiculo, servicio, ciudad, talleresData }) => {
+export default function CiudadPage ({ categoria, vehiculo, servicio, ciudad, talleresData }) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const resultsRef = useRef(null);
@@ -59,8 +59,6 @@ const CiudadPage = ({ categoria, vehiculo, servicio, ciudad, talleresData }) => 
     </LayoutExplore>
   );
 };
-
-export default CiudadPage;
 
 // Consulta GraphQL en el servidor
 export async function getServerSideProps(context) {
