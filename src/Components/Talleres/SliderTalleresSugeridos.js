@@ -1,12 +1,12 @@
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import talleres from '@/pages/servicios-automotriz/talleres.json'
 import Link from 'next/link';
-import { categorias2 } from './ServiciosOfrecidos';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 import Icon, { IconCatalog } from '../Icon/Icon';
+import { categorias } from '@/src/data/Categorias';
 
 export default function SliderTalleresSugeridos() {
 
@@ -51,7 +51,7 @@ export default function SliderTalleresSugeridos() {
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '6px', width: '100%' }}>
               <p style={{ fontSize: '12px', margin: 0, color: '#464646', width: '100%', fontWeight: '600' }}>{taller?.nombre === 'Corsa Motors' ? 'Almacen de Repuestos' : 'Taller Mecanico'}</p>
               {taller?.categorias.slice(0, 2).map(el => {
-                const category = categorias2?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
+                const category = categorias?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
                 return (
                   <div key={el} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', borderRadius: '24px', padding: '4px 4px 4px 0px', }}>
                     {category?.img ? <Image width={20} loading='lazy' height={20} src={`/${category?.img}.png`} alt={`Taller mecanico de ${category?.nombre} cerca a mi`} /> : <ion-icon name="settings-outline" style={{ fontSize: '20px' }}></ion-icon>}
