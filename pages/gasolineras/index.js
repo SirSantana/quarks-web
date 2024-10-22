@@ -144,7 +144,7 @@ export default function Gasolineras({ data }) {
         position: 'sticky',
         top: '0',  // Mantiene el div en la parte superior mientras se hace scroll
         backgroundColor: 'white',  // Asegura que el fondo sea blanco mientras se desplaza
-        zIndex: 3,  // Asegura que el div se mantenga por encima de otros elementos
+        zIndex: 1,  // Asegura que el div se mantenga por encima de otros elementos
         display: 'flex',
         flexDirection: 'row',
         gap: '24px',
@@ -203,6 +203,7 @@ export default function Gasolineras({ data }) {
           gap: '32px',
           margin: '32px auto',
           position: 'relative',
+          zIndex:0
         }}>
           {visibleListado && <div style={{ border: '1px solid #CFD5E1', boxShadow: '', position: 'absolute', height: '90%', top: '16px', left: '16px', bottom: '16px', backgroundColor: 'white', width: '300px', padding: '16px 0px 16px 16px', borderRadius: '8px', zIndex: 2 }}>
             <ul
