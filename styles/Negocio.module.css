@@ -284,6 +284,9 @@
   scroll-behavior: smooth;
   padding: 0 16px;
   gap: 16px;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 16px;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
 }
@@ -300,6 +303,8 @@
   padding: 10px;
   text-align: center;
   cursor: pointer;
+  scroll-snap-align: center;
+  min-width: 100px;
 }
 .tab:hover{
   border-bottom: 3px solid #CFD5E1;

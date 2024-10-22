@@ -154,7 +154,6 @@ export default function Gasolineras({ data }) {
         justifyContent: 'space-between',
         maxWidth: '1200px',
         overflowX: 'auto',
-        height: 'fit-content',
         padding: '16px 0'  // Añadir un poco de padding para mantener el diseño consistente
       }}>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '24px', alignItems: 'center' }}>
