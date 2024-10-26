@@ -81,7 +81,7 @@ export default function Layout({ children, footer = true,title, description, typ
           </>}
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        {negocio && <meta name="google-adsense-platform" content="noindex,nofollow"/>}
+        <meta name="google-adsense-platform" content="noindex,nofollow"/>
 
         <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />

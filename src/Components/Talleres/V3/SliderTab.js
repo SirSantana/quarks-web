@@ -2,7 +2,7 @@
 import styles from '@/styles/Negocio.module.css'
 import { useRef, useState } from 'react';
 
-let tabs = ['Ubicacion','Servicios',  'Horario','Redes Sociales', 'Acerca de',  'Reseñas'];
+let tabs = ['Ubicacion','Servicios',  'Horario','Redes Sociales', 'Acerca de',  'Reseñas', ];
 // export default function SliderTab({ handleChangeSection, refs, desktop}) {
 //   const [activeTab, setActiveTab] = useState(-1); // Estado para mantener la pestaña activa
 //   const [disableClick, setDisableClick] = useState(false);
@@ -63,6 +63,7 @@ export default function SliderTab({ handleChangeSection, refs, desktop }) {
       refs.refRedes, refs.refAcercaDe, refs.refReseñas
     ];
     handleChangeSection({ ref: refss[index] });
+   
   };
 
 
