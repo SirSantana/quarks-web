@@ -80,8 +80,7 @@ export default function Layout({ children, footer = true,title, description, typ
             <meta property="product:price:currency" content="COP" />
           </>}
 
-        <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <meta name="google-adsense-platform" content="noindex,nofollow"/>
+        {!negocio && <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />}
 
         <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
