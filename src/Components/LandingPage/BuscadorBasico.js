@@ -70,7 +70,7 @@ export default function BuscadorBasico({ size = 'large' }) {
     <div style={{ width: '81%', margin: 0, padding: 0, flex: 1 }}>
       <InputHomeV3 handleChange={handleChange} inputValue={service.new ? service.value : inputValue} onInputChange={onInputChange} />
     </div>
-    <Button className={'desktopButton'} style={{ margin: '0', padding: 0, backgroundColor: '#407BFF' }}>Buscar</Button>
+    <Button className={'desktopButton'} style={{ margin: '0',backgroundColor: '#407BFF' }}>Buscar</Button>
     <Button className={'mobileButton'} style={{ margin: '0', padding: '12px', backgroundColor: '#407BFF' }} icon={IconCatalog.searchOutline} iconColor="white" />
   </form>
     </search>
