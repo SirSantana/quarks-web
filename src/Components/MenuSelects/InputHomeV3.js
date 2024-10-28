@@ -11,9 +11,12 @@ export const customStyles = {
     boxShadow: 'none',
     fontWeight: '500',
     color: '#929292',
-    width: '100%',
-    flex: 1,
+    maxWidth: '90%',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis', // Agregar
+    overflow: 'hidden', 
     backgroundColor: '#EDEDF2',
+    flex:1
   }),
   placeholder: (provided) => ({
     ...provided,
@@ -25,6 +28,8 @@ export const customStyles = {
     ...provided,
     borderRadius: '8px',
     zIndex: 5,
+    maxWidth: '90%',
+
     // border: '1px solid #CFD5E1',
   }),
   menuList: (provided) => ({
@@ -32,6 +37,8 @@ export const customStyles = {
     padding: '12px',
     borderRadius: '8px',
     border: 'none',
+    maxWidth: '90%',
+
     maxHeight: '300px', // Límite de altura para que el scroll se active
     overflow: 'hidden', // Oculta el scroll inicialmente
     ':hover': {

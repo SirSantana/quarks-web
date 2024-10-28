@@ -1,4 +1,3 @@
-import CreatableSelect from "react-select/creatable";
 import Button, { ButtonVariant } from "../Button/Button";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -66,14 +65,14 @@ export default function BuscadorBasico({ size = 'large' }) {
   }
 
   return (
-    <search>
-      <form onSubmit={handleSubmit} className={size === 'large' ? styles.formV3 : styles.formV3Small} >
-        <div style={{ flexGrow: 1, }} >
-          <InputHomeV3 handleChange={handleChange} inputValue={service.new ? service.value : inputValue} onInputChange={onInputChange} />
-        </div>
-        <Button className={'desktopButton'} style={{ margin: '0', backgroundColor: '#407BFF' }} >Buscar</Button>
-        <Button className={'mobileButton'} style={{ margin: '0', padding: '12px', backgroundColor: '#407BFF' }} icon={IconCatalog.searchOutline} iconColor="white" />
-      </form>
+    <search style={{ width:'100%'}}>
+      <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 0 }} className={size === 'large' ? styles.formV3 : styles.formV3Small}>
+    <div style={{ width: '81%', margin: 0, padding: 0, flex: 1 }}>
+      <InputHomeV3 handleChange={handleChange} inputValue={service.new ? service.value : inputValue} onInputChange={onInputChange} />
+    </div>
+    <Button className={'desktopButton'} style={{ margin: '0', padding: 0, backgroundColor: '#407BFF' }}>Buscar</Button>
+    <Button className={'mobileButton'} style={{ margin: '0', padding: '12px', backgroundColor: '#407BFF' }} icon={IconCatalog.searchOutline} iconColor="white" />
+  </form>
     </search>
   )
 }
