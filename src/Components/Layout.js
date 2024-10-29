@@ -84,7 +84,10 @@ export default function Layout({ children, footer = true,title, description, typ
 
         <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+        <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+        {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
 
