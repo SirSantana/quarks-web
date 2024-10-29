@@ -29,13 +29,14 @@ const Avatar = ({
     <>
       {/* Mostrar la imagen solo si no ha fallado la carga */}
       {src && !isImageError ? (
-        <img
+        <Image
           src={src}
           alt={alt}
-          style={{borderRadius:'50%', objectFit:'cover', width:'48px', height:'48px'}}
-          objectFit="cover"
-          onLoad={() => setIsImageLoaded(true)}
-          onError={() => setIsImageError(true)}
+          width={48}
+          height={48}
+          quality={100}
+          style={{ borderRadius: '50%', objectFit: 'cover' }}
+          onLoadingComplete={() => setIsImageLoaded(true)}
         />
       ) : (
         // Fallback a la imagen por defecto o iniciales

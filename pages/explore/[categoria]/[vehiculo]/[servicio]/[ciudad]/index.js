@@ -1,20 +1,23 @@
 import LayoutExplore from '@/src/Components/LandingPage/LayoutExplore';
-import SectionFixedServicios from '@/src/Components/LandingPage/SectionFixedServicios';
 import { useRouter } from 'next/router';
 import styles2 from '@/styles/Landing.module.css';
 import { useRef, useState } from 'react';
 import CardTallerV2 from '@/src/Components/LandingPage/CardTallerV2';
-import MenuSelectsFilter from '@/src/Components/LandingPage/MenuSelectsFilter';
 import { GET_NEGOCIOSVDOS_BY_SERVICIO } from '@/graphql/queries';
 import { client } from '@/client';
+import getSeoCategorias from '@/src/data/SeoCategorias';
+import { useQuery } from '@apollo/client';
+import SectionSeoServicios from '@/src/Components/LandingPage/SectionSeoServicios';
 
-export default function CiudadPage ({ categoria, vehiculo, servicio, ciudad, talleresData }) {
+export default function CiudadPage({ categoria, vehiculo, servicio, ciudad, description, talleresData }) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const resultsRef = useRef(null);
+  // const {data, loading, error} = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {variables:{tipo:router.query.servicio.replace(/-/g, ' ')}})
+  // let talleresData = data?.getNegociosVDosByServicio;
+  // console.log(data);
 
   return (
-    <LayoutExplore categoria={categoria} vehiculo={vehiculo} servicio={servicio} ciudad={ciudad}>
+    <LayoutExplore categoria={categoria} vehiculo={vehiculo} servicio={servicio} ciudad={ciudad} description={description?.description}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
         <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -56,6 +59,27 @@ export default function CiudadPage ({ categoria, vehiculo, servicio, ciudad, tal
           </div>
         )}
       </div>
+      {description &&
+        <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
+          <section style={{display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '1100px', width: '90%',  margin: '0 auto' }}>
+            <article>
+              <h2>{description?.preguntas?.importancia}</h2>
+              <p>{description?.importancia}</p>
+            </article>
+            <article>
+              <h2>{description?.preguntas?.duracion}</h2>
+              <p>{description.duracion}</p>
+            </article>
+            <article>
+              <h2>{description?.preguntas?.frecuencia}</h2>
+              <p>{description.frecuencia}</p>
+            </article>
+          </section>
+
+        </div>
+      }
+      <SectionSeoServicios data={talleresData} categoria={categoria} vehiculo={vehiculo} servicio={servicio}/>
+
     </LayoutExplore>
   );
 };
@@ -72,20 +96,22 @@ export async function getServerSideProps(context) {
       const { data } = await client.query({
         query: GET_NEGOCIOSVDOS_BY_SERVICIO,
         variables: { tipo: servicio.replace(/-/g, ' ') },
+        fetchPolicy: 'cache-first'
       });
       talleresData = data?.getNegociosVDosByServicio || [];
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   }
-
+  const servicioSeo = getSeoCategorias({ servicio: servicio, ciudad: ciudad, vehiculo: vehiculo });
   return {
     props: {
       categoria: categoria || null,
       vehiculo: vehiculo || null,
       servicio: servicio || null,
       ciudad: ciudad || null,
-      talleresData,  // Pasamos los datos de los talleres obtenidos desde el servidor
+      description: servicioSeo || null,
+      talleresData
     },
   };
 }

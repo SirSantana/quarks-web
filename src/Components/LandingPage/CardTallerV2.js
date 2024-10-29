@@ -13,8 +13,6 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario?.split(',')
-  console.log(taller);
-  
   return (
     <div style={{ border: '1px solid #CFD5E1', backgroundColor: '#FFFFFF', borderRadius: '8px', padding: '32px', display: 'flex', flexDirection: 'column' }}>
       <Link href={`/${taller?.userName}`} style={{ display: 'flex', flexDirection: 'column', outline: 'none', textDecoration: 'none', width: '100%', gap: '16px' }}>
@@ -37,12 +35,21 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
               return (
                 category &&
                 <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', }}>
-                  {category?.img && <img src={`/${category?.img}`} style={{height:'20px',width:'20px'}} alt={`Taller de autos de ${el}`} />}
+                  {/* {category?.img && <img src={`/${category?.img}`} style={{height:'20px',width:'20px'}} alt={`Taller de autos de ${el}`} />} */}
+                  <Image
+                  quality={100}
+                    src={`/${category?.img}`} // Ruta de la imagen
+                    alt={`Taller de autos de ${el}`} // Texto alternativo para SEO y accesibilidad
+                    width={20} // Ajusta el ancho
+                    height={20} // Ajusta la altura
+                     // Estilos adicionales si son necesarios
+                  />
+
                   <p style={{ margin: 0, fontWeight: '500', fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
                 </div>
               )
             })}
-            <div  style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', }}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', }}>
               <p style={{ fontSize: '12px', color: '#929292', fontWeight: '500' }}>+{taller?.categorias?.length} servicios</p>
             </div>
           </div>

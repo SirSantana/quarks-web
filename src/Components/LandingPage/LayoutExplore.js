@@ -68,9 +68,12 @@ export default function LayoutExplore({ children, footer = true, title, descript
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
-          crossorigin="anonymous"></script>
+
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+        <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+        {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
+        
 
         {productoMarcado &&
           <script
@@ -82,7 +85,10 @@ export default function LayoutExplore({ children, footer = true, title, descript
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(picoyplacaStructured) }}
           />}
+          <script  async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+          crossorigin="anonymous"></script>
         <script
+        async
           dangerouslySetInnerHTML={{
             __html: `
               (function(c,l,a,r,i,t,y){
