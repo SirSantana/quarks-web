@@ -1,9 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  background-color: '';
-  box-sizing: border-box;
-}
+
 p{
   font-size: 16px;
   color:#434146;
@@ -11,6 +6,13 @@ p{
 }
 input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
+}
+
+.marker-cluster-small {
+  background-color: rgba(195, 215, 255, 0.6) !important; /* Color de fondo más claro */
+}
+.marker-cluster-small div {
+  background-color: #407BFF !important; /* Color del círculo para clusters pequeños */
 }
 
 body {
@@ -24,9 +26,11 @@ font-family: 'Poppins', sans-serif;
   background-position: -19px -19px;
   -webkit-text-size-adjust: 100%;
 }
-.marker-cluster-small {
-  background-color: rgba(195, 215, 255, 0.6) !important; /* Color de fondo más claro */
-}
-.marker-cluster-small div {
-  background-color: #407BFF !important; /* Color del círculo para clusters pequeños */
+
+* {
+  margin: 0;
+  padding: 0;
+  background-color: '';
+  box-sizing: border-box;
+
 }

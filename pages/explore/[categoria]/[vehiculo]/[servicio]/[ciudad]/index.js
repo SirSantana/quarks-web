@@ -15,9 +15,9 @@ export default function CiudadPage({ categoria, vehiculo, servicio, ciudad, desc
   // const {data, loading, error} = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {variables:{tipo:router.query.servicio.replace(/-/g, ' ')}})
   // let talleresData = data?.getNegociosVDosByServicio;
   // console.log(data);
-
+  
   return (
-    <LayoutExplore categoria={categoria} vehiculo={vehiculo} servicio={servicio} ciudad={ciudad} description={description?.description}>
+    <LayoutExplore  categoria={categoria} vehiculo={vehiculo} servicio={servicio} ciudad={ciudad} description={description?.description}url={`/explore/${categoria}/${vehiculo}/${servicio.replaceAll(/ /g,'-' )}/${ciudad}`} keywords={`Talleres de ${categoria} en ${ciudad} para ${vehiculo} en ${servicio}`} tags={description?.tags} icon={description?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
         <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -108,7 +108,7 @@ export async function getServerSideProps(context) {
     props: {
       categoria: categoria || null,
       vehiculo: vehiculo || null,
-      servicio: servicio || null,
+      servicio: servicio.replaceAll(/-/g, ' ') || null,
       ciudad: ciudad || null,
       description: servicioSeo || null,
       talleresData

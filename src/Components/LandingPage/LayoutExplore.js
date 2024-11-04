@@ -66,7 +66,7 @@ export default function LayoutExplore({ children, footer = true, title, descript
           </>}
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
+        <link rel="icon" href='/logo-background-quarks.svg' />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
 
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />

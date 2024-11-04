@@ -14,6 +14,7 @@
   cursor: pointer;
   text-decoration: none;
   width: fit-content;
+  font-family: inherit;
 }
 
 .button-primary {
