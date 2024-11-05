@@ -72,23 +72,10 @@ export default function LayoutExplore({ children, footer = true, title, descript
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
         <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
         <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
-        {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
-        
-
-        {productoMarcado &&
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(marcadoEstructurado) }}
-          />}
-        {picoyplacaStructured &&
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(picoyplacaStructured) }}
-          />}
-          <script  async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"></script>
         <script
-        async
+          async
           dangerouslySetInnerHTML={{
             __html: `
               (function(c,l,a,r,i,t,y){
