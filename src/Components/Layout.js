@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Footer from './Footer/Footer'
 import NewNavbarWithSearch from './Navbar/NewNavbar2';
+import FooterV2 from './Footer/FooterV2';
 
 function generarMarcadoEstructurado(articulo) {
   if (articulo) {
@@ -82,7 +83,7 @@ export default function Layout({ children, footer = true,title, description, typ
 
         {!negocio && <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />}
 
-        <link rel="icon" href={icon ? icon : "/logoquarks200623.png"} />
+        <link rel="icon" href={"/logo-background-quarks.svg"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
         <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
@@ -117,13 +118,11 @@ export default function Layout({ children, footer = true,title, description, typ
       <main  >
         {/* <Nav /> */}
         {/* <NewNavbar/> */}
-
         {visibleNavbar && <NewNavbarWithSearch visibleSlider={visibleSlider} />}
         {children}
 
-        {footer && <Footer />}
-
       </main>
+      {footer && <FooterV2 />}
 
 
     </>
