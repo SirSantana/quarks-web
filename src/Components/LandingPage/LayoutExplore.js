@@ -2,6 +2,7 @@ import Head from "next/head";
 import SectionFixedServicios from "./SectionFixedServicios";
 import FixedHeaderExplore from "./FixedHeaderExplore";
 import MenuSelectsFilter from "./MenuSelectsFilter";
+import FooterV2 from "../Footer/FooterV2";
 
 
 export default function LayoutExplore({ children, footer = true, title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured, categoria, vehiculo, servicio, ciudad }) {
@@ -94,10 +95,8 @@ export default function LayoutExplore({ children, footer = true, title, descript
           {children}
         </section>
         {/* {footer && <Footer />} */}
-
       </main>
-
-
+      <FooterV2 />
     </>
   )
 }

@@ -18,6 +18,7 @@ import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
 import BasicHome from '@/src/Components/LandingPage/BasicHome'
 import HomeSep from '@/src/Components/LandingPage/HomeSep'
+import FooterV2 from '@/src/Components/Footer/FooterV2'
 
 const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
   { ssr: false })
@@ -182,7 +183,8 @@ export default function Home({ initialQuery }) {
         </div> */}
 
       </main>
-      <Footer />
+      {/* <Footer /> */}
+      <FooterV2/>
 
     </>
   )
