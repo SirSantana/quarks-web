@@ -7,7 +7,7 @@ export default function SectionSeoServicios({ data, categoria, vehiculo, servici
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '90%', maxWidth: '1100px', justifyContent: 'space-between', margin: '0 auto', margin: '32px auto 32px auto', }}>
-        <h2 style={{ textAlign: 'center', width: '100%', fontSize: '18px', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '8px' }}>Taller mecanico de {servicio} para {vehiculo} en Bogotá</h2>
+        <h2 style={{ textAlign: 'center', width: '100%', fontSize: '18px', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '8px' }}>{servicio} en Bogotá</h2>
         <p style={{fontSize:'14px', color:'#929292'}}>Estas buscando un taller mecanico en Bogotá? Encuentra los mejores talleres de {servicio} para {vehiculo} en Bogotá en nuestra página de talleres mecanicos en Bogotá. Filtra por servicios, calificaciones, y más. Comparte tus opiniones y recibe recomendaciones de otros talleres.</p>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '90%', maxWidth: '1100px', justifyContent: 'space-between', margin: '0 auto', margin: '32px auto 32px auto', }}>

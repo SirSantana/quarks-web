@@ -186,6 +186,7 @@
   text-align: center;
   text-wrap: balance;
   margin: 0 auto;
+  line-height: 52px;
 }
 
 .subtitle {
@@ -657,6 +658,7 @@
     text-align: center;
     margin-bottom: 16px;
     max-width: 500px;
+    line-height: 46px;
   }
 }
 
@@ -689,6 +691,7 @@
   .title2 {
     font-size: 32px;
     margin-top: 16px;
+    line-height: 40px;
   }
 
   .imgTaller {
@@ -740,6 +743,7 @@
 @media (max-width: 600px) {
   .title2 {
     font-size: 28px;
+    line-height: 34px;
   }
   .containerTagsSearch{
     gap: 16px 8px;

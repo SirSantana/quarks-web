@@ -5,11 +5,12 @@ import Image from 'next/image';
 import Button, { ButtonVariant } from '../Button/Button';
 import Avatar from '../UI/Avatar';
 import { categorias } from '@/src/data/Categorias';
+import { useRouter } from 'next/router';
 
 
 export default function CardTallerV2({ taller, setVisibleModal }) {
   // const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
-
+  const router = useRouter()
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario?.split(',')
@@ -20,7 +21,7 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
           {/* {taller?.fotoperfil &&
             <Image width={56} height={56} style={{ width: '56px', height: '56px', objectFit: 'cover', borderRadius: '50%' }} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} loading='lazy' />
           } */}
-          {taller?.fotoperfil && <Avatar src={taller.fotoperfil} size={56} backgroundColor={'#FFFFFF'} />}
+          {taller?.fotoperfil && <Avatar src={taller.fotoperfil} size={56} backgroundColor={'#FFFFFF'} alt={`Taller de ${router.query.servicio.replaceAll('-', ' ')} : ${taller?.nombre}`} />}
           <div>
             <h3 style={{ fontSize: '20px', lineHeight: '22px', color: '#182537', fontWeight: '500' }}>{taller?.nombre}</h3>
             {/* <p style={{ fontSize: '14px', fontWeight: '600', color: '#407BFF' }}>Taller especializado BMW</p> */}
@@ -38,8 +39,9 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
                   {/* {category?.img && <img src={`/${category?.img}`} style={{height:'20px',width:'20px'}} alt={`Taller de autos de ${el}`} />} */}
                   <Image
                   quality={100}
+                  loading='lazy'
                     src={`/${category?.img}`} // Ruta de la imagen
-                    alt={`Taller de autos de ${el}`} // Texto alternativo para SEO y accesibilidad
+                    alt={`Servicio de ${el}`} // Texto alternativo para SEO y accesibilidad
                     width={20} // Ajusta el ancho
                     height={20} // Ajusta la altura
                      // Estilos adicionales si son necesarios

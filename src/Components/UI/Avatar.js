@@ -37,13 +37,14 @@ const Avatar = ({
           quality={100}
           style={{ borderRadius: '50%', objectFit: 'cover' }}
           onLoadingComplete={() => setIsImageLoaded(true)}
+          loading='lazy'
         />
       ) : (
         // Fallback a la imagen por defecto o iniciales
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
           {showInitials && userName
             ? getInitials(userName) // Mostrar iniciales
-            : <Image src={defaultImage} alt="Default Avatar" width={size} height={size} layout="fixed" />}
+            : <Image src={defaultImage} alt={alt} width={size} height={size} layout="fixed" loading='lazy' />}
         </div>
       )}
 

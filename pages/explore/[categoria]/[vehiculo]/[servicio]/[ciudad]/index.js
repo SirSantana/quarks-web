@@ -9,7 +9,7 @@ import getSeoCategorias from '@/src/data/SeoCategorias';
 import { useQuery } from '@apollo/client';
 import SectionSeoServicios from '@/src/Components/LandingPage/SectionSeoServicios';
 
-export default function CiudadPage({ categoria, vehiculo, servicio, ciudad, description, talleresData }) {
+export default function CiudadPage({ title, query,  description, talleresData }) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   // const {data, loading, error} = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {variables:{tipo:router.query.servicio.replace(/-/g, ' ')}})
@@ -17,13 +17,13 @@ export default function CiudadPage({ categoria, vehiculo, servicio, ciudad, desc
   // console.log(data);
   
   return (
-    <LayoutExplore  categoria={categoria} vehiculo={vehiculo} servicio={servicio} ciudad={ciudad} description={description?.description}url={`/explore/${categoria}/${vehiculo}/${servicio.replaceAll(/ /g,'-' )}/${ciudad}`} keywords={`Talleres de ${categoria} en ${ciudad} para ${vehiculo} en ${servicio}`} tags={description?.tags} icon={description?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
+    <LayoutExplore  title={title} query={query}  description={description?.description} url={`/explore/${query.categoria}/${query.vehiculo}/${query.servicio.replaceAll(/ /g,'-' )}/${query.ciudad}`} keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}`} tags={description?.tags} image={talleresData[0]?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
         <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <p>
-            {servicio
-              ? `Se encontraron ${talleresData?.length || 0} talleres mecánicos de ${servicio.replace(/-/g, ' ')} cerca de mí en Bogotá`
+            {query.servicio
+              ? `Se encontraron ${talleresData?.length || 0} talleres mecánicos de ${query.servicio.replace(/-/g, ' ')} cerca de mí en Bogotá`
               : 'Se encontraron +100 talleres en Bogotá'}
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function CiudadPage({ categoria, vehiculo, servicio, ciudad, desc
 
         </div>
       }
-      <SectionSeoServicios data={talleresData} categoria={categoria} vehiculo={vehiculo} servicio={servicio}/>
+      <SectionSeoServicios data={talleresData} categoria={query.categoria} vehiculo={query.vehiculo} servicio={query.servicio}/>
 
     </LayoutExplore>
   );
@@ -104,12 +104,14 @@ export async function getServerSideProps(context) {
     }
   }
   const servicioSeo = getSeoCategorias({ servicio: servicio, ciudad: ciudad, vehiculo: vehiculo });
+  let title = categoria !== 'mecanicos'
+    ? `Encuentra los mejores ${categoria.charAt(0).toUpperCase() + categoria.slice(1)} de ${servicio.replaceAll(/-/g, ' ')} para ${vehiculo} en ${ciudad}`
+    : `Mecánicos a domicilio para ${servicio} de ${vehiculo} en ${ciudad}`
+
   return {
     props: {
-      categoria: categoria || null,
-      vehiculo: vehiculo || null,
-      servicio: servicio.replaceAll(/-/g, ' ') || null,
-      ciudad: ciudad || null,
+      title,
+      query: { categoria:categoria?categoria:null, vehiculo:vehiculo?vehiculo:null, ciudad:ciudad?ciudad:null, servicio:servicio?servicio.replaceAll(/-/g, ' '):null },
       description: servicioSeo || null,
       talleresData
     },

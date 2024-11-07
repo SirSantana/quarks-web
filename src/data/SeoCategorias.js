@@ -10,7 +10,10 @@ export default function getSeoCategorias({ servicio, ciudad, vehiculo }) {
       },
       "importancia": "El cambio de aceite es esencial para mantener el motor limpio y reducir el desgaste de sus componentes internos.",
       "duracion": "El servicio de cambio de aceite suele durar entre 30 y 45 minutos.",
-      "frecuencia": "Se recomienda cada 5,000 a 10,000 km o según lo indique el fabricante."
+      "frecuencia": "Se recomienda cada 5,000 a 10,000 km o según lo indique el fabricante.",
+      "rating":4.7,
+      "price":180.000
+
     },
     "lujos": {
       "title": "Lujos y Accesorios",
@@ -22,7 +25,9 @@ export default function getSeoCategorias({ servicio, ciudad, vehiculo }) {
       },
       "importancia": "Agregar accesorios a tu auto mejora no solo la estética sino también la comodidad y funcionalidad de ciertas áreas.",
       "duracion": "La instalación de accesorios puede variar entre 1 y 3 horas, dependiendo del accesorio.",
-      "frecuencia": "Cada vez que desees personalizar o mejorar el rendimiento de tu vehículo."
+      "frecuencia": "Cada vez que desees personalizar o mejorar el rendimiento de tu vehículo.",
+      "rating":4.7,
+      "price":180.000
     },
     "baterias": {
       "title": "Baterías",
