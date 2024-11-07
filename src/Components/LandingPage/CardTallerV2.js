@@ -14,6 +14,8 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
   const numeroDia = new Date().getDay();
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario?.split(',')
+  console.log(router);
+  
   return (
     <div style={{ border: '1px solid #CFD5E1', backgroundColor: '#FFFFFF', borderRadius: '8px', padding: '32px', display: 'flex', flexDirection: 'column' }}>
       <Link href={`/${taller?.userName}`} style={{ display: 'flex', flexDirection: 'column', outline: 'none', textDecoration: 'none', width: '100%', gap: '16px' }}>
@@ -21,7 +23,7 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
           {/* {taller?.fotoperfil &&
             <Image width={56} height={56} style={{ width: '56px', height: '56px', objectFit: 'cover', borderRadius: '50%' }} src={taller?.fotoperfil} alt={`Taller de carros ${taller?.nombre}`} loading='lazy' />
           } */}
-          {taller?.fotoperfil && <Avatar src={taller.fotoperfil} size={56} backgroundColor={'#FFFFFF'} alt={`Taller de ${router.query.servicio.replaceAll('-', ' ')} : ${taller?.nombre}`} />}
+          {taller?.fotoperfil && <Avatar src={taller.fotoperfil} size={56} backgroundColor={'#FFFFFF'} alt={`Taller de ${router.query?.servicio?.replaceAll('-', ' ')} : ${taller?.nombre}`} />}
           <div>
             <h3 style={{ fontSize: '20px', lineHeight: '22px', color: '#182537', fontWeight: '500' }}>{taller?.nombre}</h3>
             {/* <p style={{ fontSize: '14px', fontWeight: '600', color: '#407BFF' }}>Taller especializado BMW</p> */}

@@ -140,14 +140,14 @@ export default function LayoutExplore({ children, title, description, query, pri
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": query.servicio.replaceAll(' ', '-'),
-                  "item": `https://www.quarks.com.co/explore/${query.categoria}/${query.vehiculo}/${query.servicio.replaceAll(' ', '-')}`
+                  "name": query?.servicio?.replaceAll(' ', '-'),
+                  "item": `https://www.quarks.com.co/explore/${query.categoria}/${query.vehiculo}/${query?.servicio?.replaceAll(' ', '-')}`
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": query.ciudad,
-                  "item": `https://www.quarks.com.co/explore/${query.categoria}/${query.vehiculo}/${query.servicio.replaceAll(' ', '-')}/${query.ciudad}`
+                  "name": query?.ciudad,
+                  "item": `https://www.quarks.com.co/explore/${query.categoria}/${query.vehiculo}/${query?.servicio?.replaceAll(' ', '-')}/${query.ciudad}`
                 }
               ]
             }),
@@ -174,7 +174,7 @@ export default function LayoutExplore({ children, title, description, query, pri
           }}
         />
 
-          
+
 
         {/* Google Ads Script */}
         <script
