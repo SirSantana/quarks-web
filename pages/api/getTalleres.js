@@ -1,6 +1,6 @@
 // pages/api/getTalleres.js
-import talleres from '@/pages/servicios-automotriz/talleres.json'
 import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
+import talleres from '@/src/data/talleres.json'
 
 const levenshteinDistance = (s1, s2) => {
   const m = s1.length;

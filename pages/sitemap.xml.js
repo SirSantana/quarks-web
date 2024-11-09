@@ -1,4 +1,4 @@
-import { categorias } from "@/src/Components/Navbar/NewNavbar";
+import { categorias } from "@/src/data/Categorias";
 
 const generateSiteMap = (data) => {
 
@@ -15,8 +15,7 @@ const generateSiteMap = (data) => {
     ${posts && posts.map(item => {
     return `<url>
         <loc>
-          https://www.quarks.com.co/servicios-automotriz/${item.nombre.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-').normalize("NFD")     // Normalizar para descomponer caracteres acentuados
-          .replace(/[\u0300-\u036f]/g, '')}
+          https://www.quarks.com.co/explore/talleres/carro/${item.url.toLowerCase().replace(/ /g,'-').replace(/\s+/g, '-')}/bogota
         </loc>
       </url>`;
   }).join('')}
@@ -27,7 +26,6 @@ const generateSiteMap = (data) => {
 function SiteMap() { }
 
 export const getServerSideProps = async ({ res }) => {
-  
   const sitemap = generateSiteMap(categorias);
   res.setHeader('Content-Type', 'text/xml');
   res.write(sitemap);

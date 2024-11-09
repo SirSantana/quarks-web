@@ -1,5 +1,4 @@
-import talleres from './servicios-automotriz/talleres.json'
-
+import talleres from '@/src/data/talleres.json'
 const generateSiteMap = (data) => {
 
   const posts= [];
