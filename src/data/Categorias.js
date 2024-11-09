@@ -34,9 +34,9 @@ export const categorias = [
   { nombre: 'Peritaje', img: 'peritaje.webp', url: 'Peritaje', db: 'Peritaje', descripcion: 'Si has sufrido un accidente o necesitas un peritaje para tu vehículo, nosotros estamos aquí para ayudarte. Realizamos peritajes profesionales para determinar el estado y el valor de tu vehículo de manera precisa y confiable.' },
   { nombre: 'Sincronización', img: 'Sincronizacion.webp', url: 'Sincronizacion', db: 'Sincronizacion', descripcion: 'Mantén el motor de tu vehículo en perfecta sincronización con nuestro servicio especializado. Realizamos ajustes y calibraciones para garantizar un funcionamiento suave y eficiente del motor.' },
   { nombre: 'Técnico Mecánica', img: 'taller-ilustration.webp', url: 'Tecnico mecanica', db: 'Técnico Mecánica', descripcion: 'Ofrecemos servicios de revisión y certificación técnico mecánica para garantizar que tu vehículo cumpla con los estándares de seguridad y emisiones establecidos por la ley.' },
-  { nombre: 'Mecanica Basica', img: 'mecanica-basica.webp', url: '', db: 'Mecanica Basica' },
-  { nombre: 'Mecanica Avanzada', img: 'mecanica-avanzada.webp', url: '', db: 'Mecanica Avanzada' },
-  { nombre: 'Taller Mecanico', img: 'taller-mecanico.webp', url: '', db: 'Taller mecanico' },
+  { nombre: 'Mecanica Basica', img: 'mecanica-basica.webp', url: 'mecanica-basica', db: 'Mecanica Basica' },
+  { nombre: 'Mecanica Avanzada', img: 'mecanica-avanzada.webp', url: 'mecanica-avanzada', db: 'Mecanica Avanzada' },
+  { nombre: 'Taller Mecanico', img: 'taller-mecanico.webp', url: 'taller-mecanico', db: 'Taller mecanico' },
   { nombre: 'Mecanico a Domicilio', img: 'mecanico.webp', url: 'mecanico-a-domicilio', db: 'Taller mecanico' },
 
 ]

@@ -1,23 +1,21 @@
 import LayoutExplore from '@/src/Components/LandingPage/LayoutExplore';
-import { useRouter } from 'next/router';
 import styles2 from '@/styles/Landing.module.css';
-import { useRef, useState } from 'react';
+import {  useState } from 'react';
 import CardTallerV2 from '@/src/Components/LandingPage/CardTallerV2';
 import { GET_NEGOCIOSVDOS_BY_SERVICIO } from '@/graphql/queries';
 import { client } from '@/client';
 import getSeoCategorias from '@/src/data/SeoCategorias';
-import { useQuery } from '@apollo/client';
 import SectionSeoServicios from '@/src/Components/LandingPage/SectionSeoServicios';
 
 export default function CiudadPage({ title, query,  description, talleresData }) {
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   // const {data, loading, error} = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {variables:{tipo:router.query.servicio.replace(/-/g, ' ')}})
   // let talleresData = data?.getNegociosVDosByServicio;
   // console.log(data);
   
   return (
-    <LayoutExplore  title={title} query={query}  description={description?.description} url={`/explore/${query.categoria}/${query.vehiculo}/${query.servicio.replaceAll(/ /g,'-' )}/${query.ciudad}`} keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}`} tags={description?.tags} image={talleresData[0]?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
+    <LayoutExplore  title={title} query={query}  description={description?.description} url={`/explore/${query.categoria || ''}/${query.vehiculo || ''}/${query.servicio?.replaceAll(/ /g, '-') || ''}/${query.ciudad || ''}`}
+    keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}`} tags={description?.tags} image={talleresData[0]?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
         <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -100,7 +98,7 @@ export async function getServerSideProps(context) {
       });
       talleresData = data?.getNegociosVDosByServicio || [];
     } catch (error) {
-      console.error('Error fetching data:', error);
+      // console.error('Error fetching data: HOLAAAAAA', error);
     }
   }
   const servicioSeo = getSeoCategorias({ servicio: servicio, ciudad: ciudad, vehiculo: vehiculo });

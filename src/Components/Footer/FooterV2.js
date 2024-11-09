@@ -14,7 +14,7 @@ export default function FooterV2({ data }) {
             {categorias.map((el) => (
               <Link
                 key={el.url}
-                href={`/explore/talleres/carro/${el.url.replaceAll(" ", "-")}/bogota`}
+                href={`/explore/talleres/carro/${el?.url?.replaceAll(" ", "-")}/bogota`}
                 className={styles.link}
               >
                 {el.nombre}
