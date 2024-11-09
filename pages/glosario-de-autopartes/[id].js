@@ -3,18 +3,14 @@ import { CREATE_VISTA_ARTICULO } from "@/graphql/mutations";
 import { GET_ARTICULO } from "@/graphql/queries";
 import ArticulosRelacionados from "@/src/Components/Articulos/ArticulosRelacionados";
 import BottomArticulo from "@/src/Components/Articulos/BottomArticulo";
-import BottomHeaderInfo from "@/src/Components/Articulos/BottomHeaderInfo";
 import HeaderDiccionario from "@/src/Components/Articulos/HeaderDiccionario";
 import OtrosArticulos from "@/src/Components/Articulos/OtrosArticulos";
 import SeccionPrincipalArticulo from "@/src/Components/Articulos/Secciones/SeccionPrincipalArticulo";
 import SeccionSecundaria from "@/src/Components/Articulos/Secciones/SeccionSecundaria";
-import HeaderHome from "@/src/Components/Index/HeaderHome";
 import Layout from "@/src/Components/Layout";
 import styles from '@/styles/Diccionario.module.css'
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import parse from 'html-react-parser';
-import articulos from '../../utils/articulosrepuestos.json'
 import AsideGlosario from "@/src/Components/Articulos/AsideGlosario";
 
 export default function Repuesto({ data }) {

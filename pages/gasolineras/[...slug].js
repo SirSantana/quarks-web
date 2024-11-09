@@ -1,21 +1,15 @@
 import dynamic from 'next/dynamic'
-import gasolineras from '@/pages/gasolineras.json'
-import Image from 'next/image';
 import Icon, { IconCatalog } from '@/src/Components/Icon/Icon';
 import Layout from '@/src/Components/Layout';
 import { useState } from 'react';
 import PriceFormat from '@/utils/priceFormat';
-import Button, { ButtonVariant } from '@/src/Components/Button/Button';
 import ModalFiltrosGasolineras from '@/src/Components/Gasolineras/ModalFiltros';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
 import { calcularDistancia, priceToCheck } from '@/utils/scripts';
 import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 import Loader from '@/src/Components/Loaders/CardLoader';
-import DrawerGasolineras from '@/src/Components/Gasolineras/DrawerGasolineras';
-import SelectOrderBy from '@/src/Components/Gasolineras/SelectOrderBy';
 import SelectTipoCombustible from '@/src/Components/Gasolineras/SelectTipoCombustible';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),

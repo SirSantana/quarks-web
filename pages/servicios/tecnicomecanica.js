@@ -3,11 +3,9 @@ import Layout from "@/src/Components/Layout"
 import { useRouter } from "next/router"
 import styles2 from '@/styles/Landing.module.css'
 import CardNewTaller from "@/src/Components/LandingPage/CardNewTaller"
-import Icon, { IconCatalog } from "@/src/Components/Icon/Icon"
 import { GET_NEGOCIOSVDOS_BY_SERVICIO } from "@/graphql/queries"
 import { useQuery } from "@apollo/client"
 import { useRef } from "react"
-import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPreguntasServicio"
 import Link from "next/link"
 import Image from "next/image"
 

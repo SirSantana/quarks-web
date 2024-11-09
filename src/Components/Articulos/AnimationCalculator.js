@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 
 export default function AnimationCalculator({ calcular, cylinderHeight, cylinderWidth, pistonHeight, setCilindrajeTotal, middle, isPlaying }) {

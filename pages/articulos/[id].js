@@ -9,9 +9,7 @@ import { client } from "@/client";
 import { GET_ARTICULO, } from "@/graphql/queries";
 import { CREATE_VISTA_ARTICULO } from "@/graphql/mutations";
 import SeccionSecundaria from "@/src/Components/Articulos/Secciones/SeccionSecundaria";
-import OtrosArticulos from "@/src/Components/Articulos/OtrosArticulos";
 import { useRouter } from "next/router";
-import HeaderHome from "@/src/Components/Index/HeaderHome";
 import HeaderDiccionario from "@/src/Components/Articulos/HeaderDiccionario";
 import parse from 'html-react-parser';
 

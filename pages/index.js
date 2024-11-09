@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
-
 import { useRouter } from 'next/router'
-
 import HomeSep from '@/src/Components/LandingPage/HomeSep'
 import FooterV2 from '@/src/Components/Footer/FooterV2'
 import { categorias } from '@/src/data/Categorias'

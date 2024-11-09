@@ -11,7 +11,7 @@ export default function FixedHeaderExplore({ categoria, vehiculo, servicio, ciud
           <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737', fontSize: '16px', fontWeight: '600' }} className={styles2.titleNav}>Quarks</h3>
         </Link>
         <nav style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
-          <Link style={{ textDecoration: 'none', color: '#373737', fontSize: '12px', fontWeight: '600' }} href={'/signup'}>Tienes un Taller?</Link>
+          {/* <Link style={{ textDecoration: 'none', color: '#373737', fontSize: '12px', fontWeight: '600' }} href={'/signup'}>Tienes un Taller?</Link> */}
         </nav>
       </div>
       {/* <section style={{ display: 'flex', flexDirection: 'row', gap: '16px', justifyContent: 'center', alignItems: 'center', margin: '0 auto', width: '100%', maxWidth: '800px', marginTop: '48px' }}>

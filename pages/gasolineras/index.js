@@ -7,16 +7,9 @@ import ModalPicoYPlaca from '@/src/Components/Gasolineras/ModalPicoYPlaca';
 import { calcularDistancia, priceToCheck } from '@/utils/scripts';
 import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 import Loader from '@/src/Components/Loaders/CardLoader';
-import Sidebar from '@/src/Components/Sidebar/Sidebar';
-import DrawerGasolineras from '@/src/Components/Gasolineras/DrawerGasolineras';
-import HeaderNavTags from '@/src/Components/Gasolineras/HeaderNavTags';
-import BuscadorBasico from '@/src/Components/LandingPage/BuscadorBasico';
 import SelectCiudad from '@/src/Components/Gasolineras/SelectCiudad';
 import SelectTipoCombustible from '@/src/Components/Gasolineras/SelectTipoCombustible';
-import SelectOrderBy from '@/src/Components/Gasolineras/SelectOrderBy';
 import PriceFormat from '@/utils/priceFormat';
-import Button, { ButtonVariant } from '@/src/Components/Button/Button';
-import { IconCatalog } from '@/src/Components/Icon/Icon';
 
 const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
   { ssr: false, loading: () => <Loader /> })

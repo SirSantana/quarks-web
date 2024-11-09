@@ -1,6 +1,4 @@
-import Buscador from "@/src/Components/Buscador/Buscador";
 import SwiperAutopartes from "@/src/Components/Home/SwiperAutopartes";
-import HeaderHome from "@/src/Components/Index/HeaderHome";
 import Layout from "@/src/Components/Layout";
 import styles from '@/styles/Diccionario.module.css'
 import { useState } from "react";
@@ -8,7 +6,6 @@ import data from '@/utils/repuestos.json'
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { ModalShareArticulo } from "@/utils/Modales";
-import AsideGlosario from "@/src/Components/Articulos/AsideGlosario";
 
 let keywords = "autopartes, repuestos de automóviles, componentes de vehículos, terminología de autopartes, glosario de repuestos, piezas de automóviles, accesorios para autos, mecánica automotriz, vocabulario de autopartes, diccionario de repuestos, explicación de componentes de automóviles, significado de las partes de un automóvil, guía de autopartes, descripción de repuestos de vehículos, nomenclatura de autopartes, jerga de la industria automotriz, explicación técnica de piezas de automóviles, conceptos básicos de autopartes, mecánica automotriz."
 let descripcion = 'El glosario de autopartes es una completa guía que te brinda un amplio vocabulario y explicación detallada de los diferentes componentes y repuestos que conforman un automóvil. Desde los elementos básicos hasta los más técnicos, este glosario te permite entender y familiarizarte con la terminología utilizada en el mundo de las autopartes. Explora nuestras definiciones claras y concisas, descubre el significado y la función de cada pieza, y adquiere el conocimiento necesario para comprender mejor tu vehículo y realizar reparaciones o mantenimiento de manera más informada. ¡Empodérate con el diccionario de repuestos y mejora tu experiencia en el ámbito de la mecánica automotriz!'

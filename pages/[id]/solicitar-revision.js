@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { customStyles, customStyles2, formatOptionLabel,  marcasWithOptions, repuestosWithOptions } from "./crear-resena";
 import Select from 'react-select';
 import styles from '@/styles/Almacenes.module.css'
-import Icon, { IconCatalog } from "@/src/Components/Icon/Icon";
 import { CREATE_SOLICITUD_SERVICIO, CREATE_VISITA_WHATSAPP } from "@/graphql/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_WHATSAPP_NEGOCIO } from "@/graphql/queries";

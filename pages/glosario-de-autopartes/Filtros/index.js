@@ -1,4 +1,3 @@
-import HeaderHome from '@/src/Components/Index/HeaderHome';
 import Layout from '@/src/Components/Layout';
 import data from '@/utils/repuestos.json'
 import { useRouter } from 'next/router';

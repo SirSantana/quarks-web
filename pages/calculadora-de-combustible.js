@@ -1,6 +1,5 @@
 
 import { CREATE_CONSUMO, CREATE_SUGERENCIA } from '@/graphql/mutations';
-import { GET_CONSUMOS } from '@/graphql/queries';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
 import Layout from '@/src/Components/Layout'
 import styles from '@/styles/Faq.module.css'
