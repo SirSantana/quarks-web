@@ -1,8 +1,4 @@
-
-import styles from '@/styles/ServiciosAutomotriz.module.css'
 import Icon, { IconCatalog } from '../Icon/Icon'
-import Box from '../Box/Box';
-import ItemBox from '../Box/ItemBox';
 import { useMutation } from '@apollo/client';
 import { CREATE_ACCION } from '@/graphql/mutations';
 import sendWhatsappMessage from '@/utils/scripts';

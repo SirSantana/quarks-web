@@ -4,7 +4,6 @@ import { categorias2 } from '../Talleres/ServiciosOfrecidos';
 import Icon, { IconCatalog } from '../Icon/Icon';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_CALIFICACION_OPINIONES } from '@/graphql/queries';
-import ButtonsFooter from '../Talleres/ButtonsFooter';
 // Asegúrate de importar el archivo de estilos
 import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { CREATE_CLICK_COMPARTIDO, CREATE_CLICK_MAPA, CREATE_CLICK_NEGOCIO_MAP, CREATE_VISITA_WHATSAPP } from '@/graphql/mutations';

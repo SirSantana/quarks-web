@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import Footer from './Footer/Footer'
-import NewNavbarWithSearch from './Navbar/NewNavbar2';
 import FooterV2 from './Footer/FooterV2';
 import Navbar from './Navbar/Navbar';
 

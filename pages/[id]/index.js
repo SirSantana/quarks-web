@@ -7,30 +7,20 @@ import { useRef, useState } from "react";
 import styles from '@/styles/Negocio.module.css'
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import ButtonsHeader from "@/src/Components/Talleres/ButtonsHeader";
-import SectionAcercaDe from "@/src/Components/Talleres/SectionAcercaDe";
 import { CREATE_ACCION } from "@/graphql/mutations";
 import { ModalImagePerfil } from "@/utils/Modales";
 import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
 import SectionPreguntasFrecuentes from "@/src/Components/Talleres/V3/SectionPreguntasFrecuentes";
 import SectionDescription from "@/src/Components/Talleres/V3/SectionDescription";
-import ServiciosTab from "@/src/Components/Talleres/V3/ServiciosTab";
 import ModalButtonsContacto from "@/src/Components/Talleres/ModalButtonsContacto";
 import Button, { ButtonVariant } from "@/src/Components/Button/Button";
 import Revisiones from "@/src/Components/Talleres/Revisiones";
 import { getLatLng } from "@/utils/scripts";
 import SectionCategorias from "@/src/Components/Talleres/V3/SectionCategorias";
 import CardSolicitarServicio from "@/src/Components/Talleres/V3/CardSolicitarServicio";
-import ModalSolicitarServicio from "@/src/Components/Talleres/V3/ModalSolicitarServicio";
-import Link from "next/link";
-const OnlyMap = dynamic(() => import('@/src/Components/Talleres/OnlyMap'),
-  { ssr: false, loading: () => <div className={styles.skeletonMap} /> })
-const DataTaller = dynamic(() => import('@/src/Components/Talleres/V3/DataTaller'),
-  { ssr: false })
 const RecomiendasTaller = dynamic(() => import('@/src/Components/Talleres/RecomiendasTaller'),
   { ssr: false })
-const WidgetMenu = dynamic(() => import('@/src/Components/Talleres/V3/WidgetMenu'),
-  { ssr: false })
+
 
 const SliderTab = dynamic(() => import('@/src/Components/Talleres/V3/SliderTab'),
   { ssr: false, loading: () => <div className={styles.skeletonSlider} /> })
@@ -38,16 +28,10 @@ const Horario = dynamic(() => import('@/src/Components/Talleres/V3/Horario'),
   { ssr: false })
 const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
-const BogotaMap = dynamic(() => import('@/src/Components/Talleres/MapaBogotaCobertura'),
-  { ssr: false })
+
 const MapaUbicacion = dynamic(() => import('@/src/Components/Talleres/MapaUbicacion'),
   { ssr: false, loading: () => <div className={styles.skeletonMap} /> })
-const FooterSectionFixed = dynamic(() => import('@/src/Components/Talleres/FooterSectionFixed'),
-  { ssr: false })
-const ButtonsFooter = dynamic(() => import('@/src/Components/Talleres/ButtonsFooter'),
-  { ssr: false })
-const ButtonTestWhatsapp = dynamic(() => import('@/src/Components/Talleres/ButtonTestWhatsapp'),
-  { ssr: false })
+
 
 const servicios = [
   'Cambio de Aceite',

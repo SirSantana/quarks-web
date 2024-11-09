@@ -3,7 +3,6 @@ p{
   font-size: 16px;
   color:#6C788E;
   line-height: 24px;
-  text-wrap: balance;
   max-width: 600px;
 }
 h1{
@@ -17,7 +16,6 @@ h1{
 }
 h2{
   color: #182537;
-  text-wrap: balance;
 }
 input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;

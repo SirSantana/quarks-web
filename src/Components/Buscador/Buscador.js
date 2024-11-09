@@ -1,4 +1,4 @@
-import styles from '@/styles/Buscador.module.css'
+import styles from '/Buscador.module.css'
 import { useEffect, useState } from 'react'
 
 let initial = ''

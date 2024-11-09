@@ -34,7 +34,6 @@ export default function PerfilCreado() {
           <div className={styles.cardDataDesktop} >
             <DataTaller data={data?.getOneNegocioVDos} />
           </div>
-          {/* <ButtonsHeader data={data} /> */}
         </div>
       </div>
 

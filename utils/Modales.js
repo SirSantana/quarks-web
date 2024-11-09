@@ -1,23 +1,10 @@
 import { EDIT_NEGOCIO_VDOS, INTERESADO_ALMACEN, INTERESADO_ANUNCIO } from '@/graphql/mutations'
-import CreateGasto from '@/src/Components/Dashboard/Gastos/CreateGasto'
 import styles from '@/styles/Main.module.css'
 import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import sendMessage from './fetching'
-import Link from 'next/link'
 import { EmailIcon, EmailShareButton, FacebookIcon, FacebookShareButton, TwitterIcon, TwitterShareButton, ViberShareButton, WhatsappIcon, WhatsappShareButton, } from 'react-share'
-import AddHorario from '@/src/Components/Register/AddHorario'
-import { categorias2 } from '@/src/Components/Talleres/ServiciosOfrecidos'
-import { MagicMotion } from 'react-magic-motion'
-import AddServicios from '@/src/Components/Register/AddServicios'
-import WidgetComplete from '@/src/Components/Icon/WidgetComplete'
-import { IconCatalog } from '@/src/Components/Icon/Icon'
-import Image from 'next/image'
-import PriceFormat from './priceFormat'
-import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css';
-import Input from '@/src/Components/Input/Input'
-import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
 
 
 
@@ -368,111 +355,5 @@ export function ModalTelefono({ telefono, taller, setVisibleModalTelefono }) {
   )
 }
 
-export function ModalEditHorario({ setVisibleModalEditHorario, horarioActual }) {
-  const initialFormHorario = {
-    horario: horarioActual
-  }
-  const [dataImportante, setDataImportante] = useState(initialFormHorario)
-  const [editNegocioVDos, { loading, data, error }] = useMutation(EDIT_NEGOCIO_VDOS)
-  const [visibleSuccesfull, setVisibleSuccesfull] = useState(false)
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    editNegocioVDos({ variables: dataImportante })
-  }
-  const handleClose = () => {
-    setVisibleModalEditHorario(false)
-  }
-  useEffect(() => {
-    if (data) {
-      setVisibleSuccesfull(true)
-      setTimeout(() => {
-        setVisibleModalEditHorario(false)
-      }, 2000)
-    }
-  }, [data])
-  return (
-    <div className={styles.modal} style={{ zIndex: '10000' }}>
-      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: 'fit-content' }} className={styles.modalContent}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', width: '100%', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', }}>
-            <ion-icon style={{ fontSize: '20px' }} name="calendar-number-outline"></ion-icon>
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
-              <p style={{ fontSize: '14px', fontWeight: '600', }}>Horario</p>
-            </div>
-          </div>
-          <ion-icon onClick={handleClose} style={{ fontSize: '20px' }} name={"close-outline"}></ion-icon>
-        </div>
-
-        <AddHorario dataImportante={dataImportante} setDataImportante={setDataImportante} />
-        <button disabled={loading} onClick={handleSubmit} style={{ fontSize: '14px', fontWeight: '400', height: '40px', backgroundColor: '#f50057', }} className={styles.button}>Guardar cambios</button>
-
-      </div>
-      {
-        visibleSuccesfull &&
-        <ModalSuccessfull title={'Informacion actualizada!'} />
-      }
-      {loading &&
-        <ModalLoading title={'Actualizando horario...'} />
-      }
-    </div>
-  )
-}
-
-
-export function ModalEditServicios({ setVisibleModalEditServicios, setCategorias, addCategory, setAddCategory, categorias, otherCategorias, setOtherCategorias }) {
-  const handleChange = (category) => {
-    setCategorias((prevCategorias) => {
-      if (prevCategorias.includes(category)) {
-        // Si existe, elimínalo del array
-        return prevCategorias.filter((item) => item !== category);
-      } else {
-        // Si no existe, agrégalo al array
-        return [...prevCategorias, category];
-      }
-    });
-  }
-  const handleChange2 = (category) => {
-    setAddCategory('')
-    setOtherCategorias((prevCategorias) => {
-      if (prevCategorias.includes(category)) {
-        // Si existe, elimínalo del array
-        return prevCategorias.filter((item) => item !== category);
-      } else {
-        // Si no existe, agrégalo al array
-        return [...prevCategorias, category];
-      }
-    });
-  }
-
-  const handleSubmitCategory = (e) => {
-    e.preventDefault()
-    setOtherCategorias((prevCategorias) => {
-      if (prevCategorias.includes(addCategory)) {
-        // Si existe, elimínalo del array
-        return prevCategorias.filter((item) => item !== addCategory);
-      } else {
-        // Si no existe, agrégalo al array
-        return [...prevCategorias, addCategory];
-      }
-    });
-    setAddCategory('')
-
-  }
-  return (
-    <div style={{ height: 'fit-content', }} className={styles.modal}  >
-      <div style={{ gap: '16px', cursor: 'pointer', alignItems: 'flex-start', padding: '20px', width: '90%', height: '90%', overflow: 'auto' }} className={styles.modalContent}>
-        <AddServicios setCategorias={setCategorias} addCategory={addCategory} setAddCategory={setAddCategory} categorias={categorias} otherCategorias={otherCategorias} setOtherCategorias={setOtherCategorias} />
-      </div>
-      {/* {
-        visibleSuccesfull &&
-        <ModalSuccessfull title={'Informacion actualizada!'} />
-      }
-      {loading &&
-        <ModalLoading title={'Actualizando horario...'} />
-      } */}
-    </div >
-  )
-}
 
 

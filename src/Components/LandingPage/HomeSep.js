@@ -1,7 +1,8 @@
 import CardTallerV2 from "./CardTallerV2";
 import SectionFixedServicios from "./SectionFixedServicios";
 import styles2 from '@/styles/Landing.module.css'
-import talleres from '@/pages/servicios-automotriz/talleres.json';
+import talleres from '@/src/data/talleres.json'
+
 import { useState } from "react";
 
 export default function HomeSep() {

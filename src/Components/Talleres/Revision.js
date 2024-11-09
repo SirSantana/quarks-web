@@ -1,6 +1,4 @@
 import { timeSince } from "@/utils/dateEs";
-import { categorias2 } from "./ServiciosOfrecidos";
-import Icon, { IconCatalog } from "../Icon/Icon";
 import { categorias } from "@/src/data/Categorias";
 
 

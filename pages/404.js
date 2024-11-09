@@ -3,8 +3,7 @@ import styles from '@/styles/Landing.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import talleres from '../pages/servicios-automotriz/talleres.json'
-
+import talleres from '@/src/data/talleres.json'
 
 export default function Page404() {
   const router = useRouter()

@@ -8,7 +8,6 @@ import { GET_NEGOCIOSVDOS_BY_SERVICIO } from "@/graphql/queries"
 import { useQuery } from "@apollo/client"
 import { useRef } from "react"
 import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPreguntasServicio"
-import SectionSeoServicios from "@/src/Components/LandingPage/SectionSeoServicios"
 import Link from "next/link"
 import Image from "next/image"
 

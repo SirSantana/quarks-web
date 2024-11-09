@@ -1,5 +1,5 @@
 import styles from '@/styles/ServiciosAutomotriz.module.css'
-import talleres from '@/pages/servicios-automotriz/talleres.json'
+import talleres from '@/src/data/talleres.json'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet';

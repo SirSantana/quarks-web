@@ -1,31 +1,13 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import { options } from '@/src/Components/Main/Main'
-import Footer from '@/src/Components/Footer/Footer'
-import ListTalleresLanding from '@/src/Components/LandingPage/ListTalleresLanding'
-import SectionVariedadTalleres from '@/src/Components/LandingPage/Section1'
-import SectionCotizaciones from '@/src/Components/LandingPage/Section2'
-import SectionPasos from '@/src/Components/LandingPage/Section4'
-import dynamic from 'next/dynamic'
-import talleres from '@/pages/servicios-automotriz/talleres.json'
 import { useEffect, useState } from 'react'
-import SectionTalleresServicios from '@/src/Components/LandingPage/SectionTalleresServicios'
 
-import Button, { ButtonSize, ButtonVariant } from '@/src/Components/Button/Button'
-import { IconCatalog } from '@/src/Components/Icon/Icon'
 import { useRouter } from 'next/router'
-import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
-import HomeMarch from '@/src/Components/LandingPage/HomeMarch'
-import BasicHome from '@/src/Components/LandingPage/BasicHome'
+
 import HomeSep from '@/src/Components/LandingPage/HomeSep'
 import FooterV2 from '@/src/Components/Footer/FooterV2'
+import { categorias } from '@/src/data/Categorias'
 
-const SectionGrowthTaller = dynamic(() => import('@/src/Components/LandingPage/SectionGrowthTaller'),
-  { ssr: false })
-const SectionCalculadoraCombustible = dynamic(() => import('@/src/Components/LandingPage/Section5'),
-  { ssr: false })
-const ActividadReciente = dynamic(() => import('@/src/Components/LandingPage/ActividadReciente'),
-  { ssr: false })
 
 const tagsFix = [
   'talleres abiertos hoy cerca de mi',
@@ -107,7 +89,7 @@ export default function Home({ initialQuery }) {
       <Head>
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={`Encuentra los mejores talleres de carros con reseñas de usuarios y recomendaciones en Bogota. Taller automotriz de Servicios de ${options?.map(el => " " + el.value)}`} />
+        <meta name="description" content={`Encuentra los mejores talleres de carros con reseñas de usuarios y recomendaciones en Bogota. Taller automotriz de Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta name="keywords" content={"talleres de carros, reparación de automóviles, mantenimiento vehicular, servicio automotriz, mecánica automotriz, taller especializado, mecánico de confianza, repuestos y accesorios, diagnóstico automotriz, servicio de frenos, cambio de aceite, alineación y balanceo, sistema de suspensión, electricidad automotriz, servicio de carrocería, taller de chapa y pintura, cambio de llantas, sistema de escape, servicio de aire acondicionado, talleres en bogota, bogota, colombia, taller carro, talleres de carros"} />
         <meta name='robots' content='follow, index, max-image-preview:large' />
         <meta name='bingbot' content='follow, index' />
@@ -122,11 +104,11 @@ export default function Home({ initialQuery }) {
         <meta name="url" content={`https://www.quarks.com.co/`} />
         <meta property="url" content={`https://www.quarks.com.co/`} />
 
-        <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
+        <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
         <meta property="og:image" content='/logo-background-quarks.svg' />
         <meta property="og:image:url" content='/logo-background-quarks.svg' />
-        <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${options?.map(el => " " + el.value)}`} />
+        <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta property='og:url' content={`https://www.quarks.com.co/`} />
 
 

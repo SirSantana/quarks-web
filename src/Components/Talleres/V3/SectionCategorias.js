@@ -1,6 +1,5 @@
 
 import styles from '@/styles/Negocio.module.css'
-import SliderServiciosTaller from '../SliderServiciosTaller';
 import Image from 'next/image';
 import { categorias } from '@/src/data/Categorias';
 
@@ -42,7 +41,6 @@ export default function SectionCategorias({ data, }) {
           )}
         </div>
       </section>
-      {/* <SliderServiciosTaller categorias={conImagen} id={data?.id} /> */}
       
     </>
   )
