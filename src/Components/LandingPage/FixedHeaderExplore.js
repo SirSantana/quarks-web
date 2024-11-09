@@ -1,12 +1,11 @@
 
 import Link from "next/link";
-import Image from "next/image";
 import styles2 from '@/styles/Landing.module.css';
 
 export default function FixedHeaderExplore({ categoria, vehiculo, servicio, ciudad }) {
 
   return (
-    <section className={styles2.containerListTalleres}>
+    <header className={styles2.containerListTalleres}>
       <div style={{ width: '100%', maxWidth: '1100px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px', margin: '0 auto' }}>
         <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }} href={'/'}>
           <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none', color: '#373737', fontSize: '16px', fontWeight: '600' }} className={styles2.titleNav}>Quarks</h3>
@@ -44,7 +43,7 @@ export default function FixedHeaderExplore({ categoria, vehiculo, servicio, ciud
           }
         </h1>
       </div>
-    </section>
+    </header>
   )
 }
 

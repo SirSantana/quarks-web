@@ -1,8 +1,23 @@
 
 p{
   font-size: 16px;
-  color:#434146;
+  color:#6C788E;
   line-height: 24px;
+  text-wrap: balance;
+  max-width: 600px;
+}
+h1{
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #182537;
+  max-width: 700px;
+  text-wrap: balance;
+  line-height: 52px;
+}
+h2{
+  color: #182537;
+  text-wrap: balance;
 }
 input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
@@ -34,3 +49,25 @@ font-family: 'Poppins', sans-serif;
   box-sizing: border-box;
 
 }
+
+@media (max-width:800px) {
+
+h1 {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 16px;
+  max-width: 500px;
+  line-height: 46px;
+}
+}
+
+
+@media (max-width:600px) {
+
+  h1 {
+    font-size: 32px;
+    margin-top: 16px;
+    line-height: 40px;
+  }
+  }
+

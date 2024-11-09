@@ -170,12 +170,21 @@ export default function LayoutExplore({ children, title, description, query, pri
                 "name": "Juan Pérez"
               },
               "reviewBody": "Gracias, encontré talleres confiables y de calidad. ¡Muchas gracias!",
+              "itemReviewed": {
+                "@type": "LocalBusiness",
+                "name": "Taller Automotriz Bogota",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Bogotá",
+                  "addressRegion": "Cundinamarca",
+                  "addressCountry": "CO"
+                },
+                "telephone": "+57 314 355 1942",
+                "url": `https://www.quarks.com.co${url}`
+              }
             }),
           }}
         />
-
-
-
         {/* Google Ads Script */}
         <script
           async

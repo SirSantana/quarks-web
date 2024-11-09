@@ -10,10 +10,7 @@ import { useRouter } from 'next/router'
 
 export default function PerfilCreado() {
   const router = useRouter()
-  console.log(router);
   const {loading,data, error} = useQuery(GET_ONE_NEGOCIOVDOS, {variables:{ userName: router.query.id}})
-  
-  console.log(data);
   return (
     <Layout title={'Perfil creado exitosamente'} visibleNavbar={false}>
       <div className={styles.containerAcceso} >

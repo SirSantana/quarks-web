@@ -7,7 +7,7 @@ import SectionTagsSearch from "./SectionTagsSearch";
 
 export default function SectionFixedServicios() {
   return (
-    <section className={styles2.containerListTalleres}>
+    <header className={styles2.containerListTalleres}>
       <div style={{ width: '100%', maxWidth: '1100px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px', margin: '0 auto' }}>
         <Link style={{ textDecoration: 'none', display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px', color: '#407BFF' }} href={'/'}>
           <svg width="30" height="23" viewBox="0 0 113 93" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -41,6 +41,6 @@ export default function SectionFixedServicios() {
       <TitleHomeAnimation />
       <BuscadorBasico />
       <SectionTagsSearch />
-    </section>
+    </header>
   )
 }

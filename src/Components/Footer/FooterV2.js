@@ -8,7 +8,6 @@ export default function FooterV2({ data }) {
     <div>
       <div className={styles.container}>
         <h2 className={styles.heading}>Explora los mejores talleres y mecánicos de Bogotá</h2>
-
         <div className={styles.categoriesContainer}>
           <div className={styles.categoryGroup}>
             <h3 className={styles.categoryTitle}>Carros</h3>
@@ -34,6 +33,9 @@ export default function FooterV2({ data }) {
       <div className={styles.footerBottom}>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Acerca de Nosotros</h3>
+          <Link href="/articulos" className={styles.footerLink}>
+            Articulos / Blog
+          </Link>
           <Link href="/quienessomos" className={styles.footerLink}>
             ¿Quiénes somos?
           </Link>
@@ -43,6 +45,7 @@ export default function FooterV2({ data }) {
           <Link href="/terms-of-service" className={styles.footerLink}>
             Términos del Servicio
           </Link>
+          
         </div>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Síguenos</h3>
