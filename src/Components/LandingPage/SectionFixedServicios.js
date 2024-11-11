@@ -19,6 +19,7 @@ export default function SectionFixedServicios() {
           <h3 style={{ cursor: 'pointer', textDecoration: 'none', outline: 'none',fontSize: '16px', fontWeight: '600' }} className={styles2.titleNav}>Quarks</h3>
         </Link>
         <nav style={{ display: 'flex', flexDirection: 'row', gap: '16px' }}>
+          {/* <Link href={'/hola'}>Hola</Link> */}
           {/* <p style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>Servicios</p> */}
           {/* <Link style={{ textDecoration: 'none', color: '#373737', fontSize: '12px', fontWeight: '600' }} href={'/signup'}>Tienes un Taller?</Link> */}
           {/* <p style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>Tienes un taller?</p> */}
