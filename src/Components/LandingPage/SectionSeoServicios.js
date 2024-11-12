@@ -1,9 +1,6 @@
 import Link from "next/link"
-import { useRouter } from "next/router"
-
 
 export default function SectionSeoServicios({ data, categoria, vehiculo, servicio }) {
-  const router = useRouter()
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '90%', maxWidth: '1100px', justifyContent: 'space-between', margin: '0 auto', margin: '32px auto 32px auto', }}>

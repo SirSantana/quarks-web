@@ -12,16 +12,17 @@ export default function CiudadPage({ title, query,  description, talleresData })
   // const {data, loading, error} = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {variables:{tipo:router.query.servicio.replace(/-/g, ' ')}})
   // let talleresData = data?.getNegociosVDosByServicio;
   // console.log(data);
+  console.log(description);
   
   return (
     <LayoutExplore  title={title} query={query}  description={description?.description} url={`/explore/${query.categoria || ''}/${query.vehiculo || ''}/${query.servicio?.replaceAll(/ /g, '-') || ''}/${query.ciudad || ''}`}
-    keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}`} tags={description?.tags} image={talleresData[0]?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
+    keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}, ${description.tags}`} tags={description?.tags} image={talleresData[0]?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
         <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
           <p>
             {query.servicio
-              ? `Se encontraron ${talleresData?.length || 0} talleres mecánicos de ${query.servicio.replace(/-/g, ' ')} cerca de mí en Bogotá`
+              ? `Se encontraron ${talleresData?.length || 0} talleres mecánicos de ${query.servicio.replace(/-/g, ' ')} cerca de mi en ${query.ciudad}`
               : 'Se encontraron +100 talleres en Bogotá'}
           </p>
         </div>
@@ -61,23 +62,28 @@ export default function CiudadPage({ title, query,  description, talleresData })
         <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
           <section style={{display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '1100px', width: '90%',  margin: '0 auto' }}>
             <article>
-              <h2>{description?.preguntas?.importancia}</h2>
+              <h3>{description?.preguntas?.importancia}</h3>
               <p>{description?.importancia}</p>
             </article>
             <article>
-              <h2>{description?.preguntas?.duracion}</h2>
+              <h3>{description?.preguntas?.duracion}</h3>
               <p>{description.duracion}</p>
             </article>
             <article>
-              <h2>{description?.preguntas?.frecuencia}</h2>
+              <h3>{description?.preguntas?.frecuencia}</h3>
               <p>{description.frecuencia}</p>
             </article>
           </section>
-
         </div>
       }
+      <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
+      <section style={{display: 'flex', flexDirection: 'row', gap: '16px', maxWidth: '1100px', width: '90%',  margin: '0 auto', flexWrap:'wrap', gap:'16px'}}>
+        
+        {description?.tags?.map(el=><div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', width:'fit-content'}}><h2 style={{fontSize:'14px', color:'#5C5C5C', fontWeight:'500'}}>{el}</h2></div>)}
+      </section>
+      </div>
       <SectionSeoServicios data={talleresData} categoria={query.categoria} vehiculo={query.vehiculo} servicio={query.servicio}/>
-
+      
     </LayoutExplore>
   );
 };
