@@ -16,7 +16,7 @@ export default function CiudadPage({ title, query,  description, talleresData })
   
   return (
     <LayoutExplore  title={title} query={query}  description={description?.description} url={`/explore/${query.categoria || ''}/${query.vehiculo || ''}/${query.servicio?.replaceAll(/ /g, '-') || ''}/${query.ciudad || ''}`}
-    keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}, ${description.tags}`} tags={description?.tags} image={talleresData[0]?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
+    keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}, ${description?.tags}`} tags={description?.tags} image={talleresData[0]?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
         <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
