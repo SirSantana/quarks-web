@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {  useState } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import HomeSep from '@/src/Components/LandingPage/HomeSep'
 import FooterV2 from '@/src/Components/Footer/FooterV2'
@@ -79,7 +79,7 @@ export default function Home({ initialQuery }) {
     setMode(mode === 'Lista' ? 'Mapa' : 'Lista')
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
-  const {query} = useRouter()
+  const { query } = useRouter()
   let title = query?.servicio ? `Talleres de clutch en Bogota` : 'Talleres mecanicos automotrices de Bogotá'
   return (
     <>
@@ -120,25 +120,35 @@ export default function Home({ initialQuery }) {
         <link rel="icon" href={'/logo-background-quarks.svg'} />
 
         {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
-          crossorigin="anonymous"></script>
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+            crossOrigin="anonymous"
+          ></script>
+        )}
 
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "jh3neqgrnc");
-            `,
-          }}
-        />
+        `,
+            }}
+          />
+        )}
       </Head>
-      <main styles={{width:'100%'}}>
+      <main styles={{ width: '100%' }}>
         {/* <HomeMarch initialQuery={initialQuery} mode={mode} /> */}
         {/* <BasicHome /> */}
-        <HomeSep/>
+        <HomeSep />
         {/* <SectionTalleresServicios />
         <ListTalleresLanding />
         <ActividadReciente />
@@ -163,7 +173,7 @@ export default function Home({ initialQuery }) {
 
       </main>
       {/* <Footer /> */}
-      <FooterV2/>
+      <FooterV2 />
 
     </>
   )
