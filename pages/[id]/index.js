@@ -12,7 +12,6 @@ import { ModalImagePerfil } from "@/utils/Modales";
 import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
 import SectionPreguntasFrecuentes from "@/src/Components/Talleres/V3/SectionPreguntasFrecuentes";
 import SectionDescription from "@/src/Components/Talleres/V3/SectionDescription";
-import ModalButtonsContacto from "@/src/Components/Talleres/ModalButtonsContacto";
 import Button, { ButtonVariant } from "@/src/Components/Button/Button";
 import Revisiones from "@/src/Components/Talleres/Revisiones";
 import { getLatLng } from "@/utils/scripts";
@@ -46,7 +45,6 @@ const servicios = [
 export default function NegocioVDos({ data, loading }) {
   const router = useRouter()
   const [visibleModalImage, setVisibleModalImage] = useState(false)
-  const [visibleModalButtons, setVisibleModalButtons] = useState(false)
   const [visibleModalSolicitarServicio, setVisibleModalSolicitarServicio] = useState(false)
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${data?.localidad}, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Taller especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
   let descripcionMecanico = `Mecanico a domicilio, zona de cobertura Bogota y alrededores. Consulta disponibilidad aqui o al ${data?.telefono} - ${data?.whatsapp}. Servicio especializado en${data?.categorias?.map(el => " " + el)}. Horario ${data?.horario}.`
@@ -176,9 +174,9 @@ export default function NegocioVDos({ data, loading }) {
 
               <div ref={refReseñas} style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
 
-              <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+              {/* <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps} />
-              </section>
+              </section> */}
 
               <div style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
 
@@ -201,7 +199,6 @@ export default function NegocioVDos({ data, loading }) {
 
       {visibleModalImage &&
         <ModalImagePerfil img={data?.fotoperfil} setVisibleModalImage={setVisibleModalImage} />}
-      {visibleModalButtons && <ModalButtonsContacto data={data} setVisibleModalButtons={setVisibleModalButtons} />}
       {/* {visibleModalSolicitarServicio && <ModalSolicitarServicio setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} />} */}
     </Layout>
   )

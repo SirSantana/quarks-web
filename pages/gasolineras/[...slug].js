@@ -224,7 +224,7 @@ export default function Gasolineras({ data }) {
       }
       <div style={{ width: '90%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '32px', margin: '64px auto', }}>
         <section>
-          <h2>Bombas de Gasolina {query?.slug?.[0]}</h2>
+          <h2>Bombas de Gasolina  {query?.slug?.[0]}</h2>
           <p>Encuentra fácilmente las bombas de gasolina más cercanas a ti. Nuestra plataforma te proporciona información detallada sobre las diferentes bombas de gasolina disponibles, sus ubicaciones exactas, horarios de atención y servicios adicionales que ofrecen.</p>
         </section>
 

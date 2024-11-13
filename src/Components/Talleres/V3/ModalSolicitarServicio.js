@@ -1,6 +1,5 @@
 
-import styles from '@/styles/Main.module.css'
-
+import styles from '@/styles/Modales.module.css'
 import Icon, { IconCatalog } from '../../Icon/Icon'
 import SelectBrand from '../../MenuSelects/SelectBrand'
 import SelectServicioProfile from '../../MenuSelects/SelectServicioProfile'
@@ -31,7 +30,6 @@ export default function ModalSolicitarServicio({ setForm, form }) {
   const result = useQuery(GET_WHATSAPP_NEGOCIO, { variables: { id: router.query?.modalSolicitar } } )
   //  AGREGAR MODAL A LA QUERY Y COLOCARLE EL ID DEL ALMACEN PARA NO TENER QUE PASAR POR PROPS EL ID Y EL FORM Y MANEJAR QUE EL MODAL ESTE ABIERTO SI LA QUERY SOLICTAR SERVICIO ESTA
   const whatsapp = result?.data?.getWhatsappNegocio
-  console.log(form);
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -64,7 +62,7 @@ export default function ModalSolicitarServicio({ setForm, form }) {
   
   return (
     <div onClick={closeModal} className={styles.modal}  >
-      <div onClick={(e) => e.stopPropagation()} className={styles.modalContainer} style={{ maxWidth: '400px', width: '90%', padding: '24px', borderRadius: '16px', margin: '0 auto', backgroundColor: 'white' }}>
+      <div onClick={(e) => e.stopPropagation()}  style={{ maxWidth: '400px', width: '90%', padding: '24px', borderRadius: '16px', margin: '0 auto', backgroundColor: 'white' }}>
         <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center' }}>
             <p style={{ margin: '0', textAlign: 'center', fontSize: '18px', fontWeight: '600' }}>Agendar cita</p>
@@ -87,9 +85,9 @@ export default function ModalSolicitarServicio({ setForm, form }) {
           <SelectPhoneNumber width={'120px'} handleChange={(e) => setForm({ ...form, indicativo: e.value })} handlePhoneNumber={(e) => setForm({ ...form, celular: e.target.value })} form={form} />
         </div>
 
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px', margin: '16px 0' }}>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px', margin: '16px 0', }}>
           <label style={{ fontWeight: '500', fontSize: '14px', color: '#182537' }}>Descripcion del Problema</label>
-          <textarea onChange={(e)=>setForm({...form,descripcion:e.target.value})} required name='descripcion' rows="5" value={form?.descripcion} style={{ width: '100%', fontSize: '14px', border: '1px solid #CFD5E1', borderRadius: '12px',  outline: 'none', padding: '16px', resize: 'none', margin: 0 }} type={'text'} placeholder={'Ejemplo: El auto presenta problemas con la transmisión o hace un ruido extraño al arrancar.'} className={styles.input} />
+          <textarea onChange={(e)=>setForm({...form,descripcion:e.target.value})} required name='descripcion' rows="5" value={form?.descripcion} style={{ width: '100%', fontSize: '14px', border: '1px solid #CFD5E1', borderRadius: '12px',  outline: 'none', padding: '16px', resize: 'none', margin: 0 }} type={'text'} placeholder={'Ejemplo: El auto presenta problemas con la transmisión o hace un ruido extraño al arrancar.'} />
         </div>
 
 

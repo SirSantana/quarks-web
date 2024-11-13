@@ -1,6 +1,6 @@
 // pages/api/getTalleres.js
-import { categorias } from '@/src/Components/LandingPage/SliderTiposTalleres'
 import talleres from '@/src/data/talleres.json'
+import { categorias } from '@/src/data/Categorias';
 
 const levenshteinDistance = (s1, s2) => {
   const m = s1.length;

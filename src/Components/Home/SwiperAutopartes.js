@@ -4,12 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, Scrollbar } from 'swiper';
 import 'swiper/swiper.min.css';
 import 'swiper/css/pagination';
-import styles from '@/styles/HomeArticulos.module.css'
-import Link from 'next/link';
+import styles from '@/styles/Diccionario.module.css'
 import { useRouter } from 'next/router';
 
 const categorias = [   'Filtros', 'Electricos',  'Frenado',  'Motor', ]
-
 
 export default function SwiperAutopartes({quantity, select, imgPath}) {
   const router = useRouter()

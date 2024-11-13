@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import { useEffect, useState } from 'react'
+import {  useState } from 'react'
 import { useRouter } from 'next/router'
 import HomeSep from '@/src/Components/LandingPage/HomeSep'
 import FooterV2 from '@/src/Components/Footer/FooterV2'
@@ -136,7 +135,7 @@ export default function Home({ initialQuery }) {
           }}
         />
       </Head>
-      <main className={styles.main}>
+      <main styles={{width:'100%'}}>
         {/* <HomeMarch initialQuery={initialQuery} mode={mode} /> */}
         {/* <BasicHome /> */}
         <HomeSep/>

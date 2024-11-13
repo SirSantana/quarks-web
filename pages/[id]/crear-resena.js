@@ -1,6 +1,5 @@
 import { CREATE_OPINION } from '@/graphql/mutations'
 import { GET_CALIFICACION_OPINIONES, GET_OPINIONES } from '@/graphql/queries'
-import styles from '@/styles/Almacenes.module.css'
 import { ModalError, ModalLoading, ModalSuccessfull } from '@/utils/Modales'
 import { useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
@@ -200,67 +199,7 @@ export default function CreateReseña({ setVisibleOpinion, setCalificated, }) {
     setVisibleModalLogin(false)
   }, [session]);
   return (
-    <Layout title={'Crear reseña'} visibleNavbar={false}>
-
-      <div style={{ maxWidth: '400px', width: '90%', margin: '0 auto', display: 'flex', flexDirection: 'column', padding: '16px 0', boxSizing: 'border-box', gap: '40px' }}>
-
-        <section style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
-          <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'flex-end', alignItems: 'center' }}>
-            <p style={{ flex: 1, fontWeight: '500', alignSelf: 'center', textAlign: 'center', fontSize: '14px' }}>Comparte tu experiencia</p>
-            <ion-icon onClick={() => router.push(`/${id}`)} style={{ fontSize: '24px', alignSelf: 'flex-end', cursor: 'pointer' }} name="close-outline"></ion-icon>
-          </div>
-          <div style={{ width: '100%', backgroundColor: '#f1f1f1', height: '1px' }} />
-        </section>
-
-        <section style={{ width: '100%', gap: '8px', height: 'fitContent', display: 'flex', flexDirection: 'column' }}>
-          <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>¿Que servicios tomaste?</h4>
-          <Select isSearchable={false} formatOptionLabel={formatOptionLabel} isMulti onChange={handleChangeServices} options={repuestosWithOptions} styles={customStyles} placeholder='Seleccionar servicio' noOptionsMessage={() => 'No se encontro ningun repuesto'} />
-        </section>
-
-
-        <section style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column', }}>
-          <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>Tú vehículo</h4>
-          <div style={{ display: 'flex', width: '100%', gap: '8px', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <Select onChange={(e) => setForm({ ...form, marca: e.value })} options={marcasWithOptions} isSearchable={false} styles={customStyles2} placeholder={<img src={marcasAuto[0].img} style={{ width: '30px', height: '30px', marginTop: '4px' }} />} defaultValue={marcasAuto[0].img} />
-            <input required id="referencia" type='text' onChange={handleChange} name='referencia' value={form.referencia} className={styles.inputChooseMarca} placeholder='Modelo - Cilindraje - Año' />
-          </div>
-        </section>
-
-        <section style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column' }}>
-
-          <h4 style={{ fontSize: '16px', color: '#373737', fontWeight: '700' }}>Tú experiencia</h4>
-
-          <div style={{ border: '1px solid #d9d9d9', borderRadius: '4px', width: '100%', boxSizing: 'border-box', padding: '16px' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', alignSelf: 'flex-start', marginBottom: '8px' }}>
-              {estrellas.map((el, index) => (
-                <div style={{ marginRight: '8px', cursor: 'pointer' }} onClick={() => setForm({ ...form, calificacion: index + 1 })} >
-                  <Star index={index} form={form} />
-                </div>
-              ))}
-              <p className={styles.subtitle2}>{form.calificacion == 1 && 'Malo'} {form.calificacion == 2 && 'Regular'}{form.calificacion == 3 && 'Aceptable'} {form.calificacion == 4 && 'Bueno'}{form.calificacion == 5 && 'Excelente'}</p>
-            </div>
-            <textarea required onChange={handleChange} name='descripcion' rows="5" value={form?.descripcion} style={{ width: '100%', fontSize: '14px', border: 'none', outline: 'none', padding: '0', resize: 'none', margin: 0 }} type={'text'} placeholder={'Comparte detalles de tu experiencia'} className={styles.input} />
-          </div>
-        </section>
-
-        <section style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%', margin: '32px 0 16px 0', gap: '16px' }}>
-          <button disabled={loading} onClick={handleSubmit} style={{ width: '100%', fontSize: '14px', }} className={styles.button}>Publicar</button>
-          <button onClick={() => { setVisibleOpinion(false), setForm(initialForm) }} style={{ width: '100%', fontSize: '14px', backgroundColor: 'white', border: '1px solid #f50057', color: '#f50057', }} className={styles.button}>Regresar</button>
-        </section>
-        {loading &&
-          <ModalLoading title={'Publicando...'} />}
-        {data &&
-          <ModalSuccessfull title={'Reseña compartida!'} />}
-        {error &&
-          <ModalError title={'Ha ocurrido un error'} subtitle={error?.message} />
-        }
-        {visibleModalLogin &&
-          <div className={styles.modal}>
-            <ModalLoginFacebook setVisibleModalLogin={setVisibleModalLogin} />
-          </div>
-        }
-      </div>
-    </Layout>
+   <p>Crear Reseña</p>
 
   )
 }

@@ -1,5 +1,5 @@
-import { EDIT_NEGOCIO_VDOS, INTERESADO_ALMACEN, INTERESADO_ANUNCIO } from '@/graphql/mutations'
-import styles from '@/styles/Main.module.css'
+import {  INTERESADO_ALMACEN, INTERESADO_ANUNCIO } from '@/graphql/mutations'
+import styles from '@/styles/Modales.module.css'
 import { useMutation } from '@apollo/client'
 import { useEffect, useState } from 'react'
 import sendMessage from './fetching'

@@ -19,7 +19,12 @@
   grid-template-areas:
     "aside container aside2"
 }
-
+.swipperContainer{
+  width: 100%;
+  padding-bottom: 120px;
+  padding-left: 8px;
+  box-sizing: border-box;
+}
 .asideBar {
   padding: 16px 16px 16px 32px;
   margin: 20% auto 0 auto;
@@ -328,7 +333,24 @@
   box-shadow: 0 0 2px 1px #a1a1a1;
 
 }
+.circleAutopartes {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid #bababa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  transition: 0.2s ease-in-out;
 
+}
+
+.circleAutopartes:hover {
+  background-color: #ffefef;
+  border: 1px solid #5b0221;
+
+}
 .seccion4:hover {
   border-color: #ffffff;
   border-radius: 8px;
@@ -418,6 +440,11 @@
 
   .containerGridAside {
     display: flex;
+  }
+  .swipperContainer{
+    width: 95vw;
+    padding-left: 0;
+    box-sizing: border-box;
   }
 }
 

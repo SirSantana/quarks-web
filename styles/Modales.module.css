@@ -1,0 +1,92 @@
+.inputContact::placeholder {
+  opacity: 0.5;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.inputContact {
+  border: #c0c0c0 solid 1px;
+  border-radius: 4px;
+  margin: 8px 0;
+  padding: 8px;
+  width: 95%;
+  font-size: 14px;
+}
+
+
+.inputContact:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #1b333d;
+}
+
+.button {
+  background-color: #f50057;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px;
+  width: 12%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 50px;
+  align-self: center;
+  transition: 0.3s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.button:hover {
+  background-color: #db024e;
+
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2 !important;
+  animation: slideIn 0.5s ease;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 300px;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+
+@media (max-width: 1200px) {
+  .button {
+    width: 100%;
+  }
+
+}
