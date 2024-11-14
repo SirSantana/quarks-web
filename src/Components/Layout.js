@@ -103,7 +103,7 @@ export default function Layout({ children, footer = true, title, description, ty
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(picoyplacaStructured) }}
           />}
-        {process.env.NODE_ENV === "production" && ads(
+        {process.env.NODE_ENV === "production"&&ads && (
           <script
             async
             defer
