@@ -75,7 +75,7 @@ export default function NegocioVDos({ data, loading }) {
   // if(loading){return <h1>Cargando...</h1>}
   
   return (
-    <Layout title={`${data?.nombre} - ${data?.ciudad}`} negocio={true} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false}>
+    <Layout title={`${data?.nombre} - ${data?.ciudad}`} negocio={true} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false} ads={false}>
       <section className={styles.sectionMain}>
         <section
           className={styles.sectionMainImage}
@@ -209,7 +209,8 @@ export async function getServerSideProps({ query, res }) {
   const { data, error, loading } = await client.query(
     {
       query: GET_ONE_NEGOCIOVDOS,
-      variables: { userName: parts.replace(/&/g, '') }
+      variables: { userName: parts.replace(/&/g, '') },
+      fetchPolicy: 'cache-first', // Evita consultas repetidas usando la caché
     }
   )
 
@@ -231,14 +232,14 @@ export async function getServerSideProps({ query, res }) {
     res.end();
     return { props: {} };
   }
-  if (process.env.NODE_ENV === 'production' && data) {
-    await client.mutate(
-      {
-        mutation: CREATE_ACCION,
-        variables: { almacen: data?.getOneNegocioVDos?.id, tipo: 'visita-perfil', estado: 'production' }
-      }
-    )
-  }
+  // if (process.env.NODE_ENV === 'production' && data) {
+  //   await client.mutate(
+  //     {
+  //       mutation: CREATE_ACCION,
+  //       variables: { almacen: data?.getOneNegocioVDos?.id, tipo: 'visita-perfil', estado: 'production' }
+  //     }
+  //   )
+  // }
   return {
     props: {
       data: data?.getOneNegocioVDos,

@@ -23,7 +23,7 @@ function generarMarcadoEstructurado(articulo) {
   }
 }
 
-export default function Layout({ children, footer = true,title, description, type, price, keywords, fecha, image, tags, url, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured, negocio=false}) {
+export default function Layout({ children, footer = true, title, description, type, price, keywords, fecha, image, tags, url, ads = true, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured, negocio = false }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
   return (
     <>
@@ -84,12 +84,14 @@ export default function Layout({ children, footer = true,title, description, typ
 
         <link rel="icon" href={"/logo-background-quarks.svg"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
-        <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+        {process.env.NODE_ENV === "production" && ads(
+          <>
+            <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+            <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+          </>
+        )}
         <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
         {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
-          crossorigin="anonymous"></script>
 
         {productoMarcado &&
           <script
@@ -101,17 +103,30 @@ export default function Layout({ children, footer = true,title, description, typ
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(picoyplacaStructured) }}
           />}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        {process.env.NODE_ENV === "production" && ads(
+          <script
+            async
+            defer
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+            crossOrigin="anonymous"
+          ></script>
+        )}
+
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "jh3neqgrnc");
-            `,
-          }}
-        />
+        `,
+            }}
+          />
+        )}
       </Head>
 
       <main  >

@@ -12,7 +12,6 @@ export default function CiudadPage({ title, query,  description, talleresData })
   // const {data, loading, error} = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {variables:{tipo:router.query.servicio.replace(/-/g, ' ')}})
   // let talleresData = data?.getNegociosVDosByServicio;
   // console.log(data);
-  console.log(description);
   
   return (
     <LayoutExplore  title={title} query={query}  description={description?.description} url={`/explore/${query.categoria || ''}/${query.vehiculo || ''}/${query.servicio?.replaceAll(/ /g, '-') || ''}/${query.ciudad || ''}`}
@@ -92,32 +91,51 @@ export default function CiudadPage({ title, query,  description, talleresData })
 export async function getServerSideProps(context) {
   const { categoria, vehiculo, servicio, ciudad } = context.query;
 
-  let talleresData = [];
+  // Validar y preparar las variables antes de la consulta
+  const tipoServicio = servicio ? servicio.replace(/-/g, ' ') : null;
 
-  if (servicio) {
-    // Llamada al servidor GraphQL usando Apollo Client
+  // Optimización: Verificar si el servicio ya está almacenado en caché en el cliente Apollo
+  let talleresData = [];
+  if (tipoServicio) {
     try {
       const { data } = await client.query({
         query: GET_NEGOCIOSVDOS_BY_SERVICIO,
-        variables: { tipo: servicio.replace(/-/g, ' ') },
-        fetchPolicy: 'cache-first'
+        variables: { tipo: tipoServicio },
+        fetchPolicy: 'cache-first', // Evita consultas repetidas usando la caché
       });
       talleresData = data?.getNegociosVDosByServicio || [];
     } catch (error) {
-      // console.error('Error fetching data: HOLAAAAAA', error);
+      console.error('Error fetching data:', error);
+      talleresData = []; // Valor predeterminado en caso de error
     }
   }
-  const servicioSeo = getSeoCategorias({ servicio: servicio, ciudad: ciudad, vehiculo: vehiculo });
-  let title = categoria !== 'mecanicos'
-    ? `Encuentra los mejores ${categoria.charAt(0).toUpperCase() + categoria.slice(1)} de ${servicio.replaceAll(/-/g, ' ')} para ${vehiculo} en ${ciudad}`
-    : `Mecánicos a domicilio para ${servicio} de ${vehiculo} en ${ciudad}`
+
+  // Generación de título de la página optimizado para SEO
+  const title = categoria && servicio && vehiculo && ciudad
+    ? categoria !== 'mecanicos'
+      ? `Encuentra los mejores ${capitalizeFirstLetter(categoria)} de ${tipoServicio} para ${vehiculo} en ${ciudad}`
+      : `Mecánicos a domicilio para ${tipoServicio} de ${vehiculo} en ${ciudad}`
+    : 'Encuentra los mejores talleres y servicios mecánicos';
+
+  // Optimización SEO: Generación del SEO basada en categorías y guardado en una variable
+  const servicioSeo = getSeoCategorias({ servicio, ciudad, vehiculo });
 
   return {
     props: {
       title,
-      query: { categoria:categoria?categoria:null, vehiculo:vehiculo?vehiculo:null, ciudad:ciudad?ciudad:null, servicio:servicio?servicio.replaceAll(/-/g, ' '):null },
+      query: {
+        categoria: categoria || null,
+        vehiculo: vehiculo || null,
+        ciudad: ciudad || null,
+        servicio: tipoServicio,
+      },
       description: servicioSeo || null,
-      talleresData
+      talleresData,
     },
   };
+}
+
+// Función de ayuda para capitalizar la primera letra de una palabra
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

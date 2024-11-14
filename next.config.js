@@ -1,9 +1,7 @@
-
-const withMDX = require('@next/mdx')()
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'], // Elimina 'mdx' de las extensiones
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -23,6 +21,19 @@ const nextConfig = {
       },
     ],
   },
-}
+  async headers() {
+    return [
+      {
+        source: '/(.*)', // Aplica a todas las rutas
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate', // Ajusta según tus necesidades
+          },
+        ],
+      },
+    ];
+  },
+};
 
-module.exports = withMDX(nextConfig)
+module.exports = nextConfig;

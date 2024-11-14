@@ -2,8 +2,11 @@ import CardTallerV2 from "./CardTallerV2";
 import SectionFixedServicios from "./SectionFixedServicios";
 import styles2 from '@/styles/Landing.module.css'
 import talleres from '@/src/data/talleres.json'
-
 import { useState } from "react";
+import dynamic from "next/dynamic";
+import Loader from "../Loaders/CardLoader";
+const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTalleresHome'),
+  { ssr: false, loading: () => <Loader /> })
 
 export default function HomeSep() {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,6 +47,24 @@ export default function HomeSep() {
                 <CardTallerV2 key={taller.nombre} taller={taller} />
               ))}
             </div>
+           
+            //  <div style={{display:'flex', flexDirection:'row', width:'100%', gap:'32px', position:'relative', alignItems:'flex-start'}}>
+            //  <div
+            //    style={{
+            //      display: 'grid',
+            //      gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', // Cada tarjeta tiene al menos 300px de ancho, pero se adapta al tamaño de la pantalla.
+            //      gap: '24px',
+            //      alignItems: 'flex-start',
+            //    }}
+            //  >
+            //    {talleres.talleres.slice(28, 40).reverse().map((taller, index) => (
+            //      <CardTallerV2 key={taller.nombre} taller={taller} />
+            //    ))}
+            //  </div>
+            //  <div style={{ position:'sticky', top:'48px', width:'50%', height:'100%', border:'1px solid #CFD5E1', boxShadow:'0px 0px 3px rgba(0, 0, 0, 0.1)'}}>
+            //  <MapTalleresHome data={talleres.talleres.slice(20, 70).reverse()} />
+            //  </div>
+            //  </div>
           }
         </div>
       </section>
