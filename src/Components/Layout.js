@@ -84,7 +84,7 @@ export default function Layout({ children, footer = true, title, description, ty
 
         <link rel="icon" href={"/logo-background-quarks.svg"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
-        {process.env.NODE_ENV === "production" && ads(
+        {process.env.NODE_ENV === "production" && ads &&(
           <>
             <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
             <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
