@@ -12,6 +12,7 @@ const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTa
 export default function HomeSep() {
   const [isLoading, setIsLoading] = useState(false);
   const [mapa, setMapa] = useState(false)
+  
   return (
     <>
       <SectionFixedServicios home={true} />
@@ -51,7 +52,7 @@ export default function HomeSep() {
                  <CardTallerV2 key={taller.nombre} taller={taller} />
                ))}
              </div>
-             <div style={{display:mapa ?'flex':'none'}}  className={styles2.containerMapHome}>
+             <div className={mapa?styles2.containerMapHomeMobile:styles2.containerMapHome}>
              <MapTalleresHome data={talleres.talleres.slice(20, 70).reverse()} />
              </div>
              </div>
