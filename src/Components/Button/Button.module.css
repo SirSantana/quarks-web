@@ -10,7 +10,7 @@
   border: none;
   color: #fff;
   margin: 0 auto;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   text-decoration: none;
   width: fit-content;
@@ -18,8 +18,8 @@
 }
 
 .button-primary {
-  background-color: #E50051;
-  color: #fff;
+  background-color: #407BFF;
+  color: #FCFDFF;
 }
 
 .button-secondary {
@@ -35,9 +35,9 @@
   color: #7D7D7D;
 }
 .button-outlined {
-  background-color: transparent;
-  border: 1px solid #DCE0E6;
-  color: #373737;
+  background-color: #FCFDFF;
+  border: 1px solid #6C788E;
+  color: #6C788E;
 }
 .button-gradient {
   background: linear-gradient(180deg,#E50051, #9C0037);
@@ -69,8 +69,8 @@
   filter: brightness(1.2);
 }
 .button-outlined:hover{
-  background-color: #e7e7e7;
-  border-color: #373737;
+  background-color: #182537;
+  color: #FCFDFF;
 }
 .button:active {
   transform: scale(0.95);

@@ -44,11 +44,27 @@ function MarkerClusterGroup({ data, setHoveredInfo, setIsHovered }) {
         icon: L.divIcon({
           className: 'dummy',
           html: `
-            <div style="position: relative; display:flex; gap: 8px; align-items: center; padding: 2px; width: fit-content; justify-content: space-between; flex-direction: row; align-items: center; border: 1px solid #FCFDFF; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 50%; background-color: #E1EAFF;">
-              ${location.fotoperfil === null ? '' : `
-                <img src="${location.fotoperfil}" style="width:40px; height:40px; border-radius:50%; object-fit:cover" alt="foto"/>
-              `}
-            </div>
+           <div style="
+        position: relative; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        width: 32px; 
+        height: 32px; 
+        overflow: hidden; 
+      ">
+        ${location.fotoperfil ? `
+          <img 
+            src="mecanico.webp" 
+            alt="Taller" 
+            style="
+              width: 100%; 
+              height: 100%; 
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+            "
+          />
+        ` : ''}
+      </div>
           `,
         }),
       });
@@ -102,7 +118,7 @@ export default function MapTalleresHome({ data }) {
   const [zoomLevel, setZoomLevel] = useState(12);
   const [hoveredInfo, setHoveredInfo] = useState(null);
   return (
-    <div style={{ position: 'relative', width: '100%', height: '90vh' }}>
+    <div style={{ position: 'relative', width: '100%', height: '95vh' }}>
       <MapContainer
         id="map"
         style={{ width: '100%', height: '100%', borderRadius: '16px' }}

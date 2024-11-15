@@ -15,7 +15,7 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
   const indiceDia = numeroDia !== 0 ? numeroDia - 1 : 6;
   const horariosSeparados = taller?.horario?.split(',')
   return (
-    <div style={{ border: '1px solid #CFD5E1', backgroundColor: '#FFFFFF', borderRadius: '8px', padding: '32px', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ border: '1px solid #CFD5E1', backgroundColor: '#FFFFFF', borderRadius: '8px', padding: '32px', display: 'flex', flexDirection: 'column', width: '100%' }}>
       <Link href={`/${taller?.userName}`} style={{ display: 'flex', flexDirection: 'column', outline: 'none', textDecoration: 'none', width: '100%', gap: '16px' }}>
         <header style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: '16px', width: '100%' }}>
           {/* {taller?.fotoperfil &&
