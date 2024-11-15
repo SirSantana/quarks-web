@@ -1,26 +1,33 @@
 import { client } from "@/client";
 import { GET_ONE_NEGOCIOVDOS } from "@/graphql/queries";
 import Layout from "@/src/Components/Layout";
-import RedesSociales from "@/src/Components/Talleres/RedesSociales";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import styles from '@/styles/Negocio.module.css'
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { CREATE_ACCION } from "@/graphql/mutations";
-import { ModalImagePerfil } from "@/utils/Modales";
 import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
-import SectionPreguntasFrecuentes from "@/src/Components/Talleres/V3/SectionPreguntasFrecuentes";
-import SectionDescription from "@/src/Components/Talleres/V3/SectionDescription";
 import Button, { ButtonVariant } from "@/src/Components/Button/Button";
-import Revisiones from "@/src/Components/Talleres/Revisiones";
 import { getLatLng } from "@/utils/scripts";
-import SectionCategorias from "@/src/Components/Talleres/V3/SectionCategorias";
-import CardSolicitarServicio from "@/src/Components/Talleres/V3/CardSolicitarServicio";
-const RecomiendasTaller = dynamic(() => import('@/src/Components/Talleres/RecomiendasTaller'),
+import { ModalImagePerfil } from "@/utils/Modales";
+
+const RedesSociales = dynamic(() => import('@/src/Components/Talleres/RedesSociales'),
   { ssr: false })
 
+const SectionPreguntasFrecuentes = dynamic(() => import('@/src/Components/Talleres/V3/SectionPreguntasFrecuentes'),
+  { ssr: false })
+const SectionDescription = dynamic(() => import('@/src/Components/Talleres/V3/SectionDescription'),
+  { ssr: false })
+const Revisiones = dynamic(() => import('@/src/Components/Talleres/Revisiones'),
+  { ssr: false })
 
+const SectionCategorias = dynamic(() => import('@/src/Components/Talleres/V3/SectionCategorias'),
+  { ssr: false })
+const CardSolicitarServicio = dynamic(() => import('@/src/Components/Talleres/V3/CardSolicitarServicio'),
+  { ssr: false })
+
+const RecomiendasTaller = dynamic(() => import('@/src/Components/Talleres/RecomiendasTaller'),
+  { ssr: false })
 const SliderTab = dynamic(() => import('@/src/Components/Talleres/V3/SliderTab'),
   { ssr: false, loading: () => <div className={styles.skeletonSlider} /> })
 const Horario = dynamic(() => import('@/src/Components/Talleres/V3/Horario'),

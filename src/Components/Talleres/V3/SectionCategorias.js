@@ -1,6 +1,5 @@
 
 import styles from '@/styles/Negocio.module.css'
-import Image from 'next/image';
 import { categorias } from '@/src/data/Categorias';
 
 export default function SectionCategorias({ data, }) {
