@@ -5,7 +5,7 @@ const Avatar = ({
   src,
   alt = 'User Avatar',
   size = 80,
-  borderColor = '#ccc',
+  borderColor = '#CFD5E1',
   borderWidth = 0,
   defaultImage = '/taller-ilustration.wepb',
   showInitials = true,
@@ -24,26 +24,27 @@ const Avatar = ({
       ? nameParts[0].charAt(0).toUpperCase()
       : `${nameParts[0].charAt(0)}${nameParts[1].charAt(0)}`.toUpperCase();
   };
-  console.log(src);
-
+  
   return (
     <>
-      {src ?
+      {/* Mostrar la imagen solo si no ha fallado la carga */}
+      {src ? (
         <img
           src={src}
           alt={alt}
-          style={{ borderRadius: '50%', objectFit: 'cover', width: '48px', height: '48px' }}
+          style={{ borderRadius: '50%', objectFit: 'cover', width:'48px', height:'48px', borderColor:borderColor, border:'1px solid' }}
           onLoadingComplete={() => setIsImageLoaded(true)}
           loading='lazy'
         />
-        :
-        <img
+      ) : (
+           <img
           src={'/taller-ilustration.webp'}
           alt={alt}
-          style={{ borderRadius: '50%', objectFit: 'cover', width: '48px', height: '48px' }}
+          style={{ borderRadius: '50%', objectFit: 'cover', width:'48px', height:'48px', borderColor:borderColor, border:'1px solid' }}
+          onLoadingComplete={() => setIsImageLoaded(true)}
           loading='lazy'
         />
-      }
+      )}
     </>
 
   );
