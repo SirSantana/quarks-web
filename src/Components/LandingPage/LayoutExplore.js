@@ -1,7 +1,9 @@
 import Head from "next/head";
 import FixedHeaderExplore from "./FixedHeaderExplore";
-import FooterV2 from "../Footer/FooterV2";
+import dynamic from "next/dynamic";
 
+const FooterV2 = dynamic(() => import('@/src/Components/Footer/FooterV2'),
+{ ssr: false })
 export default function LayoutExplore({ children, title, description, query, price, keywords, fecha, image, tags, url, lastModified = false, }) {
   return (
     <>
@@ -34,7 +36,7 @@ export default function LayoutExplore({ children, title, description, query, pri
         <meta property="og:image:url" content={image} />
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />
-        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="og:url" content={`https://www.quarks.com.co${url}`} />
         <meta property="og:locale" content="es_CO" />
         {/* <meta property="og:site_name" content="Quarks" /> */}

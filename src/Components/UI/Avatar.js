@@ -5,7 +5,7 @@ const Avatar = ({
   src,
   alt = 'User Avatar',
   size = 80,
-  borderColor = '#CFD5E1',
+  borderColor = '#f1f1f1',
   borderWidth = 0,
   defaultImage = '/taller-ilustration.wepb',
   showInitials = true,
@@ -32,7 +32,7 @@ const Avatar = ({
         <img
           src={src}
           alt={alt}
-          style={{ borderRadius: '50%', objectFit: 'cover', width:'48px', height:'48px', borderColor:borderColor, border:'1px solid' }}
+          style={{ borderRadius: '50%', objectFit: 'cover', width:'48px', height:'48px',  border:'1px solid #f1f1f1' }}
           onLoadingComplete={() => setIsImageLoaded(true)}
           loading='lazy'
         />
@@ -40,7 +40,7 @@ const Avatar = ({
            <img
           src={'/taller-ilustration.webp'}
           alt={alt}
-          style={{ borderRadius: '50%', objectFit: 'cover', width:'48px', height:'48px', borderColor:borderColor, border:'1px solid' }}
+          style={{ borderRadius: '50%', objectFit: 'cover', width:'48px', height:'48px',  border:'1px solid #f1f1f1' }}
           onLoadingComplete={() => setIsImageLoaded(true)}
           loading='lazy'
         />

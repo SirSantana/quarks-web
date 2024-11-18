@@ -46,7 +46,6 @@ export default function SectionPreguntasServicio({ data }) {
             </p>
           </li>
           <div style={{ width: '100%', margin: '0 auto', backgroundColor: '#EFEFEF', height: '1px' }} />
-
           <li style={{ cursor: 'pointer' }} key={0} onClick={() => handleClick(1)}>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: '8px' }}>
               <p style={{ fontWeight: '500', color: '#373737' }}>{router.query.id === 'cda' ? 'Revision tecnomecanica' : `talleres de ${router.query.id?.replace(/-/g, ' ')}`} en Bogotá</p>

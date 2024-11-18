@@ -9,6 +9,7 @@ import { useRef } from "react";
 import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPreguntasServicio";
 import SectionSeoServicios from "@/src/Components/LandingPage/SectionSeoServicios";
 import CardTallerV2 from "@/src/Components/LandingPage/CardTallerV2";
+import getSeoCategorias from "@/src/data/SeoCategorias";
 
 // Función getServerSideProps para renderizado del lado del servidor
 export async function getServerSideProps(context) {
@@ -24,15 +25,17 @@ export async function getServerSideProps(context) {
     const formattedTitle = id.replace(/-/g, ' ').charAt(0).toUpperCase() + id.replace(/-/g, ' ').slice(1);
     pageTitle = `Talleres de ${formattedTitle} en Bogotá`;
   }
+  const servicioSeo = getSeoCategorias({ servicio:id, ciudad:'Bogotá', vehiculo:'Carro' });
 
   return {
     props: {
-      pageTitle, // El título se pasa como props al componente
+      pageTitle,
+      description:servicioSeo || null,
     },
   };
 }
 
-export default function Servicio({ pageTitle }) {
+export default function Servicio({ pageTitle, description }) {
   const router = useRouter();
   const resultsRef = useRef(null);
   const { loading, data } = useQuery(GET_SEARCH, {
@@ -82,8 +85,27 @@ export default function Servicio({ pageTitle }) {
           }
         </div>
       </section>
+      {description &&
+        <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
+          <section style={{display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '1100px', width: '90%',  margin: '0 auto' }}>
+            <article>
+              <h3>{description?.preguntas?.importancia}</h3>
+              <p>{description?.importancia}</p>
+            </article>
+            <article>
+              <h3>{description?.preguntas?.duracion}</h3>
+              <p>{description.duracion}</p>
+            </article>
+            <article>
+              <h3>{description?.preguntas?.frecuencia}</h3>
+              <p>{description.frecuencia}</p>
+            </article>
+          </section>
+        </div>
+      }
       <SectionPreguntasServicio data={data?.getNegociosVDosByServicio} />
-      <SectionSeoServicios data={data?.getNegociosVDosByServicio} />
+      <SectionSeoServicios data={data?.getNegociosVDosByServicio} vehiculo={'Carro'} servicio={router.query.id.replace(/-/g, ' ')}  />
+
     </Layout>
   );
 }

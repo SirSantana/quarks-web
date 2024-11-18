@@ -1,7 +1,6 @@
 
 
 import Link from 'next/link';
-import Image from 'next/image';
 import Button, { ButtonVariant } from '../Button/Button';
 import Avatar from '../UI/Avatar';
 import { categorias } from '@/src/data/Categorias';
@@ -30,12 +29,12 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
         </header>
         <div style={{ display: 'flex', flexDirection: 'column', width: '100%', flex: 1 }}>
 
-          <div style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+          <ul style={{ display: 'flex', margin: '16px 0', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             {taller?.categorias?.slice(0, 3).map(el => {
               const category = categorias?.find(cat => cat.db.toLocaleLowerCase() == el.toLocaleLowerCase())
               return (
                 category &&
-                <div key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', }}>
+                <li key={category?.nombre} style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', }}>
                   {/* {category?.img && <img src={`/${category?.img}`} style={{height:'20px',width:'20px'}} alt={`Taller de autos de ${el}`} />} */}
                   <img
                     src={`/${category?.img}`} // Ruta de la imagen
@@ -43,13 +42,13 @@ export default function CardTallerV2({ taller, setVisibleModal }) {
                     style={{height:'20px',width:'20px'}}
                   />
                   <p style={{ margin: 0, fontWeight: '500', fontSize: '12px', color: '#464646' }}>{category?.nombre}</p>
-                </div>
+                </li>
               )
             })}
-            <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', }}>
-              <p style={{ fontSize: '12px', color: '#929292', fontWeight: '500' }}>+{taller?.categorias?.length} servicios</p>
-            </div>
-          </div>
+            <li style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', fontSize: '12px', color: '#929292', fontWeight: '500' }}>
+              +{taller?.categorias?.length} servicios
+            </li>
+          </ul>
 
         </div>
         <footer style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: '8px', width: '100%', alignItems: 'flex-end' }}>
