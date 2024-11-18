@@ -5,6 +5,7 @@ import getSeoCategorias from '@/src/data/SeoCategorias';
 import { useQuery } from '@apollo/client';
 import dynamic from 'next/dynamic';
 import CardTallerV2 from '@/src/Components/LandingPage/CardTallerV2';
+import Image from 'next/image';
 
   const SectionSeoServicios = dynamic(() => import('@/src/Components/LandingPage/SectionSeoServicios'),
   { ssr: false })
@@ -58,8 +59,9 @@ export default function CiudadPage({ title, query,  description }) {
         )}
       </div>
       {description &&
-        <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
-          <section style={{display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '1100px', width: '90%',  margin: '0 auto' }}>
+        <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', flexDirection:'row'}} >
+        <div className={styles2.containerQuestions} >	
+          <section style={{display: 'flex', flexDirection: 'column', gap: '16px',  width: '100%',  margin: '0 auto' }}>
             <article>
               <h3>{description?.preguntas?.importancia}</h3>
               <p>{description?.importancia}</p>
@@ -73,6 +75,9 @@ export default function CiudadPage({ title, query,  description }) {
               <p>{description.frecuencia}</p>
             </article>
           </section>
+          <Image src={'/mecanico-pic.webp'} alt={`Talleres de ${query?.servicio?.replaceAll(/-/g, ' ') || ''} en ${query?.ciudad}`} width={300} height={300} />
+          </div>
+
         </div>
       }
       <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
