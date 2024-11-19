@@ -118,7 +118,7 @@ export default function MapTalleresHome({ data }) {
   const [zoomLevel, setZoomLevel] = useState(12);
   const [hoveredInfo, setHoveredInfo] = useState(null);
   return (
-    <div style={{ position: 'relative', width: '100%', height: '95vh' }}>
+    <div style={{ position: 'relative', width: '100%', height: '90vh' }}>
       <MapContainer
         id="map"
         style={{ width: '100%', height: '100%', borderRadius: '16px' }}
@@ -129,7 +129,7 @@ export default function MapTalleresHome({ data }) {
       >
         <MapRecenter lat={data[Math.round(data.length / 2)].lat} lng={data[Math.round(data.length / 2)].lng} zoomLevel={13} />
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="http://osm.org/copyright"></a> '
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
         />
         <MyComponent setZoomLevel={setZoomLevel} />
