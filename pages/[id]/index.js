@@ -7,7 +7,7 @@ import styles from '@/styles/Negocio.module.css'
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
-import Button, { ButtonVariant } from "@/src/Components/Button/Button";
+import Button from "@/src/Components/Button/Button";
 import { getLatLng } from "@/utils/scripts";
 import { ModalImagePerfil } from "@/utils/Modales";
 
@@ -36,6 +36,8 @@ const Reseñas = dynamic(() => import('@/src/Components/Talleres/Reseñas'),
   { ssr: false })
 
 const MapaUbicacion = dynamic(() => import('@/src/Components/Talleres/MapaUbicacion'),
+  { ssr: false, loading: () => <div className={styles.skeletonMap} /> })
+  const MapaCobertura = dynamic(() => import('@/src/Components/Talleres/MapaBogotaCobertura'),
   { ssr: false, loading: () => <div className={styles.skeletonMap} /> })
 
 
@@ -76,11 +78,11 @@ export default function NegocioVDos({ data, loading }) {
   }
   const position = getLatLng({ data: data });
   const openModal = () => {
-    router.push(`${router.asPath}?modalSolicitar=${data.id}`, undefined, { shallow: true,scroll: false });
+    router.push(`${router.asPath}?modalSolicitar=${data.id}`, undefined, { shallow: true, scroll: false });
     setVisibleModalSolicitarServicio(true);
   };
   // if(loading){return <h1>Cargando...</h1>}
-  
+
   return (
     <Layout title={`${data?.nombre} - ${data?.ciudad}`} negocio={true} description={data?.tipo === 'Almacen' ? descripcionAlmacen : data?.tipo === 'Mecanico a Domicilio' ? descripcionMecanico : descripcionTaller} image={data?.fotoperfil ? data?.fotoperfil : 'https://azurequarks.blob.core.windows.net/negocios/fotostoredefault.png'} url={router?.asPath} keywords={`${data?.categorias?.map(el => " Talleres de " + el + " en " + data?.ciudad) + ", " + data?.nombre}`} tags={data?.categorias} icon={data?.fotoperfil} visibleSlider={false} visibleNavbar={false} ads={false}>
       <section className={styles.sectionMain}>
@@ -129,9 +131,18 @@ export default function NegocioVDos({ data, loading }) {
                 {/* <OnlyMap username={data?.userName} maxWidth="700px" nombre={data?.nombre} direccion={data
                   ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
                   : ''} coordenadas={data?.coordenadas ? data?.coordenadas : position} img={data?.fotoperfil} /> */}
-                <MapaUbicacion ubicacion={data?.ubicacionmaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data
-                  ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
-                  : ''} coordenadas={data?.coordenadas ? data?.coordenadas : position} img={data?.fotoperfil} />
+                {data.tipo === 'Mecanico a Domicilio'
+                  ?
+                  <MapaCobertura coordenadas={data?.coordenadas ? data?.coordenadas : position} img={data?.fotoperfil} direccion={data
+                    ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
+                    : ''} nombre={data?.nombre} />
+                  :
+                  <MapaUbicacion ubicacion={data?.ubicacionmaps} username={data?.userName} idNegocio={data?.id} nombre={data?.nombre} direccion={data
+                    ? `${data.direccion || ''} ${data.localidad ? data.localidad + ' ' : ''}${data.ciudad || ''}. ${data.pais || ''}`
+                    : ''} coordenadas={data?.coordenadas ? data?.coordenadas : position} img={data?.fotoperfil} />
+                }
+
+
                 <div className={styles.containerFooterUbicacion} >
                   <div className={styles.containerFooterUbicacionDos} >
                     <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexDirection: 'row' }}>
@@ -173,7 +184,7 @@ export default function NegocioVDos({ data, loading }) {
                 </>
               }
 
-              <div  style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
+              <div style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
 
               <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <Revisiones id={data?.id} />
@@ -181,7 +192,7 @@ export default function NegocioVDos({ data, loading }) {
 
               <div ref={refReseñas} style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
 
-              <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+              <section style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps} />
               </section>
 
@@ -200,7 +211,7 @@ export default function NegocioVDos({ data, loading }) {
           </section>
         </div>
         <section className={styles.containerButtonsMobile}>
-          <Button  onClick={openModal} className={'mobileButton'} >Solicitar Revision</Button>
+          <Button onClick={openModal} className={'mobileButton'} >Solicitar Revision</Button>
         </section>
       </section>
 
