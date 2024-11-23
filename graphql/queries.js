@@ -487,6 +487,8 @@ export const GET_NEGOCIOSVDOS_BY_SERVICIO= gql`
       id
       tipo
       userName
+      lat
+      lng
     }
   }
 `

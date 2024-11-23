@@ -6,25 +6,33 @@ import { useQuery } from '@apollo/client';
 import dynamic from 'next/dynamic';
 import CardTallerV2 from '@/src/Components/LandingPage/CardTallerV2';
 import Image from 'next/image';
+import { useState } from 'react';
+import { Loader } from '@/utils/loader';
+import Button, { ButtonVariant } from '@/src/Components/Button/Button';
 
-  const SectionSeoServicios = dynamic(() => import('@/src/Components/LandingPage/SectionSeoServicios'),
+const SectionSeoServicios = dynamic(() => import('@/src/Components/LandingPage/SectionSeoServicios'),
   { ssr: false })
+const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTalleresHome'),
+  { ssr: false, loading: () => <Loader /> })
 
-export default function CiudadPage({ title, query,  description }) {
-  const {data, loading, error} = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, {variables:{tipo:query.servicio.replace(/-/g, ' ')}})
+export default function CiudadPage({ title, query, description }) {
+  const { data, loading, error } = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, { variables: { tipo: query.servicio.replace(/-/g, ' ') } })
   let talleresData = data?.getNegociosVDosByServicio;
-  
+  const [mapa, setMapa] = useState(false)
+
+
   return (
-    <LayoutExplore  title={title} query={query}  description={description?.description} url={`/explore/${query.categoria || ''}/${query.vehiculo || ''}/${query.servicio?.replaceAll(/ /g, '-') || ''}/${query.ciudad || ''}`}
-    keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}, ${description?.tags}`} tags={description?.tags} image={'mecanico-pic.webp'} visibleSlider={false} visibleNavbar={false}>
+    <LayoutExplore title={title} query={query} description={description?.description} url={`/explore/${query.categoria || ''}/${query.vehiculo || ''}/${query.servicio?.replaceAll(/ /g, '-') || ''}/${query.ciudad || ''}`}
+      keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}, ${description?.tags}`} tags={description?.tags} image={'mecanico-pic.webp'} visibleSlider={false} visibleNavbar={false}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
-        <section style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-          <p>
+        <section style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px'  }}>
+          <p style={{ fontSize: '14px', fontWeight: '500', color: '#6C788E' }}>
             {query.servicio
               ? `Se encontraron ${talleresData?.length || 0} talleres mecánicos de ${query.servicio.replace(/-/g, ' ')} cerca de mi en ${query.ciudad}`
               : 'Se encontraron +100 talleres en Bogotá'}
           </p>
+          <Button className={'mobileButton'} onClick={() => setMapa(!mapa === true)} variant={ButtonVariant.outlined} style={{ margin: 0 }} size="sm">{mapa ? 'Listado' : 'Mapa'}</Button>
         </section>
 
         {loading ? (
@@ -44,50 +52,55 @@ export default function CiudadPage({ title, query,  description }) {
             }}
           />
         ) : (
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-              gap: '24px',
-              alignItems: 'flex-start',
-            }}
-          >
-            {talleresData?.map((taller, index) => (
-              <CardTallerV2 key={taller.nombre} taller={taller} />
-            ))}
+          <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
+            <div
+              style={{
+                display: mapa ? 'none' : 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(100%, 1fr))', // Cada tarjeta tiene al menos 300px de ancho, pero se adapta al tamaño de la pantalla.
+                gap: '24px',
+                alignItems: 'flex-start',
+              }}
+            >
+              {talleresData?.map((taller, index) => (
+                <CardTallerV2 key={taller.nombre} taller={taller} />
+              ))}
+            </div>
+            <div className={styles2.containerMapHome}>
+              <MapTalleresHome data={talleresData} />
+            </div>
           </div>
         )}
       </div>
       {description &&
-        <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', flexDirection:'row'}} >
-        <div className={styles2.containerQuestions} >	
-          <section style={{display: 'flex', flexDirection: 'column', gap: '16px',  width: '100%',  margin: '0 auto' }}>
-            <article>
-              <h3>{description?.preguntas?.importancia}</h3>
-              <p>{description?.importancia}</p>
-            </article>
-            <article>
-              <h3>{description?.preguntas?.duracion}</h3>
-              <p>{description.duracion}</p>
-            </article>
-            <article>
-              <h3>{description?.preguntas?.frecuencia}</h3>
-              <p>{description.frecuencia}</p>
-            </article>
-          </section>
-          <Image src={'/mecanico-pic.webp'} alt={`Talleres de ${query?.servicio?.replaceAll(/-/g, ' ') || ''} en ${query?.ciudad}`} width={300} height={300} />
+        <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', flexDirection: 'row' }} >
+          <div className={styles2.containerQuestions} >
+            <section style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '100%', margin: '0 auto' }}>
+              <article>
+                <h3>{description?.preguntas?.importancia}</h3>
+                <p>{description?.importancia}</p>
+              </article>
+              <article>
+                <h3>{description?.preguntas?.duracion}</h3>
+                <p>{description.duracion}</p>
+              </article>
+              <article>
+                <h3>{description?.preguntas?.frecuencia}</h3>
+                <p>{description.frecuencia}</p>
+              </article>
+            </section>
+            <Image src={'/mecanico-pic.webp'} alt={`Talleres de ${query?.servicio?.replaceAll(/-/g, ' ') || ''} en ${query?.ciudad}`} width={300} height={300} />
           </div>
 
         </div>
       }
       <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
-      <section style={{display: 'flex', flexDirection: 'row', gap: '16px', maxWidth: '1100px', width: '90%',  margin: '0 auto', flexWrap:'wrap', gap:'16px'}}>
-        
-        {description?.tags?.map(el=><div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', width:'fit-content'}}><h2 style={{fontSize:'14px', color:'#5C5C5C', fontWeight:'500'}}>{el}</h2></div>)}
-      </section>
+        <section style={{ display: 'flex', flexDirection: 'row', gap: '16px', maxWidth: '1100px', width: '90%', margin: '0 auto', flexWrap: 'wrap', gap: '16px' }}>
+
+          {description?.tags?.map(el => <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', width: 'fit-content' }}><h2 style={{ fontSize: '14px', color: '#5C5C5C', fontWeight: '500' }}>{el}</h2></div>)}
+        </section>
       </div>
-      <SectionSeoServicios data={talleresData} categoria={query.categoria} vehiculo={query.vehiculo} servicio={query.servicio}/>
-      
+      <SectionSeoServicios data={talleresData} categoria={query.categoria} vehiculo={query.vehiculo} servicio={query.servicio} />
+
     </LayoutExplore>
   );
 };
