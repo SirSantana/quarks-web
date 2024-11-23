@@ -181,9 +181,9 @@ export default function NegocioVDos({ data, loading }) {
 
               <div ref={refReseñas} style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
 
-              {/* <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+              <section  style={{ display: 'flex', gap: '32px', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                 <Reseñas id={data?.id} ctdCalificaciones={data?.numerocalificacionesmaps} urlMaps={data.urltallermaps} nombre={data?.nombre} promCalificacion={data?.promediocalificacionesmaps} />
-              </section> */}
+              </section>
 
               <div style={{ width: '100%', backgroundColor: '#CFD5E1', height: '1px', margin: '48px 0 48px 0' }} />
 
