@@ -489,6 +489,7 @@ export const GET_NEGOCIOSVDOS_BY_SERVICIO= gql`
       userName
       lat
       lng
+      numerocalificacionesmaps
     }
   }
 `

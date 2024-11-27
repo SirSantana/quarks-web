@@ -6,6 +6,7 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import Loader from "../Loaders/CardLoader";
 import Button, { ButtonVariant } from "../Button/Button";
+import CardTaller from "./CardTaller";
 const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTalleresHome'),
   { ssr: false, loading: () => <Loader /> })
 
@@ -35,6 +36,9 @@ export default function HomeSep() {
               {talleres.talleres.slice(28, 40).reverse().map((taller, index) => (
                 <CardTallerV2 key={taller.nombre} taller={taller} />
               ))}
+              {/* {talleres.talleres.slice(28, 40).reverse().map((taller, index) => (
+                <CardTaller key={taller.nombre} taller={taller} />
+              ))} */}
             </div>
             <div  className={styles2.containerMapHome}>
               <MapTalleresHome data={talleres.talleres.slice(20, 70).reverse()} />

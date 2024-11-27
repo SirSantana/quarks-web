@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { Loader } from '@/utils/loader';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
+import CardTaller from '@/src/Components/LandingPage/CardTaller';
 
 const SectionSeoServicios = dynamic(() => import('@/src/Components/LandingPage/SectionSeoServicios'),
   { ssr: false })
@@ -64,6 +65,9 @@ export default function CiudadPage({ title, query, description }) {
               {talleresData?.map((taller, index) => (
                 <CardTallerV2 key={taller.nombre} taller={taller} />
               ))}
+              {/* {talleresData?.map((taller, index) => (
+                <CardTaller key={taller.nombre} taller={taller} />
+              ))} */}
             </div>
             <div className={styles2.containerMapHome}>
               <MapTalleresHome data={talleresData} />

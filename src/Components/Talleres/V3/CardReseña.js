@@ -11,8 +11,19 @@ export default function CardReseña({ reseña }) {
   const renderStars = (rating) => {
     const totalStars = 5;
     const stars = [];
+    const integerPart = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
 
     for (let i = 1; i <= totalStars; i++) {
+      let fill;
+      if (i <= integerPart) {
+        fill = '#FACC15'; // Llena
+      } else if (i === integerPart + 1 && hasHalfStar) {
+        fill = 'url(#half)'; // Media estrella
+      } else {
+        fill = '#CFD5E1'; // Vacía
+      }
+
       stars.push(
         <svg
           key={i}
@@ -23,10 +34,16 @@ export default function CardReseña({ reseña }) {
           xmlns="http://www.w3.org/2000/svg"
           style={{ marginRight: '4px' }}
         >
+          <defs>
+            <linearGradient id="half" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="50%" stopColor="#FACC15" />
+              <stop offset="50%" stopColor="#CFD5E1" />
+            </linearGradient>
+          </defs>
           <path
             d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-            fill={i <= rating ? '#FACC15' : '#CFD5E1'}
-            stroke={i <= rating ? '#FACC15' : '#CFD5E1'}
+            fill={fill}
+            stroke={i <= integerPart || (i === integerPart + 1 && hasHalfStar) ? '#FACC15' : '#CFD5E1'}
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -57,7 +74,7 @@ export default function CardReseña({ reseña }) {
         </section>
       </div>
 
-      {reseña?.marca && <footer style={{ width: '100%', display: 'flex', backgroundColor: '#EDEDF2', border: '1px solid #CFD5E1', alignItems: 'center', gap: '8px', flexDirection: 'row', padding: ' 16px 24px', justifyContent: 'space-between' }}>
+      {reseña?.marca && <footer style={{ width: '100%', display: 'flex', backgroundColor: '#EDEDF2', borderTop: '1px solid #CFD5E1', borderRadius:'0 0 12px 12px' , alignItems: 'center', gap: '8px', flexDirection: 'row', padding: ' 16px 24px', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <p style={{ color: '#6C788E', fontSize: '14px', fontWeight: '400' }}>Servicio</p>
           <p style={{ fontSize: '14px', color: '#182537', fontWeight: '600', lineHeight: '1.1' }}>{reseña?.servicios?.[0]}</p>
