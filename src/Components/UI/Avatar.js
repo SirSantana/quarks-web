@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Avatar = ({
   src,
   alt = 'User Avatar',
-  size = 80,
+  size = 'md',
   borderColor = '#f1f1f1',
   borderWidth = 0,
   defaultImage = '/taller-ilustration.wepb',
@@ -32,7 +32,7 @@ const Avatar = ({
         <img
           src={src}
           alt={alt}
-          style={{ borderRadius: '50%', objectFit: 'cover', width:'48px', height:'48px',  border:'1px solid #f1f1f1' }}
+          style={{ borderRadius: '50%', objectFit: 'cover', width:size === 'sm' ? '40px' : '48px', height:size === 'sm' ? '40px' : '48px',  border:'1px solid #f1f1f1' }}
           onLoadingComplete={() => setIsImageLoaded(true)}
           loading='lazy'
         />

@@ -5,9 +5,10 @@ import Reseña from './Reseña'
 import { useRouter } from 'next/router'
 import Icon, { IconCatalog } from '../Icon/Icon'
 import Button, { ButtonVariant } from '../Button/Button'
+import CardReseña from './V3/CardReseña'
 
 
-export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nombre, promCalificacion}) {
+export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nombre, promCalificacion }) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data } = useQuery(GET_OPINIONES, { variables: { id: id } })
   const router = useRouter()
@@ -16,14 +17,14 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
   }
   return (
     <>
-      <h2 style={{ fontSize: '20px', alignSelf: 'flex-start', fontWeight: '600', display: 'flex', gap: '16px', marginBottom:'24px' }} className={styles.titleNegocio}>Calificacion y Opiniones {nombre} </h2>
-      <div onClick={handlerLoginOpinion} className={styles.containerHeaderCalendario} style={{ cursor: 'pointer', backgroundColor: '#373737', justifyContent: 'space-between', border: '1px solid #d6d6d6', display: 'flex', flexDirection: 'row', alignItems: 'center',  boxSizing: 'border-box', gap: '16px', borderRadius: '16px', maxWidth: '500px' }}>
+      <h2 style={{ fontSize: '20px', alignSelf: 'flex-start', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '24px' }} className={styles.titleNegocio}>Calificacion y Opiniones {nombre} </h2>
+      <div onClick={handlerLoginOpinion} className={styles.containerHeaderCalendario} style={{ cursor: 'pointer', backgroundColor: '#373737', justifyContent: 'space-between', border: '1px solid #d6d6d6', display: 'flex', flexDirection: 'row', alignItems: 'center', boxSizing: 'border-box', gap: '16px', borderRadius: '16px', maxWidth: '500px' }}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
           <Icon size='lg' style={{ color: 'white' }} name={IconCatalog.addCircle} />
           <p style={{ fontSize: '16px', fontWeight: '700', color: 'white', }}>Agregar Reseña</p>
         </div>
       </div>
-      <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',  boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '100%', maxWidth: '600px' }}>
+      <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '100%', maxWidth: '600px' }}>
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
           <Icon size='lg' name={IconCatalog.star} style={{ color: '#FBBC04' }} />
           {data?.getOpiniones.length > 0
@@ -44,9 +45,14 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
           }
         </div>
       </div>
-      {data?.getOpiniones.map(reseña => (
+      {/* {data?.getOpiniones.map(reseña => (
         <Reseña reseña={reseña} key={reseña.id} />
-      ))}
+      ))} */}
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', margin: '0 auto', width: '100%', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+        {data?.getOpiniones.map(reseña => (
+          <CardReseña reseña={reseña} key={reseña.id} />
+        ))}
+      </div>
       <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '90%', maxWidth: '600px' }}>
         {(data?.getOpiniones.length > 0 || ctdCalificaciones) && urlMaps &&
           <Button variant={ButtonVariant.outlined} fullWidth link href={urlMaps}>
