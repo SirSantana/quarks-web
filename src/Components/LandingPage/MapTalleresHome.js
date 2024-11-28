@@ -40,7 +40,7 @@ function MarkerClusterGroup({ data, setHoveredInfo, setIsHovered }) {
     });
 
     data.forEach((location) => {
-      const marker = L.marker([location.lat, location.lng], {
+      const marker = L.marker([location.lat?location.lat:4.909526, location.lng?location.lng:-73.989772], {
         icon: L.divIcon({
           className: 'dummy',
           html: `
@@ -159,7 +159,7 @@ export default function MapTalleresHome({ data }) {
         zoomControl={false}
         scrollWheelZoom={true}
       >
-        <MapRecenter lat={data[Math.floor(data.length / 2)].lat} lng={data[Math.floor(data.length / 2)].lng} zoomLevel={13} />
+        <MapRecenter lat={data[Math.floor(data.length / 2)]?.lat?data[Math.floor(data.length / 2)]?.lat:'4.909526'} lng={data[Math.floor(data.length / 2)]?.lng?data[Math.floor(data.length / 2)]?.lng:'-73.989772'} zoomLevel={zoomLevel} />
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright"></a> '
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
