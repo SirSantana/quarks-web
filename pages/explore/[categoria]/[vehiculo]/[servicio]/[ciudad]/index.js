@@ -53,18 +53,21 @@ export default function CiudadPage({ title, query, description }) {
           />
         ) : (
           <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
-            <div
+            <ul
               style={{
                 display: mapa ? 'none' : 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(100%, 1fr))', // Cada tarjeta tiene al menos 300px de ancho, pero se adapta al tamaño de la pantalla.
                 gap: '24px',
                 alignItems: 'flex-start',
+                listStyle: 'none',
               }}
             >
               {talleresData?.map((taller, index) => (
-                <CardTaller key={taller.nombre} taller={taller} />
+                <li style={{height:'100%'}}>
+                  <CardTaller key={taller.nombre} taller={taller} />
+                </li>
               ))}
-            </div>
+            </ul>
             <div className={styles2.containerMapHome}>
               <MapTalleresHome data={talleresData} />
             </div>
@@ -95,7 +98,6 @@ export default function CiudadPage({ title, query, description }) {
       }
       <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', }} >
         <section style={{ display: 'flex', flexDirection: 'row', gap: '16px', maxWidth: '1100px', width: '90%', margin: '0 auto', flexWrap: 'wrap', gap: '16px' }}>
-
           {description?.tags?.map(el => <div style={{ display: 'flex', flexDirection: 'row', gap: '6px', alignItems: 'center', backgroundColor: '#FCFDFF', border: '1px solid #CFD5E1', borderRadius: '8px', padding: '4px 8px', width: 'fit-content' }}><h2 style={{ fontSize: '14px', color: '#5C5C5C', fontWeight: '500' }}>{el}</h2></div>)}
         </section>
       </div>
