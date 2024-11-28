@@ -10,6 +10,7 @@ import SectionPreguntasServicio from "@/src/Components/LandingPage/SectionPregun
 import SectionSeoServicios from "@/src/Components/LandingPage/SectionSeoServicios";
 import CardTallerV2 from "@/src/Components/LandingPage/CardTallerV2";
 import getSeoCategorias from "@/src/data/SeoCategorias";
+import CardTaller from "@/src/Components/LandingPage/CardTaller";
 
 // Función getServerSideProps para renderizado del lado del servidor
 export async function getServerSideProps(context) {
@@ -71,15 +72,14 @@ export default function Servicio({ pageTitle, description }) {
           ) : 
             <div
             style={{
-              width:'100%',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(100%, 1fr))', // Cada tarjeta tiene al menos 300px de ancho, pero se adapta al tamaño de la pantalla.
               gap: '24px',
               alignItems: 'flex-start',
             }}
           >
             {data?.getSearch?.map((taller, index) => (
-              <CardTallerV2 key={taller.nombre} taller={taller} />
+                <CardTaller key={taller.nombre} taller={taller} />
             ))}
           </div>
           }

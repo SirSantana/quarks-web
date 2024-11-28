@@ -1,4 +1,3 @@
-import CardTallerV2 from "./CardTallerV2";
 import SectionFixedServicios from "./SectionFixedServicios";
 import styles2 from '@/styles/Landing.module.css'
 import talleres from '@/src/data/talleres.json'
@@ -33,12 +32,12 @@ export default function HomeSep() {
                 alignItems: 'flex-start',
               }}
             >
-              {talleres.talleres.slice(28, 40).reverse().map((taller, index) => (
-                <CardTallerV2 key={taller.nombre} taller={taller} />
-              ))}
               {/* {talleres.talleres.slice(28, 40).reverse().map((taller, index) => (
-                <CardTaller key={taller.nombre} taller={taller} />
+                <CardTallerV2 key={taller.nombre} taller={taller} />
               ))} */}
+              {talleres.talleres.slice(28, 40).reverse().map((taller, index) => (
+                <CardTaller key={taller.nombre} taller={taller} />
+              ))}
             </div>
             <div  className={styles2.containerMapHome}>
               <MapTalleresHome data={talleres.talleres.slice(20, 70).reverse()} />

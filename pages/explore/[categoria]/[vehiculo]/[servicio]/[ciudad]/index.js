@@ -4,7 +4,6 @@ import { GET_NEGOCIOSVDOS_BY_SERVICIO } from '@/graphql/queries';
 import getSeoCategorias from '@/src/data/SeoCategorias';
 import { useQuery } from '@apollo/client';
 import dynamic from 'next/dynamic';
-import CardTallerV2 from '@/src/Components/LandingPage/CardTallerV2';
 import Image from 'next/image';
 import { useState } from 'react';
 import { Loader } from '@/utils/loader';
@@ -62,12 +61,12 @@ export default function CiudadPage({ title, query, description }) {
                 alignItems: 'flex-start',
               }}
             >
-              {talleresData?.map((taller, index) => (
-                <CardTallerV2 key={taller.nombre} taller={taller} />
-              ))}
               {/* {talleresData?.map((taller, index) => (
-                <CardTaller key={taller.nombre} taller={taller} />
+                <CardTallerV2 key={taller.nombre} taller={taller} />
               ))} */}
+              {talleresData?.map((taller, index) => (
+                <CardTaller key={taller.nombre} taller={taller} />
+              ))}
             </div>
             <div className={styles2.containerMapHome}>
               <MapTalleresHome data={talleresData} />

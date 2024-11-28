@@ -1,59 +1,12 @@
 import { categorias } from "@/src/data/Categorias";
 import Avatar from "../../UI/Avatar";
 import { timeSince } from "@/utils/dateEs";
+import renderStars from "@/utils/renderStars";
 
 
 
 export default function CardReseña({ reseña }) {
-  console.log(reseña);
   let categoriaImage = categorias.find(el => el.nombre === reseña?.servicios?.[0])
-
-  const renderStars = (rating) => {
-    const totalStars = 5;
-    const stars = [];
-    const integerPart = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-
-    for (let i = 1; i <= totalStars; i++) {
-      let fill;
-      if (i <= integerPart) {
-        fill = '#FACC15'; // Llena
-      } else if (i === integerPart + 1 && hasHalfStar) {
-        fill = 'url(#half)'; // Media estrella
-      } else {
-        fill = '#CFD5E1'; // Vacía
-      }
-
-      stars.push(
-        <svg
-          key={i}
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ marginRight: '4px' }}
-        >
-          <defs>
-            <linearGradient id="half" x1="0" x2="1" y1="0" y2="0">
-              <stop offset="50%" stopColor="#FACC15" />
-              <stop offset="50%" stopColor="#CFD5E1" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-            fill={fill}
-            stroke={i <= integerPart || (i === integerPart + 1 && hasHalfStar) ? '#FACC15' : '#CFD5E1'}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      );
-    }
-
-    return stars;
-  };
   return (
     <article style={{ maxWidth: '340px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'space-between', width: '100%', border: '1px solid #CFD5E1', boxSizing: 'border-box', borderRadius: '12px' }}>
       <div style={{ display: 'flex', padding: '24px', flexDirection: 'column', width: '100%', }}>

@@ -7,7 +7,38 @@
   align-items: center;
 
 }
-
+.containerCardTaller{
+  border: 1px solid #CFD5E1;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-decoration: none;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+.containerCardTaller:hover{
+  transform: scale(1.01);
+  border: 1px solid #A6AEC1;
+}
+/* padding: '32px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between',  */
+.sectionDataCardTaller{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 32px;
+  justify-content: space-between;
+  flex: 1;
+}
+.imgCardTaller{
+  width: 40%;
+  height: 100%;
+  max-height: 340px;
+  border-radius: 8px 0px 0px 8px;
+  border-right: 1px solid #CFD5E1;
+  object-fit: cover;
+}
 .sectionMainImage {
   height: 100%; /* Mantén la altura del 50% de la ventana */
   background-size: contain;
@@ -365,13 +396,26 @@
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
   }
+  
 }
 @media (max-width:600px) {
 .profileImage{
   height: 48px;
   width: 48px;
 }
-
+.containerCardTaller{
+  flex-direction: column;
+}
+.sectionDataCardTaller{
+  padding: 16px;
+}
+.imgCardTaller{
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  border-right: none;
+  border-bottom: 1px solid #CFD5E1;
+}
 .sectionCardContainer{
   display: flex;
   position: relative;
