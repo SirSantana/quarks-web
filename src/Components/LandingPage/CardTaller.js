@@ -65,7 +65,7 @@ export default function CardTaller({ taller }) {
 
         </div>
         <footer style={{ marginTop: 'auto', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', gap: '8px', width: '100%', alignItems: 'flex-end' }}>
-        <p style={{ fontSize: '14px', fontWeight: '500', color: '#A6AEC1' }}>📍 Calle 94b #56-12. {taller?.ciudad}</p>
+        <p style={{ fontSize: '14px', fontWeight: '500', color: '#A6AEC1' }}>📍 {taller.direccion} {taller?.ciudad}</p>
           <Button variant={ButtonVariant.primary} size='sm' style={{ backgroundColor: '#E1EAFF', color: '#407BFF', fontSize: '12px', alignSelf: 'flex-end', margin: 0, borderRadius: '4px' }}>
             Ver taller
           </Button>

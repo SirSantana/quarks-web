@@ -10,6 +10,7 @@ import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
 import Button from "@/src/Components/Button/Button";
 import { getLatLng } from "@/utils/scripts";
 import { ModalImagePerfil } from "@/utils/Modales";
+import renderStars from "@/utils/renderStars";
 
 const RedesSociales = dynamic(() => import('@/src/Components/Talleres/RedesSociales'),
   { ssr: false })
@@ -108,6 +109,10 @@ export default function NegocioVDos({ data, loading }) {
               <h3 className={styles.headerDetails}>{data?.tipo == 'Almacen' ? "Almacén de Autopartes" : data?.tipo == 'Mecanico a Domicilio' ? "Mecánico a domicilio" : "Taller Mecánico"}</h3>
 
               <h1 className={styles.headerTitle}>{data?.nombre}</h1>
+        {/* <p style={{ fontSize: '14px', fontWeight: '500', color: '#A6AEC1' }}>📍 Calle 94b #56-12. {taller?.ciudad}</p> */}
+              {data?.promediocalificacionesmaps > 0 &&
+            <span style={{ marginTop: '24px', display: 'flex', flexDirection: 'row', alignItems: 'center', color: '#182537', fontSize: '14px', fontWeight: '500' }}>{renderStars(Number(data?.promediocalificacionesmaps))}{data?.promediocalificacionesmaps} ({data.numerocalificacionesmaps ? data.numerocalificacionesmaps : 1} reseñas)</span>
+          }
             </div>
           </div>
           <Button onClick={openModal} style={{ alignSelf: 'flex-end', margin: '0', backgroundColor: '#407BFF', whiteSpace: 'noWrap' }} >Solicitar Revision</Button>
