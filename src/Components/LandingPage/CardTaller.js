@@ -10,7 +10,6 @@ import renderStars from "@/utils/renderStars";
 export default function CardTaller({ taller }) {
   const { data } = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: taller?.id } })
 
- 
   return (
     <Link href={`/${taller?.userName}`} className={styles.containerCardTaller}>
       {taller?.fotoperfil ?
@@ -71,7 +70,6 @@ export default function CardTaller({ taller }) {
           </Button>
         </footer>
       </section>
-
     </Link>
   )
 }

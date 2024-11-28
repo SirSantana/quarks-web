@@ -13,7 +13,7 @@ export default function FooterV2({ data }) {
             <h3 className={styles.categoryTitle}>Carros</h3>
             {categorias.map((el) => (
               <Link
-                key={el.url}
+                key={el.nombre}
                 href={`/explore/talleres/carro/${el?.url?.replaceAll(" ", "-")}/bogota`}
                 className={styles.link}
               >
