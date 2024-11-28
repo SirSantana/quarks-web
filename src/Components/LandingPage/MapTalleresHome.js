@@ -159,7 +159,7 @@ export default function MapTalleresHome({ data }) {
         zoomControl={false}
         scrollWheelZoom={true}
       >
-        <MapRecenter lat={data[Math.round(data.length / 2)].lat} lng={data[Math.round(data.length / 2)].lng} zoomLevel={13} />
+        <MapRecenter lat={data[Math.floor(data.length / 2)].lat} lng={data[Math.floor(data.length / 2)].lng} zoomLevel={13} />
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright"></a> '
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"

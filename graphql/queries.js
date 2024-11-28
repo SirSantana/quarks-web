@@ -506,6 +506,10 @@ export const GET_SEARCH= gql`
       id
       tipo
       userName
+      lat
+      lng
+      numerocalificacionesmaps
+
     }
   }
 `

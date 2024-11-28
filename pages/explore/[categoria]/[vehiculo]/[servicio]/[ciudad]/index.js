@@ -61,9 +61,6 @@ export default function CiudadPage({ title, query, description }) {
                 alignItems: 'flex-start',
               }}
             >
-              {/* {talleresData?.map((taller, index) => (
-                <CardTallerV2 key={taller.nombre} taller={taller} />
-              ))} */}
               {talleresData?.map((taller, index) => (
                 <CardTaller key={taller.nombre} taller={taller} />
               ))}
