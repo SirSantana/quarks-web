@@ -107,12 +107,15 @@ export default function NegocioVDos({ data, loading }) {
             <div>
               {/* <h3 className={styles.headerDetails}>Centro de diagnóstico automotriz</h3> */}
               <h3 className={styles.headerDetails}>{data?.tipo == 'Almacen' ? "Almacén de Autopartes" : data?.tipo == 'Mecanico a Domicilio' ? "Mecánico a domicilio" : "Taller Mecánico"}</h3>
+              <h1 className={styles.headerTitle} style={{textAlign:'left'}}>{data?.nombre}</h1>
+              <p style={{ fontSize: '14px', fontWeight: '500', color: '#A6AEC1'}}>📍 {data.direccion}. {data?.ciudad}</p>
 
-              <h1 className={styles.headerTitle}>{data?.nombre}</h1>
-        {/* <p style={{ fontSize: '14px', fontWeight: '500', color: '#A6AEC1' }}>📍 Calle 94b #56-12. {taller?.ciudad}</p> */}
+             
               {data?.promediocalificacionesmaps > 0 &&
-            <span style={{ marginTop: '24px', display: 'flex', flexDirection: 'row', alignItems: 'center', color: '#182537', fontSize: '14px', fontWeight: '500' }}>{renderStars(Number(data?.promediocalificacionesmaps))}{data?.promediocalificacionesmaps} ({data.numerocalificacionesmaps ? data.numerocalificacionesmaps : 1} reseñas)</span>
+            <span style={{  display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop:'8px', color: '#182537', fontSize: '14px', fontWeight: '500' }}>{renderStars(Number(data?.promediocalificacionesmaps))}{data?.promediocalificacionesmaps} ({data.numerocalificacionesmaps ? data.numerocalificacionesmaps : 1} reseñas)</span>
           }
+
+              
             </div>
           </div>
           <Button onClick={openModal} style={{ alignSelf: 'flex-end', margin: '0', backgroundColor: '#407BFF', whiteSpace: 'noWrap' }} >Solicitar Revision</Button>
