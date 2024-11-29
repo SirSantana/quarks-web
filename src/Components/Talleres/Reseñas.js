@@ -12,8 +12,10 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data } = useQuery(GET_OPINIONES, { variables: { id: id } })
   const router = useRouter()
+  console.log(router.query);
+  
   const handlerLoginOpinion = () => {
-    router.push(`${userName ? userName : router.asPath}/crear-resena?ide=${id}`);
+    router.push(`/${userName ? userName : router.query.id}/crear-resenaa`, undefined, { shallow: true, scroll: false });
   }
   return (
     <>

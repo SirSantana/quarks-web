@@ -15,6 +15,7 @@ import renderStars from "@/utils/renderStars";
 const RedesSociales = dynamic(() => import('@/src/Components/Talleres/RedesSociales'),
   { ssr: false })
 
+
 const SectionPreguntasFrecuentes = dynamic(() => import('@/src/Components/Talleres/V3/SectionPreguntasFrecuentes'),
   { ssr: false })
 const SectionDescription = dynamic(() => import('@/src/Components/Talleres/V3/SectionDescription'),

@@ -14,7 +14,7 @@ export default function RedesSociales({ data, }) {
     }
   }
   const handleWhatsAppClick = () => {
-    handleAccion({ red: 'btn-social-whatsapp' })
+    // handleAccion({ red: 'btn-social-whatsapp' })
     sendWhatsappMessage({ numero: data?.whatsapp, path: router?.asPath })
   };
   return (
@@ -41,7 +41,7 @@ export default function RedesSociales({ data, }) {
         // <ItemBox onClick={() => handleAccion({ red: 'btn-social-facebook' })} link={data?.facebook} icon={IconCatalog.logoFacebook} color={'#0080FF'} textItem={'Ver perfil'} />
       }
       {data?.whatsapp &&
-        <div style={{ width: '100%', display: 'flex', flexDirection: 'row', gap: '16px', marginBottom: '16px' }}>
+        <div onClick={handleWhatsAppClick} style={{cursor:'pointer',width: '100%', display: 'flex', flexDirection: 'row', gap: '16px', marginBottom: '16px' }}>
           <Icon name={IconCatalog.logoWhatsapp} size='lg' style={{ color: '#407BFF' }} />
           <div>
             <p style={{ fontWeight: '400', color: '#182537', fontSize: '16px', lineHeight: '1.05' }}>Abrir Whatsapp</p>
