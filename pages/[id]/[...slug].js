@@ -100,8 +100,6 @@ export default function NegocioVDos({ data, loading }) {
   const closeModal = () => {
     router.push("/coltalleres", undefined, { shallow: true });
   };
-  console.log(slug);
-  
   // if(loading){return <h1>Cargando...</h1>}
   useEffect(() => {
     if (slug[0] === "crear-resenaa") {

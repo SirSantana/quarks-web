@@ -170,10 +170,10 @@ export default function ModalCreateReseña({ id, ide }) {
               </div>
             </section>
             <footer style={{ display: 'flex', alignItems: 'end', width: '100%', marginTop: '16px', justifyContent: 'flex-end' }}>
-              <button style={{ border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: '600', margin: '16px 0', backgroundColor: 'white', color: '#373737' }} onClick={() => { signOut(), setVisibleModalLogin(false) }}>
+              {/* <button style={{ border: 'none', cursor: 'pointer', fontSize: '14px', fontWeight: '600', margin: '16px 0', backgroundColor: 'white', color: '#373737' }} onClick={() => { signOut(), setVisibleModalLogin(false) }}>
                 Cerrar sesion
-              </button>
-              <Button onClick={handleSubmit} className={'desktopButton'} style={{ alignSelf: 'flex-end', margin: '24px 0 0 0', backgroundColor: '#407BFF', whiteSpace: 'noWrap' }} >Confirmar Reseña</Button>
+              </button> */}
+              <Button onClick={handleSubmit}  style={{ alignSelf: 'flex-end', margin: '24px 0 0 0', backgroundColor: '#407BFF', whiteSpace: 'noWrap' }} >Confirmar Reseña</Button>
             </footer>
           </>
         }
