@@ -9,6 +9,7 @@ import Select from 'react-select';
   export const customStyles = (width) => ({
     control: (provided) => ({
       ...provided,
+      fontFamily: 'Poppins',
       border: 'none',  // Sin borde aquí, se aplicará al contenedor externo
       boxShadow: 'none',
       fontSize: '16px',

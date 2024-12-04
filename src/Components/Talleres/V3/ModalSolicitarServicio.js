@@ -77,7 +77,7 @@ export default function ModalSolicitarServicio({ setForm, form }) {
         </div>
         
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px', margin: '16px 0', }}>
-          <label style={{ fontWeight: '500', fontSize: '14px', color: '#182537' }}>Marca y modelo es tu Vehículo</label>
+          <label style={{ fontWeight: '500', fontSize: '14px', color: '#182537' }}>Marca y modelo de tu Vehículo</label>
           <SelectBrand width={'80px'} handleChange={(e) => setForm({ ...form, marca: e.value })} handleChangeModelo={(e) => setForm({ ...form, referencia: e.target.value })} form={form} />
         </div>
         <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px', margin: '16px 0' }}>

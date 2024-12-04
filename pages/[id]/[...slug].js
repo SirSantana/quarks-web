@@ -251,7 +251,7 @@ export default function NegocioVDos({ data, loading }) {
 
       {visibleModalImage &&
         <ModalImagePerfil img={data?.fotoperfil} setVisibleModalImage={setVisibleModalImage} />}
-        {visibleModalCreateReseña && <ModalCreateReseña setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} />}
+        {visibleModalCreateReseña && <ModalCreateReseña setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} ide={data?.id} />}
 
       {/* {visibleModalSolicitarServicio && <ModalSolicitarServicio setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} />} */}
     </Layout>
