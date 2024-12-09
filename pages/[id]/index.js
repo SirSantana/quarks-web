@@ -83,6 +83,7 @@ export default function NegocioVDos({ data, loading }) {
     router.push(`${router.asPath}?modalSolicitar=${data.id}`, undefined, { shallow: true, scroll: false });
     setVisibleModalSolicitarServicio(true);
   };
+  
   // if(loading){return <h1>Cargando...</h1>}
 
   return (

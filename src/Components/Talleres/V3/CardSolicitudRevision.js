@@ -1,9 +1,10 @@
 
+import styles from '@/styles/Negocio.module.css'
 
 
-export default function CardSolicitudServicio({ revision }) {
+export default function CardSolicitudRevision({ revision }) {
   return (
-    <article style={{ maxWidth: '340px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'space-between', width: '100%', border: '1px solid #CFD5E1', boxSizing: 'border-box', borderRadius: '12px' }}>
+    <article className={styles.containerCardSolicitarRevision}>
       <div style={{ display: 'flex', padding: '24px', flexDirection: 'column', width: '100%', }}>
         {/* <div style={{ display: 'flex', marginBottom: '12px', width: '100%', justifyContent: 'space-between' }}>
           <span>{renderStars(reseña.calificacion || 5)}</span>

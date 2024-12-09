@@ -1,4 +1,3 @@
-import styles from '@/styles/ServiciosAutomotriz.module.css'
 import { GET_CALIFICACION_OPINIONES, GET_OPINIONES } from "@/graphql/queries"
 import { useQuery } from "@apollo/client"
 import Reseña from './Reseña'
@@ -6,6 +5,7 @@ import { useRouter } from 'next/router'
 import Icon, { IconCatalog } from '../Icon/Icon'
 import Button, { ButtonVariant } from '../Button/Button'
 import CardReseña from './V3/CardReseña'
+import styles from '@/styles/Negocio.module.css'
 
 
 export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nombre, promCalificacion }) {
@@ -50,7 +50,7 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
       {/* {data?.getOpiniones.map(reseña => (
         <Reseña reseña={reseña} key={reseña.id} />
       ))} */}
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', margin: '0 auto', width: '100%', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+      <div className={styles.containerRevisionesSlider}>
         {data?.getOpiniones.map(reseña => (
           <CardReseña reseña={reseña} key={reseña.id} />
         ))}

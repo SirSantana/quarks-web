@@ -3,12 +3,13 @@ import Avatar from "../../UI/Avatar";
 import { timeSince } from "@/utils/dateEs";
 import renderStars from "@/utils/renderStars";
 
+import styles from '@/styles/Negocio.module.css'
 
 
 export default function CardReseña({ reseña }) {
   let categoriaImage = categorias.find(el => el.nombre === reseña?.servicios?.[0])
   return (
-    <article style={{ maxWidth: '340px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'space-between', width: '100%', border: '1px solid #CFD5E1', boxSizing: 'border-box', borderRadius: '12px' }}>
+    <article className={styles.containerCardSolicitarRevision}>
       <div style={{ display: 'flex', padding: '24px', flexDirection: 'column', width: '100%', }}>
         <div style={{ display: 'flex', marginBottom: '12px', width: '100%', justifyContent: 'space-between' }}>
           <span>{renderStars(reseña.calificacion || 5)}</span>
@@ -33,7 +34,7 @@ export default function CardReseña({ reseña }) {
           <p style={{ fontSize: '14px', color: '#182537', fontWeight: '600', lineHeight: '1.1' }}>{reseña?.servicios?.[0]}</p>
         </div>
         <div style={{ width: '40px', height: '40px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', border: '1px solid #CFD5E1', borderRadius: '8px', backgroundColor: 'white' }}>
-          <img alt="Talleres de baterías" width="32" height="32" src={categoriaImage?.img} />
+          <img alt="Talleres de baterías" width="32" height="32" src={`/${categoriaImage?.img}`} />
         </div>
       </footer>}
     </article >

@@ -318,7 +318,25 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;/* IE and Edge */
 }
-
+.containerRevisionesSlider{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin: 0 auto;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.containerCardSolicitarRevision{
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid #CFD5E1;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
 .sliderTab::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
@@ -415,6 +433,18 @@
   max-height: 200px;
   border-right: none;
   border-bottom: 1px solid #CFD5E1;
+}
+.containerCardSolicitarRevision{
+  min-width: 80%;
+}
+.containerRevisionesSlider{
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* Forzar el ajuste en el eje X */
+  scroll-padding: 0 16px;
+  width: 100vw;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 .sectionCardContainer{
   display: flex;
