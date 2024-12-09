@@ -13,14 +13,14 @@ import CardTaller from '@/src/Components/LandingPage/CardTaller';
 const SectionSeoServicios = dynamic(() => import('@/src/Components/LandingPage/SectionSeoServicios'),
   { ssr: false })
 const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTalleresHome'),
-  { ssr: false, loading: () => <Loader /> })
+  { ssr: false })
 
 export default function CiudadPage({ title, query, description }) {
   const { data, loading, error } = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, { variables: { tipo: query.servicio.replace(/-/g, ' ') } })
   let talleresData = data?.getNegociosVDosByServicio;
   const [mapa, setMapa] = useState(false)
-
-
+  
+  
   return (
     <LayoutExplore title={title} query={query} description={description?.description} url={`/explore/${query.categoria || ''}/${query.vehiculo || ''}/${query.servicio?.replaceAll(/ /g, '-') || ''}/${query.ciudad || ''}`}
       keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}, ${description?.tags}`} tags={description?.tags} image={'mecanico-pic.webp'} visibleSlider={false} visibleNavbar={false}>
@@ -36,21 +36,28 @@ export default function CiudadPage({ title, query, description }) {
         </section>
 
         {loading ? (
-          <div
-            style={{
-              width: '90%',
-              maxWidth: '1200px',
-              border: '1px solid #CFD5E1',
-              borderRadius: '16px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '32px',
-              backgroundColor: '#f3f3f3',
-              margin: '32px auto',
-              position: 'relative',
-              height: '70vh',
-            }}
-          />
+        
+          <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
+            <ul
+              style={{
+                display: mapa ? 'none' : 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(100%, 1fr))', // Cada tarjeta tiene al menos 300px de ancho, pero se adapta al tamaño de la pantalla.
+                gap: '24px',
+                alignItems: 'flex-start',
+                listStyle: 'none',
+                width:'100%',
+              }}
+            >
+              {Array(5).fill(null)?.map(( index) => (
+                <li style={{height:'100%', width:'100%'}}>
+                  <div className={styles2.cardNewTallerSkeleton} style={{width:'100%', height:'300px'}}/>
+                </li>
+              ))}
+            </ul>
+            <div className={styles2.containerMapHome}>
+            <div className={styles2.cardNewTallerSkeleton} style={{position: 'relative', width: '100%', height: '90vh' }}/>
+            </div>
+          </div>
         ) : (
           <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
             <ul

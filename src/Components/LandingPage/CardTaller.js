@@ -18,15 +18,17 @@ export default function CardTaller({ taller }) {
           alt={taller.nombre}
           className={styles.imgCardTaller}
           loading='lazy'
+          style={{aspectRatio: '14/9'}}
         />
         :
         <img
           src={'/taller-ilustration.webp'}
           alt={taller.nombre}
           className={styles.imgCardTaller}
-          style={{ objectFit: 'contain'  }}
+          style={{ objectFit: 'contain', aspectRatio: '14/9' }}
           onLoadingComplete={() => setIsImageLoaded(true)}
           loading='lazy'
+
         />
       }
 

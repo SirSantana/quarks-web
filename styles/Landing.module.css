@@ -287,16 +287,29 @@ flex-direction: column;
 .cardNewTallerSkeleton{
   text-decoration: none;
   outline: none;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #CFD5E1;
   width: 49%;
   border-radius: 16px;
   padding: 24px;
   gap: 16px;
   transition: 0.3s;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   height: 220px;
+  animation: loading 1s infinite;
 }
+@keyframes loading {
+  0% {
+    opacity: 0.2;
+  }
 
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}
 .headerTalleres {
   width: 100%;
   margin: 0 auto;

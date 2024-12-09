@@ -7,7 +7,9 @@ import Loader from "../Loaders/CardLoader";
 import Button, { ButtonVariant } from "../Button/Button";
 import CardTaller from "./CardTaller";
 const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTalleresHome'),
-  { ssr: false, loading: () => <Loader /> })
+  { ssr: false, loading: () =>  <div className={styles2.containerMapHome}>
+  <div className={styles2.cardNewTallerSkeleton} style={{position: 'relative', width: '100%', height: '90vh' }}/>
+  </div> })
 
 export default function HomeSep() {
   const [isLoading, setIsLoading] = useState(false);
