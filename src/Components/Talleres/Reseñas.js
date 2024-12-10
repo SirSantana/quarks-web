@@ -13,38 +13,47 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
   const { data } = useQuery(GET_OPINIONES, { variables: { id: id } })
   const router = useRouter()
   console.log(router.query);
-  
+
   const handlerLoginOpinion = () => {
     router.push(`/${userName ? userName : router.query.id}/crear-resenaa`, undefined, { shallow: true, scroll: false });
   }
   return (
     <>
       <h2 style={{ fontSize: '20px', alignSelf: 'flex-start', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '24px' }} className={styles.titleNegocio}>Calificacion y Opiniones {nombre} </h2>
-      <div onClick={handlerLoginOpinion} className={styles.containerHeaderCalendario} style={{ cursor: 'pointer', backgroundColor: '#373737', justifyContent: 'space-between', border: '1px solid #d6d6d6', display: 'flex', flexDirection: 'row', alignItems: 'center', boxSizing: 'border-box', gap: '16px', borderRadius: '16px', maxWidth: '500px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
-          <Icon size='lg' style={{ color: 'white' }} name={IconCatalog.addCircle} />
-          <p style={{ fontSize: '16px', fontWeight: '700', color: 'white', }}>Agregar Reseña</p>
-        </div>
-      </div>
-      <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '100%', maxWidth: '600px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '8px' }}>
-          <Icon size='lg' name={IconCatalog.star} style={{ color: '#FBBC04' }} />
-          {data?.getOpiniones.length > 0
-            ?
-            <>
-              <p style={{ fontSize: '28px', fontWeight: '700', color: '#373737', }}>{result?.data?.getCalificacionOpiniones}</p>
-              <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({Number(ctdCalificaciones) + data.getOpiniones.length} reseñas)</p>
-            </>
-            :
-            ctdCalificaciones
+      <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', boxSizing: 'border-box', gap: '20px', borderRadius: '16px', width: '100%' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '8px', width: '100%' }}>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%' }}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill={"#407BFF"} // Relleno dinámico según la calificación
+              style={{ cursor: "pointer" }}
+            >
+              <path d="M12 .587l3.668 7.568L24 9.423l-6 5.834 1.419 8.243L12 18.897l-7.419 4.603L6 15.257 0 9.423l8.332-1.268z" />
+            </svg>
+            {data?.getOpiniones.length > 0
               ?
               <>
-                <p style={{ fontSize: '28px', fontWeight: '700', color: '#373737', }}>{promCalificacion}</p>
-                <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({Number(ctdCalificaciones)} reseñas)</p>
+                <p style={{ fontSize: '28px', fontWeight: '700', color: '#373737', }}>{result?.data?.getCalificacionOpiniones}</p>
+                <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({Number(ctdCalificaciones) + data.getOpiniones.length} reseñas)</p>
               </>
-              : <p>Sin reseñas todavia</p>
+              :
+              ctdCalificaciones
+                ?
+                <>
+                  <p style={{ fontSize: '28px', fontWeight: '700', color: '#373737', }}>{promCalificacion}</p>
+                  <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({Number(ctdCalificaciones)} reseñas)</p>
+                </>
+                : <p>Sin reseñas todavia</p>
 
-          }
+            }
+          </div>
+          <Button onClick={handlerLoginOpinion} variant={ButtonVariant.secondary} fullWidth>
+            <Icon size='lg' style={{ color: 'inherit' }} name={IconCatalog.addCircle} />
+            Crear reseña
+          </Button>
         </div>
       </div>
       {/* {data?.getOpiniones.map(reseña => (

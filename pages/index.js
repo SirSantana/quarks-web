@@ -103,8 +103,10 @@ export default function Home({ initialQuery }) {
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
-        <meta property="og:image" content='/logo-background-quarks.svg' />
-        <meta property="og:image:url" content='/logo-background-quarks.svg' />
+        {/* <meta property="og:image" content='/logo-background-quarks.svg' /> */}
+        <meta property="og:image" content='/logo-back-white.svg' />
+
+        <meta property="og:image:url" content='/logo-back-white.svg' />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta property='og:url' content={`https://www.quarks.com.co/`} />
 
@@ -117,7 +119,7 @@ export default function Home({ initialQuery }) {
         <meta property="og:image:type" content='image/png' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href={'/logo-background-quarks.svg'} />
+        <link rel="icon" href={'/logo-back-white.svg'} />
 
         {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
         {process.env.NODE_ENV === "production" && (

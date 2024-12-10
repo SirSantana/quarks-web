@@ -23,21 +23,22 @@
 }
 
 .button-secondary {
-  background-color: #373737;
-  color: #fff;
+  background-color: #E1EAFF;
+  color: #407BFF;
 }
 .button-terciary {
   background-color: transparent;
-  color: #373737;
+  border:1px solid transparent;
+  color: #407BFF;
 }
 .button-gray {
   background-color: #F3F3F3;
   color: #7D7D7D;
 }
 .button-outlined {
-  background-color: #FCFDFF;
-  border: 1px solid #6C788E;
-  color: #6C788E;
+  background-color: transparent;
+  border: 1px solid #407BFF;
+  color: #407BFF;
 }
 .button-gradient {
   background: linear-gradient(180deg,#E50051, #9C0037);
@@ -65,12 +66,19 @@
   padding: 12px 96px;
   font-size: 16px;
 }
-.button:hover {
+.button-primary:hover {
   filter: brightness(1.2);
 }
+.button-secondary:hover{
+  background-color: #407BFF;
+  color: #E1EAFF;
+}
 .button-outlined:hover{
-  background-color: #182537;
-  color: #FCFDFF;
+  background-color: #E1EAFF;
+}
+.button-terciary:hover{
+  border:1px solid #407BFF;
+
 }
 .button:active {
   transform: scale(0.95);

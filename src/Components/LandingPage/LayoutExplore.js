@@ -65,7 +65,7 @@ export default function LayoutExplore({ children, title, description, query, pri
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
 
         {/* Favicon and Canonical Link */}
-        <link rel="icon" href="/logo-background-quarks.svg" />
+        <link rel="icon" href="/logo-back-white.svg" />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
 
         {/* Preconnect for Ads and Clarity */}
