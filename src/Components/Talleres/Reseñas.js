@@ -1,6 +1,5 @@
 import { GET_CALIFICACION_OPINIONES, GET_OPINIONES } from "@/graphql/queries"
 import { useQuery } from "@apollo/client"
-import Reseña from './Reseña'
 import { useRouter } from 'next/router'
 import Icon, { IconCatalog } from '../Icon/Icon'
 import Button, { ButtonVariant } from '../Button/Button'
@@ -12,7 +11,6 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data } = useQuery(GET_OPINIONES, { variables: { id: id } })
   const router = useRouter()
-  console.log(router.query);
 
   const handlerLoginOpinion = () => {
     router.push(`/${userName ? userName : router.query.id}/crear-resenaa`, undefined, { shallow: true, scroll: false });
@@ -21,8 +19,8 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
     <>
       <h2 style={{ fontSize: '20px', alignSelf: 'flex-start', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '24px' }} className={styles.titleNegocio}>Calificacion y Opiniones {nombre} </h2>
       <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', boxSizing: 'border-box', gap: '20px', borderRadius: '16px', width: '100%' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '8px', width: '100%' }}>
-          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%' }}>
+        <div className={styles.containerSectionReseñas}>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%',alignItems:'center', }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

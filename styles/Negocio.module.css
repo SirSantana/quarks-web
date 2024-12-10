@@ -340,9 +340,14 @@
 .sliderTab::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
-
-
-
+.containerSectionReseñas{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
 
 .tab {
   cursor: pointer;
@@ -436,6 +441,12 @@
 }
 .containerCardSolicitarRevision{
   min-width: 90%;
+}
+.containerSectionReseñas{
+  justify-content: center;
+  align-items: center; 
+  gap: 16px;
+  flex-direction: column-reverse;
 }
 .containerRevisionesSlider{
   flex-wrap: nowrap;
