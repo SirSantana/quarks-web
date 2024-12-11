@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 70%;
-  margin: 100px auto 0 auto;
+  margin: 10px auto 0 auto;
   padding: 32px;
   padding-top: 0;
   max-width: 700px;
@@ -338,7 +338,6 @@
   .container {
     width: 90%;
     padding: 32px 0;
-    margin-top: 40px;
   }
   .containerBlog {
     width: 90%;

@@ -79,7 +79,7 @@ export default function CalculadoraDeCombustible() {
   return (
     <Layout title={'La mejor Calculadora de consumo de combustible'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadoradecombustible.png'} keywords={'Calculadora de combustible, calculador de consumo de combustible, calculadora de rendimiento de combustible, calculadora combustible, calculador combustible,  '} url={router?.asPath}>
       <div className={styles.container}>
-        <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600' }}>Calculadora de Combustible</h1>
+        <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop:0 }}>Calculadora de Combustible</h1>
         <p className={styles.subtitle}>Ingresa la informacion y conoce el rendimiento del combustible </p>
 
         <div className={styles.containerContent}>
