@@ -82,7 +82,7 @@ export default function Layout({ children, footer = true, title, description, ty
 
         {!negocio && <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />}
 
-        <link rel="icon" href={"/logo-back-white.svg"} />
+        <link rel="icon" href={"/icon-white.svg"} />
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
         {process.env.NODE_ENV === "production" && ads &&(
           <>
