@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import HomeSep from '@/src/Components/LandingPage/HomeSep'
 import FooterV2 from '@/src/Components/Footer/FooterV2'
 import { categorias } from '@/src/data/Categorias'
+import sendWhatsappMessage from '@/utils/scripts'
 
 
 const tagsFix = [
@@ -151,6 +152,7 @@ export default function Home({ initialQuery }) {
         {/* <HomeMarch initialQuery={initialQuery} mode={mode} /> */}
         {/* <BasicHome /> */}
         <HomeSep />
+        {/* <button onClick={()=>sendWhatsappMessage({numero:'3153552551'})}>Wha</button> */}
         {/* <SectionTalleresServicios />
         <ListTalleresLanding />
         <ActividadReciente />

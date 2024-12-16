@@ -35,6 +35,9 @@ export default function BuscadorBasico({ size = 'large' }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(!service.value){
+      return alert('Completa el campo de búsqueda')
+    }
     if (service.new) {
       router.push(`/servicios/${service.value.replaceAll(' ', '-')}`)
     } else {
