@@ -52,12 +52,12 @@ export default function FooterV2({ data }) {
         </div>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Síguenos</h3>
-          <Link href="https://www.facebook.com/quarksmotors/" className={styles.footerLink}>
+          {/* <Link href="https://www.facebook.com/quarksmotors/" className={styles.footerLink}>
             Facebook
           </Link>
           <Link href="https://www.instagram.com/quarks_automotriz/" className={styles.footerLink}>
             Instagram
-          </Link>
+          </Link> */}
           {/* <Link href="/terms-of-service" className={styles.footerLink}>
             WhatsApp
           </Link> */}
