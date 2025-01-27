@@ -1,11 +1,11 @@
-
-p{
+p {
   font-size: 16px;
-  color:#6C788E;
+  color: #6C788E;
   line-height: 24px;
   max-width: 600px;
 }
-h1{
+
+h1 {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.4;
@@ -15,25 +15,97 @@ h1{
   line-height: 52px;
   font-display: swap;
 }
-h2{
+
+h2 {
   color: #182537;
 }
+
 input[type="time"]::-webkit-calendar-picker-indicator {
   display: none;
 }
 
-.marker-cluster-small {
-  background-color: rgba(195, 215, 255, 0.6) !important; /* Color de fondo más claro */
+input {
+  font-family: 'Poppins', sans-serif;
+  color: #6C788E;
+  border: 1px solid #CFD5E1; /* Borde inicial */
+  padding: 8px 12px;
+  height: 48px !important; 
+  transition: all 0.3s ease-in-out; /* Animación suave para cambios */
 }
+
+textarea{
+  font-family: 'Poppins', sans-serif;
+  color: #6C788E;
+}
+textarea::placeholder{
+  font-family: 'Poppins', sans-serif;
+  color: #A6AEC1;
+}
+input::placeholder {
+  font-family: 'Poppins', sans-serif;
+  color: #A6AEC1;
+}
+
+/* Estado hover */
+input:hover {
+  border-color: #6C788E; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estado focus */
+input:focus {
+  outline: none; /* Elimina el borde azul por defecto */
+  border-color: #6C788E; /* Borde azul claro en foco */
+  box-shadow: 0 0 4px rgba(222, 242, 255, 0.4); /* Resplandor sutil */
+  background-color: #FFFFFF; /* Fondo blanco para mayor claridad */
+}
+
+/* Estado activo (cuando se hace clic o está en uso) */
+input:active {
+  border-color: #1A73E8; /* Azul más oscuro */
+  background-color: #E3F2FD; /* Azul claro */
+}
+
+/* Estado disabled */
+input:disabled {
+  color: #A6AEC1; /* Texto apagado */
+  border-color: #E1E5ED; /* Borde gris claro */
+  background-color: #F5F7FA; /* Fondo gris claro */
+  cursor: not-allowed; /* Indicador de no interacción */
+}
+
+/* Estado error */
+input.error {
+  border-color: #E74C3C; /* Rojo para error */
+  background-color: #FDEDEC; /* Fondo rojo claro */
+}
+
+
+
+
+/* Estado readonly */
+input[readonly] {
+  background-color: #F9FAFB; /* Fondo ligeramente gris */
+  border-color: #CFD5E1; /* Borde por defecto */
+  color: #6C788E; /* Texto en el mismo tono */
+  cursor: not-allowed; /* Indicador de no edición */
+}
+
+.marker-cluster-small {
+  background-color: rgba(195, 215, 255, 0.6) !important;
+  /* Color de fondo más claro */
+}
+
 .marker-cluster-small div {
-  background-color: #407BFF !important; /* Color del círculo para clusters pequeños */
+  background-color: #407BFF !important;
+  /* Color del círculo para clusters pequeños */
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0; /* Color de fondo principal */
-font-family: 'Poppins', sans-serif;
+  background-color: #f0f0f0;
+  /* Color de fondo principal */
+  font-family: 'Poppins', sans-serif;
   background: white;
   /* background-image: radial-gradient(rgb(197, 197, 197) 1px, transparent 0); */
   background-size: 40px 40px;
@@ -51,12 +123,12 @@ font-family: 'Poppins', sans-serif;
 
 @media (max-width:800px) {
 
-h1 {
-  font-size: 40px;
-  text-align: center;
-  max-width: 500px;
-  line-height: 46px;
-}
+  h1 {
+    font-size: 40px;
+    text-align: center;
+    max-width: 500px;
+    line-height: 46px;
+  }
 }
 
 
@@ -66,5 +138,4 @@ h1 {
     font-size: 32px;
     line-height: 40px;
   }
-  }
-
+}

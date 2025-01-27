@@ -108,7 +108,7 @@ export default function NegocioVDos({ data, loading }) {
             />
             <div>
               {/* <h3 className={styles.headerDetails}>Centro de diagnóstico automotriz</h3> */}
-              <h3 className={styles.headerDetails}>{data?.tipo == 'Almacen' ? "Almacén de Autopartes" : data?.tipo == 'Mecanico a Domicilio' ? "Mecánico a domicilio" : "Taller Mecánico"}</h3>
+              <h3 className={styles.headerDetails}>{data?.tipo == 'Almacen' ? "Almacén de Autopartes" : data?.tipo == 'Mecanico a Domicilio' ? "Mecánico a domicilio" : "Taller Mecánico"} de {data?.vehiculo ? data?.vehiculo : "Carros"}</h3>
               <h1 className={styles.headerTitle} style={{textAlign:'left'}}>{data?.nombre}</h1>
               <p style={{ fontSize: '14px', fontWeight: '500', color: '#A6AEC1'}}>📍 {data.direccion}. {data?.ciudad}</p>
 

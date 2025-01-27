@@ -198,7 +198,16 @@ mutation createNegocioVDos($email:String, $password:String, $username:String){
   }
 }
 `
-
+export const CREATE_NEGOCIO_VDOS_PREVIEW = gql`
+mutation createNegocioVDosPreview($email:String, $nombre:String, $tipo:String, $whatsapp:String, $indicativo:String,  $vehiculo:String,){
+  createNegocioVDosPreview(email:$email, nombre:$nombre, tipo:$tipo, whatsapp:$whatsapp, indicativo:$indicativo,  vehiculo:$vehiculo,){
+    userName
+      nombre
+      tipo
+      id
+  }
+}
+`
 export const EDIT_NEGOCIO_VDOS = gql`
 mutation editNegocioVDos($direccion:String,  $ciudad:String,$pais:String, $whatsapp:String, $telefono:String, $horario:String, $fotoperfil:String, $categorias:[String], $nombre:String, $userName:String, $email:String, $indicativo:String, $tipo:String, $vehiculo:String, $coordenadas:[Float]){
   editNegocioVDos(input:{direccion:$direccion, ciudad:$ciudad,pais:$pais,  whatsapp:$whatsapp, telefono:$telefono,horario:$horario, fotoperfil:$fotoperfil,categorias:$categorias, nombre:$nombre, userName:$userName, email:$email, indicativo:$indicativo, tipo:$tipo, vehiculo:$vehiculo, coordenadas:$coordenadas} ){
