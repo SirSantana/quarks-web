@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 95%;
-  margin: 128px auto;
+  margin: 16px auto;
   max-width: 1000px;
 
 }
@@ -37,7 +37,7 @@
 }
 
 .title {
-  font-size: 40px;
+  font-size: 24px;
   text-align: center;
 }
 
@@ -60,7 +60,7 @@
 .placas {
   line-height: 1.2;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 164px;
+  font-size: 100px;
   font-weight: 500;
   color: black;
   letter-spacing: 20px;
@@ -93,7 +93,7 @@
 
 @media (max-width:900px) {
   .container {
-    margin: 96px auto;
+    margin: 40px auto;
 
   }
 
@@ -148,7 +148,7 @@
 
 @media (max-width:540px) {
   .container {
-    margin: 82px auto;
+    margin: 32px auto;
 
   }
 

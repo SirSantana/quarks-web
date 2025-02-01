@@ -1,5 +1,6 @@
 {
-  "picoyplaca": [
+  "picoyplaca": {
+    "2024": [
     [],
     [],
     [
@@ -5002,5 +5003,235 @@
         "index": 90
       }
     ]
+  ],
+  "2025":[
+    [],
+    [{
+      "fechaFormat": "01-de-Febrero-2025",
+      "titulo": "Sabado-01-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Feb 01 2025",
+      "index": 1
+    },{
+      "fechaFormat": "02-de-Febrero-2025",
+      "titulo": "Domingo-02-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Feb 02 2025",
+      "index": 2
+    },{
+      "fechaFormat": "03-de-Febrero-2025",
+      "titulo": "Lunes-03-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Feb 03 2025",
+      "index": 3
+    },{
+      "fechaFormat": "04-de-Febrero-2025",
+      "titulo": "Martes-04-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Feb 04 2025",
+      "index": 4
+    },{
+      "fechaFormat": "05-de-Febrero-2025",
+      "titulo": "Miércoles-05-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Feb 05 2025",
+      "index": 5
+    },{
+      "fechaFormat": "06-de-Febrero-2025",
+      "titulo": "Jueves-06-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Feb 06 2025",
+      "index": 6
+    },{
+      "fechaFormat": "07-de-Febrero-2025",
+      "titulo": "Viernes-07-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Feb 07 2025",
+      "index": 7
+    },{
+      "fechaFormat": "08-de-Febrero-2025",
+      "titulo": "Sábado-08-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Feb 08 2025",
+      "index": 8
+    },{
+      "fechaFormat": "09-de-Febrero-2025",
+      "titulo": "Domingo-09-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Feb 09 2025",
+      "index": 9
+    },{
+      "fechaFormat": "10-de-Febrero-2025",
+      "titulo": "Lunes-10-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Feb 10 2025",
+      "index": 10
+    },{
+      "fechaFormat": "11-de-Febrero-2025",
+      "titulo": "Martes-11-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Feb 11 2025",
+      "index": 11
+    },{
+      "fechaFormat": "12-de-Febrero-2025",
+      "titulo": "Miércoles-12-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Feb 12 2025",
+      "index": 12
+    },{
+      "fechaFormat": "13-de-Febrero-2025",
+      "titulo": "Jueves-13-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Feb 13 2025",
+      "index": 13
+    },{
+      "fechaFormat": "14-de-Febrero-2025",
+      "titulo": "Viernes-14-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Feb 14 2025",
+      "index": 14
+    },{
+      "fechaFormat": "15-de-Febrero-2025",
+      "titulo": "Sábado-15-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Feb 15 2025",
+      "index": 15
+    },{
+      "fechaFormat": "16-de-Febrero-2025",
+      "titulo": "Domingo-16-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Feb 16 2025",
+      "index": 16
+    },{
+      "fechaFormat": "17-de-Febrero-2025",
+      "titulo": "Lunes-17-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Feb 17 2025",
+      "index": 17
+    },{
+      "fechaFormat": "18-de-Febrero-2025",
+      "titulo": "Martes-18-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Feb 18 2025",
+      "index": 18
+    },{
+      "fechaFormat": "19-de-Febrero-2025",
+      "titulo": "Miércoles-19-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Feb 19 2025",
+      "index": 19
+    },{
+      "fechaFormat": "20-de-Febrero-2025",
+      "titulo": "Jueves-20-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Feb 20 2025",
+      "index": 20
+    },{
+      "fechaFormat": "21-de-Febrero-2025",
+      "titulo": "Viernes-21-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Feb 21 2025",
+      "index": 21
+    },{
+      "fechaFormat": "22-de-Febrero-2025",
+      "titulo": "Sábado-22-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Feb 22 2025",
+      "index": 22
+    },{
+      "fechaFormat": "23-de-Febrero-2025",
+      "titulo": "Domingo-23-de-Febrero-2025",
+      "placas": "NO APLICA",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Feb 23 2025",
+      "index": 23
+    },{
+      "fechaFormat": "24-de-Febrero-2025",
+      "titulo": "Lunes-24-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Feb 24 2025",
+      "index": 24
+    },{
+      "fechaFormat": "25-de-Febrero-2025",
+      "titulo": "Martes-25-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Feb 25 2025",
+      "index": 25
+    },{
+      "fechaFormat": "26-de-Febrero-2025",
+      "titulo": "Miércoles-26-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Feb 26 2025",
+      "index": 26
+    },{
+      "fechaFormat": "27-de-Febrero-2025",
+      "titulo": "Jueves-27-de-Febrero-2025",
+      "placas": "1-2-3-4-5",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Feb 27 2025",
+      "index": 27
+    },{
+      "fechaFormat": "28-de-Febrero-2025",
+      "titulo": "Viernes-28-de-Febrero-2025",
+      "placas": "6-7-8-9-0",
+      "horario": "6:00 AM - 9:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Feb 28 2025",
+      "index": 28
+    }
+    ]
   ]
+}
 }

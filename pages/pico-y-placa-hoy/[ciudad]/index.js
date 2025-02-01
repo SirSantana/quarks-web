@@ -79,27 +79,34 @@ export default function PicoYPlacaCiudad({ciudad}) {
         <h1 className={styles.title}>Pico y Placa en {ciudad} </h1>
         <p style={{fontSize:'14px'}}>Bienvenido a la guía definitiva del Pico y Placa en {ciudad}. Aquí encontrarás toda la información actualizada sobre las restricciones vehiculares en nuestra ciudad. </p>
         <Image loading='lazy'  src={'/pico y placa banner.jpg'} alt={`Pico y placa ${ciudad} 2024`} width={800} height={400} style={{objectFit:'cover', margin:'32px 0', width:'90%', maxWidth:'600px', height:'30%', maxHeight:'400px'}}  />
-        <Link href={`${router.asPath}/mayo`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
+        
+        <Link href={`${router.asPath}/mayo-2024`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
+          <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
+            <h4 style={{ fontSize: '24px', fontWeight: '700' }}>Febrero 2025</h4>
+          </div>
+        </Link>
+        
+        <Link href={`${router.asPath}/mayo-2024`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
           <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             <h4 style={{ fontSize: '24px', fontWeight: '700' }}>PICO Y PLACA Mayo</h4>
           </div>
         </Link>
-        <Link href={`${router.asPath}/junio`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%',  borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
+        <Link href={`${router.asPath}/junio-2025`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%',  borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
           <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             <h4 style={{ fontSize: '24px',  fontWeight: '700' }}>PICO Y PLACA Junio</h4>
           </div>
         </Link>
-        <Link href={`${router.asPath}/julio`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
+        <Link href={`${router.asPath}/julio-2025`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
           <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             <h4 style={{ fontSize: '24px',  fontWeight: '700' }}>PICO Y PLACA Julio</h4>
           </div>
         </Link>
-        <Link href={`${router.asPath}/agosto`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
+        <Link href={`${router.asPath}/agosto-2025`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
           <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             <h4 style={{ fontSize: '24px',  fontWeight: '700' }}>PICO Y PLACA Agosto</h4>
           </div>
         </Link>
-        <Link href={`${router.asPath}/septiembre`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
+        <Link href={`${router.asPath}/septiembre-2025`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'black',maxWidth:'400px', width: '95%', borderRadius: '10px', padding: '8px', margin: '32px auto', backgroundColor: '#FFC003', height: '100px' }} >
           <div style={{ border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             <h4 style={{ fontSize: '24px',  fontWeight: '700' }}>PICO Y PLACA Septiembre</h4>
           </div>
