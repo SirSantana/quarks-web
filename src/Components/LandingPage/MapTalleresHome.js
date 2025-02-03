@@ -18,7 +18,7 @@ function MyComponent({ setZoomLevel }) {
   return null;
 }
 
-const MapRecenter = ({ lat, lng, zoomLevel }) => {
+const MapRecenter = ({ lat='4.909526', lng='-73.989772', zoomLevel=12 }) => {
   const map = useMap();
 
   useEffect(() => {
@@ -146,9 +146,11 @@ font-weight: bold;
 <span>${location.rating || 4.5}</span>
 </div> */}
 export default function MapTalleresHome({ data }) {
-  const [mapCenter, setMapCenter] = useState([data[data.length - 1].lat, data[data.length - 1].lng]);
+  const [mapCenter, setMapCenter] = useState([data?.[data?.length - 1].lat, data?.[data?.length - 1].lng]);
   const [zoomLevel, setZoomLevel] = useState(12);
   const [hoveredInfo, setHoveredInfo] = useState(null);
+
+  
   return (
     <div style={{ position: 'relative', width: '100%', height: '90vh' }}>
       <MapContainer
@@ -159,7 +161,7 @@ export default function MapTalleresHome({ data }) {
         zoomControl={false}
         scrollWheelZoom={true}
       >
-        <MapRecenter lat={data[Math.floor(data.length / 2)]?.lat?data[Math.floor(data.length / 2)]?.lat:'4.909526'} lng={data[Math.floor(data.length / 2)]?.lng?data[Math.floor(data.length / 2)]?.lng:'-73.989772'} zoomLevel={zoomLevel} />
+        <MapRecenter lat={data?.[Math.floor(data?.length / 2)]?.lat?data?.[Math.floor(data?.length / 2)]?.lat:'4.909526'} lng={data?.[Math.floor(data?.length / 2)]?.lng?data?.[Math.floor(data?.length / 2)]?.lng:'-73.989772'} zoomLevel={zoomLevel} />
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright"></a> '
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"

@@ -4,6 +4,8 @@ import styles from '@/styles/PicoYPlaca.module.css'
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import BuscadorBasico from "@/src/Components/LandingPage/BuscadorBasico";
+import TitleHomeAnimation from "@/src/Components/LandingPage/TitleHomeAnimation";
 
 // let keyWords = [
 //   "Pico y Placa Bogotá",
@@ -189,6 +191,10 @@ export default function PicoYPlaceHoyBogota({ data }) {
           <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {router.query.ciudad}, podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
         </div>
 
+        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
+          <TitleHomeAnimation />
+          <BuscadorBasico />
+        </div>
         {/* <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h3 style={{ marginBottom: '16px' }}>Pico y Placa anteriores dias de {meses[numeroMes]}</h3>
           {picoyplacaAnteriores?.map(el => (
