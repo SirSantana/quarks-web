@@ -2,10 +2,12 @@ import Layout from "@/src/Components/Layout";
 import picoyplaca from '@/pages/picoyplaca.json'
 import styles from '@/styles/PicoYPlaca.module.css'
 import { useRouter } from "next/router";
-import Link from "next/link";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import BuscadorBasico from "@/src/Components/LandingPage/BuscadorBasico";
-import TitleHomeAnimation from "@/src/Components/LandingPage/TitleHomeAnimation";
+
+const BuscadorBasico = dynamic(() => import("@/src/Components/LandingPage/BuscadorBasico"), { ssr: false });
+const TitleHomeAnimation = dynamic(() => import("@/src/Components/LandingPage/TitleHomeAnimation"), { ssr: false });
+
 
 // let keyWords = [
 //   "Pico y Placa Bogotá",
@@ -89,7 +91,6 @@ export default function PicoYPlaceHoyBogota({ data }) {
   // const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
   // const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
   let date = new Date(data?.fecha)
-  console.log(router);
 
   const structuredData = {
     "@context": "https://schema.org",
