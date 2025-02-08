@@ -36,7 +36,7 @@ export default function FooterV2({ data }) {
           <Link href="/articulos" className={styles.footerLink}>
             Articulos / Blog
           </Link>
-          <Link href="/glosario-de-autopartes" className={styles.footerLink}>
+          <Link href="/glosario-terminos" className={styles.footerLink}>
             Glosario de Autopartes
           </Link>
           <Link href="/quienessomos" className={styles.footerLink}>

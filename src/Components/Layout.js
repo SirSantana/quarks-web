@@ -23,7 +23,7 @@ function generarMarcadoEstructurado(articulo) {
   }
 }
 
-export default function Layout({ children, footer = true, title, description, type, price, keywords, fecha, image, tags, url, ads = true, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured, negocio = false }) {
+export default function Layout({index=true, children, footer = true, title, description, type, price, keywords, fecha, image, tags, url, ads = true, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured, negocio = false }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
   return (
     <>
@@ -36,9 +36,7 @@ export default function Layout({ children, footer = true, title, description, ty
           :
           <meta name="keywords" content={'Mundo automotriz'} />
         }
-        <meta name='robots' content='follow, index, max-image-preview:large' />
-        <meta name='bingbot' content='follow, index' />
-        <meta name='GOOGLEBOT' content='follow, index' />
+       
         <meta name='language' content='spanish' />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -64,6 +62,16 @@ export default function Layout({ children, footer = true, title, description, ty
         <meta property="og:image:width" content='200' />
         <meta property="og:image:height" content='200' />
         <meta property="og:image:type" content='image/png' />
+        {index 
+        ?
+        <>
+        <meta name='robots' content='follow, index, max-image-preview:large' />
+        <meta name='bingbot' content='follow, index' />
+        <meta name='GOOGLEBOT' content='follow, index' />
+        </>
+        :<meta name="robots" content="noindex, follow" />
+      }
+
         {lastModified &&
           <meta http-equiv="Last-Modified" content={lastModified} />
         }
@@ -82,7 +90,7 @@ export default function Layout({ children, footer = true, title, description, ty
 
         {!negocio && <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />}
 
-        <link rel="icon" href={"/icon-white.svg"} />
+        <link rel="icon" href='/favicon.webp'/>
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
         {process.env.NODE_ENV === "production" && ads &&(
           <>

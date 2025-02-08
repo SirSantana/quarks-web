@@ -120,7 +120,7 @@ export default function Home({ initialQuery }) {
         <meta property="og:image:type" content='image/png' />
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
-        <link rel="icon" href={'/icon-white.svg'} />
+        <link rel="icon" href='/favicon.webp' />
 
         {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
         {process.env.NODE_ENV === "production" && (

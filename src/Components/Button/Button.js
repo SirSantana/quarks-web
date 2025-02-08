@@ -26,7 +26,7 @@ export default function Button({ children, size = ButtonSize.base, active = fals
   return (
     link
       ?
-      <Link target='_blank' href={href} className={`${styles.button} ${variantButton} ${sizeButton} ${className}`}
+      <Link  href={href} className={`${styles.button} ${variantButton} ${sizeButton} ${className}`}
         style={{ ...style, width: fullWidth && '100%' }}>
         {children}
         {icon && <Icon name={icon} size={sizeIcon}  />}
