@@ -20,7 +20,7 @@
   
   /* Sidebar cerrado (solo móvil) */
   .closed {
-    transform: translateX(-250px);
+    transform: translateX(-400px);
   }
   
   /* Botón de toggle (visible solo en pantallas pequeñas) */
