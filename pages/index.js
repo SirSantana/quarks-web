@@ -98,16 +98,17 @@ export default function Home({ initialQuery }) {
         <meta name="twitter:site" content="@quarks-automotriz" />
         <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={"Directorio de Talleres de carros en Bogotá "} />
-        <meta name="twitter:image" content='/logo-background-quarks.svg' />
+        <meta name="twitter:image" content='/favicon.png' />
         <meta name="url" content={`https://www.quarks.com.co/`} />
         <meta property="url" content={`https://www.quarks.com.co/`} />
 
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
         {/* <meta property="og:image" content='/logo-background-quarks.svg' /> */}
-        <meta property="og:image" content='/icon-white.svg' />
+        <meta property="og:image" content='/favicon.png' />
+        
 
-        <meta property="og:image:url" content='/icon-white.svg' />
+        <meta property="og:image:url" content='/favicon.png' />
         <meta property='og:description' content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta property='og:url' content={`https://www.quarks.com.co/`} />
 
@@ -121,7 +122,8 @@ export default function Home({ initialQuery }) {
 
         <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />
         <link rel="icon" href='/favicon.webp' />
-
+        <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+<link rel="icon" type="image/x-icon" href="/favicon.png" />
         {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
         {process.env.NODE_ENV === "production" && (
           <script
