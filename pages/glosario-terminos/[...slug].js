@@ -89,7 +89,7 @@ export default function Repuesto({ data }) {
   ];
 
   return (
-    <Layout index={false}
+    <Layout 
       title={data?.title}
       productoMarcado={productoMarcado}
       description={data?.description}
