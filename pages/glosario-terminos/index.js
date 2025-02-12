@@ -142,24 +142,6 @@ export default function DiccionarioDeAutopartes() {
           <h2 className={styles.categoriesTitle}>
             Bienvenido, sobre qué tema te gustaría aprender?
           </h2>
-          {/* <div className={styles.cardsContainer}>
-            {["blue", "blue", "orange"].map((color, index) => (
-              <div key={index} className={`${styles.card} ${styles[color]}`}>
-                <img
-                  src="/servicio-aire.webp"
-                  alt="Autoparte"
-                  className={styles.heroImage}
-                  style={{width:'64px', objectFit:'contain'}}
-                />
-                <h3 className={styles.cardTitle}>Filtros</h3>
-                <p className={styles.cardDescription}>
-                  Conoce los principales filtros: Aceite, Gasolina, Aire, etc.
-                </p>
-                <span className={styles.cardFooter}>6 Artículos</span>
-              </div>
-            ))}
-           
-          </div> */}
           <div className={styles.cardsContainer}>
 
             {items.map((item, index) => (
@@ -178,78 +160,6 @@ export default function DiccionarioDeAutopartes() {
 
         </section>
       </div>
-
-      {/* <div className={styles.containerGridAside}>
-        <div className={styles.container}>
-
-          <section style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-            <h1 className={styles.title2}>Glosario de Autopartes</h1>
-            <img src={'../Motor.png'} className={styles.icon} alt="Glosario de repuestos de carro" />
-          </section>
-
-          <section className={styles.containerBottomHeaderInfo}>
-            <div className={styles.containerButtonsHeader}>
-              <div className={styles.divHeaderText}>
-                <div className={styles.divIconHeader}>
-                  <ion-icon name="eye-outline"></ion-icon>
-                </div>
-                <p className={styles.subtitleHeader}>11332 vistas</p>
-              </div>
-              <div className={styles.divHeaderText}>
-                <div className={styles.divIconHeader}>
-                  <ion-icon name="build-outline"></ion-icon>
-                </div>
-                <p className={styles.subtitleHeader}>36 autopartes</p>
-              </div>
-              <div style={{ cursor: 'pointer' }} onClick={() => setVisibleShareArticulo(true)} className={styles.divIconHeader}>
-                <ion-icon name="arrow-redo-outline"></ion-icon>
-              </div>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.container1}>
-                <span className={styles.icon}><i className="fa fa-search"></i></span>
-                <form >
-                  <input onKeyDown={handleKeyDown} type="text" className={styles.input} value={searchTerm} onChange={handleSearch} placeholder="Buscar autoparte..." />
-                </form>
-              </div>
-            </div>
-
-          </section>
-
-          <div style={{ width: '100%', backgroundColor: '#bababa', height: '1px', margin: '0 0 32px 0' }} />
-
-          <SwiperAutopartes quantity={2} />
-
-          {Object.entries(filteredData ? filteredData : data).map(([key, values]) => (
-            <div key={key}>
-              <h4 className={styles.title}>{key}</h4>
-              <ul>
-                {values.map((item) => {
-                  const itemName = Object.values(item)[1]; // Obtener el nombre del elemento
-                  const itemId = itemName.split(" ").join('-'); // Obtener el ID del elemento
-                  return (
-                    <Link key={itemId} href={`/glosario-de-autopartes/${itemId}-${Object.values(item)[0]}`} style={{ textDecoration: 'none' }}>
-                      <li style={{ margin: '16px 0', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <div>
-                          <p style={{ lineHeight: '16px' }} className={styles.subtitleCategory}>{Object.values(item)[2]}</p>
-                          <h2 className={styles.question}>{Object.values(item)[1]}</h2>
-                        </div>
-                        <p className={styles.subtitleCategory}>Ver detalle</p>
-                      </li>
-                    </Link>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-
-        </div>
-        
-        
-      </div> */}
-
-
-      {/* {visibleShareArticulo && <ModalShareArticulo setVisibleShareArticulo={setVisibleShareArticulo} url={`https://www.quarks.com.co${router?.asPath}`} />} */}
 
     </Layout>
   )

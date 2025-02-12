@@ -1,5 +1,22 @@
 import { gql } from "@apollo/client";
 
+//TERMINOS
+export const GET_TERMINO = gql`
+    query getTermino($slug:String){
+        getTermino(slug:$slug){
+            id
+            title
+            content
+            slug
+            tags
+            category
+            description
+            image
+
+        }
+    }
+`
+
 //USER
 export const GET_USER = gql`
     query getUser{
