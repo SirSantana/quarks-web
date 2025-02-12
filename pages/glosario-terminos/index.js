@@ -125,7 +125,7 @@ export default function DiccionarioDeAutopartes() {
             <p className={styles.heroSubtitle}>
               Encuentre artículos de más de 30 autopartes, con su significado, preguntas frecuentes y más!
             </p>
-            <Button style={{ marginTop: '24px' }} link='/glosario-terminos/Amortiguador-648d069fa78195fbadfa31e2' href={'/glosario-terminos/Amortiguador-648d069fa78195fbadfa31e2'} variant={ButtonVariant.primary} >Empieza a aprender!</Button>
+            <Button style={{ marginTop: '24px' }} link='/glosario-terminos/amortiguadores-funcionamiento' href={'/glosario-terminos/amortiguadores-funcionamiento'} variant={ButtonVariant.primary} >Empieza a aprender!</Button>
           </div>
           <div className={styles.heroImageContainer}>
             <img
