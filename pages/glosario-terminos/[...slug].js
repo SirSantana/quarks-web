@@ -121,15 +121,12 @@ export default function Repuesto({ data }) {
 export async function getServerSideProps({ query }) {
   const parts = query?.slug;
 
-
-  const { data } = await client.query(
+  const { data, error } = await client.query(
     {
       query: GET_TERMINO,
       variables: { slug: parts[0] },
-      fetchPolicy: 'cache-first',
     }
   )
-
 
   return {
     props: {
