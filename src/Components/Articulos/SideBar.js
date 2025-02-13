@@ -101,19 +101,19 @@ export default function ResponsiveSidebar() {
   const router = useRouter()
 
   
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (typeof window !== "undefined") {
-  //       const isSmallScreen = window.innerWidth <= 768;
-  //       setIsMobile(isSmallScreen);
-  //       setIsOpen(!isSmallScreen); // Oculto en móviles, abierto en pantallas grandes
-  //     }
-  //   };
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== "undefined") {
+        const isSmallScreen = window.innerWidth <= 768;
+        setIsMobile(isSmallScreen);
+        setIsOpen(!isSmallScreen); // Oculto en móviles, abierto en pantallas grandes
+      }
+    };
 
-  //   handleResize(); // Llama al cargar la página
-  //   window.addEventListener("resize", handleResize);
-  //   return () => window.removeEventListener("resize", handleResize);
-  // }, []);
+    handleResize(); // Llama al cargar la página
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
