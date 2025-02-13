@@ -136,7 +136,7 @@ export default function ResponsiveSidebar() {
             <h6 style={{fontWeight:'600'}} className={styles.sectionTitle}>{section.title}</h6>
             <ul className={styles.linkList}>
               {section.links.map((link, linkIndex) => (
-                <li key={linkIndex}>
+                <li key={linkIndex} onClick={() => setIsOpen((prev) => !prev)}>
                   <Link
                     href={`${link.url}`}
                     onClick={(e) => {
