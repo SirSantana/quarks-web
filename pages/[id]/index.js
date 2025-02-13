@@ -260,14 +260,7 @@ export async function getServerSideProps({ query, res }) {
     res.end();
     return { props: {} };
   }
-  // if (process.env.NODE_ENV === 'production' && data) {
-  //   await client.mutate(
-  //     {
-  //       mutation: CREATE_ACCION,
-  //       variables: { almacen: data?.getOneNegocioVDos?.id, tipo: 'visita-perfil', estado: 'production' }
-  //     }
-  //   )
-  // }
+ 
   return {
     props: {
       data: data?.getOneNegocioVDos,
