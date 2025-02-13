@@ -17,7 +17,7 @@ export default function LayoutGlosario({ children }) {
           {/* <p style={{fontSize:'14px', fontWeight:'500', color:'#A6AEC1'}}>Glosario - {router.query.id.split('-')[0]}</p> */}
          {children}
         </div>
-        <ArticulosRelacionados />
+        {/* <ArticulosRelacionados /> */}
         {/* <BottomArticulo palabras={data?.palabrasClave} /> */}
       </main>
     </div>
