@@ -12,6 +12,7 @@ import styles from '@/styles/Diccionario.module.css'
 import { useRouter } from "next/router";
 import parse from 'html-react-parser';
 import AsideGlosario from "@/src/Components/Articulos/AsideGlosario";
+import LayoutGlosario from "@/src/Components/Articulos/Layout";
 
 export default function Repuesto({ data }) {
   const router = useRouter()
@@ -26,16 +27,19 @@ export default function Repuesto({ data }) {
   return (
     <Layout title={data?.parrafoSeisDos ? data?.parrafoSeisDos:data?.tituloPrincipal} productoMarcado={productoMarcado} description={data?.descripcion} keywords={data?.keywords} type='article' fecha={data?.fecha} image={data?.imgPrincipal} tags={data?.palabrasClave} url={router?.asPath}>
 
+      <LayoutGlosario >
 
         <div className={styles.container} style={{alignItems:'center', display:'flex', flexDirection:'column', justifyContent:'center'}}>
           {/* <HeaderHome /> */}
           <HeaderDiccionario tema={data?.tema} tiempo={data?.tiempoLectura} id={data?.id} img={data?.imgPrincipal} titulo={data?.parrafoSeisDos ? data?.parrafoSeisDos : data?.subtituloPrincipal} />
           {data?.parrafoSeis ?
-            parse(data?.parrafoSeis)
+            <div className={styles.parentOldGlosario}>
+              {parse(data?.parrafoSeis)}
+              </div>
             :
             <>
               <div className={styles.containerGrid}>
-                  <img src={data?.imgPrincipal} className={styles.imgRepuesto} style={{maxWidth:'100px'}}/>
+                  <img src={data?.imgPrincipal} style={{maxWidth:'100px', maxHeight:'100px'}} />
                 <div className={styles.seccion1}>
                   <ion-icon style={{ fontSize: '24px', marginBottom: '8px' }} name="cog-outline"></ion-icon>
 
@@ -128,30 +132,51 @@ export default function Repuesto({ data }) {
           <ArticulosRelacionados />
           <BottomArticulo palabras={data?.palabrasClave} />
       </div>
-
+</LayoutGlosario>
     </Layout>
   )
 }
 
-export async function getServerSideProps({ query }) {
-  const parts = query?.id?.split('-');
-  const id = parts[parts.length - 1];
-  const { data } = await client.query(
-    {
-      query: GET_ARTICULO,
-      variables: { id: id }
-    }
-  )
-  const result = await client.mutate(
-    {
-      mutation: CREATE_VISTA_ARTICULO,
-      variables: { id: id }
-    }
-  )
+export async function getStaticProps({ params }) {
+  // Extraer el ID desde `params.id`
+  const parts = params?.id ? params.id.split('-') : [];
+  const id = parts.length > 0 ? parts[parts.length - 1] : null;
 
+  // Si no hay ID válido, retornar un 404
+  if (!id) {
+    return {
+      notFound: true,
+    };
+  }
+
+  try {
+    // Consultar el artículo
+    const { data } = await client.query({
+      query: GET_ARTICULO,
+      variables: { id },
+    });
+
+    // Si el artículo no existe, retornar 404
+    if (!data?.getArticulo) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        data: data.getArticulo,
+      },
+    };
+  } catch (error) {
+    console.error("Error cargando artículo:", error);
+    return {
+      notFound: true, // En caso de error, devolver 404
+    };
+  }
+}
+
+export async function getStaticPaths() {
   return {
-    props: {
-      data: data?.getArticulo,
-    },
+    paths: [], // No pre-generamos rutas, se generan bajo demanda
+    fallback: "blocking", // Si la página no existe, se genera en el primer request
   };
 }

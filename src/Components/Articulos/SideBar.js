@@ -10,64 +10,64 @@ const sections = [
     {
       title: "Direccion y Suspension",
       links: [
-        { name: "Amortiguador", icon: "cloud-download", url:'amortiguadores-funcionamiento' },
-        { name: "Bomba de direccion hidraulica", icon: "play",url:'bomba-direccion-hidraulica-funcionamiento'  },
-        { name: "Cremallera de direccion", icon: "play",url:'cremallera-direccion-funcionamiento'  },
+        { name: "Amortiguador", icon: "cloud-download", url:'/glosario-terminos/amortiguadores-funcionamiento' },
+        { name: "Bomba de direccion hidraulica", icon: "play",url:'/glosario-terminos/bomba-direccion-hidraulica-funcionamiento'  },
+        { name: "Cremallera de direccion", icon: "play",url:'/glosario-terminos/cremallera-direccion-funcionamiento'  },
       ],
     },
     {
       title: "Electricos",
       links: [
-        { name: "Alternador", icon: "settings", url: "alternador-funcionamiento" },
-        { name: "Bateria", icon: "construct",url:'bateria-funcionamiento'  },
-        { name: "Bobina de encendido", icon: "send", url:'bobina-encendido-funcionamiento' },
-        { name: "Bujia", icon: "alert-circle", url:'bujia-funcionamiento' },
-        { name: "Bujia de precalentamiento", icon: "time",url:'bujia-precalentamiento-funcionamiento'  },
-        { name: "Cables de bujia", icon: "time",url:'cables-bujia-funcionamiento'  },
-        { name: "Caja de fusibles", icon: "time",url:'caja-fusibles-funcionamiento'  },
+        { name: "Alternador", icon: "settings", url: "/glosario-terminos/alternador-funcionamiento" },
+        { name: "Bateria", icon: "construct",url:'/glosario-terminos/bateria-funcionamiento'  },
+        { name: "Bobina de encendido", icon: "send", url:'/glosario-terminos/bobina-encendido-funcionamiento' },
+        { name: "Bujia", icon: "alert-circle", url:'/glosario-terminos/bujia-funcionamiento' },
+        { name: "Bujia de precalentamiento", icon: "time",url:'/glosario-terminos/bujia-precalentamiento-funcionamiento'  },
+        { name: "Cables de bujia", icon: "time",url:'/glosario-terminos/cables-bujia-funcionamiento'  },
+        { name: "Caja de fusibles", icon: "time",url:'/glosario-terminos/caja-fusibles-funcionamiento'  },
 
       ],
     },
     {
       title: "Motor",
       links: [
-        { name: "Arbol de levas", icon: "help-circle", url: "arbol-levas-funcionamiento" },
-        { name: "Bomba de combustible", icon: "storefront", url:'bomba-combustible-funcionamiento' },
-        { name: "Bomba de aceite", icon: "people", url:'bomba-aceite-funcionamiento' },
-        { name: "Carburador", icon: "people", url:'carburador-funcionamiento' },
-        { name: "Catalizador", icon: "people", url:'catalizador-funcionamiento' },
-        { name: "Cigueñal", icon: "people", url:'cigueñal-funcionamiento' },
-        { name: "Junta de culata", icon: "people", url:'junta-culata-funcionamiento' },
-        { name: "Inyector de combustible", icon: "people", url:'inyector-combustible-funcionamiento' },
+        { name: "Arbol de levas", icon: "help-circle", url: "/glosario-terminos/arbol-levas-funcionamiento" },
+        { name: "Bomba de combustible", icon: "storefront", url:'/glosario-terminos/bomba-combustible-funcionamiento' },
+        { name: "Bomba de aceite", icon: "people", url:'/glosario-terminos/bomba-aceite-funcionamiento' },
+        { name: "Carburador", icon: "people", url:'/glosario-terminos/carburador-funcionamiento' },
+        { name: "Catalizador", icon: "people", url:'/glosario-terminos/catalizador-funcionamiento' },
+        { name: "Cigueñal", icon: "people", url:'/glosario-terminos/cigueñal-funcionamiento' },
+        { name: "Junta de culata", icon: "people", url:'/glosario-terminos/junta-culata-funcionamiento' },
+        { name: "Inyector de combustible", icon: "people", url:'/glosario-terminos/inyector-combustible-funcionamiento' },
       ],
     },
     {
         title:'Refrigeración',
         links: [
-            { name: "Bomba de agua", icon: "people", url:'bomba-agua-funcionamiento' },
+            { name: "Bomba de agua", icon: "people", url:'/glosario-terminos/bomba-agua-funcionamiento' },
         ],
     },
     {
         title:'Frenos',
         links:[
-            { name: "Bomba de freno", icon: "people", url:'bomba-freno-funcionamiento' },
-            { name: "Campana de freno", icon: "people", url:'campana-freno-funcionamiento' },
-            { name: "Disco de freno", icon: "people", url:'disco-freno-funcionamiento' },
-            { name: "Freno de mano", icon: "people", url:'freno-mano-funcionamiento' },
+            { name: "Bomba de freno", icon: "people", url:'/glosario-terminos/bomba-freno-funcionamiento' },
+            { name: "Campana de freno", icon: "people", url:'/glosario-terminos/campana-freno-funcionamiento' },
+            { name: "Disco de freno", icon: "people", url:'/glosario-terminos/disco-freno-funcionamiento' },
+            { name: "Freno de mano", icon: "people", url:'/glosario-terminos/freno-mano-funcionamiento' },
         ]
     },
     {
         title:'Caja y Transmision',
         links:[
-            { name: "Caja de cambios", icon: "people", url:'caja-cambios-funcionamiento' },
-            { name: "Caja de direccion", icon: "people", url:'caja-direccion-funcionamiento' },
-            { name: "Caja de transferencia", icon: "people", url:'caja-transferencia-funcionamiento' },
+            { name: "Caja de cambios", icon: "people", url:'/glosario-terminos/caja-cambios-funcionamiento' },
+            { name: "Caja de direccion", icon: "people", url:'/glosario-terminos/caja-direccion-funcionamiento' },
+            { name: "Caja de transferencia", icon: "people", url:'/glosario-terminos/caja-transferencia-funcionamiento' },
         ]
     },
     {
         title:'Distribucion',
         links:[
-            { name: "Banda de distribucion", icon: "people", url:'banda-distribucion-funcionamiento' },
+            { name: "Banda de distribucion", icon: "people", url:'/glosario-terminos/banda-distribucion-funcionamiento' },
             // { name: "Caja de direccion", icon: "people", url:'Caja-de-direccion-6491c73921ba69c72ecb4297' },
             // { name: "Caja de transferencia", icon: "people", url:'Caja-de-transferencia-6491cfd621ba69c72ecb4298' },
         ]
@@ -75,21 +75,21 @@ const sections = [
     {
         title:'Embrague',
         links:[
-            { name: "Embrague", icon: "people", url:'embrague-funcionamiento' },
+            { name: "Embrague", icon: "people", url:'/glosario-terminos/embrague-funcionamiento' },
         ]
     },
     {
         title:'Accesorios',
         links:[
-            { name: "Plumilla limpiaparabrisas", icon: "people", url:'escobilla-limpiaparabrisas-funcionamiento' },
+            { name: "Plumilla limpiaparabrisas", icon: "people", url:'/glosario-terminos/escobilla-limpiaparabrisas-funcionamiento' },
         ]
     },
     {
         title:'Filtros',
         links:[
-            { name: "Filtro de aire", icon: "people", url:'filtro-aire-funcionamiento' },
-            { name: "Filtro de aceite", icon: "people", url:'filtro-aceite-funcionamiento' },
-            { name: "Filtro de combustible", icon: "people", url:'filtro-combustible-funcionamiento' },
+            { name: "Filtro de aire", icon: "people", url:'/glosario-terminos/filtro-aire-funcionamiento' },
+            { name: "Filtro de aceite", icon: "people", url:'/glosario-terminos/filtro-aceite-funcionamiento' },
+            { name: "Filtro de combustible", icon: "people", url:'/glosario-terminos/filtro-combustible-funcionamiento' },
         ]
     }
   ];
@@ -139,7 +139,16 @@ export default function ResponsiveSidebar() {
                 <li key={linkIndex}>
                   <Link
                     href={`${link.url}`}
-                    style={router.query?.id?.split('-').slice(0, -1).join('-').replaceAll('-', ' ') == link.name ? {backgroundColor: '#EDEDF2', color: '#182537'}:{}}
+                    onClick={(e) => {
+                      if (router.asPath === link.url) {
+                        e.preventDefault(); // Evita que se recargue la página innecesariamente
+                      }
+                    }}
+                    style={
+                      router.asPath === link.url
+                        ? { backgroundColor: "#EDEDF2", color: "#182537" }
+                        : {}
+                    }
                     className={styles.link }
                     onMouseOver={(e) =>
                       (e.currentTarget.style.backgroundColor =

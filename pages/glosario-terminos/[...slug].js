@@ -118,13 +118,13 @@ export default function Repuesto({ data }) {
   )
 }
 
-export async function getServerSideProps({ query }) {
-  const parts = query?.slug;
+export async function getStaticProps({ params }) {
+  const parts = params?.slug;
 
   const { data, error } = await client.query(
     {
       query: GET_TERMINO,
-      variables: { slug: parts[0] },
+      variables: { slug: parts[0]  || "" },
     }
   )
 
@@ -132,6 +132,12 @@ export async function getServerSideProps({ query }) {
     props: {
       data: data?.getTermino,
     },
+    revalidate:86400
   };
 }
-
+export async function getStaticPaths() {
+  return {
+    paths: [], 
+    fallback: "blocking", // Genera las páginas bajo demanda
+  };
+}

@@ -14,7 +14,22 @@
   gap: 2rem;
   height: 60vh;  
 }
-
+.imgRepuesto{
+  max-width: 300px;
+  object-fit: contain;
+}
+.parentOldGlosario{
+  max-width: 700px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.parentOldGlosario img{
+  max-width: 300px;
+  object-fit: contain;
+  
+}
 .heroTextContainer {
   max-width: 50%;
   gap: 24px;
