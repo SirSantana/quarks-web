@@ -1,8 +1,9 @@
 import LayoutExplore from '@/src/Components/LandingPage/LayoutExplore';
+import { client } from "@/client";
+
 import styles2 from '@/styles/Landing.module.css';
 import { GET_NEGOCIOSVDOS_BY_SERVICIO } from '@/graphql/queries';
 import getSeoCategorias from '@/src/data/SeoCategorias';
-import { useQuery } from '@apollo/client';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -15,9 +16,7 @@ const SectionSeoServicios = dynamic(() => import('@/src/Components/LandingPage/S
 const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTalleresHome'),
   { ssr: false })
 
-export default function CiudadPage({ title, query, description }) {
-  const { data, loading, error } = useQuery(GET_NEGOCIOSVDOS_BY_SERVICIO, { variables: { tipo: query.servicio.replace(/-/g, ' ') } })
-  let talleresData = data?.getNegociosVDosByServicio;
+export default function CiudadPage({ title, query, description, talleresData }) {
   const [mapa, setMapa] = useState(false)
   
   
@@ -35,7 +34,7 @@ export default function CiudadPage({ title, query, description }) {
           <Button className={'mobileButton'} onClick={() => setMapa(!mapa === true)} variant={ButtonVariant.outlined} style={{ margin: 0 }} size="sm">{mapa ? 'Listado' : 'Mapa'}</Button>
         </section>
 
-        {loading ? (
+        {/* {loading ? (
         
           <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
             <ul
@@ -58,7 +57,7 @@ export default function CiudadPage({ title, query, description }) {
             <div className={styles2.cardNewTallerSkeleton} style={{position: 'relative', width: '100%', height: '90vh' }}/>
             </div>
           </div>
-        ) : (
+        ) : ( */}
           <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
             <ul
               style={{
@@ -79,7 +78,7 @@ export default function CiudadPage({ title, query, description }) {
               <MapTalleresHome data={talleresData} />
             </div>
           </div>
-        )}
+        {/* )} */}
       </div>
       {description &&
         <div style={{ width: '100%', display: 'flex', alignItems: 'center', backgroundColor: 'white', margin: '48px 0 48px 0', padding: '48px 0', flexDirection: 'row' }} >
@@ -115,31 +114,31 @@ export default function CiudadPage({ title, query, description }) {
 };
 
 // Consulta GraphQL en el servidor
-export async function getServerSideProps(context) {
-  const { categoria, vehiculo, servicio, ciudad } = context.query;
+export async function getStaticProps(context) {
+  const { categoria, vehiculo, servicio, ciudad } = context.params;
 
   const tipoServicio = servicio ? servicio.replace(/-/g, ' ') : null;
-
-  const title = categoria && servicio && vehiculo && ciudad
-    ? categoria !== 'mecanicos'
-      ? `Encuentra los mejores ${capitalizeFirstLetter(categoria)} de ${tipoServicio} para ${vehiculo} en ${ciudad}`
-      : `Mecánicos a domicilio para ${tipoServicio} de ${vehiculo} en ${ciudad}`
-    : 'Encuentra los mejores talleres y servicios mecánicos';
-
   const servicioSeo = getSeoCategorias({ servicio, ciudad, vehiculo });
+
+  const { data } = await client.query({
+    query: GET_NEGOCIOSVDOS_BY_SERVICIO,
+    variables: { tipo: tipoServicio }
+  });
 
   return {
     props: {
-      title,
-      query: {
-        categoria: categoria || null,
-        vehiculo: vehiculo || null,
-        ciudad: ciudad || null,
-        servicio: tipoServicio,
-      },
+      title: `Encuentra los mejores ${categoria} de ${tipoServicio} para ${vehiculo} en ${ciudad}`,
+      query: { categoria, vehiculo, ciudad, servicio: tipoServicio },
       description: servicioSeo || null,
-      // talleresData,
+      talleresData: data?.getNegociosVDosByServicio || []
     },
+    revalidate: 56800 // Se actualiza cada dia
+  };
+}
+export async function getStaticPaths() {
+  return {
+    paths: [], // Opcional: Aquí podrías precargar algunas rutas populares
+    fallback: 'blocking' // Genera la página bajo demanda si no está pre-renderizada
   };
 }
 

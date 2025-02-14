@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 const tagsSearch = [
   {
-    title: 'Mecanico a domicilio',
+    title: 'Taller Electrico',
     img: '/mecanico.webp',
-    href: '/explore/talleres/carro/mecanico-a-domicilio/bogota'
+    href: '/explore/talleres/carro/electricos/bogota'
   },
   {
     title: 'Cambio Aceite',
