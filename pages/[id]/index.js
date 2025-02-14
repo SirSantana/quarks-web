@@ -232,40 +232,49 @@ export default function NegocioVDos({ data, loading }) {
   )
 }
 
-export async function getServerSideProps({ query, res }) {
-  const parts = query?.id;
-  const { data, error, loading } = await client.query(
-    {
-      query: GET_ONE_NEGOCIOVDOS,
-      variables: { userName: parts.replace(/&/g, '') },
-      fetchPolicy: 'cache-first', // Evita consultas repetidas usando la caché
-    }
-  )
-
-
-  if (parts == 's&i_master_paint') {
-    res.setHeader('Location', '/si_master_paint');
-    res.statusCode = 302; // Código de estado 302 para redirección temporal
-    res.end();
-    return {
-      props: {
-        data: data?.getOneNegocioVDos,
-      },
-    };
-  }
-
-  if (!data?.getOneNegocioVDos) {
-    res.setHeader('Location', '/404'); // Cambia '/nueva-ruta' a la ruta deseada
-    res.statusCode = 302; // Código de estado 302 para redirección temporal
-    res.end();
-    return { props: {} };
-  }
- 
+export async function getStaticPaths() {
+  // Si puedes obtener todas las rutas en build time, agrégalas aquí
   return {
-    props: {
-      data: data?.getOneNegocioVDos,
-      loading
-    },
+    paths: [], // Puedes pre-generar algunas rutas si lo deseas
+    fallback: "blocking", // Si no está pre-generado, intentará generarlo en la petición
   };
 }
 
+export async function getStaticProps({ params }) {
+  const parts = params?.id?.replace(/&/g, "");
+
+  try {
+    const { data } = await client.query({
+      query: GET_ONE_NEGOCIOVDOS,
+      variables: { userName: parts },
+      fetchPolicy: "network-only", // Para asegurar datos frescos en cada build
+    });
+
+    if (parts === "s&i_master_paint") {
+      return {
+        redirect: {
+          destination: "/si_master_paint",
+          permanent: false, // Se usa 302 en lugar de 301
+        },
+      };
+    }
+
+    if (!data?.getOneNegocioVDos) {
+      return {
+        notFound: true, // Muestra la página 404 de Next.js
+      };
+    }
+
+    return {
+      props: {
+        data: data.getOneNegocioVDos,
+      },
+      revalidate: 100000000000000, 
+    };
+  } catch (error) {
+    console.error("Error en getStaticProps:", error);
+    return {
+      notFound: true,
+    };
+  }
+}
