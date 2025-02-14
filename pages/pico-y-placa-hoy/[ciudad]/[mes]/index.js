@@ -25,7 +25,6 @@ let ciudades = {
 }
 export default function PicoYPlaca({ data }) {
   const { query, asPath } = useRouter()
-  console.log(data);
   
   const structuredData = {
     "@context": "https://schema.org",
@@ -148,34 +147,42 @@ export default function PicoYPlaca({ data }) {
   )
 }
 
-export async function getServerSideProps({ query, res }) {
-  let meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-  let yearQuery = query.mes.split('-')[1];
-  let monthQuery = query.mes.split('-')[0];
-  
-  if (!meses.includes(query.mes.split('-')[0])) {
-    res.setHeader('Location', `/pico-y-placa-hoy/${query.ciudad}`); // Cambia '/nueva-ruta' a la ruta deseada
-    res.statusCode = 302; // Código de estado 302 para redirección temporal
-    res.end();
-    return { props: {} };
-  }
-  
-  if (query.mes) {
-    let filteredData;
-    if (query.ciudad === 'bogota') {
-      filteredData = data.picoyplaca[yearQuery][meses.indexOf(monthQuery)].filter(el => {
-        return !el.ciudad;
-      })
-    }
-    else {
-      filteredData = data.picoyplaca[yearQuery][meses.indexOf(monthQuery)].filter(el => {
-        return el.ciudad && el.ciudad.toLowerCase() === query.ciudad.toLowerCase();
-      })
-    };
+export async function getStaticPaths() {
+  return {
+    paths: [], // Se generarán bajo demanda
+    fallback: 'blocking', // Bloquea hasta que la página se genere
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const meses = [
+    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+  ];
+
+  const [monthQuery, yearQuery] = params.mes.split('-');
+
+  if (!meses.includes(monthQuery)) {
     return {
-      props: {
-        data: filteredData
-      }
-    }
+      notFound: true, // Si el mes no es válido, devuelve una página 404
+    };
   }
+
+  const monthIndex = meses.indexOf(monthQuery);
+  let filteredData = [];
+
+  if (params.ciudad.toLowerCase() === 'bogota') {
+    filteredData = data.picoyplaca[yearQuery][monthIndex].filter(el => !el.ciudad);
+  } else {
+    filteredData = data.picoyplaca[yearQuery][monthIndex].filter(
+      el => el.ciudad && el.ciudad.toLowerCase() === params.ciudad.toLowerCase()
+    );
+  }
+
+  return {
+    props: {
+      data: filteredData || [],
+    },
+    revalidate: 1000000, 
+  };
 }

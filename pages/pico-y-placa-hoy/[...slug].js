@@ -170,16 +170,39 @@ export default function PicoYPlaca({ data }) {
   )
 }
 
-export async function getServerSideProps({ query }) {
-  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
-  const numeroMes = meses.indexOf(query.slug[1].split('-')[2]);
-  let picoyplacafilterciudad = picoyplaca?.picoyplaca[[numeroMes]].filter(el => el?.ciudad?.toLowerCase() === query.slug[0].toLowerCase())
-  let picoYplacaHoy = picoyplacafilterciudad.find(el => el.fechaFormat.toLowerCase() == String(query.slug[1]))
+export async function getStaticPaths() {
+  return {
+    paths: [], // Se generarán bajo demanda
+    fallback: 'blocking', // Bloquea hasta que la página se genere
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const meses = [
+    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+  ];
+
+  const numeroMes = meses.indexOf(params.slug[1].split('-')[2]);
+
+  if (numeroMes === -1 || !picoyplaca?.picoyplaca[numeroMes]) {
+    return {
+      notFound: true, // Muestra una página 404 si no hay datos
+    };
+  }
+
+  let picoyplacafilterciudad = picoyplaca.picoyplaca[numeroMes].filter(
+    el => el?.ciudad?.toLowerCase() === params.slug[0].toLowerCase()
+  );
+
+  let picoYplacaHoy = picoyplacafilterciudad.find(
+    el => el.fechaFormat.toLowerCase() === String(params.slug[1]).toLowerCase()
+  );
+
   return {
     props: {
-      data:
-        picoYplacaHoy
-    }
-
-  }
+      data: picoYplacaHoy || null,
+    },
+    revalidate: 1000000, 
+  };
 }

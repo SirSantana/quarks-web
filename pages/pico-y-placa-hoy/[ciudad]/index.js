@@ -157,11 +157,10 @@ export default function PicoYPlacaCiudad({ciudad}) {
 }
 
 export async function getStaticPaths() {
-  const ciudades = ['Medellin', 'Bogotá', 'Cali'] // Agrega todas las ciudades relevantes
-  const paths = ciudades.map((ciudad) => ({
-    params: { ciudad: ciudad.toLowerCase() },
-  }))
-  return { paths, fallback: true }
+  return {
+    paths: [], // Se generarán bajo demanda
+    fallback: 'blocking', // Bloquea hasta que la página se genere
+  };
 }
 
 export async function getStaticProps({ params }) {

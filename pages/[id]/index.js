@@ -269,7 +269,7 @@ export async function getStaticProps({ params }) {
       props: {
         data: data.getOneNegocioVDos,
       },
-      revalidate: 100000000000000, 
+      // revalidate: 100000000000000, 
     };
   } catch (error) {
     console.error("Error en getStaticProps:", error);

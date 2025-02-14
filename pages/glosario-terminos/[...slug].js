@@ -132,7 +132,7 @@ export async function getStaticProps({ params }) {
     props: {
       data: data?.getTermino,
     },
-    revalidate:86400
+    // revalidate:86400
   };
 }
 export async function getStaticPaths() {

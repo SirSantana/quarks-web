@@ -357,34 +357,58 @@ export default function PicoYPlaceHoyBogota({ data }) {
   )
 }
 
-export async function getServerSideProps({ query, res }) {
+export async function getStaticPaths() {
+  // Aquí defines las rutas estáticas que quieres pre-generar
+  // Puedes cargar datos de una API o definirlas manualmente si son pocas
+  return {
+    paths: [], // Se puede dejar vacío si quieres que las páginas se generen bajo demanda
+    fallback: 'blocking', // Bloquea hasta que se genere la página estática
+  };
+}
 
-  const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+export async function getStaticProps({ params }) {
+  const meses = [
+    'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+    'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+  ];
 
-  // let picoYplacaHoy = picoyplaca?.picoyplaca[numeroMes].find(el => el.fechaFormat.toLowerCase() == String(query.dia))
   let picoYplacaHoy;
-  let yearQuery = query.mes.split('-')[1];
-  let monthQuery = query.mes.split('-')[0];
+  let yearQuery = params.mes.split('-')[1];
+  let monthQuery = params.mes.split('-')[0];
   const mesIndex = meses.indexOf(monthQuery);
 
-  if (query.ciudad.toLowerCase() === 'bogota') {
-    picoYplacaHoy = picoyplaca.picoyplaca[yearQuery][mesIndex].find(el => el.fechaFormat.toLowerCase() === String(query.dia).toLowerCase());
-  } else {
-    const filteredByCity = picoyplaca.picoyplaca[yearQuery][mesIndex]?.filter(el => el.ciudad && el.ciudad.toLowerCase() === query.ciudad.toLowerCase());
-    picoYplacaHoy = filteredByCity?.find(el => el.fechaFormat.toLowerCase() === String(query.dia).toLowerCase());
-  }
-  if (picoYplacaHoy) {
+  if (!picoyplaca?.picoyplaca[yearQuery]?.[mesIndex]) {
     return {
-      props: {
-        data:
-          picoYplacaHoy
-      }
-    }
+      notFound: true, // Devuelve un 404 si los datos no existen
+    };
   }
-  else {
-    res.setHeader('Location', `/pico-y-placa-hoy/${query.ciudad}/${query.mes}`); // Cambia '/nueva-ruta' a la ruta deseada
-    res.statusCode = 302; // Código de estado 302 para redirección temporal
-    res.end();
-    return { props: {} };
+
+  if (params.ciudad.toLowerCase() === 'bogota') {
+    picoYplacaHoy = picoyplaca.picoyplaca[yearQuery][mesIndex].find(
+      el => el.fechaFormat.toLowerCase() === String(params.dia).toLowerCase()
+    );
+  } else {
+    const filteredByCity = picoyplaca.picoyplaca[yearQuery][mesIndex]?.filter(
+      el => el.ciudad && el.ciudad.toLowerCase() === params.ciudad.toLowerCase()
+    );
+    picoYplacaHoy = filteredByCity?.find(
+      el => el.fechaFormat.toLowerCase() === String(params.dia).toLowerCase()
+    );
   }
+
+  if (!picoYplacaHoy) {
+    return {
+      redirect: {
+        destination: `/pico-y-placa-hoy/${params.ciudad}/${params.mes}`,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      data: picoYplacaHoy,
+    },
+    revalidate: 1000000, 
+  };
 }
