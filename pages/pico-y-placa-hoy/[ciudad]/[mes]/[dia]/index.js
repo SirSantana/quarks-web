@@ -91,7 +91,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
   // const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
   // const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
   let date = new Date(data?.fecha)
-
+  console.log(data);
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -177,7 +178,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
               </div>
               :
               <>
-                <p className={styles.placas}>{data?.placas}</p>
+                <p className={styles.placas}>{data?.placas} </p>
                 {/* {data?.placas !== 'NO APLICA'
                   &&
                   <p className={styles.horario}>{data?.horario}</p>
@@ -189,7 +190,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
         </section>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa Hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {router.query.ciudad}, podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {router.query.ciudad}, {data?.ciudad ? 'NO ':''} podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
         </div>
 
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
@@ -300,11 +301,11 @@ export default function PicoYPlaceHoyBogota({ data }) {
               data?.especial
                 ?
                 <>
-                  <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>Podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[0]}</span>  de <span style={{ fontWeight: '700' }}> Horario:</span> {data?.horario[0]} y las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[1]}</span>  de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario[1]}</p>
+                  <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>{data?.ciudad ? 'NO ':''}Podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[0]}</span>  de <span style={{ fontWeight: '700' }}> Horario:</span> {data?.horario[0]} y las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[1]}</span>  de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario[1]}</p>
                 </>
 
                 :
-                <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>Podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas}</span> de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario}</p>
+                <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>{data?.ciudad ? 'NO ':''}Podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas}</span> de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario}</p>
             }
           </div>
         </div>
@@ -316,15 +317,15 @@ export default function PicoYPlaceHoyBogota({ data }) {
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>hora pico y placa {router.query.ciudad}</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>Podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>{data?.ciudad ? 'NO ':''}Podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>pico y placa {router.query.ciudad} hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>Podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>{data?.ciudad ? 'NO ':''}Podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
         </div>
         <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
           <h2>Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
+          <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} {data?.ciudad ? 'NO ':''} podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
         </div>
         {/* <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
         <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
