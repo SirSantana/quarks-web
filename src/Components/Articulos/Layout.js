@@ -2,14 +2,16 @@ import styles2 from '@/styles/MarkDown.module.css'
 import Sidebar from "@/src/Components/Articulos/SideBar";
 import Breadcrumb from "@/src/Components/Breadcumb/Breadcumb";
 import ArticulosRelacionados from "@/src/Components/Articulos/ArticulosRelacionados";
+import { sectionsSideBarES } from '@/src/data/Categorias';
 export default function LayoutGlosario({ children }) {
+  
   const breadcrumbItems = [
     { label: "Glosario", href: "/glosario-terminos" },
   ];
   return (
     <div className={styles2.containerBig}>
       {/* <AsideGlosario /> */}
-      <Sidebar />
+      <Sidebar sections={ sectionsSideBarES}/>
 
       <main className={styles2.containerMain}>
         <div className={styles2.container}>

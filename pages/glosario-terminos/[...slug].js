@@ -127,7 +127,7 @@ export async function getStaticProps({ params }) {
       variables: { slug: parts[0]  || "" },
     }
   )
-
+  
   return {
     props: {
       data: data?.getTermino,

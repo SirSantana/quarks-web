@@ -69,3 +69,103 @@ export const optionsServicios = [
   { value: 'mecanica basica', label: 'Mecánica Básica', index: 24 },
   { value: 'mecanica avanzada', label: 'Mecánica Avanzada', index: 25 }
 ];
+
+
+export const sectionsSideBarES = [
+  {
+    title: "Direccion y Suspension",
+    links: [
+      { name: "Amortiguador", icon: "cloud-download", url:'/glosario-terminos/amortiguadores-funcionamiento' },
+      { name: "Bomba de direccion hidraulica", icon: "play",url:'/glosario-terminos/bomba-direccion-hidraulica-funcionamiento'  },
+      { name: "Cremallera de direccion", icon: "play",url:'/glosario-terminos/cremallera-direccion-funcionamiento'  },
+    ],
+  },
+  {
+    title: "Electricos",
+    links: [
+      { name: "Alternador", icon: "settings", url: "/glosario-terminos/alternador-funcionamiento" },
+      { name: "Bateria", icon: "construct",url:'/glosario-terminos/bateria-funcionamiento'  },
+      { name: "Bobina de encendido", icon: "send", url:'/glosario-terminos/bobina-encendido-funcionamiento' },
+      { name: "Bujia", icon: "alert-circle", url:'/glosario-terminos/bujia-funcionamiento' },
+      { name: "Bujia de precalentamiento", icon: "time",url:'/glosario-terminos/bujia-precalentamiento-funcionamiento'  },
+      { name: "Cables de bujia", icon: "time",url:'/glosario-terminos/cables-bujia-funcionamiento'  },
+      { name: "Caja de fusibles", icon: "time",url:'/glosario-terminos/caja-fusibles-funcionamiento'  },
+
+    ],
+  },
+  {
+    title: "Motor",
+    links: [
+      { name: "Arbol de levas", icon: "help-circle", url: "/glosario-terminos/arbol-levas-funcionamiento" },
+      { name: "Bomba de combustible", icon: "storefront", url:'/glosario-terminos/bomba-combustible-funcionamiento' },
+      { name: "Bomba de aceite", icon: "people", url:'/glosario-terminos/bomba-aceite-funcionamiento' },
+      { name: "Carburador", icon: "people", url:'/glosario-terminos/carburador-funcionamiento' },
+      { name: "Catalizador", icon: "people", url:'/glosario-terminos/catalizador-funcionamiento' },
+      { name: "Cigueñal", icon: "people", url:'/glosario-terminos/cigueñal-funcionamiento' },
+      { name: "Junta de culata", icon: "people", url:'/glosario-terminos/junta-culata-funcionamiento' },
+      { name: "Inyector de combustible", icon: "people", url:'/glosario-terminos/inyector-combustible-funcionamiento' },
+    ],
+  },
+  {
+      title:'Refrigeración',
+      links: [
+          { name: "Bomba de agua", icon: "people", url:'/glosario-terminos/bomba-agua-funcionamiento' },
+      ],
+  },
+  {
+      title:'Frenos',
+      links:[
+          { name: "Bomba de freno", icon: "people", url:'/glosario-terminos/bomba-freno-funcionamiento' },
+          { name: "Campana de freno", icon: "people", url:'/glosario-terminos/campana-freno-funcionamiento' },
+          { name: "Disco de freno", icon: "people", url:'/glosario-terminos/disco-freno-funcionamiento' },
+          { name: "Freno de mano", icon: "people", url:'/glosario-terminos/freno-mano-funcionamiento' },
+      ]
+  },
+  {
+      title:'Caja y Transmision',
+      links:[
+          { name: "Caja de cambios", icon: "people", url:'/glosario-terminos/caja-cambios-funcionamiento' },
+          { name: "Caja de direccion", icon: "people", url:'/glosario-terminos/caja-direccion-funcionamiento' },
+          { name: "Caja de transferencia", icon: "people", url:'/glosario-terminos/caja-transferencia-funcionamiento' },
+      ]
+  },
+  {
+      title:'Distribucion',
+      links:[
+          { name: "Banda de distribucion", icon: "people", url:'/glosario-terminos/banda-distribucion-funcionamiento' },
+          // { name: "Caja de direccion", icon: "people", url:'Caja-de-direccion-6491c73921ba69c72ecb4297' },
+          // { name: "Caja de transferencia", icon: "people", url:'Caja-de-transferencia-6491cfd621ba69c72ecb4298' },
+      ]
+  },
+  {
+      title:'Embrague',
+      links:[
+          { name: "Embrague", icon: "people", url:'/glosario-terminos/embrague-funcionamiento' },
+      ]
+  },
+  {
+      title:'Accesorios',
+      links:[
+          { name: "Plumilla limpiaparabrisas", icon: "people", url:'/glosario-terminos/escobilla-limpiaparabrisas-funcionamiento' },
+      ]
+  },
+  {
+      title:'Filtros',
+      links:[
+          { name: "Filtro de aire", icon: "people", url:'/glosario-terminos/filtro-aire-funcionamiento' },
+          { name: "Filtro de aceite", icon: "people", url:'/glosario-terminos/filtro-aceite-funcionamiento' },
+          { name: "Filtro de combustible", icon: "people", url:'/glosario-terminos/filtro-combustible-funcionamiento' },
+      ]
+  }
+];
+
+export const sectionsSideBarEN = [
+  {
+    title: "Direccion y Suspension",
+    links: [
+      { name: "Shock Absorber", icon: "cloud-download", url:'/glossary-terms/shock-absorbers-work' },
+      { name: "Hydraulic Steering Pump", icon: "play",url:'/glossary-terms/hydraulic-steering-pump-work'  },
+      { name: "Cremallera de direccion", icon: "play",url:'/glosario-terminos/cremallera-direccion-funcionamiento'  },
+    ],
+  },
+]

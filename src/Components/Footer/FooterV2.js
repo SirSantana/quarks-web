@@ -39,6 +39,9 @@ export default function FooterV2({ data }) {
           <Link href="/glosario-terminos" className={styles.footerLink}>
             Glosario de Autopartes
           </Link>
+          <Link href="/glossary-terms" className={styles.footerLink}>
+            Glossary Terms
+          </Link>
           <Link href="/quienessomos" className={styles.footerLink}>
             ¿Quiénes somos?
           </Link>
