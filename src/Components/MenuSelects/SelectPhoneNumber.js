@@ -64,13 +64,13 @@ export const indicativosWithOptions = Object.entries(indicativos).map(([pais, in
   country: pais,
 }));
 
-export default function SelectPhoneNumber({ width, handleChange, handlePhoneNumber, form, placeholder='Número de teléfono' }) {
+export default function SelectPhoneNumber({ width, handleChange, handlePhoneNumber, form, placeholder='Número de teléfono', number }) {
   const [indicativo, setIndicativo] = useState(form.indicativo?form.indicativo:indicativosWithOptions[0]);  // Estado inicial del indicativo
   const [telefono, setTelefono] = useState(form.celular || form.whatsapp ?(form.celular || form.whatsapp) :'');  // Estado inicial del número de teléfono
 
   // useEffect para detectar el país del usuario automáticamente
   
-
+  
   // Manejar cambios en el campo del indicativo
   const handleChangeIndicativo = (selectedOption) => {
     setIndicativo(selectedOption);
@@ -108,8 +108,8 @@ export default function SelectPhoneNumber({ width, handleChange, handlePhoneNumb
         />
       </div>
       <input
-        type="text"
-        value={telefono}
+        type="tel"
+        value={number ? number : telefono}
         onChange={handlePhoneChange}
         placeholder={placeholder}
         style={{

@@ -1,0 +1,222 @@
+/* Registro.module.css */
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+  padding: 0 16px;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.highlight {
+  color: #407BFF;
+  font-size: 64px;
+  font-weight: 600;
+}
+
+.subHighlight {
+  font-size: 20px;
+  margin-left: -12px;
+}
+
+.description {
+  color: #6C788E;
+  text-wrap: balance;
+}
+
+.mapContainer {
+  position: relative;
+  width: 60%;
+}
+
+.searchBar {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  border: 1px solid #CFD5E1;
+  border-radius: 50px;
+  padding: 10px 24px;
+  width: 90%;
+  height: 72px;
+  background-color: white;
+  z-index: 10000000;
+  cursor: pointer;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+}
+.searchBar:hover{
+  border: 1px solid #6C788E;
+  transition: all 0.3s ease-in;
+}
+
+.icon {
+  color: #407BFF;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  margin-left: 16px;
+}
+
+.location strong {
+  font-size: 14px;
+  color: #182537;
+  font-weight: 500;
+}
+
+.location span {
+  font-size: 12px;
+  color: #6C788E;
+}
+
+
+
+/* footer-fixed */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 0;
+}
+
+.progressBarContainer {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #e0e0e0;
+}
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: #6C788E;
+  transition: width 0.3s ease-in-out; /* Hace la animación en ambas direcciones */
+  will-change: width
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+
+/* tipo-servicio */
+.containerCardsTipos{
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas grandes */
+  gap: 16px; /* Espaciado entre tarjetas */
+  width: 100%;
+
+}
+.cardContainerTipo{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  border: 1px solid #CFD5E1;
+  padding: 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition:  border 0.3s ease;
+}
+
+.cardContainerTipo:not(.selected):hover {
+  border: 1px solid #6C788E; /* Cambia el borde al hacer hover */
+}
+.selected {
+  border: 2px solid #6C788E;
+}
+.cardContainerTipo h2{
+  font-size: 16px;
+  font-weight: 500;
+  color: #182537;
+}
+.cardContainerTipo p{
+  font-size: 14px;
+  color: #6C788E;
+  margin: 0;
+}
+
+
+/* servicios-ofrecidos */
+.cardServicioChoose{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid #CFD5E1;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:  border 0.3s ease;
+}
+.cardServicioChoose:not(.selectedSer):hover {
+  border: 1px solid #6C788E; /* Cambia el borde al hacer hover */
+}
+.selectedSer {
+  border: 2px solid #6C788E;
+}
+.cardServicioChoose p{
+  font-size: 14px;
+  color: #6C788E;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .highlight {
+    font-size: 48px;
+  }
+
+  .subHighlight {
+    font-size: 16px;
+  }
+
+  .mapContainer {
+    width: 100%;
+  }
+
+  .searchBar {
+    width: 80%;
+  }
+  .containerCardsTipos {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+  }
+}

@@ -125,26 +125,6 @@ function MarkerClusterGroup({ data, setHoveredInfo, setIsHovered }) {
   return null;
 }
 
-//COMPONENTE RANKING
-{/* <div style="
-position: absolute;
-top: -15px;
-left: 120%;
-transform: translateX(-50%);
-display: flex;
-align-items: center;
-gap: 5px;
-color: #407BFF;
-padding: 2px 8px;
-border-radius: 5px;
-font-size: 12px;
-font-weight: bold;
-">
-<svg xmlns="http://www.w3.org/2000/svg" fill="#FFD700" viewBox="0 0 24 24" width="16" height="16">
-  <path d="M12 .587l3.668 7.431L24 9.168l-6 5.854 1.416 8.248L12 18.896 4.584 23.27 6 15.022 0 9.168l8.332-1.15z"/>
-</svg>
-<span>${location.rating || 4.5}</span>
-</div> */}
 export default function MapTalleresHome({ data }) {
   const [mapCenter, setMapCenter] = useState([data?.[data?.length - 1].lat, data?.[data?.length - 1].lng]);
   const [zoomLevel, setZoomLevel] = useState(12);

@@ -138,9 +138,10 @@ export default function Layout({index=true, children, footer = true, title, desc
       </Head>
 
       <main  >
+      {visibleNavbar && <Navbar />}
+
         {/* <Nav /> */}
         {/* <NewNavbar/> */}
-        {visibleNavbar && <Navbar />}
         {children}
 
       </main>

@@ -38,9 +38,29 @@ export const categorias = [
   { nombre: 'Mecanica Avanzada', img: 'mecanica-avanzada.webp', url: 'mecanica-avanzada', db: 'Mecanica Avanzada' },
   { nombre: 'Taller Mecanico', img: 'taller-mecanico.webp', url: 'taller-mecanico', db: 'Taller mecanico' },
   { nombre: 'Mecanico a Domicilio', img: 'mecanico.webp', url: 'mecanico-a-domicilio', db: 'Taller mecanico' },
-
 ]
 
+export const categoriasChoose = [
+  { nombre: 'Accesorios y Lujos', img: 'servicio-lujos.webp', },
+  { nombre: 'Aire acondicionado', img: 'servicio-aire.webp', },
+  { nombre: 'Alineación y balanceo', img: 'servicio-llantas.webp' },
+  { nombre: 'Baterias', img: 'servicio-bateria.webp', },
+  { nombre: 'Caja y transmisión', img: 'servicio-cajas.webp' },
+  { nombre: 'Cambio de aceite', img: 'servicio-cambio-aceite.webp' },
+  { nombre: 'Clutch', img: 'servicio-clutch.webp' },
+  { nombre: 'Correas', img: 'servicio-motor.webp' },
+  { nombre: 'Direccion y suspension', img: 'servicio-suspension.webp' },
+  { nombre: 'Eléctricos', img: 'servicio-electrico.webp' },
+  { nombre: 'Electronica', img: 'servicio-electronico.webp'},
+  { nombre: 'Frenos', img: 'servicio-frenos.webp' },
+  { nombre: 'Inyeccion', img: 'servicio-inyeccion.webp' },
+  { nombre: 'Latonería y pintura', img: 'servicio-carroceria.webp' },
+  { nombre: 'Motor', img: 'servicio-motor.webp' },
+  { nombre: 'Peritaje', img: 'peritaje.webp' },
+  { nombre: 'Sincronización', img: 'Sincronizacion.webp' },
+  { nombre: 'Técnico Mecánica', img: 'taller-ilustration.webp' },
+  { nombre: 'Mecanica Basica', img: 'mecanica-basica.webp', },
+]
 
 export const optionsServicios = [
   { value: 'Todos', label: 'Todos', index: 1 },

@@ -42,6 +42,9 @@ export default function FooterV2({ data }) {
           <Link href="/glossary-terms" className={styles.footerLink}>
             Glossary Terms
           </Link>
+          <Link href="/gasolineras" className={styles.footerLink}>
+            Precio Gasolineras Terpel Colombia
+          </Link>
           <Link href="/quienessomos" className={styles.footerLink}>
             ¿Quiénes somos?
           </Link>
