@@ -7,6 +7,7 @@
   padding: 6px 10px;
   border-radius: 8px;
   border-color: #d9d9d9;
+  color: #1b333d;
 }
 .containerInput{
   width: 100%;
@@ -14,16 +15,15 @@
   flex-direction: column;
 }
 .input::placeholder {
-  color: #5c5c5c;
+  color: #6C788E;
 }
 
 .input:hover {
-  border-color: #373737;
-
+  border-color: #6C788E;
 }
 
 .input:focus {
-  border-color: #373737;
+  border-color: #6C788E;
 }
 .errorInput {
   border: 1px solid #f50057;

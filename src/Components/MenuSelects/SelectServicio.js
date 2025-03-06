@@ -12,7 +12,6 @@ export const customStylesSelectServicio = ({width='180px', fontSize='16px', font
     fontSize: fontSize,
     fontWeight: fontWeight,
     width: width ,  // Usa el valor de width o 180px como valor predeterminado
-    height: '48px',
     ':hover': {
       borderColor: '#CFD5E1',
     },
@@ -71,7 +70,6 @@ export default function SelectServicio({setIsLoading, width, defaultInitial='Tod
   const router = useRouter();
   const servicioUrl = router.query.servicio ? router.query.servicio : defaultInitial;
   const [servicio, setServicio] = useState(optionsServicios.find(el => el.value.toLowerCase() === servicioUrl.replaceAll('-', ' ').toLowerCase()) || { value: 'Todos', label: 'Todos', index: 1 });
-  console.log(servicioUrl, optionsServicios);
   
   const handleChangeCiudad = (e) => {
     setIsLoading(true);

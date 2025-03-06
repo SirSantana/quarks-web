@@ -98,7 +98,7 @@ export default function PicoYPlaca({ data }) {
               <div className={styles.containerCardOnePico} >
                 <div>
                   <h2>{el.titulo.replaceAll('-', ' ')}</h2>
-                  <p>Vehículos Particulares (Carros y Motos)</p>
+                  <p>Vehículos Particulares</p>
                   <h3 style={{ marginTop: '16px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h3>
                 </div>
                 <div className={styles.containerMiniPlaca}>

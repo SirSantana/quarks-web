@@ -23,6 +23,8 @@ export default function TipoServicio() {
     direccion: "",
     whatsapp: "",
     email: "",
+    pais:'Colombia',
+    ciudad:'',
     lat:'',
     lng:'',
     servicios: [],
@@ -56,10 +58,12 @@ export default function TipoServicio() {
     setSelectedIndex(index);
     const updatedFormData = { ...formData, tipoServicio: data[index].tipo };
     setFormData(updatedFormData);
-    localStorage.setItem("registroTaller", JSON.stringify(updatedFormData));
+  };
+  const handleChangePage = (e) => {
+    localStorage.setItem("registroTaller", JSON.stringify(formData));
   };
   return (
-    <LayoutRegister >
+    <LayoutRegister handleChangePage={handleChangePage}>
       <div style={{
         width: "90%",
         height: "90vh", // Para centrar en toda la pantalla
@@ -70,7 +74,7 @@ export default function TipoServicio() {
         margin: "0 auto",
         maxWidth: "800px",
       }}>
-        <h1 style={{textAlign:'start'}} className={styles.title}>¿Qué tipo de servicio ofreces?</h1>
+        <h1 style={{textAlign:'start'}} className={styles.title}>Elige la opcion que mejor se adapte a ti</h1>
 
         <div className={styles.containerCardsTipos}>
           {data.map((el, index) => (

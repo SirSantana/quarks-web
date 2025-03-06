@@ -4,7 +4,7 @@ import Layout from "../Layout";
 import styles from "@/styles/Registro.module.css"; // Importamos los estilos
 import { useRouter } from "next/router";
 
-export default function LayoutRegister({ children }) {
+export default function LayoutRegister({ children, handleChangePage }) {
   const [step, setStep] = useState(1);
   const router = useRouter();
   useEffect(() => {
@@ -17,19 +17,27 @@ export default function LayoutRegister({ children }) {
   console.log(router);
 
   const handleNext = () => {
+     // Guardar el paso actual
+    let res = handleChangePage(); // Guardar los datos del formulario
+
+    if(res === 'Error'){
+      return
+    }
     const nextStep = step + 1;
     setStep(nextStep);
-    localStorage.setItem("registroStep", nextStep); // Guardar el paso actual
-
+    localStorage.setItem("registroStep", nextStep);
     // Cambiar de URL según el paso actual
     if (nextStep === 1) {
       router.push(`/registro/${router.query.id}/mapa-direccion`);
     }
-    if (nextStep === 2) {
+    else if (nextStep === 2) {
+      router.push(`/registro/${router.query.id}/pais-ciudad`);
+    }
+    else if (nextStep === 3) {
       router.push(`/registro/${router.query.id}/mapa-direccion`);
-    } else if (nextStep === 3) {
-      router.push(`/registro/${router.query.id}/servicios-ofrecidos`);
     } else if (nextStep === 4) {
+      router.push(`/registro/${router.query.id}/servicios-ofrecidos`);
+    } else if (nextStep === 5) {
       router.push(`/registro/${router.query.id}/informacion`);
     } else {
       router.push("/registro/completado");
@@ -42,16 +50,19 @@ export default function LayoutRegister({ children }) {
       localStorage.setItem("registroStep", prevStep);
       if (prevStep === 1) {
         router.push(`/registro/${router.query.id}/tipo-servicio`);
-      } else if (prevStep === 2) {
+      }else if (prevStep === 2) {
+        router.push(`/registro/${router.query.id}/pais-ciudad`);
+      }
+       else if (prevStep === 3) {
         router.push(`/registro/${router.query.id}/mapa-direccion`);
-      } else if (prevStep === 3) {
-        router.push(`/registro/${router.query.id}/servicios-ofrecidos`);
       } else if (prevStep === 4) {
+        router.push(`/registro/${router.query.id}/servicios-ofrecidos`);
+      } else if (prevStep === 5) {
         router.push(`/registro/${router.query.id}/informacion`);  }
     };
   }
 
-    let progress = (step / 4) * 100;
+    let progress = (step / 5) * 100;
     return (
       <>
         <header>

@@ -6012,6 +6012,285 @@
       "fecha": "Mon Mar 31 2025",
       "index": 31,
       "ciudad":"Bucaramanga"
+    },{
+      "fechaFormat": "01-de-Marzo-2025",
+      "titulo": "Sabado 01-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 01 2025",
+      "index": 32,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "02-de-Marzo-2025",
+      "titulo": "Domingo 02-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 02 2025",
+      "index": 33,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "03-de-Marzo-2025",
+      "titulo": "Lunes 03-de-Marzo-2025",
+      "placas": "3-4",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 03 2025",
+      "index": 34,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "04-de-Marzo-2025",
+      "titulo": "Martes 04-de-Marzo-2025",
+      "placas": "2-8",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 04 2025",
+      "index": 35,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "05-de-Marzo-2025",
+      "titulo": "Miércoles 05-de-Marzo-2025",
+      "placas": "5-9",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 05 2025",
+      "index": 36,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "06-de-Marzo-2025",
+      "titulo": "Jueves 06-de-Marzo-2025",
+      "placas": "1-7",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 06 2025",
+      "index": 37,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "07-de-Marzo-2025",
+      "titulo": "Viernes 07-de-Marzo-2025",
+      "placas": "0-6",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 07 2025",
+      "index": 38,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "08-de-Marzo-2025",
+      "titulo": "Sábado 08-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 08 2025",
+      "index": 39,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "09-de-Marzo-2025",
+      "titulo": "Domingo 09-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 09 2025",
+      "index": 40,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "10-de-Marzo-2025",
+      "titulo": "Lunes 10-de-Marzo-2025",
+      "placas": "3-4",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 10 2025",
+      "index": 41,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "11-de-Marzo-2025",
+      "titulo": "Martes 11-de-Marzo-2025",
+      "placas": "2-8",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 11 2025",
+      "index": 42,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "12-de-Marzo-2025",
+      "titulo": "Miércoles 12-de-Marzo-2025",
+      "placas": "5-9",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 12 2025",
+      "index": 43,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "13-de-Marzo-2025",
+      "titulo": "Jueves 13-de-Marzo-2025",
+      "placas": "1-7",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 13 2025",
+      "index": 44,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "14-de-Marzo-2025",
+      "titulo": "Viernes 14-de-Marzo-2025",
+      "placas": "0-6",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 14 2025",
+      "index": 45,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "15-de-Marzo-2025",
+      "titulo": "Sábado 15-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 15 2025",
+      "index": 46,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "16-de-Marzo-2025",
+      "titulo": "Domingo 16-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 16 2025",
+      "index": 47,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "17-de-Marzo-2025",
+      "titulo": "Lunes 17-de-Marzo-2025",
+      "placas": "3-4",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 17 2025",
+      "index": 48,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "18-de-Marzo-2025",
+      "titulo": "Martes 18-de-Marzo-2025",
+      "placas": "2-8",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 18 2025",
+      "index": 49,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "19-de-Marzo-2025",
+      "titulo": "Miércoles 19-de-Marzo-2025",
+      "placas": "5-9",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 19 2025",
+      "index": 50,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "20-de-Marzo-2025",
+      "titulo": "Jueves 20-de-Marzo-2025",
+      "placas": "1-7",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 20 2025",
+      "index": 51,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "21-de-Marzo-2025",
+      "titulo": "Viernes 21-de-Marzo-2025",
+      "placas": "0-6",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 21 2025",
+      "index": 52,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "22-de-Marzo-2025",
+      "titulo": "Sábado 22-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 22 2025",
+      "index": 53,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "23-de-Marzo-2025",
+      "titulo": "Domingo 23-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 23 2025",
+      "index": 54,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "24-de-Marzo-2025",
+      "titulo": "Lunes 24-de-Marzo-2025",
+      "placas": "3-4",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 24 2025",
+      "index": 55,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "25-de-Marzo-2025",
+      "titulo": "Martes 25-de-Marzo-2025",
+      "placas": "2-8",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Tue Mar 25 2025",
+      "index": 56,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "26-de-Marzo-2025",
+      "titulo": "Miércoles 26-de-Marzo-2025",
+      "placas": "5-9",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Wed Mar 26 2025",
+      "index": 57,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "27-de-Marzo-2025",
+      "titulo": "Jueves 27-de-Marzo-2025",
+      "placas": "1-7",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Thu Mar 27 2025",
+      "index": 58,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "28-de-Marzo-2025",
+      "titulo": "Viernes 28-de-Marzo-2025",
+      "placas": "0-6",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Fri Mar 28 2025",
+      "index": 59,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "29-de-Marzo-2025",
+      "titulo": "Sábado 29-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sat Mar 29 2025",
+      "index": 60,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "30-de-Marzo-2025",
+      "titulo": "Domingo 30-de-Marzo-2025",
+      "placas": "NO APLICA",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Sun Mar 30 2025",
+      "index": 61,
+      "ciudad":"Medellin"
+    },{
+      "fechaFormat": "31-de-Marzo-2025",
+      "titulo": "Lunes 31-de-Marzo-2025",
+      "placas": "3-4",
+      "horario": "5:00 AM - 8:00 PM",
+      "vehiculo": "Particular",
+      "fecha": "Mon Mar 31 2025",
+      "index": 62,
+      "ciudad":"Medellin"
     }]
   ]
 }

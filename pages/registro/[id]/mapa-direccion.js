@@ -19,22 +19,24 @@ export default function MapaDireccion() {
     servicios: [],
     horarios: "",
     indicativo: "+57",
+    pais: 'Colombia',
+    ciudad: '',
   });
-  const [direccion, setDireccion] = useState("");
   const [posicion, setPosicion] = useState({ lat: 4.711, lng: -74.0721 });
 
   const buscarDireccion = async () => {
-    if (!direccion) return;
-    
+    if (!formData.direccion) return;
+      console.log(formData);
+      console.log(formData.direccion + ' '+ formData.pais + ' '+ formData.ciudad);
+      
     try {
-      const resultados = await Nominatim.geocode({ q: direccion, format: "json" });
+      const resultados = await Nominatim.geocode({ q: formData.direccion + ' '+ formData.ciudad + ' '+ formData.pais, format: "json" });
       
       if (resultados.length > 0) {
         const { lat, lon } = resultados[0];
         setPosicion({ lat: parseFloat(lat), lng: parseFloat(lon) });
         setFormData({...formData, lat: parseFloat(lat), lng: parseFloat(lon)});
         const updatedFormData = { ...formData, lat: parseFloat(lat), lng: parseFloat(lon) };
-        console.log('hi');
                 localStorage.setItem("registroTaller", JSON.stringify(updatedFormData));
       } else {
         alert("No se encontró la dirección");
@@ -43,7 +45,9 @@ export default function MapaDireccion() {
       console.error("Error obteniendo coordenadas:", error);
     }
   };
-  
+  const handleChangePage = (e) => {
+      localStorage.setItem("registroTaller", JSON.stringify(formData));
+  };
   useEffect(() => {
     const savedData = localStorage.getItem("registroTaller");
     if (savedData) {
@@ -54,7 +58,7 @@ export default function MapaDireccion() {
   
 
   return (
-    <LayoutRegister>
+    <LayoutRegister handleChangePage={handleChangePage}>
 
       <div style={{
         width: "90%",
@@ -67,7 +71,7 @@ export default function MapaDireccion() {
         margin: "0 auto",
         maxWidth: "800px",
       }}>
-        <h1 style={{ textAlign: 'start' }} className={styles.title}>Donde se encuentra tu taller?</h1>
+        <h1 style={{ textAlign: 'start' }} className={styles.title}>Ajusta el pin en el mapa para ubicar tu dirección</h1>
 
 
         <div style={{ width: '90%' }} className={styles.mapContainer}>
@@ -77,10 +81,11 @@ export default function MapaDireccion() {
             <div style={{marginLeft:'8px'}} className={styles.location}>
               <input
                 type="text"
-                value={direccion}
-                onChange={(e) => setDireccion(e.target.value)}
+                value={formData.direccion}
+                name="direccion"
+                onChange={(e) => setFormData({ ...formData, direccion: e.target.value })}
                 placeholder="Ingresa la dirección de tu taller"
-                style={{ padding: "8px", width: "300px", border:'none', fontSize:'16px', fontWeight:'500', color:'#182537' }}
+                style={{ padding: "8px",border:'none', minWidth:'300px', fontSize:'16px', fontWeight:'500', color:'#182537', borderRadius:'16px', textOverflow:'ellipsis', overflow:'hidden', whiteSpace:'nowrap', width:'100%' }}
               />
             </div>
           </form>

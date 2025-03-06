@@ -11,6 +11,8 @@ export default function ServiciosOfrecidos() {
     email: "",
     lat: '',
     lng: '',
+    pais:'Colombia',
+    ciudad:'',
     tipoServicio: "",
     servicios: [],
     horarios: "",
@@ -40,15 +42,20 @@ export default function ServiciosOfrecidos() {
   
         const updatedFormData = { ...prev, servicios: updatedServicios };
   
-        localStorage.setItem("registroTaller", JSON.stringify(updatedFormData));
-  
         return updatedFormData;
       });
     };
-
+    const handleChangePage = (e) => {
+      if(formData.servicios.length === 0){
+        alert('Por favor selecciona al menos un servicio');
+        return 'Error'
+      }else{
+        localStorage.setItem("registroTaller", JSON.stringify(formData));
+      }
+    };
     
   return (
-    <LayoutRegister>
+    <LayoutRegister handleChangePage={handleChangePage}>
       <div style={{
         width: "90%",
         display: "flex",

@@ -90,6 +90,24 @@ export const optionsServicios = [
   { value: 'mecanica avanzada', label: 'Mecánica Avanzada', index: 25 }
 ];
 
+export const Countries = [
+  { value: 'Argentina', label: 'Argentina', index: 1 },
+  { value: 'Bolivia', label: 'Bolivia', index: 2 },
+  { value: 'Chile', label: 'Chile', index: 3 },
+  { value: 'Colombia', label: 'Colombia', index: 4 },
+  { value: 'Costa Rica', label: 'Costa Rica', index: 5 },
+  { value: 'Ecuador', label: 'Ecuador', index: 6 },
+  { value: 'El Salvador', label: 'El Salvador', index:7 },
+  { value: 'Guatemala', label: 'Guatemala', index: 8 },
+  { value: 'Honduras', label: 'Honduras', index: 9 },
+  { value: 'México', label: 'México', index: 10 },
+  { value: 'Nicaragua', label: 'Nicaragua', index: 11 },
+  { value: 'Panamá', label: 'Panamá', index: 12 },
+  { value: 'Paraguay', label: 'Paraguay', index: 13 },
+  { value: 'Perú', label: 'Perú', index: 14 },
+  { value: 'Uruguay', label: 'Uruguay', index: 15 },
+  { value: 'Venezuela', label: 'Venezuela', index: 16 },
+];
 
 export const sectionsSideBarES = [
   {

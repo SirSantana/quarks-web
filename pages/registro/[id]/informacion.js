@@ -51,6 +51,8 @@ export default function Informacion() {
     email: "",
     lat: "",
     lng: "",
+    pais:'Colombia',
+    ciudad:'',
     tipoServicio: "",
     servicios: [],
     indicativo: "+57",
@@ -117,7 +119,7 @@ export default function Informacion() {
           marginTop: "64px",
         }}
       >
-        <h1 className={styles.title}>Información Básica de tu Taller</h1>
+        <h1 style={{ textAlign: 'start' }} className={styles.title}>Información Básica de tu Taller</h1>
 
         <div style={{ width: "80%", display: "flex", flexDirection: "column", gap: "8px", margin: "16px 0" }}>
           <label>Nombre de tu taller</label>

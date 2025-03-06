@@ -63,7 +63,8 @@
   cursor: pointer;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 }
-.searchBar:hover{
+
+.searchBar:hover {
   border: 1px solid #6C788E;
   transition: all 0.3s ease-in;
 }
@@ -76,6 +77,12 @@
   display: flex;
   flex-direction: column;
   margin-left: 16px;
+  align-items: flex-start;
+  white-space: nowrap;
+  /* Evita que el texto se divida en varias líneas */
+  overflow: hidden;
+  /* Oculta el texto que sobrepase el contenedor */
+  text-overflow: ellipsis;
 }
 
 .location strong {
@@ -87,6 +94,21 @@
 .location span {
   font-size: 12px;
   color: #6C788E;
+  text-align: start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
+
+.formContainerPaisCiudad {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: space-between;
+  width: 100%;
+
 }
 
 
@@ -116,7 +138,8 @@
   left: 0;
   height: 4px;
   background-color: #6C788E;
-  transition: width 0.3s ease-in-out; /* Hace la animación en ambas direcciones */
+  transition: width 0.3s ease-in-out;
+  /* Hace la animación en ambas direcciones */
   will-change: width
 }
 
@@ -132,15 +155,18 @@
 
 
 /* tipo-servicio */
-.containerCardsTipos{
+.containerCardsTipos {
   margin-top: 32px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas grandes */
-  gap: 16px; /* Espaciado entre tarjetas */
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 columnas en pantallas grandes */
+  gap: 16px;
+  /* Espaciado entre tarjetas */
   width: 100%;
 
 }
-.cardContainerTipo{
+
+.cardContainerTipo {
   display: flex;
   flex-direction: row;
   gap: 16px;
@@ -148,21 +174,25 @@
   padding: 24px;
   border-radius: 16px;
   cursor: pointer;
-  transition:  border 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .cardContainerTipo:not(.selected):hover {
-  border: 1px solid #6C788E; /* Cambia el borde al hacer hover */
+  border: 1px solid #6C788E;
+  /* Cambia el borde al hacer hover */
 }
+
 .selected {
   border: 2px solid #6C788E;
 }
-.cardContainerTipo h2{
+
+.cardContainerTipo h2 {
   font-size: 16px;
   font-weight: 500;
   color: #182537;
 }
-.cardContainerTipo p{
+
+.cardContainerTipo p {
   font-size: 14px;
   color: #6C788E;
   margin: 0;
@@ -170,7 +200,7 @@
 
 
 /* servicios-ofrecidos */
-.cardServicioChoose{
+.cardServicioChoose {
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -179,15 +209,19 @@
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
-  transition:  border 0.3s ease;
+  transition: border 0.3s ease;
 }
+
 .cardServicioChoose:not(.selectedSer):hover {
-  border: 1px solid #6C788E; /* Cambia el borde al hacer hover */
+  border: 1px solid #6C788E;
+  /* Cambia el borde al hacer hover */
 }
+
 .selectedSer {
   border: 2px solid #6C788E;
 }
-.cardServicioChoose p{
+
+.cardServicioChoose p {
   font-size: 14px;
   color: #6C788E;
   margin: 0;
@@ -199,6 +233,13 @@
     flex-direction: column;
     gap: 32px;
     text-align: center;
+  }
+
+  .formContainerPaisCiudad {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
   }
 
   .highlight {
@@ -216,7 +257,9 @@
   .searchBar {
     width: 80%;
   }
+
   .containerCardsTipos {
-    grid-template-columns: 1fr; /* 1 columna en móviles */
+    grid-template-columns: 1fr;
+    /* 1 columna en móviles */
   }
 }

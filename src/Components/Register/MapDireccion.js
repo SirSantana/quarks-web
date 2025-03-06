@@ -4,49 +4,57 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'; // Asegúrate de importar Leaflet
 
 
-export default function MapDireccion({ setDataImportante, dataImportante, posicion }) {
-  const [mapCenter, setMapCenter] = useState([dataImportante?.lat?dataImportante?.lat:4.6577, dataImportante?.lng?dataImportante?.lng:-74.0736]);
-  const [userLocation, setUserLocation] = useState(null);
-  const [position, setPosition] = useState({ 
-    lat: dataImportante?.lat ? dataImportante?.lat : 4.6577, 
-    lng: dataImportante?.lng ? dataImportante?.lng : -74.0736 
+export default function MapDireccion({ setDataImportante, dataImportante, posicion, zoom=11}) {
+  const [position, setPosition] = useState({
+    lat: dataImportante?.lat || 4.6577,
+    lng: dataImportante?.lng || -74.0736
   });
-  const markerRef = useRef(null)
-  const eventHandlers = {
-    dragend() {
-      const marker = markerRef.current;
-      if (marker != null) {
-        const lat = marker.getLatLng().lat;
-        const lng = marker.getLatLng().lng;
-        setPosition(marker.getLatLng());
-        setDataImportante(prevState => ({
-          ...prevState,
-          lat: lat,
-          lng: lng
-        }));
-      }
-    },
-  };
+
+  const mapRef = useRef(null);
+  const markerRef = useRef(null);
+
   useEffect(() => {
-    if (posicion) {
+    if (posicion && mapRef.current) {
+      mapRef.current.flyTo([posicion.lat, posicion.lng], 16, {
+        duration: 1.5, // Duración de la animación en segundos
+      });
       setPosition(posicion);
     }
   }, [posicion]);
-
   //  CREAR INPUTS PARA QUE COLOQUEN EL PAIS Y LA CIUDAD Y CON ESO AGREGARLO AL QUERY DE LA DIRECCION DEL MAPA PARA BUSQUE CORRECTAMENTE
+
+  // Colocar una pagina antes del mapa, donde colocara la ciudad, pais y la direccion. 
+  // Otra pagina donde iran los descuentos
+  // La pagina de los servicios, colocar un espacio para que coloquen si son especializados en algun servicio
   return (
     <div style={{ position: 'relative', width: '100%', height: '60vh', zIndex:0 }}>
     <MapContainer
-       style={{ width: '100%', height: '100%', borderRadius: '16px' }}
-      center={userLocation ? userLocation : mapCenter} zoom={11} zoomControl={false} scrollWheelZoom={true}>
+        ref={mapRef}
+        center={[position.lat, position.lng]}
+        zoom={zoom}
+        style={{ width: '100%', height: '100%', borderRadius: '16px' }}
+        whenCreated={map => (mapRef.current = map)}
+      >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
       />
       <Marker
         draggable={true}
-        
-        eventHandlers={eventHandlers}
+        eventHandlers={{
+          dragend: () => {
+            const marker = markerRef.current;
+            if (marker) {
+              const newPos = marker.getLatLng();
+              setPosition(newPos);
+              setDataImportante(prev => ({
+                ...prev,
+                lat: newPos.lat,
+                lng: newPos.lng
+              }));
+            }
+          }
+        }}
         position={position}
         ref={markerRef}
         icon={
