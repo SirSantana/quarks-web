@@ -1,7 +1,4 @@
 import Markdown from "react-markdown";
-import { client } from "@/client";
-import { CREATE_VISTA_ARTICULO } from "@/graphql/mutations";
-import { GET_ARTICULO } from "@/graphql/queries";
 import { useEffect } from "react";
 
 

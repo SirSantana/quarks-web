@@ -11,7 +11,6 @@ export const customStylesSelect = ({ width = '100%', fontSize = '16px', fontWeig
     fontSize,
     fontWeight,
     width: width, 
-    minWidth: '300px',
     maxWidth: '100%',
     cursor: 'pointer',
   }),
@@ -33,12 +32,12 @@ export const customStylesSelect = ({ width = '100%', fontSize = '16px', fontWeig
   }),
 });
 
-export default function SelectComponentBase({ options, setIsLoading, width, defaultInitial = 'Todos',setForm, form, value }) {
+export default function SelectComponentBase({ options, setIsLoading, width, defaultInitial = 'Todos',setForm, form, value, name }) {
   const [selectedOption, setSelectedOption] = useState(options.find(el => el.value.toLowerCase() === value?.toLowerCase()) || { value: 'Colombia', label: 'Colombia' });
 
-  const handleChange = (selected) => {
+  const handleChange = (selected, e) => {
     setSelectedOption(selected);
-    setForm({...form, pais:selected.value})
+    setForm({...form, [e.name]:selected.value})
   };
 
   return (
@@ -46,10 +45,11 @@ export default function SelectComponentBase({ options, setIsLoading, width, defa
       isSearchable={false}
       onChange={handleChange}
       options={options}
-      styles={customStylesSelect({ width:'100%' })}
+      styles={customStylesSelect({ width:width })}
       menuPosition='fixed'
       placeholder={selectedOption.value}
       value={selectedOption}
+      name={name}
     />
   );
 }

@@ -2,7 +2,7 @@ import Input from "@/src/Components/Input/Input";
 import SelectComponentBase from "@/src/Components/MenuSelects/SelectComponentBase";
 import SelectServicio from "@/src/Components/MenuSelects/SelectServicio";
 import LayoutRegister from "@/src/Components/Register/LayoutRegister";
-import { Countries } from "@/src/data/Categorias";
+import { categorias, Countries } from "@/src/data/Categorias";
 
 import styles from "@/styles/Registro.module.css"; // Importamos los estilos
 import { useEffect, useState } from "react";
@@ -18,9 +18,12 @@ export default function AddCountryCity() {
     lat: '',
     lng: '',
     tipoServicio: "",
-    servicios: [],
+    categorias: [],
     horarios: "",
-    indicativo: "+57", // Se actualizará dinámicamente
+    descuento: '10%',
+    indicativo: "+57",
+    fotoperfil:''
+
   });
 
   const handleChangePage = (e) => {
@@ -57,7 +60,7 @@ export default function AddCountryCity() {
         <label style={{color:'#6C788E', marginTop:'32px'}}>Selecciona tu país y ciudad</label>
 
         <div style={{width:'100%'}} className={styles.formContainerPaisCiudad}>
-          <SelectComponentBase options={Countries} width={'100%'} defaultInitial={Countries[3]} form={formData} value={formData.pais} setForm={setFormData} />
+          <SelectComponentBase options={Countries} width={'100%'} defaultInitial={Countries[3]} form={formData} value={formData.pais} setForm={setFormData} name={'Pais'} />
           <Input
             style={{ width: "100%",  }}
             stylesInput={{ paddingLeft: "16px",}}

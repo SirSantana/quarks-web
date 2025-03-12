@@ -44,6 +44,7 @@
 .mapContainer {
   position: relative;
   width: 60%;
+  align-items: start;
 }
 
 .searchBar {
@@ -111,8 +112,20 @@
 
 }
 
+/* horario */
 
-
+.containerHorarios{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.horariosInput{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
 /* footer-fixed */
 
 .footer {
@@ -241,7 +254,9 @@
     width: 100%;
 
   }
-
+  .containerHorarios{
+    flex-direction: column;
+  }
   .highlight {
     font-size: 48px;
   }
@@ -255,11 +270,14 @@
   }
 
   .searchBar {
-    width: 80%;
+    width: 100%;
   }
 
   .containerCardsTipos {
     grid-template-columns: 1fr;
     /* 1 columna en móviles */
+  }
+  .title{
+    font-size: 28px;
   }
 }

@@ -27,10 +27,14 @@ export default function TipoServicio() {
     ciudad:'',
     lat:'',
     lng:'',
-    servicios: [],
+    categorias: [],
     horarios: "",
     indicativo: "+57", 
     tipoServicio: "", 
+    descuento: '10%',
+    fotoperfil:''
+
+
   });
 
   // Cargar datos desde localStorage al iniciar

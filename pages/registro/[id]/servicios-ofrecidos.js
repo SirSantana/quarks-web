@@ -14,9 +14,12 @@ export default function ServiciosOfrecidos() {
     pais:'Colombia',
     ciudad:'',
     tipoServicio: "",
-    servicios: [],
+    categorias: [],
     horarios: "",
-    indicativo: "+57", // Se actualizará dinámicamente
+    descuento: '10%',
+    indicativo: "+57",
+    fotoperfil:''
+
     });
 
     // Cargar datos desde localStorage al iniciar
@@ -34,19 +37,19 @@ export default function ServiciosOfrecidos() {
       const servicioSeleccionado = categoriasChoose[index].nombre;
   
       setFormData((prev) => {
-        const alreadySelected = prev?.servicios?.includes(servicioSeleccionado);
+        const alreadySelected = prev?.categorias?.includes(servicioSeleccionado);
   
         const updatedServicios = alreadySelected
-          ? prev.servicios.filter((servicio) => servicio !== servicioSeleccionado) // Quitar si ya estaba
-          : [...prev?.servicios, servicioSeleccionado]; // Agregar si no estaba
+          ? prev.categorias.filter((servicio) => servicio !== servicioSeleccionado) // Quitar si ya estaba
+          : [...prev?.categorias, servicioSeleccionado]; // Agregar si no estaba
   
-        const updatedFormData = { ...prev, servicios: updatedServicios };
+        const updatedFormData = { ...prev, categorias: updatedServicios };
   
         return updatedFormData;
       });
     };
     const handleChangePage = (e) => {
-      if(formData.servicios.length === 0){
+      if(formData.categorias.length === 0){
         alert('Por favor selecciona al menos un servicio');
         return 'Error'
       }else{
@@ -64,14 +67,15 @@ export default function ServiciosOfrecidos() {
         gap: "16px",
         margin: "0 auto",
         maxWidth: "800px",
-        marginTop: '64px'
+        marginTop: '64px',
+        marginBottom: "100px",
       }}>
         <h1 style={{ textAlign: 'start', margin:0 }} className={styles.title}>Que servicios ofreces?</h1>
         <div style={{ display: 'flex', flexDirection: 'row', gap: '16px', alignItems: 'center', flexWrap: 'wrap',  marginTop: '32px' }}>
           {categoriasChoose.map((el, index) => (
             <article onClick={()=> handleSelect(index)} key={el.nombre} 
             className={`${styles.cardServicioChoose} ${
-              formData?.servicios?.includes(el.nombre) ? styles.selectedSer : ""
+              formData?.categorias?.includes(el.nombre) ? styles.selectedSer : ""
             }`}
           >
               <img src={'/' + el.img} alt={el.nombre} style={{ width: '24px', objectFit: 'contain' }} />

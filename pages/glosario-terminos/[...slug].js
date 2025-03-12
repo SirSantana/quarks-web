@@ -8,6 +8,8 @@ import { useRouter } from "next/router";
 import LayoutGlosario from "@/src/Components/Articulos/Layout";
 import MarkdownContent from "@/src/Components/Articulos/MarkdownContent";
 
+// https://res.cloudinary.com/db3veuotr/image/upload/v1741786209/fxdydnt3sqtgqj971izr.webp
+
 let mk = `# ALTERNADOR: TODO LO QUE NECESITAS SABER
 
 ---
@@ -18,6 +20,8 @@ let mk = `# ALTERNADOR: TODO LO QUE NECESITAS SABER
 El alternador es una de las piezas fundamentales del sistema eléctrico de un automóvil. Su función principal es transformar la energía mecánica en energía eléctrica para recargar la batería y alimentar los sistemas eléctricos del vehículo mientras está en marcha.
 
 ---
+
+
 
 ## ⚙️ PARTES DEL ALTERNADOR
 
@@ -87,7 +91,7 @@ export default function Repuesto({ data }) {
   const breadcrumbItems = [
     { label: "Glosario", href: "/glosario-terminos" },
   ];
-
+  
   return (
     <Layout 
       title={data?.title}

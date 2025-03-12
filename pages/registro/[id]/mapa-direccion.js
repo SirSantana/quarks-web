@@ -16,11 +16,14 @@ export default function MapaDireccion() {
     lat: '',
     lng: '',
     tipoServicio: "",
-    servicios: [],
+    categorias: [],
     horarios: "",
     indicativo: "+57",
     pais: 'Colombia',
     ciudad: '',
+    descuento: '10%',
+    fotoperfil:''
+
   });
   const [posicion, setPosicion] = useState({ lat: 4.711, lng: -74.0721 });
 
@@ -46,7 +49,12 @@ export default function MapaDireccion() {
     }
   };
   const handleChangePage = (e) => {
+    if(!formData.lat || !formData.lng){
+      alert('Por favor ajuste el pin en el mapa para ubicar tu dirección');
+      return 'Error'
+    }else{
       localStorage.setItem("registroTaller", JSON.stringify(formData));
+    }
   };
   useEffect(() => {
     const savedData = localStorage.getItem("registroTaller");
@@ -66,7 +74,6 @@ export default function MapaDireccion() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center", // Centrado vertical
-        alignItems: "center", // Centrado horizontal
         gap: "16px",
         margin: "0 auto",
         maxWidth: "800px",
@@ -74,7 +81,7 @@ export default function MapaDireccion() {
         <h1 style={{ textAlign: 'start' }} className={styles.title}>Ajusta el pin en el mapa para ubicar tu dirección</h1>
 
 
-        <div style={{ width: '90%' }} className={styles.mapContainer}>
+        <div  className={styles.mapContainer}>
           {/* Contenedor del buscador */}
           <form onSubmit={(e) => { e.preventDefault(); buscarDireccion(); }} className={styles.searchBar}>
             <Icon  onClick={buscarDireccion} name={IconCatalog.searchOutline} className={styles.icon} size="lg" />
