@@ -15,9 +15,9 @@ export default function MapaDireccion() {
     email: "",
     lat: '',
     lng: '',
-    tipoServicio: "",
+    tipo: "",
     categorias: [],
-    horarios: "",
+    horario: "",
     indicativo: "+57",
     pais: 'Colombia',
     ciudad: '',
@@ -29,17 +29,14 @@ export default function MapaDireccion() {
 
   const buscarDireccion = async () => {
     if (!formData.direccion) return;
-      console.log(formData);
-      console.log(formData.direccion + ' '+ formData.pais + ' '+ formData.ciudad);
-      
     try {
       const resultados = await Nominatim.geocode({ q: formData.direccion + ' '+ formData.ciudad + ' '+ formData.pais, format: "json" });
       
       if (resultados.length > 0) {
         const { lat, lon } = resultados[0];
-        setPosicion({ lat: parseFloat(lat), lng: parseFloat(lon) });
-        setFormData({...formData, lat: parseFloat(lat), lng: parseFloat(lon)});
-        const updatedFormData = { ...formData, lat: parseFloat(lat), lng: parseFloat(lon) };
+        setPosicion({ lat: String(lat), lng: String(lon) });
+        setFormData({...formData, lat: String(lat), lng: String(lon)});
+        const updatedFormData = { ...formData, lat: String(lat), lng: String(lon) };
                 localStorage.setItem("registroTaller", JSON.stringify(updatedFormData));
       } else {
         alert("No se encontró la dirección");

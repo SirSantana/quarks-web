@@ -15,9 +15,9 @@ export default function Descuentos() {
     lat: '',
     lng: '',
     categorias: [],
-    horarios: "",
+    horario: "",
     indicativo: "+57",
-    tipoServicio: "",
+    tipo: "",
     descuento: '10%',
     fotoperfil:''
 
@@ -48,7 +48,7 @@ export default function Descuentos() {
       }}>
         <div style={{marginBottom:'32px', display:'flex', flexDirection:'column', alignItems:'flex-start'}}>
           <h1 style={{textAlign:'start'}} className={styles.title}>Agrega un descuento</h1>
-          <p style={{ fontSize: '16px' }}>Destaca tu taller para conseguir mas clientes y aumentar tus ventas.</p>
+          <p style={{ fontSize: '16px', textBalance:'center' }}>Destaca tu taller para conseguir mas clientes y aumentar tus ventas.</p>
         </div>
         <article
           className={styles.cardContainerTipo} >

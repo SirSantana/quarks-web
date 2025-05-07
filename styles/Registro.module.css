@@ -114,18 +114,20 @@
 
 /* horario */
 
-.containerHorarios{
+.containerHorarios {
   display: flex;
   flex-direction: row;
   gap: 16px;
   margin-bottom: 8px;
 }
-.horariosInput{
+
+.horariosInput {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: center;
 }
+
 /* footer-fixed */
 
 .footer {
@@ -240,6 +242,123 @@
   margin: 0;
 }
 
+.containerRevisaTuPerfil{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 32px;
+  margin: 0 auto;
+  max-width: 900px;
+  align-items: center;
+  min-height: 90vh;
+  margin: 0 auto;
+}
+
+.containerCardTaller{
+  border: 1px solid #CFD5E1;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 360px;
+  text-decoration: none;
+  height: fit-content;
+  transition: transform 0.4s ease;
+}
+.containerCardTaller:hover{
+  transform: scale(1.01);
+  border: 1px solid #A6AEC1;
+}
+.sectionDataCardTaller{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px;
+  justify-content: space-between;
+  flex: 1;
+}
+/* Foto perfil */
+
+.fotoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 14/9;
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  border-radius: 8px 8px 0px 0px;
+  object-fit: cover;
+}
+
+.fotoRegister {
+  /* border: 2px solid #d9d9d9; */
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.imgPerfil {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.editOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.imageWrapper:hover .editOverlay {
+  opacity: 1;
+}
+
+.editIcon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #5c5c5c;
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .container {
@@ -247,16 +366,32 @@
     gap: 32px;
     text-align: center;
   }
-
+  .containerRevisaTuPerfil{
+    flex-direction: column;
+    height: fit-content;
+    width: 90%;
+    margin: 64px auto 128px auto;
+  }
   .formContainerPaisCiudad {
     flex-direction: column;
     gap: 16px;
     width: 100%;
 
   }
-  .containerHorarios{
+  .sectionDataCardTaller{
+    padding: 16px;
+  }
+  .fotoContainer{
+    width: 100%;
+    height: 100%;
+    max-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid #CFD5E1;
+  }
+  .containerHorarios {
     flex-direction: column;
   }
+
   .highlight {
     font-size: 48px;
   }
@@ -277,7 +412,8 @@
     grid-template-columns: 1fr;
     /* 1 columna en móviles */
   }
-  .title{
+
+  .title {
     font-size: 28px;
   }
 }

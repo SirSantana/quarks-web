@@ -29,6 +29,8 @@ export default function Horario({ horariosSeparados, handleVisibleHorario, visib
     // Limpieza del temporizador en caso de que el componente se desmonte antes de que termine la carga simulada
     return () => clearTimeout(timeoutId);
   }, []);
+  console.log(horariosSeparados);
+  
   return (
     <>
       <MagicMotion>

@@ -52,10 +52,10 @@ export default function Informacion() {
     lng: "",
     pais: "Colombia",
     ciudad: "",
-    tipoServicio: "",
+    tipo: "",
     categorias: [],
     indicativo: "+57",
-    horarios: formatearHorario(horariosPorDefecto),
+    horario: formatearHorario(horariosPorDefecto),
     descuento: "10%",
     fotoperfil: "",
   });

@@ -5,9 +5,11 @@ import styles2 from '@/styles/Landing.module.css'
 import Icon, { IconCatalog } from "@/src/Components/Icon/Icon";
 import styles from "@/styles/Registro.module.css"; // Importamos los estilos
 import { useState } from "react";
-import ModalRegisterEmail from "@/src/Components/Register/ModalRegisterEmail";
+// import ModalRegisterEmail from "@/src/Components/Register/ModalRegisterEmail";
 import dynamic from "next/dynamic";
-
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+const ModalRegisterEmail = dynamic(() => import('@/src/Components/Register/ModalRegisterEmail'),{ssr:false})
 const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTalleresHome'),
   { ssr: false, loading: () =>  <div className={styles2.containerMapHome}>
   <div className={styles2.cardNewTallerSkeleton} style={{position: 'relative', width: '100%', height: '90vh' }}/>
@@ -15,6 +17,16 @@ const MapTalleresHome = dynamic(() => import('@/src/Components/LandingPage/MapTa
 
 export default function Registro() {
   const [visibleModalRegister, setVisibleModalRegister] = useState(false);
+  const {data:session} = useSession()
+  const router = useRouter()
+  
+  const handleVisible= ()=>{
+   if(session){
+    router.push(`/users/${session.user.name}`)
+   }else{
+    setVisibleModalRegister(false?false:true)
+   }
+  }
   return (
     <Layout title={'Registro Talleres'} footer={false} visibleNavbar={false}>
       <div className={styles.container}>
@@ -29,7 +41,7 @@ export default function Registro() {
           <p className={styles.description}>
             Sin comisiones. Sin intermediarios. Solo conectamos clientes con talleres y mecánicos de confianza.
           </p>
-          <Button onClick={()=>setVisibleModalRegister(true)} variant={ButtonVariant.primary} style={{marginTop:'32px'}}>Haz crecer tu negocio</Button>
+          <Button  onClick={handleVisible} variant={ButtonVariant.primary} style={{marginTop:'32px'}}>{session?'Ver perfil':'Haz crecer tu negocio'}</Button>
         </div>
 
         <div style={{zIndex:visibleModalRegister ? 0 : 10000000}} className={styles.mapContainer}>
@@ -46,6 +58,7 @@ export default function Registro() {
           <MapTalleresHome data={talleres.talleres.slice(20, 70).reverse()} />
         </div>
       </div>
+      {/* <ModalRegisterEmail setVisibleModalRegister={setVisibleModalRegister} /> */}
       {visibleModalRegister && <ModalRegisterEmail setVisibleModalRegister={setVisibleModalRegister} />}
     </Layout>
   );

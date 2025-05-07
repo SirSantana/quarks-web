@@ -13,9 +13,9 @@ export default function ServiciosOfrecidos() {
     lng: '',
     pais:'Colombia',
     ciudad:'',
-    tipoServicio: "",
+    tipo: "",
     categorias: [],
-    horarios: "",
+    horario: "",
     descuento: '10%',
     indicativo: "+57",
     fotoperfil:''

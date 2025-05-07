@@ -28,13 +28,11 @@ export default function TipoServicio() {
     lat:'',
     lng:'',
     categorias: [],
-    horarios: "",
+    horario: "",
     indicativo: "+57", 
-    tipoServicio: "", 
+    tipo: "", 
     descuento: '10%',
     fotoperfil:''
-
-
   });
 
   // Cargar datos desde localStorage al iniciar
@@ -49,18 +47,17 @@ export default function TipoServicio() {
     }
   }, []);
 
-  // Actualizar `selectedIndex` cuando `formData.tipoServicio` cambie
   useEffect(() => {
-    if (formData.tipoServicio) {
-      const index = data.findIndex((el) => el.tipo === formData.tipoServicio);
+    if (formData.tipo) {
+      const index = data.findIndex((el) => el.tipo === formData.tipo);
       setSelectedIndex(index);
     }
-  }, [formData.tipoServicio]);
+  }, [formData.tipo]);
 
   // Actualizar el tipo de servicio y guardar en localStorage
   const handleSelect = (index) => {
     setSelectedIndex(index);
-    const updatedFormData = { ...formData, tipoServicio: data[index].tipo };
+    const updatedFormData = { ...formData, tipo: data[index].tipo };
     setFormData(updatedFormData);
   };
   const handleChangePage = (e) => {

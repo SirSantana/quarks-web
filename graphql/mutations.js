@@ -198,6 +198,22 @@ mutation createNegocioVDos($email:String, $password:String, $username:String){
   }
 }
 `
+
+export const SIGNUP_NEGOCIO_VDOS = gql`
+mutation signUpNegocioVDos($email:String, $indicativo:String, $whatsapp:String, $nombre:String){
+  signUpNegocioVDos(email:$email, indicativo:$indicativo, whatsapp:$whatsapp, nombre:$nombre)
+}
+`
+export const COMPLETE_REGISTRATION_NEGOCIO_VDOS = gql`
+mutation completeRegistrationNegocioVDos($email:String, $indicativo:String, $whatsapp:String, $nombre:String, $direccion:String, $ciudad:String, $pais:String, $tipo:String, $categorias:[String], $horario:String, $descuento:String, $fotoperfil:String, $lat:String, $lng:String){
+  completeRegistrationNegocioVDos(email:$email, indicativo:$indicativo, whatsapp:$whatsapp, nombre:$nombre, direccion:$direccion, ciudad:$ciudad, pais:$pais, tipo:$tipo, categorias:$categorias, horario:$horario, descuento:$descuento, fotoperfil:$fotoperfil, lat:$lat, lng:$lng){
+    email
+    userName
+    nombre
+  }
+}
+`
+
 export const CREATE_NEGOCIO_VDOS_PREVIEW = gql`
 mutation createNegocioVDosPreview($email:String, $nombre:String, $tipo:String, $whatsapp:String, $indicativo:String,  $vehiculo:String,){
   createNegocioVDosPreview(email:$email, nombre:$nombre, tipo:$tipo, whatsapp:$whatsapp, indicativo:$indicativo,  vehiculo:$vehiculo,){

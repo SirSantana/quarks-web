@@ -17,9 +17,9 @@ export default function AddCountryCity() {
     ciudad: '',
     lat: '',
     lng: '',
-    tipoServicio: "",
+    tipo: "",
     categorias: [],
-    horarios: "",
+    horario: "",
     descuento: '10%',
     indicativo: "+57",
     fotoperfil:''

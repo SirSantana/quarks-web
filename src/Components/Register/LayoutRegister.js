@@ -3,11 +3,21 @@ import Button, { ButtonVariant } from "../Button/Button";
 import Layout from "../Layout";
 import styles from "@/styles/Registro.module.css"; // Importamos los estilos
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { useMutation } from "@apollo/client";
+import { COMPLETE_REGISTRATION_NEGOCIO_VDOS } from "@/graphql/mutations";
 
 export default function LayoutRegister({ children, handleChangePage }) {
   const router = useRouter();
   const [step, setStep] = useState(1);
-
+  const {data:session} = useSession()
+  const [completeRegistrationNegocioVDos, {loading, data, error}]=useMutation(COMPLETE_REGISTRATION_NEGOCIO_VDOS,{
+    onCompleted:(result)=>{
+      router.push(`/${result?.completeRegistrationNegocioVDos.userName}`)
+    }
+  })
+  console.log(loading, data, error);
+  
   const steps = [
     "tipo-servicio",
     "pais-ciudad",
@@ -32,17 +42,29 @@ export default function LayoutRegister({ children, handleChangePage }) {
     
     setStep(newStep);
     localStorage.setItem("registroStep", newStep);
+    console.log(step);
+    
     router.push(`/registro/${router.query.id}/${steps[newStep - 1]}`);
   };
 
   // Función para avanzar de paso
   const handleNext = () => {
+    if(step===7 && session?.user){
+      const savedData = localStorage.getItem("registroTaller");
+      const parsedData = JSON.parse(savedData);
+      parsedData.email=session?.user.email
+      console.log(savedData);
+      
+      completeRegistrationNegocioVDos({variables:parsedData})
+    }
     if (handleChangePage() === "Error") return;
     navigateToStep(step + 1);
   };
 
   // Función para retroceder de paso
   const handleBack = () => {
+    console.log(step);
+    
     navigateToStep(step - 1);
   };
     return (

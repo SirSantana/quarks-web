@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'; // Asegúrate de importar Leaflet
 
 
-export default function MapDireccion({ setDataImportante, dataImportante, posicion, zoom=11}) {
+export default function MapDireccion({ setDataImportante, dataImportante, posicion, zoom = 11 }) {
   const [position, setPosition] = useState({
     lat: dataImportante?.lat || 4.6577,
     lng: dataImportante?.lng || -74.0736
@@ -12,6 +12,7 @@ export default function MapDireccion({ setDataImportante, dataImportante, posici
 
   const mapRef = useRef(null);
   const markerRef = useRef(null);
+  console.log('hola');
 
   useEffect(() => {
     if (posicion && mapRef.current) {
@@ -19,7 +20,10 @@ export default function MapDireccion({ setDataImportante, dataImportante, posici
         duration: 1.5, // Duración de la animación en segundos
       });
       setPosition(posicion);
+
     }
+    const updatedFormData = { ...dataImportante, lat: String(posicion.lat), lng: String(posicion.lng) };
+  
   }, [posicion]);
   //  CREAR INPUTS PARA QUE COLOQUEN EL PAIS Y LA CIUDAD Y CON ESO AGREGARLO AL QUERY DE LA DIRECCION DEL MAPA PARA BUSQUE CORRECTAMENTE
 
@@ -27,40 +31,44 @@ export default function MapDireccion({ setDataImportante, dataImportante, posici
   // Otra pagina donde iran los descuentos
   // La pagina de los servicios, colocar un espacio para que coloquen si son especializados en algun servicio
   return (
-    <div style={{ position: 'relative', width: '100%', height: '60vh', zIndex:0 }}>
-    <MapContainer
+    <div style={{ position: 'relative', width: '100%', height: '60vh', zIndex: 0 }}>
+      <MapContainer
         ref={mapRef}
         center={[position.lat, position.lng]}
         zoom={zoom}
         style={{ width: '100%', height: '100%', borderRadius: '16px' }}
         whenCreated={map => (mapRef.current = map)}
       >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-      />
-      <Marker
-        draggable={true}
-        eventHandlers={{
-          dragend: () => {
-            const marker = markerRef.current;
-            if (marker) {
-              const newPos = marker.getLatLng();
-              setPosition(newPos);
-              setDataImportante(prev => ({
-                ...prev,
-                lat: newPos.lat,
-                lng: newPos.lng
-              }));
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
+        />
+        <Marker
+          draggable={true}
+
+          eventHandlers={{
+            dragend: () => {
+              const marker = markerRef.current;
+              if (marker) {
+                const newPos = marker.getLatLng();
+                setPosition(newPos);
+                console.log(newPos);
+                
+                setDataImportante(prev => ({
+                  ...prev,
+                  lat: newPos.lat.toFixed(12),
+                  lng: newPos.lng.toFixed(12)
+                }));
+                localStorage.setItem("registroTaller", JSON.stringify(dataImportante));
+              }
             }
-          }
-        }}
-        position={position}
-        ref={markerRef}
-        icon={
-          L.divIcon({
-            className: "custom-marker",
-            html: `
+          }}
+          position={position}
+          ref={markerRef}
+          icon={
+            L.divIcon({
+              className: "custom-marker",
+              html: `
                  <div style="
               position: relative;
               width: 40px;
@@ -95,15 +103,15 @@ export default function MapDireccion({ setDataImportante, dataImportante, posici
               "></div>
             </div>
                `,
-          })
-        }>
-        <Popup minWidth={90}>
-          <span >
-            Arrastra el Pin hasta tu ubicacion
-          </span>
-        </Popup>
-      </Marker>
-    </MapContainer>
+            })
+          }>
+          <Popup minWidth={90}>
+            <span >
+              Arrastra el Pin hasta tu ubicacion
+            </span>
+          </Popup>
+        </Marker>
+      </MapContainer>
     </div>
   )
 }
