@@ -8,8 +8,8 @@ import { z } from 'zod'; // Importamos Zod
 const responseSchema = z.object({
   diagnostico: z.string().describe("Diagnóstico preliminar del problema descrito por el usuario."),
   preciosEstimados: z.array(z.object({
-      item: z.string().describe("Nombre del item de reparación, parte o servicio (Ej: Pastillas de freno, Mano de obra)"),
-      precio: z.string().describe("Estimación de precio o rango en Bogotá (Ej: $100.000 - $200.000)")
+    item: z.string().describe("Nombre del item de reparación, parte o servicio (Ej: Pastillas de freno, Mano de obra)"),
+    precio: z.string().describe("Estimación de precio o rango en Bogotá (Ej: $100.000 - $200.000)")
   })).describe("Lista de estimaciones de precios en Bogotá para las reparaciones más probables."),
   // recomendacion: z.string().describe("Recomendación de acción para el usuario, incluyendo qué tipo de taller buscar."),
   serviciosRequeridos: z.array(z.string()).describe("Lista de tipos de servicios generales requeridos basados en el diagnóstico (Ej: ['Frenos', 'Suspensión', 'Motor'])."),
@@ -57,14 +57,17 @@ export default async function handler(req, res) {
     const result = await generateObject({
       model: google('models/gemini-1.5-flash'), // O el modelo que estés usando
       schema: responseSchema, // Le decimos al modelo que genere un objeto que cumpla este esquema
-      prompt: `El usuario describe el siguiente problema con su vehículo en Bogotá: "${mensaje}".
-
-      Genera un objeto JSON que contenga:
-      1. Un 'diagnostico' preliminar del tipo de problema.
-      2. Una lista ('preciosEstimados') de objetos con la estimación de precios en Bogotá para las reparaciones más probables. Cada objeto en la lista debe tener dos campos: 'item' (el nombre de la reparación/parte) y 'precio' (el rango estimado en pesos colombianos).
-      3. Una lista de 'serviciosRequeridos' generales (ej: Frenos, Suspensión, Motor, Electricidad) basados en el diagnóstico para ayudar a encontrar un taller adecuado.
-
-      Asegúrate de que la respuesta sea SÓLO el objeto JSON válido que cumpla el esquema proporcionado.`, // Ajustamos el prompt para describir el nuevo formato de precios
+      prompt: `Eres un asistente mecánico experimentado, especializado en diagnósticos preliminares de vehículos. Un usuario en Bogotá te describe el siguiente problema con su carro: "${mensaje}".
+    
+    Tu tarea es proporcionar una evaluación inicial y información útil en formato JSON, siguiendo estrictamente el esquema proporcionado. Considera que la reparación se realizaría en Bogotá, Colombia.
+    
+    Genera un objeto JSON con los siguientes campos:
+    
+    1.  'diagnostico': Una descripción concisa de las **2 a 4 causas preliminares más probables** o áreas afectadas basadas en el problema descrito. Sé directo y técnico, pero fácil de entender. 
+    2.  'preciosEstimados': Una lista de objetos JSON. Por cada objeto, identifica un 'item' (una reparación común, parte principal o mano de obra asociada a las causas más probables) y su 'precio' (un **rango estimado** en pesos colombianos, **COP**, para talleres de gama media en **Bogotá**). Enfócate en los **costos más probables** relacionados con las causas identificadas (ej: "Cambio de Pastillas (Piezas + Mano de obra)", "Rectificación de Discos", "Revisión Sistema Eléctrico").
+    3.  'serviciosRequeridos': Una lista de strings. Identifica las **CATEGORÍAS generales de servicios automotrices** que un taller debería ofrecer para solucionar este tipo de problema (ejemplos: "Frenos", "Suspensión", "Motor", "Electricidad", "Alineación", "Transmisión", "Diagnóstico Electrónico", "Revisiones Generales"). Lista solo las categorías de **alto nivel más relevantes** (máximo 3-5).
+    
+    La respuesta debe ser **SÓLO** el objeto JSON válido que cumpla el esquema exactamente. No incluyas texto explicativo adicional, introducciones o conclusiones fuera del JSON.`,
     });
 
     const structuredResponse = result.object; // Accedemos al objeto JSON generado
@@ -80,10 +83,10 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error('Error al generar respuesta:', error);
-     let userErrorMessage = 'Ocurrió un error al procesar tu solicitud. Por favor, intenta de nuevo más tarde.';
+    let userErrorMessage = 'Ocurrió un error al procesar tu solicitud. Por favor, intenta de nuevo más tarde.';
     // Mantengo el chequeo de error, aunque esperamos que el cambio resuelva este específico
-     if (error.message.includes('property is not defined') || error.message.includes('schema')) {
-        userErrorMessage = 'Error de configuración interna del asistente. Contacta al administrador si persiste.';
+    if (error.message.includes('property is not defined') || error.message.includes('schema')) {
+      userErrorMessage = 'Error de configuración interna del asistente. Contacta al administrador si persiste.';
     }
 
     return res.status(500).json({
@@ -97,17 +100,17 @@ export default async function handler(req, res) {
 // Esta función se mantiene igual, ya que usa serviciosRequeridos que no cambió
 function buscarTalleresPorServicios(serviciosNecesarios) {
   if (!serviciosNecesarios || serviciosNecesarios.length === 0) {
-      console.log("No se encontraron servicios requeridos para buscar talleres.");
-      return [];
+    console.log("No se encontraron servicios requeridos para buscar talleres.");
+    return [];
   }
-   console.log("Buscando talleres para servicios:", serviciosNecesarios);
+  console.log("Buscando talleres para servicios:", serviciosNecesarios);
 
   const serviciosLower = serviciosNecesarios.map(s => s.toLowerCase());
 
   return talleres.filter(taller => {
-      const tallerServiciosLower = taller.servicios.map(s => s.toLowerCase());
-      return serviciosLower.some(servicioNecesario =>
-          tallerServiciosLower.includes(servicioNecesario)
-      );
+    const tallerServiciosLower = taller.servicios.map(s => s.toLowerCase());
+    return serviciosLower.some(servicioNecesario =>
+      tallerServiciosLower.includes(servicioNecesario)
+    );
   });
 }
