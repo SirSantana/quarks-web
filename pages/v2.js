@@ -2,11 +2,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '@/lib/supabaseClient';
-import { 
-  Send, 
-  Loader, 
-  Settings, 
-  AlertTriangle, 
+import {
+  Send,
+  Loader,
+  Settings,
+  AlertTriangle,
   LogIn,
   ChevronRight
 } from 'lucide-react';
@@ -209,9 +209,10 @@ const IndexPage = () => {
 
   useEffect(() => {
     const verificarSesion = async () => {
-      const { data } = await supabase.auth.getUser();
+      const { data } = await supabase.auth.getUser(); // Usa el cliente Supabase del frontend para auth
       setUsuario(data.user);
 
+      // Verificar el límite solo si no hay usuario autenticado
       if (!data.user && localStorage.getItem('usoConsultaGratis') === 'true') {
         setBloqueado(true);
       }
@@ -219,25 +220,56 @@ const IndexPage = () => {
 
     verificarSesion();
   }, []);
+  const enviarProblema = async () => {
+    // Valida que el mensaje no esté vacío y no esté bloqueado o cargando
+    if (!mensaje.trim() || bloqueado || cargando) return;
 
-  const enviarMensaje = async () => {
-    if (!mensaje.trim()) return;
-    setCargando(true);
-
+    setCargando(true); // Inicia estado de carga
     if (!usuario) {
       const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
 
       if (yaUsoConsulta === 'true') {
-        setBloqueado(true);
-        return;
+        setBloqueado(true); // Bloquear si ya usó la consulta gratis sin estar logueado
+        setCargando(false); // Detener carga
+        return; // Salir de la función
       }
 
-      localStorage.setItem('usoConsultaGratis', 'true');
+      localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
     }
 
-    const problemaSlug = createSlug(mensaje);
-    const mensajeCodificado = encodeURIComponent(mensaje);
-    router.push(`/problemas/${problemaSlug}?problemaOriginal=${mensajeCodificado}`);
+
+    try {
+      const res = await fetch('/api/asistente', {
+        method: 'POST', // Usar método POST
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mensaje: mensaje.trim() }), // Enviar el mensaje en el cuerpo
+      });
+
+      // Verificar si la respuesta del API fue exitosa
+      if (!res.ok) {
+        const errorData = await res.json(); // Leer el cuerpo del error del API
+        // !!! Manejar el error adecuadamente, quizás mostrarlo al usuario !!!
+        throw new Error(errorData.error || 'Error al procesar la solicitud en la API.');
+      }
+
+      // Parsear la respuesta JSON del API (que debería contener el slug)
+      const data = await res.json();
+      const slug = data.slug; // Obtener el slug de la respuesta
+      
+      // !!! CAMBIO AQUI: REDIRIGIR USANDO EL SLUG OBTENIDO DEL API !!!
+      if (slug) {
+        router.push(`/problemas/${slug.replaceAll(' ', '-').toLowerCase()}`); // Redirige a la página de resultados con el slug
+      } else {
+        // Esto no debería pasar si el API funciona correctamente, pero es una seguridad
+        throw new Error('La API no devolvió un identificador válido.');
+      }
+
+    } catch (error) {
+      alert(`Ocurrió un error: ${error.message}`); // O usa un método de notificación más amigable
+
+    } finally {
+      setCargando(false); // Finaliza estado de carga SIEMPRE
+    }
   };
 
   const seleccionarEjemplo = (ejemplo) => {
@@ -261,7 +293,7 @@ const IndexPage = () => {
           <AlertTriangle size={24} style={styles.alertIcon} />
           <div style={styles.alertContent}>
             <span>Has alcanzado tu límite de consultas gratuitas.</span>
-            <div 
+            <div
               style={styles.loginPrompt}
               onClick={() => router.push('/login')}
               onMouseOver={(e) => e.currentTarget.style.textDecoration = 'underline'}
@@ -276,7 +308,7 @@ const IndexPage = () => {
 
       <div style={styles.formGroup}>
         <label style={styles.textareaLabel}>Describe el problema de tu vehículo:</label>
-        <div 
+        <div
           style={{
             ...styles.textareaWrapper,
             boxShadow: mensaje ? '0 0 0 2px rgba(59, 130, 246, 0.2)' : 'none',
@@ -309,7 +341,7 @@ const IndexPage = () => {
             ? styles.button
             : { ...styles.button, ...styles.buttonDisabled }
         }
-        onClick={enviarMensaje}
+        onClick={enviarProblema}
         disabled={!mensaje.trim() || cargando || bloqueado}
         onMouseOver={(e) => {
           if (mensaje.trim() && !bloqueado && !cargando) {
@@ -339,8 +371,8 @@ const IndexPage = () => {
         <div style={styles.examplePrompts}>
           <p style={styles.examplesTitle}>O prueba con uno de estos ejemplos:</p>
           {ejemplosProblemas.map((ejemplo, idx) => (
-            <button 
-              key={idx} 
+            <button
+              key={idx}
               style={styles.exampleButton}
               onClick={() => seleccionarEjemplo(ejemplo)}
               onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#e5e7eb'}

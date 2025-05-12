@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '@/lib/supabaseClient';
-import { 
-  ArrowLeft, 
-  Wrench, 
-  DollarSign, 
-  MapPin, 
-  MessageCircle, 
-  AlertCircle, 
+import {
+  ArrowLeft,
+  Wrench,
+  DollarSign,
+  MapPin,
+  MessageCircle,
+  AlertCircle,
   Star,
   Loader,
   Phone,
@@ -17,16 +17,21 @@ import {
 
 const ResultadosPage = () => {
   const router = useRouter();
-  const { problemaSlug, problemaOriginal } = router.query;
+  const { slug } = router.query;
+  const problemaSlug = Array.isArray(slug) ? slug[0] : slug;
 
-  const [respuesta, setRespuesta] = useState(null);
-  const [cargando, setCargando] = useState(false);
-  const [error, setError] = useState(null);
+  const [diagnosticoData, setDiagnosticoData] = useState(null);
+  const [cargandoDiagnostico, setCargandoDiagnostico] = useState(true); // Empezamos cargando el diagnóstico
+  const [errorDiagnostico, setErrorDiagnostico] = useState(null);
+
+  const [talleresActuales, setTalleresActuales] = useState(null);
+  const [cargandoTalleres, setCargandoTalleres] = useState(false); // Empezamos SIN cargar talleres
+  const [errorTalleres, setErrorTalleres] = useState(null);
+
+
   const diagnosticoRef = useRef(null);
   const preciosRef = useRef(null);
   const talleresRef = useRef(null);
-  
-  const hasFetched = useRef(false);
 
   // Estilos en línea mejorados
   const styles = {
@@ -376,320 +381,331 @@ const ResultadosPage = () => {
   };
 
   useEffect(() => {
-    if (router.isReady && problemaOriginal && !hasFetched.current) {
-      hasFetched.current = true;
-  
-      const fetchResultados = async () => {
-        setCargando(true);
-        setError(null);
-  
+    // !!! CAMBIO: Usamos problemaSlug del router query, no 'slug' ni 'problemaOriginal' !!!
+    if (router.isReady && problemaSlug) {
+      const fetchDiagnostico = async () => {
+        setCargandoDiagnostico(true);
+        setErrorDiagnostico(null);
         try {
-          const { data: { user }, error: userError } = await supabase.auth.getUser();
-  
-          const { data: existing, error: selectError } = await supabase
-            .from('diagnostics')
-            .select('*')
-            .ilike('mensaje_usuario', decodeURIComponent(problemaOriginal))
-  
-          if (selectError) throw selectError;
-          
-          if (existing.length > 0) {
-            setRespuesta({
-              diagnostico: existing[0].diagnostico,
-              estimacionPrecios: existing[0].precios,
-              talleres: existing[0].talleres,
-            });
-            return;
-          }
-  
-          // No existe, así que hacemos la solicitud
-          const res = await fetch('/api/asistente', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ mensaje: problemaOriginal }),
-          });
-  
+          const res = await fetch(`/api/diagnostico/${problemaSlug}`);
+          console.log('Respuesta del API /api/diagnostico:', res); // Log la respuesta
+
+          // Verificar si la respuesta HTTP fue exitosa
           if (!res.ok) {
-            const errorData = await res.json();
-            throw new Error(errorData.detalle || `Error HTTP: ${res.status}`);
+            const errorData = await res.json(); // Intenta leer el cuerpo del error del API
+            // Maneja el caso específico de "No encontrado" (HTTP 404)
+            if (res.status === 404) {
+              // !!! CAMBIO: Usamos el estado de error renombrado !!!
+              setErrorDiagnostico({ message: 'Diagnóstico no encontrado.', details: `El problema con el slug "${problemaSlug}" no fue encontrado.` });
+            } else {
+              // Lanza un error para otros códigos de estado HTTP no exitosos
+              throw new Error(errorData.error || `Error HTTP: ${res.status}`);
+            }
+            // !!! CAMBIO: Usamos el estado de datos renombrado y lo ponemos a null en caso de error !!!
+            setDiagnosticoData(null);
+          } else {
+            const data = await res.json();
+            setDiagnosticoData(data);
           }
-  
-          const respuestaData = await res.json();
-          setRespuesta(respuestaData);
-  
-          const { error: insertError } = await supabase.from('diagnostics').insert([{
-            mensaje_usuario: decodeURIComponent(problemaOriginal),
-            diagnostico: respuestaData.diagnostico,
-            precios: respuestaData.estimacionPrecios,
-            talleres: respuestaData.talleres,
-            user_id: user?.id || null,
-          }]);
-  
-          if (insertError) {
-            console.error('Error al guardar en Supabase:', insertError);
-          }
-  
+
         } catch (err) {
-          console.error('Error al obtener resultados:', err);
-          setError({
-            message: 'Ocurrió un error al obtener el diagnóstico y los resultados.',
-            details: err.message,
+          setErrorDiagnostico({
+            message: err.message || 'No se pudo cargar el diagnóstico para este problema.',
+            details: err.message // Detalles técnicos del error
           });
+          setDiagnosticoData(null);
         } finally {
-          setCargando(false);
+          setCargandoDiagnostico(false); // Finaliza carga del diagnóstico
         }
       };
-  
-      fetchResultados();
-    } else if (router.isReady && !problemaOriginal) {
-      setError({
-        message: 'No se encontró la descripción original del problema en la URL.',
-        details: 'Por favor, intente buscar desde la página principal.',
-      });
-    }
-  }, [router.isReady, problemaOriginal]);
 
-  // Función para hacer scroll a la sección seleccionada
+      fetchDiagnostico(); // Ejecuta la función de fetch del diagnóstico
+    } else if (router.isReady && !problemaSlug) {
+      // Este caso maneja si alguien navega a /resultados/ sin un slug (aunque la ruta dinámica [slug].js lo hace difícil)
+      // !!! CAMBIO: Usamos el estado de error renombrado !!!
+      setErrorDiagnostico({
+        message: 'URL inválida.',
+        details: 'No se especificó un problema (slug) en la URL.'
+      });
+      // !!! CAMBIO: Usamos el estado de carga renombrado !!!
+      setCargandoDiagnostico(false);
+    }
+    // Dependencias: El efecto se re-ejecuta si el slug de la URL cambia o cuando el router está listo.
+  }, [problemaSlug, router.isReady]);
+
+
+  // Segundo useEffect: Buscar talleres UNA VEZ que el diagnóstico se ha cargado y tiene ciudad/servicios
+  useEffect(() => {
+    if (diagnosticoData && diagnosticoData.city  && talleresActuales === null && !cargandoTalleres) {
+      const fetchTalleres = async () => {
+        setCargandoTalleres(true); // Inicia carga de talleres
+        setErrorTalleres(null); // Limpia errores previos de talleres
+
+        try {
+          const city = diagnosticoData.city;
+          // Asegura que diagnosticoData.servicios es un array antes de join
+          const servicios = Array.isArray(diagnosticoData.servicios) ? diagnosticoData.servicios.join(',') : '';
+          const slug = diagnosticoData.slug; // Obtiene el slug del diagnóstico cargado
+
+          const res = await fetch(`/api/talleres?city=${encodeURIComponent(city)}&services=${encodeURIComponent(servicios)}&slug=${encodeURIComponent(slug)}`);
+
+          if (!res.ok) {
+            const errorData = await res.json(); // Intenta leer el cuerpo del error
+            throw new Error(errorData.error || `Error HTTP: ${res.status}`); // Lanza un error si no fue exitosa
+          }
+
+          const talleresData = await res.json();
+          setTalleresActuales(talleresData); // Guarda la lista ACTUAL de talleres
+
+        } catch (err) {
+          // Captura cualquier error durante el fetch o parseo de talleres
+          setErrorTalleres({
+            message: 'No se pudieron cargar los talleres recomendados.',
+            details: err.message // Detalles técnicos del error
+          });
+          setTalleresActuales([]); // Dejar la lista vacía en caso de error al cargar talleres
+        } finally {
+          // Esto se ejecuta siempre al finalizar el fetch de talleres
+          setCargandoTalleres(false); // Finaliza carga de talleres
+        }
+      };
+
+      fetchTalleres(); // Ejecuta la función de fetch de talleres
+    }
+  }, [diagnosticoData?.slug, diagnosticoData?.city, diagnosticoData?.servicios]);
+
   const scrollToSection = (ref) => {
     if (ref && ref.current) {
-      ref.current.scrollIntoView({ 
+      ref.current.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
     }
   };
 
+  // Si el diagnóstico cargó pero es null (ej. 404 del API /api/diagnostico/[slug])
+  // if (!diagnosticoData) {
+  //   return (
+  //     <div style={styles.container}>
+  //       <button style={{ ...styles.backButton, marginBottom: '20px' }} onClick={() => router.push('/')}>← Volver</button> {/* Usar backButton style */}
+  //       <div style={styles.errorContainer}> {/* Usar el estilo errorContainer */}
+  //         <div style={styles.errorFlex}>
+  //           <AlertCircle size={24} style={styles.errorIcon} /> {/* Usar errorIcon */}
+  //           <div>
+  //             <h2 style={styles.errorTitle}>Diagnóstico no encontrado.</h2> {/* Usar errorTitle */}
+  //             {/* Usar problemaSlug que viene de la URL */}
+  //             <p style={styles.errorMessage}>El problema con el identificador "{problemaSlug}" no fue encontrado en nuestra base de datos.</p> {/* Usar errorMessage */}
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+
   return (
     <div style={styles.container}>
-      <header style={styles.headerContainer}>
-        <button 
-          onClick={() => router.back()}
-          style={styles.backButton}
-          onMouseOver={(e) => e.currentTarget.style.color = '#2563eb'}
-          onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}
-        >
-          <ArrowLeft size={16} style={styles.iconMarginRight} />
-          <span>Volver</span>
-        </button>
+      {/* Botón para volver a la página principal */}
+      {/* Usar tu estilo backButton */}
+      <button
+        onClick={() => router.back()} // Usar router.back() es mejor para ir a la página anterior
+        style={styles.backButton}
+        onMouseOver={(e) => e.currentTarget.style.color = '#2563eb'} // Mantener efectos hover si quieres
+        onMouseOut={(e) => e.currentTarget.style.color = '#64748b'}
+      >
+        <ArrowLeft size={16} style={styles.iconMarginRight} />
+        <span>Volver</span>
+      </button>
 
-        <p style={styles.title}>Problema Reportado:</p>
-        
-        {problemaOriginal && (
-          <div style={styles.problemCard}>
-            {/* <p style={styles.problemLabel}>Problema reportado:</p> */}
-            <h1 style={styles.problemText}>"{decodeURIComponent(problemaOriginal)}"</h1>
+
+      <header style={styles.headerContainer}> {/* Usar headerContainer */}
+        <p style={styles.title}>Detalles del Diagnóstico:</p> {/* Usar style.title */}
+
+        {diagnosticoData?.mensaje_usuario && (
+          <div style={styles.problemCard}> {/* Usar el estilo problemCard que tenías */}
+            {/* Usar style.problemText */}
+            <h1 style={styles.problemText}>"{diagnosticoData.mensaje_usuario}"</h1> {/* Usar dato de DB */}
           </div>
+        )}
+        {(diagnosticoData?.city || diagnosticoData?.country) && (
+          <p style={styles.locationText}>Ubicación: {diagnosticoData.city}{diagnosticoData.city && diagnosticoData.country && ', '}{diagnosticoData.country}</p>
         )}
       </header>
 
-      {cargando && (
-        <div style={styles.loadingContainer}>
-          <Loader size={36} style={{color: '#2563eb', ...styles.loadingSpinner}} />
-          <p style={styles.loadingText}>Analizando tu problema...</p>
-        </div>
-      )}
 
-      {error && (
-        <div style={styles.errorContainer}>
-          <div style={styles.errorFlex}>
-            <AlertCircle size={24} style={styles.errorIcon} />
-            <div>
-              <h2 style={styles.errorTitle}>Ha ocurrido un error</h2>
-              <p style={styles.errorMessage}>{error.message}</p>
-              {error.details && <p style={styles.errorDetails}>{error.details}</p>}
+      {/* Puedes descomentar los botones de navegación si quieres */}
+      {/* { <div style={styles.navContainer}> ... </div> } */}
+
+
+      <div style={styles.resultContainer}> {/* Usar resultContainer */}
+        {/* Diagnóstico */}
+        <section ref={diagnosticoRef} style={styles.sectionAnchor}> {/* Usar ref y sectionAnchor */}
+          <div style={styles.sectionHeader}> {/* Usar sectionHeader */}
+            <div style={{ ...styles.sectionIconContainer, backgroundColor: '#e0f2fe' }}> {/* Usar sectionIconContainer */}
+              <Wrench size={20} style={{ color: '#0284c7' }} /> {/* Icono */}
             </div>
+            <h2 style={styles.sectionTitle}>Posible causa del problema</h2> {/* Usar sectionTitle */}
           </div>
-          {problemaOriginal && (
-            <button 
-              onClick={() => window.location.reload()}
-              style={styles.retryButton}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#dc2626'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#ef4444'}
-            >
-              <Loader size={16} style={{...styles.iconMarginRight, ...styles.loadingSpinner}} />
-              <span>Intentar nuevamente</span>
-            </button>
+          <div style={styles.diagnosticoCard}> {/* Usar diagnosticoCard */}
+            {/* Muestra el diagnóstico guardado */}
+            {/* !!! Usamos diagnosticoData?.diagnostico - nombre correcto y optional chaining !!! */}
+            {diagnosticoData?.diagnostico}
+          </div>
+        </section>
+
+
+        <section ref={preciosRef} style={styles.sectionAnchor}> {/* Usar ref y sectionAnchor */}
+          <div style={styles.sectionHeader}> {/* Usar sectionHeader */}
+            <div style={{ ...styles.sectionIconContainer, backgroundColor: '#ecfdf5' }}> {/* Usar sectionIconContainer */}
+              <DollarSign size={20} style={{ color: '#059669' }} /> {/* Icono */}
+            </div>
+            <h3 style={styles.sectionTitle}>Estimado de precios</h3> {/* Usar sectionTitle */}
+          </div>
+
+          {diagnosticoData?.precios && Array.isArray(diagnosticoData.precios) && diagnosticoData.precios.length > 0 ? (
+            <div style={styles.priceContainer}> {/* Usar priceContainer */}
+              {/* !!! Iteramos sobre diagnosticoData.precios !!! */}
+              {diagnosticoData.precios.map((precioItem, index) => (
+                <div
+                  key={index}
+                  // !!! Usamos diagnosticoData.precios.length para saber si es el último !!!
+                  style={index === diagnosticoData.precios.length - 1 ? { ...styles.priceItem, ...styles.priceItemLast } : styles.priceItem} // Mantener estilos de item
+                >
+                  {/* !!! Las propiedades internas item y precio son correctas (vienen de Gemini/API) !!! */}
+                  <span style={styles.priceLabel}>{precioItem.item}</span>
+                  <span style={styles.priceValue}>{precioItem.precio}</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={styles.emptyText}> {/* Usar emptyText */}
+              No se pudo obtener una estimación de precios detallada para este registro.
+            </div>
           )}
-        </div>
-      )}
+        </section>
 
-      {respuesta && !error && (
-        <>
-          {/* <div style={styles.navContainer}>
-            <button 
-              style={styles.navButton}
-              onClick={() => scrollToSection(diagnosticoRef)}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-            >
-              Diagnóstico
-            </button>
-            <button 
-              style={styles.navButton}
-              onClick={() => scrollToSection(preciosRef)}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-            >
-              Precios
-            </button>
-            <button 
-              style={styles.navButton}
-              onClick={() => scrollToSection(talleresRef)}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-            >
-              Talleres
-            </button>
-          </div> */}
 
-          <div style={styles.resultContainer}>
-            <section ref={diagnosticoRef} style={styles.sectionAnchor}>
-              <div style={styles.sectionHeader}>
-                <div style={{...styles.sectionIconContainer, backgroundColor: '#e0f2fe'}}>
-                  <Wrench size={20} style={{color: '#0284c7'}} />
-                </div>
-                <h2 style={styles.sectionTitle}>Diagnóstico técnico</h2>
-              </div>
-              <div style={styles.diagnosticoCard}>
-                {respuesta.diagnostico}
-              </div>
-            </section>
+        {/* Talleres Recomendados */}
+        <section ref={talleresRef} style={styles.sectionAnchor}> {/* Usar ref y sectionAnchor */}
+          <div style={styles.sectionHeader}> {/* Usar sectionHeader */}
+            <div style={{ ...styles.sectionIconContainer, backgroundColor: '#fef2f2' }}> {/* Usar sectionIconContainer */}
+              <MapPin size={20} style={{ color: '#dc2626' }} /> {/* Icono */}
+            </div>
+            {/* !!! Usamos diagnosticoData?.city o .country para el título dinámico !!! */}
+            <h3 style={styles.sectionTitle}>Talleres recomendados en {diagnosticoData?.city || diagnosticoData?.country || 'tu ubicación'}</h3> {/* Título dinámico */}
+          </div>
 
-            <section ref={preciosRef} style={styles.sectionAnchor}>
-              <div style={styles.sectionHeader}>
-                <div style={{...styles.sectionIconContainer, backgroundColor: '#ecfdf5'}}>
-                  <DollarSign size={20} style={{color: '#059669'}} />
-                </div>
-                <h2 style={styles.sectionTitle}>Estimado de precios</h2>
-              </div>
-              
-              {respuesta.estimacionPrecios && respuesta.estimacionPrecios.length > 0 ? (
-                <div style={styles.priceContainer}>
-                  {respuesta.estimacionPrecios.map((item, index) => (
-                    <div 
-                      key={index}
-                      style={
-                        index === respuesta.estimacionPrecios.length - 1 
-                          ? {...styles.priceItem, ...styles.priceItemLast, ...styles.priceItemHighlighted} 
-                          : styles.priceItem
-                      }
-                    >
-                      <span style={
-                        index === respuesta.estimacionPrecios.length - 1 
-                          ? styles.priceTotalLabel 
-                          : styles.priceLabel
-                      }>
-                        {item.item}
-                      </span>
-                      <span style={
-                        index === respuesta.estimacionPrecios.length - 1 
-                          ? styles.priceTotalValue 
-                          : styles.priceValue
-                      }>
-                        {item.precio}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div style={styles.emptyText}>
-                  No se pudo obtener una estimación de precios detallada en este momento.
-                </div>
-              )}
-            </section>
 
-            <section ref={talleresRef} style={styles.sectionAnchor}>
-              <div style={styles.sectionHeader}>
-                <div style={{...styles.sectionIconContainer, backgroundColor: '#fef2f2'}}>
-                  <MapPin size={20} style={{color: '#dc2626'}} />
+          {/* Indicador de carga para talleres */}
+          {cargandoTalleres && <p style={styles.loading}>Buscando talleres cercanos...</p>} {/* Usar estilo loading */}
+
+          {/* Mostrar error de talleres */}
+          {errorTalleres && (
+            <div style={styles.errorContainer}> {/* Usar estilo errorContainer */}
+              <div style={styles.errorFlex}> {/* Usar estilo errorFlex */}
+                <AlertCircle size={24} style={styles.errorIcon} /> {/* Icono */}
+                <div>
+                  <p style={styles.errorMessage}>{errorTalleres.message}</p> {/* Usar errorMessage */}
+                  {errorTalleres.details && <p style={styles.errorDetails}>{errorTalleres.details}</p>} {/* Usar errorDetails */}
                 </div>
-                <h2 style={styles.sectionTitle}>Talleres recomendados</h2>
               </div>
-              
-              {respuesta.talleres && respuesta.talleres.length > 0 ? (
-                <div style={styles.tallerContainer}>
-                  {respuesta.talleres.map((taller, index) => (
-                    <div 
-                      key={index}
-                      style={styles.tallerCard}
-                      onMouseOver={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                        e.currentTarget.style.borderColor = '#cbd5e1';
-                      }}
-                      onMouseOut={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.borderColor = '#e2e8f0';
-                      }}
-                    >
-                      <div style={styles.tallerHeader}>
-                        <div style={styles.tallerInfo}>
-                          <h3 style={styles.tallerName}>{taller.nombre}</h3>
-                          <div style={styles.tallerMetaContainer}>
-                            <div style={styles.tallerMeta}>
-                              <MapPin size={14} style={{...styles.iconMarginRight, color: '#94a3b8'}} />
-                              <span>{taller.ubicacion}</span>
-                            </div>
-                            <div style={styles.tallerMeta}>
-                              <Clock size={14} style={{...styles.iconMarginRight, color: '#94a3b8'}} />
-                              <span>Abierto hasta 20:00</span>
-                            </div>
+            </div>
+          )}
+
+          {/* Mostrar lista de talleres si no está cargando Y no hubo error de talleres */}
+          {!cargandoTalleres && !errorTalleres && (
+            talleresActuales && Array.isArray(talleresActuales) && talleresActuales.length > 0 ? ( // Si hay talleres en la lista...
+              <div style={styles.tallerContainer}> {/* Usar tallerContainer */}
+                {/* Muestra la lista de talleres ACTUALES */}
+                {talleresActuales.map((taller, index) => (
+                  <div
+                    key={index}
+                    style={styles.tallerCard} // Usar tallerCard
+                    // Mantener efectos hover si quieres
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                      e.currentTarget.style.borderColor = '#cbd5e1';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = '#e2e8f0';
+                    }}
+                  >
+                    <div style={styles.tallerHeader}> {/* Usar tallerHeader */}
+                      <div style={styles.tallerInfo}> {/* Usar tallerInfo */}
+                        <h3 style={styles.tallerName}>{taller.nombre}</h3> {/* Usar tallerName */}
+                        <div style={styles.tallerMetaContainer}> {/* Usar tallerMetaContainer */}
+                          <div style={styles.tallerMeta}> {/* Usar tallerMeta */}
+                            <MapPin size={14} style={{ ...styles.iconMarginRight, color: '#94a3b8' }} /> {/* Icono */}
+                            <span>{taller.ubicacion}</span>
+                          </div>
+                          <div style={styles.tallerMeta}> {/* Usar tallerMeta */}
+                            <Clock size={14} style={{ ...styles.iconMarginRight, color: '#94a3b8' }} /> {/* Icono */}
+                            <span>Abierto hasta 20:00</span> {/* Dato simulado */}
                           </div>
                         </div>
-                        <div style={styles.ratingBadge}>
-                          <Star size={14} style={{...styles.iconMarginRight, color: '#eab308', fill: '#eab308'}} />
-                          <span style={styles.ratingText}>{taller.calificacion}</span>
-                        </div>
                       </div>
-                      
-                      <div style={styles.tallerContact}>
-                        <button 
-                          style={styles.tallerContactButton}
-                          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#bae6fd'}
-                          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#e0f2fe'}
-                        >
-                          <Phone size={16} style={styles.iconMarginRight} />
-                          <span>Llamar ahora</span>
-                        </button>
-                        <button 
-                          style={styles.tallerDetailButton}
-                          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f1f5f9'}
-                          onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
-                        >
-                          <span>Ver detalles</span>
-                          <ChevronRight size={16} style={{marginLeft: '0.25rem'}} />
-                        </button>
+                      <div style={styles.ratingBadge}> {/* Usar ratingBadge */}
+                        <Star size={14} style={{ ...styles.iconMarginRight, color: '#eab308', fill: '#eab308' }} /> {/* Icono */}
+                        <span style={styles.ratingText}>{taller.calificacion}</span> {/* Usar ratingText */}
                       </div>
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div style={styles.emptyText}>
-                  No se encontraron talleres recomendados para este servicio.
-                </div>
-              )}
-            </section>
-          </div>
-          
-          <div style={styles.ctaContainer}>
-            <button 
-              style={styles.ctaButton}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = '#1d4ed8';
-                e.currentTarget.style.transform = 'translateY(-1px)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = '#2563eb';
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
-            >
-              <MessageCircle size={18} style={styles.iconMarginRight} />
-              <span>Recibir ofertas de talleres cercanos</span>
-            </button>
-          </div>
-        </>
-      )}
+
+                    <div style={styles.tallerContact}> {/* Usar tallerContact */}
+                      <button
+                        style={styles.tallerContactButton} // Usar tallerContactButton
+                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#bae6fd'}
+                        onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#e0f2fe'}
+                      >
+                        <Phone size={16} style={styles.iconMarginRight} /> {/* Icono */}
+                        <span>Llamar ahora</span>
+                      </button>
+                      <button
+                        style={styles.tallerDetailButton} // Usar tallerDetailButton
+                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f1f5f9'}
+                        onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
+                      >
+                        <span>Ver detalles</span>
+                        <ChevronRight size={16} style={{ marginLeft: '0.25rem' }} /> {/* Icono */}
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : ( // Si la lista de talleres está vacía (y no hubo error de carga)
+              <div style={styles.emptyText}> {/* Usar emptyText */}
+                No se encontraron talleres recomendados para este problema en la ubicación especificada actualmente.
+              </div>
+            )
+          )}
+        </section>
+      </div>
+
+
+      <div style={styles.ctaContainer}> {/* Usar ctaContainer */}
+        <button
+          style={styles.ctaButton} // Usar ctaButton
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = '#1d4ed8';
+            e.currentTarget.style.transform = 'translateY(-1px)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = '#2563eb';
+            e.currentTarget.style.transform = 'translateY(0)';
+          }}
+        >
+          <MessageCircle size={18} style={styles.iconMarginRight} />
+          <span>Recibir ofertas de talleres cercanos</span> {/* Texto del botón */}
+        </button>
+      </div>
+
+      {/* Opcional: Mostrar el slug para referencia/depuración fuera del bloque principal si quieres que se vea siempre */}
+      {/* !!! CAMBIO: Usamos diagnosticoData?.slug !!! */}
+      {diagnosticoData?.slug && <p style={{ ...styles.slugText, marginTop: '20px' }}>Slug de este diagnóstico: {diagnosticoData.slug}</p>} {/* Usar style.slugText */}
+
     </div>
   );
 };
+
 
 export default ResultadosPage;
