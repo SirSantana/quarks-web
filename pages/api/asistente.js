@@ -49,8 +49,32 @@ export default async function handler(req, res) {
     }
     const mensajeTrimmed = mensaje.trim(); // Usar la versión limpia para la búsqueda
 
-    const userCity = req.headers['x-vercel-ip-city'] || 'Bogotá';
-    const userCountry = req.headers['x-vercel-ip-country'] || 'Colombia';
+    const forwardedFor = req.headers['x-forwarded-for'];
+    const ip = Array.isArray(forwardedFor)
+      ? forwardedFor[0]
+      : forwardedFor?.split(',')[0]?.trim();
+
+    let userCity = req.headers['x-vercel-ip-city'];
+    let userCountry = req.headers['x-vercel-ip-country'];
+
+    if (!userCity || !userCountry) {
+      try {
+        const geoRes = await fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`);
+        const geoData = await geoRes.json();
+        console.log(geoData);
+        
+
+        userCity = geoData.city || 'Ciudad desconocida';
+        userCountry = geoData.country || 'País desconocido';
+      } catch (geoError) {
+        console.warn('Error usando geojs:', geoError);
+        userCity = 'Bogotá';
+        userCountry = 'Colombia';
+      }
+    }
+    console.log('userCity', userCity);
+    console.log('userCountry', userCountry);
+    
     // !!! CAMBIO AQUI: Usar .ilike() en lugar de .eq() para búsqueda case-insensitive !!!
     const { data: existingDiagnosis, error: selectError } = await supabase
       .from('diagnostics') // !!! Asegúrate que este es el nombre CORRECTO de tu tabla !!!
@@ -80,7 +104,7 @@ export default async function handler(req, res) {
     Genera un objeto JSON con los siguientes campos:
 
 
-    1.  'diagnostico': Una descripción concisa de las **2 a 4 causas preliminares más probables** o áreas afectadas basadas en el problema descrito. Sé directo y técnico, pero fácil de entender. 
+    1.  'diagnostico': Una descripción concisa de las **2 a 3 causas preliminares más probables** o áreas afectadas basadas en el problema descrito. Sé directo y técnico, pero fácil de entender. No uses mas de 500 caracteres.
     2.  'preciosEstimados': Una lista de objetos JSON. Por cada objeto, identifica un 'item' (una reparación común, parte principal o mano de obra asociada a las causas más probables) y su 'precio' (un rango estimado en la **moneda local de ${userCountry}** y costos típicos para **talleres de gama media en ${userCity}, ${userCountry}**. Si no tienes información específica para ${userCity}, proporciona una estimación general para **${userCountry}**. Si no tienes información específica para el país, proporciona una estimación general global). Enfócate en los **costos más probables** relacionados con las causas identificadas (ej: "Cambio de Pastillas (Piezas + Mano de obra)", "Rectificación de Discos", "Revisión Sistema Eléctrico").
     3.  'serviciosRequeridos': Una lista de strings. Identifica las CATEGORÍAS generales de servicios automotrices que un taller debería ofrecer para solucionar este tipo de problema (ejemplos: "Frenos", "Suspensión", "Motor", "Electricidad", "Alineación", "Transmisión", "Diagnóstico Electrónico", "Revisiones Generales"). Lista solo las categorías de **alto nivel más relevantes** (máximo 3-5).
 
