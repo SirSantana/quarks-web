@@ -314,20 +314,21 @@ const IndexPage = () => {
 
   const enviarProblema = async () => {
     // Valida que el mensaje no esté vacío y no esté bloqueado o cargando
-    if (!mensaje.trim() || bloqueado || cargando) return;
+    
+    // if (!mensaje.trim() || !bloqueado || cargando) return;
 
     setCargando(true); // Inicia estado de carga
-    if (!usuario) {
-      const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
+    // if (!usuario) {
+    //   const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
 
-      if (yaUsoConsulta === 'true') {
-        setBloqueado(true); // Bloquear si ya usó la consulta gratis sin estar logueado
-        setCargando(false); // Detener carga
-        return; // Salir de la función
-      }
+    //   if (yaUsoConsulta === 'true') {
+    //     setBloqueado(false); // Bloquear si ya usó la consulta gratis sin estar logueado
+    //     setCargando(false); // Detener carga
+    //     return; // Salir de la función
+    //   }
 
-      localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
-    }
+    //   localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
+    // }
 
 
     try {
