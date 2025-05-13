@@ -8,7 +8,10 @@ import {
   Settings,
   AlertTriangle,
   LogIn,
-  ChevronRight
+  ChevronRight,
+  Search,
+  CheckCircle,
+  Database
 } from 'lucide-react';
 
 function createSlug(text) {
@@ -25,9 +28,19 @@ const IndexPage = () => {
   const [cargando, setCargando] = useState(false);
   const [usuario, setUsuario] = useState(null);
   const [bloqueado, setBloqueado] = useState(false);
+  const [etapaAnalisis, setEtapaAnalisis] = useState(0);
   const router = useRouter();
 
-  // Estilos modernizados en línea
+  // Mensajes de feedback por etapas
+  const mensajesAnalisis = [
+    "Analizando el problema...",
+    "Identificando síntomas principales...",
+    "Consultando base de datos de diagnósticos...",
+    "Verificando posibles causas...",
+    "Calculando estimados de reparación...",
+    "Preparando el diagnóstico final..."
+  ];
+
   const styles = {
     container: {
       fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
@@ -197,6 +210,62 @@ const IndexPage = () => {
       color: '#9ca3af',
       textAlign: 'center',
       marginTop: '1rem'
+    },
+    // Nuevos estilos para el sistema de feedback
+    loadingContainer: {
+      backgroundColor: '#f0f9ff',
+      borderRadius: '8px',
+      padding: '1.25rem',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1rem',
+      transition: 'all 0.3s ease',
+      border: '1px solid #bfdbfe'
+    },
+    loadingHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.75rem',
+      color: '#1d4ed8'
+    },
+    loadingTitle: {
+      fontWeight: '600',
+      fontSize: '1rem',
+      marginBottom: '0'
+    },
+    progressBar: {
+      height: '6px',
+      backgroundColor: '#dbeafe',
+      borderRadius: '3px',
+      overflow: 'hidden',
+      position: 'relative'
+    },
+    progressFill: {
+      height: '100%',
+      backgroundColor: '#3b82f6',
+      borderRadius: '3px',
+      transition: 'width 0.5s ease'
+    },
+    etapaInfo: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.75rem',
+      marginTop: '0.5rem'
+    },
+    etapaIcon: {
+      backgroundColor: '#dbeafe',
+      borderRadius: '50%',
+      width: '32px',
+      height: '32px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexShrink: 0
+    },
+    etapaText: {
+      fontSize: '0.95rem',
+      color: '#1e40af',
+      fontWeight: '500'
     }
   };
 
@@ -220,6 +289,29 @@ const IndexPage = () => {
 
     verificarSesion();
   }, []);
+
+  // Avanzar progresivamente por las etapas durante la carga
+  useEffect(() => {
+    let intervalId;
+    if (cargando) {
+      setEtapaAnalisis(0);
+      intervalId = setInterval(() => {
+        setEtapaAnalisis(prevEtapa => {
+          // Mantener en la última etapa cuando se complete
+          if (prevEtapa >= mensajesAnalisis.length - 1) {
+            clearInterval(intervalId);
+            return mensajesAnalisis.length - 1;
+          }
+          return prevEtapa + 1;
+        });
+      }, 1200); // Cambia cada 1.2 segundos
+    } else {
+      clearInterval(intervalId);
+    }
+
+    return () => clearInterval(intervalId);
+  }, [cargando]);
+
   const enviarProblema = async () => {
     // Valida que el mensaje no esté vacío y no esté bloqueado o cargando
     if (!mensaje.trim() || bloqueado || cargando) return;
@@ -234,21 +326,28 @@ const IndexPage = () => {
         return; // Salir de la función
       }
 
-      localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
+      // localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
     }
 
 
     try {
-      const res = await fetch('/api/asistente', {
+      // Simulamos un delay mínimo para que el usuario pueda ver todas las etapas
+      // incluso si la API responde muy rápido
+      const apiPromise = fetch('/api/asistente', {
         method: 'POST', // Usar método POST
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mensaje: mensaje.trim() }), // Enviar el mensaje en el cuerpo
       });
+      
+      // Garantizar que se muestren al menos 4 segundos de feedback
+      const minDelay = new Promise(resolve => setTimeout(resolve, 4000));
+      
+      // Esperar a que ambas promesas se completen
+      const [res] = await Promise.all([apiPromise, minDelay]);
 
       // Verificar si la respuesta del API fue exitosa
       if (!res.ok) {
         const errorData = await res.json(); // Leer el cuerpo del error del API
-        // !!! Manejar el error adecuadamente, quizás mostrarlo al usuario !!!
         throw new Error(errorData.error || 'Error al procesar la solicitud en la API.');
       }
 
@@ -256,11 +355,9 @@ const IndexPage = () => {
       const data = await res.json();
       const slug = data.slug; // Obtener el slug de la respuesta
       
-      // !!! CAMBIO AQUI: REDIRIGIR USANDO EL SLUG OBTENIDO DEL API !!!
       if (slug) {
         router.push(`/problemas/${slug.replaceAll(' ', '-').toLowerCase()}`); // Redirige a la página de resultados con el slug
       } else {
-        // Esto no debería pasar si el API funciona correctamente, pero es una seguridad
         throw new Error('La API no devolvió un identificador válido.');
       }
 
@@ -274,6 +371,16 @@ const IndexPage = () => {
 
   const seleccionarEjemplo = (ejemplo) => {
     setMensaje(ejemplo);
+  };
+
+  // Elige el icono adecuado para cada etapa de análisis
+  const getIconoEtapa = (index) => {
+    switch (index) {
+      case 0: return <Search size={18} color="#3b82f6" />;
+      case 1: return <CheckCircle size={18} color="#3b82f6" />;
+      case 2: return <Database size={18} color="#3b82f6" />;
+      default: return <Loader size={18} color="#3b82f6" />;
+    }
   };
 
   return (
@@ -306,6 +413,34 @@ const IndexPage = () => {
         </div>
       )}
 
+      {/* Estado de análisis - visible solo durante carga */}
+      {cargando && (
+        <div style={styles.loadingContainer}>
+          {/* <div style={styles.loadingHeader}>
+            <Loader size={20} className="animate-spin" />
+            <h4 style={styles.loadingTitle}>Analizando tu problema</h4>
+          </div> */}
+          
+          <div style={styles.progressBar}>
+            <div 
+              style={{
+                ...styles.progressFill,
+                width: `${((etapaAnalisis + 1) / mensajesAnalisis.length) * 100}%`
+              }}
+            ></div>
+          </div>
+          
+          <div style={styles.etapaInfo}>
+            <div style={styles.etapaIcon}>
+              {getIconoEtapa(etapaAnalisis)}
+            </div>
+            <span style={styles.etapaText}>
+              {mensajesAnalisis[etapaAnalisis]}
+            </span>
+          </div>
+        </div>
+      )}
+
       <div style={styles.formGroup}>
         <label style={styles.textareaLabel}>Describe el problema de tu vehículo:</label>
         <div
@@ -313,24 +448,24 @@ const IndexPage = () => {
             ...styles.textareaWrapper,
             boxShadow: mensaje ? '0 0 0 2px rgba(59, 130, 246, 0.2)' : 'none',
             borderColor: mensaje ? '#3b82f6' : '#e5e7eb',
-            ...(bloqueado ? { borderColor: '#d1d5db', backgroundColor: '#f9fafb' } : {})
+            ...(bloqueado || cargando ? { borderColor: '#d1d5db', backgroundColor: '#f9fafb' } : {})
           }}
           onMouseOver={(e) => {
-            if (!bloqueado) e.currentTarget.style.borderColor = '#3b82f6';
+            if (!bloqueado && !cargando) e.currentTarget.style.borderColor = '#3b82f6';
           }}
           onMouseOut={(e) => {
-            if (!bloqueado && !mensaje) e.currentTarget.style.borderColor = '#e5e7eb';
+            if (!bloqueado && !cargando && !mensaje) e.currentTarget.style.borderColor = '#e5e7eb';
           }}
         >
           <textarea
             style={{
               ...styles.textarea,
-              ...(bloqueado ? styles.textareaDisabled : {})
+              ...(bloqueado || cargando ? styles.textareaDisabled : {})
             }}
             value={mensaje}
             onChange={(e) => setMensaje(e.target.value)}
             placeholder="Ej: Mi carro hace un ruido al frenar..."
-            disabled={bloqueado}
+            disabled={bloqueado || cargando}
           ></textarea>
         </div>
       </div>
@@ -367,7 +502,7 @@ const IndexPage = () => {
         )}
       </button>
 
-      {!bloqueado && (
+      {!bloqueado && !cargando && (
         <div style={styles.examplePrompts}>
           <p style={styles.examplesTitle}>O prueba con uno de estos ejemplos:</p>
           {ejemplosProblemas.map((ejemplo, idx) => (

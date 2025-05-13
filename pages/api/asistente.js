@@ -9,7 +9,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY // !!! USAR LA CLAVE DE ROL DE SERVICIO AQUI !!!
 );
 
-
+const MAX_MESSAGE_LENGTH = 400;
 // --- Esquema para la respuesta estructurada de Gemini ---
 const responseSchema = z.object({
   diagnostico: z.string().describe("Diagnóstico preliminar del problema descrito por el usuario."),
@@ -20,34 +20,31 @@ const responseSchema = z.object({
   serviciosRequeridos: z.array(z.string()).describe("Lista de tipos de servicios generales requeridos."),
 });
 
-// Función para crear un slug a partir del texto del problema
-function createSlug(text) {
-  return text
-    .toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-    .replace(/-+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
 
 export default async function handler(req, res) {
-  // !!! ELIMINAR console.log( Llegar el objeto req entero no es buena práctica)
-  // console.log(`Mensaje enviado: ${req}`);
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido. Usa POST.' });
   }
 
-  // !!! ELIMINAR console.log( Llegar el body puede exponer datos, aunque aquí solo sea el mensaje)
-  // console.log(`Mensaje enviado: ${req.body}`);
-
 
   try {
     const { mensaje } = req.body;
-    if (!mensaje || typeof mensaje !== 'string' || !mensaje.trim()) {
-      return res.status(400).json({ error: 'El mensaje del problema es requerido y no puede estar vacío.' });
+    if (!mensaje || typeof mensaje !== 'string') {
+      return res.status(400).json({ error: 'Mensaje inválido' });
     }
-    const mensajeTrimmed = mensaje.trim(); // Usar la versión limpia para la búsqueda
+
+    const mensajeTrimmed = mensaje.trim();
+
+    if (mensajeTrimmed.length === 0) {
+      return res.status(400).json({ error: 'El mensaje no puede estar vacío' });
+    }
+
+    if (mensajeTrimmed.length > MAX_MESSAGE_LENGTH) {
+      return res.status(400).json({
+        error: `El mensaje es demasiado largo. Máximo ${MAX_MESSAGE_LENGTH} caracteres.`,
+      });
+    } // Usar la versión limpia para la búsqueda
 
     const forwardedFor = req.headers['x-forwarded-for'];
     const ip = Array.isArray(forwardedFor)
@@ -61,7 +58,6 @@ export default async function handler(req, res) {
       try {
         const geoRes = await fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`);
         const geoData = await geoRes.json();
-        console.log(geoData);
         
 
         userCity = geoData.city || 'Ciudad desconocida';
@@ -72,8 +68,6 @@ export default async function handler(req, res) {
         userCountry = 'Colombia';
       }
     }
-    console.log('userCity', userCity);
-    console.log('userCountry', userCountry);
     
     // !!! CAMBIO AQUI: Usar .ilike() en lugar de .eq() para búsqueda case-insensitive !!!
     const { data: existingDiagnosis, error: selectError } = await supabase
