@@ -321,7 +321,7 @@ const IndexPage = () => {
       const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
 
       if (yaUsoConsulta === 'true') {
-        setBloqueado(true); // Bloquear si ya usó la consulta gratis sin estar logueado
+        setBloqueado(false); // Bloquear si ya usó la consulta gratis sin estar logueado
         setCargando(false); // Detener carga
         return; // Salir de la función
       }
