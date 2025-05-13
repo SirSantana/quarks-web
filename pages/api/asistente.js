@@ -51,10 +51,8 @@ export default async function handler(req, res) {
       ? forwardedFor[0]
       : forwardedFor?.split(',')[0]?.trim();
 
-    let userCity = req.headers['x-vercel-ip-city'];
-    let userCountry = req.headers['x-vercel-ip-country'];
 
-    if (!userCity || !userCountry) {
+    if (ip) {
       try {
         // Cambiamos a ipapi.co (más confiable)
         const geoRes = await fetch(`https://ipapi.co/ ${ip}/json/`);
