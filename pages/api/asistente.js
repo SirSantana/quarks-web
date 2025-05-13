@@ -61,13 +61,11 @@ export default async function handler(req, res) {
       });
     } // Usar la versión limpia para la búsqueda
 
-    const ip = getClientIP(req);
-    console.log('IP detectada:', ip);
-    console.log('IP detectada:', req.headers);
+    // const ip = getClientIP(req);
 
 
-    let userCity = req.headers['x-vercel-ip-city'] || 'Bogotá';	
-    let userCountry = req.headers['x-vercel-ip-country'] || 'Colombia';
+    let userCity = 'Bogotá';	
+    let userCountry ='Colombia';
     
     // if (!userCity || !userCountry) {
     //   try {
