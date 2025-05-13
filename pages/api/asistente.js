@@ -19,7 +19,22 @@ const responseSchema = z.object({
   })).describe("Lista de estimaciones de precios."),
   serviciosRequeridos: z.array(z.string()).describe("Lista de tipos de servicios generales requeridos."),
 });
+function getClientIP(req) {
+  const forwarded = req.headers['x-forwarded-for'];
+  const ip = typeof forwarded === 'string'
+    ? forwarded.split(',')[0].trim()
+    : Array.isArray(forwarded)
+      ? forwarded[0].trim()
+      : null;
 
+  return (
+    ip ||
+    req.headers['x-real-ip'] ||
+    req.headers['cf-connecting-ip'] ||
+    req.socket?.remoteAddress ||
+    null
+  );
+}
 
 export default async function handler(req, res) {
 
@@ -46,32 +61,27 @@ export default async function handler(req, res) {
       });
     } // Usar la versión limpia para la búsqueda
 
-    const forwardedFor = req.headers['x-forwarded-for'];
-    const ip = Array.isArray(forwardedFor)
-      ? forwardedFor[0]
-      : forwardedFor?.split(',')[0]?.trim();
+    const ip = getClientIP(req);
+    console.log('IP detectada:', ip);
+    console.log('IP detectada:', req.headers);
 
 
-    if (ip) {
-      try {
-        // Cambiamos a ipapi.co (más confiable)
-        const geoRes = await fetch(`https://ipapi.co/ ${ip}/json/`);
+    let userCity = req.headers['x-vercel-ip-city'] || 'Bogotá';	
+    let userCountry = req.headers['x-vercel-ip-country'] || 'Colombia';
+    
+    // if (!userCity || !userCountry) {
+    //   try {
+    //     const geoRes = await fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`);
+    //     const geoData = await geoRes.json();
 
-        if (!geoRes.ok) throw new Error('Error al obtener ubicación');
-
-        const geoData = await geoRes.json();
-
-        // Validar campos antes de asignarlos
-        userCity = geoData.city ? geoData.city.trim() : 'Ciudad desconocida';
-        userCountry = geoData.country_name ? geoData.country_name.trim() : 'País desconocido';
-
-        console.log('Ubicación obtenida:', { city: userCity, country: userCountry });
-      } catch (geoError) {
-        console.warn('Error usando ipapi:', geoError);
-        userCity = 'Bogotá'; // Fallback seguro
-        userCountry = 'Colombia';
-      }
-    }
+    //     userCity = geoData.city || 'Ciudad desconocida';
+    //     userCountry = geoData.country || 'País desconocido';
+    //   } catch (geoError) {
+    //     console.warn('Error usando geojs:', geoError);
+    //     userCity = 'Bogotá';
+    //     userCountry = 'Colombia';
+    //   }
+    // }
 
     // !!! CAMBIO AQUI: Usar .ilike() en lugar de .eq() para búsqueda case-insensitive !!!
     const { data: existingDiagnosis, error: selectError } = await supabase
