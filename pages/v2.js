@@ -283,7 +283,7 @@ const IndexPage = () => {
 
       // Verificar el límite solo si no hay usuario autenticado
       if (!data.user && localStorage.getItem('usoConsultaGratis') === 'true') {
-        setBloqueado(true);
+        setBloqueado(false);
       }
     };
 
@@ -321,12 +321,12 @@ const IndexPage = () => {
       const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
 
       if (yaUsoConsulta === 'true') {
-        setBloqueado(false); // Bloquear si ya usó la consulta gratis sin estar logueado
+        setBloqueado(true); // Bloquear si ya usó la consulta gratis sin estar logueado
         setCargando(false); // Detener carga
         return; // Salir de la función
       }
 
-      // localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
+      localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
     }
 
 
