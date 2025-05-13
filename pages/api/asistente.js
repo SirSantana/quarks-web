@@ -56,19 +56,25 @@ export default async function handler(req, res) {
 
     if (!userCity || !userCountry) {
       try {
-        const geoRes = await fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`);
-        const geoData = await geoRes.json();
-        
+        // Cambiamos a ipapi.co (más confiable)
+        const geoRes = await fetch(`https://ipapi.co/ ${ip}/json/`);
 
-        userCity = geoData.city || 'Ciudad desconocida';
-        userCountry = geoData.country || 'País desconocido';
+        if (!geoRes.ok) throw new Error('Error al obtener ubicación');
+
+        const geoData = await geoRes.json();
+
+        // Validar campos antes de asignarlos
+        userCity = geoData.city ? geoData.city.trim() : 'Ciudad desconocida';
+        userCountry = geoData.country_name ? geoData.country_name.trim() : 'País desconocido';
+
+        console.log('Ubicación obtenida:', { city: userCity, country: userCountry });
       } catch (geoError) {
-        console.warn('Error usando geojs:', geoError);
-        userCity = 'Bogotá';
+        console.warn('Error usando ipapi:', geoError);
+        userCity = 'Bogotá'; // Fallback seguro
         userCountry = 'Colombia';
       }
     }
-    
+
     // !!! CAMBIO AQUI: Usar .ilike() en lugar de .eq() para búsqueda case-insensitive !!!
     const { data: existingDiagnosis, error: selectError } = await supabase
       .from('diagnostics') // !!! Asegúrate que este es el nombre CORRECTO de tu tabla !!!
