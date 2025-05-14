@@ -379,6 +379,7 @@ const ResultadosPage = () => {
       borderTop: '1px solid #e2e8f0'
     }
   };
+console.log(problemaSlug);
 
   useEffect(() => {
     // !!! CAMBIO: Usamos problemaSlug del router query, no 'slug' ni 'problemaOriginal' !!!
@@ -527,9 +528,17 @@ const ResultadosPage = () => {
             <h1 style={styles.problemText}>"{diagnosticoData.mensaje_usuario}"</h1> {/* Usar dato de DB */}
           </div>
         )}
-        {(diagnosticoData?.city || diagnosticoData?.country) && (
-          <p style={styles.locationText}>Ubicación: {diagnosticoData.city}{diagnosticoData.city && diagnosticoData.country && ', '}{diagnosticoData.country}</p>
+       {(diagnosticoData?.car_make || diagnosticoData?.car_model || diagnosticoData?.car_year) && (
+            <p style={{...styles.subtitle, marginTop: '-1rem', marginBottom: '1rem', fontStyle: 'italic'}}>
+                Vehículo:
+                {diagnosticoData.car_make && ` ${diagnosticoData.car_make}`}
+                {diagnosticoData.car_model && ` ${diagnosticoData.car_model}`}
+                {diagnosticoData.car_year && ` Año ${diagnosticoData.car_year}`}
+            </p>
         )}
+        {(diagnosticoData?.city || diagnosticoData?.country) && (
+          <p style={styles.locationText}>Ubicación: {diagnosticoData.city}{diagnosticoData.city && diagnosticoData.country && ', '}{diagnosticoData.country}</p>
+        )}
       </header>
 
 

@@ -17,7 +17,6 @@ export default async function handler(req, res) {
   if (!slug) {
     return res.status(400).json({ error: 'El slug del diagnóstico es requerido en la URL.' });
   }
-  console.log(slug, 'slug');
 
   try {
     // Consulta la tabla 'diagnoses' en Supabase para encontrar el registro con el slug dado.
@@ -25,10 +24,9 @@ export default async function handler(req, res) {
     // !!! Asegúrate de que los nombres de las columnas ('slug', 'mensaje_usuario', etc.) coincidan exactamente con tu tabla !!!
     const { data, error: dbError } = await supabase
       .from('diagnostics') // Nombre de tu tabla de diagnósticos
-      .select('mensaje_usuario, city, country, diagnostico, precios, servicios')
-      .ilike('mensaje_usuario', slug.replaceAll('-', ' ')) // Filtra el resultado para que coincida con el slug de la URL
+      .select('mensaje_usuario, city, country, diagnostico, precios, servicios, slug, car_make, car_model, car_year')
+      .ilike('slug', slug) // Filtra el resultado para que coincida con el slug de la URL
       .single(); // Esperamos como máximo UN resultado porque el slug debería ser único
-    console.log(slug, 'slug');
         
     // Manejo de errores de la base de datos durante la consulta
     if (dbError) {
