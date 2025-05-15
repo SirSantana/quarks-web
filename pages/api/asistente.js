@@ -80,7 +80,7 @@ export default async function handler(req, res) {
 
 
   try {
-    const { mensaje } = req.body;
+    const { mensaje, userId } = req.body;
     if (!mensaje || typeof mensaje !== 'string') {
       return res.status(400).json({ error: 'Mensaje inválido' });
     }
@@ -216,7 +216,8 @@ export default async function handler(req, res) {
           servicios: structuredResponse.serviciosRequeridos,
           car_make: carMake,
           car_model: carModel,
-          car_year:carYear
+          car_year:carYear,
+          user_id: userId
         },
       ])
       .select('slug')

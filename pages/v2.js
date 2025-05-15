@@ -41,7 +41,7 @@ const IndexPage = () => {
     "Preparando el diagnóstico final..."
   ];
 
-  const styles = {
+    const styles = {
     container: {
       fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
       maxWidth: '480px',
@@ -280,7 +280,6 @@ const IndexPage = () => {
     const verificarSesion = async () => {
       const { data } = await supabase.auth.getUser(); // Usa el cliente Supabase del frontend para auth
       setUsuario(data.user);
-
       // Verificar el límite solo si no hay usuario autenticado
       if (!data.user && localStorage.getItem('usoConsultaGratis') === 'true') {
         setBloqueado(false);
@@ -337,7 +336,7 @@ const IndexPage = () => {
       const apiPromise = fetch('/api/asistente', {
         method: 'POST', // Usar método POST
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mensaje: mensaje.trim() }), // Enviar el mensaje en el cuerpo
+        body: JSON.stringify({ mensaje: mensaje.trim(), userId: usuario.id }), // Enviar el mensaje en el cuerpo
       });
       
       // Garantizar que se muestren al menos 4 segundos de feedback

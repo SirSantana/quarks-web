@@ -379,7 +379,6 @@ const ResultadosPage = () => {
       borderTop: '1px solid #e2e8f0'
     }
   };
-console.log(problemaSlug);
 
   useEffect(() => {
     // !!! CAMBIO: Usamos problemaSlug del router query, no 'slug' ni 'problemaOriginal' !!!
@@ -389,7 +388,6 @@ console.log(problemaSlug);
         setErrorDiagnostico(null);
         try {
           const res = await fetch(`/api/diagnostico/${problemaSlug}`);
-          console.log('Respuesta del API /api/diagnostico:', res); // Log la respuesta
 
           // Verificar si la respuesta HTTP fue exitosa
           if (!res.ok) {
