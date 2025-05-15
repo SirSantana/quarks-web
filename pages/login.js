@@ -2,7 +2,7 @@ import { supabase } from '@/lib/supabaseClient'
 
 export default function LoginPage() {
 
-  const siteUrl = process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000';
+  const siteUrl = process.env.NEXT_PUBLIC_API_PRODUCTION || 'http://localhost:3000';
   const redirectToUrl = `${siteUrl}/api/supabase/callback`; // <--- ¡APUNTA A LA API ROUTE!
 
   console.log("Iniciando flujo Google OAuth, redirigiendo a:", redirectToUrl);
