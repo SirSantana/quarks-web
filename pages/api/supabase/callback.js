@@ -12,7 +12,5 @@ export default async function handler(req, res) {
     return res.redirect('/login')
   }
 
-  // Puedes hacer upsert a la tabla "profiles", etc.
-
   return res.redirect('/dashboard')
 }
