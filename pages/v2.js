@@ -13,6 +13,7 @@ import {
   CheckCircle,
   Database
 } from 'lucide-react';
+import { useAuth } from '@/Context/AuthContext';
 
 function createSlug(text) {
   return text
@@ -26,10 +27,10 @@ function createSlug(text) {
 const IndexPage = () => {
   const [mensaje, setMensaje] = useState('');
   const [cargando, setCargando] = useState(false);
-  const [usuario, setUsuario] = useState(null);
   const [bloqueado, setBloqueado] = useState(false);
   const [etapaAnalisis, setEtapaAnalisis] = useState(0);
   const router = useRouter();
+const { user, loading:load, signOut } = useAuth();
 
   // Mensajes de feedback por etapas
   const mensajesAnalisis = [
@@ -41,8 +42,7 @@ const IndexPage = () => {
     "Preparando el diagnóstico final..."
   ];
 
-    const styles = {
-    container: {
+    const styles = {container: {
       fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
       maxWidth: '480px',
       margin: '3rem auto',
@@ -276,18 +276,6 @@ const IndexPage = () => {
     "El aire acondicionado no enfría lo suficiente"
   ];
 
-  useEffect(() => {
-    const verificarSesion = async () => {
-      const { data } = await supabase.auth.getUser(); // Usa el cliente Supabase del frontend para auth
-      setUsuario(data.user);
-      // Verificar el límite solo si no hay usuario autenticado
-      if (!data.user && localStorage.getItem('usoConsultaGratis') === 'true') {
-        setBloqueado(false);
-      }
-    };
-
-    verificarSesion();
-  }, []);
 
   // Avanzar progresivamente por las etapas durante la carga
   useEffect(() => {
@@ -310,6 +298,7 @@ const IndexPage = () => {
 
     return () => clearInterval(intervalId);
   }, [cargando]);
+  console.log(user, 'hi');
 
   const enviarProblema = async () => {
     // Valida que el mensaje no esté vacío y no esté bloqueado o cargando
@@ -336,7 +325,7 @@ const IndexPage = () => {
       const apiPromise = fetch('/api/asistente', {
         method: 'POST', // Usar método POST
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mensaje: mensaje.trim(), userId: usuario.id }), // Enviar el mensaje en el cuerpo
+        body: JSON.stringify({ mensaje: mensaje.trim(), userId: user ? user.id : null }), // Enviar el mensaje en el cuerpo
       });
       
       // Garantizar que se muestren al menos 4 segundos de feedback
@@ -362,6 +351,7 @@ const IndexPage = () => {
       }
 
     } catch (error) {
+
       alert(`Ocurrió un error: ${error.message}`); // O usa un método de notificación más amigable
 
     } finally {

@@ -234,6 +234,8 @@ export default async function handler(req, res) {
 
 
   } catch (error) {
+    console.log(error);
+    
     // ... (manejo de errores generales se mantiene igual)
     let userErrorMessage = 'Ocurrió un error al procesar tu solicitud.';
 
