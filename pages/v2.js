@@ -419,7 +419,6 @@ const { user, loading:load, signOut } = useAuth();
               }}
             ></div>
           </div>
-          
           <div style={styles.etapaInfo}>
             <div style={styles.etapaIcon}>
               {getIconoEtapa(etapaAnalisis)}

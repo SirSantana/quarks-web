@@ -1,0 +1,579 @@
+/* TurboInteractivo.module.css */
+
+.container {
+  color: #373737;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  text-align: center;
+  color: #4b5563;
+  margin-bottom: 3rem;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.imageSection {
+  position: relative;
+}
+
+.imageContainer {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.turboImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.interactiveArea {
+  position: absolute;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.interactiveArea.exhaustInlet {
+  left: 15%;
+  top: 50%;
+}
+
+.interactiveArea.turbineHousing {
+  left: 30%;
+  top: 45%;
+}
+
+.interactiveArea.centerHousing {
+  left: 48%;
+  top: 32%;
+}
+
+.interactiveArea.compressorHousing {
+  left: 65%;
+  top: 25%;
+}
+
+.interactiveArea.wastegate {
+  left: 70%;
+  top: 65%;
+}
+
+.interactiveArea.hovered {
+  background-color: rgba(74, 144, 226, 0.1);
+  border: 1px dashed #4a90e2;
+}
+
+.interactiveArea.selected {
+  background-color: rgba(74, 144, 226, 0.3);
+  border: 2px solid #4a90e2;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.3);
+}
+
+.tooltip {
+  position: absolute;
+  top: -2rem;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.instructions {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.instructionsText {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoPanel {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  animation: slideInFromRight 0.3s ease-in-out;
+}
+
+.infoPanelHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.colorIndicator {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.infoTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 12rem;
+  overflow-y: auto;
+}
+
+.infoSubtitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.infoText {
+  color: #4b5563;
+  line-height: 1.625;
+  margin: 0;
+}
+
+.backButton {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.backButton:hover {
+  background-color: #374151;
+}
+
+.defaultPanel {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.defaultTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.defaultContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: #4b5563;
+}
+
+.defaultText {
+  line-height: 1.625;
+  margin: 0;
+}
+
+.sidesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.sideBox {
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid;
+}
+
+.sideBoxCold {
+  background-color: #eff6ff;
+  border-color: #dbeafe;
+}
+
+.sideBoxHot {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+}
+
+.sideBoxHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.sideBoxIndicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.sideBoxIndicatorCold {
+  background-color: #3b82f6;
+}
+
+.sideBoxIndicatorHot {
+  background-color: #ef4444;
+}
+
+.sideBoxTitle {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.sideBoxText {
+  font-size: 0.75rem;
+  color: #4b5563;
+  margin: 0;
+}
+
+.highlightBox {
+  background-color: #eff6ff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border: 1px solid #dbeafe;
+}
+
+.highlightText {
+  color: #2563eb;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.componentLegend {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.legendTitle {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.legendList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.legendItem:hover {
+  background-color: #eff6ff;
+}
+
+.legendItem.selected {
+  background-color: #eff6ff;
+  border-color: #dbeafe;
+}
+
+.legendIndicator {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.legendText {
+  font-weight: 500;
+  color: #374151;
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.specCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+}
+
+.specTitle {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #374151;
+  margin: 0 0 0.5rem 0;
+}
+
+.specValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0 0 0.25rem 0;
+}
+
+.specUnit {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Animaciones */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Media Queries para Responsive Design */
+
+/* Tablets */
+@media (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .wrapper {
+    padding: 2rem 2rem;
+  }
+  
+  .interactiveArea {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .specsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+  
+  .mainGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .specsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1280px) {
+  .wrapper {
+    padding: 2rem 3rem;
+  }
+  
+  .title {
+    font-size: 3.5rem;
+  }
+}
+
+/* Mobile específico */
+@media (max-width: 767px) {
+  .wrapper {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 1.875rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .mainGrid {
+    gap: 1.5rem;
+  }
+  
+  .imageContainer {
+    padding: 1rem;
+  }
+  
+  .interactiveArea {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .tooltip {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.5rem;
+  }
+  
+  .infoContent {
+    height: 10rem;
+  }
+  
+  .sidesGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  
+  .specsGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .specCard {
+    padding: 0.75rem;
+  }
+  
+  .specTitle {
+    font-size: 1rem;
+  }
+  
+  .specValue {
+    font-size: 1.25rem;
+  }
+  
+  .defaultPanel,
+  .infoPanel,
+  .componentLegend {
+    padding: 1rem;
+  }
+  
+  .legendList {
+    gap: 0.5rem;
+  }
+  
+  .legendItem {
+    padding: 0.5rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 0.75rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .interactiveArea {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .tooltip {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.375rem;
+    top: -1.5rem;
+  }
+  
+  .infoTitle {
+    font-size: 1.25rem;
+  }
+  
+  .defaultTitle {
+    font-size: 1.25rem;
+  }
+  
+  .legendTitle {
+    font-size: 1.125rem;
+  }
+  
+  .specValue {
+    font-size: 1.125rem;
+  }
+  
+  .specTitle {
+    font-size: 0.875rem;
+  }
+}
+
+/* Hover effects solo en dispositivos que los soportan */
+@media (hover: hover) {
+  .interactiveArea:hover {
+    background-color: rgba(74, 144, 226, 0.1);
+    border: 1px dashed #4a90e2;
+  }
+  
+  .backButton:hover {
+    background-color: #374151;
+  }
+  
+  .legendItem:hover {
+    background-color: #eff6ff;
+  }
+}

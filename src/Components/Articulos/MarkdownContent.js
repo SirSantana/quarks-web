@@ -2,7 +2,7 @@ import Markdown from "react-markdown";
 import { useEffect } from "react";
 
 
-export default function MarkdownContent({data}) {
+export default function MarkdownContent({data, content}) {
   useEffect(() => {
     // Verifica si AdSense está disponible y recarga los anuncios
     if (typeof window !== "undefined" && window.adsbygoogle) {
@@ -15,7 +15,7 @@ export default function MarkdownContent({data}) {
     }
   }, [data]);
   return (
-        <Markdown >{data?.content}</Markdown>
+        <Markdown >{data?.content || content}</Markdown>
   );
 }
 
