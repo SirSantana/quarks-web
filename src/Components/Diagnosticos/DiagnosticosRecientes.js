@@ -11,6 +11,7 @@ export default function DiagnosticosRecientes() {
   const styles = {
     container: {
       maxWidth: "1200px",
+      width: "100%",
       margin: "0 auto",
       fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
       backgroundColor: "#fafafa",
@@ -32,6 +33,7 @@ export default function DiagnosticosRecientes() {
       color: "#6b7280",
       fontWeight: "400",
       lineHeight: "1.6",
+      textAlign: "left",
     },
     loadingContainer: {
       display: "flex",
@@ -40,6 +42,12 @@ export default function DiagnosticosRecientes() {
       justifyContent: "center",
       padding: "4rem 2rem",
       gap: "1rem",
+    },
+    flexContainer:{
+      display: "flex",
+      flexDirection: "column",
+      gap: "1.5rem",
+      marginBottom: "2rem",
     },
     loadingText: {
       color: "#6b7280",
@@ -60,28 +68,16 @@ export default function DiagnosticosRecientes() {
       fontSize: "1rem",
       fontWeight: "500",
     },
-    grid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
-      gap: "1.5rem",
-      marginBottom: "2rem",
-    },
     card: {
       backgroundColor: "#ffffff",
       borderRadius: "16px",
       padding: "1.5rem",
       border: "1px solid #e5e7eb",
-      transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
       cursor: "pointer",
       textDecoration: "none",
       color: "inherit",
       position: "relative",
       overflow: "hidden",
-    },
-    cardHover: {
-      transform: "translateY(-4px)",
-      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      borderColor: "#3b82f6",
     },
     cardHeader: {
       marginBottom: "1rem",
@@ -309,7 +305,7 @@ export default function DiagnosticosRecientes() {
           </Link>
         </div>
       ) : (
-        <div style={styles.grid}>
+        <div style={styles.flexContainer}>
           {diagnostics.map((diagnostic) => (
             <Link
               href={`/diagnostico/${diagnostic.slug}`}

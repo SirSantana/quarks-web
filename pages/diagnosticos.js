@@ -8,7 +8,6 @@ import DiagnosticosRecientes from "@/src/Components/Diagnosticos/DiagnosticosRec
 const DiagnosticosPage = () => {
   const styles = {
     mainContent: {
-      flex: 1,
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',

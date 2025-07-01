@@ -65,7 +65,8 @@ const IndexPage = () => {
       justifyContent: 'center',
       alignItems: 'center',
       marginLeft: sidebarOpen ? '0' : '0',
-      transition: 'margin-left 0.3s ease'
+      transition: 'margin-left 0.3s ease',
+      paddingTop:'48px'
     },
     container: {
       fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',

@@ -218,6 +218,7 @@ const LayoutV2 = ({
     pageWrapper: {
       display: "flex",
       minHeight: "100vh",
+      width: "100%",
       backgroundColor: "#f9fafb",
     },
     menuButton: {
