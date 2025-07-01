@@ -1,3 +1,4 @@
+// pages/auth/callback.js
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '@/lib/supabaseClient';
@@ -6,22 +7,37 @@ export default function AuthCallback() {
   const router = useRouter();
 
   useEffect(() => {
-    const { hash } = window.location;
-    if (hash) {
-      // El hash contiene el token de acceso y refresh token
-      supabase.auth.getUser().then(({ data: { user } }) => {
-        if (user) {
-          router.push('/dashboard'); // Redirigir al dashboard después de iniciar sesión exitosamente
-        } else {
-          router.push('/login'); // Redirigir al login si no hay usuario
+    const handleAuthCallback = async () => {
+      try {
+        const { data, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          console.error('Error en callback:', error);
+          router.push('/login?error=auth_error');
+          return;
         }
-      });
-    }
+
+        if (data.session) {
+          // Aquí defines a dónde quieres redirigir después del login exitoso
+          router.push('/v2'); // Cambia esta ruta por la que necesites
+        } else {
+          router.push('/login');
+        }
+      } catch (error) {
+        console.error('Error procesando callback:', error);
+        router.push('/login?error=callback_error');
+      }
+    };
+
+    handleAuthCallback();
   }, [router]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <p>Redireccionando...</p>
+    <div>
+      <div>
+        <div></div>
+        <p>Procesando autenticación...</p>
+      </div>
     </div>
   );
 }

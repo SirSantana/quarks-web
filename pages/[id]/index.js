@@ -264,7 +264,7 @@ export async function getStaticProps({ params }) {
         notFound: true, // Muestra la página 404 de Next.js
       };
     }
-
+    
     return {
       props: {
         data: data.getOneNegocioVDos,

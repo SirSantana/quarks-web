@@ -16,6 +16,7 @@ let estrellas = [1, 2, 3, 4, 5]
 export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data, loading } = useQuery(GET_OPINIONES, { variables: { id: id } })
+  
   return (
 
     <div onClick={onClick} className={styles.containerHeaderCalendario} style={{border:'none', padding:'0', margin:'0 auto', border:0, boxShadow:'none', width:'33%', backgroundColor:'inherit',}}>
@@ -38,7 +39,7 @@ export default function CalificacionWidget({ id, ctdCalificaciones, onClick }) {
 
             </div>
             {/* <Divider backgroundColor={'#FBBC04'} /> */}
-            <p style={{ fontSize: '12px', fontWeight: '400' }}>{Number(ctdCalificaciones) + data.getOpiniones.length} reseñas</p>
+            <p style={{ fontSize: '12px', fontWeight: '400' }}>{Number(ctdCalificaciones) + data?.getOpiniones?.length} reseñas</p>
           </div>
          
       }
