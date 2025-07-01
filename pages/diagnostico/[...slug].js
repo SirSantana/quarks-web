@@ -67,9 +67,9 @@ const ResultadosPage = () => {
     mainContent: {
       flex: 1,
       display: 'flex',
+      paddingTop:'48px',
       justifyContent: 'center',
       alignItems: 'center',
-      padding: '2rem',
       marginLeft: sidebarOpen ? '0' : '0',
       transition: 'margin-left 0.3s ease'
     },
@@ -93,16 +93,14 @@ const ResultadosPage = () => {
       border: "none",
       color: "#64748b",
       cursor: "pointer",
-      padding: "0.5rem 0",
       fontSize: "0.95rem",
-      marginBottom: "1.5rem",
       transition: "color 0.2s ease",
     },
     iconMarginRight: {
       marginRight: "0.5rem",
     },
     title: {
-      fontSize: "1.75rem",
+      fontSize: "24px",
       fontWeight: "600",
       color: "#0f172a",
       marginBottom: "0.75rem",

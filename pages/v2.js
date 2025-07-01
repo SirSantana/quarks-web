@@ -64,7 +64,6 @@ const IndexPage = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      padding: '2rem',
       marginLeft: sidebarOpen ? '0' : '0',
       transition: 'margin-left 0.3s ease'
     },

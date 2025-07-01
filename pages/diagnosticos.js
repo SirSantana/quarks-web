@@ -12,8 +12,8 @@ const DiagnosticosPage = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      padding: '2rem',
-      transition: 'margin-left 0.3s ease'
+      transition: 'margin-left 0.3s ease',
+      paddingTop:'48px'
     },
     container: {
       fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
@@ -38,8 +38,8 @@ const DiagnosticosPage = () => {
       borderBottom: "1px solid #e2e8f0",
     },
     title: {
-      fontSize: "2.5rem",
-      fontWeight: "700",
+      fontSize: "24px",
+      fontWeight: "600",
       letterSpacing: "-0.04em",
       color: "#0f172a",
       display: "flex",
@@ -63,7 +63,7 @@ const DiagnosticosPage = () => {
       color: "#0f172a",
     },
     sectionTitle: {
-      fontSize: "1.5rem",
+      fontSize: "20px",
       fontWeight: "600",
       letterSpacing: "-0.02em",
     },
@@ -212,7 +212,7 @@ const DiagnosticosPage = () => {
         {/* Encabezado de la página */}
         <header style={styles.header}>
           <h1 style={styles.title}>
-            <Car size={40} color="#3b82f6" />
+            {/* <Car size={40} color="#3b82f6" /> */}
             Diagnósticos
           </h1>
           <p style={styles.subtitle}>
