@@ -401,8 +401,6 @@ const LayoutV2 = ({
         )}
       </Head>
       <main style={mainStyles.pageWrapper}>
-        {/* Botón de menú móvil */}
-        <header style={sidebarStyles.header} role="banner">
           <button
             aria-label="Abrir menú"
             style={mainStyles.menuButton}
@@ -416,7 +414,6 @@ const LayoutV2 = ({
           >
             <Menu size={20} />
           </button>
-        </header>
 
         {/* Overlay para móvil */}
         <div style={sidebarStyles.overlay} onClick={closeSidebar}></div>
