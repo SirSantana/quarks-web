@@ -559,7 +559,6 @@ const ResultadosPage = () => {
   return (
     <LayoutV2  onNavigate={router.push} ads={false}>
       <div style={styles.mainContent}>
-
     <div style={styles.container}>
       {/* Botón para volver a la página principal */}
       {/* Usar tu estilo backButton */}
