@@ -15,8 +15,9 @@ import {
 import { useRouter } from "next/router";
 import { useAuth } from "@/Context/AuthContext";
 import ConsultasCount from "@/pages/v2/consultasCount";
+import Head from "next/head";
 
-const LayoutV2 = ({ children, onNavigate = () => {} }) => {
+const LayoutV2 = ({ children, onNavigate = () => {}, title='Asistente Mecanico Virtual Gratuito', description, keywords, fecha, image, tags, url, ads = true, index=true, }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
   const activePath = router.pathname;
@@ -288,7 +289,89 @@ const LayoutV2 = ({ children, onNavigate = () => {} }) => {
   };
 
   return (
-    <div style={mainStyles.pageWrapper}>
+    <>
+    <Head>
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content={description} />
+        {keywords ?
+          <meta name="keywords" content={keywords} />
+          :
+          <meta name="keywords" content={'Mundo automotriz'} />
+        }
+       
+        <meta name='language' content='spanish' />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@quarks-automotriz" />
+        <meta name="twitter:creator" content="@quarks-automotriz" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:image" content={image} />
+        <meta name="url" content={`https://www.quarks.com.co${url}`} />
+        <meta property="url" content={`https://www.quarks.com.co${url}`} />
+
+        <meta property="twitter:description" content={description} />
+        <meta property="og:title" content={title} key="title" />
+        <meta property="og:image" content={image} />
+        <meta property="og:image:url" content={image} />
+        <meta property='og:description' content={description} />
+        <meta property='og:url' content={`https://www.quarks.com.co${url}`} />
+     
+        <meta property='og:locale' content='es_CO' />
+        <meta property='og:locale:alternate' content='es_CO' />
+        <meta property='og:site_name' content='Quarks' />
+        <meta property="og:image:width" content='200' />
+        <meta property="og:image:height" content='200' />
+        <meta property="og:image:type" content='image/png' />
+        {index 
+        ?
+        <>
+        <meta name='robots' content='follow, index, max-image-preview:large' />
+        <meta name='bingbot' content='follow, index' />
+        <meta name='GOOGLEBOT' content='follow, index' />
+        </>
+        :<meta name="robots" content="noindex, follow" />
+      }
+        
+        {tags?.map(tag => <meta key={tag} property='article:tag' content={tag} />)}
+
+        <link rel="icon" href='/favicon.png'/>
+        <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
+        {process.env.NODE_ENV === "production" && ads &&(
+          <>
+            <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+            <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
+          </>
+        )}
+        <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
+        {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
+
+        {process.env.NODE_ENV === "production"&&ads && (
+          <script
+            async
+            defer
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+            crossOrigin="anonymous"
+          ></script>
+        )}
+
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "jh3neqgrnc");
+        `,
+            }}
+          />
+        )}
+      </Head>
+    <main style={mainStyles.pageWrapper}>
       {/* Botón de menú móvil */}
       <button
         style={mainStyles.menuButton}
@@ -440,9 +523,11 @@ const LayoutV2 = ({ children, onNavigate = () => {} }) => {
       </div>
 
       {/* Contenido principal */}
-      <main style={mainStyles.mainContent}>{children}</main>
-    </div>
+      <div style={mainStyles.mainContent}>{children}</div>
+    </main>
+    </>
   );
+
 };
 
 export default LayoutV2;
