@@ -40,7 +40,7 @@ const LayoutV2 = ({ children, onNavigate = () => {}, title='Asistente Mecanico V
       position: "fixed",
       top: 0,
       left: 0,
-      height: "100vh",
+      height: "100dvh",
       width: "260px",
       backgroundColor: "#ffffff",
       boxShadow:
