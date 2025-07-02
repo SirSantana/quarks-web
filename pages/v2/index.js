@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/Context/AuthContext';
 import LayoutV2 from '@/src/Components/LayoutV2';
+import Link from 'next/link';
 
 
 const IndexPage = () => {
@@ -208,6 +209,7 @@ const IndexPage = () => {
       transition: 'all 0.2s ease',
       display: 'flex',
       justifyContent: 'space-between',
+      textDecoration: 'none',
       alignItems: 'center',
       fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
     },
@@ -277,8 +279,8 @@ const IndexPage = () => {
   // Ejemplos de problemas comunes
   const ejemplosProblemas = [
     "Mi carro hace un ruido extraño al frenar",
-    "El motor se apaga cuando está en ralentí",
-    "El aire acondicionado no enfría lo suficiente"
+    "El motor se apaga cuando esta en ralenti",
+    "El aire acondicionado no enfria lo suficiente"
   ];
 
 
@@ -369,7 +371,7 @@ const IndexPage = () => {
               <h1 style={styles.title}>DiagnostiCar</h1>
 
             </div>
-            <p style={styles.subtitle}>Bienvenido {user?.user_metadata?.name}. Describe el problema que estás experimentando y recibe un diagnóstico instantáneo junto con estimados de reparación.</p>
+            <p style={styles.subtitle}>Bienvenido {user?.user_metadata?.name}. Describe el problema que tiene tu carro y recibe un diagnóstico instantáneo junto con estimados de reparación.</p>
           </div>
 
           {bloqueado && (
@@ -434,7 +436,7 @@ const IndexPage = () => {
                 }}
                 value={mensaje}
                 onChange={(e) => setMensaje(e.target.value)}
-                placeholder="Ej: Mi carro hace un ruido al frenar..."
+                placeholder="Ej: Mi Chevrolet Optra 1.8 2009 hace un ruido al frenar..."
                 disabled={bloqueado || cargando}
               ></textarea>
             </div>
@@ -476,8 +478,9 @@ const IndexPage = () => {
             <div style={styles.examplePrompts}>
               <p style={styles.examplesTitle}>O prueba con uno de estos ejemplos:</p>
               {ejemplosProblemas.map((ejemplo, idx) => (
-                <button
+                <Link
                   key={idx}
+                  href={`/diagnostico/${ejemplo.replaceAll(' ', '-').toLowerCase()}`}
                   style={styles.exampleButton}
                   onClick={() => seleccionarEjemplo(ejemplo)}
                   onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#e5e7eb'}
@@ -485,7 +488,7 @@ const IndexPage = () => {
                 >
                   <span>{ejemplo}</span>
                   <ChevronRight size={16} color="#6b7280" />
-                </button>
+                </Link>
               ))}
             </div>
           )}

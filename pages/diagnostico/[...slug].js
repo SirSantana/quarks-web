@@ -112,6 +112,7 @@ const ResultadosPage = () => {
       borderRadius: "12px",
       border: "1px solid #e2e8f0",
       marginBottom: "2rem",
+      backgroundColor: '#f8fafc',
     },
     problemLabel: {
       fontSize: "0.875rem",
@@ -125,6 +126,7 @@ const ResultadosPage = () => {
       lineHeight: "1.5",
       // fontStyle: 'italic',
       fontWeight: "500",
+      textAlign:'end'
     },
     loadingContainer: {
       display: "flex",
@@ -584,14 +586,14 @@ const ResultadosPage = () => {
               "{diagnosticoData.mensaje_usuario}"
             </h1>{" "}
             <div style={styles.vehicleInfoContainer}>
-             {(diagnosticoData?.car_make || diagnosticoData?.car_model || diagnosticoData?.car_year) && (
+             {/* {(diagnosticoData?.car_make || diagnosticoData?.car_model || diagnosticoData?.car_year) && (
                 <div style={styles.vehicleInfoItem} >
                   <Car size={16} style={{ color: '#64748b' }} />
                   <span style={styles.vehicleInfoText}>
                     {diagnosticoData.car_make} {diagnosticoData.car_model} {diagnosticoData.car_year}
                   </span>
                 </div>
-              )}
+              )} */}
               
               {(diagnosticoData?.city || diagnosticoData?.country) && (
                 <div style={styles.vehicleInfoItem}>

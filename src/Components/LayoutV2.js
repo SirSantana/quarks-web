@@ -253,14 +253,14 @@ const LayoutV2 = ({
       items: [
         { icon: Home, label: "Inicio", href: "/v2" },
         { icon: Car, label: "Diagnósticos", href: "/diagnosticos" },
-        { icon: History, label: "Historial", href: "/historial" },
+        // { icon: History, label: "Historial", href: "/historial" },
       ],
     },
     {
       items: [
-        { icon: Settings, label: "Configuración", href: "/configuracion" },
-        { icon: HelpCircle, label: "Ayuda", href: "/ayuda" },
-        { icon: Shield, label: "Privacidad", href: "/privacidad" },
+        // { icon: Settings, label: "Configuración", href: "/configuracion" },
+        { icon: HelpCircle, label: "Ayuda", href: "/v2/ayuda" },
+        { icon: Shield, label: "Privacidad", href: "/privacy-policy" },
       ],
     },
   ];
