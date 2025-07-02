@@ -557,7 +557,7 @@ const ResultadosPage = () => {
 
 
   return (
-    <LayoutV2  onNavigate={router.push} ads={true}>
+    <LayoutV2  onNavigate={router.push} ads={false}>
       <div style={styles.mainContent}>
 
     <div style={styles.container}>

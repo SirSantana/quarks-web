@@ -205,7 +205,7 @@ const DiagnosticosPage = () => {
 
 
   return (
-    <LayoutV2 ads={true}>
+    <LayoutV2 ads={false}>
         <div style={styles.mainContent}>
         <div style={styles.container}>
         {/* Encabezado de la página */}

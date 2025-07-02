@@ -17,7 +17,7 @@ import { useAuth } from "@/Context/AuthContext";
 import ConsultasCount from "@/pages/v2/consultasCount";
 import Head from "next/head";
 
-const LayoutV2 = ({ children, onNavigate = () => {}, title='Asistente Mecanico Virtual Gratuito', description, keywords, fecha, image, tags, url, ads = true, index=true, }) => {
+const LayoutV2 = ({ children, onNavigate = () => {}, title='Asistente Mecanico Virtual Gratuito', description, keywords, fecha, image, tags, url, ads = false, index=true, }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
   const activePath = router.pathname;
