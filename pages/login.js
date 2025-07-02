@@ -197,12 +197,12 @@ export default function Login() {
 
           <div style={styles.buttonGroup}>
             <button
-              onClick={() => router.push("/dashboard")}
+              onClick={() => router.push("/v2")}
               style={styles.buttonPrimary}
               onMouseOver={(e) => e.target.style.backgroundColor = '#2563eb'}
               onMouseOut={(e) => e.target.style.backgroundColor = '#3b82f6'}
             >
-              Ir al Dashboard
+              Ir al Home
               <ArrowRight size={16} />
             </button>
 

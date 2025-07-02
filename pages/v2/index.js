@@ -382,7 +382,7 @@ const IndexPage = () => {
 
 
   return (
-   <LayoutV2  onNavigate={router.push} title={'Asistente Mecanico Virtual Gratuito'} description={'Obten un diagnostico preliminar de fallas de tu auto'} keywords={' asistente mecánico virtual, consultas, servicios, carro, mecánico, mantenimiento'} image={'/logo-back-white.svg'}  ads={true} index={false}>
+   <LayoutV2  onNavigate={router.push} title={'Asistente Mecanico Virtual Gratuito'} description={'Obten un diagnostico preliminar de fallas de tu auto'} keywords={' asistente mecánico virtual, consultas, servicios, carro, mecánico, mantenimiento'} image={'/logo-back-white.svg'}  ads={false} index={false}>
 
       {/* Contenido principal */}
       <div style={styles.mainContent}>
