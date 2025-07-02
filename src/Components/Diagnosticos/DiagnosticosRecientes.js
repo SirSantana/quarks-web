@@ -289,7 +289,7 @@ export default function DiagnosticosRecientes() {
             historial aquí.
           </p>
           <Link
-            href="/diagnostico/nuevo"
+            href="/v2"
             style={styles.ctaButton}
             onMouseEnter={handleButtonHover}
             onMouseLeave={handleButtonLeave}

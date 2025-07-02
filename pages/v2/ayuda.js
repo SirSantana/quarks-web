@@ -18,7 +18,6 @@ const AyudaPage = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      paddingTop:'48px',
       fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
     },
     container: {

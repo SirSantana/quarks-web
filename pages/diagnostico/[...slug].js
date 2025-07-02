@@ -83,7 +83,6 @@ const ResultadosPage = () => {
       gap: '1.5rem',
     },
     headerContainer: {
-      marginBottom: "2rem",
       position: "relative",
     },
     backButton: {
@@ -95,6 +94,7 @@ const ResultadosPage = () => {
       cursor: "pointer",
       fontSize: "0.95rem",
       transition: "color 0.2s ease",
+      fontFamily:'Poppins '
     },
     iconMarginRight: {
       marginRight: "0.5rem",
@@ -250,13 +250,13 @@ const ResultadosPage = () => {
       marginRight: "0.75rem",
     },
     diagnosticoCard: {
-      padding: "1.5rem",
-      backgroundColor: "#f0f9ff",
+      // padding: "1.5rem",
+      // backgroundColor: "#f0f9ff",
       borderRadius: "12px",
       color: "#0c4a6e",
       fontSize: "1rem",
       lineHeight: "1.6",
-      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
+      // boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
     },
     priceContainer: {
       backgroundColor: "#ffffff",
@@ -619,17 +619,7 @@ const ResultadosPage = () => {
           {/* Usar ref y sectionAnchor */}
           <div style={styles.sectionHeader}>
             {" "}
-            {/* Usar sectionHeader */}
-            <div
-              style={{
-                ...styles.sectionIconContainer,
-                backgroundColor: "#e0f2fe",
-              }}
-            >
-              {" "}
-              {/* Usar sectionIconContainer */}
-              <Wrench size={20} style={{ color: "#0284c7" }} /> {/* Icono */}
-            </div>
+            
             <h2 style={styles.sectionTitle}>Posible causa del problema</h2>{" "}
             {/* Usar sectionTitle */}
           </div>
@@ -646,18 +636,6 @@ const ResultadosPage = () => {
           {/* Usar ref y sectionAnchor */}
           <div style={styles.sectionHeader}>
             {" "}
-            {/* Usar sectionHeader */}
-            <div
-              style={{
-                ...styles.sectionIconContainer,
-                backgroundColor: "#ecfdf5",
-              }}
-            >
-              {" "}
-              {/* Usar sectionIconContainer */}
-              <DollarSign size={20} style={{ color: "#059669" }} />{" "}
-              {/* Icono */}
-            </div>
             <h3 style={styles.sectionTitle}>Estimado de precios</h3>{" "}
             {/* Usar sectionTitle */}
           </div>
