@@ -694,12 +694,10 @@ const ResultadosPage = () => {
           )}
         </section>
         {/* Talleres Recomendados */}
-        <section ref={talleresRef} style={styles.sectionAnchor}>
+        {/* <section ref={talleresRef} style={styles.sectionAnchor}>
           {" "}
-          {/* Usar ref y sectionAnchor */}
           <div style={styles.sectionHeader}>
             {" "}
-            {/* Usar sectionHeader */}
             <div
               style={{
                 ...styles.sectionIconContainer,
@@ -707,44 +705,33 @@ const ResultadosPage = () => {
               }}
             >
               {" "}
-              {/* Usar sectionIconContainer */}
-              <MapPin size={20} style={{ color: "#dc2626" }} /> {/* Icono */}
+              <MapPin size={20} style={{ color: "#dc2626" }} /> 
             </div>
-            {/* !!! Usamos diagnosticoData?.city o .country para el título dinámico !!! */}
             <h3 style={styles.sectionTitle}>
               Talleres recomendados en{" "}
               {diagnosticoData?.city ||
                 diagnosticoData?.country ||
                 "tu ubicación"}
             </h3>{" "}
-            {/* Título dinámico */}
           </div>
-          {/* Indicador de carga para talleres */}
           {cargandoTalleres && (
             <p style={styles.loading}>Buscando talleres cercanos...</p>
           )}{" "}
-          {/* Usar estilo loading */}
-          {/* Mostrar error de talleres */}
           {errorTalleres && (
             <div style={styles.errorContainer}>
               {" "}
-              {/* Usar estilo errorContainer */}
               <div style={styles.errorFlex}>
                 {" "}
-                {/* Usar estilo errorFlex */}
-                <AlertCircle size={24} style={styles.errorIcon} /> {/* Icono */}
+                <AlertCircle size={24} style={styles.errorIcon} /> 
                 <div>
                   <p style={styles.errorMessage}>{errorTalleres.message}</p>{" "}
-                  {/* Usar errorMessage */}
                   {errorTalleres.details && (
                     <p style={styles.errorDetails}>{errorTalleres.details}</p>
                   )}{" "}
-                  {/* Usar errorDetails */}
                 </div>
               </div>
             </div>
           )}
-          {/* Mostrar lista de talleres si no está cargando Y no hubo error de talleres */}
           {!cargandoTalleres &&
             !errorTalleres &&
             (talleresActuales &&
@@ -752,8 +739,6 @@ const ResultadosPage = () => {
             talleresActuales.length > 0 ? ( // Si hay talleres en la lista...
               <div style={styles.tallerContainer}>
                 {" "}
-                {/* Usar tallerContainer */}
-                {/* Muestra la lista de talleres ACTUALES */}
                 {talleresActuales.map((taller, index) => (
                   <div
                     key={index}
@@ -770,18 +755,13 @@ const ResultadosPage = () => {
                   >
                     <div style={styles.tallerHeader}>
                       {" "}
-                      {/* Usar tallerHeader */}
                       <div style={styles.tallerInfo}>
                         {" "}
-                        {/* Usar tallerInfo */}
                         <h3 style={styles.tallerName}>{taller.nombre}</h3>{" "}
-                        {/* Usar tallerName */}
                         <div style={styles.tallerMetaContainer}>
                           {" "}
-                          {/* Usar tallerMetaContainer */}
                           <div style={styles.tallerMeta}>
                             {" "}
-                            {/* Usar tallerMeta */}
                             <MapPin
                               size={14}
                               style={{
@@ -789,12 +769,10 @@ const ResultadosPage = () => {
                                 color: "#94a3b8",
                               }}
                             />{" "}
-                            {/* Icono */}
                             <span>{taller.ubicacion}</span>
                           </div>
                           <div style={styles.tallerMeta}>
                             {" "}
-                            {/* Usar tallerMeta */}
                             <Clock
                               size={14}
                               style={{
@@ -802,15 +780,12 @@ const ResultadosPage = () => {
                                 color: "#94a3b8",
                               }}
                             />{" "}
-                            {/* Icono */}
                             <span>Abierto hasta 20:00</span>{" "}
-                            {/* Dato simulado */}
                           </div>
                         </div>
                       </div>
                       <div style={styles.ratingBadge}>
                         {" "}
-                        {/* Usar ratingBadge */}
                         <Star
                           size={14}
                           style={{
@@ -819,17 +794,14 @@ const ResultadosPage = () => {
                             fill: "#eab308",
                           }}
                         />{" "}
-                        {/* Icono */}
                         <span style={styles.ratingText}>
                           {taller.calificacion}
                         </span>{" "}
-                        {/* Usar ratingText */}
                       </div>
                     </div>
 
                     <div style={styles.tallerContact}>
                       {" "}
-                      {/* Usar tallerContact */}
                       <button
                         style={styles.tallerContactButton} // Usar tallerContactButton
                         onMouseOver={(e) =>
@@ -840,7 +812,6 @@ const ResultadosPage = () => {
                         }
                       >
                         <Phone size={16} style={styles.iconMarginRight} />{" "}
-                        {/* Icono */}
                         <span>Llamar ahora</span>
                       </button>
                       <button
@@ -857,28 +828,24 @@ const ResultadosPage = () => {
                           size={16}
                           style={{ marginLeft: "0.25rem" }}
                         />{" "}
-                        {/* Icono */}
                       </button>
                     </div>
                   </div>
                 ))}
               </div>
             ) : (
-              // Si la lista de talleres está vacía (y no hubo error de carga)
               <div style={styles.emptyText}>
                 {" "}
-                {/* Usar emptyText */}
                 No se encontraron talleres recomendados para este problema en la
                 ubicación especificada actualmente.
               </div>
             ))}
-        </section>
+        </section> */}
       </div>
-      <div style={styles.ctaContainer}>
+      {/* <div style={styles.ctaContainer}>
         {" "}
-        {/* Usar ctaContainer */}
         <button
-          style={styles.ctaButton} // Usar ctaButton
+          style={styles.ctaButton} 
           onMouseOver={(e) => {
             e.currentTarget.style.backgroundColor = "#1d4ed8";
             e.currentTarget.style.transform = "translateY(-1px)";
@@ -890,16 +857,15 @@ const ResultadosPage = () => {
         >
           <MessageCircle size={18} style={styles.iconMarginRight} />
           <span>Recibir ofertas de talleres cercanos</span>{" "}
-          {/* Texto del botón */}
         </button>
-      </div>
+      </div> */}
       {/* Opcional: Mostrar el slug para referencia/depuración fuera del bloque principal si quieres que se vea siempre */}
       {/* !!! CAMBIO: Usamos diagnosticoData?.slug !!! */}
-      {diagnosticoData?.slug && (
+      {/* {diagnosticoData?.slug && (
         <p style={{ ...styles.slugText, marginTop: "20px" }}>
           Slug de este diagnóstico: {diagnosticoData.slug}
         </p>
-      )}{" "}
+      )}{" "} */}
       {/* Usar style.slugText */}
     </div>
     </div>
