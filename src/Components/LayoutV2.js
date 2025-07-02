@@ -14,11 +14,9 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/router";
 import { useAuth } from "@/Context/AuthContext";
+import ConsultasCount from "@/pages/v2/consultasCount";
 
-const LayoutV2 = ({
-  children,
-  onNavigate = () => {},
-}) => {
+const LayoutV2 = ({ children, onNavigate = () => {} }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const router = useRouter();
   const activePath = router.pathname;
@@ -285,7 +283,7 @@ const LayoutV2 = ({
   };
 
   const handleLogout = () => {
-    signOut()
+    signOut();
     setSidebarOpen(false);
   };
 
@@ -374,10 +372,7 @@ const LayoutV2 = ({
                     {isActive && (
                       <div style={sidebarStyles.navItemActiveIndicator}></div>
                     )}
-                    <IconComponent
-                      size={18}
-                      style={sidebarStyles.navIcon}
-                    />
+                    <IconComponent size={18} style={sidebarStyles.navIcon} />
                     <span>{item.label}</span>
                   </div>
                 );
@@ -390,6 +385,9 @@ const LayoutV2 = ({
         <div style={sidebarStyles.userSection}>
           {user ? (
             <>
+              <div style={sidebarStyles.userDetails}>
+                <ConsultasCount userId={user.id} />
+              </div>
               <div style={sidebarStyles.userInfo}>
                 <div style={sidebarStyles.userAvatar}>{getUserInitial()}</div>
                 <div style={sidebarStyles.userDetails}>

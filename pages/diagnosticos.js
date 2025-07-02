@@ -215,33 +215,12 @@ const DiagnosticosPage = () => {
             Diagnósticos
           </h1>
           <p style={styles.subtitle}>
-            Inicia un nuevo diagnóstico para tu vehículo o revisa el historial
-            de análisis anteriores. Obtén información detallada sobre el estado
-            de tu coche.
-          </p>
+          Revisa el historial de diagnósticos realizados para tus vehículos
+        </p>
         </header>
-
-        {/* Sección para iniciar nuevo diagnóstico */}
-        <section style={styles.section}>
-          <div
-            style={styles.ctaCard}
-            onMouseOver={handleCtaHover}
-            onMouseOut={handleCtaOut}
-            onClick={handleNewDiagnostic}
-          >
-            <Plus size={48} color="#3b82f6" strokeWidth={1.5} />
-            <div style={styles.cardContent}>
-              <h2 style={styles.ctaTitle}>Iniciar un nuevo diagnóstico</h2>
-            </div>
-          </div>
-        </section>
-
+        
         {/* Sección de diagnósticos recientes */}
         <section style={styles.section}>
-          <div style={styles.sectionHeader}>
-            <Clock size={24} color="#64748b" />
-            <h3 style={styles.sectionTitle}>Diagnósticos recientes</h3>
-          </div>
           <DiagnosticosRecientes />
         </section>
         </div>

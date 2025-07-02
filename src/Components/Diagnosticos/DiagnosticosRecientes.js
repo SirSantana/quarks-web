@@ -280,12 +280,6 @@ export default function DiagnosticosRecientes() {
 
   return (
     <div style={styles.container}>
-      <div style={styles.header}>
-        <p style={styles.subtitle}>
-          Revisa el historial de diagnósticos realizados para tus vehículos
-        </p>
-      </div>
-
       {diagnostics.length === 0 ? (
         <div style={styles.emptyState}>
           <Car style={styles.emptyIcon} />

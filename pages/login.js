@@ -3,6 +3,7 @@ import { supabase } from "../lib/supabaseClient";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useAuth } from "@/Context/AuthContext";
+import { LogIn, User, ArrowRight, LogOut, Mail } from "lucide-react";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -10,15 +11,129 @@ export default function Login() {
   const router = useRouter();
   const { user, loading: load, signOut } = useAuth();
 
+  const styles = {
+    mainContent: {
+      minHeight: '100vh',
+      backgroundColor: '#f9fafb',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '1rem',
+      fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
+    },
+    container: {
+      maxWidth: '400px',
+      width: '100%',
+      borderRadius: '16px',
+      padding: '2rem',
+    },
+    header: {
+      textAlign: 'center',
+      marginBottom: '2rem',
+    },
+    iconWrapper: {
+      width: '64px',
+      height: '64px',
+      backgroundColor: '#3b82f6',
+      borderRadius: '50%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: '0 auto 1.5rem',
+      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+    },
+    title: {
+      fontSize: '1.875rem',
+      fontWeight: '600',
+      color: '#0f172a',
+      marginBottom: '0.5rem',
+      letterSpacing: '-0.025em',
+    },
+    subtitle: {
+      fontSize: '0.875rem',
+      color: '#64748b',
+      lineHeight: '1.6',
+      marginBottom: '1.5rem',
+    },
+    buttonPrimary: {
+      width: '100%',
+      padding: '0.875rem 1rem',
+      backgroundColor: '#3b82f6',
+      border: 'none',
+      borderRadius: '8px',
+      color: '#ffffff',
+      cursor: 'pointer',
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      transition: 'all 0.2s ease',
+      fontFamily: 'inherit',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '0.5rem',
+      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+      marginBottom: '1rem',
+    },
+    buttonSecondary: {
+      width: '100%',
+      padding: '0.875rem 1rem',
+      backgroundColor: '#f1f5f9',
+      border: '1px solid #e2e8f0',
+      borderRadius: '8px',
+      color: '#475569',
+      cursor: 'pointer',
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      transition: 'all 0.2s ease',
+      fontFamily: 'inherit',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '0.5rem',
+    },
+    buttonDisabled: {
+      opacity: '0.6',
+      cursor: 'not-allowed',
+    },
+    errorMessage: {
+      backgroundColor: '#fef2f2',
+      border: '1px solid #fecaca',
+      borderRadius: '8px',
+      padding: '0.75rem',
+      marginBottom: '1rem',
+      color: '#dc2626',
+      fontSize: '0.875rem',
+      textAlign: 'center',
+    },
+    welcomeContainer: {
+      textAlign: 'center',
+      marginBottom: '1.5rem',
+    },
+    welcomeText: {
+      fontSize: '1rem',
+      color: '#374151',
+      marginBottom: '0.5rem',
+    },
+    userEmail: {
+      fontSize: '0.875rem',
+      color: '#64748b',
+      fontWeight: '500',
+    },
+    buttonGroup: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.75rem',
+    },
+  };
+
   const handleLogout = async () => {
     try {
       setLoading(true);
+      setError(null);
       const { error } = await supabase.auth.signOut();
 
       if (error) throw error;
 
-      setUser(null);
-      // Opcional: redirigir a la página de inicio después de cerrar sesión
       router.push("/");
     } catch (error) {
       setError(error.message || "Ocurrió un error al cerrar sesión");
@@ -26,6 +141,7 @@ export default function Login() {
       setLoading(false);
     }
   };
+
   const handleGoogleAuth = async () => {
     try {
       setLoading(true);
@@ -34,7 +150,7 @@ export default function Login() {
       const isLocalhost = window.location.hostname === "localhost";
       const redirectBase = isLocalhost
         ? "http://localhost:3000"
-        : "https://quarks.com.co"; // Nota: sin www para coincidir con tu config
+        : "https://quarks.com.co";
 
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
@@ -54,28 +170,54 @@ export default function Login() {
     }
   };
 
+  // Vista para usuario ya autenticado
   if (user) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-        <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-          <h1 className="mb-6 text-2xl font-bold text-center text-gray-800">
-            Ya has iniciado sesión
-          </h1>
+      <div style={styles.mainContent}>
+        <div style={styles.container}>
+          <header style={styles.header}>
+            <div style={styles.iconWrapper}>
+              <User size={32} color="#ffffff" />
+            </div>
+            <h1 style={styles.title}>¡Bienvenido!</h1>
+          </header>
 
-          <div className="space-y-4">
+          <div style={styles.welcomeContainer}>
+            <p style={styles.welcomeText}>Sesión iniciada correctamente</p>
+            {user.email && (
+              <p style={styles.userEmail}>{user.email}</p>
+            )}
+          </div>
+
+          {error && (
+            <div style={styles.errorMessage}>
+              {error}
+            </div>
+          )}
+
+          <div style={styles.buttonGroup}>
             <button
               onClick={() => router.push("/dashboard")}
-              className="w-full px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              style={styles.buttonPrimary}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#2563eb'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#3b82f6'}
             >
               Ir al Dashboard
+              <ArrowRight size={16} />
             </button>
 
             <button
               onClick={handleLogout}
-              className="w-full px-4 py-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+              style={{
+                ...styles.buttonSecondary,
+                ...(loading ? styles.buttonDisabled : {})
+              }}
               disabled={loading}
+              onMouseOver={(e) => !loading && (e.target.style.backgroundColor = '#e2e8f0')}
+              onMouseOut={(e) => !loading && (e.target.style.backgroundColor = '#f1f5f9')}
             >
               {loading ? "Cerrando sesión..." : "Cerrar Sesión"}
+              <LogOut size={16} />
             </button>
           </div>
         </div>
@@ -83,23 +225,38 @@ export default function Login() {
     );
   }
 
+  // Vista de login
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-50">
-      <div className="p-8 bg-white rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">
-          Iniciar Sesión o Registrarse
-        </h1>
-        <div className="mb-4 text-sm text-gray-600 text-center">
-          Con Gmail puedes acceder directamente. Si es tu primera vez, crearemos
-          tu cuenta automáticamente.
-        </div>
+    <div style={styles.mainContent}>
+      <div style={styles.container}>
+        <header style={styles.header}>
+          <div style={styles.iconWrapper}>
+            <LogIn size={32} color="#ffffff" />
+          </div>
+          <h1 style={styles.title}>Iniciar Sesión</h1>
+          <p style={styles.subtitle}>
+            Con Gmail puedes acceder directamente. Si es tu primera vez, crearemos tu cuenta automáticamente.
+          </p>
+        </header>
+
+        {error && (
+          <div style={styles.errorMessage}>
+            {error}
+          </div>
+        )}
 
         <button
           onClick={handleGoogleAuth}
           disabled={loading}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          style={{
+            ...styles.buttonPrimary,
+            ...(loading ? styles.buttonDisabled : {})
+          }}
+          onMouseOver={(e) => !loading && (e.target.style.backgroundColor = '#2563eb')}
+          onMouseOut={(e) => !loading && (e.target.style.backgroundColor = '#3b82f6')}
         >
           {loading ? "Procesando..." : "Continuar con Gmail"}
+          <Mail size={16} />
         </button>
       </div>
     </div>

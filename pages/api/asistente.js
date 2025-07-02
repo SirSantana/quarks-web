@@ -111,12 +111,9 @@ async function getUserLocation(req) {
 
     const response = await fetch(`https://ipapi.co/${ipToCheck}/json/`);
     const data = await response.json();
-    console.log(response, 'res');
-    console.log(data, 'dataaa');
+    console.log(response, "res");
+    console.log(data, "dataaa");
 
-   
-    
-    
     return {
       city: data.city || "Bogotá",
       country: data.country_name || "Colombia",
@@ -143,6 +140,40 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Mensaje inválido" });
     }
 
+    const startOfToday = new Date();
+    startOfToday.setUTCHours(0, 0, 0, 0);
+
+    const { count, error } = await supabase
+      .from("diagnostico_usos")
+      .select("*", { count: "exact", head: true })
+      .eq("user_id", userId)
+      .gte("created_at", startOfToday.toISOString());
+
+    if (error) {
+      console.error(error);
+      return res.status(500).json({ error: "Error al verificar los límites" });
+    }
+
+    if (count >= 3) {
+      return res
+        .status(403)
+        .json({ error: "Límite de 3 diagnósticos por día alcanzado" });
+    }
+
+    // Guardar el nuevo uso
+    const { error: insertError } = await supabase
+      .from("diagnostico_usos")
+      .insert({
+        user_id: userId,
+      });
+
+    if (insertError) {
+      console.error(insertError);
+      return res
+        .status(500)
+        .json({ error: "No se pudo registrar el uso del diagnóstico" });
+    }
+
     const mensajeTrimmed = mensaje.trim();
 
     if (mensajeTrimmed.length === 0) {
@@ -163,12 +194,10 @@ export default async function handler(req, res) {
     if (!problemaSlug) {
       // Si createSlug devuelve una cadena vacía (ej. por caracteres raros sin letras/números), validar.
       console.error("Error al generar slug: mensaje resultante vacío.");
-      return res
-        .status(400)
-        .json({
-          error:
-            "No se pudo generar un identificador válido para el problema a partir del mensaje.",
-        });
+      return res.status(400).json({
+        error:
+          "No se pudo generar un identificador válido para el problema a partir del mensaje.",
+      });
     }
     // !!! CAMBIO AQUI: Usar .ilike() en lugar de .eq() para búsqueda case-insensitive !!!
     const { data: existingDiagnosis, error: selectError } = await supabase
@@ -194,9 +223,9 @@ export default async function handler(req, res) {
 
     // ... (Llamada a generateObject con Gemini se mantiene igual)
     const result = await generateObject({
-  model: google("models/gemini-1.5-flash"),
-  schema: responseSchema,
-  prompt: `# ASISTENTE MECÁNICO VIRTUAL EXPERTO
+      model: google("models/gemini-1.5-flash"),
+      schema: responseSchema,
+      prompt: `# ASISTENTE MECÁNICO VIRTUAL EXPERTO
 
 Eres un mecánico certificado con 25+ años de experiencia en diagnósticos automotrices. 
 
@@ -211,19 +240,22 @@ ${(() => {
     const make = response?.carMake?.trim() || "";
     const model = response?.carModel?.trim() || "";
     const year = response?.carYear ? parseInt(response.carYear) : null;
-    
+
     if (!make && !model && !year) {
       return "**Vehículo**: No especificado (aplicar diagnóstico general)";
     }
-    
+
     let vehicleInfo = "**Vehículo identificado**: ";
     if (year) vehicleInfo += `${year} `;
     if (make) vehicleInfo += `${make} `;
     if (model) vehicleInfo += `${model}`;
-    
-    return vehicleInfo + "\n- Aplicar conocimiento específico de esta marca/modelo para diagnóstico más preciso";
+
+    return (
+      vehicleInfo +
+      "\n- Aplicar conocimiento específico de esta marca/modelo para diagnóstico más preciso"
+    );
   };
-  
+
   return "<!-- Se completará con información del vehículo detectado -->";
 })()}
 
@@ -284,61 +316,72 @@ Selecciona máximo 3-5 categorías que mejor se alineen con tu diagnóstico prel
 5. **Especificidad** - Si hay marca/modelo, ser específico para ese vehículo
 
 Genera el diagnóstico ahora:`,
-});
+    });
 
-const structuredResponse = result.object;
+    const structuredResponse = result.object;
 
-// Limpieza y validación mejorada
-const cleanedDiagnostico = structuredResponse.diagnostico
-  .replace(/\n/g, " ")
-  .replace(/\s+/g, " ") // Eliminar espacios múltiples
-  .trim();
+    // Limpieza y validación mejorada
+    const cleanedDiagnostico = structuredResponse.diagnostico
+      .replace(/\n/g, " ")
+      .replace(/\s+/g, " ") // Eliminar espacios múltiples
+      .trim();
 
-// Validación robusta de servicios
-const validatedServices = Array.isArray(structuredResponse.serviciosRequeridos)
-  ? structuredResponse.serviciosRequeridos.filter((service) => {
-      if (typeof service !== 'string') return false;
-      return ALLOWED_SERVICE_CATEGORIES.includes(service.trim());
-    })
-  : [];
-
-if (validatedServices.length !== structuredResponse.serviciosRequeridos?.length) {
-  console.warn(
-    "⚠️ IA generó servicios inválidos:",
-    "Originales:", structuredResponse.serviciosRequeridos,
-    "Válidos:", validatedServices
-  );
-}
-
-// Validación mejorada de datos del vehículo
-const carMake = structuredResponse.carMake?.trim() || null;
-const carModel = structuredResponse.carModel?.trim() || null;
-const carYearString = structuredResponse.carYear?.toString().trim() || null;
-
-let carYear = null;
-if (carYearString) {
-  const yearNum = parseInt(carYearString, 10);
-  if (!isNaN(yearNum) && yearNum >= 1900 && yearNum <= new Date().getFullYear() + 1) {
-    carYear = yearNum;
-  } else {
-    console.warn(`⚠️ Año inválido detectado: "${carYearString}"`);
-  }
-}
-
-// Validación de precios estimados
-const validatedPrecios = Array.isArray(structuredResponse.preciosEstimados)
-  ? structuredResponse.preciosEstimados.filter(item => 
-      item && typeof item === 'object' && item.item && item.precio
+    // Validación robusta de servicios
+    const validatedServices = Array.isArray(
+      structuredResponse.serviciosRequeridos
     )
-  : [];
+      ? structuredResponse.serviciosRequeridos.filter((service) => {
+          if (typeof service !== "string") return false;
+          return ALLOWED_SERVICE_CATEGORIES.includes(service.trim());
+        })
+      : [];
 
-// Actualizar respuesta con datos validados
-structuredResponse.diagnostico = cleanedDiagnostico;
-structuredResponse.serviciosRequeridos = validatedServices;
-structuredResponse.preciosEstimados = validatedPrecios;
-structuredResponse.carMake = carMake;
-structuredResponse.carModel = carModel;
-structuredResponse.carYear = carYear;
+    if (
+      validatedServices.length !==
+      structuredResponse.serviciosRequeridos?.length
+    ) {
+      console.warn(
+        "⚠️ IA generó servicios inválidos:",
+        "Originales:",
+        structuredResponse.serviciosRequeridos,
+        "Válidos:",
+        validatedServices
+      );
+    }
+
+    // Validación mejorada de datos del vehículo
+    const carMake = structuredResponse.carMake?.trim() || null;
+    const carModel = structuredResponse.carModel?.trim() || null;
+    const carYearString = structuredResponse.carYear?.toString().trim() || null;
+
+    let carYear = null;
+    if (carYearString) {
+      const yearNum = parseInt(carYearString, 10);
+      if (
+        !isNaN(yearNum) &&
+        yearNum >= 1900 &&
+        yearNum <= new Date().getFullYear() + 1
+      ) {
+        carYear = yearNum;
+      } else {
+        console.warn(`⚠️ Año inválido detectado: "${carYearString}"`);
+      }
+    }
+
+    // Validación de precios estimados
+    const validatedPrecios = Array.isArray(structuredResponse.preciosEstimados)
+      ? structuredResponse.preciosEstimados.filter(
+          (item) => item && typeof item === "object" && item.item && item.precio
+        )
+      : [];
+
+    // Actualizar respuesta con datos validados
+    structuredResponse.diagnostico = cleanedDiagnostico;
+    structuredResponse.serviciosRequeridos = validatedServices;
+    structuredResponse.preciosEstimados = validatedPrecios;
+    structuredResponse.carMake = carMake;
+    structuredResponse.carModel = carModel;
+    structuredResponse.carYear = carYear;
     // Paso 3: Guardar la información del diagnóstico en Supabase
     // !!! CAMBIO AQUI: NO INCLUIR slug en la inserción, Supabase genera el ID !!!
     const { data, error: dbError } = await supabase

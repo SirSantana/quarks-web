@@ -275,7 +275,16 @@ const IndexPage = () => {
       fontWeight: '500'
     }
   };
-
+ useEffect(() => {
+    if (!user) {
+      const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
+      if (yaUsoConsulta === 'true') {
+        setBloqueado(true);
+      }
+    } else {
+      setBloqueado(false); // Si está logueado, nunca está bloqueado
+    }
+  }, [user]);
   // Ejemplos de problemas comunes
   const ejemplosProblemas = [
     "Mi carro hace un ruido extraño al frenar",
@@ -307,7 +316,24 @@ const IndexPage = () => {
 
 
   const enviarProblema = async () => {
-    setCargando(true);
+    // if (!mensaje.trim() || !bloqueado || cargando) return;
+
+    setCargando(true); // Inicia estado de carga
+    console.log(user);
+    
+    if (!user) { // Si no está logueado
+      const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
+      console.log(yaUsoConsulta);
+      
+      if (yaUsoConsulta === 'true') {
+        setBloqueado(false); // Bloquear si ya usó la consulta gratis sin estar logueado
+        setCargando(false); // Detener carga
+        return; // Salir de la función
+      }
+
+      localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
+    }
+
 
     try {
       const apiPromise = fetch('/api/asistente', {
