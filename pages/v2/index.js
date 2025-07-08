@@ -361,7 +361,7 @@ const IndexPage = () => {
     const slug = data.slug;
 
     if (slug) {
-      router.push(`/diagnostico/${slug.replaceAll(' ', '-').toLowerCase()}`);
+      router.push(`/diagnostico/${slug.replaceAll(' ', '-').replaceAll('ñ','n').toLowerCase()}`);
     } else {
       throw new Error('La API no devolvió un identificador válido.');
     }
@@ -369,7 +369,7 @@ const IndexPage = () => {
   } catch (error) {
     // console.log(error, 'ERROROROR');
     
-    alert(`El asistente está recibiendo muchas solicitudes en este momento. Estamos trabajando para solucionarlo. Por favor, intenta mas tarde.`);
+    alert(`Ocurrió un error: ${error.message}`);
   } finally {
     setCargando(false);
   }

@@ -92,7 +92,7 @@ const responseSchema = z.object({
 function createSlug(text) {
   return text
     .toLowerCase()
-    .replace(/ñ/g, "n")
+    .replaceAll(/ñ/g, "n")
     .replace(/\s+/g, "-") // Reemplaza espacios con guiones
     .replace(/[^a-z0-9-]/g, "") // Elimina caracteres que no sean letras (a-z), números (0-9) o guiones
     .replace(/-+/g, "-") // Reemplaza múltiples guiones seguidos por uno solo
@@ -206,7 +206,6 @@ export default async function handler(req, res) {
       .select("slug") // Seleccionar ID y mensaje_usuario del existente
       .ilike("slug", problemaSlug); // !!! USAR .ilike() y comparar con el mensaje limpio !!!
     // Manejar error en la consulta de existencia (PGRST301 es 'no rows found' con .single())
-    console.log(selectError);
 
     if (selectError && selectError.code !== "PGRST301") {
       return res.status(500).json({
