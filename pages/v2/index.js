@@ -316,56 +316,65 @@ const IndexPage = () => {
 
 
   const enviarProblema = async () => {
-    // if (!mensaje.trim() || !bloqueado || cargando) return;
-
-    setCargando(true); // Inicia estado de carga
-    console.log(user);
+  setCargando(true); // Inicia estado de carga
+  console.log(user);
+  
+  if (!user) {
+    const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
+    console.log(yaUsoConsulta);
     
-    if (!user) { // Si no está logueado
-      const yaUsoConsulta = localStorage.getItem('usoConsultaGratis');
-      console.log(yaUsoConsulta);
-      
-      if (yaUsoConsulta === 'true') {
-        setBloqueado(false); // Bloquear si ya usó la consulta gratis sin estar logueado
-        setCargando(false); // Detener carga
-        return; // Salir de la función
-      }
-
-      localStorage.setItem('usoConsultaGratis', 'true'); // Marcar como usada la consulta gratis si no está logueado
-    }
-
-
-    try {
-      const apiPromise = fetch('/api/asistente', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mensaje: mensaje.trim(), userId: user ? user.id : null }),
-      });
-      
-      const minDelay = new Promise(resolve => setTimeout(resolve, 4000));
-      
-      const [res] = await Promise.all([apiPromise, minDelay]);
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || 'Error al procesar la solicitud en la API.');
-      }
-
-      const data = await res.json();
-      const slug = data.slug;
-      
-      if (slug) {
-        router.push(`/diagnostico/${slug.replaceAll(' ', '-').toLowerCase()}`);
-      } else {
-        throw new Error('La API no devolvió un identificador válido.');
-      }
-
-    } catch (error) {
-      alert(`Ocurrió un error: ${error.message}`);
-    } finally {
+    if (yaUsoConsulta === 'true') {
+      setBloqueado(false);
       setCargando(false);
+      return;
     }
-  };
+
+    localStorage.setItem('usoConsultaGratis', 'true');
+  }
+
+  try {
+    const apiPromise = fetch('/api/asistente', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ mensaje: mensaje.trim(), userId: user ? user.id : null }),
+    });
+
+    const minDelay = new Promise(resolve => setTimeout(resolve, 4000));
+    const [res] = await Promise.all([apiPromise, minDelay]);
+
+    if (!res.ok) {
+      const errorData = await res.json();
+
+      // Fallback específico para sobrecarga del modelo
+      if (
+        res.status === 503 &&
+        errorData?.error?.includes('The model is overloaded')
+      ) {
+        alert('El asistente está recibiendo muchas solicitudes en este momento. Por favor, intenta nuevamente en unos segundos.');
+        return;
+      }
+
+      throw new Error(errorData.error || 'Error al procesar la solicitud en la API.');
+    }
+
+    const data = await res.json();
+    const slug = data.slug;
+
+    if (slug) {
+      router.push(`/diagnostico/${slug.replaceAll(' ', '-').toLowerCase()}`);
+    } else {
+      throw new Error('La API no devolvió un identificador válido.');
+    }
+
+  } catch (error) {
+    // console.log(error, 'ERROROROR');
+    
+    alert(`El asistente está recibiendo muchas solicitudes en este momento. Estamos trabajando para solucionarlo. Por favor, intenta mas tarde.`);
+  } finally {
+    setCargando(false);
+  }
+};
+
 
   const seleccionarEjemplo = (ejemplo) => {
     setMensaje(ejemplo);
