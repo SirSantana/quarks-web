@@ -92,6 +92,7 @@ const responseSchema = z.object({
 function createSlug(text) {
   return text
     .toLowerCase()
+    .replace(/ñ/g, "n")
     .replace(/\s+/g, "-") // Reemplaza espacios con guiones
     .replace(/[^a-z0-9-]/g, "") // Elimina caracteres que no sean letras (a-z), números (0-9) o guiones
     .replace(/-+/g, "-") // Reemplaza múltiples guiones seguidos por uno solo
