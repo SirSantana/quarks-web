@@ -71,7 +71,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010106",
-    "Nombre": "AXIAL ESTEEM 1.3/1.6",
+    "Nombre": "AXIAL CHEVROLET ESTEEM 1.3/1.6",
     "Referencia": "4883060G00",
     "Precio": "18,700.00",
     "titulo": "axial-esteem-1.3-1.6",
@@ -84,7 +84,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010107",
-    "Nombre": "AXIAL GRAN VITARA 2.0 / 1.6",
+    "Nombre": "AXIAL CHEVROLET GRAN VITARA 2.0 / 1.6",
     "Referencia": "4883065D00",
     "Precio": "19,990.00",
     "titulo": "axial-gran-vitara-2.0-1.6",
@@ -110,7 +110,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010109",
-    "Nombre": "AXIAL LUV 1600 4X2 82/89",
+    "Nombre": "AXIAL CHEVROLET LUV 1600 4X2 82/89",
     "Referencia": "8942172211",
     "Precio": "23,974.00",
     "titulo": "axial-luv-1600-4x2-82-89",
@@ -123,7 +123,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010110",
-    "Nombre": "AXIAL LUV 1600 4X4 82/90",
+    "Nombre": "AXIAL CHEVROLET LUV 1600 4X4 82/90",
     "Referencia": "5443500951",
     "Precio": "23,974.00",
     "titulo": "axial-luv-1600-4x4-82-90",
@@ -136,7 +136,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010111",
-    "Nombre": "AXIAL LUV DMAX 2009/2015 GRUESO 18 mm",
+    "Nombre": "AXIAL CHEVROLET LUV DMAX 2009/2015 GRUESO 18 mm",
     "Referencia": "ES3488",
     "Precio": "28,336.00",
     "titulo": "axial-luv-dmax-2009-2015-grueso",
@@ -149,7 +149,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010112",
-    "Nombre": "AXIAL LUV DMAX 4X2 98/2008",
+    "Nombre": "AXIAL CHEVROLET LUV DMAX 4X2 98/2008",
     "Referencia": "8973048530",
     "Precio": "19,791.00",
     "titulo": "axial-luv-dmax-4x2-98-2008",
@@ -162,7 +162,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010113",
-    "Nombre": "AXIAL LUV DMAX 4X4 98/2008 14mm",
+    "Nombre": "AXIAL CHEVROLET LUV DMAX 4X4 98/2008 14mm",
     "Referencia": "8973048510",
     "Precio": "19,958.00",
     "titulo": "axial-luv-dmax-4x4-98-2008",
@@ -175,7 +175,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010114",
-    "Nombre": "AXIAL SAIL 14x14X1.5 mm HUEC GRAN",
+    "Nombre": "AXIAL CHEVROLET SAIL 14x14X1.5 mm HUEC GRAN",
     "Referencia": "9042063",
     "Precio": "23,894.00",
     "titulo": "axial-sail",
@@ -188,7 +188,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010115",
-    "Nombre": "AXIAL SONIC/COBALT/CAPTIVA 2.4 EV800330",
+    "Nombre": "AXIAL CHEVROLET SONIC/COBALT/CAPTIVA 2.4 EV800330",
     "Referencia": "95218372",
     "Precio": "19,980.00",
     "titulo": "axial-sonic-cobalt-captiva",
@@ -201,7 +201,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010116",
-    "Nombre": "AXIAL SPARK",
+    "Nombre": "AXIAL CHEVROLET SPARK",
     "Referencia": "93741074",
     "Precio": "22,029.00",
     "titulo": "axial-spark",
@@ -214,7 +214,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010117",
-    "Nombre": "AXIAL SPRINT 85/99",
+    "Nombre": "AXIAL CHEVROLET SPRINT 85/99",
     "Referencia": "4883082000",
     "Precio": "19,985.00",
     "titulo": "axial-sprint",
@@ -227,7 +227,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010118",
-    "Nombre": "AXIAL SWIFT 1.0/1.3/1.6",
+    "Nombre": "AXIAL CHEVROLET SWIFT 1.0/1.3/1.6",
     "Referencia": "4883060B00",
     "Precio": "20,296.00",
     "titulo": "axial-swift",
@@ -240,7 +240,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010119",
-    "Nombre": "AXIAL TRACKER /CAPTIVA 3.2",
+    "Nombre": "AXIAL CHEVROLET TRACKER /CAPTIVA 3.2",
     "Referencia": "95932789",
     "Precio": "22,472.00",
     "titulo": "axial-tracker",
@@ -253,7 +253,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010120",
-    "Nombre": "AXIAL TRAIL BLAZER",
+    "Nombre": "AXIAL CHEVROLET TRAIL BLAZER",
     "Referencia": "EV417",
     "Precio": "31,734.00",
     "titulo": "axial-trail-blazer",
@@ -266,7 +266,7 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010121",
-    "Nombre": "AXIAL N/200 N-300 R=L HEMBRA",
+    "Nombre": "AXIAL CHEVROLET N/200 N-300 R=L HEMBRA",
     "Referencia": "24543445",
     "Precio": "18,700.00",
     "titulo": "axial-n-200-n-300",
@@ -279,7 +279,7 @@
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
     "Codigo": "11010202",
-    "Nombre": "BARRA DIRECCION LUV 1600 82/90",
+    "Nombre": "BARRA DIRECCION CHEVROLET LUV 1600 82/90",
     "Referencia": "8942373671",
     "Precio": "56,900.00",
     "titulo": "barra-direccion-luv-1600-82-90",
@@ -292,7 +292,7 @@
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
     "Codigo": "11010203",
-    "Nombre": "BARRA DIRECCION LUV 2300 4X2 LUV 2.2",
+    "Nombre": "BARRA DIRECCION CHEVROLET LUV 2300 4X2 LUV 2.2",
     "Referencia": "8943892100",
     "Precio": "140,600.00",
     "titulo": "barra-direccion-luv-2300-4x2-luv-2.2",
@@ -305,7 +305,7 @@
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
     "Codigo": "11010204",
-    "Nombre": "BARRA DIRECION LUV 2300 4X4 TROOPER",
+    "Nombre": "BARRA DIRECCION CHEVROLET LUV 2300 4X4 TROOPER",
     "Referencia": "8943892220",
     "Precio": "146,110.00",
     "titulo": "barra-direccion-luv-2300-4x4-trooper",
@@ -318,7 +318,7 @@
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
     "Codigo": "11010205",
-    "Nombre": "BARRA DIRECCION SAMURAI TER.OJO",
+    "Nombre": "BARRA DIRECCION CHEVROLET SAMURAI TER.OJO",
     "Referencia": "4890070A60",
     "Precio": "59,375.00",
     "titulo": "barra-direccion-samurai-ter-ojo",
@@ -331,7 +331,7 @@
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
     "Codigo": "11010206",
-    "Nombre": "BARRA DIRECCION SAMURAI TER. TER",
+    "Nombre": "BARRA DIRECCION CHEVROLET SAMURAI TER. TER",
     "Referencia": "4887070A61",
     "Precio": "68,500.00",
     "titulo": "barra-direccion-samuray-ter-ter",
@@ -344,7 +344,7 @@
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
     "Codigo": "11010207",
-    "Nombre": "BARRA DIRECCION VITARA 2P/3P",
+    "Nombre": "BARRA DIRECCION CHEVROLET VITARA 2P/3P",
     "Referencia": "4885060A00",
     "Precio": "75,905.00",
     "titulo": "barra-direccion-vitara-2p-3p",
@@ -357,7 +357,7 @@
   {
     "Tipo": "COMPENSADORES CHEVROLET",
     "Codigo": "11010301",
-    "Nombre": "COMPENSADOR BLAZER 4X4",
+    "Nombre": "COMPENSADOR CHEVROLET BLAZER 4X4",
     "Referencia": "K6251",
     "Precio": "64,900.00",
     "titulo": "compensador-blazer-4x4",
@@ -370,7 +370,7 @@
   {
     "Tipo": "COMPENSADORES CHEVROLET",
     "Codigo": "11010302",
-    "Nombre": "COMPENSADOR CHEYENNE AUXILIAR",
+    "Nombre": "COMPENSADOR CHEVROLET CHEYENNE AUXILIAR",
     "Referencia": "K6447",
     "Precio": "44,800.00",
     "titulo": "compensador-cheyenne-auxiliar",
@@ -383,7 +383,7 @@
   {
     "Tipo": "COMPENSADORES CHEVROLET",
     "Codigo": "11010303",
-    "Nombre": "COMPENSADOR CHEYENNE CAJA ARTICULADA",
+    "Nombre": "COMPENSADOR CHEVROLET CHEYENNE CAJA ARTICULADA",
     "Referencia": "K6532",
     "Precio": "89,900.00",
     "titulo": "compensador-cheyenne-caja-articulada",
@@ -396,7 +396,7 @@
   {
     "Tipo": "COMPENSADORES CHEVROLET",
     "Codigo": "11010304",
-    "Nombre": "COMPENSADOR LUV 1600 82/90",
+    "Nombre": "COMPENSADOR CHEVROLET LUV 1600 82/90",
     "Referencia": "8942417670",
     "Precio": "61,446.00",
     "titulo": "compensador-luv-1600-82-90",
@@ -409,7 +409,7 @@
   {
     "Tipo": "COMPENSADORES CHEVROLET",
     "Codigo": "11010305",
-    "Nombre": "COMPENSADOR LUV 2300 TROOPER",
+    "Nombre": "COMPENSADOR CHEVROLET LUV 2300 TROOPER",
     "Referencia": "8970289720",
     "Precio": "72,941.00",
     "titulo": "compensador-luv-2300-trooper",
@@ -422,7 +422,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010401",
-    "Nombre": "MUÑECO EST ASTRA ZAFIRA PLASTICO",
+    "Nombre": "MUÑECO EST CHEVROLET ASTRA ZAFIRA PLASTICO",
     "Referencia": "90498745",
     "Precio": "22,850.00",
     "titulo": "muneco-astra-zafira-plastico",
@@ -435,7 +435,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010402",
-    "Nombre": "MUÑECO EST AVEO SAIL DEL. R=L",
+    "Nombre": "MUÑECO EST CHEVROLET AVEO SAIL DEL. R=L",
     "Referencia": "96391875",
     "Precio": "23,826.00",
     "titulo": "muneco-est-aveo-sail",
@@ -448,7 +448,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010403",
-    "Nombre": "MUÑECO EST CAPTIVA 2.4 izquierdo =11010418 ; TRACKER",
+    "Nombre": "MUÑECO EST CHEVROLET CAPTIVA 2.4 izquierdo =11010418 ; TRACKER",
     "Referencia": "95488871",
     "Precio": "22,886.00",
     "titulo": "muneco-est-captiva-2.4-izquierdo",
@@ -461,7 +461,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010404",
-    "Nombre": "MUÑECO EST CAPTIVA 2.4 derecho = 11010419 ; TRACKER",
+    "Nombre": "MUÑECO EST CHEVROLET CAPTIVA 2.4 derecho = 11010419 ; TRACKER",
     "Referencia": "95488870",
     "Precio": "22,886.00",
     "titulo": "muneco-est-captiva-2.4-derecho",
@@ -474,7 +474,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010405",
-    "Nombre": "MUÑECO EST COBALT/SONIC/ METALICO /ASTRA/ZAFIRA",
+    "Nombre": "MUÑECO EST CHEVROLET COBALT/SONIC/ METALICO /ASTRA/ZAFIRA",
     "Referencia": "13169439",
     "Precio": "21,686.00",
     "titulo": "muneco-est-cobalt-sonic-metalico-astra-zafira",
@@ -487,7 +487,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010406",
-    "Nombre": "MUÑECO EST CORSA EVOLUTION",
+    "Nombre": "MUÑECO EST CHEVROLET CORSA EVOLUTION",
     "Referencia": "90496116",
     "Precio": "24,900.00",
     "titulo": "muneco-est-corsa-evolution",
@@ -500,7 +500,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010407",
-    "Nombre": "MUÑECO ETS EPICA DEL. izquierdo",
+    "Nombre": "MUÑECO ETS CHEVROLET EPICA DEL. izquierdo",
     "Referencia": "96225858",
     "Precio": "16,772.00",
     "titulo": "muneco-est-epica-del-izquierdo",
@@ -513,7 +513,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010408",
-    "Nombre": "MUÑECO EST EPICA DEL derecho",
+    "Nombre": "MUÑECO EST CHEVROLET EPICA DEL derecho",
     "Referencia": "96225859",
     "Precio": "16,772.00",
     "titulo": "muneco-est-epica-del-derecho",
@@ -526,7 +526,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010409",
-    "Nombre": "MUÑECO EST VITARA GRAN VITARA 2.0 = 11010420",
+    "Nombre": "MUÑECO EST CHEVROLET VITARA GRAN VITARA 2.0 = 11010420",
     "Referencia": "4242065D00",
     "Precio": "19,437.00",
     "titulo": "muneco-est-vitara-gran-vitara-2.0",
@@ -539,7 +539,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010410",
-    "Nombre": "MUÑECO EST GRAN VITARA 2.5/2.7 LARGO",
+    "Nombre": "MUÑECO EST CHEVROLET GRAN VITARA 2.5/2.7 LARGO",
     "Referencia": "4242065J00",
     "Precio": "24,976.00",
     "titulo": "muneco-est-gran-vitara-2.5-2.7-largo",
@@ -552,7 +552,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010411",
-    "Nombre": "MUÑECO EST JIMNY R=L",
+    "Nombre": "MUÑECO EST CHEVROLET JIMNY R=L",
     "Referencia": "4242081A10",
     "Precio": "22,900.00",
     "titulo": "muneco-est-jimny-r=l",
@@ -565,7 +565,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010412",
-    "Nombre": "MUÑECO EST LUV DMAX 4X2 R=L LUV 2.2",
+    "Nombre": "MUÑECO EST CHEVROLET LUV DMAX 4X2 R=L LUV 2.2",
     "Referencia": "8972148221",
     "Precio": "17,900.00",
     "titulo": "muneco-est-luv-dmax-4x2-r=l-luv-2.2",
@@ -578,7 +578,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010413",
-    "Nombre": "MUÑECO EST LUV DMAX 4X4 izquierdo",
+    "Nombre": "MUÑECO EST CHEVROLET LUV DMAX 4X4 izquierdo",
     "Referencia": "8972357871",
     "Precio": "17,900.00",
     "titulo": "muneco-est-luv-dmax-4x4-izquierdo",
@@ -591,7 +591,7 @@
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010414",
-    "Nombre": "MUÑECO EST LUV DMAX 4X4 derecho",
+    "Nombre": "MUÑECO EST CHEVROLET LUV DMAX 4X4 derecho",
     "Referencia": "8972357861",
     "Precio": "17,900.00",
     "titulo": "muneco-est-luv-dmax-4x4-derecho",
@@ -604,7 +604,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010501",
-    "Nombre": "ROTULA ASTRA ZAFIRA",
+    "Nombre": "ROTULA CHEVROLET ASTRA ZAFIRA",
     "Referencia": "90497305",
     "Precio": "23,800.00",
     "titulo": "rotula-astra-zafira",
@@ -617,7 +617,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010502",
-    "Nombre": "ROTULA AVEO/SAIL",
+    "Nombre": "ROTULA CHEVROLET AVEO/SAIL",
     "Referencia": "96535089",
     "Precio": "24,605.00",
     "titulo": "rotula-aveo-sail",
@@ -630,7 +630,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010503",
-    "Nombre": "ROTULA CAVALIER 90/98",
+    "Nombre": "ROTULA CHEVROLET CAVALIER 90/98",
     "Referencia": "K5273",
     "Precio": "33,183.00",
     "titulo": "rotula-cavalier-90-98",
@@ -643,7 +643,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010504",
-    "Nombre": "ROTULA COBAL/TRACKER/ONIX/SONIC",
+    "Nombre": "ROTULA CHEVROLET COBAL/TRACKER/ONIX/SONIC",
     "Referencia": "95017034",
     "Precio": "31,423.00",
     "titulo": "rotula-cobalt-tracker-onix-sonic",
@@ -656,7 +656,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010505",
-    "Nombre": "ROTULA CORSA 2000/2010",
+    "Nombre": "ROTULA CHEVROLET CORSA 2000/2010",
     "Referencia": "90542574",
     "Precio": "28,110.00",
     "titulo": "rotula-corsa-2000-2010",
@@ -669,7 +669,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010506",
-    "Nombre": "ROTULA CORSA 93/99",
+    "Nombre": "ROTULA CHEVROLET CORSA 93/99",
     "Referencia": "90295324",
     "Precio": "20,753.00",
     "titulo": "rotula-corsa-93-99",
@@ -682,7 +682,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010507",
-    "Nombre": "ROTULA INFERIOR BLAZER 4X4 93/99",
+    "Nombre": "ROTULA INFERIOR CHEVROLET BLAZER 4X4 93/99",
     "Referencia": "K5289",
     "Precio": "36,575.00",
     "titulo": "rotula-inferior-blazer-4x4-93-99",
@@ -695,7 +695,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010508",
-    "Nombre": "ROTULA INFERIOR C-10 73/86",
+    "Nombre": "ROTULA INFERIOR CHEVROLET C-10 73/86",
     "Referencia": "K6117",
     "Precio": "39,911.00",
     "titulo": "rotula-inferior-c-10-73-86",
@@ -708,7 +708,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010509",
-    "Nombre": "ROTULA INFERIOR C-30",
+    "Nombre": "ROTULA INFERIOR CHEVROLET C-30",
     "Referencia": "K6129",
     "Precio": "46,191.00",
     "titulo": "rotula-inferior-c-30",
@@ -721,7 +721,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010510",
-    "Nombre": "ROTULA INFERIOR CHEYENNE 1.5/3.5 GRAFILADA",
+    "Nombre": "ROTULA INFERIOR CHEVROLET CHEYENNE 1.5/3.5 GRAFILADA",
     "Referencia": "K6445",
     "Precio": "49,631.00",
     "titulo": "rotula-inferior-cheyenne-1.5-3.5-grafilada",
@@ -734,7 +734,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010511",
-    "Nombre": "ROTULA INFERIOR CHEYENNE 1.500/3.5 LISA",
+    "Nombre": "ROTULA INFERIOR CHEVROLET CHEYENNE 1.500/3.5 LISA",
     "Referencia": "K6293",
     "Precio": "44,460.00",
     "titulo": "rotula-inferior-cheyenne-1.500-3.5-lisa",
@@ -747,7 +747,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010512",
-    "Nombre": "ROTULA INFERIOR GRAN BLAZER 4X4",
+    "Nombre": "ROTULA INFERIOR CHEVROLET GRAN BLAZER 4X4",
     "Referencia": "K6291",
     "Precio": "49,675.00",
     "titulo": "rotula-inferior-gran-blazer-4x4",
@@ -760,7 +760,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010513",
-    "Nombre": "ROTULA INFERIOR CHEV.K-10 4X4 FORD/WILLYS",
+    "Nombre": "ROTULA INFERIOR CHEVROLET CHEV.K-10 4X4 FORD/WILLYS",
     "Referencia": "K8195",
     "Precio": "26,900.00",
     "titulo": "rotula-inferior-chev.k-10-4x4-ford-willys",
@@ -773,7 +773,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010514",
-    "Nombre": "ROTULA INFERIOR LUV 2.3 4X4 DIMAX 4X2 TROOPER LUV 2.2",
+    "Nombre": "ROTULA INFERIOR CHEVROLET LUV 2.3 4X4 DIMAX 4X2 TROOPER LUV 2.2",
     "Referencia": "8944521021",
     "Precio": "43,510.00",
     "titulo": "rotula-inferior-chevrolet-luv-2.3-4x4-dmax-4x2-trooper-luv-2.2",
@@ -786,7 +786,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010515",
-    "Nombre": "ROTULA INFERIOR LUV 2300 4X2",
+    "Nombre": "ROTULA INFERIOR CHEVROLET LUV 2300 4X2",
     "Referencia": "8944594642",
     "Precio": "41,610.00",
     "titulo": "rotula-inferior-chevrolet-luv-2300-4x2",
@@ -799,7 +799,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010516",
-    "Nombre": "ROTULA INFERIOR CHEV.SILVERADO 4X4 98/2008",
+    "Nombre": "ROTULA INFERIOR CHEVROLET SILVERADO 4X4 98/2008",
     "Referencia": "K6477",
     "Precio": "49,975.00",
     "titulo": "rotula-inferior-chevrolet-silverado-4x4-98-2008",
@@ -825,7 +825,7 @@
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
     "Codigo": "11010518",
-    "Nombre": "ROTULA CORSA EVOLUTION 3 HUECOS",
+    "Nombre": "ROTULA CHEVROLET CORSA EVOLUTION 3 HUECOS",
     "Referencia": "90576327",
     "Precio": "18,490.00",
     "titulo": "rotula-corsa-evolution-3-huecos",
@@ -838,7 +838,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010601",
-    "Nombre": "ROTULA SUPERIOR BLAZER 90/2002",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET BLAZER 90/2002",
     "Referencia": "K5208",
     "Precio": "34,900.00",
     "titulo": "rotula-superior-chevrolet-blazer-90-2002",
@@ -851,7 +851,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010604",
-    "Nombre": "ROTULA SUPERIOR CHEYENNE 1500",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET CHEYENNE 1500",
     "Referencia": "K6292",
     "Precio": "36,955.00",
     "titulo": "rotula-superior-chevrolet-cheyenne-1500",
@@ -864,7 +864,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010605",
-    "Nombre": "ROTULA SUPERIOR CHEYENNE 3500",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET CHEYENNE 3500",
     "Referencia": "K6344",
     "Precio": "41,340.00",
     "titulo": "rotula-superior-chevrolet-cheyenne-3500",
@@ -877,7 +877,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010606",
-    "Nombre": "ROTULA SUPERIOR CHEV. K-10 4X4 FORD DODGE",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET K-10 4X4 FORD DODGE",
     "Referencia": "K8194",
     "Precio": "28,500.00",
     "titulo": "rotula-superior-chevrolet-k-10-4x4-ford-dodge",
@@ -890,7 +890,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010607",
-    "Nombre": "ROTULA SUPERIOR LUV 1.6/2.3/TROOPER",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV 1.6/2.3/TROOPER",
     "Referencia": "8944722550",
     "Precio": "22,900.00",
     "titulo": "rotula-superior-chevrolet-luv-1.6-2.3-trooper",
@@ -903,7 +903,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010608",
-    "Nombre": "ROTULA SUPERIOR LUV DMAX 4X2",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X2",
     "Referencia": "8972357770",
     "Precio": "28,700.00",
     "titulo": "rotula-superior-chevrolet-luv-dmax-4x2",
@@ -916,7 +916,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010609",
-    "Nombre": "ROTULA SUPERIOR LUV DMAX 4X4",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X4",
     "Referencia": "8943744240",
     "Precio": "29,800.00",
     "titulo": "rotula-superior-chevrolet-luv-dmax-4x4",
@@ -929,7 +929,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010609",
-    "Nombre": "ROTULA SUPERIOR LUV DMAX 4X4",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X4",
     "Referencia": "8943744240",
     "Precio": "29,800.00",
     "titulo": "rotula-superior-chevrolet-luv-dmax-4x4",
@@ -942,7 +942,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010607",
-    "Nombre": "ROTULA SUPERIOR LUV 1.6/2.3/TROOPER",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV 1.6/2.3/TROOPER",
     "Referencia": "8944722550",
     "Precio": "22,900.00",
     "titulo": "rotula-superior-chevrolet-luv-1.6-2.3-trooper",
@@ -955,7 +955,7 @@
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
     "Codigo": "11010608",
-    "Nombre": "ROTULA SUPERIOR LUV DMAX 4X2",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X2",
     "Referencia": "8972357770",
     "Precio": "28,700.00",
     "titulo": "rotula-superior-chevrolet-luv-dmax-4x2",
@@ -968,7 +968,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010701",
-    "Nombre": "TERMINAL DIRECCION AVEO derecho 12mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO derecho 12mm",
     "Referencia": "93740722",
     "Precio": "23,900.00",
     "titulo": "terminal-direccion-chevrolet-aveo-derecho-12mm",
@@ -981,7 +981,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010702",
-    "Nombre": "TERMINAL DIRECCION AVEO izquierdo 12mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO izquierdo 12mm",
     "Referencia": "93740723",
     "Precio": "23,900.00",
     "titulo": "terminal-direccion-chevrolet-aveo-izquierdo",
@@ -994,7 +994,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010703",
-    "Nombre": "TERMINAL DIRECCION BLAZER 93/99 CORTA izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET BLAZER 93/99 CORTA izquierdo",
     "Referencia": "ES2072L",
     "Precio": "28,900.00",
     "titulo": "terminal-direccion-chevrolet-blazer-93-99-corta-izquierdo",
@@ -1007,7 +1007,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010704",
-    "Nombre": "TERMINAL DIRECCION BLAZER 93/99 LARGA derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET BLAZER 93/99 LARGA derecho",
     "Referencia": "ES2249R",
     "Precio": "28,900.00",
     "titulo": "terminal-direccion-chevrolet-blazer-93-99-larga-derecho",
@@ -1020,7 +1020,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010705",
-    "Nombre": "TERMINAL DIRECCION CAVALIER 90/97 izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET CAVALIER 90/97 izquierdo",
     "Referencia": "ES2217L",
     "Precio": "43,340.00",
     "titulo": "terminal-direccion-chevrolet-cavalier-90-97-izquierdo",
@@ -1033,7 +1033,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010706",
-    "Nombre": "TERMINAL DIRECCION CAVALIER 90/97 derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET CAVALIER 90/97 derecho",
     "Referencia": "ES2216R",
     "Precio": "43,340.00",
     "titulo": "terminal-direccion-chevrolet-cavalier-90-97-derecho",
@@ -1047,7 +1047,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010707",
-    "Nombre": "TERMINAL DIRECCION CHEYENNE derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET CHEYENNE derecho",
     "Referencia": "ES2836R",
     "Precio": "26,900.00",
     "titulo": "terminal-direccion-chevrolet-cheyenne-derecho",
@@ -1060,7 +1060,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010708",
-    "Nombre": "TERMINAL DIRECCION CHEYENNE izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET CHEYENNE izquierdo",
     "Referencia": "ES2837L",
     "Precio": "26,900.00",
     "titulo": "terminal-direccion-chevrolet-cheyenne-izquierdo",
@@ -1073,7 +1073,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010709",
-    "Nombre": "TERMINAL DIRECCION CORSA 93/99",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET CORSA 93/99",
     "Referencia": "93229707",
     "Precio": "17,900.00",
     "titulo": "terminal-direccion-chevrolet-corsa-93-99",
@@ -1086,7 +1086,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010710",
-    "Nombre": "TERMINAL DIRECCION CHEV.CRUZE 1.8",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET CRUZE 1.8",
     "Referencia": "13278359",
     "Precio": "24,800.00",
     "titulo": "terminal-direccion-chevrolet-cruze-1.8",
@@ -1099,7 +1099,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010711",
-    "Nombre": "TERMINAL DIRECCION G.VITARA derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET G.VITARA derecho",
     "Referencia": "4881065D00",
     "Precio": "23,655.00",
     "titulo": "terminal-direccion-chevrolet-grand-vitara-derecho",
@@ -1112,7 +1112,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010712",
-    "Nombre": "TERMINAL DIRECCION G.VITARA izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET G.VITARA izquierdo",
     "Referencia": "4882065D00",
     "Precio": "23,655.00",
     "titulo": "terminal-direccion-chevrolet-grand-vitara-izquierdo",
@@ -1125,7 +1125,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010713",
-    "Nombre": "TERMINAL DIRECCION JIMNY/VITARA izquierdo CORTA",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET JIMNY/VITARA izquierdo CORTA",
     "Referencia": "4882080001",
     "Precio": "18,500.00",
     "titulo": "terminal-direccion-chevrolet-jimny-vitara-izquierdo-corta",
@@ -1139,7 +1139,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010714",
-    "Nombre": "TERMINAL DIRECCION LUV 1600 82/90",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 1600 82/90",
     "Referencia": "8942373511",
     "Precio": "22,300.00",
     "titulo": "terminal-direccion-chevrolet-luv-1600-82-90",
@@ -1152,7 +1152,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010715",
-    "Nombre": "TERMINAL DIRECCION LUV 2300/TROOPER izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300/TROOPER izquierdo",
     "Referencia": "8944194090",
     "Precio": "22,000.00",
     "titulo": "terminal-direccion-chevrolet-luv-2300-trooper-izquierdo",
@@ -1165,7 +1165,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010716",
-    "Nombre": "TERMINAL DIRECCION LUV 2300/TROOPER derecho/ DMAX",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300/TROOPER derecho/ DMAX",
     "Referencia": "8944194080",
     "Precio": "22,000.00",
     "titulo": "terminal-direccion-chevrolet-luv-2300-trooper-derecho-dmax",
@@ -1178,7 +1178,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010717",
-    "Nombre": "TERMINAL DIRECCION NPR /NKR 93/99 derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET NPR /NKR 93/99 derecho",
     "Referencia": "8944196082",
     "Precio": "29,172.00",
     "titulo": "terminal-direccion-chevrolet-npr-nkr-93-99-derecho",
@@ -1191,7 +1191,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010718",
-    "Nombre": "TERMINAL DIRECCION NPR/NKR 93/99 izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET NPR/NKR 93/99 izquierdo",
     "Referencia": "8944196092",
     "Precio": "29,172.00",
     "titulo": "terminal-direccion-chevrolet-npr-nkr-93-99-izquierdo",
@@ -1204,7 +1204,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010719",
-    "Nombre": "TERMINAL DIRECCION NKR/NPR/NHR 2001/2018",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET NKR/NPR/NHR 2001/2018",
     "Referencia": "8971073480",
     "Precio": "25,900.00",
     "titulo": "terminal-direccion-chevrolet-nkr-npr-nhr-2001-2018",
@@ -1217,7 +1217,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010720",
-    "Nombre": "TERMINAL DIRECCION NKR/NPR/NHR 2001/2018 izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET NKR/NPR/NHR 2001/2018 izquierdo",
     "Referencia": "8971073490",
     "Precio": "25,900.00",
     "titulo": "terminal-direccion-chevrolet-nkr-npr-nhr-2001-2018-izquierdo",
@@ -1230,7 +1230,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010721",
-    "Nombre": "TERMINAL DIRECCION SAIL derecho 14 mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL derecho 14 mm",
     "Referencia": "9063349",
     "Precio": "19,995.00",
     "titulo": "terminal-direccion-chevrolet-sail-derecho",
@@ -1243,7 +1243,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010722",
-    "Nombre": "TERMINAL DIRECCION SAIL izquierdo 14 mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL izquierdo 14 mm",
     "Referencia": "9063350",
     "Precio": "19,995.00",
     "titulo": "terminal-direccion-chevrolet-sail-izquierdo",
@@ -1256,7 +1256,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010723",
-    "Nombre": "TERMINAL DIRECCION VITARA CORTA SAMURAI derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET VITARA CORTA SAMURAI derecho",
     "Referencia": "4881060A00",
     "Precio": "23,304.00",
     "titulo": "terminal-direccion-chevrolet-vitara-corta-samurai-derecho",
@@ -1282,7 +1282,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010725",
-    "Nombre": "TERMINAL DIRECCION SONIC/COBALT/CAPTIVA 2.4 CORTAS/ONIX/HYUNDAI SONATA",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SONIC/COBALT/CAPTIVA 2.4 CORTAS/ONIX/HYUNDAI SONATA",
     "Referencia": "95218393",
     "Precio": "19,900.00",
     "titulo": "terminal-direccion-chevrolet-sonic-cobalt-captiva-2.4-cortas-onix-hyundai-sonata",
@@ -1295,7 +1295,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010726",
-    "Nombre": "TERMINAL DIRECCION SPRINT/SWIFT/MAZDA 323",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SPRINT/SWIFT/MAZDA 323",
     "Referencia": "4881082000",
     "Precio": "15,850.00",
     "titulo": "terminal-direccion-chevrolet-sprint-swift-mazda-323",
@@ -1308,7 +1308,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010727",
-    "Nombre": "TERMINAL DIRECCION S.CARRY derecho DAMAS",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET S.CARRY derecho DAMAS",
     "Referencia": "4881079000",
     "Precio": "17,680.00",
     "titulo": "terminal-direccion-chevrolet-s-carry-derecho-damas",
@@ -1322,7 +1322,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010728",
-    "Nombre": "TERMINAL DIRECCION S.CARRY izquierdo DAMAS",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET S.CARRY izquierdo DAMAS",
     "Referencia": "4882079000",
     "Precio": "17,680.00",
     "titulo": "terminal-direccion-chevrolet-s-carry-izquierdo-damas",
@@ -1335,7 +1335,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010729",
-    "Nombre": "TERMINAL DIRECCION CHEV.TRACKER",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET TRACKER",
     "Referencia": "95932790",
     "Precio": "22,800.00",
     "titulo": "terminal-direccion-chevrolet-chev-tracker",
@@ -1348,7 +1348,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010730",
-    "Nombre": "TERMINAL DIRECCION TRAIL BLAZER izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET TRAIL BLAZER izquierdo",
     "Referencia": "ES3675L",
     "Precio": "38,900.00",
     "titulo": "terminal-direccion-chevrolet-trail-blazer-izquierdo",
@@ -1361,7 +1361,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010731",
-    "Nombre": "TERMINAL DIRECCION TRAIL BLAZER derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET TRAIL BLAZER derecho",
     "Referencia": "ES3676R",
     "Precio": "38,900.00",
     "titulo": "terminal-direccion-chevrolet-trail-blazer-derecho",
@@ -1374,7 +1374,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010732",
-    "Nombre": "TERMINAL DIRECCION VITARA/SAMURAI CORTA derecho = 4881080001",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET VITARA/SAMURAI CORTA derecho = 4881080001",
     "Referencia": "4881060A00",
     "Precio": "23,304.00",
     "titulo": "terminal-direccion-chevrolet-vitara-samurai-corta-derecho",
@@ -1387,7 +1387,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010733",
-    "Nombre": "TERMINAL DIRECCION N-200 -N- 300 derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET N-200 -N- 300 derecho",
     "Referencia": "24510351",
     "Precio": "17,995.00",
     "titulo": "terminal-direccion-chevrolet-n-200-n-300-derecho",
@@ -1400,7 +1400,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010734",
-    "Nombre": "TERMINAL DIRECCION N-200 - N-300 izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET N-200 - N-300 izquierdo",
     "Referencia": "9050603",
     "Precio": "17,995.00",
     "titulo": "terminal-direccion-chevrolet-n-200-n-300-izquierdo",
@@ -1413,7 +1413,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010735",
-    "Nombre": "TERMINAL DIRECCION SPARK",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SPARK",
     "Referencia": "93741077",
     "Precio": "20,796.00",
     "titulo": "terminal-direccion-chevrolet-spark",
@@ -1426,7 +1426,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010736",
-    "Nombre": "TERMINAL DIRECCION VITARA LARGA",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET VITARA LARGA",
     "Referencia": "4882060A00",
     "Precio": "39,900.00",
     "titulo": "terminal-direccion-chevrolet-vitara-larga",
@@ -1439,7 +1439,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010737",
-    "Nombre": "TERMINAL DIRECCION LUV 2300 CON GRASERA derecho",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300 CON GRASERA derecho",
     "Referencia": "8944194080-A",
     "Precio": "15,850.00",
     "titulo": "terminal-direccion-chevrolet-luv-2300-con-grasera-derecho",
@@ -1452,7 +1452,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010738",
-    "Nombre": "TERMINAL DIRECCION LUV 2300 CON GRASERA izquierdo",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300 CON GRASERA izquierdo",
     "Referencia": "8944194090-A",
     "Precio": "15,850.00",
     "titulo": "terminal-direccion-chevrolet-luv-2300-con-grasera-izquierdo",
@@ -1465,7 +1465,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010801",
-    "Nombre": "TIJERA SUPERIOR LUV 1600 82/90 R=L",
+    "Nombre": "TIJERA SUPERIOR CHEVROLET LUV 1600 82/90 R=L",
     "Referencia": "8942269361",
     "Precio": "99,800.00",
     "titulo": "tijera-superior-chevrolet-luv-1600-82-90",
@@ -1478,7 +1478,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010802",
-    "Nombre": "TIJERA SUPERIOR LUV 2300 4X2 R=L LUV 2.2",
+    "Nombre": "TIJERA SUPERIOR CHEVROLET LUV 2300 4X2 R=L LUV 2.2",
     "Referencia": "8944455503",
     "Precio": "100,857.00",
     "titulo": "tijera-superior-chevrolet-luv-2300-4x2-r=l-luv-2.2",
@@ -1491,7 +1491,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010803",
-    "Nombre": "TIJERA SUPERIOR LUV DMAX 4X2 izquierdo",
+    "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X2 izquierdo",
     "Referencia": "898005836",
     "Precio": "107,317.00",
     "titulo": "tijera-superior-chevrolet-luv-dmax-4x2-izquierdo-luv-2.2",
@@ -1504,7 +1504,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010804",
-    "Nombre": "TIJERA SUPERIOR LUV DMAX 4X2 derecho LUV 2.2",
+    "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X2 derecho LUV 2.2",
     "Referencia": "898005837",
     "Precio": "107,317.00",
     "titulo": "tijera-superior-chevrolet-luv-dmax-4x2-derecho-luv-2.2",
@@ -1517,7 +1517,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010805",
-    "Nombre": "TIJERA SUPERIOR LUV DMAX 4X4 izquierdo",
+    "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X4 izquierdo",
     "Referencia": "8973650130",
     "Precio": "121,601.00",
     "titulo": "tijera-superior-chevrolet-luv-dmax-4x4-izquierdo-luv-2.2",
@@ -1530,7 +1530,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010806",
-    "Nombre": "TIJERA SUPERIOR LUV DMAX 4X4 derecho",
+    "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X4 derecho",
     "Referencia": "8973650120",
     "Precio": "121,601.00",
     "titulo": "tijera-superior-chevrolet-luv-dmax-4x4-derecho-luv-2.2",
@@ -1543,7 +1543,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010807",
-    "Nombre": "TIJERA SUPERIOR LUV 2300 4X4 TROOPER derecho",
+    "Nombre": "TIJERA SUPERIOR CHEVROLET LUV 2300 4X4 TROOPER derecho",
     "Referencia": "8944457080 8943235621",
     "Precio": "110,942.00",
     "titulo": "tijera-superior-chevrolet-luv-2300-4x4-trooper-derecho-luv-2.2",
@@ -1556,7 +1556,7 @@
   {
     "Tipo": "TIJERAS SUPERIORES CHEVROLET",
     "Codigo": "11010808",
-    "Nombre": "TIJERA SUPERIOR LUV 2300 4X4 TROOPER izquierdo",
+    "Nombre": "TIJERA  SUPERIOR CHEVROLET LUV 2300 4X4 TROOPER izquierdo",
     "Referencia": "8944457090 8943235631",
     "Precio": "110,942.00",
     "titulo": "tijera-superior-chevrolet-luv-2300-4x4-trooper-izquierdo-luv-2.2",
@@ -1583,7 +1583,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010901",
-    "Nombre": "TIJERA ASTRA/ZAFIRA izquierdo CON BUJES",
+    "Nombre": "TIJERA CHEVROLET ASTRA/ZAFIRA izquierdo CON BUJES",
     "Referencia": "90469039",
     "Precio": "76,500.00",
     "titulo": "tijera-chevrolet-astra-zafira-izquierdo-con-bujes",
@@ -1596,7 +1596,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010902",
-    "Nombre": "TIJERA ASTRA/ZAFIRA derecho CON BUJES",
+    "Nombre": "TIJERA CHEVROLET ASTRA/ZAFIRA derecho CON BUJES",
     "Referencia": "90496040",
     "Precio": "76,500.00",
     "titulo": "tijera-chevrolet-astra-zafira-derecho-con-bujes",
@@ -1609,7 +1609,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010903",
-    "Nombre": "TIJERA AVEO SAIL izquierdo CON ROTULA Y BUJES",
+    "Nombre": "TIJERA CHEVROLET AVEO SAIL izquierdo CON ROTULA Y BUJES",
     "Referencia": "96535081",
     "Precio": "99,800.00",
     "titulo": "tijera-chevrolet-aveo-sail-izquierdo-con-rotula-y-bujes",
@@ -1622,7 +1622,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010904",
-    "Nombre": "TIJERA AVEO SAIL derecho CON ROTULA Y BUJES",
+    "Nombre": "TIJERA CHEVROLET AVEO SAIL derecho CON ROTULA Y BUJES",
     "Referencia": "96535082",
     "Precio": "99,800.00",
     "titulo": "tijera-chevrolet-aveo-sail-derecho-con-rotula-y-bujes",
@@ -1635,7 +1635,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010905",
-    "Nombre": "TIJERA CAPTIVA V-6 3.600 USA",
+    "Nombre": "TIJERA CHEVROLET CAPTIVA V-6 3.600 USA",
     "Referencia": "25878028",
     "Precio": "157,000.00",
     "titulo": "tijera-chevrolet-captiva-v6-3.600-usa",
@@ -1648,7 +1648,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010906",
-    "Nombre": "TIJERA CAPTIVA V-6 3.600 USA",
+    "Nombre": "TIJERA CHEVROLET CAPTIVA V-6 3.600 USA",
     "Referencia": "25878029",
     "Precio": "157,000.00",
     "titulo": "tijera-chevrolet-captiva-v6-3.600-usa",
@@ -1661,7 +1661,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010907",
-    "Nombre": "TIJERA CAVALER 4CIL 95/98 derecho",
+    "Nombre": "TIJERA CHEVROLET CAVALER 4CIL 95/98 derecho",
     "Referencia": "22611124",
     "Precio": "108,548.00",
     "titulo": "tijera-chevrolet-cavalier-4cil-95-98-derecho",
@@ -1675,7 +1675,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010908",
-    "Nombre": "TIJERA CAVALIER 4CIL.95/98 izquierdo",
+    "Nombre": "TIJERA CHEVROLET CAVALIER 4CIL.95/98 izquierdo",
     "Referencia": "22611125",
     "Precio": "108,548.00",
     "titulo": "tijera-chevrolet-cavalier-4cil-95-98-izquierdo",
@@ -1688,7 +1688,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010909",
-    "Nombre": "TIJERA COBALT izquierdo CON ROTULA Y BUJES",
+    "Nombre": "TIJERA CHEVROLET COBALT izquierdo CON ROTULA Y BUJES",
     "Referencia": "95940539",
     "Precio": "102,839.00",
     "titulo": "tijera-chevrolet-cobalt-izquierdo-con-rotula-y-bujes",
@@ -1701,7 +1701,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010910",
-    "Nombre": "TIJERA COBALT derecho ROTULA Y BUJES--11010922",
+    "Nombre": "TIJERA CHEVROLET COBALT derecho ROTULA Y BUJES--11010922",
     "Referencia": "95940540",
     "Precio": "102,839.00",
     "titulo": "tijera-chevrolet-cobalt-derecho-rotula-y-bujes",
@@ -1714,7 +1714,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010911",
-    "Nombre": "TIJERA CORSA EVOLUTION izquierdo ROTULA Y BUJES",
+    "Nombre": "TIJERA CHEVROLET CORSA EVOLUTION izquierdo ROTULA Y BUJES",
     "Referencia": "93390601",
     "Precio": "89,900.00",
     "titulo": "tijera-chevrolet-corsa-evolution-izquierdo-rotula-y-bujes",
@@ -1727,7 +1727,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010912",
-    "Nombre": "TIJERA CORSA EVOLUTION derecho ROTULA Y BUJES",
+    "Nombre": "TIJERA CHEVROLET CORSA EVOLUTION derecho ROTULA Y BUJES",
     "Referencia": "93390602",
     "Precio": "89,900.00",
     "titulo": "tijera-chevrolet-corsa-evolution-derecho-rotula-y-bujes",
@@ -1740,7 +1740,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010913",
-    "Nombre": "TIJERA ESTEEM 1.3/1.6 derecho",
+    "Nombre": "TIJERA CHEVROLET ESTEEM 1.3/1.6 derecho",
     "Referencia": "4520163G01",
     "Precio": "87,048.00",
     "titulo": "tijera-chevrolet-esteem-1.3-1.6-derecho",
@@ -1753,7 +1753,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010914",
-    "Nombre": "TIJERA ESTEMM 1.3/1.6 izquierdo",
+    "Nombre": "TIJERA CHEVROLET ESTEMM 1.3/1.6 izquierdo",
     "Referencia": "4520263G01",
     "Precio": "86,806.00",
     "titulo": "tijera-chevrolet-esteem-1.3-1.6-izquierdo",
@@ -1766,7 +1766,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010915",
-    "Nombre": "TIJERA INFERIOR LUV 2300 4X2 derecho",
+    "Nombre": "TIJERA INFERIOR CHEVROLET LUV 2300 4X2 derecho",
     "Referencia": "8944594602",
     "Precio": "72,594.00",
     "titulo": "tijera-chevrolet-luv-2300-4x2-derecho",
@@ -1779,7 +1779,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010916",
-    "Nombre": "TIJERA INFERIOR LUV 2300 4X2 izquierdo",
+    "Nombre": "TIJERA INFERIOR CHEVROLET LUV 2300 4X2 izquierdo",
     "Referencia": "8944594612",
     "Precio": "72,594.00",
     "titulo": "tijera-chevrolet-luv-2300-4x2-izquierdo",
@@ -1792,7 +1792,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010917",
-    "Nombre": "TIJERA CHEV. N-200 izquierdo",
+    "Nombre": "TIJERA CHEVROLET N-200 izquierdo",
     "Referencia": "5497127",
     "Precio": "34,600.00",
     "titulo": "tijera-chevrolet-n-200-izquierdo",
@@ -1805,7 +1805,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010918",
-    "Nombre": "TIJERA CHEV. N-200 derecho",
+    "Nombre": "TIJERA CHEVROLET N-200 derecho",
     "Referencia": "5497128",
     "Precio": "34,600.00",
     "titulo": "tijera-chevrolet-n-200-derecho",
@@ -1818,7 +1818,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010919",
-    "Nombre": "TIJERA OPTRA 1.4/1.8 izquierdo",
+    "Nombre": "TIJERA CHEVROLET OPTRA 1.4/1.8 izquierdo",
     "Referencia": "96391850",
     "Precio": "72,866.00",
     "titulo": "tijera-chevrolet-optra-1.4-1.8-izquierdo",
@@ -1831,7 +1831,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010920",
-    "Nombre": "TIJERA OPTRA 1.4/1.8 derecho",
+    "Nombre": "TIJERA CHEVROLET OPTRA 1.4/1.8 derecho",
     "Referencia": "96391851",
     "Precio": "72,866.00",
     "titulo": "tijera-chevrolet-optra-1.4-1.8-derecho",
@@ -1844,7 +1844,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010921",
-    "Nombre": "TIJERA SONIC/ONIX izquierdo CON ROTULA Y BUJES--11010909",
+    "Nombre": "TIJERA CHEVROLET SONIC/ONIX izquierdo CON ROTULA Y BUJES--11010909",
     "Referencia": "95017035",
     "Precio": "102,839.00",
     "titulo": "tijera-chevrolet-sonic-onix-izquierdo-con-rotula-y-bujes",
@@ -1857,7 +1857,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010922",
-    "Nombre": "TIJERA SONIC ONIX derecho CON ROTULA Y BUJES--11010910",
+    "Nombre": "TIJERA CHEVROLET SONIC ONIX derecho CON ROTULA Y BUJES--11010910",
     "Referencia": "95017036",
     "Precio": "102,839.00",
     "titulo": "tijera-chevrolet-sonic-onix-derecho-con-rotula-y-bujes",
@@ -1870,7 +1870,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010923",
-    "Nombre": "TIJERA SUPER CARRY R=L DAMAS",
+    "Nombre": "TIJERA CHEVROLET SUPER CARRY R=L DAMAS",
     "Referencia": "4520085002",
     "Precio": "60,401.00",
     "titulo": "tijera-chevrolet-super-carry",
@@ -1883,7 +1883,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010924",
-    "Nombre": "TIJERA SWIFT 1.3/1.6/1.0 izquierdo",
+    "Nombre": "TIJERA CHEVROLET SWIFT 1.3/1.6/1.0 izquierdo",
     "Referencia": "4520260E01",
     "Precio": "92,200.00",
     "titulo": "tijera-chevrolet-swift-1.3-1.6-1.0-izquierdo",
@@ -1896,7 +1896,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010925",
-    "Nombre": "TIJERA SWIFT 1.3/1.6/1.0 derecho",
+    "Nombre": "TIJERA CHEVROLET SWIFT 1.3/1.6/1.0 derecho",
     "Referencia": "4520160E01",
     "Precio": "92,200.00",
     "titulo": "tijera-chevrolet-swift-1.3-1.6-1.0-derecho",
@@ -1909,7 +1909,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010926",
-    "Nombre": "TIJERA CHEV. TRACKER LHCON ROTULA Y BUJES",
+    "Nombre": "TIJERA CHEVROLET TRACKER LHCON ROTULA Y BUJES",
     "Referencia": "95071273",
     "Precio": "138,461.00",
     "titulo": "tijera-chevrolet-tracker-derecho-rotula-y-bujes",
@@ -1922,7 +1922,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010927",
-    "Nombre": "TIJERA CHEV.TRACKER derecho CON ROTULA Y BUJES",
+    "Nombre": "TIJERA CHEVROLET TRACKER derecho CON ROTULA Y BUJES",
     "Referencia": "95071274",
     "Precio": "138,461.00",
     "titulo": "tijera-chevrolet-tracker-derecho-rotula-y-bujes",
@@ -1935,7 +1935,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010928",
-    "Nombre": "TIJERA CAPTIVA 2.400 izquierdo COMPLETA",
+    "Nombre": "TIJERA CHEVROLET CAPTIVA 2.400 izquierdo COMPLETA",
     "Referencia": "96819161",
     "Precio": "137,114.00",
     "titulo": "tijera-chevrolet-captiva-2.400-izquierdo-completa",
@@ -1948,7 +1948,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010929",
-    "Nombre": "TIJERA CAPTIVA 2.400 derecho COMPLETA",
+    "Nombre": "TIJERA CHEVROLET CAPTIVA 2.400 derecho COMPLETA",
     "Referencia": "96819162",
     "Precio": "137,114.00",
     "titulo": "tijera-chevrolet-captiva-2.400-derecho-completa",
@@ -1961,7 +1961,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010930",
-    "Nombre": "TIJERA CHEV. N-300 derecho",
+    "Nombre": "TIJERA CHEVROLET N-300 derecho",
     "Referencia": "24552619",
     "Precio": "29,980.00",
     "titulo": "tijera-chevrolet-n-300-derecho",
@@ -1974,7 +1974,7 @@
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
     "Codigo": "11010931",
-    "Nombre": "TIJERA CHEV. N-300 izquierdo",
+    "Nombre": "TIJERA CHEVROLET N-300 izquierdo",
     "Referencia": "24552620",
     "Precio": "29,980.00",
     "titulo": "tijera-chevrolet-n-300-izquierdo",
@@ -2016,7 +2016,7 @@
     "Nombre": "TIJERA GRAN VITARA SZ derecho",
     "Referencia": "45201-78K00",
     "Precio": "110,547.00",
-    "titulo": "TIJERA GRAN VITARA SZ derecho",
+    "titulo": "tijera-suzuki-gran-vitara-derecho",
     "modelo": "Gran Vitara",
     "brand":"Saher",
     "descuento":10,
@@ -2028,7 +2028,7 @@
     "Nombre": "TIJERA GRAN VITARA SZ izquierdo",
     "Referencia": "45202-78K00",
     "Precio": "110,547.00",
-    "titulo": "TIJERA GRAN VITARA SZ izquierdo",
+    "titulo": "tijera-suzuki-gran-vitara-izquierdo",
     "modelo": "Gran Vitara",
     "brand":"Saher",
     "descuento":10,
@@ -2037,10 +2037,10 @@
   {
     "Tipo": "BUJES TIJERAS CHEVROLET",
     "Codigo": "11011001",
-    "Nombre": "BUJES TIJERA INFERIOR CHEYENNE X2",
+    "Nombre": "BUJES TIJERA  INFERIOR CHEVROLET CHEYENNE X2",
     "Referencia": "K6327",
     "Precio": "46,800.00",
-    "titulo": "BUJES TIJERA INFERIOR Chevrolet CHEYENNE X2",
+    "titulo": "bujes-tijera-inferior-chevrolet-cheyenne-x2",
     "modelo": "Cheyenne",
     "brand":"Saher",
     "descuento":10,
@@ -2049,10 +2049,10 @@
   {
     "Tipo": "BUJES TIJERAS CHEVROLET",
     "Codigo": "11011002",
-    "Nombre": "BUJES TIJERA SUPERIOR CHEYENNE",
+    "Nombre": "BUJES TIJERA SUPERIOR CHEVROLET CHEYENNE",
     "Referencia": "K6395",
     "Precio": "22,886.00",
-    "titulo": "BUJES TIJERA SUPERIOR Chevrolet CHEYENNE",
+    "titulo": "bujes-tijera-superior-chevrolet-cheyenne",
     "modelo": "Cheyenne",
     "brand":"Saher",
     "descuento":10,
@@ -2061,10 +2061,10 @@
   {
     "Tipo": "BUJES TIJERAS CHEVROLET",
     "Codigo": "11011003",
-    "Nombre": "BUJE TIJERA SUPERIOR LUV 2300 TROOPER",
+    "Nombre": "BUJE TIJERA SUPERIOR CHEVROLET LUV 2300 TROOPER",
     "Referencia": "8944088401",
     "Precio": "12,000.00",
-    "titulo": "BUJE TIJERA SUPERIOR LUV 2300 TROOPER",
+    "titulo": "buje-tijera-superior-luv-2300-trooper",
     "modelo": "Luv 2300 Trooper",
     "brand":"Saher",
     "descuento":10,
@@ -2076,7 +2076,7 @@
     "Nombre": "CAÑA UNION TERMINALES CHEVROLET DODGE FORD",
     "Referencia": "ES2004",
     "Precio": "11,990.00",
-    "titulo": "CAÑA UNION TERMINALES Chevrolet DODGE FORD",
+    "titulo": "caña-union-terminales-chevrolet-dodge-ford",
     "modelo": "Chevrolet",
     "brand":"Saher",
     "descuento":10,
@@ -2085,10 +2085,10 @@
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
     "Codigo": "11011202",
-    "Nombre": "UNION TERMINALES LUV 2300 4X2 LARGA",
+    "Nombre": "UNION TERMINALES CHEVROLET LUV 2300 4X2 LARGA",
     "Referencia": "8944594780",
     "Precio": "18,310.00",
-    "titulo": "UNION TERMINALES LUV 2300 4X2 LARGA",
+    "titulo": "union-terminales-luv-2300-4x2-larga",
     "modelo": "Luv 2300",
     "brand":"Saher",
     "descuento":10,
@@ -2097,10 +2097,10 @@
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
     "Codigo": "11011203",
-    "Nombre": "UNION TERMINALES TROOPER/LUV 2300 4X4 CORTA",
+    "Nombre": "UNION TERMINALES CHEVROLET TROOPER/LUV 2300 4X4 CORTA",
     "Referencia": "8944194072",
     "Precio": "18,310.00",
-    "titulo": "UNION TERMINALES TROOPER/LUV 2300 4X4 CORTA",
+    "titulo": "union-terminales-trooper-luv-2300-4x4-corta",
     "modelo": "Trooper / Luv 2300",
     "brand":"Saher",
     "descuento":10,
@@ -2124,10 +2124,10 @@
   {
     "Tipo": "BIELAS DIRECCION CHEVROLET",
     "Codigo": "11011301",
-    "Nombre": "BIELA DIRECCION BLAZER 4X4 93/99",
+    "Nombre": "BIELA DIRECCION CHEVROLET BLAZER 4X4 93/99",
     "Referencia": "K6339",
     "Precio": "35,900.00",
-    "titulo": "BIELA DIRECCION BLAZER 4X4 93/99",
+    "titulo": "biela-direccion-blazer-4x4-93-99",
     "modelo": "Blazer",
     "brand":"Saher",
     "descuento":10,
@@ -2136,10 +2136,10 @@
   {
     "Tipo": "BIELAS DIRECCION CHEVROLET",
     "Codigo": "11011302",
-    "Nombre": "BIELA DIRECCION C-30 HIDRAULICA",
+    "Nombre": "BIELA DIRECCION CHEVROLET C-30 HIDRAULICA",
     "Referencia": "K6143",
     "Precio": "36,900.00",
-    "titulo": "BIELA DIRECCION C-30 HIDRAULICA",
+    "titulo": "biela-direccion-c-30-hidrualica",
     "modelo": "C-30",
     "brand":"Saher",
     "descuento":10,
@@ -2148,10 +2148,10 @@
   {
     "Tipo": "BIELAS DIRECCION CHEVROLET",
     "Codigo": "11011303",
-    "Nombre": "BIELA DIRECCION CHEYENNE SILVERADO",
+    "Nombre": "BIELA DIRECCION CHEVROLET CHEYENNE SILVERADO",
     "Referencia": "K6335",
     "Precio": "34,600.00",
-    "titulo": "BIELA DIRECCION CHEYENNE SILVERADO",
+    "titulo": "biela-direccion-cheyenne-silverado",
     "modelo": "Cheyenne",
     "brand":"Saher",
     "descuento":10,
@@ -2160,10 +2160,10 @@
   {
     "Tipo": "BRAZOS OXILANTES CHEVROLET",
     "Codigo": "11011401",
-    "Nombre": "BRAZO OXILANTE SPARK/ALTO/WAGON R",
+    "Nombre": "BRAZO OXILANTE CHEVROLET SPARK/ALTO/WAGON R",
     "Referencia": "4520084000",
     "Precio": "36,575.00",
-    "titulo": "BRAZO OXILANTE SPARK/ALTO/WAGON R",
+    "titulo": "brazo-oxilante-spark-alto-wagon-r",
     "modelo": "Spark / Alto / Wagon R",
     "brand":"Saher",
     "descuento":10,
@@ -2172,10 +2172,10 @@
   {
     "Tipo": "BRAZOS OXILANTES CHEVROLET",
     "Codigo": "11011402",
-    "Nombre": "BRAZO OXILANTE SPRINT",
+    "Nombre": "BRAZO OXILANTE CHEVROLET SPRINT",
     "Referencia": "4520082000",
     "Precio": "55,955.00",
-    "titulo": "BRAZO OXILANTE SPRINT",
+    "titulo": "brazo-oxilante-sprint",
     "modelo": "Sprint",
     "brand":"Saher",
     "descuento":10,
@@ -2184,10 +2184,10 @@
   {
     "Tipo": "SOPORTES DE AMORTIGUADOR",
     "Codigo": "11011501",
-    "Nombre": "SOPORTE AMORTIGUADOR AVEO/CHRONOS CH-63",
+    "Nombre": "SOPORTE AMORTIGUADOR CHEVROLET AVEO/CHRONOS CH-63",
     "Referencia": "96535011",
     "Precio": "12,395.00",
-    "titulo": "SOPORTE AMORTIGUADOR AVEO/CHRONOS CH-63",
+    "titulo": "soporte-amortiguador-aveo-chronos-ch-63",
     "modelo": "Aveo / Chronos",
     "brand":"Saher",
     "descuento":10,
@@ -2203,10 +2203,10 @@
   {
     "Tipo": "SOPORTES DE AMORTIGUADOR",
     "Codigo": "11011503",
-    "Nombre": "SOPORTE AMORTIGUADOR AVEO TRASERO CH-73",
+    "Nombre": "SOPORTE AMORTIGUADOR CHEVROLET AVEO TRASERO CH-73",
     "Referencia": "96456713",
     "Precio": "15,467.00",
-    "titulo": "SOPORTE AMORTIGUADOR AVEO TRASERO CH-73",
+    "titulo": "soporte-amortiguador-aveo-trasero-ch-73",
     "modelo": "Aveo",
     "brand":"Saher",
     "descuento":10,
@@ -2215,10 +2215,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020101",
-    "Nombre": "BALANCIN MOTOR AVEO FAMILY",
+    "Nombre": "BALANCIN MOTOR CHEVROLET AVEO FAMILY",
     "Referencia": "96335952 XYC-1220",
     "Precio": "19,985.00",
-    "titulo": "BALANCIN MOTOR AVEO FAMILY",
+    "titulo": "balancin-motor-aveo-family",
     "modelo": "Aveo",
     "brand":"Saher",
     "descuento":10,
@@ -2227,10 +2227,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020102",
-    "Nombre": "BALANCIN MOTOR CHEV/ COBALT 1.8 ONIX 1.4",
+    "Nombre": "BALANCIN MOTOR CHEVROLET COBALT 1.8 ONIX 1.4",
     "Referencia": "93361395",
     "Precio": "17,995.00",
-    "titulo": "BALANCIN MOTOR CHEV/ COBALT 1.8 ONIX 1.4",
+    "titulo": "balancin-motor-chev-cobalt-1.8-onix-1.4",
     "modelo": "Chev / Cobalt / Onix",
     "brand":"Saher",
     "descuento":10,
@@ -2239,11 +2239,11 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020103",
-    "Nombre": "BALANCIN MOTOR CORSA DAEWOO LUV 2.2",
+    "Nombre": "BALANCIN MOTOR CHEVROLET CORSA Monza DAEWOO LUV 2.2",
     "Referencia": "90409194",
     "Precio": "62,800.00",
-    "titulo": "BALANCIN MOTOR CORSA DAEWOO LUV 2.2",
-    "modelo": "Corsa / Daewoo / Luv 2.2",
+    "titulo": "balancin-motor-corsa-daewoo-luv-2.2",
+    "modelo": "Corsa / Daewoo / Luv 2.2 / Monza",
     "brand":"Saher",
     "descuento":10,
     "precio2":"40000"
@@ -2251,10 +2251,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020104",
-    "Nombre": "BALANCIN MOTOR CORSA MONZA",
+    "Nombre": "BALANCIN MOTOR CHEVROLET CORSA MONZA",
     "Referencia": "90106142",
     "Precio": "62,800.00",
-    "titulo": "BALANCIN MOTOR CORSA MONZA",
+    "titulo": "balancin-motor-corsa-monza",
     "modelo": "Corsa / Monza",
     "brand":"Saher",
     "descuento":10,
@@ -2263,10 +2263,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020105",
-    "Nombre": "BALANCIN MOTOR ISUZU LV-150",
+    "Nombre": "BALANCIN MOTOR  ISUZU LV-150",
     "Referencia": "1126100611",
     "Precio": "228,944.00",
-    "titulo": "BALANCIN MOTOR ISUZU LV-150",
+    "titulo": "balancin-motor-isuzu-lv-150",
     "modelo": "Isuzu",
     "brand":"Saher",
     "descuento":10,
@@ -2275,10 +2275,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020106",
-    "Nombre": "BALANCIN MOTOR LUV 1.6/2.3/TROOPER WFR",
+    "Nombre": "BALANCIN MOTOR CHEVROLET LUV 1.6/2.3/TROOPER WFR",
     "Referencia": "8941024160",
     "Precio": "18,900.00",
-    "titulo": "BALANCIN MOTOR LUV 1.6/2.3/TROOPER WFR",
+    "titulo": "balancin-motor-luv-1.6-2.3-trooper-wfr",
     "modelo": "Luv 1.6 / 2.3 / Trooper",
     "brand":"Saher",
     "descuento":10,
@@ -2287,10 +2287,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020107",
-    "Nombre": "BALANCIN MOTOR LUV DMAX NKR/NHR / JAC",
+    "Nombre": "BALANCIN MOTOR CHEVROLET LUV DMAX NKR/NHR / JAC",
     "Referencia": "8941523440",
     "Precio": "14,500.00",
-    "titulo": "BALANCIN MOTOR LUV DMAX NKR/NHR / JAC",
+    "titulo": "balancin-motor-luv-dmax-nkr-nhr-jac",
     "modelo": "Luv Dmax / Nkr / Nhr / Jac",
     "brand":"Saher",
     "descuento":10,
@@ -2299,10 +2299,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020108",
-    "Nombre": "BALANCIN MOTOR S.CARRY SPARK",
+    "Nombre": "BALANCIN MOTOR CHEVROLET S.CARRY SPARK",
     "Referencia": "12481-77300 1384177300",
     "Precio": "12,800.00",
-    "titulo": "BALANCIN MOTOR S.CARRY SPARK",
+    "titulo": "balancin-motor-s-carry-spark",
     "modelo": "S.Carry / Spark",
     "brand":"Saher",
     "descuento":10,
@@ -2311,10 +2311,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020109",
-    "Nombre": "BALANCIN MOTOR SWIFT SPRINT VITARA",
+    "Nombre": "BALANCIN MOTOR CHEVROLET SWIFT SPRINT VITARA",
     "Referencia": "1284160A01",
     "Precio": "13,900.00",
-    "titulo": "BALANCIN MOTOR SWIFT SPRINT VITARA",
+    "titulo": "balancin-motor-swift-sprint-vitara",
     "modelo": "Swift / Sprint / Vitara",
     "brand":"Saher",
     "descuento":10,
@@ -2323,10 +2323,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020110",
-    "Nombre": "BALANCIN TRAIL BLAZER 4.2 RODEO V6 TROOPER 960 CAPTIVA 3.2",
+    "Nombre": "BALANCIN CHEVROLET TRAIL BLAZER 4.2 RODEO V6 TROOPER 960 CAPTIVA 3.2",
     "Referencia": "YR0135",
     "Precio": "17,600.00",
-    "titulo": "BALANCIN TRAIL BLAZER 4.2 RODEO V6 TROOPER 960 CAPTIVA 3.2",
+    "titulo": "balancin-trail-blazer-4.2-rodeo-v6-trooper-960-captiva-3.2",
     "modelo": "Trail Blazer / Rodeo / Trooper 960 / Captiva",
     "brand":"Saher",
     "descuento":10,
@@ -2335,10 +2335,10 @@
   {
     "Tipo": "BALANCINES MOTOR",
     "Codigo": "11020111",
-    "Nombre": "BALANCIN MOTOR CAPTIVA 2.400",
+    "Nombre": "BALANCIN MOTOR CHEVROLET CAPTIVA 2.400",
     "Referencia": "12565203",
     "Precio": "16,900.00",
-    "titulo": "BALANCIN MOTOR CAPTIVA 2.400",
+    "titulo": "balancin-motor-captiva-2.400",
     "modelo": "Captiva",
     "brand":"Saher",
     "descuento":10,
@@ -2347,10 +2347,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020201",
-    "Nombre": "EJE LEVAS AVEO FAMILY 1500",
+    "Nombre": "EJE LEVAS CHEVROLET AVEO FAMILY 1500",
     "Referencia": "96838025",
     "Precio": "120,000.00",
-    "titulo": "EJE LEVAS AVEO FAMILY 1500",
+    "titulo": "eje-levas-aveo-family-1500",
     "modelo": "Aveo",
     "brand":"Saher",
     "descuento":10,
@@ -2359,10 +2359,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020202",
-    "Nombre": "EJE LEVAS AVEO/OPTRA1400",
+    "Nombre": "EJE LEVAS CHEVROLET AVEO/OPTRA1400",
     "Referencia": "96376716",
     "Precio": "129,900.00",
-    "titulo": "EJE LEVAS AVEO/OPTRA 1400",
+    "titulo": "eje-levas-aveo-optra-1400",
     "modelo": "Aveo / Optra",
     "brand":"Saher",
     "descuento":10,
@@ -2371,10 +2371,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020203",
-    "Nombre": "EJE LEVAS CORSA 1.3/1.4",
+    "Nombre": "EJE LEVAS CHEVROLET CORSA 1.3/1.4",
     "Referencia": "93272192",
     "Precio": "90,000.00",
-    "titulo": "EJE LEVAS CORSA 1.3/1.4",
+    "titulo": "eje-levas-corsa-1.3-1.4",
     "modelo": "Corsa",
     "brand":"Saher",
     "descuento":10,
@@ -2383,10 +2383,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020204",
-    "Nombre": "EJE LEVAS CORSA 1.600",
+    "Nombre": "EJE LEVAS CHEVROLET CORSA 1.600",
     "Referencia": "93244916",
     "Precio": "90,000.00",
-    "titulo": "EJE LEVAS CORSA 1.600",
+    "titulo": "eje-levas-corsa-1.600",
     "modelo": "Corsa",
     "brand":"Saher",
     "descuento":10,
@@ -2395,10 +2395,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020205",
-    "Nombre": "EJE LEVAS ESTEEM 1.3/GRAN VIT. 1600",
+    "Nombre": "EJE LEVAS CHEVROLET ESTEEM 1.3/GRAN VIT. 1600",
     "Referencia": "1271161G00",
     "Precio": "119,800.00",
-    "titulo": "EJE LEVAS ESTEEM 1.3/GRAN VITARA 1600",
+    "titulo": "eje-levas-esteem-1.3-gran-vitara-1600",
     "modelo": "Esteem / Gran Vitara",
     "brand":"Saher",
     "descuento":10,
@@ -2407,10 +2407,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020206",
-    "Nombre": "EJE LEVAS ESTEEM 1.6",
+    "Nombre": "EJE LEVAS CHEVROLET ESTEEM 1.6",
     "Referencia": "1271052G00",
     "Precio": "119,800.00",
-    "titulo": "EJE LEVAS ESTEEM 1.6",
+    "titulo": "eje-levas-esteem-1.6",
     "modelo": "Esteem",
     "brand":"Saher",
     "descuento":10,
@@ -2433,10 +2433,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020209",
-    "Nombre": "EJE LEVAS LUV 2.400 DMAX",
+    "Nombre": "EJE LEVAS CHEVROLET LUV 2.400 DMAX",
     "Referencia": "93283062",
     "Precio": "130,000.00",
-    "titulo": "EJE LEVAS LUV 2.400 DMAX",
+    "titulo": "eje-levas-luv-2.400-dmax",
     "modelo": "Luv Dmax",
     "brand":"Saher",
     "descuento":10,
@@ -2445,10 +2445,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020210",
-    "Nombre": "EJE LEVAS LUV 2.3/TROOPER WFR",
+    "Nombre": "EJE LEVAS CHEVROLET LUV 2.3/TROOPER WFR",
     "Referencia": "8941367841",
     "Precio": "148,500.00",
-    "titulo": "EJE LEVAS LUV 2.3/TROOPER WFR",
+    "titulo": "eje-levas-luv-2.3-trooper-wfr",
     "modelo": "Luv 2.3 / Trooper",
     "brand":"Saher",
     "descuento":10,
@@ -2457,10 +2457,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020211",
-    "Nombre": "EJE LEVAS MONZA 1.8/2.0",
+    "Nombre": "EJE LEVAS CHEVROLET MONZA 1.8/2.0",
     "Referencia": "52252649",
     "Precio": null,
-    "titulo": "EJE LEVAS MONZA 1.8/2.0",
+    "titulo": "eje-levas-monza-1.8-2.0",
     "modelo": "Monza",
     "brand":"Saher",
     "descuento":10,
@@ -2469,10 +2469,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020212",
-    "Nombre": "EJE LEVAS NKR",
+    "Nombre": "EJE LEVAS CHEVROLET NKR",
     "Referencia": "8941277971",
     "Precio": "138,500.00",
-    "titulo": "EJE LEVAS NKR",
+    "titulo": "eje-levas-nkr",
     "modelo": "Nkr",
     "brand":"Saher",
     "descuento":10,
@@ -2481,10 +2481,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020213",
-    "Nombre": "EJE LEVAS NPR 4HG1 2001/2012",
+    "Nombre": "EJE LEVAS CHEVROLET NPR 4HG1 2001/2012",
     "Referencia": "8970778290 8970778240",
     "Precio": "163,800.00",
-    "titulo": "EJE LEVAS NPR 4HG1 2001/2012",
+    "titulo": "eje-levas-npr-4hg1-2001-2012",
     "modelo": "Npr",
     "brand":"Saher",
     "descuento":10,
@@ -2493,10 +2493,10 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020214",
-    "Nombre": "EJE LEVAS SPARK",
+    "Nombre": "EJE LEVAS CHEVROLET SPARK",
     "Referencia": "96325213",
     "Precio": "147,900.00",
-    "titulo": "EJE LEVAS SPARK",
+    "titulo": "eje-levas-spark",
     "modelo": "Spark",
     "brand":"Saher",
     "descuento":10,
@@ -2505,11 +2505,11 @@
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
     "Codigo": "11020215",
-    "Nombre": "EJE LEVAS SUPER CARRY CHANA",
+    "Nombre": "EJE LEVAS CHEVROLET SUPER CARRY CHANA",
     "Referencia": "1271073001",
     "Precio": "98,500.00",
-    "titulo": "EJE LEVAS SUPER CARRY CHANA",
-    "modelo": "Super Carry",
+    "titulo": "eje-levas-super-carry-chana",
+    "modelo": "Super Carry / Chana",
     "brand":"Saher",
     "descuento":10,
     "precio2":"40000"
@@ -2517,10 +2517,10 @@
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
     "Codigo": "11020303",
-    "Nombre": "FLAUTA LUV TROOPER ESCAPE LARGA",
+    "Nombre": "FLAUTA CHEVROLET LUV TROOPER ESCAPE LARGA",
     "Referencia": "8941106471",
     "Precio": "34,200.00",
-    "titulo": "FLAUTA LUV TROOPER ESCAPE LARGA",
+    "titulo": "flauta-luv-trooper-escape-larga",
     "modelo": "Luv Trooper",
     "brand":"Saher",
     "descuento":10,
@@ -2529,10 +2529,10 @@
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
     "Codigo": "11020304",
-    "Nombre": "FLAUTA LUV TROOPER ADM. CORTA",
+    "Nombre": "FLAUTA CHEVROLET LUV TROOPER ADM. CORTA",
     "Referencia": "8941106461",
     "Precio": "34,200.00",
-    "titulo": "FLAUTA LUV TROOPER ADM. CORTA",
+    "titulo": "flauta-luv-trooper-adm-corta",
     "modelo": "Luv Trooper",
     "brand":"Saher",
     "descuento":10,
@@ -2541,10 +2541,10 @@
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
     "Codigo": "11020305",
-    "Nombre": "FLAUTA NKR/NHR LUV DMAX 2.5/3.0",
+    "Nombre": "FLAUTA CHEVROLET NKR/NHR LUV DMAX 2.5/3.0",
     "Referencia": "8970361970",
     "Precio": "36,500.00",
-    "titulo": "FLAUTA NKR/NHR LUV DMAX 2.5/3.0",
+    "titulo": "flauta-nkr-nhr-luv-dmax-2.5-3.0",
     "modelo": "Luv Dmax / Nkr / Nhr",
     "brand":"Saher",
     "descuento":10,
@@ -2553,10 +2553,10 @@
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
     "Codigo": "11020306",
-    "Nombre": "FLAUTA SPARK CHRONOS ADM.CORTA",
+    "Nombre": "FLAUTA CHEVROLET SPARK CHRONOS ADM.CORTA",
     "Referencia": "96325216",
     "Precio": "26,800.00",
-    "titulo": "FLAUTA SPARK CHRONOS ADM.CORTA",
+    "titulo": "flauta-spark-chronos-adm-corta",
     "modelo": "Spark",
     "brand":"Saher",
     "descuento":10,
@@ -2565,10 +2565,10 @@
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
     "Codigo": "11020307",
-    "Nombre": "FLAUTA SPARK CHRONOS ESCAPE LARGA",
+    "Nombre": "FLAUTA CHEVROLET SPARK CHRONOS ESCAPE LARGA",
     "Referencia": "96325218",
     "Precio": "26,800.00",
-    "titulo": "FLAUTA SPARK CHRONOS ESCAPE LARGA",
+    "titulo": "flauta-spark-chronos-escape-larga",
     "modelo": "Spark",
     "brand":"Saher",
     "descuento":10,
@@ -2577,10 +2577,10 @@
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
     "Codigo": "11020308",
-    "Nombre": "FLAUTA SPRINT ADM. CORTA",
+    "Nombre": "FLAUTA CHEVROLET SPRINT ADM. CORTA",
     "Referencia": "1286082001",
     "Precio": "22,300.00",
-    "titulo": "FLAUTA SPRINT ADM. CORTA",
+    "titulo": "flauta-sprint-adm-corta",
     "modelo": "Sprint",
     "brand":"Saher",
     "descuento":10,
@@ -2589,10 +2589,10 @@
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
     "Codigo": "11020309",
-    "Nombre": "FLAUTA SPRINT ESC. LARGA",
+    "Nombre": "FLAUTA CHEVROLET SPRINT ESC. LARGA",
     "Referencia": "1287082001",
     "Precio": "22,300.00",
-    "titulo": "FLAUTA SPRINT ESC. LARGA",
+    "titulo": "flauta-chevrolet-sprint-esc-larga",
     "modelo": "Sprint",
     "brand":"Saher",
     "descuento":10,
@@ -2604,7 +2604,7 @@
     "Nombre": "FLAUTA SUPER CARRY ADM=ESC",
     "Referencia": "1286073004",
     "Precio": "19,900.00",
-    "titulo": "FLAUTA SUPER CARRY ADM=ESC",
+    "titulo": "flauta-super-carry-adm-esc",
     "modelo": "Super Carry",
     "brand":"Saher",
     "descuento":10,
@@ -2646,208 +2646,263 @@
     "Codigo": "11020401",
     "Nombre": "IMPULSADORES C-30 DAIHATSU 4Y =817",
     "Referencia": "3799644",
-    "Precio": "11,800.00"
+    "Precio": "11,800.00",
+    "titulo": "impulsadores-chevrolet-c-30-daihatsu-4y-817",
+    "modelo": "C-30",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020402",
     "Nombre": "IMPULSADORES CAVALIER 4 CIL 95/98",
     "Referencia": "17120070",
-    "Precio": "17,500.00"
+    "Precio": "17,500.00",
+    "titulo": "impulsadores-chevrolet-cavalier-4-cil-95-98",
+    "modelo": "Cavalier",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020403",
     "Nombre": "IMPULSADORES CHEVROLET COBAL /FORD",
     "Referencia": "93361391",
-    "Precio": "11,800.00"
+    "Precio": "11,800.00",
+    "titulo": "impulsadores-chevrolet-cobal-ford",
+    "modelo": "Cobal",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020404",
-    "Nombre": "IMPULSADORES CHEYENNE/BLAZER RODILLO",
+    "Nombre": "IMPULSADORES CHEVROLET CHEYENNE/BLAZER RODILLO",
     "Referencia": "HT-2148 5234670",
-    "Precio": "26,800.00"
+    "Precio": "26,800.00",
+    "titulo": "impulsadores-chevrolet-cheyenne-blazer-rodillo",
+    "modelo": "Cheyenne",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020405",
-    "Nombre": "IMPULSADORES CORSA/MONZA DAEWOO/LUV 2.2",
+    "Nombre": "IMPULSADORES CHEVROLET CORSA/MONZA DAEWOO/LUV 2.2",
     "Referencia": "5233315",
-    "Precio": "87,900.00"
+    "Precio": "87,900.00",
+    "titulo": "impulsadores-chevrolet-corsa-monza-daewoo-luv-2.2",
+    "modelo": "Corsa / Daewoo / Luv 2.2 / Monza",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020406",
-    "Nombre": "IMPULSADORES OPTRA 1.4 AVEO 1.6",
+    "Nombre": "IMPULSADORES CHEVROLET OPTRA 1.4 AVEO 1.6",
     "Referencia": "96376400",
-    "Precio": "12,850.00"
+    "Precio": "12,850.00",
+    "titulo": "impulsadores-chevrolet-optra-1.4-aveo-1.6",
+    "modelo": "Optra / Aveo",
+    "brand":"Saher",
+    "descuento":10, 
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020407",
-    "Nombre": "IMPULSADORES OPTRA 1.8 EPICA VIVANT",
+    "Nombre": "IMPULSADORES CHEVROLET OPTRA 1.8 EPICA VIVANT",
     "Referencia": "90570967",
-    "Precio": "12,850.00"
+    "Precio": "12,850.00",
+    "titulo": "impulsadores-chevrolet-optra-1.8-epica-vivant",
+    "modelo": "Optra",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020408",
-    "Nombre": "IMPULSADORES SPRINT VITARA/SWIFT",
+    "Nombre": "IMPULSADORES CHEVROLET SPRINT VITARA/SWIFT",
     "Referencia": "1289186512",
-    "Precio": "11,980.00"
+    "Precio": "11,980.00",
+    "titulo": "impulsadores-chevrolet-sprint-vitara-swift",
+    "modelo": "Sprint / Vitara / Swift",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020409",
-    "Nombre": "IMPULSADORES CAPTIVA 2.4/3.0/3.2/3.6 /TRAIL BLAZER/ONIX TURBO 1.0",
+    "Nombre": "IMPULSADORES CHEVROLET CAPTIVA 2.4/3.0/3.2/3.6 /TRAIL BLAZER/ONIX TURBO 1.0",
     "Referencia": "12572638",
-    "Precio": "11,600.00"
+    "Precio": "11,600.00",
+    "titulo": "impulsadores-chevrolet-captiva-trail-blazer-onix-turbo",
+    "modelo": "Captiva / Trail Blazer / Onix Turbo",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020501",
-    "Nombre": "KIT REPARTICION CHEV.ALTO WAGON +R 6 PCS 1.2 LTS",
+    "Nombre": "KIT REPARTICION CHEVROLET ALTO WAGON +R 6 PCS 1.2 LTS",
     "Referencia": "08180604 104P4",
-    "Precio": "126,800.00"
+    "Precio": "126,800.00",
+    "titulo": "kit-reparticion-chevrolet-alto-wagon-r-6-pcs-1.2-lts",
+    "modelo": "Alto / Wagon R",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020502",
-    "Nombre": "KIT REPARTICION CAPTIVA 2.4/HHR 16 PCS",
+    "Nombre": "KIT REPARTICION CHEVROLET CAPTIVA 2.4/HHR 16 PCS",
     "Referencia": "08184005 8005",
-    "Precio": "469,800.00"
+    "Precio": "469,800.00",
+    "titulo": "kit-reparticion-chevrolet-captiva-2.4-hhr-16-pcs",
+    "modelo": "Captiva",
+    "brand":"Saher",
+    "descuento":10,
+    "precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020503",
-    "Nombre": "KIT REP.CHEVROLET CAPTIVA V-6 3.0/3.2/3.6 15 PCS",
+    "Nombre": "KIT REPARTICION CHEVROLET CAPTIVA V-6 3.0/3.2/3.6 15 PCS",
     "Referencia": "08188002 8002",
     "Precio": "649,800.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020504",
-    "Nombre": "KIT REP.CHEVROLET N-200 SPARK GT 7 PCS",
+    "Nombre": "KIT REPARTICION CHEVROLET N-200 SPARK GT 7 PCS",
     "Referencia": "08188003 08188003",
     "Precio": "169,800.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020505",
-    "Nombre": "KIT REP.GRAN VITARA 2.0 11 PIEZAS",
+    "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.0 11 PIEZAS",
     "Referencia": "08180605 08180605",
     "Precio": "272,000.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020506",
-    "Nombre": "KIT REP.GRAN VITARA 2.5 /2.7 17PCS",
+    "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.5 /2.7 17PCS",
     "Referencia": "08180606 08180606",
     "Precio": "538,900.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020507",
-    "Nombre": "KIT REP.GRAN VITARA 2.7 SZ 20 PIEZAS",
+    "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.7 SZ 20 PIEZAS",
     "Referencia": "08180607 08180607",
     "Precio": "549,600.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020508",
-    "Nombre": "KIT REP.TRAIL BLAZER MOTOR 4.200 CC 7 PCS",
+    "Nombre": "KIT REPARTICION CHEVROLET TRAIL BLAZER MOTOR 4.200 CC 7 PCS",
     "Referencia": "08188004 8004",
     "Precio": "219,945.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020509",
-    "Nombre": "KIT REP. SAIL 7 PC",
+    "Nombre": "KIT REPARTICION CHEVROLET SAIL 7 PC",
     "Referencia": "08180604 4008",
     "Precio": "178,900.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020510",
-    "Nombre": "KIT REP. AVEO/OPTRA 1.4/1.6",
+    "Nombre": "KIT REPARTICION CHEVROLET AVEO/OPTRA 1.4/1.6",
     "Referencia": "K-110",
     "Precio": "117,800.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020511",
-    "Nombre": "KIT REP. OPTRA 1.8/EPICA 2.0/VIVANT 2.0",
+    "Nombre": "KIT REPARTICION CHEVROLET OPTRA 1.8/EPICA 2.0/VIVANT 2.0",
     "Referencia": "K-120",
     "Precio": "136,880.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020512",
-    "Nombre": "KIT REP. LUV 2.200",
+    "Nombre": "KIT REPARTICION CHEVROLET LUV 2.200",
     "Referencia": "K-130",
     "Precio": "93,100.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020513",
-    "Nombre": "KIT REP. ASTRA 1.8 OPTRA LT/CORSA 1.8",
+    "Nombre": "KIT REPARTICION CHEVROLET ASTRA 1.8 OPTRA LT/CORSA 1.8",
     "Referencia": "K-140",
     "Precio": "129,554.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020514",
-    "Nombre": "KIT REP. ZAFIRA 2.0",
+    "Nombre": "KIT REPARTICION CHEVROLET ZAFIRA 2.0",
     "Referencia": "K-150",
     "Precio": "89,590.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020515",
-    "Nombre": "KIT REP. TRACKER/CRUCE 1.8",
+    "Nombre": "KIT REPARTICION CHEVROLET TRACKER/CRUCE 1.8",
     "Referencia": "K-160",
     "Precio": "162,305.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020516",
-    "Nombre": "KIT REP. CHERY VAN CARGO 1.300",
+    "Nombre": "KIT REPARTICION CHEVROLET CHERY VAN CARGO 1.300",
     "Referencia": "K-170",
     "Precio": "149,407.00"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020517",
-    "Nombre": "KIT REP. CORSA 1.3/1.4 ONIX COBALT DAEWOO RACER",
+    "Nombre": "KIT REPARTICION CHEVROLET CORSA 1.3/1.4 ONIX COBALT DAEWOO RACER",
     "Referencia": "K-180",
     "Precio": "68,804.00"
   },
   {
     "Tipo": "TAPA REPARTICION CHEVROLET",
     "Codigo": "11020601",
-    "Nombre": "TAPA REP SPARK 724/CRONOS CH-48",
+    "Nombre": "TAPA REPARTICION CHEVROLET SPARK 724/CRONOS CH-48",
     "Referencia": "96325223",
     "Precio": "17,800.00"
   },
   {
     "Tipo": "TAPA REPARTICION CHEVROLET",
     "Codigo": "11020602",
-    "Nombre": "TAPA REPARTICION SPRINT/SWIFT 1.300 CH-20",
+    "Nombre": "TAPA REPARTICION CHEVROLET SPRINT/SWIFT 1.300 CH-20",
     "Referencia": "1139082010",
     "Precio": "19,200.00"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020701",
-    "Nombre": "TORNILLO BALANCIN GRAN VITARA 2.0/2.5",
+    "Nombre": "TORNILLO BALANCIN CHEVROLET GRAN VITARA 2.0/2.5",
     "Referencia": "1284232411",
     "Precio": "2,800.00"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020702",
-    "Nombre": "TORNILLO BALANCIN LUV DMAX/NKR/NHR",
+    "Nombre": "TORNILLO BALANCIN CHEVROLET LUV DMAX/NKR/NHR",
     "Referencia": "8941522831",
     "Precio": "3,472.00"
   },
