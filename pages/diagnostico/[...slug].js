@@ -1,6 +1,36 @@
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
-import { supabase } from "@/lib/supabaseClient";
+import styles2 from "@/styles/Landing.module.css";
+import dynamic from "next/dynamic";
+import talleres from "@/src/data/talleres.json";
+const MapTalleresHome = dynamic(
+  () => import("@/src/Components/LandingPage/MapTalleresHome"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className={styles2.containerMapHome}>
+        <div
+          className={styles2.cardNewTallerSkeleton}
+          style={{ position: "relative", width: "100%", height: "90vh" }}
+        />
+      </div>
+    ),
+  }
+);
+const PreciosSection = dynamic(
+  () => import("@/src/Components/AsistantMechanic/PreciosSection"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className={styles2.containerMapHome}>
+        <div
+          className={styles2.cardNewTallerSkeleton}
+          style={{ position: "relative", width: "100%", height: "90vh" }}
+        />
+      </div>
+    ),
+  }
+);
 import {
   ArrowLeft,
   Wrench,
@@ -13,6 +43,9 @@ import {
   ChevronRight,
   Clock,
   Car,
+  Map,
+  MapPinCheck,
+  List,
 } from "lucide-react";
 import { useAuth } from "@/Context/AuthContext";
 import LayoutV2 from "@/src/Components/LayoutV2";
@@ -39,51 +72,83 @@ const ResultadosPage = () => {
 
   // Estilos en línea mejorados
   const styles = {
-     pageWrapper: {
-      display: 'flex',
-      minHeight: '100vh',
-      backgroundColor: '#f9fafb'
+    pageWrapper: {
+      display: "flex",
+      minHeight: "100vh",
+      backgroundColor: "#f9fafb",
     },
     menuButton: {
-      position: 'fixed',
-      top: '1rem',
-      left: '1rem',
+      position: "fixed",
+      top: "1rem",
+      left: "1rem",
       zIndex: 30,
-      backgroundColor: '#3b82f6',
-      color: 'white',
-      border: 'none',
-      borderRadius: '0.5rem',
-      padding: '0.75rem',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-      transition: 'all 0.2s ease'
+      backgroundColor: "#3b82f6",
+      color: "white",
+      border: "none",
+      borderRadius: "0.5rem",
+      padding: "0.75rem",
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+      transition: "all 0.2s ease",
     },
     menuButtonHover: {
-      backgroundColor: '#2563eb'
+      backgroundColor: "#2563eb",
     },
     mainContent: {
       flex: 1,
-      display: 'flex',
-      paddingTop:'48px',
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginLeft: sidebarOpen ? '0' : '0',
-      transition: 'margin-left 0.3s ease'
+      display: "flex",
+      paddingTop: "48px",
+      justifyContent: "center",
+      marginLeft: sidebarOpen ? "0" : "0",
+      transition: "margin-left 0.3s ease",
+      marginBottom: "500px",
     },
     container: {
-      fontFamily: 'Poppins, system-ui, -apple-system, sans-serif',
-      maxWidth: '640px',
-      width: '100%',
-      borderRadius: '16px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1.5rem',
+      fontFamily: "Poppins, system-ui, -apple-system, sans-serif",
+      maxWidth: "1400px",
+      width: "100%",
+      borderRadius: "16px",
+      display: "flex",
+      flexDirection: "row",
+      marginTop: "48px",
+      gap: "20%",
+      backgroundColor: "#f9fafb",
     },
-    headerContainer: {
-      position: "relative",
+    vehicleInfoItem2: {
+      display: "flex",
+      alignItems: "center",
+      backdropFilter: "blur(10px)",
+      borderRadius: "0.75rem",
+      padding: "0.5rem 0.75rem",
+      border: "1px solid rgb(226, 232, 240)",
+      backgroundColor: "white",
+    },
+    vehicleInfoContainer2: {
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "flex-end",
+      justifyContent: "flex-end",
+      fontSize: "14px",
+      marginTop: "24px",
+      color: "#64748b",
+      gap: "0.5rem",
+      backgroundColor: "rgb(248, 250, 252)",
+    },
+    vehicleInfoItem: {
+      display: "flex",
+      alignItems: "center",
+      backgroundColor: "white",
+      backdropFilter: "blur(10px)",
+      borderRadius: "0.75rem",
+      padding: "0.5rem 0.75rem",
+      border: "5px solid rgba(226, 232, 240, 0.5) !important",
+    },
+    vehicleInfoText: {
+      marginLeft: "0.5rem",
+      color: "#64748b",
     },
     backButton: {
       display: "flex",
@@ -94,7 +159,7 @@ const ResultadosPage = () => {
       cursor: "pointer",
       fontSize: "0.95rem",
       transition: "color 0.2s ease",
-      fontFamily:'Poppins '
+      fontFamily: "Poppins ",
     },
     iconMarginRight: {
       marginRight: "0.5rem",
@@ -107,12 +172,12 @@ const ResultadosPage = () => {
       lineHeight: "1.2",
     },
     problemCard: {
-      padding: "1rem",
-      backgroundColor: "#f8fafc",
+      padding: "24px",
+      // backgroundColor: "#f8fafc",
       borderRadius: "12px",
       border: "1px solid #e2e8f0",
       marginBottom: "2rem",
-      backgroundColor: '#f8fafc',
+      marginTop: "16px",
     },
     problemLabel: {
       fontSize: "0.875rem",
@@ -126,7 +191,7 @@ const ResultadosPage = () => {
       lineHeight: "1.5",
       // fontStyle: 'italic',
       fontWeight: "500",
-      textAlign:'end'
+      textAlign: "start",
     },
     loadingContainer: {
       display: "flex",
@@ -224,6 +289,7 @@ const ResultadosPage = () => {
     },
     sectionAnchor: {
       scrollMarginTop: "4.5rem",
+      marginBottom: "48px",
     },
     resultContainer: {
       display: "flex",
@@ -351,6 +417,7 @@ const ResultadosPage = () => {
       padding: "0.35rem 0.75rem",
       borderRadius: "9999px",
     },
+
     ratingText: {
       fontSize: "0.875rem",
       fontWeight: "600",
@@ -420,25 +487,35 @@ const ResultadosPage = () => {
       borderTop: "1px solid #e2e8f0",
     },
     vehicleInfoContainer: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      alignItems:'flex-end',
-      justifyContent:'flex-end',
-      fontSize:'14px',
-      marginTop:'8px',
-      color:'#64748b'
+      display: "flex",
+      flexWrap: "wrap",
+      alignItems: "flex-end",
+      justifyContent: "flex-end",
+      fontSize: "14px",
+      marginTop: "8px",
+      color: "#64748b",
     },
     vehicleInfoItem: {
-      display: 'flex',
-      alignItems: 'center',
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-      backdropFilter: 'blur(10px)',
-      borderRadius: '0.75rem',
-      padding: '0.5rem 0.75rem'
+      display: "flex",
+      alignItems: "center",
+      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      backdropFilter: "blur(10px)",
+      borderRadius: "0.75rem",
+      padding: "0.5rem 0.75rem",
     },
     vehicleInfoText: {
-      marginLeft: '0.5rem'
+      marginLeft: "0.5rem",
     },
+  };
+  const [isExpanded, setIsExpanded] = useState(false);
+
+
+   const [viewMode, setViewMode] = useState('map'); // 'map' o 'list'
+  
+  const talleresData = talleres.talleres.slice(20, 25).reverse();
+
+  const toggleView = () => {
+    setViewMode(viewMode === 'map' ? 'list' : 'map');
   };
 
   useEffect(() => {
@@ -553,125 +630,294 @@ const ResultadosPage = () => {
     diagnosticoData?.servicios,
   ]);
 
-
-
-
   return (
-    <LayoutV2  onNavigate={router.push} ads={false}>
+    <LayoutV2 onNavigate={router.push} ads={false}>
       <div style={styles.mainContent}>
-    <div style={styles.container}>
-      {/* Botón para volver a la página principal */}
-      {/* Usar tu estilo backButton */}
-      <button
-        onClick={() => router.back()} // Usar router.back() es mejor para ir a la página anterior
-        style={styles.backButton}
-        onMouseOver={(e) => (e.currentTarget.style.color = "#2563eb")} // Mantener efectos hover si quieres
-        onMouseOut={(e) => (e.currentTarget.style.color = "#64748b")}
-      >
-        <ArrowLeft size={16} style={styles.iconMarginRight} />
-        <span>Volver</span>
-      </button>
-      <header style={styles.headerContainer}>
-        {" "}
-        {/* Usar headerContainer */}
-        <p style={styles.title}>Detalles del Diagnóstico:</p>{" "}
-        {/* Usar style.title */}
-        {diagnosticoData?.mensaje_usuario && (
-          <div style={styles.problemCard}>
-            {" "}
-            {/* Usar el estilo problemCard que tenías */}
-            {/* Usar style.problemText */}
-            <h1 style={styles.problemText}>
-              "{diagnosticoData.mensaje_usuario}"
-            </h1>{" "}
-            <div style={styles.vehicleInfoContainer}>
-             {/* {(diagnosticoData?.car_make || diagnosticoData?.car_model || diagnosticoData?.car_year) && (
-                <div style={styles.vehicleInfoItem} >
-                  <Car size={16} style={{ color: '#64748b' }} />
-                  <span style={styles.vehicleInfoText}>
-                    {diagnosticoData.car_make} {diagnosticoData.car_model} {diagnosticoData.car_year}
-                  </span>
-                </div>
-              )} */}
-              
-              {(diagnosticoData?.city || diagnosticoData?.country) && (
-                <div style={styles.vehicleInfoItem}>
-                  <MapPin size={16} style={{ color: '#64748b' }} />
-                  <span style={styles.vehicleInfoText}>
-                    {diagnosticoData.city}, {diagnosticoData.country}
-                  </span>
-                </div>
-              )}
-              </div>
-            {/* Usar dato de DB */}
-          </div>
-        )}
-      </header>
-      {/* Puedes descomentar los botones de navegación si quieres */}
-      {/* { <div style={styles.navContainer}> ... </div> } */}
-      <div style={styles.resultContainer}>
-        {" "}
-        {/* Usar resultContainer */}
-        {/* Diagnóstico */}
-        <section ref={diagnosticoRef} style={styles.sectionAnchor}>
-          {" "}
-          {/* Usar ref y sectionAnchor */}
-          <div style={styles.sectionHeader}>
-            {" "}
-            
-            <h2 style={styles.sectionTitle}>Posible causa del problema</h2>{" "}
-            {/* Usar sectionTitle */}
-          </div>
-          <div style={styles.diagnosticoCard}>
-            {" "}
-            {/* Usar diagnosticoCard */}
-            {/* Muestra el diagnóstico guardado */}
-            {/* !!! Usamos diagnosticoData?.diagnostico - nombre correcto y optional chaining !!! */}
-            {diagnosticoData?.diagnostico}
-          </div>
-        </section>
-        <section ref={preciosRef} style={styles.sectionAnchor}>
-          {" "}
-          {/* Usar ref y sectionAnchor */}
-          <div style={styles.sectionHeader}>
-            {" "}
-            <h3 style={styles.sectionTitle}>Estimado de precios</h3>{" "}
-            {/* Usar sectionTitle */}
-          </div>
-          {diagnosticoData?.precios &&
-          Array.isArray(diagnosticoData.precios) &&
-          diagnosticoData.precios.length > 0 ? (
-            <div style={styles.priceContainer}>
-              {" "}
-              {/* Usar priceContainer */}
-              {/* !!! Iteramos sobre diagnosticoData.precios !!! */}
-              {diagnosticoData.precios.map((precioItem, index) => (
-                <div
-                  key={index}
-                  // !!! Usamos diagnosticoData.precios.length para saber si es el último !!!
-                  style={
-                    index === diagnosticoData.precios.length - 1
-                      ? { ...styles.priceItem, ...styles.priceItemLast }
-                      : styles.priceItem
-                  } // Mantener estilos de item
+        <div style={styles.container}>
+          {/* <button
+            onClick={() => router.back()} 
+            style={styles.backButton}
+            onMouseOver={(e) => (e.currentTarget.style.color = "#2563eb")} 
+            onMouseOut={(e) => (e.currentTarget.style.color = "#64748b")}
+          >
+            <ArrowLeft size={16} style={styles.iconMarginRight} />
+            <span>Volver</span>
+          </button> */}
+          <div>
+            <section
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "4px",
+                marginBottom: "48px",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: "32px",
+                  fontWeight: "600",
+                  color: "#0f172a",
+                }}
+              >
+                🚗 Renault Oroch 2017
+              </p>
+              <span style={{ color: "#64748b" }}>
+                {diagnosticoData?.city}, {diagnosticoData?.country}
+              </span>
+            </section>
+            <p style={styles.sectionTitle}>Detalles del problema:</p>{" "}
+            {/* Usar headerContainer */}
+            {/* Usar style.title */}
+            {diagnosticoData?.mensaje_usuario && (
+              <div style={styles.problemCard}>
+                {" "}
+                {/* Usar el estilo problemCard que tenías */}
+                {/* Usar style.problemText */}
+                <h1
+                  style={{
+                    fontSize: "16px",
+                    color: "#64748b",
+                    fontWeight: "400",
+                    lineHeight: "1.6",
+                  }}
                 >
-                  {/* !!! Las propiedades internas item y precio son correctas (vienen de Gemini/API) !!! */}
-                  <span style={styles.priceLabel}>{precioItem.item}</span>
-                  <span style={styles.priceValue}>{precioItem.precio}</span>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div style={styles.emptyText}>
+                  "{diagnosticoData.mensaje_usuario}"
+                </h1>{" "}
+                {/* <div style={styles.vehicleInfoContainer2}>
+                  {(diagnosticoData?.car_make ||
+                    diagnosticoData?.car_model ||
+                    diagnosticoData?.car_year) && (
+                    <div style={styles.vehicleInfoItem2}>
+                      <Car size={16} style={{ color: "#64748b" }} />
+                      <span style={styles.vehicleInfoText}>
+                        {diagnosticoData.car_make} {diagnosticoData.car_model}{" "}
+                        {diagnosticoData.car_year}
+                      </span>
+                    </div>
+                  )}
+
+                  {(diagnosticoData?.city || diagnosticoData?.country) && (
+                    <div style={styles.vehicleInfoItem2}>
+                      <MapPin size={16} style={{ color: "#64748b" }} />
+                      <span style={styles.vehicleInfoText}>
+                        {diagnosticoData.city}, {diagnosticoData.country}
+                      </span>
+                    </div>
+                  )}
+                </div> */}
+                {/* Usar dato de DB */}
+              </div>
+            )}
+            <section ref={diagnosticoRef} style={styles.sectionAnchor}>
               {" "}
-              {/* Usar emptyText */}
-              No se pudo obtener una estimación de precios detallada para este
-              registro.
+              {/* Usar ref y sectionAnchor */}
+              <div style={styles.sectionHeader}>
+                {" "}
+                <h2 style={styles.sectionTitle}>
+                  Posible causa del problema
+                </h2>{" "}
+                {/* Usar sectionTitle */}
+              </div>
+              {/* <div style={styles2.diagnosticoCard}>
+                {" "}
+                
+              </div> */}
+              <div className={styles2.diagnosticoCard}>
+                <div
+                  className={`${styles2.diagnosticoText} ${
+                    isExpanded ? styles2.expanded : ""
+                  }`}
+                  onClick={() => setIsExpanded(!isExpanded)}
+                >
+                  <p>{diagnosticoData?.diagnostico} </p>
+                </div>
+              </div>
+            </section>
+            <h2 style={styles.sectionTitle}>Costo total estimado</h2>{" "}
+            {diagnosticoData?.precios && (
+              <PreciosSection diagnosticoData={diagnosticoData} />
+            )}
+          </div>
+          {/* Puedes descomentar los botones de navegación si quieres */}
+          {/* { <div style={styles.navContainer}> ... </div> } */}
+
+          {/* <div
+            className={styles2.containerMapHome}
+            style={{
+              width: "100%",
+              margin: "32px 0",
+              maxHeight: "700px",
+              maxWidth: "600px",
+            }}
+          >
+            <MapTalleresHome data={talleres.talleres.slice(20, 25).reverse()} />
+          </div> */}
+
+          <div style={{ width: "100%", maxWidth: "600px", margin: "0 auto" }}>
+      {/* Header con título y toggle */}
+      <div style={{ 
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "space-between", 
+        marginBottom: "24px" 
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <MapPinCheck style={{ width: "20px", height: "20px", color: "#2563eb" }} />
+          <h2 style={{ 
+            fontSize: "20px", 
+            fontWeight: "600", 
+            color: "#111827",
+            margin: 0
+          }}>
+            Talleres especializados
+          </h2>
+        </div>
+        
+        {/* Toggle Button */}
+        <div style={{ 
+          display: "flex", 
+          alignItems: "center", 
+          backgroundColor: "#f3f4f6", 
+          borderRadius: "8px", 
+          padding: "4px", 
+          
+        }}>
+          <button
+            onClick={() => setViewMode('map')}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "8px 12px",
+              borderRadius: "6px",
+              fontSize: "14px",
+              fontWeight: "500",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              backgroundColor: viewMode === 'map' ? "white" : "transparent",
+              color: viewMode === 'map' ? "#407BFF" : "#6b7280",
+              boxShadow: viewMode === 'map' ? "0 1px 3px rgba(0, 0, 0, 0.1)" : "none"
+            }}
+          >
+            <Map style={{ width: "16px", height: "16px" }} />
+            Mapa
+          </button>
+          <button
+            onClick={() => setViewMode('list')}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "8px 12px",
+              borderRadius: "6px",
+              fontSize: "14px",
+              fontWeight: "500",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              backgroundColor: viewMode === 'list' ? "white" : "transparent",
+              color: viewMode === 'list' ? "#2563eb" : "#6b7280",
+              boxShadow: viewMode === 'list' ? "0 1px 3px rgba(0, 0, 0, 0.1)" : "none"
+            }}
+          >
+            <List style={{ width: "16px", height: "16px" }} />
+            Lista
+          </button>
+        </div>
+      </div>
+
+      {/* Contenido condicional */}
+      {viewMode === 'map' ? (
+        <div style={{
+          width: "100%",
+          margin: "0",
+          maxHeight: "700px",
+          maxWidth: "600px",
+        }}>
+          <MapTalleresHome data={talleres.talleres.slice(20, 25).reverse()} />
+        </div>
+      ) : (
+        <div style={{
+          backgroundColor: "white",
+          borderRadius: "8px",
+          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+          border: "1px solid #e5e7eb"
+        }}>
+          {talleresData.map((taller, index) => (
+            <div
+              key={taller.id || index}
+              style={{
+                padding: "16px",
+                borderBottom: index !== talleresData.length - 1 ? "1px solid #f3f4f6" : "none",
+                cursor: "pointer",
+                transition: "background-color 0.15s ease"
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = "#f9fafb"}
+              onMouseLeave={(e) => e.target.style.backgroundColor = "transparent"}
+            >
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                <div style={{
+                  width: "40px",
+                  height: "40px",
+                  backgroundColor: "#3b82f6",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0
+                }}>
+                  <MapPin style={{ width: "20px", height: "20px", color: "white" }} />
+                </div>
+                
+                <div style={{ flex: 1 }}>
+                  <h3 style={{ 
+                    fontSize: "16px", 
+                    fontWeight: "600", 
+                    color: "#111827",
+                    margin: "0 0 4px 0"
+                  }}>
+                    {taller.nombre || `Taller ${index + 1}`}
+                  </h3>
+                  <p style={{ 
+                    fontSize: "14px", 
+                    color: "#6b7280",
+                    margin: "0 0 8px 0"
+                  }}>
+                    {taller.direccion || taller.ubicacion || "Ubicación no disponible"}
+                  </p>
+                  {taller.telefono && (
+                    <p style={{ 
+                      fontSize: "14px", 
+                      color: "#374151",
+                      margin: 0
+                    }}>
+                      📞 {taller.telefono}
+                    </p>
+                  )}
+                  {taller.distancia && (
+                    <span style={{
+                      display: "inline-block",
+                      marginTop: "8px",
+                      fontSize: "12px",
+                      fontWeight: "500",
+                      color: "#059669",
+                      backgroundColor: "#d1fae5",
+                      padding: "2px 8px",
+                      borderRadius: "12px"
+                    }}>
+                      {taller.distancia} km
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
-          )}
-        </section>
-        {/* Talleres Recomendados */}
-        {/* <section ref={talleresRef} style={styles.sectionAnchor}>
+          ))}
+        </div>
+      )}
+    </div>
+          {/* Talleres Recomendados */}
+          {/* <section ref={talleresRef} style={styles.sectionAnchor}>
           {" "}
           <div style={styles.sectionHeader}>
             {" "}
@@ -818,8 +1064,7 @@ const ResultadosPage = () => {
               </div>
             ))}
         </section> */}
-      </div>
-      {/* <div style={styles.ctaContainer}>
+          {/* <div style={styles.ctaContainer}>
         {" "}
         <button
           style={styles.ctaButton} 
@@ -836,18 +1081,17 @@ const ResultadosPage = () => {
           <span>Recibir ofertas de talleres cercanos</span>{" "}
         </button>
       </div> */}
-      {/* Opcional: Mostrar el slug para referencia/depuración fuera del bloque principal si quieres que se vea siempre */}
-      {/* !!! CAMBIO: Usamos diagnosticoData?.slug !!! */}
-      {/* {diagnosticoData?.slug && (
+          {/* Opcional: Mostrar el slug para referencia/depuración fuera del bloque principal si quieres que se vea siempre */}
+          {/* !!! CAMBIO: Usamos diagnosticoData?.slug !!! */}
+          {/* {diagnosticoData?.slug && (
         <p style={{ ...styles.slugText, marginTop: "20px" }}>
           Slug de este diagnóstico: {diagnosticoData.slug}
         </p>
       )}{" "} */}
-      {/* Usar style.slugText */}
-    </div>
-    </div>
-  </LayoutV2>
-
+          {/* Usar style.slugText */}
+        </div>
+      </div>
+    </LayoutV2>
   );
 };
 

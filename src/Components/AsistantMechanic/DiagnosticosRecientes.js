@@ -223,6 +223,8 @@ export default function DiagnosticosRecientes() {
 
     fetchDiagnostics();
   }, []);
+  console.log(diagnostics);
+  
 
   const formatDate = (dateString) => {
     if (!dateString) return "";

@@ -14,8 +14,9 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/router";
 import { useAuth } from "@/Context/AuthContext";
-import ConsultasCount from "@/pages/v2/consultasCount";
+import ConsultasCount from "@/src/Components/AsistantMechanic/consultasCount";
 import Head from "next/head";
+import Link from "next/link";
 
 const LayoutV2 = ({
   children,
@@ -157,6 +158,7 @@ const LayoutV2 = ({
       alignItems: "center",
       gap: "0.875rem",
       color: "#0f172a",
+      textDecoration: "none",
     },
     userAvatar: {
       width: "36px",
@@ -504,7 +506,7 @@ const LayoutV2 = ({
                 <div style={sidebarStyles.userDetails}>
                   <ConsultasCount userId={user.id} />
                 </div>
-                <div style={sidebarStyles.userInfo}>
+                <Link style={sidebarStyles.userInfo} href={`/v2`}>
                   <div style={sidebarStyles.userAvatar}>{getUserInitial()}</div>
                   <div style={sidebarStyles.userDetails}>
                     <div style={sidebarStyles.userName}>
@@ -512,7 +514,7 @@ const LayoutV2 = ({
                     </div>
                     <div style={sidebarStyles.userEmail}>{user?.email}</div>
                   </div>
-                </div>
+                </Link>
                 <button
                   style={sidebarStyles.logoutButton}
                   onClick={handleLogout}

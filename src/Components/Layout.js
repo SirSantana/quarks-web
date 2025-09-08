@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import FooterV2 from './Footer/FooterV2';
 import Navbar from './Navbar/Navbar';
+import NavbarRepuestos from './Navbar/NavbarRepuestos';
 
 function generarMarcadoEstructurado(articulo) {
   if (articulo) {
@@ -23,7 +24,7 @@ function generarMarcadoEstructurado(articulo) {
   }
 }
 
-export default function Layout({index=true, children, footer = true, title, description, type, price, keywords, fecha, image, tags, url, ads = true, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured, negocio = false }) {
+export default function Layout({index=true, children, footer = true, navbarRepuestos=false, title, description, type, price, keywords, fecha, image, tags, url, ads = true, icon, visibleSlider, visibleNavbar = true, productoMarcado, lastModified = false, style, picoyplacaStructured, negocio = false }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
   return (
     <>
@@ -139,6 +140,8 @@ export default function Layout({index=true, children, footer = true, title, desc
 
       <main  >
       {visibleNavbar && <Navbar />}
+      {navbarRepuestos && <NavbarRepuestos />}
+
 
         {/* <Nav /> */}
         {/* <NewNavbar/> */}

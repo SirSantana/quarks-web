@@ -1,0 +1,165 @@
+/* Textarea.module.css */
+
+.textareaContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.textareaWithButtons {
+  width: 100%;
+  padding: 16px 16px 32px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  resize: none;
+  min-height: 140px;
+  outline: none;
+  font-family: Poppins, system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  background-color: transparent;
+}
+
+.textareaDisabled {
+  background-color: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.buttonsContainer {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+  color: #6b7280;
+}
+
+.iconButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.iconButtonActive {
+  background-color: #eff6ff;
+  border-color: #3b82f6 !important;
+  color: #1d4ed8;
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  max-height: 200px;
+  overflow-y: auto;
+  animation: slideUp 0.2s ease;
+  width:200px;
+}
+
+.dropdownItem {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdownItemActive {
+  color: #1d4ed8;
+}
+.dropdownItem:hover{
+    background-color: #eff6ff;
+}
+.autoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.autoMarca {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.autoDetalle {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.paisInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paisNombre {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.addCarButton {
+  color: #1d4ed8;
+  font-weight: 500;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: none;
+}
+
+.selectedIndicator {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: inherit;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid rgb(226, 232, 240);
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.metaIconActive{
+    color: #3b82f6;
+}
+.metaItem:hover{
+    border:1px solid #3b82f6;
+    color: #3b82f6;
+}
+.metaIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}

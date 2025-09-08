@@ -14,6 +14,7 @@ import {
 import { useAuth } from '@/Context/AuthContext';
 import LayoutV2 from '@/src/Components/LayoutV2';
 import Link from 'next/link';
+import TextareaWithButtons from '@/src/Components/AsistantMechanic/TextAreaDiagnostico';
 
 
 const IndexPage = () => {
@@ -140,7 +141,6 @@ const IndexPage = () => {
       position: 'relative',
       borderRadius: '8px',
       border: '1px solid #e5e7eb',
-      overflow: 'hidden',
       transition: 'all 0.2s ease',
       backgroundColor: '#fff'
     },
@@ -464,7 +464,7 @@ const IndexPage = () => {
                 if (!bloqueado && !cargando && !mensaje) e.currentTarget.style.borderColor = '#e5e7eb';
               }}
             >
-              <textarea
+              {/* <textarea
                 style={{
                   ...styles.textarea,
                   ...(bloqueado || cargando ? styles.textareaDisabled : {})
@@ -473,7 +473,20 @@ const IndexPage = () => {
                 onChange={(e) => setMensaje(e.target.value)}
                 placeholder="Ej: Mi Chevrolet Optra 1.8 2009 hace un ruido al frenar..."
                 disabled={bloqueado || cargando}
-              ></textarea>
+              ></textarea> */}
+              <TextareaWithButtons
+                mensaje={mensaje}
+                setMensaje={setMensaje}
+                bloqueado={bloqueado}
+                cargando={cargando}
+                placeholder="Ej: Mi Chevrolet Optra 1.8 2009 hace un ruido al frenar..."
+                onAutoSeleccionado={(auto) => {
+                  console.log(auto);
+                }}
+                onPaisSeleccionado={(pais) => {
+                  console.log(pais);
+                }}
+              />
             </div>
           </div>
 

@@ -1,0 +1,90 @@
+
+import Layout from '@/src/Components/Layout';
+import autopartes from '@/src/data/catalogo_autopartes.json';
+import ProductDetailPage from '../../src/Components/Repuestos/RepuestoComponent';
+import Head from 'next/head';
+
+export default function RepuestosSlug({ data }) {
+  if (!data) {
+    return (
+      <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        <h1>No se encontraron resultados</h1>
+        <p>Intenta buscar otro repuesto.</p>
+      </div>
+    )
+  }
+function generarDescripcionSEO(data) {
+  const precioFinal = data.Descuento || 0
+    ? Number(data.Precio2) * (1 - Number(data.Descuento) / 100)
+    : Number(data.Precio2);
+
+  return `${data.Nombre}, código ${data.Codigo}, referencia ${data.Referencia} de la marca ${data.Brand}. Repuesto que garantiza el rendimiento y la seguridad de tu vehículo. Disponible ${data.Descuento ? `con ${data.Descuento}% de descuento` : ''} a un precio de $${precioFinal.toLocaleString('es-CO')} COP.`;
+}
+  // 🟢 Precio con descuento si aplica
+  const precioOriginal = Number(data.Precio2);
+  const descuento = Number(data.Descuento) || 0;
+  const precioFinal = descuento > 0 
+    ? precioOriginal * (1 - descuento / 100) 
+    : precioOriginal;
+
+  // 🟢 Marcado estructurado (JSON-LD)
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": data.titulo,
+    "image": data?.images?.[0] || "https://quarks.com.co/default-product.jpg", // coloca un fallback
+    "description": generarDescripcionSEO(data) || `Compra ${data.titulo} al mejor precio.`,
+    "brand": {
+      "@type": "Brand",
+      "name": data.Marca || "Genérico"
+    },
+    "sku": data.Codigo, 
+    "offers": {
+      "@type": "Offer",
+      "url": `https://quarks.com.co/repuesto/${data.titulo}`,
+      "priceCurrency": "COP",
+      "price": precioFinal.toFixed(0),
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    }
+  };
+function toTitleCase(str) {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+  return (
+    <Layout title={toTitleCase(data.Nombre)} footer={false} navbarRepuestos={true} visibleNavbar={false} description={generarDescripcionSEO(data)}  url={`/repuesto/${data.titulo}`} >
+      <Head>
+        {/* Marcado estructurado JSON-LD */}
+        <script 
+          type="application/ld+json" 
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} 
+        />
+      </Head>
+
+      <ProductDetailPage repuesto={data} />
+    </Layout>
+  )
+}
+
+export async function getStaticProps({ params }) {
+  const parts = params?.slug;
+  let findAutotopart = autopartes.find(el => el.titulo === parts[0]);
+
+  return {
+    props: {
+      data: findAutotopart || null,
+    },
+    // revalidate: 86400,
+  };
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [], 
+    fallback: "blocking",
+  };
+}

@@ -3,7 +3,7 @@ import { Car, Search, Plus, Wrench, Clock, AlertCircle, MapPin } from "lucide-re
 import LayoutV2 from "@/src/Components/LayoutV2"; // Asegúrate de que la ruta sea correcta
 import { supabase } from "@/lib/supabaseClient";
 import Link from "next/link";
-import DiagnosticosRecientes from "@/src/Components/Diagnosticos/DiagnosticosRecientes";
+import DiagnosticosRecientes from "@/src/Components/AsistantMechanic/DiagnosticosRecientes";
 
 const DiagnosticosPage = () => {
   const styles = {
