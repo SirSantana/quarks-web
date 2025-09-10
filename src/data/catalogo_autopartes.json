@@ -2017,10 +2017,11 @@
     "Referencia": "45201-78K00",
     "Precio": "110,547.00",
     "titulo": "tijera-suzuki-gran-vitara-derecho",
-    "modelo": "Gran Vitara",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Gran Vitara",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2029,10 +2030,12 @@
     "Referencia": "45202-78K00",
     "Precio": "110,547.00",
     "titulo": "tijera-suzuki-gran-vitara-izquierdo",
-    "modelo": "Gran Vitara",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Suzuki",
+    "Modelo": "Gran Vitara",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
+   
   },
   {
     "Tipo": "BUJES TIJERAS CHEVROLET",
@@ -2041,10 +2044,12 @@
     "Referencia": "K6327",
     "Precio": "46,800.00",
     "titulo": "bujes-tijera-inferior-chevrolet-cheyenne-x2",
-    "modelo": "Cheyenne",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Cheyenne",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
+    
   },
   {
     "Tipo": "BUJES TIJERAS CHEVROLET",
@@ -2053,10 +2058,12 @@
     "Referencia": "K6395",
     "Precio": "22,886.00",
     "titulo": "bujes-tijera-superior-chevrolet-cheyenne",
-    "modelo": "Cheyenne",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Cheyenne",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
+    
   },
   {
     "Tipo": "BUJES TIJERAS CHEVROLET",
@@ -2065,10 +2072,11 @@
     "Referencia": "8944088401",
     "Precio": "12,000.00",
     "titulo": "buje-tijera-superior-luv-2300-trooper",
-    "modelo": "Luv 2300 Trooper",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 2300 / Trooper",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
@@ -2077,10 +2085,11 @@
     "Referencia": "ES2004",
     "Precio": "11,990.00",
     "titulo": "caña-union-terminales-chevrolet-dodge-ford",
-    "modelo": "Chevrolet",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Chevrolet",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
@@ -2089,10 +2098,11 @@
     "Referencia": "8944594780",
     "Precio": "18,310.00",
     "titulo": "union-terminales-luv-2300-4x2-larga",
-    "modelo": "Luv 2300",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 2300",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
@@ -2101,10 +2111,11 @@
     "Referencia": "8944194072",
     "Precio": "18,310.00",
     "titulo": "union-terminales-trooper-luv-2300-4x4-corta",
-    "modelo": "Trooper / Luv 2300",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Trooper / Luv 2300",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
@@ -2128,10 +2139,11 @@
     "Referencia": "K6339",
     "Precio": "35,900.00",
     "titulo": "biela-direccion-blazer-4x4-93-99",
-    "modelo": "Blazer",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Blazer",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BIELAS DIRECCION CHEVROLET",
@@ -2140,10 +2152,11 @@
     "Referencia": "K6143",
     "Precio": "36,900.00",
     "titulo": "biela-direccion-c-30-hidrualica",
-    "modelo": "C-30",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "C-30",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BIELAS DIRECCION CHEVROLET",
@@ -2152,10 +2165,11 @@
     "Referencia": "K6335",
     "Precio": "34,600.00",
     "titulo": "biela-direccion-cheyenne-silverado",
-    "modelo": "Cheyenne",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Cheyenne / Silverado",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BRAZOS OXILANTES CHEVROLET",
@@ -2164,10 +2178,11 @@
     "Referencia": "4520084000",
     "Precio": "36,575.00",
     "titulo": "brazo-oxilante-spark-alto-wagon-r",
-    "modelo": "Spark / Alto / Wagon R",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Spark / Alto / Wagon R",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BRAZOS OXILANTES CHEVROLET",
@@ -2176,10 +2191,11 @@
     "Referencia": "4520082000",
     "Precio": "55,955.00",
     "titulo": "brazo-oxilante-sprint",
-    "modelo": "Sprint",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Sprint",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SOPORTES DE AMORTIGUADOR",
@@ -2188,10 +2204,11 @@
     "Referencia": "96535011",
     "Precio": "12,395.00",
     "titulo": "soporte-amortiguador-aveo-chronos-ch-63",
-    "modelo": "Aveo / Chronos",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo / Chronos",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SOPORTES DE AMORTIGUADOR",
@@ -2207,10 +2224,11 @@
     "Referencia": "96456713",
     "Precio": "15,467.00",
     "titulo": "soporte-amortiguador-aveo-trasero-ch-73",
-    "modelo": "Aveo",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2219,10 +2237,11 @@
     "Referencia": "96335952 XYC-1220",
     "Precio": "19,985.00",
     "titulo": "balancin-motor-aveo-family",
-    "modelo": "Aveo",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo Family",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2231,10 +2250,11 @@
     "Referencia": "93361395",
     "Precio": "17,995.00",
     "titulo": "balancin-motor-chev-cobalt-1.8-onix-1.4",
-    "modelo": "Chev / Cobalt / Onix",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Cobalt / Onix",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2243,10 +2263,11 @@
     "Referencia": "90409194",
     "Precio": "62,800.00",
     "titulo": "balancin-motor-corsa-daewoo-luv-2.2",
-    "modelo": "Corsa / Daewoo / Luv 2.2 / Monza",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa / Daewoo / Luv 2.2 / Monza",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2255,10 +2276,11 @@
     "Referencia": "90106142",
     "Precio": "62,800.00",
     "titulo": "balancin-motor-corsa-monza",
-    "modelo": "Corsa / Monza",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa / Monza",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2267,10 +2289,11 @@
     "Referencia": "1126100611",
     "Precio": "228,944.00",
     "titulo": "balancin-motor-isuzu-lv-150",
-    "modelo": "Isuzu",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Isuzu LV-150",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2279,10 +2302,11 @@
     "Referencia": "8941024160",
     "Precio": "18,900.00",
     "titulo": "balancin-motor-luv-1.6-2.3-trooper-wfr",
-    "modelo": "Luv 1.6 / 2.3 / Trooper",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 1.6 / 2.3 / Trooper",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2291,10 +2315,11 @@
     "Referencia": "8941523440",
     "Precio": "14,500.00",
     "titulo": "balancin-motor-luv-dmax-nkr-nhr-jac",
-    "modelo": "Luv Dmax / Nkr / Nhr / Jac",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Dmax / Nkr / Nhr / Jac",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2303,10 +2328,11 @@
     "Referencia": "12481-77300 1384177300",
     "Precio": "12,800.00",
     "titulo": "balancin-motor-s-carry-spark",
-    "modelo": "S.Carry / Spark",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "S.Carry / Spark",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2315,10 +2341,11 @@
     "Referencia": "1284160A01",
     "Precio": "13,900.00",
     "titulo": "balancin-motor-swift-sprint-vitara",
-    "modelo": "Swift / Sprint / Vitara",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+     "Marca": "Chevrolet",
+    "Modelo": "Swift / Sprint / Vitara",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2327,10 +2354,11 @@
     "Referencia": "YR0135",
     "Precio": "17,600.00",
     "titulo": "balancin-trail-blazer-4.2-rodeo-v6-trooper-960-captiva-3.2",
-    "modelo": "Trail Blazer / Rodeo / Trooper 960 / Captiva",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Trail Blazer / Rodeo / Trooper 960 / Captiva",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2339,10 +2367,11 @@
     "Referencia": "12565203",
     "Precio": "16,900.00",
     "titulo": "balancin-motor-captiva-2.400",
-    "modelo": "Captiva",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Captiva",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2351,10 +2380,11 @@
     "Referencia": "96838025",
     "Precio": "120,000.00",
     "titulo": "eje-levas-aveo-family-1500",
-    "modelo": "Aveo",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo Family",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2363,10 +2393,11 @@
     "Referencia": "96376716",
     "Precio": "129,900.00",
     "titulo": "eje-levas-aveo-optra-1400",
-    "modelo": "Aveo / Optra",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo / Optra",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2375,10 +2406,11 @@
     "Referencia": "93272192",
     "Precio": "90,000.00",
     "titulo": "eje-levas-corsa-1.3-1.4",
-    "modelo": "Corsa",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2387,10 +2419,11 @@
     "Referencia": "93244916",
     "Precio": "90,000.00",
     "titulo": "eje-levas-corsa-1.600",
-    "modelo": "Corsa",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2399,10 +2432,11 @@
     "Referencia": "1271161G00",
     "Precio": "119,800.00",
     "titulo": "eje-levas-esteem-1.3-gran-vitara-1600",
-    "modelo": "Esteem / Gran Vitara",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Esteem / Gran Vitara",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2411,10 +2445,11 @@
     "Referencia": "1271052G00",
     "Precio": "119,800.00",
     "titulo": "eje-levas-esteem-1.6",
-    "modelo": "Esteem",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Esteem",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2437,10 +2472,11 @@
     "Referencia": "93283062",
     "Precio": "130,000.00",
     "titulo": "eje-levas-luv-2.400-dmax",
-    "modelo": "Luv Dmax",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Dmax",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2449,10 +2485,11 @@
     "Referencia": "8941367841",
     "Precio": "148,500.00",
     "titulo": "eje-levas-luv-2.3-trooper-wfr",
-    "modelo": "Luv 2.3 / Trooper",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 2.3 / Trooper / Wfr",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2461,10 +2498,11 @@
     "Referencia": "52252649",
     "Precio": null,
     "titulo": "eje-levas-monza-1.8-2.0",
-    "modelo": "Monza",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Monza",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2473,10 +2511,11 @@
     "Referencia": "8941277971",
     "Precio": "138,500.00",
     "titulo": "eje-levas-nkr",
-    "modelo": "Nkr",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Nkr",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2485,10 +2524,11 @@
     "Referencia": "8970778290 8970778240",
     "Precio": "163,800.00",
     "titulo": "eje-levas-npr-4hg1-2001-2012",
-    "modelo": "Npr",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Npr",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2497,10 +2537,11 @@
     "Referencia": "96325213",
     "Precio": "147,900.00",
     "titulo": "eje-levas-spark",
-    "modelo": "Spark",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "EJES DE LEVAS CHEVROLET",
@@ -2509,10 +2550,11 @@
     "Referencia": "1271073001",
     "Precio": "98,500.00",
     "titulo": "eje-levas-super-carry-chana",
-    "modelo": "Super Carry / Chana",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Super Carry / Chana",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2521,10 +2563,11 @@
     "Referencia": "8941106471",
     "Precio": "34,200.00",
     "titulo": "flauta-luv-trooper-escape-larga",
-    "modelo": "Luv Trooper",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Trooper",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2533,10 +2576,11 @@
     "Referencia": "8941106461",
     "Precio": "34,200.00",
     "titulo": "flauta-luv-trooper-adm-corta",
-    "modelo": "Luv Trooper",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Trooper",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2545,10 +2589,11 @@
     "Referencia": "8970361970",
     "Precio": "36,500.00",
     "titulo": "flauta-nkr-nhr-luv-dmax-2.5-3.0",
-    "modelo": "Luv Dmax / Nkr / Nhr",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Dmax / Nkr / Nhr",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2557,10 +2602,11 @@
     "Referencia": "96325216",
     "Precio": "26,800.00",
     "titulo": "flauta-spark-chronos-adm-corta",
-    "modelo": "Spark",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2569,10 +2615,11 @@
     "Referencia": "96325218",
     "Precio": "26,800.00",
     "titulo": "flauta-spark-chronos-escape-larga",
-    "modelo": "Spark",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2581,10 +2628,11 @@
     "Referencia": "1286082001",
     "Precio": "22,300.00",
     "titulo": "flauta-sprint-adm-corta",
-    "modelo": "Sprint",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000" 
+    "Marca": "Chevrolet",
+    "Modelo": "Sprint",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2593,10 +2641,11 @@
     "Referencia": "1287082001",
     "Precio": "22,300.00",
     "titulo": "flauta-chevrolet-sprint-esc-larga",
-    "modelo": "Sprint",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Sprint",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2605,10 +2654,11 @@
     "Referencia": "1286073004",
     "Precio": "19,900.00",
     "titulo": "flauta-super-carry-adm-esc",
-    "modelo": "Super Carry",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Super Carry",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2617,10 +2667,11 @@
     "Referencia": "1286082600",
     "Precio": "26,900.00",
     "titulo": "FLAUTA SWIFT 1.3/SAMURAI ADM.CORTA",
-    "modelo": "Swift / Samurai",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Swift / Samurai",
+    "Brand":"Krammer",
+    "Descuento":10, 
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2629,10 +2680,11 @@
     "Referencia": "1287082600",
     "Precio": "26,900.00",
     "titulo": "FLAUTA SWIFT 1.3/SAMURAI ESC.LARGA",
-    "modelo": "Swift / Samurai",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Swift / Samurai",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2648,10 +2700,11 @@
     "Referencia": "3799644",
     "Precio": "11,800.00",
     "titulo": "impulsadores-chevrolet-c-30-daihatsu-4y-817",
-    "modelo": "C-30",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "C-30",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2660,10 +2713,11 @@
     "Referencia": "17120070",
     "Precio": "17,500.00",
     "titulo": "impulsadores-chevrolet-cavalier-4-cil-95-98",
-    "modelo": "Cavalier",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Cavalier",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2672,10 +2726,11 @@
     "Referencia": "93361391",
     "Precio": "11,800.00",
     "titulo": "impulsadores-chevrolet-cobal-ford",
-    "modelo": "Cobal",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Cobalt",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2684,10 +2739,11 @@
     "Referencia": "HT-2148 5234670",
     "Precio": "26,800.00",
     "titulo": "impulsadores-chevrolet-cheyenne-blazer-rodillo",
-    "modelo": "Cheyenne",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Cheyenne",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2696,10 +2752,11 @@
     "Referencia": "5233315",
     "Precio": "87,900.00",
     "titulo": "impulsadores-chevrolet-corsa-monza-daewoo-luv-2.2",
-    "modelo": "Corsa / Daewoo / Luv 2.2 / Monza",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa / Daewoo / Luv 2.2 / Monza",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2708,10 +2765,11 @@
     "Referencia": "96376400",
     "Precio": "12,850.00",
     "titulo": "impulsadores-chevrolet-optra-1.4-aveo-1.6",
-    "modelo": "Optra / Aveo",
-    "brand":"Saher",
-    "descuento":10, 
-    "precio2":"40000"
+     "Marca": "Chevrolet",
+    "Modelo": "Optra / Aveo",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2720,10 +2778,11 @@
     "Referencia": "90570967",
     "Precio": "12,850.00",
     "titulo": "impulsadores-chevrolet-optra-1.8-epica-vivant",
-    "modelo": "Optra",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Optra 1.8 / Epica / Vivant",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2732,10 +2791,11 @@
     "Referencia": "1289186512",
     "Precio": "11,980.00",
     "titulo": "impulsadores-chevrolet-sprint-vitara-swift",
-    "modelo": "Sprint / Vitara / Swift",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Sprint / Vitara / Swift",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2744,10 +2804,11 @@
     "Referencia": "12572638",
     "Precio": "11,600.00",
     "titulo": "impulsadores-chevrolet-captiva-trail-blazer-onix-turbo",
-    "modelo": "Captiva / Trail Blazer / Onix Turbo",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Captiva / Trail Blazer / Onix Turbo",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
@@ -2756,10 +2817,11 @@
     "Referencia": "08180604 104P4",
     "Precio": "126,800.00",
     "titulo": "kit-reparticion-chevrolet-alto-wagon-r-6-pcs-1.2-lts",
-    "modelo": "Alto / Wagon R",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "Marca": "Chevrolet",
+    "Modelo": "Alto / Wagon R",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
@@ -2767,445 +2829,818 @@
     "Nombre": "KIT REPARTICION CHEVROLET CAPTIVA 2.4/HHR 16 PCS",
     "Referencia": "08184005 8005",
     "Precio": "469,800.00",
-    "titulo": "kit-reparticion-chevrolet-captiva-2.4-hhr-16-pcs",
-    "modelo": "Captiva",
-    "brand":"Saher",
-    "descuento":10,
-    "precio2":"40000"
+    "titulo": "kit-reparticion-chevrolet-captiva-2.4-hhr-16",
+    "Marca": "Chevrolet",
+    "Modelo": "Captiva",
+    "Brand":"SahAutotecr",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020503",
     "Nombre": "KIT REPARTICION CHEVROLET CAPTIVA V-6 3.0/3.2/3.6 15 PCS",
     "Referencia": "08188002 8002",
-    "Precio": "649,800.00"
+    "Precio": "649,800.00",
+    "titulo":"kit-reparticion-chevrolet-captiva-v-6-3-0-3-2-3-6",
+    "Marca": "Chevrolet",
+    "Modelo": "Captiva V6",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020504",
     "Nombre": "KIT REPARTICION CHEVROLET N-200 SPARK GT 7 PCS",
     "Referencia": "08188003 08188003",
-    "Precio": "169,800.00"
+    "Precio": "169,800.00",
+    "titulo":"kit-reparticion-chevrolet-n-200-spark-gt-7",
+    "Marca": "Chevrolet",
+    "Modelo": "N-200 / Spark GT",
+    "Brand":"Autotec",
+    "Descuento":10, 
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020505",
     "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.0 11 PIEZAS",
     "Referencia": "08180605 08180605",
-    "Precio": "272,000.00"
+    "Precio": "272,000.00",
+    "titulo":"kit-reparticion-chevrolet-gran-vitara-2-11",
+    "Marca": "Chevrolet",
+    "Modelo": "Gran Vitara",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020506",
     "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.5 /2.7 17PCS",
     "Referencia": "08180606 08180606",
-    "Precio": "538,900.00"
+    "Precio": "538,900.00",
+    "titulo":"kit-reparticion-chevrolet-gran-vitara-2-5-2-7-17",
+    "Marca": "Chevrolet",
+    "Modelo": "Gran Vitara",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020507",
     "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.7 SZ 20 PIEZAS",
     "Referencia": "08180607 08180607",
-    "Precio": "549,600.00"
+    "Precio": "549,600.00",
+    "titulo":"kit-reparticion-chevrolet-gran-vitara-2.7-sz-20",
+    "Marca": "Suzuki",
+    "Modelo": "Gran Vitara",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020508",
     "Nombre": "KIT REPARTICION CHEVROLET TRAIL BLAZER MOTOR 4.200 CC 7 PCS",
     "Referencia": "08188004 8004",
-    "Precio": "219,945.00"
+    "Precio": "219,945.00",
+    "titulo":"kit-reparticion-chevrolet-trail-blazer-motor-4.200-cc-7",
+    "Marca": "Chevrolet",
+    "Modelo": "Trail Blazer",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020509",
     "Nombre": "KIT REPARTICION CHEVROLET SAIL 7 PC",
     "Referencia": "08180604 4008",
-    "Precio": "178,900.00"
+    "Precio": "178,900.00",
+    "titulo":"kit-reparticion-chevrolet-sail-7",
+    "Marca": "Chevrolet",
+    "Modelo": "Sail",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020510",
     "Nombre": "KIT REPARTICION CHEVROLET AVEO/OPTRA 1.4/1.6",
     "Referencia": "K-110",
-    "Precio": "117,800.00"
+    "Precio": "117,800.00",
+    "titulo":"kit-reparticion-chevrolet-aveo-optra-1.4-1.6",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo / Optra",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020511",
     "Nombre": "KIT REPARTICION CHEVROLET OPTRA 1.8/EPICA 2.0/VIVANT 2.0",
     "Referencia": "K-120",
-    "Precio": "136,880.00"
+    "Precio": "136,880.00",
+    "titulo":"kit-reparticion-chevrolet-optra-1.8-epica-2.0-vivant-2.0",
+    "Marca": "Chevrolet",
+    "Modelo": "Optra / Epica / Vivant",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020512",
     "Nombre": "KIT REPARTICION CHEVROLET LUV 2.200",
     "Referencia": "K-130",
-    "Precio": "93,100.00"
+    "Precio": "93,100.00",
+    "titulo":"kit-reparticion-chevrolet-luv-2.200",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020513",
     "Nombre": "KIT REPARTICION CHEVROLET ASTRA 1.8 OPTRA LT/CORSA 1.8",
     "Referencia": "K-140",
-    "Precio": "129,554.00"
+    "Precio": "129,554.00",
+    "titulo":"kit-reparticion-chevrolet-astra-1.8-optra-lt-corsa-1.8",
+    "Marca": "Chevrolet",
+    "Modelo": "Astra / Optra LT / Corsa",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020514",
     "Nombre": "KIT REPARTICION CHEVROLET ZAFIRA 2.0",
     "Referencia": "K-150",
-    "Precio": "89,590.00"
+    "Precio": "89,590.00",
+    "titulo":"kit-reparticion-chevrolet-zafira-2.0",
+    "Marca": "Chevrolet",
+    "Modelo": "Zafira",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020515",
     "Nombre": "KIT REPARTICION CHEVROLET TRACKER/CRUCE 1.8",
     "Referencia": "K-160",
-    "Precio": "162,305.00"
+    "Precio": "162,305.00",
+    "titulo": "kit-reparticion-chevrolet-tracker-cruce-1.8",
+    "Marca": "Chevrolet",
+    "Modelo": "Tracker / Cruze",
+    "Brand":"Continental",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020516",
     "Nombre": "KIT REPARTICION CHEVROLET CHERY VAN CARGO 1.300",
     "Referencia": "K-170",
-    "Precio": "149,407.00"
+    "Precio": "149,407.00",
+    "titulo": "kit-reparticion-chevrolet-chery-van-cargo-1.300",
+    "Marca": "Chevrolet",
+    "Modelo": "Chery Van Cargo",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
     "Codigo": "11020517",
     "Nombre": "KIT REPARTICION CHEVROLET CORSA 1.3/1.4 ONIX COBALT DAEWOO RACER",
     "Referencia": "K-180",
-    "Precio": "68,804.00"
+    "Precio": "68,804.00",
+    "titulo": "kit-reparticion-chevrolet-corsa-1.3-1.4-onix-cobalt-daewoo-racer",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa / Onix / Cobalt / Daewoo / Racer",
+    "Brand":"Autotec",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TAPA REPARTICION CHEVROLET",
     "Codigo": "11020601",
     "Nombre": "TAPA REPARTICION CHEVROLET SPARK 724/CRONOS CH-48",
     "Referencia": "96325223",
-    "Precio": "17,800.00"
+    "Precio": "17,800.00",
+    "titulo": "tapa-reparticion-chevrolet-spark-724-cronos",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TAPA REPARTICION CHEVROLET",
     "Codigo": "11020602",
     "Nombre": "TAPA REPARTICION CHEVROLET SPRINT/SWIFT 1.300 CH-20",
     "Referencia": "1139082010",
-    "Precio": "19,200.00"
+    "Precio": "19,200.00",
+    "titulo": "tapa-reparticion-chevrolet-sprint-swift-1.300",
+    "Marca": "Chevrolet",
+    "Modelo": "Sprint / Swift",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020701",
     "Nombre": "TORNILLO BALANCIN CHEVROLET GRAN VITARA 2.0/2.5",
     "Referencia": "1284232411",
-    "Precio": "2,800.00"
+    "Precio": "2,800.00",
+    "titulo": "tornillo-balancin-chevrolet-gran-vitara-2.0-2.5",
+    "Marca": "Chevrolet",
+    "Modelo": "Gran Vitara",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020702",
     "Nombre": "TORNILLO BALANCIN CHEVROLET LUV DMAX/NKR/NHR",
     "Referencia": "8941522831",
-    "Precio": "3,472.00"
+    "Precio": "3,472.00",
+    "titulo": "tornillo-balancin-chevrolet-luv-dmax-nkr-nhr",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Dmax / Nkr / Nhr",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020703",
-    "Nombre": "TORNILLO BALANCIN LUV/TROOPER WFR HYUNDAI",
+    "Nombre": "TORNILLO BALANCIN CHEVROLET LUV/TROOPER WFR HYUNDAI",
     "Referencia": "8942007860",
-    "Precio": "2,850.00"
+    "Precio": "2,850.00",
+    "titulo": "tornillo-balancin-luv-trooper-wfr-hyundai",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv / Trooper / Wfr",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020704",
-    "Nombre": "TORNILLO BALANCIN NPR 4HG1",
+    "Nombre": "TORNILLO BALANCIN CHEVROLET NPR 4HG1",
     "Referencia": "8943675262",
-    "Precio": "4,752.00"
+    "Precio": "4,752.00",
+    "titulo": "tornillo-balancin-npr-4hg1",
+    "Marca": "Chevrolet",
+    "Modelo": "Npr",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020705",
-    "Nombre": "TORNILLO BALANCIN SPRINT SWIFT SAMURAI",
+    "Nombre": "TORNILLO BALANCIN CHEVROLET SPRINT SWIFT SAMURAI",
     "Referencia": "1284852000",
-    "Precio": "2,900.00"
+    "Precio": "2,900.00",
+    "titulo": "tornillo-balancin-sprint-swift-samurai",
+    "Marca": "Chevrolet",
+    "Modelo": "Sprint / Swift / Samurai",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020706",
-    "Nombre": "TORNILLO BALANCIN S.CARRY SPARK SJ410",
+    "Nombre": "TORNILLO BALANCIN CHEVROLET SUPER CARRY SPARK SJ410",
     "Referencia": "1284873010",
-    "Precio": "2,651.00"
+    "Precio": "2,651.00",
+    "titulo": "tornillo-balancin-s-carry-spark-sj410",
+    "Marca": "Chevrolet",
+    "Modelo": "S.Carry / Spark",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TORNILLOS BALANCIN CHEVROLET",
     "Codigo": "11020707",
     "Nombre": "TORNILLO BALANCIN LV-150 ISUZU",
     "Referencia": "1126160341",
-    "Precio": "11,932.00"
+    "Precio": "11,932.00",
+    "titulo": "tornillo-balancin-lv-150-isuzu",
+    "Marca": "Chevrolet",
+    "Modelo": "Lv 150",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "VALVULA DESFOGUE PCV CHEVROLET",
     "Codigo": "11020801",
-    "Nombre": "VALVULA DESFOGUE PCV CHEV.SPARK/MATIZ",
+    "Nombre": "VALVULA DESFOGUE PCV CHEVROLET SPARK/MATIZ",
     "Referencia": "VAL-3",
-    "Precio": "6,945.00"
+    "Precio": "6,945.00",
+    "titulo": "valvula-desfogue-pcv-chevrolet-spark-matiz",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark / Matiz",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "VALVULA DESFOGUE PCV CHEVROLET",
     "Codigo": "11020802",
-    "Nombre": "VALVULA DESFOGUE PCV SWIFT",
+    "Nombre": "VALVULA DESFOGUE PCV CHEVROLET SWIFT",
     "Referencia": "VAL-1",
-    "Precio": "6,945.00"
+    "Precio": "6,945.00",
+    "titulo": "valvula-desfogue-pcv-swift",
+    "Marca": "Chevrolet",
+    "Modelo": "Swift",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BOQUILLAS CADENA",
     "Codigo": "11021001",
-    "Nombre": "BOQUILLA CADENA REP.LUV CON TORNILLO",
+    "Nombre": "BOQUILLA CADENA CHEVROLET REP.LUV CON TORNILLO",
     "Referencia": "8942007700",
-    "Precio": "22,400.00"
+    "Precio": "22,400.00",
+    "titulo": "boquilla-cadena-rep-luv-con-tornillo",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "CIGUEÑALES",
     "Codigo": "11021101",
-    "Nombre": "CIGUEÑAL LUV DMAX 2.500 4JA1",
+    "Nombre": "CIGUEÑAL CHEVROLET LUV DMAX 2.500 4JA1",
     "Referencia": "8972490410",
-    "Precio": "508,000.00"
+    "Precio": "508,000.00",
+    "titulo": "cigueñal-luv-dmax-2.500-4ja1",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Dmax",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "CIGUEÑALES",
     "Codigo": "11021102",
-    "Nombre": "CIGUEÑAL NHR/NKR TURBO",
+    "Nombre": "CIGUEÑAL CHEVROLET NHR/NKR TURBO",
     "Referencia": "8973318530",
-    "Precio": "520,000.00"
+    "Precio": "520,000.00",
+    "titulo": "cigueñal-nhr-nkr-turbo",
+    "Marca": "Chevrolet",
+    "Modelo": "Nhr / Nkr / Turbo",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SILLAS BALANCINES",
     "Codigo": "11021201",
-    "Nombre": "SILLAS BALANCINES CORSA/MONZA/DAEWOO/LUV 2.2",
+    "Nombre": "SILLAS BALANCINES CHEVROLET CORSA/MONZA/DAEWOO/LUV 2.2",
     "Referencia": "90076745",
-    "Precio": "19,900.00"
+    "Precio": "19,900.00",
+    "titulo": "sillas-balancines-corsa-monza-daewoo-luv-2.2",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa / Monza / Daewoo / Luv",
+    "Brand":"Krammer",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "VARILLAS ACEITE CHEVROLET",
     "Codigo": "11021301",
-    "Nombre": "VARILLA ACEITE LUV 2300 4X2 LARGA",
+    "Nombre": "VARILLA ACEITE CHEVROLET LUV 2300 4X2 LARGA",
     "Referencia": "8944135700",
-    "Precio": "20,359.00"
+    "Precio": "20,359.00",
+    "titulo": "varilla-aceite-luv-2300-4x2-larga",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 2300",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "VARILLAS ACEITE CHEVROLET",
     "Codigo": "11021302",
-    "Nombre": "VARILLA ACEITE TROOPER LUV 2300 4X4 CORTA",
+    "Nombre": "VARILLA ACEITE CHEVROLET TROOPER LUV 2300 4X4 CORTA",
     "Referencia": "8944810230",
-    "Precio": "20,359.00"
+    "Precio": "20,359.00",
+    "titulo": "varilla-aceite-trooper-luv-2300-4x4-corta",
+    "Marca": "Chevrolet",
+    "Modelo": "Trooper / Luv 2300",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "PREFILTROS INYECTORES",
     "Codigo": "11030301",
-    "Nombre": "PREFILTROS INYECTORES CHEVROLET CORSA",
+    "Nombre": "PREFILTROS INYECTORES CHEVROLET CHEVROLET CORSA",
     "Referencia": "17111694",
-    "Precio": "13,893.00"
+    "Precio": "13,893.00",
+    "titulo": "prefiltros-inyectores-chevrolet-corsa",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BIELETA CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040101",
-    "Nombre": "BIELETA CONTROL CAMBIOS CORSA 93/99",
+    "Nombre": "BIELETA CONTROL CAMBIOS CHEVROLET CORSA 93/99",
     "Referencia": "90245766",
-    "Precio": "9,800.00"
+    "Precio": "9,800.00",
+    "titulo": "bieleta-control-cambios-chevrolet-corsa-93-99",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BIELETA CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040102",
-    "Nombre": "BIELETA CONTROL CAMBIOS CORSA EVOLUTION",
+    "Nombre": "BIELETA CONTROL CAMBIOS CHEVROLET CORSA EVOLUTION",
     "Referencia": "93395040",
-    "Precio": "9,800.00"
+    "Precio": "9,800.00",
+    "titulo": "bieleta-control-cambios-chevrolet-corsa-evolution",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa Evolution",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BIELETA CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040103",
     "Nombre": "BIELETA CONTROL CAMBIOS DAEWOO RACER",
     "Referencia": "94580711",
-    "Precio": "9,800.00"
+    "Precio": "9,800.00",
+    "titulo": "bieleta-control-cambios-chevrolet-daewoo-racer",
+    "Marca": "Chevrolet",
+    "Modelo": "Daewoo / Racer",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040201",
-    "Nombre": "GUAYA CONTROL CAMBIOS CORSA 1.6 3406",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET CORSA 1.6 3406",
     "Referencia": "93386267",
-    "Precio": "161,593.00"
+    "Precio": "161,593.00",
+    "titulo": "guaya-control-cambios-chevrolet-corsa-1.6",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040202",
-    "Nombre": "GUAYA CONTROL CAMBIOS N-300 OJO-OJO 3921",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET N-300 OJO-OJO 3921",
     "Referencia": "24524965",
-    "Precio": "84,590.00"
+    "Precio": "84,590.00",
+    "titulo": "guaya-control-cambios-chevrolet-n-300",
+    "Marca": "Chevrolet",
+    "Modelo": "N-300",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040203",
-    "Nombre": "GUAYA CONTROL CAMBIOS N-300 OJO-TORNILLO 3934",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET N-300 OJO-TORNILLO 3934",
     "Referencia": "24528068",
-    "Precio": "65,780.00"
+    "Precio": "65,780.00",
+    "titulo": "guaya-control-cambios-chevrolet-n-300-ojo-tornillo",
+    "Marca": "Chevrolet",
+    "Modelo": "N-300",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040204",
-    "Nombre": "GUAYA CONTROL CAMBIOS SAIL CHEVROLET 3841",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SAIL CHEVROLET 3841",
     "Referencia": "24105496",
-    "Precio": "153,890.00"
+    "Precio": "153,890.00",
+    "titulo": "guaya-control-cambios-sail-chevrolet",
+    "Marca": "Chevrolet",
+    "Modelo": "Sail",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040205",
-    "Nombre": "GUAYA CONTROL CAMBIOS SPARK 3046",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SPARK 3046",
     "Referencia": "96333366",
-    "Precio": "125,715.00"
+    "Precio": "125,715.00",
+    "titulo": "guaya-control-cambios-chevrolet-spark",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000" 
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040206",
-    "Nombre": "GUAYA CONTROL CAMBIOS SPARK GT 1 3720",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SPARK GT 1 3720",
     "Referencia": "25189435",
-    "Precio": "186,000.00"
+    "Precio": "186,000.00",
+    "titulo": "guaya-control-cambios-chevrolet-spark-gt-1",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040207",
-    "Nombre": "GUAYA CONTROL CAMBIOS SPARK KRONOS 2379",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SPARK CHRONOS 2379",
     "Referencia": "96568386",
-    "Precio": "118,690.00"
+    "Precio": "118,690.00",
+    "titulo": "guaya-control-cambios-chevrolet-spark-chronos",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
     "Codigo": "11040208",
-    "Nombre": "GUAYA CONTROL CAMBIOS ZAFIRA ASTRA 2.0 3946",
+    "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET ZAFIRA ASTRA 2.0 3946",
     "Referencia": "93306003",
-    "Precio": "205,150.00"
+    "Precio": "205,150.00",
+    "titulo": "guaya-control-cambios-chevrolet-zafira-astra-2.0",
+    "Marca": "Chevrolet",
+    "Modelo": "Zafira / Astra",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040301",
-    "Nombre": "BUJES CONTROL CAMBIOS AVEO OPTRA DAEWOO D-08",
+    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET AVEO OPTRA DAEWOO D-08",
     "Referencia": "90226959",
-    "Precio": "8,745.00"
+    "Precio": "8,745.00",
+    "titulo": "bujes-control-cambios-chevrolet-aveo-optra-daewoo",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo / Optra / Daewoo",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040302",
-    "Nombre": "BUJES CONTROL CAMBIOS SPARK KRONOS CH-077",
+    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET SPARK KRONOS CH-077",
     "Referencia": "CH-077",
-    "Precio": "8,690.00"
+    "Precio": "8,690.00",
+    "titulo": "bujes-control-cambios-chevrolet-spark-chronos",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040303",
-    "Nombre": "BUJES CONTROL CAMBIOS CORSA CH-16",
+    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET CORSA CH-16",
     "Referencia": "90111223",
-    "Precio": "9,800.00"
+    "Precio": "9,800.00",
+    "titulo": "bujes-control-cambios-chevrolet-corsa",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040304",
-    "Nombre": "BUJES CONTROL CAMBIOS LUV DMAX CH-70",
+    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET LUV DMAX CH-70",
     "Referencia": "8979436180",
-    "Precio": "8,700.00"
+    "Precio": "8,700.00",
+    "titulo": "bujes-control-cambios-chevrolet-luv-dmax",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv Dmax",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040305",
-    "Nombre": "BUJES CONTROL CAMBIOS SWIFT/SPRINT CH-30",
+    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET SWIFT/SPRINT CH-30",
     "Referencia": "932014018",
-    "Precio": "10,670.00"
+    "Precio": "10,670.00",
+    "titulo": "bujes-control-cambios-chevrolet-swift-sprint",
+    "Marca": "Chevrolet",
+    "Modelo": "Swift / Sprint",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
     "Codigo": "11040306",
-    "Nombre": "BUJES PALANCA CAMBIOS AVEO,CORSA OPTRA, DAEWOO CH37",
+    "Nombre": "BUJES PALANCA CAMBIOS CHEVROLET AVEO,CORSA OPTRA, DAEWOO CH37",
     "Referencia": "90222571",
-    "Precio": "14,270.00"
+    "Precio": "14,270.00",
+    "titulo": "bujes-palanca-cambios-chevrolet-aveo-corsa-optra-daewoo",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo / Corsa / Optra / Daewoo",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "PIÑONES VELOCIMETRO",
     "Codigo": "11040401",
-    "Nombre": "CORONA PIÑON VELOCIMETRO LUV 1600 MACHO",
+    "Nombre": "CORONA PIÑON VELOCIMETRO CHEVROLET LUV 1600 MACHO",
     "Referencia": "8942230370",
-    "Precio": "6,523.00"
+    "Precio": "6,523.00",
+    "titulo": "corona-piñon-velocimetro-chevrolet-luv-1600-macho",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 1600",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "PIÑONES VELOCIMETRO",
     "Codigo": "11040402",
-    "Nombre": "CORONA PIÑON VELOCIMETRO LUV 2300 TROOPER CH-32",
+    "Nombre": "CORONA PIÑON VELOCIMETRO CHEVROLET LUV 2300 TROOPER CH-32",
     "Referencia": "CH-32",
-    "Precio": "6,900.00"
+    "Precio": "6,900.00",
+    "titulo": "corona-piñon-velocimetro-chevrolet-luv-2300-trooper",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 2300 / Trooper",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "PIÑONES VELOCIMETRO",
     "Codigo": "11040403",
-    "Nombre": "PIÑON VELOCIMETRO LUV 1.6/2.3 5X17 CH-13",
+    "Nombre": "PIÑON VELOCIMETRO CHEVROLET LUV 1.6/2.3 5X17 CH-13",
     "Referencia": "8941415500",
-    "Precio": "9,900.00"
+    "Precio": "9,900.00",
+    "titulo": "piñon-velocimetro-chevrolet-luv-1.6-2.3",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 1.6 / Luv 2.3",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "HORQUILLAS CLUTCH",
     "Codigo": "11040501",
-    "Nombre": "HORQUILLA CLUTCH LUV 2300 TROOPER RODEO",
+    "Nombre": "HORQUILLA CLUTCH CHEVROLET LUV 2300 TROOPER RODEO",
     "Referencia": "8943244180",
-    "Precio": "23,900.00"
+    "Precio": "23,900.00",
+    "titulo": "horquila-clutch-chevrolet-luv-2300-trooper-rodeo",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 2300 / Trooper / Rodeo",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "HORQUILLAS CLUTCH",
     "Codigo": "11040502",
-    "Nombre": "HORQUILLA CLUTCH NKR CON TRUBO",
+    "Nombre": "HORQUILLA CLUTCH CHEVROLET NKR CON TURBO",
     "Referencia": "8970245281",
-    "Precio": "49,415.00"
+    "Precio": "49,415.00",
+    "titulo": "horquila-clutch-nkr-con-turbo",
+    "Marca": "Chevrolet",
+    "Modelo": "Nkr",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "HORQUILLAS CLUTCH",
     "Codigo": "11040503",
-    "Nombre": "HORQUILLA CLUTCH NKR/NHR SIN TURBO",
+    "Nombre": "HORQUILLA CLUTCH CHEVROLET NKR/NHR SIN TURBO",
     "Referencia": "8970245280",
-    "Precio": "49,415.00"
+    "Precio": "49,415.00",
+    "titulo": "horquila-clutch-nkr-nhr-sin-turbo",
+    "Marca": "Chevrolet",
+    "Modelo": "Nkr / Nhr",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "DADOS COLUMNA DIRECCION",
     "Codigo": "11050301",
-    "Nombre": "JUEGO DADOS DIRECCION LUV 2300/TROOPER CON PASADOR",
+    "Nombre": "JUEGO DADOS DIRECCION CHEVROLET LUV 2300/TROOPER CON PASADOR",
     "Referencia": "8970775751",
-    "Precio": "24,800.00"
+    "Precio": "24,800.00",
+    "titulo": "juego-dados-direccion-chevrolet-luv-2300-trooper-con-pasador",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 2300 / Trooper",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUERCA HOUSING",
     "Codigo": "11050405",
     "Nombre": "TUERCA HOUSING NKR/NHR",
     "Referencia": "8971370920",
-    "Precio": "26,502.00"
+    "Precio": "26,502.00",
+    "titulo": "tuerca-housing-chevrolet-nkr-nhr",
+    "Marca": "Chevrolet",
+    "Modelo": "Nkr / Nhr",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUERCA HOUSING",
     "Codigo": "11050406",
     "Nombre": "TUERCA HOUSING NPR 99",
     "Referencia": "8971370940",
-    "Precio": "32,460.00"
+    "Precio": "32,460.00",
+    "titulo": "tuerca-housing-chevrolet-npr",
+    "Marca": "Chevrolet",
+    "Modelo": "Npr",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES DE OXIGENO",
     "Codigo": "11070101",
     "Nombre": "SENSOR OXIGENO DE UN CABLE",
     "Referencia": "234-1000",
-    "Precio": "59,800.00"
+    "Precio": "59,800.00",
+    "titulo": "sensor-oxigeno-de-un-cable",
+    "Marca": "Chevrolet",
+    "Modelo": "Multimarca",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES DE OXIGENO",
     "Codigo": "11070102",
     "Nombre": "SENSOR DE OXIGENO DOS CABLES",
     "Referencia": "234-2000",
-    "Precio": "67,900.00"
+    "Precio": "67,900.00",
+    "titulo": "sensor-oxigeno-de-dos-cables",
+    "Marca": "Chevrolet",
+    "Modelo": "Multimarca",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES DE OXIGENO",
     "Codigo": "11070103",
     "Nombre": "SENSOR OXIGENO 3 CABLES",
     "Referencia": "234-3000",
-    "Precio": "68,700.00"
+    "Precio": "68,700.00",
+    "titulo": "sensor-oxigeno-3-cables",
+    "Marca": "Chevrolet",
+    "Modelo": "Multimarca",
+    "Brand":"Saher",
+    "Descuento":10, 
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES DE OXIGENO",
@@ -3217,119 +3652,209 @@
   {
     "Tipo": "BENDIX ARRANQUE",
     "Codigo": "11070201",
-    "Nombre": "BENDIX ARRANQUE ASTRA/ZAFIRA/CORSA EVOLUTION",
+    "Nombre": "BENDIX ARRANQUE CHEVROLET ASTRA/ZAFIRA/CORSA EVOLUTION",
     "Referencia": "93326119",
-    "Precio": "13,000.00"
+    "Precio": "13,000.00",
+    "titulo": "bendix-arranque-chevrolet-astra-zafira-corsa-evolution",
+    "Marca": "Chevrolet",
+    "Modelo": "Astra / Zafira / Corsa Evolution",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES CIGUEÑAL",
     "Codigo": "11070601",
-    "Nombre": "SENSOR CIGUEÑAL CORSA TODOS",
+    "Nombre": "SENSOR CIGUEÑAL CHEVROLET CORSA TODOS",
     "Referencia": "90451442",
-    "Precio": "36,900.00"
+    "Precio": "36,900.00",
+    "titulo": "sensor-cigueñal-chevrolet-corsa-todos",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES DE DETONACION",
     "Codigo": "11070701",
-    "Nombre": "SENSOR DETONACION BLAZER ROSCA DELGADA",
+    "Nombre": "SENSOR DETONACION CHEVROLET BLAZER ROSCA DELGADA",
     "Referencia": "12456082",
-    "Precio": "35,000.00"
+    "Precio": "35,000.00",
+    "titulo": "sensor-detonacion-blazer-rosca-delgada",
+    "Marca": "Chevrolet",
+    "Modelo": "Blazer / Rosca",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "PERA ACEITE",
     "Codigo": "11070801",
-    "Nombre": "PERA ACEITE CHEYENNE BLAZER ROSCA DELGADA",
+    "Nombre": "PERA ACEITE CHEVROLET CHEYENNE BLAZER ROSCA DELGADA",
     "Referencia": "10,201,491.00",
-    "Precio": "22,800.00"
+    "Precio": "22,800.00",
+    "titulo": "pera-aceite-chevrolet-blazer-rosca-delgada",
+    "Marca": "Chevrolet",
+    "Modelo": "Blazer",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES VELOCÍMETRO",
     "Codigo": "11070901",
-    "Nombre": "SENSOR VELOCÍMETRO BLAZER /CHEYENNE",
+    "Nombre": "SENSOR VELOCÍMETRO CHEVROLET BLAZER /CHEYENNE",
     "Referencia": "12382860",
-    "Precio": "25,000.00"
+    "Precio": "25,000.00",
+    "titulo": "sensor-velocimetro-chevrolet-blazer-chevrolet-cheyenne",
+    "Marca": "Chevrolet",
+    "Modelo": "Blazer / Cheyenne",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "SENSORES VELOCÍMETRO",
     "Codigo": "11070902",
-    "Nombre": "SENSOR VELOCIMETRO NKR/NPR/LUV DMAX",
+    "Nombre": "SENSOR VELOCIMETRO CHEVROLET NKR/NPR/LUV DMAX",
     "Referencia": "8972565250",
-    "Precio": "73,697.00"
+    "Precio": "73,697.00",
+    "titulo": "sensor-velocimetro-chevrolet-nkr-npr-luv-dmax",
+    "Marca": "Chevrolet",
+    "Modelo": "Nkr / Npr / Luv Dmax",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110801",
-    "Nombre": "RODILLO AMORTIGUADOR AVEO/KRONOS/SAIL",
+    "Nombre": "RODILLO AMORTIGUADOR CHEVROLET AVEO/KRONOS/SAIL",
     "Referencia": "96535010",
-    "Precio": "8,250.00"
+    "Precio": "8,250.00",
+    "titulo": "rodillos-amortiguador-chevrolet-aveo-chronos-sail",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo / Chronos / Sail",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110802",
     "Nombre": "RODILLO AMORTIGUADOR MAZDA 323/626 FORD FESTIVA/MAZ",
     "Referencia": "F-6",
-    "Precio": "5,709.00"
+    "Precio": "5,709.00",
+    "titulo": "rodillos-amortiguador-chevrolet-mazda-323-626-ford-festiva-maz",
+    "Marca": "Chevrolet",
+    "Modelo": "Mazda 323 / 626 / Ford Festiva",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110803",
     "Nombre": "RODILLO AMORTIGUADOR FIESTA S.CHARGER KIA MAZDA 121",
     "Referencia": "F-7",
-    "Precio": "6,768.00"
+    "Precio": "6,768.00",
+    "titulo": "rodillos-amortiguador-chevrolet-fiesta-charger-kia-mazda-121",
+    "Marca": "Chevrolet",
+    "Modelo": "Fiesta / Charger / Kia / Mazda",
+    "Brand":"Saher",
+    "Descuento":10, 
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110804",
     "Nombre": "RODILLO AMORTIGUADOR HYUNDAI ATOS TODOS",
     "Referencia": "54612-02000",
-    "Precio": "6,768.00"
+    "Precio": "6,768.00",
+    "titulo": "rodillos-amortiguador-hyundai-atos",
+    "Marca": "Chevrolet",
+    "Modelo": "Hyundai",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110805",
     "Nombre": "RODILLO AMORTIGUADOR HYUNDAI I10 KIA PICANTO SOUL",
     "Referencia": "H-4",
-    "Precio": "5,409.00"
+    "Precio": "5,409.00",
+    "titulo": "rodillos-amortiguador-hyundai-i10-kia-picanto-soul",
+    "Marca": "Chevrolet",
+    "Modelo": "Hyundai / Kia / Picanto",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110806",
-    "Nombre": "RODILLO AMORTIGIADOR OPTRA 1.4/1.8",
+    "Nombre": "RODILLO AMORTIGUADOR CHEVROLET OPTRA 1.4/1.8",
     "Referencia": "94535236",
-    "Precio": "15,222.00"
+    "Precio": "15,222.00",
+    "titulo": "rodillos-amortiguador-chevrolet-optra-1.4-1.8",
+    "Marca": "Chevrolet",
+    "Modelo": "Optra",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110807",
     "Nombre": "RODILLO AMORTIGUADOR RENAULT CLIO/SYMBOL/MEGANE/TWINGO/CITYUS",
     "Referencia": "6001025850",
-    "Precio": "14,905.00"
+    "Precio": "14,905.00",
+    "titulo": "rodillos-amortiguador-renault-clio-symbol-megane-twingo-cityus",
+    "Marca": "Chevrolet",
+    "Modelo": "Renault / Clio / Symbol / Megane / Twingo / CityUS",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110808",
-    "Nombre": "RODILLO AMORTIGUADOR SPARK 724 MAZDA 626 ASAHI",
+    "Nombre": "RODILLO AMORTIGUADOR CHEVROLET SPARK 724 MAZDA 626 ASAHI",
     "Referencia": "96316747",
-    "Precio": "5,164.00"
+    "Precio": "5,164.00",
+    "titulo": "rodillos-amortiguador-chevrolet-spark-724-mazda-626-asahi",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110809",
-    "Nombre": "RODILLO AMORTIGUADOR SPARK GT",
+    "Nombre": "RODILLO AMORTIGUADOR CHEVROLET SPARK GT",
     "Referencia": "56245403",
-    "Precio": "16,988.00"
+    "Precio": "16,988.00",
+    "titulo": "rodillos-amortiguador-chevrolet-spark-gt",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110810",
-    "Nombre": "RODILLO AMORTIGUADOR SPRINT 85/2003",
+    "Nombre": "RODILLO AMORTIGUADOR CHEVROLET SPRINT 85/2003",
     "Referencia": "4174186000",
     "Precio": null
   },
   {
     "Tipo": "RODILLOS AMORTIGUADOR",
     "Codigo": "110811",
-    "Nombre": "RODILLO AMORTIGIADOR SWIFT KIT CON ARANDELAS",
+    "Nombre": "RODILLO AMORTIGIADOR CHEVROLET SWIFT KIT CON ARANDELAS",
     "Referencia": "4174160B00",
     "Precio": null
   },
@@ -3338,21 +3863,39 @@
     "Codigo": "110812",
     "Nombre": "RODILLO AMORTIGUADOR FORD FESTIVA MAZDA 323/626",
     "Referencia": "F-6",
-    "Precio": "5,430.00"
+    "Precio": "5,430.00",
+    "titulo": "rodillos-amortiguador-chevrolet-ford-festiva-mazda-323-626",
+    "Marca": "Chevrolet",
+    "Modelo": "Ford Festiva / Mazda 323 / 626",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000" 
   },
   {
     "Tipo": "TAPAS DE RADIADOR",
     "Codigo": "11090101",
-    "Nombre": "TAPA AUXILIAR RADIADOR AVEO/OPTRA SPARK",
+    "Nombre": "TAPA AUXILIAR RADIADOR CHEVROLET AVEO/OPTRA SPARK",
     "Referencia": "96420303",
-    "Precio": "7,611.00"
+    "Precio": "7,611.00",
+    "titulo": "tapas-de-radiador-chevrolet-aveo-optra-spark",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo / Optra / Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TAPAS DE RADIADOR",
     "Codigo": "11090102",
-    "Nombre": "TAPA AUXILIAR RADIADOR CORSA/MONZA /DAEWOO",
+    "Nombre": "TAPA AUXILIAR RADIADOR CHEVROLET CORSA/MONZA /DAEWOO",
     "Referencia": "93220885",
-    "Precio": "7,611.00"
+    "Precio": "7,611.00",
+    "titulo": "tapas-de-radiador-chevrolet-corsa-monza-daewoo",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa / Monza / Daewoo",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TAPAS DE RADIADOR",
@@ -3385,16 +3928,28 @@
   {
     "Tipo": "TERMOSTATOS CHEVROLET",
     "Codigo": "11090201",
-    "Nombre": "TERMOSTATO AVEO 1.4/1.6 METALICO",
+    "Nombre": "TERMOSTATO CHEVROLET AVEO 1.4/1.6 METALICO",
     "Referencia": "09542601 96282726",
-    "Precio": "32,900.00"
+    "Precio": "32,900.00",
+    "titulo": "terminadores-chevrolet-aveo-1.4-1.6-metalico",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TERMOSTATOS CHEVROLET",
     "Codigo": "11090202",
-    "Nombre": "TERMOSTATO OPTRA 1.4 / METLICO",
+    "Nombre": "TERMOSTATO CHEVROLET OPTRA 1.4 / METLICO",
     "Referencia": "0954009 96460002",
-    "Precio": "32,900.00"
+    "Precio": "32,900.00",
+    "titulo": "terminadores-chevrolet-optra-1.4-metalico",
+    "Marca": "Chevrolet",
+    "Modelo": "Optra",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TERMOSTATOS CHEVROLET",
@@ -3406,72 +3961,132 @@
   {
     "Tipo": "TERMOSTATOS CHEVROLET",
     "Codigo": "11090204",
-    "Nombre": "TERMOSTATO TRACKER/CRUZE/SONIC METALICO",
+    "Nombre": "TERMOSTATO CHEVROLET TRACKER/CRUZE/SONIC METALICO",
     "Referencia": "544014 96984104",
-    "Precio": "89,900.00"
+    "Precio": "89,900.00",
+    "titulo": "terminadores-chevrolet-tracker-cruze-sonic-metalico",
+    "Marca": "Chevrolet",
+    "Modelo": "Tracker / Cruze / Sonic",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TERMOSTATOS CHEVROLET",
     "Codigo": "11090205",
-    "Nombre": "TERMOSTATO OPTRA 1.8 LT. METALICO",
+    "Nombre": "TERMOSTATO CHEVROLET OPTRA 1.8 LT. METALICO",
     "Referencia": "92063301 92062728",
-    "Precio": "36,900.00"
+    "Precio": "36,900.00",
+    "titulo": "terminadores-chevrolet-optra-1.8-lt-metalico",
+    "Marca": "Chevrolet",
+    "Modelo": "Optra",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TERMOSTATOS CHEVROLET",
     "Codigo": "11090206",
-    "Nombre": "TERMOSTATO AVEO PLASTICO",
+    "Nombre": "TERMOSTATO CHEVROLET AVEO PLASTICO",
     "Referencia": "09544017 96407677",
-    "Precio": "32,900.00"
+    "Precio": "32,900.00",
+    "titulo": "terminadores-chevrolet-aveo-plastico",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUBOS CALEFACCION CHEVROLET",
     "Codigo": "11090301",
-    "Nombre": "TUBO CALEFACCION ASTRA/ZAFIRA",
+    "Nombre": "TUBO CALEFACCION CHEVROLET ASTRA/ZAFIRA",
     "Referencia": "90322216",
-    "Precio": "16,500.00"
+    "Precio": "16,500.00",
+    "titulo": "tubos-calefaccion-chevrolet-astra-zafira",
+    "Marca": "Chevrolet",
+    "Modelo": "Astra / Zafira",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUBOS CALEFACCION CHEVROLET",
     "Codigo": "11090302",
-    "Nombre": "TUBO CALEFACCION AVEO 1.4/OPTRA 1.4",
+    "Nombre": "TUBO CALEFACCION CHEVROLET AVEO 1.4/OPTRA 1.4",
     "Referencia": "96273608",
-    "Precio": "14,500.00"
+    "Precio": "14,500.00",
+    "titulo": "tubos-calefaccion-chevrolet-aveo-1.4-optra-1.4",
+    "Marca": "Chevrolet",
+    "Modelo": "Aveo",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUBOS CALEFACCION CHEVROLET",
     "Codigo": "11090303",
-    "Nombre": "TUBO CALEFACCION CORSA 1.3/1.4 93/99",
+    "Nombre": "TUBO CALEFACCION CHEVROLET CORSA 1.3/1.4 93/99",
     "Referencia": "90448854",
-    "Precio": "14,500.00"
+    "Precio": "14,500.00",
+    "titulo": "tubos-calefaccion-chevrolet-corsa-1.3-1.4",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUBOS CALEFACCION CHEVROLET",
     "Codigo": "11090304",
-    "Nombre": "TUBO CALEFACCION CORSA EVOLUTION CHEVY",
+    "Nombre": "TUBO CALEFACCION CHEVROLET CORSA EVOLUTION CHEVY",
     "Referencia": "9128719",
-    "Precio": "14,600.00"
+    "Precio": "14,600.00",
+    "titulo": "tubos-calefaccion-chevrolet-corsa-evolution-chevy",
+    "Marca": "Chevrolet",
+    "Modelo": "Corsa Evolution",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUBOS CALEFACCION CHEVROLET",
     "Codigo": "11090305",
-    "Nombre": "TUBO CALEFACCION OPTRA 1.8",
+    "Nombre": "TUBO CALEFACCION CHEVROLET OPTRA 1.8",
     "Referencia": "96553368",
-    "Precio": "14,800.00"
+    "Precio": "14,800.00",
+    "titulo": "tubos-calefaccion-chevrolet-optra-1.8",
+    "Marca": "Chevrolet",
+    "Modelo": "Optra",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUBOS CALEFACCION CHEVROLET",
     "Codigo": "11090306",
-    "Nombre": "TUBO CALEFACCION OPTRA 1.8 LT",
+    "Nombre": "TUBO CALEFACCION CHEVROLET OPTRA 1.8 LT",
     "Referencia": "96180035",
-    "Precio": "15,222.00"
+    "Precio": "15,222.00",
+    "titulo": "tubos-calefaccion-chevrolet-optra-1.8-lt",
+    "Marca": "Chevrolet",
+    "Modelo": "Optra",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   {
     "Tipo": "TUBOS CALEFACCION CHEVROLET",
     "Codigo": "11090307",
-    "Nombre": "TUBO CALEFACCION SPARK CHRONOS",
+    "Nombre": "TUBO CALEFACCION CHEVROLET SPARK CHRONOS",
     "Referencia": "96565660",
-    "Precio": "15,400.00"
+    "Precio": "15,400.00",
+    "titulo": "tubos-calefaccion-chevrolet-spark-chronos",
+    "Marca": "Chevrolet",
+    "Modelo": "Spark",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"40000"
   },
   [
   {

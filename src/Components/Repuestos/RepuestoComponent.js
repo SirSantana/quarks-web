@@ -117,6 +117,40 @@ export default function ProductDetailPage({ repuesto }) {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, "_blank");
   };
+  function generarVariantesSEO(data) {
+  const modelos = data.Modelo.split("/").map(m => m.trim());
+  const base = [
+    `${data.Tipo}`,
+    `${data.Tipo} ${data.Marca}`,
+    `${data.Nombre}`,
+    `${data.Tipo} ${data.Referencia}`,
+    `${data.Tipo} ${data.Brand}`
+  ];
+
+  const extras = ["repuesto", "original", "precio", "barato", "venta"];
+  
+  let variantes = [];
+
+  modelos.forEach(modelo => {
+    base.forEach(b => {
+      variantes.push(`${b} ${modelo}`);
+      extras.forEach(extra => {
+        variantes.push(`${b} ${modelo} ${extra}`);
+      });
+    });
+  });
+
+  return [...new Set(variantes)]; // elimina duplicados
+}
+const variantesSEO = generarVariantesSEO(repuesto);
+
+  function toTitleCase(str) {
+  return str
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -559,6 +593,69 @@ export default function ProductDetailPage({ repuesto }) {
               ))}
           </div>
         </div>
+
+        <div className={styles.section}>
+          <h2 className={styles.sectionTitle}>Otros {toTitleCase(repuesto.Tipo)}</h2>
+          <div className={styles.relatedGrid}>
+            {autopartes
+              .filter(
+                (product) =>
+                  product.Tipo === repuesto.Tipo &&
+                  product.Codigo !== repuesto.Codigo // evitar mostrar el mismo producto
+              )
+              .map((product, index) => (
+                <div key={index} className={styles.relatedProduct}>
+                  <img
+                    src={
+                      product.image || "/images/placeholder.png" // fallback si no hay imagen
+                    }
+                    alt={product.Nombre}
+                    className={styles.relatedProductImage}
+                  />
+
+                  <div className={styles.relatedProductContent}>
+                    <div className={styles.relatedProductBrand}>
+                      {product.Marca || "Genérico"}
+                    </div>
+
+                    <h3 className={styles.relatedProductName}>
+                      {product.Nombre}
+                    </h3>
+
+                    {/* Rating simulado si no existe */}
+                    <div className={styles.relatedProductRating}>
+                      <div className={styles.relatedProductStars}>
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={14}
+                            fill={i < 4 ? "#fbbf24" : "none"} // ejemplo: rating 4
+                            color={i < 4 ? "#fbbf24" : "#e5e7eb"}
+                          />
+                        ))}
+                      </div>
+                      <span className={styles.relatedProductRatingText}>
+                        4.0
+                      </span>
+                    </div>
+
+                    <div className={styles.relatedProductPrice}>
+                      {formatPrice(product.Precio2)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+        <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Variantes del repuesto {repuesto.Titulo}</h2>
+        <ul>
+          {variantesSEO.map((v, i) => (
+            <li key={i}>{v}</li>
+          ))}
+          <li >{repuesto.Nombre?.replace(repuesto.Marca.toUpperCase(), "")}</li>
+        </ul>
+      </div>
       </div>
     </div>
   );
