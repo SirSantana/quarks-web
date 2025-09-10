@@ -107,85 +107,52 @@ export default function ProductDetailPage({ repuesto }) {
       prev === 0 ? repuesto.images.length - 1 : prev - 1
     );
   };
-  
-   const contactWhatsApp = () => {
+
+  const contactWhatsApp = () => {
     const phoneNumber = "573143551942"; // Número de Colombia con código de país
     const message = encodeURIComponent(
       "Hola, estoy interesado en el siguiente repuesto: " +
-      `https://www.quarks.com.co/repuesto/${repuesto.titulo}`
+        `https://www.quarks.com.co/repuesto/${repuesto.titulo}`
     );
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, "_blank");
   };
   function generarVariantesSEO(data) {
-  const modelos = data.Modelo.split("/").map(m => m.trim());
-  const base = [
-    `${data.Tipo}`,
-    `${data.Tipo} ${data.Marca}`,
-    `${data.Nombre}`,
-    `${data.Tipo} ${data.Referencia}`,
-    `${data.Tipo} ${data.Brand}`
-  ];
+    const modelos = data.Modelo.split("/").map((m) => m.trim());
+    const base = [
+      `${data.Tipo}`,
+      `${data.Tipo} ${data.Marca}`,
+      `${data.Nombre}`,
+      `${data.Tipo} ${data.Referencia}`,
+      `${data.Tipo} ${data.Brand}`,
+    ];
 
-  const extras = ["repuesto", "original", "precio", "barato", "venta"];
-  
-  let variantes = [];
+    const extras = ["repuesto", "original", "precio", "barato", "venta"];
 
-  modelos.forEach(modelo => {
-    base.forEach(b => {
-      variantes.push(`${b} ${modelo}`);
-      extras.forEach(extra => {
-        variantes.push(`${b} ${modelo} ${extra}`);
+    let variantes = [];
+
+    modelos.forEach((modelo) => {
+      base.forEach((b) => {
+        variantes.push(`${b} ${modelo}`);
+        extras.forEach((extra) => {
+          variantes.push(`${b} ${modelo} ${extra}`);
+        });
       });
     });
-  });
 
-  return [...new Set(variantes)]; // elimina duplicados
-}
-const variantesSEO = generarVariantesSEO(repuesto);
+    return [...new Set(variantes)]; // elimina duplicados
+  }
+  const variantesSEO = generarVariantesSEO(repuesto);
 
   function toTitleCase(str) {
-  return str
-    .toLowerCase()
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
+    return str
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
   return (
     <div className={styles.container}>
-      {/* Header */}
-      {/* <header className={styles.header}>
-        <div className={styles.headerContent}>
-          <div className={styles.logo}>
-            <div className={styles.logoIcon}>
-              AP
-            </div>
-            <h1 className={styles.logoText}>
-              AutoPartes Pro
-            </h1>
-          </div>
-          
-          <div className={styles.headerActions}>
-            <div className={styles.searchContainer}>
-              <Search size={18} className={styles.searchIcon} />
-              <input
-                type="text"
-                placeholder="Buscar productos..."
-                className={styles.searchInput}
-              />
-            </div>
-            
-            <button className={styles.cartButton}>
-              <ShoppingCart size={20} color="#6b7280" />
-              {cartItems.length > 0 && (
-                <span className={styles.cartBadge}>
-                  {cartItems.length}
-                </span>
-              )}
-            </button>
-          </div>
-        </div>
-      </header> */}
       <nav className={styles.breadcrumb}>
         <div className={styles.breadcrumbContent}>
           <div className={styles.breadcrumbList}>
@@ -209,25 +176,42 @@ const variantesSEO = generarVariantesSEO(repuesto);
           {/* Image Gallery */}
           <div className={styles.imageGallery}>
             <div className={styles.mainImageContainer}>
-              <img
-                src={repuesto?.images?.[selectedImageIndex]}
-                alt={repuesto.Nombre}
-                className={styles.mainImage}
-              />
+              {repuesto?.images?.length > 0 && (
+                <img
+                  src={repuesto?.images?.[selectedImageIndex]}
+                  alt={repuesto.Nombre}
+                  className={styles.mainImage}
+                />
+              )}
+              {!repuesto?.images?.length && (
+                <div className={styles.noImage}>
+                  <img
+                    src="/piston-glosario.webp"
+                    alt={`Imagen no disponible de ${repuesto.Nombre}`}
+                    className={styles.mainImage}
+                  />
+                  <span className={styles.noImageLabel}>
+                    Este repuesto no tiene imagen disponible
+                  </span>
+                </div>
+              )}
+              {repuesto?.images?.length > 0 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    className={`${styles.navigationButton} ${styles.prevButton}`}
+                  >
+                    <ChevronLeft size={20} color="#374151" />
+                  </button>
 
-              <button
-                onClick={prevImage}
-                className={`${styles.navigationButton} ${styles.prevButton}`}
-              >
-                <ChevronLeft size={20} color="#374151" />
-              </button>
-
-              <button
-                onClick={nextImage}
-                className={`${styles.navigationButton} ${styles.nextButton}`}
-              >
-                <ChevronRight size={20} color="#374151" />
-              </button>
+                  <button
+                    onClick={nextImage}
+                    className={`${styles.navigationButton} ${styles.nextButton}`}
+                  >
+                    <ChevronRight size={20} color="#374151" />
+                  </button>
+                </>
+              )}
             </div>
 
             <div className={styles.thumbnails}>
@@ -241,7 +225,7 @@ const variantesSEO = generarVariantesSEO(repuesto);
                 >
                   <img
                     src={image}
-                    alt={`Vista ${index + 1}`}
+                    alt={`${repuesto.Nombre} vista ${index + 1}`}
                     className={styles.thumbnailImage}
                   />
                 </button>
@@ -283,9 +267,7 @@ const variantesSEO = generarVariantesSEO(repuesto);
                 </div>
                 <span className={styles.ratingText}>{productData.rating}</span>
               </div>
-              <span className={styles.reviewCount}>
-                2 calificaciones
-              </span>
+              <span className={styles.reviewCount}>2 calificaciones</span>
             </div>
 
             {/* Price */}
@@ -303,7 +285,7 @@ const variantesSEO = generarVariantesSEO(repuesto);
                     <span className={styles.originalPrice}>
                       {formatPrice(repuesto.Precio2)}
                     </span>
-                    <span className={styles.discountBadge}>
+                    <span className={styles.discountBadge1}>
                       {repuesto.Descuento}% OFF
                     </span>
                   </>
@@ -368,7 +350,10 @@ const variantesSEO = generarVariantesSEO(repuesto);
                 </div>
               </div>
 
-              <button onClick={contactWhatsApp} className={styles.addToCartButton}>
+              <button
+                onClick={contactWhatsApp}
+                className={styles.addToCartButton}
+              >
                 Estoy interesado •{" "}
                 {formatPrice(
                   Number(repuesto.Precio2) *
@@ -385,7 +370,9 @@ const variantesSEO = generarVariantesSEO(repuesto);
 
         {/* Product Description */}
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Descripción</h2>
+          <h2 className={styles.sectionTitle}>
+            Descripción {toTitleCase(repuesto.Nombre)}
+          </h2>
           <p className={styles.description}>
             La <strong>{repuesto.Tipo}</strong> código{" "}
             <strong>{repuesto.Codigo}</strong>, también conocida como{" "}
@@ -421,7 +408,13 @@ const variantesSEO = generarVariantesSEO(repuesto);
 
         {/* Trust Indicators */}
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Detalles Técnicos</h2>
+          <h2 className={styles.sectionTitle}>
+            Detalles Técnicos de{" "}
+            {repuesto.Nombre?.replace(
+              repuesto.Marca.toUpperCase(),
+              ""
+            ).toLowerCase()}
+          </h2>
           <table className={styles.fichaTecnica}>
             <tbody>
               <tr>
@@ -454,7 +447,13 @@ const variantesSEO = generarVariantesSEO(repuesto);
 
         {/* Beneficios */}
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Beneficios de este repuesto</h2>
+          <h2 className={styles.sectionTitle}>
+            Beneficios de este repuesto{" "}
+            {repuesto.Nombre?.replace(
+              repuesto.Marca.toUpperCase(),
+              ""
+            ).toLowerCase()}
+          </h2>
           <ul className={styles.benefitsList}>
             <li>
               <Check size={18} color="#10b981" />
@@ -541,61 +540,86 @@ const variantesSEO = generarVariantesSEO(repuesto);
 
         {/* Related Products */}
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Productos Relacionados</h2>
-          <div className={styles.relatedGrid}>
-            {autopartes
-              .filter(
-                (product) =>
-                  product.Modelo === repuesto.Modelo &&
-                  product.Codigo !== repuesto.Codigo // evitar mostrar el mismo producto
-              )
-              .map((product, index) => (
-                <div key={index} className={styles.relatedProduct}>
-                  <img
-                    src={
-                      product.image || "/images/placeholder.png" // fallback si no hay imagen
-                    }
-                    alt={product.Nombre}
-                    className={styles.relatedProductImage}
-                  />
+  <h2 className={styles.sectionTitle}>Otros repuestos de {repuesto.Modelo?.split("/")[0]?.trim()}</h2>
+  <div className={styles.relatedGrid}>
+    {autopartes
+      .filter((product) => {
+        // Obtener el primer modelo del repuesto actual
+        const currentModel = repuesto.Modelo?.split("/")[0]?.trim()?.toLowerCase();
+        
+        // Verificar si el producto tiene algún modelo que coincida (sin importar mayúsculas)
+        const productModels = product.Modelo?.split("/").map(model => model.trim().toLowerCase()) || [];
+        
+        return (
+          currentModel && 
+          productModels.includes(currentModel) &&
+          product.Codigo !== repuesto.Codigo // evitar mostrar el mismo producto
+        );
+      })
+      .map((product, index) => (
+        <div key={index} className={styles.relatedProduct}>
+          <div className={styles.relatedProductImageContainer}>
+            <img
+              src={
+                product.images?.[0] || "/piston-glosario.webp" // fallback si no hay imagen
+              }
+              alt={product.Nombre}
+              className={styles.relatedProductImage}
+            />
+            {/* Badge de descuento */}
+            {product.Descuento && product.Descuento > 0 && (
+              <div className={styles.discountBadge}>
+                -{product.Descuento}%
+              </div>
+            )}
+          </div>
 
-                  <div className={styles.relatedProductContent}>
-                    <div className={styles.relatedProductBrand}>
-                      {product.Marca || "Genérico"}
-                    </div>
+          <div className={styles.relatedProductContent}>
+            {/* Marca y Brand */}
+            <div className={styles.relatedProductBrands}>
+              <div className={styles.relatedProductBrand}>
+                {product.Marca || "Genérico"}
+              </div>
+              {product.Brand && (
+                <span className={styles.relatedProductManufacturer}>
+                  {product.Brand}
+                </span>
+              )}
+            </div>
 
-                    <h3 className={styles.relatedProductName}>
-                      {product.Nombre}
-                    </h3>
+            <h3 className={styles.relatedProductName}>
+              {product.Nombre}
+            </h3>
 
-                    {/* Rating simulado si no existe */}
-                    <div className={styles.relatedProductRating}>
-                      <div className={styles.relatedProductStars}>
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            fill={i < 4 ? "#fbbf24" : "none"} // ejemplo: rating 4
-                            color={i < 4 ? "#fbbf24" : "#e5e7eb"}
-                          />
-                        ))}
-                      </div>
-                      <span className={styles.relatedProductRatingText}>
-                        4.0
-                      </span>
-                    </div>
+            {/* Precios con descuento */}
+            <div className={styles.relatedProductPricing}>
+              <div className={styles.relatedPriceContainer}>
+                <span className={`${styles.relatedProductPrice} ${product.Descuento > 0 ? styles.relatedProductDiscountedPrice : ''}`}>
+                  {formatPrice(
+                    Number(product.Precio2) *
+                      (1 - Number(product.Descuento) / 100)
+                  )}
+                </span>
 
-                    <div className={styles.relatedProductPrice}>
+                {product.Descuento && product.Descuento > 0 && (
+                  <>
+                    <span className={styles.relatedProductOriginalPrice}>
                       {formatPrice(product.Precio2)}
-                    </div>
-                  </div>
-                </div>
-              ))}
+                    </span>
+                  </>
+                )}
+              </div>
+
+            </div>
           </div>
         </div>
-
+      ))}
+  </div>
+</div>
         <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Otros {toTitleCase(repuesto.Tipo)}</h2>
+          <h2 className={styles.sectionTitle}>
+            Otros {toTitleCase(repuesto.Tipo)}
+          </h2>
           <div className={styles.relatedGrid}>
             {autopartes
               .filter(
@@ -607,7 +631,7 @@ const variantesSEO = generarVariantesSEO(repuesto);
                 <div key={index} className={styles.relatedProduct}>
                   <img
                     src={
-                      product.image || "/images/placeholder.png" // fallback si no hay imagen
+                      product.image?.[0] || "/piston-glosario.webp" // fallback si no hay imagen
                     }
                     alt={product.Nombre}
                     className={styles.relatedProductImage}
@@ -622,23 +646,6 @@ const variantesSEO = generarVariantesSEO(repuesto);
                       {product.Nombre}
                     </h3>
 
-                    {/* Rating simulado si no existe */}
-                    <div className={styles.relatedProductRating}>
-                      <div className={styles.relatedProductStars}>
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            fill={i < 4 ? "#fbbf24" : "none"} // ejemplo: rating 4
-                            color={i < 4 ? "#fbbf24" : "#e5e7eb"}
-                          />
-                        ))}
-                      </div>
-                      <span className={styles.relatedProductRatingText}>
-                        4.0
-                      </span>
-                    </div>
-
                     <div className={styles.relatedProductPrice}>
                       {formatPrice(product.Precio2)}
                     </div>
@@ -648,14 +655,18 @@ const variantesSEO = generarVariantesSEO(repuesto);
           </div>
         </div>
         <div className={styles.section}>
-        <h2 className={styles.sectionTitle}>Variantes del repuesto {repuesto.Titulo}</h2>
-        <ul>
-          {variantesSEO.map((v, i) => (
-            <li key={i}>{v}</li>
-          ))}
-          <li >{repuesto.Nombre?.replace(repuesto.Marca.toUpperCase(), "")}</li>
-        </ul>
-      </div>
+          <h2 className={styles.sectionTitle}>
+            Variantes del repuesto {repuesto.Titulo}
+          </h2>
+          <ul>
+            {variantesSEO.map((v, i) => (
+              <li key={i}>{v}</li>
+            ))}
+            <li>
+              {repuesto.Nombre?.replace(repuesto.Marca.toUpperCase(), "")}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
