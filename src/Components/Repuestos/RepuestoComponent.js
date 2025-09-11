@@ -459,7 +459,7 @@ export default function ProductDetailPage({ repuesto }) {
             <li>
               <Check size={18} color="#10b981" />
               <span>
-                Repuesto original para {repuesto.Marca} {repuesto.Modelo}
+                Repuesto homologado para {repuesto.Marca} {repuesto.Modelo}
               </span>
             </li>
             <li>
