@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import styles from "@/styles/Product.module.css";
 import autopartes from "@/src/data/catalogo_autopartes.json";
+import Link from "next/link";
 
 const productData = {
   id: 1,
@@ -557,7 +558,7 @@ export default function ProductDetailPage({ repuesto }) {
         );
       })
       .map((product, index) => (
-        <div key={index} className={styles.relatedProduct}>
+        <Link style={{textDecoration:'none'}} href={`${product.titulo}`} key={index} className={styles.relatedProduct}>
           <div className={styles.relatedProductImageContainer}>
             <img
               src={
@@ -612,7 +613,7 @@ export default function ProductDetailPage({ repuesto }) {
 
             </div>
           </div>
-        </div>
+        </Link>
       ))}
   </div>
 </div>
@@ -628,10 +629,10 @@ export default function ProductDetailPage({ repuesto }) {
                   product.Codigo !== repuesto.Codigo // evitar mostrar el mismo producto
               )
               .map((product, index) => (
-                <div key={index} className={styles.relatedProduct}>
+                <Link style={{textDecoration:'none'}} href={`${product.titulo}`} key={index} className={styles.relatedProduct}>
                   <img
                     src={
-                      product.image?.[0] || "/piston-glosario.webp" // fallback si no hay imagen
+                      product.images?.[0] || "/piston-glosario.webp" // fallback si no hay imagen
                     }
                     alt={product.Nombre}
                     className={styles.relatedProductImage}
@@ -650,7 +651,7 @@ export default function ProductDetailPage({ repuesto }) {
                       {formatPrice(product.Precio2)}
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
           </div>
         </div>

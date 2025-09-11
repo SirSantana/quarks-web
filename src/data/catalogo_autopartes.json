@@ -10,7 +10,7 @@
     "Modelo": "Alto/Wagon R",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"45000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -39,7 +39,7 @@
     "Modelo": "Cruze",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"55000"
 
   },
   {
@@ -53,7 +53,7 @@
     "Modelo": "Tahoe",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"60000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -66,7 +66,7 @@
     "Modelo": "Tahoe Silverado",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"60000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -74,12 +74,12 @@
     "Nombre": "AXIAL CHEVROLET ESTEEM 1.3/1.6",
     "Referencia": "4883060G00",
     "Precio": "18,700.00",
-    "titulo": "axial-esteem-1.3-1.6",
+    "titulo": "axial-chevrolet-esteem-1.3-1.6",
     "Marca": "Chevrolet",
     "Modelo": "Esteem",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"44000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -87,12 +87,12 @@
     "Nombre": "AXIAL CHEVROLET GRAN VITARA 2.0 / 1.6",
     "Referencia": "4883065D00",
     "Precio": "19,990.00",
-    "titulo": "axial-gran-vitara-2.0-1.6",
+    "titulo": "axial-chevrolet-gran-vitara-2.0-1.6",
     "Marca": "Chevrolet",
     "Modelo": "Gran Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -105,7 +105,7 @@
     "Modelo": "Gran Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"55000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -113,12 +113,12 @@
     "Nombre": "AXIAL CHEVROLET LUV 1600 4X2 82/89",
     "Referencia": "8942172211",
     "Precio": "23,974.00",
-    "titulo": "axial-luv-1600-4x2-82-89",
+    "titulo": "axial-chevrolet-luv-1600-4x2-82-89",
     "Marca": "Chevrolet",
     "Modelo": "Luv 1600",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -126,12 +126,12 @@
     "Nombre": "AXIAL CHEVROLET LUV 1600 4X4 82/90",
     "Referencia": "5443500951",
     "Precio": "23,974.00",
-    "titulo": "axial-luv-1600-4x4-82-90",
+    "titulo": "axial-chevrolet-luv-1600-4x4-82-90",
     "Marca": "Chevrolet",
     "Modelo": "Luv 1600",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"55000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -139,12 +139,12 @@
     "Nombre": "AXIAL CHEVROLET LUV DMAX 2009/2015 GRUESO 18 mm",
     "Referencia": "ES3488",
     "Precio": "28,336.00",
-    "titulo": "axial-luv-dmax-2009-2015-grueso",
+    "titulo": "axial-chevrolet-luv-dmax-2009-2015-grueso",
     "Marca": "Chevrolet",
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"65000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -152,12 +152,12 @@
     "Nombre": "AXIAL CHEVROLET LUV DMAX 4X2 98/2008",
     "Referencia": "8973048530",
     "Precio": "19,791.00",
-    "titulo": "axial-luv-dmax-4x2-98-2008",
+    "titulo": "axial-chevrolet-luv-dmax-4x2-98-2008",
     "Marca": "Chevrolet",
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"42000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -165,12 +165,12 @@
     "Nombre": "AXIAL CHEVROLET LUV DMAX 4X4 98/2008 14mm",
     "Referencia": "8973048510",
     "Precio": "19,958.00",
-    "titulo": "axial-luv-dmax-4x4-98-2008",
+    "titulo": "axial-chevrolet-luv-dmax-4x4-98-2008",
     "Marca": "Chevrolet",
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"44000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -178,12 +178,12 @@
     "Nombre": "AXIAL CHEVROLET SAIL 14x14X1.5 mm HUEC GRAN",
     "Referencia": "9042063",
     "Precio": "23,894.00",
-    "titulo": "axial-sail",
+    "titulo": "axial-chevrolet-sail",
     "Marca": "Chevrolet",
     "Modelo": "Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"45000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -191,12 +191,12 @@
     "Nombre": "AXIAL CHEVROLET SONIC/COBALT/CAPTIVA 2.4 EV800330",
     "Referencia": "95218372",
     "Precio": "19,980.00",
-    "titulo": "axial-sonic-cobalt-captiva",
+    "titulo": "axial-chevrolet-sonic-cobalt-captiva",
     "Marca": "Chevrolet",
     "Modelo": "Sonic/Cobalt/Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -204,12 +204,12 @@
     "Nombre": "AXIAL CHEVROLET SPARK",
     "Referencia": "93741074",
     "Precio": "22,029.00",
-    "titulo": "axial-spark",
+    "titulo": "axial-chevrolet-spark",
     "Marca": "Chevrolet",
     "Modelo": "Spark",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"45000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -217,12 +217,12 @@
     "Nombre": "AXIAL CHEVROLET SPRINT 85/99",
     "Referencia": "4883082000",
     "Precio": "19,985.00",
-    "titulo": "axial-sprint",
+    "titulo": "axial-chevrolet-sprint",
     "Marca": "Chevrolet",
     "Modelo": "Sprint",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"42000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -230,12 +230,12 @@
     "Nombre": "AXIAL CHEVROLET SWIFT 1.0/1.3/1.6",
     "Referencia": "4883060B00",
     "Precio": "20,296.00",
-    "titulo": "axial-swift",
+    "titulo": "axial-chevrolet-swift",
     "Marca": "Chevrolet",
     "Modelo": "Swift",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"46000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -243,12 +243,12 @@
     "Nombre": "AXIAL CHEVROLET TRACKER /CAPTIVA 3.2",
     "Referencia": "95932789",
     "Precio": "22,472.00",
-    "titulo": "axial-tracker",
+    "titulo": "axial-chevrolet-tracker",
     "Marca": "Chevrolet",
-    "Modelo": "Tracker",
+    "Modelo": "Tracker / Captiva 3.2",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -256,12 +256,12 @@
     "Nombre": "AXIAL CHEVROLET TRAIL BLAZER",
     "Referencia": "EV417",
     "Precio": "31,734.00",
-    "titulo": "axial-trail-blazer",
+    "titulo": "axial-chevrolet-trail-blazer",
     "Marca": "Chevrolet",
     "Modelo": "Trail Blazer",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"65000"
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -269,12 +269,12 @@
     "Nombre": "AXIAL CHEVROLET N/200 N-300 R=L HEMBRA",
     "Referencia": "24543445",
     "Precio": "18,700.00",
-    "titulo": "axial-n-200-n-300",
+    "titulo": "axial-chevrolet-n.200-n.300",
     "Marca": "Chevrolet",
     "Modelo": "N-200 / N-300",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"42000"
   },
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
@@ -282,12 +282,12 @@
     "Nombre": "BARRA DIRECCION CHEVROLET LUV 1600 82/90",
     "Referencia": "8942373671",
     "Precio": "56,900.00",
-    "titulo": "barra-direccion-luv-1600-82-90",
+    "titulo": "barra-direccion-chevrolet-luv-1600-82-90",
     "Marca": "Chevrolet",
     "Modelo": "Luv 1600",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"98000"
   },
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
@@ -300,7 +300,7 @@
     "Modelo": "Luv 2300",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"210000"
   },
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
@@ -313,7 +313,7 @@
     "Modelo": "Luv 2300",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"230000"
   },
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
@@ -321,12 +321,12 @@
     "Nombre": "BARRA DIRECCION CHEVROLET SAMURAI TER.OJO",
     "Referencia": "4890070A60",
     "Precio": "59,375.00",
-    "titulo": "barra-direccion-samurai-ter-ojo",
+    "titulo": "barra-direccion-chevrolet-samurai-ter-ojo",
     "Marca": "Chevrolet",
     "Modelo": "Samurai",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"90000"
   },
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
@@ -334,12 +334,12 @@
     "Nombre": "BARRA DIRECCION CHEVROLET SAMURAI TER. TER",
     "Referencia": "4887070A61",
     "Precio": "68,500.00",
-    "titulo": "barra-direccion-samuray-ter-ter",
+    "titulo": "barra-direccion-chevrolet-samuray-ter-ter",
     "Marca": "Chevrolet",
     "Modelo": "Samurai",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"120000"
   },
   {
     "Tipo": "BARRAS DIRECCION CHEVROLET",
@@ -347,12 +347,12 @@
     "Nombre": "BARRA DIRECCION CHEVROLET VITARA 2P/3P",
     "Referencia": "4885060A00",
     "Precio": "75,905.00",
-    "titulo": "barra-direccion-vitara-2p-3p",
+    "titulo": "barra-direccion-chevrolet-vitara-2p-3p",
     "Marca": "Chevrolet",
     "Modelo": "Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"140000"
   },
   {
     "Tipo": "COMPENSADORES CHEVROLET",
@@ -360,12 +360,12 @@
     "Nombre": "COMPENSADOR CHEVROLET BLAZER 4X4",
     "Referencia": "K6251",
     "Precio": "64,900.00",
-    "titulo": "compensador-blazer-4x4",
+    "titulo": "compensador-chevrolet-blazer-4x4",
     "Marca": "Chevrolet",
     "Modelo": "Blazer",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"130000"
   },
   {
     "Tipo": "COMPENSADORES CHEVROLET",
@@ -373,12 +373,12 @@
     "Nombre": "COMPENSADOR CHEVROLET CHEYENNE AUXILIAR",
     "Referencia": "K6447",
     "Precio": "44,800.00",
-    "titulo": "compensador-cheyenne-auxiliar",
+    "titulo": "compensador-chevrolet-cheyenne-auxiliar",
     "Marca": "Chevrolet",
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"95000"
   },
   {
     "Tipo": "COMPENSADORES CHEVROLET",
@@ -386,12 +386,12 @@
     "Nombre": "COMPENSADOR CHEVROLET CHEYENNE CAJA ARTICULADA",
     "Referencia": "K6532",
     "Precio": "89,900.00",
-    "titulo": "compensador-cheyenne-caja-articulada",
+    "titulo": "compensador-chevrolet-cheyenne-caja-articulada",
     "Marca": "Chevrolet",
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"155000"
   },
   {
     "Tipo": "COMPENSADORES CHEVROLET",
@@ -399,12 +399,12 @@
     "Nombre": "COMPENSADOR CHEVROLET LUV 1600 82/90",
     "Referencia": "8942417670",
     "Precio": "61,446.00",
-    "titulo": "compensador-luv-1600-82-90",
+    "titulo": "compensador-chevrolet-luv-1600-82-90",
     "Marca": "Chevrolet",
     "Modelo": "Luv 1600",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"98000"
   },
   {
     "Tipo": "COMPENSADORES CHEVROLET",
@@ -412,194 +412,194 @@
     "Nombre": "COMPENSADOR CHEVROLET LUV 2300 TROOPER",
     "Referencia": "8970289720",
     "Precio": "72,941.00",
-    "titulo": "compensador-luv-2300-trooper",
+    "titulo": "compensador-chevrolet-luv-2300-trooper",
     "Marca": "Chevrolet",
     "Modelo": "Luv 2300 / trooper",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"120000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010401",
-    "Nombre": "MUÑECO EST CHEVROLET ASTRA ZAFIRA PLASTICO",
+    "Nombre": "MUÑECO CHEVROLET ASTRA ZAFIRA PLASTICO",
     "Referencia": "90498745",
     "Precio": "22,850.00",
-    "titulo": "muneco-astra-zafira-plastico",
+    "titulo": "muneco-chevrolet-astra-zafira-plastico",
     "Marca": "Chevrolet",
     "Modelo": "Astra Zafira",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"44000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010402",
-    "Nombre": "MUÑECO EST CHEVROLET AVEO SAIL DEL. R=L",
+    "Nombre": "MUÑECO CHEVROLET AVEO SAIL DEL. R=L",
     "Referencia": "96391875",
     "Precio": "23,826.00",
-    "titulo": "muneco-est-aveo-sail",
+    "titulo": "muneco-estabilizador-chevrolet-aveo-sail",
     "Marca": "Chevrolet",
     "Modelo": "Aveo / Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"45000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010403",
-    "Nombre": "MUÑECO EST CHEVROLET CAPTIVA 2.4 izquierdo =11010418 ; TRACKER",
+    "Nombre": "MUÑECO CHEVROLET CAPTIVA 2.4 Izquierdo",
     "Referencia": "95488871",
     "Precio": "22,886.00",
-    "titulo": "muneco-est-captiva-2.4-izquierdo",
+    "titulo": "muneco-estabilizador-chevrolet-captiva-2.4-izquierdo",
     "Marca": "Chevrolet",
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010404",
-    "Nombre": "MUÑECO EST CHEVROLET CAPTIVA 2.4 derecho = 11010419 ; TRACKER",
+    "Nombre": "MUÑECO CHEVROLET CAPTIVA 2.4 derecho",
     "Referencia": "95488870",
     "Precio": "22,886.00",
-    "titulo": "muneco-est-captiva-2.4-derecho",
+    "titulo": "muneco-estabilizador-chevrolet-captiva-2.4-derecho",
     "Marca": "Chevrolet",
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010405",
-    "Nombre": "MUÑECO EST CHEVROLET COBALT/SONIC/ METALICO /ASTRA/ZAFIRA",
+    "Nombre": "MUÑECO CHEVROLET COBALT/SONIC/ METALICO /ASTRA/ZAFIRA",
     "Referencia": "13169439",
     "Precio": "21,686.00",
-    "titulo": "muneco-est-cobalt-sonic-metalico-astra-zafira",
+    "titulo": "muneco-estabilizador-chevrolet-cobalt-sonic-metalico-astra-zafira",
     "Marca": "Chevrolet",
     "Modelo": "Cobalt/Sonic/Astra/Zafira",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"44000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010406",
-    "Nombre": "MUÑECO EST CHEVROLET CORSA EVOLUTION",
+    "Nombre": "MUÑECO CHEVROLET CORSA EVOLUTION",
     "Referencia": "90496116",
     "Precio": "24,900.00",
-    "titulo": "muneco-est-corsa-evolution",
+    "titulo": "muneco-chevrolet-corsa-evolution",
     "Marca": "Chevrolet",
     "Modelo": "Corsa Evolution",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010407",
-    "Nombre": "MUÑECO ETS CHEVROLET EPICA DEL. izquierdo",
+    "Nombre": "MUÑECO CHEVROLET EPICA DEL. izquierdo",
     "Referencia": "96225858",
     "Precio": "16,772.00",
-    "titulo": "muneco-est-epica-del-izquierdo",
+    "titulo": "muneco-chevrolet-epica-del-izquierdo",
     "Marca": "Chevrolet",
     "Modelo": "Epica",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"46000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010408",
-    "Nombre": "MUÑECO EST CHEVROLET EPICA DEL derecho",
+    "Nombre": "MUÑECO CHEVROLET EPICA DEL derecho",
     "Referencia": "96225859",
     "Precio": "16,772.00",
-    "titulo": "muneco-est-epica-del-derecho",
+    "titulo": "muneco-chevrolet-epica-del-derecho",
     "Marca": "Chevrolet",
     "Modelo": "Epica",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"46000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010409",
-    "Nombre": "MUÑECO EST CHEVROLET VITARA GRAN VITARA 2.0 = 11010420",
+    "Nombre": "MUÑECO CHEVROLET VITARA GRAN VITARA 2.0 = 11010420",
     "Referencia": "4242065D00",
     "Precio": "19,437.00",
-    "titulo": "muneco-est-vitara-gran-vitara-2.0",
+    "titulo": "muneco-chevrolet-vitara-gran-vitara-2.0",
     "Marca": "Chevrolet",
     "Modelo": "Gran Vitara 2.0",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"45000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010410",
-    "Nombre": "MUÑECO EST CHEVROLET GRAN VITARA 2.5/2.7 LARGO",
+    "Nombre": "MUÑECO CHEVROLET GRAN VITARA 2.5/2.7 LARGO",
     "Referencia": "4242065J00",
     "Precio": "24,976.00",
-    "titulo": "muneco-est-gran-vitara-2.5-2.7-largo",
+    "titulo": "muneco-chevrolet-gran-vitara-2.5-2.7-largo",
     "Marca": "Chevrolet",
     "Modelo": "Gran Vitara 2.5 - 2.7",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"52000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010411",
-    "Nombre": "MUÑECO EST CHEVROLET JIMNY R=L",
+    "Nombre": "MUÑECO CHEVROLET JIMNY R=L",
     "Referencia": "4242081A10",
     "Precio": "22,900.00",
-    "titulo": "muneco-est-jimny-r=l",
+    "titulo": "muneco-chevrolet-jimny-r=l",
     "Marca": "Chevrolet",
     "Modelo": "Jimny",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010412",
-    "Nombre": "MUÑECO EST CHEVROLET LUV DMAX 4X2 R=L LUV 2.2",
+    "Nombre": "MUÑECO CHEVROLET LUV DMAX 4X2 R=L LUV 2.2",
     "Referencia": "8972148221",
     "Precio": "17,900.00",
-    "titulo": "muneco-est-luv-dmax-4x2-r=l-luv-2.2",
+    "titulo": "muneco-chevrolet-luv-dmax-4x2-r=l-luv-2.2",
     "Marca": "Chevrolet",
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"44000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010413",
-    "Nombre": "MUÑECO EST CHEVROLET LUV DMAX 4X4 izquierdo",
+    "Nombre": "MUÑECO CHEVROLET LUV DMAX 4X4 izquierdo",
     "Referencia": "8972357871",
     "Precio": "17,900.00",
-    "titulo": "muneco-est-luv-dmax-4x4-izquierdo",
+    "titulo": "muneco-chevrolet-luv-dmax-4x4-izquierdo",
     "Marca": "Chevrolet",
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"44000"
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
     "Codigo": "11010414",
-    "Nombre": "MUÑECO EST CHEVROLET LUV DMAX 4X4 derecho",
+    "Nombre": "MUÑECO CHEVROLET LUV DMAX 4X4 derecho",
     "Referencia": "8972357861",
     "Precio": "17,900.00",
-    "titulo": "muneco-est-luv-dmax-4x4-derecho",
+    "titulo": "muneco-chevrolet-luv-dmax-4x4-derecho",
     "Marca": "Chevrolet",
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"42000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -607,12 +607,12 @@
     "Nombre": "ROTULA CHEVROLET ASTRA ZAFIRA",
     "Referencia": "90497305",
     "Precio": "23,800.00",
-    "titulo": "rotula-astra-zafira",
+    "titulo": "rotula-chevrolet-astra-zafira",
     "Marca": "Chevrolet",
     "Modelo": "Astra Zafira",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -620,12 +620,12 @@
     "Nombre": "ROTULA CHEVROLET AVEO/SAIL",
     "Referencia": "96535089",
     "Precio": "24,605.00",
-    "titulo": "rotula-aveo-sail",
+    "titulo": "rotula-chevrolet-aveo-sail",
     "Marca": "Chevrolet",
     "Modelo": "Aveo / Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -633,12 +633,12 @@
     "Nombre": "ROTULA CHEVROLET CAVALIER 90/98",
     "Referencia": "K5273",
     "Precio": "33,183.00",
-    "titulo": "rotula-cavalier-90-98",
+    "titulo": "rotula-chevrolet-cavalier-90-98",
     "Marca": "Chevrolet",
     "Modelo": "Cavalier",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"60000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -646,12 +646,12 @@
     "Nombre": "ROTULA CHEVROLET COBAL/TRACKER/ONIX/SONIC",
     "Referencia": "95017034",
     "Precio": "31,423.00",
-    "titulo": "rotula-cobalt-tracker-onix-sonic",
+    "titulo": "rotula-chevrolet-cobalt-tracker-onix-sonic",
     "Marca": "Chevrolet",
     "Modelo": "Cobalt/Tracker/Onix/Sonic",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"60000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -659,12 +659,12 @@
     "Nombre": "ROTULA CHEVROLET CORSA 2000/2010",
     "Referencia": "90542574",
     "Precio": "28,110.00",
-    "titulo": "rotula-corsa-2000-2010",
+    "titulo": "rotula-chevrolet-corsa-2000-2010",
     "Marca": "Chevrolet",
     "Modelo": "Corsa",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"54000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -672,12 +672,12 @@
     "Nombre": "ROTULA CHEVROLET CORSA 93/99",
     "Referencia": "90295324",
     "Precio": "20,753.00",
-    "titulo": "rotula-corsa-93-99",
+    "titulo": "rotula-chevrolet-corsa-93-99",
     "Marca": "Chevrolet",
     "Modelo": "Corsa",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"46000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -685,12 +685,12 @@
     "Nombre": "ROTULA INFERIOR CHEVROLET BLAZER 4X4 93/99",
     "Referencia": "K5289",
     "Precio": "36,575.00",
-    "titulo": "rotula-inferior-blazer-4x4-93-99",
+    "titulo": "rotula-inferior-chevrolet-blazer-4x4-93-99",
     "Marca": "Chevrolet",
     "Modelo": "Blazer",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"65000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -698,12 +698,12 @@
     "Nombre": "ROTULA INFERIOR CHEVROLET C-10 73/86",
     "Referencia": "K6117",
     "Precio": "39,911.00",
-    "titulo": "rotula-inferior-c-10-73-86",
+    "titulo": "rotula-inferior-chevrolet-c-10-73-86",
     "Marca": "Chevrolet",
     "Modelo": "C-10",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"78000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -711,12 +711,12 @@
     "Nombre": "ROTULA INFERIOR CHEVROLET C-30",
     "Referencia": "K6129",
     "Precio": "46,191.00",
-    "titulo": "rotula-inferior-c-30",
+    "titulo": "rotula-inferior-chevrolet-c-30",
     "Marca": "Chevrolet",
     "Modelo": "C-30",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"95000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -724,12 +724,12 @@
     "Nombre": "ROTULA INFERIOR CHEVROLET CHEYENNE 1.5/3.5 GRAFILADA",
     "Referencia": "K6445",
     "Precio": "49,631.00",
-    "titulo": "rotula-inferior-cheyenne-1.5-3.5-grafilada",
+    "titulo": "rotula-inferior-chevrolet-cheyenne-1.5-3.5-grafilada",
     "Marca": "Chevrolet",
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"110000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -737,12 +737,12 @@
     "Nombre": "ROTULA INFERIOR CHEVROLET CHEYENNE 1.500/3.5 LISA",
     "Referencia": "K6293",
     "Precio": "44,460.00",
-    "titulo": "rotula-inferior-cheyenne-1.500-3.5-lisa",
+    "titulo": "rotula-inferior-chevrolet-cheyenne-1.500-3.5-lisa",
     "Marca": "Chevrolet",
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"98000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -750,12 +750,12 @@
     "Nombre": "ROTULA INFERIOR CHEVROLET GRAN BLAZER 4X4",
     "Referencia": "K6291",
     "Precio": "49,675.00",
-    "titulo": "rotula-inferior-gran-blazer-4x4",
+    "titulo": "rotula-inferior-chevrolet-gran-blazer-4x4",
     "Marca": "Chevrolet",
     "Modelo": "Blazer",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"95000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -763,12 +763,12 @@
     "Nombre": "ROTULA INFERIOR CHEVROLET CHEV.K-10 4X4 FORD/WILLYS",
     "Referencia": "K8195",
     "Precio": "26,900.00",
-    "titulo": "rotula-inferior-chev.k-10-4x4-ford-willys",
+    "titulo": "rotula-inferior-chevrolet-k.10-4x4-ford-willys",
     "Marca": "Chevrolet",
     "Modelo": "K-10",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"58000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -781,7 +781,7 @@
     "Modelo": "Luv 2.3 / Dmax / Trooper / Luv 2.2",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"98000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -794,7 +794,7 @@
     "Modelo": "Luv 2300",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"96000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -807,7 +807,7 @@
     "Modelo": "Silverado",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"110000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -820,7 +820,7 @@
     "Modelo": "Racer / Cielo",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -833,7 +833,7 @@
     "Modelo": "Corsa Evolution",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"45000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -846,7 +846,7 @@
     "Modelo": "Blazer",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"68000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -859,7 +859,7 @@
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"80000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -872,7 +872,7 @@
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"86000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -885,7 +885,7 @@
     "Modelo": "K-10",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"68000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -898,7 +898,7 @@
     "Modelo": "Luv 1.6 / 2.3 / Trooper",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -911,7 +911,7 @@
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"62000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -924,20 +924,7 @@
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
-  },
-  {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
-    "Codigo": "11010609",
-    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X4",
-    "Referencia": "8943744240",
-    "Precio": "29,800.00",
-    "titulo": "rotula-superior-chevrolet-luv-dmax-4x4",
-    "Marca": "Chevrolet",
-    "Modelo": "Luv Dmax",
-    "Brand":"Saher",
-    "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"65000"
   },
   {
     "Tipo": "ROTULAS SUPERIORES CHEVROLET",
@@ -950,20 +937,7 @@
     "Modelo": "Luv 1.6 / 2.3 / Trooper",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
-  },
-  {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
-    "Codigo": "11010608",
-    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X2",
-    "Referencia": "8972357770",
-    "Precio": "28,700.00",
-    "titulo": "rotula-superior-chevrolet-luv-dmax-4x2",
-    "Marca": "Chevrolet",
-    "Modelo": "Luv Dmax",
-    "Brand":"Saher",
-    "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"46000"
   },
   {
     "Tipo": "TERMINALES CHEVROLET",
