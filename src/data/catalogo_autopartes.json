@@ -188,15 +188,16 @@
   {
     "Tipo": "AXIALES CHEVROLET",
     "Codigo": "11010115",
-    "Nombre": "AXIAL CHEVROLET SONIC/COBALT/CAPTIVA 2.4 EV800330",
+    "Nombre": "AXIAL CHEVROLET SONIC / COBALT / CAPTIVA 2.4",
     "Referencia": "95218372",
     "Precio": "19,980.00",
     "titulo": "axial-chevrolet-sonic-cobalt-captiva",
     "Marca": "Chevrolet",
-    "Modelo": "Sonic/Cobalt/Captiva",
+    "Modelo": "Sonic / Cobalt / Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"48000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_737228-MCO82148778679_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_852948-MCO81868572926_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_777054-MCO82148789115_012025-O.webp"]
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -1286,15 +1287,16 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010725",
-    "Nombre": "TERMINAL DIRECCION CHEVROLET SONIC/COBALT/CAPTIVA 2.4 CORTAS/ONIX/HYUNDAI SONATA",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SONIC/COBALT CORTAS/ONIX/HYUNDAI SONATA",
     "Referencia": "95218393",
     "Precio": "19,900.00",
-    "titulo": "terminal-direccion-chevrolet-sonic-cobalt-captiva-2.4-cortas-onix-hyundai-sonata",
+    "titulo": "terminal-direccion-chevrolet-sonic-cobalt-cortas-onix-hyundai-sonata",
     "Marca": "Chevrolet",
-    "Modelo": "Sonic / Cobalt / Captiva",
+    "Modelo": "Sonic / Cobalt",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"46000"
+    "Precio2":"46000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_928518-MCO87329910154_072025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_989370-MCO87659303075_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_769852-MCO87329553784_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_918175-MCO87329504014_072025-O.webp"]
   },
   {
     "Tipo": "TERMINALES CHEVROLET",
@@ -2740,7 +2742,7 @@
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020404",
-    "Nombre": "IMPULSADORES CHEVROLET CHEYENNE/BLAZER RODILLO",
+    "Nombre": "IMPULSADORES CHEVROLET CHEYENNE / BLAZER RODILLO",
     "Referencia": "HT-2148 5234670",
     "Precio": "26,800.00",
     "titulo": "impulsadores-chevrolet-cheyenne-blazer-rodillo",
@@ -2753,7 +2755,7 @@
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020405",
-    "Nombre": "IMPULSADORES CHEVROLET CORSA/MONZA DAEWOO/LUV 2.2",
+    "Nombre": "IMPULSADORES CHEVROLET CORSA / MONZA DAEWOO / LUV 2.2",
     "Referencia": "5233315",
     "Precio": "87,900.00",
     "titulo": "impulsadores-chevrolet-corsa-monza-daewoo-luv-2.2",
@@ -2794,7 +2796,7 @@
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020408",
-    "Nombre": "IMPULSADORES CHEVROLET SPRINT VITARA/SWIFT",
+    "Nombre": "IMPULSADORES CHEVROLET SPRINT / VITARA / SWIFT",
     "Referencia": "1289186512",
     "Precio": "11,980.00",
     "titulo": "impulsadores-chevrolet-sprint-vitara-swift",
@@ -2802,12 +2804,13 @@
     "Modelo": "Sprint / Vitara / Swift",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"24000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_733099-MCO88725223708_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_891957-MCO82147033521_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_678533-MCO82147170453_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_960826-MCO81867196032_012025-O.webp"]
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
     "Codigo": "11020409",
-    "Nombre": "IMPULSADORES CHEVROLET CAPTIVA 2.4/3.0/3.2/3.6 /TRAIL BLAZER/ONIX TURBO 1.0",
+    "Nombre": "IMPULSADORES CHEVROLET CAPTIVA 2.4 / 3.0 / 3.2 / 3.6 / TRAIL BLAZER / ONIX TURBO 1.0",
     "Referencia": "12572638",
     "Precio": "11,600.00",
     "titulo": "impulsadores-chevrolet-captiva-trail-blazer-onix-turbo",
@@ -2815,7 +2818,8 @@
     "Modelo": "Captiva / Trail Blazer / Onix Turbo",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"27000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_993449-MCO75277146450_032024-O.webp","https://http2.mlstatic.com/D_NQ_NP_791532-MCO82147685925_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_950454-MCO83627733843_042025-O.webp","https://http2.mlstatic.com/D_NQ_NP_661033-MCO83627813035_042025-O.webp"]
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
@@ -3232,7 +3236,8 @@
     "Modelo": "Corsa / Monza / Daewoo / Luv",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_846306-MCO82149215667_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_672283-MCO81868802064_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_891464-MCO82149146415_012025-O.webp"]
   },
   {
     "Tipo": "VARILLAS ACEITE CHEVROLET",

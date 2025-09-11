@@ -18,7 +18,7 @@ function generarDescripcionSEO(data) {
     ? Number(data.Precio2) * (1 - Number(data.Descuento) / 100)
     : Number(data.Precio2);
 
-  return `${data.Nombre}, código ${data.Codigo}, referencia ${data.Referencia} de la marca ${data.Brand}. Repuesto que garantiza el rendimiento y la seguridad de tu vehículo. Disponible ${data.Descuento ? `con ${data.Descuento}% de descuento` : ''} a un precio de $${precioFinal.toLocaleString('es-CO')} COP.`;
+  return `Autoparte para ${data?.Marca}. ${data.Nombre}, código ${data.Codigo}, referencia ${data.Referencia} de la marca ${data.Brand}. Repuesto que garantiza el rendimiento y la seguridad de tu vehículo. Disponible ${data.Descuento ? `con ${data.Descuento}% de descuento` : ''} a un precio de $${precioFinal.toLocaleString('es-CO')} COP.`;
 }
   // 🟢 Precio con descuento si aplica
   const precioOriginal = Number(data.Precio2);
@@ -32,7 +32,7 @@ function generarDescripcionSEO(data) {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": data.titulo,
-    "image": data?.images?.[0] || "https://quarks.com.co/default-product.jpg", // coloca un fallback
+    "image": data.images?.length ? data.images?.[0] : ["/piston-glosario.webp"], // coloca un fallback
     "description": generarDescripcionSEO(data) || `Compra ${data.titulo} al mejor precio.`,
     "brand": {
       "@type": "Brand",
@@ -61,7 +61,7 @@ function toTitleCase(str) {
     .join(' ');
 }
   return (
-    <Layout title={toTitleCase(data.Nombre)} footer={false} navbarRepuestos={true} visibleNavbar={false} description={generarDescripcionSEO(data)}  url={`/repuesto/${data.titulo}`} >
+    <Layout title={toTitleCase(data.Nombre)} image={data?.images?.[0] || '/piston-glosario.webp' } footer={false} navbarRepuestos={true} visibleNavbar={false} description={generarDescripcionSEO(data)}  url={`/repuesto/${data.titulo}`} >
       <Head>
         {/* Marcado estructurado JSON-LD */}
         <script 
