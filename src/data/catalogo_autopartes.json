@@ -10,7 +10,8 @@
     "Modelo": "Alto/Wagon R",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"45000"
+    "Precio2":"45000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_716546-MCO79853711849_102024-O.webp"]
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -223,7 +224,8 @@
     "Modelo": "Sprint",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"42000"
+    "Precio2":"42000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_795353-MCO74034822017_012024-O.webp"]
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -236,7 +238,8 @@
     "Modelo": "Swift",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"46000"
+    "Precio2":"46000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_915197-MCO72619785271_112023-O.webp","https://http2.mlstatic.com/D_NQ_NP_986790-MCO81882766432_012025-O.webp"]
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -249,7 +252,8 @@
     "Modelo": "Tracker / Captiva 3.2",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"48000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_689050-MCO74018270407_012024-O.webp"]
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -366,7 +370,8 @@
     "Modelo": "Blazer",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"130000"
+    "Precio2":"130000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_752612-MCO74035266675_012024-O.webp"]
   },
   {
     "Tipo": "COMPENSADORES CHEVROLET",
@@ -444,7 +449,8 @@
     "Modelo": "Aveo / Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"45000"
+    "Precio2":"45000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_689428-MCO83965987187_042025-O.webp","https://http2.mlstatic.com/D_NQ_NP_941415-MCO83672421034_042025-O.webp","https://http2.mlstatic.com/D_NQ_NP_996543-MCO83966095067_042025-O.webp"]
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
@@ -457,7 +463,8 @@
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"48000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_840359-MCO85794298602_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_644546-MCO85794515328_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_802640-MCO86106976107_062025-O.webp"]
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
@@ -470,7 +477,9 @@
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"48000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_840359-MCO85794298602_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_644546-MCO85794515328_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_802640-MCO86106976107_062025-O.webp"]
+
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
@@ -575,7 +584,8 @@
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"44000"
+    "Precio2":"44000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_639834-MLA74773323475_022024-O.webp"]
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
@@ -588,7 +598,8 @@
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"44000"
+    "Precio2":"44000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_789403-MCO74773392249_022024-O.webp"]
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
@@ -601,7 +612,8 @@
     "Modelo": "Luv Dmax",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"42000"
+    "Precio2":"42000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_789403-MCO74773392249_022024-O.webp"]
   },
   {
     "Tipo": "MUÑECOS ESTABILIZADORA",
@@ -630,7 +642,20 @@
     "Descuento":10,
     "Precio2":"46000",
     "images":["https://http2.mlstatic.com/D_NQ_NP_977292-MCO88727003332_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_853110-MCO85794517416_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_982206-MCO74702726757_022024-O.webp","https://http2.mlstatic.com/D_NQ_NP_622737-MCO81867719684_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_781776-MCO86107155109_062025-O.webp"]
-
+  },
+  {
+    "Tipo": "MUÑECOS ESTABILIZADORA",
+    "Codigo": "11010417",
+    "Nombre": "MUÑECO CHEVROLET swift",
+    "Referencia": "4663060B01",
+    "Precio": "17,755.00",
+    "titulo": "muneco-chevrolet-swift",
+    "Marca": "Chevrolet",
+    "Modelo": "Swift",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"41000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_983326-MLA72549086586_112023-O.webp","https://http2.mlstatic.com/D_NQ_NP_923797-MCO82164201673_012025-O.webp"]
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -656,7 +681,8 @@
     "Modelo": "Aveo / Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"48000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_921771-MCO90665239953_082025-O.webp","https://http2.mlstatic.com/D_Q_NP_837925-MCO86291387137_062025-R.webp","https://http2.mlstatic.com/D_NQ_NP_683793-MCO86291405643_062025-O.webp"]
   },
   {
     "Tipo": "ROTULAS INFERIORES CHEVROLET",
@@ -973,7 +999,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010701",
-    "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO derecho 12mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO derecho",
     "Referencia": "93740722",
     "Precio": "23,900.00",
     "titulo": "terminal-direccion-chevrolet-aveo-derecho-12mm",
@@ -981,12 +1007,13 @@
     "Modelo": "Aveo",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"48000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_881766-MCO86417619221_062025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_668116-MCO72599085405_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_904499-MCO86101331942_062025-O.webp"]
   },
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010702",
-    "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO izquierdo 12mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO izquierdo",
     "Referencia": "93740723",
     "Precio": "23,900.00",
     "titulo": "terminal-direccion-chevrolet-aveo-izquierdo",
@@ -994,7 +1021,9 @@
     "Modelo": "Aveo",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"48000"
+    "Precio2":"48000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_881766-MCO86417619221_062025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_668116-MCO72599085405_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_904499-MCO86101331942_062025-O.webp"]
+
   },
   {
     "Tipo": "TERMINALES CHEVROLET",
@@ -1235,7 +1264,7 @@
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010721",
-    "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL derecho 14 mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL derecho",
     "Referencia": "9063349",
     "Precio": "19,995.00",
     "titulo": "terminal-direccion-chevrolet-sail-derecho",
@@ -1243,12 +1272,14 @@
     "Modelo": "Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"42000"
+    "Precio2":"42000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_881766-MCO86417619221_062025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_668116-MCO72599085405_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_904499-MCO86101331942_062025-O.webp"]
+
   },
   {
     "Tipo": "TERMINALES CHEVROLET",
     "Codigo": "11010722",
-    "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL izquierdo 14 mm",
+    "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL izquierdo",
     "Referencia": "9063350",
     "Precio": "19,995.00",
     "titulo": "terminal-direccion-chevrolet-sail-izquierdo",
@@ -1256,7 +1287,9 @@
     "Modelo": "Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"42000"
+    "Precio2":"42000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_881766-MCO86417619221_062025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_668116-MCO72599085405_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_904499-MCO86101331942_062025-O.webp"]
+
   },
   {
     "Tipo": "TERMINALES CHEVROLET",
@@ -1309,7 +1342,8 @@
     "Modelo": "Sprint / Swift / Mazda",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"40000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_969343-MCO72619807081_112023-O.webp","https://http2.mlstatic.com/D_NQ_NP_925162-MCO81884036954_012025-O.webp"]
   },
   {
     "Tipo": "TERMINALES CHEVROLET",
@@ -1702,7 +1736,8 @@
     "Modelo": "Cobalt",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"180000"
+    "Precio2":"180000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_705226-MCO87376882562_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_876329-MCO87706280633_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_646448-MCO87706240645_072025-O.webp"]
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1715,7 +1750,9 @@
     "Modelo": "Cobalt",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"180000"
+    "Precio2":"180000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_705226-MCO87376882562_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_876329-MCO87706280633_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_646448-MCO87706240645_072025-O.webp"]
+    
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1884,7 +1921,7 @@
     "Modelo": "Super Carry",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"90000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1897,7 +1934,7 @@
     "Modelo": "Swift",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"180000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1910,7 +1947,7 @@
     "Modelo": "Swift",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"180000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1923,7 +1960,7 @@
     "Modelo": "Tracker",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"260000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1936,7 +1973,7 @@
     "Modelo": "Tracker",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"260000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1949,7 +1986,7 @@
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"260000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1962,7 +1999,7 @@
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"260000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1975,7 +2012,7 @@
     "Modelo": "N-300",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"65000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1988,7 +2025,7 @@
     "Modelo": "N-300",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"65000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2001,7 +2038,7 @@
     "Modelo": "Gran Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"300000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2014,7 +2051,7 @@
     "Modelo": "Gran Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"300000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2027,7 +2064,7 @@
     "Modelo": "Gran Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"230000"
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2040,7 +2077,7 @@
     "Modelo": "Gran Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"230000"
    
   },
   {
@@ -2054,7 +2091,7 @@
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"86000"
     
   },
   {
@@ -2068,7 +2105,7 @@
     "Modelo": "Cheyenne",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"42000"
     
   },
   {
@@ -2082,7 +2119,7 @@
     "Modelo": "Luv 2300 / Trooper",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"24000"
   },
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
@@ -2095,7 +2132,7 @@
     "Modelo": "Chevrolet",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"24000"
   },
   {
     "Tipo": "UNION TERMINALES CHEVROLET",
@@ -2273,7 +2310,8 @@
     "Modelo": "Corsa / Daewoo / Luv 2.2 / Monza",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"140000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_886413-MCO75287792241_032024-O.webp","https://http2.mlstatic.com/D_NQ_NP_840465-MCO75288087595_032024-O.webp"]
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2286,7 +2324,7 @@
     "Modelo": "Corsa / Monza",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"95000",
+    "Precio2":"98000",
     "images":["https://http2.mlstatic.com/D_NQ_NP_768418-MCO75141833272_032024-O.webp", "https://http2.mlstatic.com/D_NQ_NP_888471-MCO81878565452_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_606859-MCO75288087573_032024-O.webp","https://http2.mlstatic.com/D_Q_NP_656276-MCO81878299662_012025-R.webp"]
   },
   {
@@ -2310,10 +2348,11 @@
     "Precio": "18,900.00",
     "titulo": "balancin-motor-luv-1.6-2.3-trooper-wfr",
     "Marca": "Chevrolet",
-    "Modelo": "Luv 1.6 / 2.3 / Trooper",
+    "Modelo": "Luv 1.6 / 2.3 / Trooper / WFR",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"32000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_744329-MCO74864005524_032024-O.webp","https://http2.mlstatic.com/D_NQ_NP_955771-MCO82600684356_032025-O.webp","https://http2.mlstatic.com/D_NQ_NP_801359-MCO82887618037_032025-O.webp"]
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2352,7 +2391,8 @@
     "Modelo": "Swift / Sprint / Vitara",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"28000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_653016-MCO74864013396_032024-O.webp","https://http2.mlstatic.com/D_NQ_NP_659247-MCO81866845614_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_757536-MCO82146925773_012025-O.webp"]
   },
   {
     "Tipo": "BALANCINES MOTOR",
@@ -2613,7 +2653,8 @@
     "Modelo": "Spark",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"40000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_978115-MCO74999324423_032024-O.webp"]
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2626,7 +2667,9 @@
     "Modelo": "Spark",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"40000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_978115-MCO74999324423_032024-O.webp"]
+
   },
   {
     "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
@@ -2791,7 +2834,8 @@
     "Modelo": "Optra 1.8 / Epica / Vivant",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"40000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_958776-MCO89076470705_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_964683-MCO84994824024_052025-O.webp","https://http2.mlstatic.com/D_NQ_NP_641730-MCO83009779895_032025-O.webp","https://http2.mlstatic.com/D_NQ_NP_937395-MCO84994824094_052025-O.webp"]
   },
   {
     "Tipo": "IMPULSADORES CHEVROLET",
@@ -2845,7 +2889,8 @@
     "Modelo": "Captiva",
     "Brand":"SahAutotecr",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"40000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_751551-MLA72419639490_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_672008-MLA72487497805_102023-O.webp"]
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
@@ -2858,7 +2903,9 @@
     "Modelo": "Captiva V6",
     "Brand":"Autotec",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"40000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_751551-MLA72419639490_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_672008-MLA72487497805_102023-O.webp"]
+
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
@@ -2871,7 +2918,8 @@
     "Modelo": "N-200 / Spark GT",
     "Brand":"Autotec",
     "Descuento":10, 
-    "Precio2":"40000"
+    "Precio2":"260000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_863377-MCO74905392719_032024-O.webp"]
   },
   {
     "Tipo": "KIT REPARTICION CHEVROLET",
