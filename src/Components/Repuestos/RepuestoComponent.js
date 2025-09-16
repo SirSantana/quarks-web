@@ -266,9 +266,9 @@ export default function ProductDetailPage({ repuesto }) {
                     />
                   ))}
                 </div>
-                <span className={styles.ratingText}>{productData.rating}</span>
+                <span className={styles.ratingText}>4.8</span>
               </div>
-              <span className={styles.reviewCount}>2 calificaciones</span>
+              <span className={styles.reviewCount}>12 calificaciones</span>
             </div>
 
             {/* Price */}

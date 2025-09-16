@@ -109,7 +109,8 @@
     "Modelo": "Gran Vitara",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"55000"
+    "Precio2":"55000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_953329-MCO85255821189_052025-O.webp",""]
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -190,7 +191,8 @@
     "Modelo": "Sail",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"45000"
+    "Precio2":"45000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_611509-MCO89445944423_082025-O.webp","https://http2.mlstatic.com/D_NQ_NP_742478-MCO85976483874_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_805862-MCO86290928771_062025-O.webp"]
   },
   {
     "Tipo": "AXIALES CHEVROLET",
@@ -1646,7 +1648,9 @@
     "Modelo": "Astra / Zafira",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"120000"
+    "Precio2":"120000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_831155-MCO87333385030_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_672154-MCO87333385076_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_954535-MCO87661590485_072025-O.webp"]
+
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1659,7 +1663,8 @@
     "Modelo": "Astra / Zafira",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"120000"
+    "Precio2":"120000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_831155-MCO87333385030_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_672154-MCO87333385076_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_954535-MCO87661590485_072025-O.webp"]
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1780,7 +1785,8 @@
     "Modelo": "Corsa Evolution",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"160000"
+    "Precio2":"160000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_965333-MCO87378163266_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_741062-MCO87378123138_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_794433-MCO87379016566_072025-O.webp"]
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1793,7 +1799,9 @@
     "Modelo": "Corsa Evolution",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"160000"
+    "Precio2":"160000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_965333-MCO87378163266_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_741062-MCO87378123138_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_794433-MCO87379016566_072025-O.webp"]
+
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1913,7 +1921,8 @@
     "Modelo": "Sonic / Onix",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"180000"
+    "Precio2":"180000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_705226-MCO87376882562_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_876329-MCO87706280633_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_860086-MCO87377368684_072025-O.webp"]
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -1926,7 +1935,9 @@
     "Modelo": "Sonic / Onix",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"180000"
+    "Precio2":"180000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_705226-MCO87376882562_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_876329-MCO87706280633_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_860086-MCO87377368684_072025-O.webp"]
+
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2004,7 +2015,8 @@
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"260000"
+    "Precio2":"260000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_860568-MCO92583478287_092025-O.webp","https://http2.mlstatic.com/D_NQ_NP_790202-MCO92177111024_092025-O.webp","https://http2.mlstatic.com/D_NQ_NP_844413-MCO87661874541_072025-O.webp"]
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2017,7 +2029,9 @@
     "Modelo": "Captiva",
     "Brand":"Saher",
     "Descuento":10,
-    "Precio2":"260000"
+    "Precio2":"260000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_860568-MCO92583478287_092025-O.webp","https://http2.mlstatic.com/D_NQ_NP_790202-MCO92177111024_092025-O.webp","https://http2.mlstatic.com/D_NQ_NP_844413-MCO87661874541_072025-O.webp"]
+
   },
   {
     "Tipo": "TIJERAS INFERIORES CHEVROLET",
@@ -2302,7 +2316,8 @@
     "Modelo": "Aveo Family",
     "Brand":"Krammer",
     "Descuento":10,
-    "Precio2":"40000"
+    "Precio2":"40000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_874591-MCO86418118511_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_809270-MCO86102219310_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_780553-MCO86418255577_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_860150-MCO84670757718_052025-O.webp"]
   },
   {
     "Tipo": "BALANCINES MOTOR",

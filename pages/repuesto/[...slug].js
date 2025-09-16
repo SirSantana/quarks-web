@@ -49,8 +49,8 @@ function generarDescripcionSEO(data) {
     },
     "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue":  "4.7",   // Valor promedio (puedes hacerlo dinámico si guardas reseñas)
-    "reviewCount": "12" // Número de reseñas (falso o real)
+    "ratingValue":  "4.7",
+    "reviewCount": "12"
   }
   };
 function toTitleCase(str) {
