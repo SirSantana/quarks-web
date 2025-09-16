@@ -231,7 +231,12 @@ flex-direction: column;
   line-height: 110%;
   color: white;
 }
-
+.titleNav{
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
 .title2 {
   font-size: 48px;
   font-weight: 700;
@@ -732,7 +737,9 @@ flex-direction: column;
     font-size: 32px;
     text-align: center;
   }
-
+.titleNav{
+  display: none;
+}
   .title2 {
     font-size: 40px;
     text-align: center;
