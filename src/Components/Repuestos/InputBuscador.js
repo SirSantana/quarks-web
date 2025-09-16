@@ -191,16 +191,16 @@ const createRepuestoOption = (repuesto) => ({
             🔧
           </div>
         )}
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ flex: 1, minWidth: 0, overflow: "auto",
+        scrollbarWidth: "none",}}>
           <p
             style={{
-              fontSize: "14px",
+              fontSize: "16px",
               fontWeight: "500",
               color: "#5c5c5c",
               margin: 0,
               whiteSpace: "nowrap",
-              overflow: "auto",
-        scrollbarWidth: "none",
+              
 
             }}
           >
