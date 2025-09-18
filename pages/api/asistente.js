@@ -279,8 +279,19 @@ ${(() => {
 - Formato de rangos: "150,000 - 300,000 COP" (ejemplo)
 
 ### 3. CATEGORÍAS DE SERVICIO
-**IMPORTANTE**: Solo selecciona de esta lista exacta:
+**IMPORTANTE**: Solo selecciona de esta lista exacta (USAR TEXTO EXACTO, SIN MODIFICACIONES):
 ${JSON.stringify(ALLOWED_SERVICE_CATEGORIES)}
+
+**REGLAS CRÍTICAS PARA SERVICIOS**:
+- Copiar el texto EXACTAMENTE como aparece en la lista
+- NO añadir saltos de línea (\n)
+- NO modificar la puntuación ni acentos
+- Máximo 3-5 categorías que mejor se alineen con tu diagnóstico preliminar
+- Si tienes dudas, prefiere categorías más generales como "Diagnóstico General (No Electrónico)" o "Mecánica General"
+
+## EJEMPLO DE SERVICIOS CORRECTOS:
+✅ ["Motor", "Sistema de Combustible", "Diagnóstico General (No Electrónico)"]
+❌ ["Motor", "Sistema de Combusti\nble", "Diagnóstico General"]
 
 Selecciona máximo 3-5 categorías que mejor se alineen con tu diagnóstico preliminar.
 
@@ -326,24 +337,33 @@ Genera el diagnóstico ahora:`,
       .replace(/\s+/g, " ") // Eliminar espacios múltiples
       .trim();
 
-    // Validación robusta de servicios
-    const validatedServices = Array.isArray(
+    // ⭐ SOLUCIÓN: Limpieza de servicios antes de validación
+    const cleanedServices = Array.isArray(
       structuredResponse.serviciosRequeridos
     )
-      ? structuredResponse.serviciosRequeridos.filter((service) => {
-          if (typeof service !== "string") return false;
-          return ALLOWED_SERVICE_CATEGORIES.includes(service.trim());
-        })
+      ? structuredResponse.serviciosRequeridos
+          .map((service) => {
+            if (typeof service !== "string") return "";
+            return service
+              .replace(/\n/g, " ") // Eliminar saltos de línea
+              .replace(/\s+/g, " ") // Eliminar espacios múltiples
+              .trim(); // Eliminar espacios al inicio/final
+          })
+          .filter((service) => service.length > 0) // Eliminar strings vacíos
       : [];
 
-    if (
-      validatedServices.length !==
-      structuredResponse.serviciosRequeridos?.length
-    ) {
+    // Validación robusta de servicios (DESPUÉS de la limpieza)
+    const validatedServices = cleanedServices.filter((service) => {
+      return ALLOWED_SERVICE_CATEGORIES.includes(service);
+    });
+
+    if (validatedServices.length !== cleanedServices.length) {
       console.warn(
         "⚠️ IA generó servicios inválidos:",
         "Originales:",
         structuredResponse.serviciosRequeridos,
+        "Limpiados:",
+        cleanedServices,
         "Válidos:",
         validatedServices
       );

@@ -100,8 +100,7 @@ const TextareaWithButtons = ({
         />
 
         {/* Contenedor de botones */}
-        <div className={styles.buttonsContainer}>
-          {/* Botón Auto */}
+        {/* <div className={styles.buttonsContainer}>
             <button
               className={`${styles.metaItem} ${
                 autoSeleccionado ? styles.iconButtonActive : ""
@@ -163,7 +162,6 @@ const TextareaWithButtons = ({
               </div>
             )}
 
-          {/* Botón País */}
             <button
               className={`${styles.metaItem} ${
                 paisSeleccionado !== "Colombia" ? styles.iconButtonActive : ""
@@ -203,7 +201,7 @@ const TextareaWithButtons = ({
                 ))}
               </div>
             )}
-        </div>
+        </div> */}
       </div>
     </>
   );

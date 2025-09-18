@@ -4,9 +4,7 @@ import { useState } from "react";
 
 
 export default function PreciosSection ({ diagnosticoData }) {
-    console.log(diagnosticoData);
-    
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   // Calcular el rango de precios total
   const calcularRangoPrecios = () => {

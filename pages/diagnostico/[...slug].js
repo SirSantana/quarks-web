@@ -659,11 +659,11 @@ const ResultadosPage = () => {
                   color: "#0f172a",
                 }}
               >
-                🚗 Renault Oroch 2017
+                🚗 {diagnosticoData?.car_make} {diagnosticoData?.car_model} {diagnosticoData?.car_year}
               </p>
-              <span style={{ color: "#64748b" }}>
+              {/* <span style={{ color: "#64748b" }}>
                 {diagnosticoData?.city}, {diagnosticoData?.country}
-              </span>
+              </span> */}
             </section>
             <p style={styles.sectionTitle}>Detalles del problema:</p>{" "}
             {/* Usar headerContainer */}
