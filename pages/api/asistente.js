@@ -137,6 +137,8 @@ export default async function handler(req, res) {
 
   try {
     const { mensaje, userId } = req.body;
+    console.log(userId);
+    
     if (!mensaje || typeof mensaje !== "string") {
       return res.status(400).json({ error: "Mensaje inválido" });
     }
@@ -147,7 +149,7 @@ export default async function handler(req, res) {
     const { count, error } = await supabase
       .from("diagnostico_usos")
       .select("*", { count: "exact", head: true })
-      .eq("user_id", userId)
+      // .eq("user_id", userId)
       .gte("created_at", startOfToday.toISOString());
 
     if (error) {
@@ -155,11 +157,11 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: "Error al verificar los límites" });
     }
 
-    if (count >= 3) {
-      return res
-        .status(403)
-        .json({ error: "Límite de 3 diagnósticos por día alcanzado" });
-    }
+    // if (count >= 3) {
+    //   return res
+    //     .status(403)
+    //     .json({ error: "Límite de 3 diagnósticos por día alcanzado" });
+    // }
 
     // Guardar el nuevo uso
     const { error: insertError } = await supabase
