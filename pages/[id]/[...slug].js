@@ -42,7 +42,7 @@ const MapaCobertura = dynamic(() => import('@/src/Components/Talleres/MapaBogota
   { ssr: false, loading: () => <div className={styles.skeletonMap} /> })
   const ModalCreateReseña = dynamic(() => import('@/src/Components/Talleres/V3/ModalCreateReseña'),
   { ssr: false })
-
+  
 const servicios = [
   'Cambio de Aceite',
   'Alineación y Balanceo',
