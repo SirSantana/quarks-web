@@ -225,7 +225,8 @@ export default async function handler(req, res) {
 
     // ... (Llamada a generateObject con Gemini se mantiene igual)
     const result = await generateObject({
-      model: google("models/gemini-1.5-flash"),
+      
+      model: google("gemini-2.5-flash"),
       schema: responseSchema,
       prompt: `# ASISTENTE MECÁNICO VIRTUAL EXPERTO
 
