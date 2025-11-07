@@ -90,7 +90,6 @@ export default function Layout({index=true, children, footer = true, navbarRepue
           </>}
 
         {!negocio && <meta name="google-site-verification" content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0" />}
-
         <link rel="icon" href='/favicon.png'/>
         <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
         {process.env.NODE_ENV === "production" && ads &&(

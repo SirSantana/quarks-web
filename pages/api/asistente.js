@@ -99,34 +99,34 @@ function createSlug(text) {
     .replace(/^-+|-+$/g, ""); // Elimina guiones al principio o al final
 }
 // Usando un servicio gratuito como ipapi.co
-async function getUserLocation(req) {
-  try {
-    const userIP =
-      req.ip || req.connection.remoteAddress || req.headers["x-forwarded-for"];
+// async function getUserLocation(req) {
+//   try {
+//     const userIP =
+//       req.ip || req.connection.remoteAddress || req.headers["x-forwarded-for"];
 
-    // Para desarrollo local, usar una IP pública de ejemplo
-    const ipToCheck =
-      userIP === "127.0.0.1" || userIP === "::1"
-        ? "187.141.45.10" // IP de ejemplo para testing
-        : userIP;
+//     // Para desarrollo local, usar una IP pública de ejemplo
+//     const ipToCheck =
+//       userIP === "127.0.0.1" || userIP === "::1"
+//         ? "187.141.45.10" // IP de ejemplo para testing
+//         : userIP;
 
-    const response = await fetch(`https://ipapi.co/${ipToCheck}/json/`);
-    const data = await response.json();
-    console.log(response, "res");
-    console.log(data, "dataaa");
+//     const response = await fetch(`https://ipapi.co/${ipToCheck}/json/`);
+//     const data = await response.json();
+//     console.log(response, "res");
+//     console.log(data, "dataaa");
 
-    return {
-      city: data.city || "Bogotá",
-      country: data.country_name || "Colombia",
-    };
-  } catch (error) {
-    console.error("Error obteniendo ubicación:", error);
-    return {
-      city: "Bogotá",
-      country: "Colombia",
-    };
-  }
-}
+//     return {
+//       city: data.city || "Bogotá",
+//       country: data.country_name || "Colombia",
+//     };
+//   } catch (error) {
+//     console.error("Error obteniendo ubicación:", error);
+//     return {
+//       city: "Bogotá",
+//       country: "Colombia",
+//     };
+//   }
+// }
 
 // En tu endpoint
 
