@@ -53,21 +53,21 @@ const EventMap = () => {
     music: { 
       name: 'Música', 
       icon: Music, 
-      color: '#FF2D55', 
+      color: '#FF375F  ', 
       lightColor: '#FF2D55',
       emoji: '🎵'
     },
     food: { 
       name: 'Gastronomía', 
       icon: Utensils, 
-      color: '#FF9500', 
+      color: '#FFD60A  ', 
       lightColor: '#FF9500',
       emoji: '🍽️'
     },
     culture: { 
       name: 'Cultura', 
       icon: Palette, 
-      color: '#AF52DE', 
+      color: '#00E0B0', 
       lightColor: '#BF5AF2',
       emoji: '🎨'
     },
@@ -115,7 +115,7 @@ const EventMap = () => {
     const pinSize = isMobile ? sizes[size].pin - 10 : sizes[size].pin;
     const labelWidth = isMobile ? sizes[size].label : sizes[size].label;
     
-    const svgIcon = `
+   const svgIcon = `
   <div style="
     position: relative;
     width: ${labelWidth}px;
@@ -123,9 +123,9 @@ const EventMap = () => {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
   ">
-    <!-- Pin Moderno -->
+
+    <!-- Pin con brillo real -->
     <div style="
       position: relative;
       width: ${pinSize * 0.8}px;
@@ -133,18 +133,20 @@ const EventMap = () => {
       display: flex;
       align-items: center;
       justify-content: center;
+      animation: pinPop 0.35s cubic-bezier(0.25, 1.25, 0.5, 1);
     ">
-      <!-- Círculo principal -->
+
+      <!-- Círculo principal con resplandor -->
       <div style="
         position: absolute;
         width: ${pinSize * 0.8}px;
         height: ${pinSize * 0.8}px;
-        background: linear-gradient(135deg, ${eventType.color} 0%, ${adjustBrightness(eventType.color, -15)} 100%);
+        background: radial-gradient(circle at 30% 30%, ${eventType.color} 30%, ${adjustBrightness(eventType.color, -20)} 100%);
         border-radius: 50%;
-        border: 3px solid white;
-        box-shadow: 
-          0 2px 8px rgba(0,0,0,0.1),
-          0 8px 16px rgba(0,0,0,0.08);
+        box-shadow:
+          0 0 15px ${eventType.color}aa,
+          0 0 35px ${eventType.color}66,
+          0 4px 8px rgba(0,0,0,0.15);
       ">
         <!-- Emoji -->
         <div style="
@@ -154,21 +156,10 @@ const EventMap = () => {
           transform: translate(-50%, -50%);
           font-size: ${pinSize * 0.4}px;
           line-height: 1;
+          filter: drop-shadow(0 0 2px white);
         ">${eventType.emoji}</div>
-        
-        <!-- Brillo sutil -->
-        <div style="
-          position: absolute;
-          top: 20%;
-          left: 20%;
-          width: 40%;
-          height: 40%;
-          background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%);
-          border-radius: 50%;
-          pointer-events: none;
-        "></div>
       </div>
-      
+
       <!-- Punta del pin -->
       <div style="
         position: absolute;
@@ -180,47 +171,51 @@ const EventMap = () => {
         border-left: ${pinSize * 0.2}px solid transparent;
         border-right: ${pinSize * 0.2}px solid transparent;
         border-top: ${pinSize * 0.3}px solid ${adjustBrightness(eventType.color, -20)};
-        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+        filter: drop-shadow(0 0 8px ${eventType.color}88);
+      "></div>
+
+      <!-- Luz ambiental sobre el mapa -->
+      <div style="
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: ${pinSize * 1.6}px;
+        height: ${pinSize * 0.5}px;
+        background: radial-gradient(ellipse, ${eventType.color}66 0%, transparent 70%);
+        filter: blur(10px);
+        opacity: 0.8;
+        pointer-events: none;
       "></div>
     </div>
-    
-    <!-- Label Limpio -->
-   <div style="
-  padding: 0px 12px;
-  border-radius: 12px;
-  white-space: nowrap;
-  font-family: Poppins, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  max-width: ${labelWidth}px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  animation: labelFade 0.3s ease-in;
-  color: black;
-  /* contorno blanco */
-  text-shadow:
-    -1px -1px 0 white,
-     1px -1px 0 white,
-    -1px  1px 0 white,
-     1px  1px 0 white,
-     0px  0px 6px white;
-">
-  ${event.name}
-</div>
-    
-    <!-- Punto de anclaje (opcional, para centrar mejor) -->
+
+    <!-- Label -->
     <div style="
-      position: absolute;
-      bottom: -4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 6px;
-      height: 6px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 50%;
-      filter: blur(2px);
-    "></div>
+      padding: 4px 12px;
+      border-radius: 12px;
+      white-space: nowrap;
+      font-family: Poppins, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      max-width: ${labelWidth}px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background: rgba(0,0,0,0.45);
+      color: white;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    ">
+      ${event.name}
+    </div>
   </div>
+
+  <style>
+    @keyframes pinPop {
+      0% { transform: scale(0.4); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
 `;
 
 // Función auxiliar para ajustar brillo del color
@@ -488,9 +483,9 @@ function adjustBrightness(color, percent) {
           className="z-0"
         >
           <TileLayer
-            attribution='&copy; OpenStreetMap'
-            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-          />
+  url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png"
+  attribution="© Stadia Maps © OpenMapTiles © OpenStreetMap contributors"
+/>
           
           <MapEventHandler />
 
