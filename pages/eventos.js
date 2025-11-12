@@ -122,71 +122,31 @@ const EventMap = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+    gap: 6px;
   ">
-    <!-- Pin Moderno -->
+    <!-- Pin Ultra Limpio - Solo Emoji -->
     <div style="
       position: relative;
       width: ${pinSize}px;
-      height: ${pinSize * 1.2}px;
+      height: ${pinSize}px;
       display: flex;
       align-items: center;
       justify-content: center;
     ">
-      <!-- Círculo principal -->
+      <!-- Emoji con efecto 3D -->
       <div style="
-        position: absolute;
-        width: ${pinSize}px;
-        height: ${pinSize}px;
-        background: linear-gradient(135deg, ${eventType.color} 0%, ${adjustBrightness(eventType.color, -15)} 100%);
-        border-radius: 50%;
-        border: 3px solid white;
-        box-shadow: 
-          0 2px 8px rgba(0,0,0,0.1),
-          0 8px 16px rgba(0,0,0,0.08);
-      ">
-        <!-- Emoji -->
-        <div style="
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: ${pinSize * 0.5}px;
-          line-height: 1;
-        ">${eventType.emoji}</div>
-        
-        <!-- Brillo sutil -->
-        <div style="
-          position: absolute;
-          top: 20%;
-          left: 20%;
-          width: 40%;
-          height: 40%;
-          background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%);
-          border-radius: 50%;
-          pointer-events: none;
-        "></div>
-      </div>
-      
-      <!-- Punta del pin -->
-      <div style="
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: ${pinSize * 0.2}px solid transparent;
-        border-right: ${pinSize * 0.2}px solid transparent;
-        border-top: ${pinSize * 0.3}px solid ${adjustBrightness(eventType.color, -20)};
-        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
-      "></div>
+        font-size: ${pinSize * 0.60}px;
+        filter: 
+          drop-shadow(0 4px 8px rgba(0,0,0,0.15))
+          drop-shadow(0 2px 4px rgba(0,0,0,0.1))
+          drop-shadow(0 8px 16px rgba(0,0,0,0.08));
+        transform: translateY(-2px);
+      ">${eventType.emoji}</div>
     </div>
     
-    <!-- Label Limpio -->
-   <div style="
-  padding: 0px 12px;
+    <!-- Label Minimalista -->
+    <div style="
+  padding: 6px 12px;
   border-radius: 12px;
   white-space: nowrap;
   font-family: Poppins, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -208,33 +168,20 @@ const EventMap = () => {
   ${event.name}
 </div>
     
-    <!-- Punto de anclaje (opcional, para centrar mejor) -->
+    <!-- Sombra del pin en el suelo -->
     <div style="
       position: absolute;
-      bottom: -4px;
+      top: ${pinSize}px;
       left: 50%;
       transform: translateX(-50%);
-      width: 6px;
-      height: 6px;
-      background: rgba(0,0,0,0.2);
-      border-radius: 50%;
+      width: ${pinSize * 0.6}px;
+      height: 4px;
+      background: radial-gradient(ellipse, rgba(0,0,0,0.15) 0%, transparent 70%);
       filter: blur(2px);
     "></div>
   </div>
 `;
 
-// Función auxiliar para ajustar brillo del color
-function adjustBrightness(color, percent) {
-  // Si el color es en formato hex
-  if (color.startsWith('#')) {
-    const num = parseInt(color.replace('#', ''), 16);
-    const r = Math.max(0, Math.min(255, ((num >> 16) & 0xFF) + percent));
-    const g = Math.max(0, Math.min(255, ((num >> 8) & 0xFF) + percent));
-    const b = Math.max(0, Math.min(255, (num & 0xFF) + percent));
-    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
-  }
-  return color;
-}
     
     return L.divIcon({
       className: 'custom-marker-3d',
