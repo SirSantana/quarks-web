@@ -482,9 +482,9 @@ function adjustBrightness(color, percent) {
           style={{ height: '100%', width: '100%' }}
           className="z-0"
         >
-          <TileLayer
-  url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png"
-  attribution="© Stadia Maps © OpenMapTiles © OpenStreetMap contributors"
+         <TileLayer
+  url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+  attribution='© OpenStreetMap, © CartoDB'
 />
           
           <MapEventHandler />
