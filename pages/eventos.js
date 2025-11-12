@@ -53,14 +53,14 @@ const EventMap = () => {
     music: { 
       name: 'Música', 
       icon: Music, 
-      color: '#FF375F  ', 
+      color: '#FF375F', 
       lightColor: '#FF2D55',
       emoji: '🎵'
     },
     food: { 
       name: 'Gastronomía', 
       icon: Utensils, 
-      color: '#FFD60A  ', 
+      color: '#FFD60A', 
       lightColor: '#FF9500',
       emoji: '🍽️'
     },
@@ -115,121 +115,101 @@ const EventMap = () => {
     const pinSize = isMobile ? sizes[size].pin - 10 : sizes[size].pin;
     const labelWidth = isMobile ? sizes[size].label : sizes[size].label;
     
-   const svgIcon = `
-  <div style="
-    position: relative;
-    width: ${labelWidth}px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  ">
-
-    <!-- Pin con brillo real -->
-    <div style="
-      position: relative;
-      width: ${pinSize * 0.8}px;
-      height: ${pinSize * 1.1}px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: pinPop 0.35s cubic-bezier(0.25, 1.25, 0.5, 1);
-    ">
-
-      <!-- Círculo principal con resplandor -->
+    const adjustBrightness = (color, percent) => {
+      if (color.startsWith('#')) {
+        const num = parseInt(color.replace('#', ''), 16);
+        const r = Math.max(0, Math.min(255, ((num >> 16) & 0xFF) + percent));
+        const g = Math.max(0, Math.min(255, ((num >> 8) & 0xFF) + percent));
+        const b = Math.max(0, Math.min(255, (num & 0xFF) + percent));
+        return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+      }
+      return color;
+    };
+    
+    const svgIcon = `
       <div style="
-        position: absolute;
-        width: ${pinSize * 0.8}px;
-        height: ${pinSize * 0.8}px;
-        background: radial-gradient(circle at 30% 30%, ${eventType.color} 30%, ${adjustBrightness(eventType.color, -20)} 100%);
-        border-radius: 50%;
-        box-shadow:
-          0 0 15px ${eventType.color}aa,
-          0 0 35px ${eventType.color}66,
-          0 4px 8px rgba(0,0,0,0.15);
+        position: relative;
+        width: ${labelWidth}px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
       ">
-        <!-- Emoji -->
         <div style="
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: ${pinSize * 0.4}px;
-          line-height: 1;
-          filter: drop-shadow(0 0 2px white);
-        ">${eventType.emoji}</div>
+          position: relative;
+          width: ${pinSize * 0.8}px;
+          height: ${pinSize * 1.1}px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: pinPop 0.35s cubic-bezier(0.25, 1.25, 0.5, 1);
+        ">
+          <div style="
+            position: absolute;
+            width: ${pinSize * 0.8}px;
+            height: ${pinSize * 0.8}px;
+            background: radial-gradient(circle at 30% 30%, ${eventType.color} 30%, ${adjustBrightness(eventType.color, -20)} 100%);
+            border-radius: 50%;
+            box-shadow:
+              0 0 15px ${eventType.color}aa,
+              0 0 35px ${eventType.color}66,
+              0 4px 8px rgba(0,0,0,0.15);
+          ">
+            <div style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: ${pinSize * 0.4}px;
+              line-height: 1;
+              filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+            ">${eventType.emoji}</div>
+          </div>
+          <div style="
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: ${pinSize * 0.2}px solid transparent;
+            border-right: ${pinSize * 0.2}px solid transparent;
+            border-top: ${pinSize * 0.3}px solid ${adjustBrightness(eventType.color, -20)};
+            filter: drop-shadow(0 0 8px ${eventType.color}88);
+          "></div>
+          <div style="
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: ${pinSize * 1.6}px;
+            height: ${pinSize * 0.5}px;
+            background: radial-gradient(ellipse, ${eventType.color}66 0%, transparent 70%);
+            filter: blur(10px);
+            opacity: 0.8;
+            pointer-events: none;
+          "></div>
+        </div>
+        <div style="
+          padding: 6px 12px;
+          border-radius: 12px;
+          white-space: nowrap;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          max-width: ${labelWidth}px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          background: rgba(0,0,0,0.75);
+          color: white;
+          backdrop-filter: blur(12px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+          border: 1px solid rgba(255,255,255,0.1);
+        ">
+          ${event.name}
+        </div>
       </div>
-
-      <!-- Punta del pin -->
-      <div style="
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: ${pinSize * 0.2}px solid transparent;
-        border-right: ${pinSize * 0.2}px solid transparent;
-        border-top: ${pinSize * 0.3}px solid ${adjustBrightness(eventType.color, -20)};
-        filter: drop-shadow(0 0 8px ${eventType.color}88);
-      "></div>
-
-      <!-- Luz ambiental sobre el mapa -->
-      <div style="
-        position: absolute;
-        bottom: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: ${pinSize * 1.6}px;
-        height: ${pinSize * 0.5}px;
-        background: radial-gradient(ellipse, ${eventType.color}66 0%, transparent 70%);
-        filter: blur(10px);
-        opacity: 0.8;
-        pointer-events: none;
-      "></div>
-    </div>
-
-    <!-- Label -->
-    <div style="
-      padding: 4px 12px;
-      border-radius: 12px;
-      white-space: nowrap;
-      font-family: Poppins, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      max-width: ${labelWidth}px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      background: rgba(0,0,0,0.45);
-      color: white;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    ">
-      ${event.name}
-    </div>
-  </div>
-
-  <style>
-    @keyframes pinPop {
-      0% { transform: scale(0.4); opacity: 0; }
-      60% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
-    }
-  </style>
-`;
-
-// Función auxiliar para ajustar brillo del color
-function adjustBrightness(color, percent) {
-  // Si el color es en formato hex
-  if (color.startsWith('#')) {
-    const num = parseInt(color.replace('#', ''), 16);
-    const r = Math.max(0, Math.min(255, ((num >> 16) & 0xFF) + percent));
-    const g = Math.max(0, Math.min(255, ((num >> 8) & 0xFF) + percent));
-    const b = Math.max(0, Math.min(255, (num & 0xFF) + percent));
-    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
-  }
-  return color;
-}
+    `;
     
     return L.divIcon({
       className: 'custom-marker-3d',
@@ -288,16 +268,16 @@ function adjustBrightness(color, percent) {
 
   if (!isClient || !MapComponents || !L) {
     return (
-      <div className="h-screen w-full bg-white flex items-center justify-center">
+      <div className="h-screen w-full bg-black flex items-center justify-center">
         <div className="text-center">
           <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 bg-gray-200 rounded-full animate-ping"></div>
-            <div className="relative w-20 h-20 bg-black rounded-full flex items-center justify-center shadow-xl">
-              <MapPin className="w-10 h-10 text-white" />
+            <div className="absolute inset-0 bg-gray-800 rounded-full animate-ping"></div>
+            <div className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-xl">
+              <MapPin className="w-10 h-10 text-black" />
             </div>
           </div>
-          <p className="text-gray-900 text-xl font-semibold">Cargando mapa...</p>
-          <p className="text-gray-500 text-sm mt-2">Preparando tu experiencia</p>
+          <p className="text-white text-xl font-semibold">Cargando mapa...</p>
+          <p className="text-gray-400 text-sm mt-2">Preparando tu experiencia</p>
         </div>
       </div>
     );
@@ -306,7 +286,7 @@ function adjustBrightness(color, percent) {
   const { MapContainer, TileLayer, Marker } = MapComponents;
 
   return (
-    <div className="h-screen w-full relative overflow-hidden flex bg-white">
+    <div className="h-screen w-full relative overflow-hidden flex bg-black">
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
       
       {/* Sidebar Desktop / Modal Mobile */}
@@ -316,23 +296,23 @@ function adjustBrightness(color, percent) {
           : 'relative w-96 flex-shrink-0'
         }
       `}>
-        <div className={`h-full bg-white ${isMobile ? '' : 'border-r border-gray-200'} flex flex-col`}>
+        <div className={`h-full bg-neutral-900 ${isMobile ? '' : 'border-r border-neutral-800'} flex flex-col`}>
           {/* Header del sidebar */}
-          <div className="p-5 border-b border-gray-200">
+          <div className="p-5 border-b border-neutral-800">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center shadow-sm">
-                  <List className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+                  <List className="w-6 h-6 text-black" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-gray-900">Eventos</h2>
-                  <p className="text-sm text-gray-500">{filteredEvents.length} disponibles</p>
+                  <h2 className="text-xl font-semibold text-white">Eventos</h2>
+                  <p className="text-sm text-gray-400">{filteredEvents.length} disponibles</p>
                 </div>
               </div>
               {isMobile && (
                 <button
                   onClick={() => setShowListMobile(false)}
-                  className="text-gray-400 hover:text-gray-600 p-2 hover:bg-gray-100 rounded-xl transition-all"
+                  className="text-gray-400 hover:text-white p-2 hover:bg-neutral-800 rounded-xl transition-all"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -341,26 +321,26 @@ function adjustBrightness(color, percent) {
 
             {/* Buscador */}
             <div className="relative">
-              <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3.5 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
               <input
                 type="text"
                 placeholder="Buscar eventos..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all text-sm"
+                className="w-full bg-neutral-800 border border-neutral-700 rounded-xl pl-10 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition-all text-sm"
               />
             </div>
           </div>
 
           {/* Filtros */}
-          <div className="px-5 py-4 border-b border-gray-100">
+          <div className="px-5 py-4 border-b border-neutral-800">
             <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
               <button
                 onClick={() => setActiveFilter('all')}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap flex-shrink-0 ${
                   activeFilter === 'all'
-                    ? 'bg-gray-900 text-white shadow-sm'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-white text-black shadow-sm'
+                    : 'bg-neutral-800 text-gray-300 hover:bg-neutral-700'
                 }`}
               >
                 Todos
@@ -373,8 +353,8 @@ function adjustBrightness(color, percent) {
                     onClick={() => setActiveFilter(key)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex items-center gap-2 whitespace-nowrap flex-shrink-0 ${
                       activeFilter === key
-                        ? 'text-white shadow-sm'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'text-black shadow-sm'
+                        : 'bg-neutral-800 text-gray-300 hover:bg-neutral-700'
                     }`}
                     style={activeFilter === key ? { backgroundColor: type.color } : {}}
                   >
@@ -396,7 +376,7 @@ function adjustBrightness(color, percent) {
               return (
                 <div
                   key={event.id}
-                  className="bg-white hover:bg-gray-50 border border-gray-200 rounded-2xl p-4 cursor-pointer transition-all group hover:shadow-md active:scale-[0.98]"
+                  className="bg-neutral-800 hover:bg-neutral-750 border border-neutral-700 rounded-2xl p-4 cursor-pointer transition-all group hover:shadow-lg active:scale-[0.98]"
                   onClick={() => setSelectedEvent(event)}
                 >
                   <div className="flex gap-3">
@@ -408,7 +388,7 @@ function adjustBrightness(color, percent) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2 mb-1">
-                        <h3 className="font-semibold text-gray-900 text-sm truncate">
+                        <h3 className="font-semibold text-white text-sm truncate">
                           {event.name}
                         </h3>
                         <button
@@ -420,20 +400,20 @@ function adjustBrightness(color, percent) {
                         >
                           <Heart 
                             className={`w-5 h-5 transition-all ${
-                              isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-300 hover:text-red-400'
+                              isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-600 hover:text-red-400'
                             }`}
                           />
                         </button>
                       </div>
                       <p className="text-xs font-medium mb-2" style={{ color: type.color }}>{type.name}</p>
                       <div className="space-y-1">
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <div className="flex items-center gap-2 text-xs text-gray-400">
                           <MapPin className="w-3.5 h-3.5" />
                           <span className="truncate">{event.venue}</span>
                         </div>
                         <div className="flex items-center justify-between text-xs">
-                          <span className="text-gray-500">{event.date} • {event.time}</span>
-                          <span className="text-gray-900 font-semibold">{event.price}</span>
+                          <span className="text-gray-400">{event.date} • {event.time}</span>
+                          <span className="text-white font-semibold">{event.price}</span>
                         </div>
                       </div>
                     </div>
@@ -449,22 +429,22 @@ function adjustBrightness(color, percent) {
       <div className="flex-1 relative">
         {/* Header Mobile */}
         {isMobile && (
-          <header className="absolute top-0 left-0 right-0 z-[1000] bg-white/80 backdrop-blur-2xl border-b border-gray-200">
+          <header className="absolute top-0 left-0 right-0 z-[1000] bg-black/80 backdrop-blur-2xl border-b border-neutral-800">
             <div className="px-4 py-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-black rounded-xl flex items-center justify-center shadow-sm">
-                    <MapPin className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm">
+                    <MapPin className="w-5 h-5 text-black" />
                   </div>
                   <div>
-                    <h1 className="text-lg font-semibold text-gray-900">EventMap</h1>
-                    <p className="text-xs text-gray-500">{visibleEvents} eventos</p>
+                    <h1 className="text-lg font-semibold text-white">EventMap</h1>
+                    <p className="text-xs text-gray-400">{visibleEvents} eventos</p>
                   </div>
                 </div>
                 
                 <button
                   onClick={() => setShowListMobile(true)}
-                  className="flex items-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-full font-medium shadow-sm hover:bg-gray-800 transition-all active:scale-95"
+                  className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-medium shadow-sm hover:bg-gray-200 transition-all active:scale-95"
                 >
                   <List className="w-4 h-4" />
                   <span className="text-sm">Lista</span>
@@ -482,10 +462,10 @@ function adjustBrightness(color, percent) {
           style={{ height: '100%', width: '100%' }}
           className="z-0"
         >
-         <TileLayer
-  url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-  attribution='© OpenStreetMap, © CartoDB'
-/>
+          <TileLayer
+            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            attribution='© OpenStreetMap, © CartoDB'
+          />
           
           <MapEventHandler />
 
@@ -507,14 +487,14 @@ function adjustBrightness(color, percent) {
       {/* Event Detail Card */}
       {selectedEvent && (
         <div 
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1003] flex items-end md:items-center justify-center p-0 md:p-6" 
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[1003] flex items-end md:items-center justify-center p-0 md:p-6" 
           onClick={() => setSelectedEvent(null)}
         >
           <div 
-            className="bg-white rounded-t-3xl md:rounded-3xl p-6 md:p-8 w-full md:max-w-md shadow-2xl transform transition-transform"
+            className="bg-neutral-900 rounded-t-3xl md:rounded-3xl p-6 md:p-8 w-full md:max-w-md shadow-2xl border border-neutral-800 transform transition-transform"
             onClick={e => e.stopPropagation()}
           >
-            <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-6 md:hidden"></div>
+            <div className="w-12 h-1 bg-neutral-700 rounded-full mx-auto mb-6 md:hidden"></div>
             
             <div className="flex justify-between items-start mb-6">
               <div className="relative">
@@ -525,10 +505,10 @@ function adjustBrightness(color, percent) {
                   <span className="text-4xl">{eventTypes[selectedEvent.type].emoji}</span>
                 </div>
                 <div 
-                  className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center border-4 border-white shadow-md"
+                  className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center border-4 border-neutral-900 shadow-md"
                   style={{ backgroundColor: eventTypes[selectedEvent.type].color }}
                 >
-                  {React.createElement(eventTypes[selectedEvent.type].icon, { className: "w-5 h-5 text-white" })}
+                  {React.createElement(eventTypes[selectedEvent.type].icon, { className: "w-5 h-5 text-black" })}
                 </div>
               </div>
               <div className="flex gap-2">
@@ -537,7 +517,7 @@ function adjustBrightness(color, percent) {
                     e.stopPropagation();
                     toggleFavorite(selectedEvent.id);
                   }}
-                  className="text-gray-400 hover:text-gray-900 transition-colors p-3 hover:bg-gray-100 rounded-xl"
+                  className="text-gray-400 hover:text-white transition-colors p-3 hover:bg-neutral-800 rounded-xl"
                 >
                   <Heart 
                     className={`w-6 h-6 ${
@@ -547,14 +527,14 @@ function adjustBrightness(color, percent) {
                 </button>
                 <button 
                   onClick={() => setSelectedEvent(null)}
-                  className="text-gray-400 hover:text-gray-900 transition-colors p-3 hover:bg-gray-100 rounded-xl"
+                  className="text-gray-400 hover:text-white transition-colors p-3 hover:bg-neutral-800 rounded-xl"
                 >
                   <X className="w-6 h-6" />
                 </button>
               </div>
             </div>
             
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{selectedEvent.name}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{selectedEvent.name}</h2>
             <p 
               className="text-base md:text-lg font-semibold mb-6"
               style={{ color: eventTypes[selectedEvent.type].color }}
@@ -563,31 +543,31 @@ function adjustBrightness(color, percent) {
             </p>
             
             <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-4 bg-gray-50 rounded-2xl p-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-gray-600" />
+              <div className="flex items-center gap-4 bg-neutral-800 rounded-2xl p-4 border border-neutral-700">
+                <div className="w-12 h-12 bg-neutral-700 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-gray-300" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 font-medium">Lugar</p>
-                  <p className="text-gray-900 font-semibold">{selectedEvent.venue}</p>
+                  <p className="text-xs text-gray-400 font-medium">Lugar</p>
+                  <p className="text-white font-semibold">{selectedEvent.venue}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-gray-50 rounded-2xl p-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-gray-600" />
+              <div className="flex items-center gap-4 bg-neutral-800 rounded-2xl p-4 border border-neutral-700">
+                <div className="w-12 h-12 bg-neutral-700 rounded-xl flex items-center justify-center">
+                  <Calendar className="w-6 h-6 text-gray-300" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 font-medium">Fecha y hora</p>
-                  <p className="text-gray-900 font-semibold">{selectedEvent.date} • {selectedEvent.time}</p>
+                  <p className="text-xs text-gray-400 font-medium">Fecha y hora</p>
+                  <p className="text-white font-semibold">{selectedEvent.date} • {selectedEvent.time}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-4 bg-gray-50 rounded-2xl p-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+              <div className="flex items-center gap-4 bg-neutral-800 rounded-2xl p-4 border border-neutral-700">
+                <div className="w-12 h-12 bg-neutral-700 rounded-xl flex items-center justify-center">
                   <span className="text-2xl">💵</span>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 font-medium">Precio</p>
-                  <p className="text-gray-900 font-semibold">{selectedEvent.price}</p>
+                  <p className="text-xs text-gray-400 font-medium">Precio</p>
+                  <p className="text-white font-semibold">{selectedEvent.price}</p>
                 </div>
               </div>
             </div>
