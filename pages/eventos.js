@@ -103,46 +103,145 @@ const EventMap = () => {
     { id: 20, name: 'Clase de Tango', type: 'dance', position: [4.6480, -74.0640], date: '12 Nov', time: '19:00', minZoom: 16, venue: 'Club de Tango', price: '$50.000' },
   ];
 
-  const createCustomIcon = (type, size = 'medium') => {
+  const createCustomIcon = (event, size = 'medium') => {
     if (!L) return null;
     
-    const eventType = eventTypes[type];
+    const eventType = eventTypes[event.type];
     const sizes = {
-      small: isMobile ? 50 : 60,
-      medium: isMobile ? 60 : 70,
-      large: isMobile ? 70 : 80
+      small: { pin: 50, label: 100 },
+      medium: { pin: 60, label: 120 },
+      large: { pin: 70, label: 140 }
     };
-    const iconSize = sizes[size];
+    const pinSize = isMobile ? sizes[size].pin - 10 : sizes[size].pin;
+    const labelWidth = isMobile ? sizes[size].label : sizes[size].label;
     
     const svgIcon = `
-      <div style="position: relative; width: ${iconSize}px; height: ${iconSize}px;">
-        <div style="
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: ${eventType.color};
-          border-radius: 50% 50% 50% 0;
-          transform: rotate(-45deg);
-          box-shadow: 0 4px 16px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
-          animation: bounce 2s ease-in-out infinite;
-        "></div>
+  <div style="
+    position: relative;
+    width: ${labelWidth}px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+  ">
+    <!-- Pin Moderno -->
+    <div style="
+      position: relative;
+      width: ${pinSize}px;
+      height: ${pinSize * 1.2}px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    ">
+      <!-- Círculo principal -->
+      <div style="
+        position: absolute;
+        width: ${pinSize}px;
+        height: ${pinSize}px;
+        background: linear-gradient(135deg, ${eventType.color} 0%, ${adjustBrightness(eventType.color, -15)} 100%);
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 
+          0 2px 8px rgba(0,0,0,0.1),
+          0 8px 16px rgba(0,0,0,0.08);
+      ">
+        <!-- Emoji -->
         <div style="
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -60%);
-          font-size: ${iconSize * 0.4}px;
-          z-index: 2;
+          transform: translate(-50%, -50%);
+          font-size: ${pinSize * 0.5}px;
+          line-height: 1;
         ">${eventType.emoji}</div>
+        
+        <!-- Brillo sutil -->
+        <div style="
+          position: absolute;
+          top: 20%;
+          left: 20%;
+          width: 40%;
+          height: 40%;
+          background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%);
+          border-radius: 50%;
+          pointer-events: none;
+        "></div>
       </div>
-    `;
+      
+      <!-- Punta del pin -->
+      <div style="
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: ${pinSize * 0.2}px solid transparent;
+        border-right: ${pinSize * 0.2}px solid transparent;
+        border-top: ${pinSize * 0.3}px solid ${adjustBrightness(eventType.color, -20)};
+        filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+      "></div>
+    </div>
+    
+    <!-- Label Limpio -->
+   <div style="
+  padding: 0px 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  font-family: Poppins, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  max-width: ${labelWidth}px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  animation: labelFade 0.3s ease-in;
+  color: black;
+  /* contorno blanco */
+  text-shadow:
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white,
+     0px  0px 6px white;
+">
+  ${event.name}
+</div>
+    
+    <!-- Punto de anclaje (opcional, para centrar mejor) -->
+    <div style="
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 50%;
+      filter: blur(2px);
+    "></div>
+  </div>
+`;
+
+// Función auxiliar para ajustar brillo del color
+function adjustBrightness(color, percent) {
+  // Si el color es en formato hex
+  if (color.startsWith('#')) {
+    const num = parseInt(color.replace('#', ''), 16);
+    const r = Math.max(0, Math.min(255, ((num >> 16) & 0xFF) + percent));
+    const g = Math.max(0, Math.min(255, ((num >> 8) & 0xFF) + percent));
+    const b = Math.max(0, Math.min(255, (num & 0xFF) + percent));
+    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+  }
+  return color;
+}
     
     return L.divIcon({
       className: 'custom-marker-3d',
       html: svgIcon,
-      iconSize: [iconSize, iconSize],
-      iconAnchor: [iconSize / 2, iconSize],
-      popupAnchor: [0, -iconSize]
+      iconSize: [labelWidth, pinSize + 40],
+      iconAnchor: [labelWidth / 2, pinSize + 35],
+      popupAnchor: [0, -(pinSize + 40)]
     });
   };
 
@@ -388,10 +487,10 @@ const EventMap = () => {
           style={{ height: '100%', width: '100%' }}
           className="z-0"
         >
-      <TileLayer
-  url="https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png"
-  attribution='© OpenStreetMap contributors © CARTO'
-/>
+          <TileLayer
+            attribution='&copy; OpenStreetMap'
+            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+          />
           
           <MapEventHandler />
 
@@ -400,7 +499,7 @@ const EventMap = () => {
               <Marker
                 key={event.id}
                 position={event.position}
-                icon={createCustomIcon(event.type, getIconSize(currentZoom))}
+                icon={createCustomIcon(event, getIconSize(currentZoom))}
                 eventHandlers={{
                   click: () => setSelectedEvent(event),
                 }}
@@ -523,12 +622,23 @@ const EventMap = () => {
           scrollbar-width: none;
         }
 
-        @keyframes bounce {
+        @keyframes pinBounce {
           0%, 100% {
-            transform: rotate(-45deg) translateY(0);
+            transform: rotate(-45deg) translateY(0) scale(1);
           }
           50% {
-            transform: rotate(-45deg) translateY(-8px);
+            transform: rotate(-45deg) translateY(-6px) scale(1.05);
+          }
+        }
+        
+        @keyframes labelFade {
+          from {
+            opacity: 0;
+            transform: translateY(-5px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
 
@@ -538,6 +648,11 @@ const EventMap = () => {
 
         .leaflet-control-zoom {
           display: none !important;
+        }
+        
+        /* Evitar que las etiquetas se corten */
+        .leaflet-marker-icon {
+          overflow: visible !important;
         }
       `}</style>
     </div>
