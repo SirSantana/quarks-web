@@ -1,0 +1,198 @@
+{
+    "motorescummins": [
+       {
+  "motor_id": "CUMMINS_ISF_2.8",
+  "nombre_modelo": "Cummins ISF 2.8",
+  "aplicacion_principal": "Vehículos Comerciales Ligeros (VCL), Pickups, Vans, Camiones de Carga Ligera (PBV < 3.5 Ton)",
+  "periodo_produccion": "Moderno (Lanzado a finales de la década de 2000)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "4 cilindros en línea",
+    "cilindrada_litros": 2.8,
+    "cilindrada_pulgadas_cubicas": 171,
+    "diseno": "Arquitectura modular y compacta (ideal para espacios reducidos)",
+    "diametro_carrera_mm": "94 x 100",
+    "orden_encendido": "1-3-4-2",
+    "peso_seco_kg": 214,
+    "sistema_combustible": "HPCR (High Pressure Common Rail)",
+    "sistema_aspiracion": "Turbocargador con Compuerta de Descarga (Wastegate Turbocharger) e Intercooler",
+    "sistema_control": "Módulo de Control Electrónico (ECM)",
+    "emisiones_certificacion": "Euro III, Euro IV, Euro V (Varía según el mercado y configuración)"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "107 - 160 hp",
+    "rango_potencia_kw": "80 - 120 kW",
+    "rango_torque_nm": "280 - 360 N•m",
+    "rango_torque_lb_ft": "206 - 265 lb-ft",
+    "torque_maximo_rpm": "1200 - 1800 RPM (Varía por calibración)",
+    "velocidad_maxima_rpm": "3200 - 3600 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CJ-4 y superior (Aceite genuino de bajo contenido de ceniza)",
+      "intervalo_cambio_km": "10000 - 20000 (Depende de las condiciones y análisis de aceite)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.25 (0.010 in)",
+      "escape_mm": "0.51 (0.020 in)"
+    },
+    "torque_biela_pasos": [
+      "34 N•m (25 lb-ft)",
+      "Girar 60° en sentido antihorario",
+      "34 N•m (25 lb-ft)",
+      "Girar 60° en sentido horario"
+    ],
+    "torque_culata_pasos": [
+      "60 N•m",
+      "Girar 90° en sentido horario",
+      "Girar 90° en sentido horario"
+    ],
+    "combustible": "Diésel bajo en azufre",
+    "uso_def_adblue": "Necesario para versiones Euro V y superiores (Sistemas SCR)"
+  }
+},
+{
+  "motor_id": "CUMMINS_ISF_3.8",
+  "nombre_modelo": "Cummins ISF 3.8",
+  "aplicacion_principal": "Camiones Ligeros y Medianos (Ej: Foton, GAZelle Next, Agrale), Autobuses Pequeños, Maquinaria de Construcción Ligera",
+  "periodo_produccion": "Moderno (Lanzado a finales de la década de 2000)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "4 cilindros en línea",
+    "cilindrada_litros": 3.8,
+    "cilindrada_pulgadas_cubicas": 232,
+    "diseno": "Compacto y ligero (diseñado para cumplir con Euro V sin necesidad de refrigeración EGR)",
+    "diametro_carrera_mm": "102 x 115",
+    "orden_encendido": "1-3-4-2",
+    "peso_seco_kg": 280,
+    "sistema_combustible": "HPCR (High Pressure Common Rail)",
+    "sistema_aspiracion": "Turbocargador de Geometría Variable (VGT) o Turbocargador de Compuerta (Wastegate), con Intercooler",
+    "sistema_control": "Módulo de Control Electrónico (ECM)",
+    "emisiones_certificacion": "Euro IV, Euro V, Euro VI (Varía según el mercado y configuración)"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "140 - 170 hp",
+    "rango_potencia_kw": "104 - 127 kW",
+    "rango_torque_nm": "450 - 600 N•m",
+    "rango_torque_lb_ft": "332 - 443 lb-ft",
+    "torque_maximo_rpm": "1300 - 1700 RPM (Varía por calibración)",
+    "velocidad_maxima_rpm": "2600 - 3000 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CJ-4 / CK-4 y superior (Bajo en ceniza)",
+      "capacidad_aceite_litros": 10.5,
+      "intervalo_cambio_km": "15000 - 25000 (Depende de la aplicación y condiciones)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.35 (0.014 in)",
+      "escape_mm": "0.65 (0.026 in)"
+    },
+    "sistema_refrigeracion": {
+      "capacidad_motor_litros": 10.0,
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "uso_def_adblue": "Necesario para versiones Euro V y Euro VI (Sistemas SCR), dependiendo de la configuración."
+  }
+},
+{
+  "motor_id": "CUMMINS_4BT_3.9",
+  "nombre_modelo": "Cummins 4BT 3.9",
+  "aplicacion_principal": "Vehículos Comerciales Medianos Ligeros, Maquinaria de Construcción (Skid Steers, Excavadoras), Generadores, Proyectos de Reemplazo (Swaps)",
+  "periodo_produccion": "Clásico (Iniciado en la década de 1980)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "4 cilindros en línea",
+    "cilindrada_litros": 3.9,
+    "cilindrada_pulgadas_cubicas": 239,
+    "diseno": "Arquitectura clásica y robusta de bloque 'B' (comparte componentes con el 6BT 5.9)",
+    "diametro_carrera_mm": "102 x 120",
+    "relacion_compresion": "17.5:1 o 18.5:1 (Varía según si es turbocargado o aspirado)",
+    "peso_seco_kg": "340 - 380",
+    "sistema_combustible": "Inyección Mecánica (Bombas Bosch VE o P-Pump P7100)",
+    "sistema_aspiracion": "Aspiración Natural (4B), Turbocargado (4BT) o Turbocargado/Intercooler (4BTA)",
+    "sistema_control": "Mecánico (Sin ECM en versiones clásicas)",
+    "valvulas_por_cilindro": 2,
+    "notas_tecnicas": "Versiones iniciales tenían 12 válvulas (12v)."
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "50 - 140 hp (Dependiendo de la configuración T, TA o aspirado)",
+    "rango_potencia_kw": "37 - 104 kW",
+    "rango_torque_nm": "217 - 450 N•m",
+    "rango_torque_lb_ft": "160 - 332 lb-ft",
+    "torque_maximo_rpm": "1500 - 1800 RPM (Motor de bajo régimen y alto par)",
+    "velocidad_maxima_rpm": "2500 - 2800 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_tipo": "SAE 15W-40 (Clásico)",
+      "capacidad_aceite_litros": 9.5,
+      "intervalo_cambio_horas": "250 horas o 12 meses"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.25 (0.010 in)",
+      "escape_mm": "0.51 (0.020 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "Convencional de baja silicato"
+    },
+    "inyeccion_combustible": {
+      "tipo_bomba_popular": "Bosch VE o Bosch P7100 (Dependiendo del año)"
+    },
+    "notas_mantenimiento": "La sincronización de la bomba de inyección es crítica para el rendimiento y debe ser ajustada mecánicamente."
+  }
+},
+{
+  "motor_id": "CUMMINS_B4.5",
+  "nombre_modelo": "Cummins B4.5",
+  "aplicacion_principal": "Maquinaria Industrial (Construcción, Agrícola, Manipulación de Materiales), Generación de Energía, Aplicaciones Marinas (Propulsión y Auxiliares)",
+  "periodo_produccion": "Moderno (Lanzado en la década de 2010, versiones Stage V/Tier 4 Final desde 2019)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "4 cilindros en línea",
+    "cilindrada_litros": 4.5,
+    "cilindrada_pulgadas_cubicas": 272,
+    "diseno": "Compacto y sin recirculación de gases de escape (EGR-free) en muchas configuraciones de emisiones recientes",
+    "diametro_carrera_mm": "107 x 124",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 16,
+    "peso_seco_kg": "390 - 545 (Varía según el nivel de emisiones y aplicación)",
+    "sistema_combustible": "HPCR (High Pressure Common Rail)",
+    "sistema_aspiracion": "Turbocargador (Wastegate o de Geometría Variable) con Intercooler",
+    "sistema_control": "Módulo de Control Electrónico (ECM)",
+    "sistema_post_tratamiento": "Single Module™ (Combina DPF, SCR y dosificación de urea) para Stage V/Tier 4 Final",
+    "emisiones_certificacion": "EU Stage V, EPA Tier 4 Final"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "121 - 200 hp",
+    "rango_potencia_kw": "90 - 149 kW",
+    "rango_torque_nm": "500 - 780 N•m",
+    "rango_torque_lb_ft": "369 - 575 lb-ft",
+    "torque_maximo_rpm": "1500 RPM (Típico para la mayoría de las configuraciones)",
+    "velocidad_maxima_rpm": "2200 - 2500 RPM (Varía según la aplicación: Industrial o Marina)"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CK-4 o superior (Aceite de bajo contenido de ceniza)",
+      "capacidad_aceite_litros": "Consultar manual específico (Varía por cárter)",
+      "intervalo_mantenimiento": "Hasta 1000 horas para ciertos filtros (Cummins recomienda intervalos largos)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "Consultar manual específico (Típicamente 0.25 mm / 0.010 in)",
+      "escape_mm": "Consultar manual específico (Típicamente 0.51 mm / 0.020 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "NOAT (Tecnología de Ácido Orgánico Nitritado)"
+    },
+    "notas_mantenimiento": "Diseño sin EGR simplifica el mantenimiento en el sistema de enfriamiento."
+  }
+}
+    ]
+}
