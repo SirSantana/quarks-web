@@ -1,9 +1,61 @@
+// pages/cummins/[slug].jsx
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Zap, Gauge, Settings, Weight, Droplet, Wind, Wrench, Info } from 'lucide-react';
-import motorescummins from '@/utils/motorescummins.json' 
-const MotorDetailPage = () => {
-  const motor = motorescummins.motorescummins[0];
+import { ArrowLeft, Zap, Gauge, Settings, Droplet, Wind, Wrench, Info } from 'lucide-react';
+import motorescummins from '@/utils/motorescummins.json';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Head from 'next/head';
+
+export default function MotorDetailPage({ motor }) {
+  const router = useRouter();
   const [activeTab, setActiveTab] = useState('specs');
+
+  // Si la página está en modo fallback
+  if (router.isFallback) {
+    return <div>Cargando...</div>;
+  }
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": motor.nombre_modelo,
+    "description": motor.aplicacion_principal,
+    "brand": {
+      "@type": "Brand",
+      "name": "Cummins"
+    },
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "Cummins Inc."
+    },
+    "category": "Motor Diésel",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia",
+        "value": motor.rendimiento_potencia_torque.rango_potencia_hp
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Torque",
+        "value": motor.rendimiento_potencia_torque.rango_torque_nm
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Configuración",
+        "value": motor.especificaciones_generales.configuracion
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindrada",
+        "value": `${motor.especificaciones_generales.cilindrada_litros}L`
+      }
+    ]
+  };
+
+  const pageTitle = `${motor.nombre_modelo} - Especificaciones Técnicas | Cummins`;
+  const pageDescription = `${motor.aplicacion_principal}. Potencia: ${motor.rendimiento_potencia_torque.rango_potencia_hp}, Torque: ${motor.rendimiento_potencia_torque.rango_torque_lb_ft}. Configuración ${motor.especificaciones_generales.configuracion}.`;
+  const pageUrl = `https://www.quarks.com/cummins/${motor.motor_id.toLowerCase().replace(/_/g, '-')}`;
+  const imageUrl = motor.images?.[0] || `https://www.quarks.com/images/cummins-default.jpg`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,16 +95,87 @@ const MotorDetailPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
+
+      <Head>
+        {/* Meta Tags Básicos */}
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={`${motor.nombre_modelo}, motor cummins, motor diésel, ${motor.especificaciones_generales.configuracion}, ${motor.rendimiento_potencia_torque.rango_potencia_hp}, especificaciones técnicas, mantenimiento motor`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Quarks" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={pageUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={imageUrl} />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href={pageUrl} />
+        
+        {/* Datos Estructurados JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        
+        {/* Breadcrumb Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://tudominio.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Motores Cummins",
+                  "item": "https://tudominio.com/cummins"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": motor.nombre_modelo,
+                  "item": pageUrl
+                }
+              ]
+            })
+          }}
+        />
+        
+        {/* Alternate Languages (si aplica) */}
+        <link rel="alternate" hrefLang="es" href={pageUrl} />
+        <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+        
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      </Head>
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
-            <button className="flex items-center space-x-2 sm:space-x-3 text-gray-700 hover:text-red-600 transition-colors group">
+            <Link href="/cummins" className="flex items-center space-x-2 sm:space-x-3 text-gray-700 hover:text-red-600 transition-colors group">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 group-hover:bg-red-50 rounded-full flex items-center justify-center transition-colors">
                 <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <span className="font-semibold text-sm sm:text-base hidden sm:inline">Volver al catálogo</span>
               <span className="font-semibold text-sm sm:hidden">Volver</span>
-            </button>
+            </Link>
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center">
                 <span className="text-white font-black text-lg sm:text-xl">C</span>
@@ -82,28 +205,37 @@ const MotorDetailPage = () => {
               
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <div className="sm:rounded-2xl p-4 sm:p-6  ">
+                <div className="p-4 sm:p-6">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-red-600 rounded-lg flex items-center justify-center mb-2">
                     <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <p className="text-xs sm:text-sm text-gray-500 font-semibold mb-1">Potencia</p>
-                  <p className="text-lg sm:text-2xl font-black text-gray-900">{motor.rendimiento_potencia_torque.rango_potencia_hp.split(' ')[0]}<span className="text-sm sm:text-base"> hp</span></p>
+                  <p className="text-lg sm:text-2xl font-black text-gray-900">
+                    {motor.rendimiento_potencia_torque.rango_potencia_hp.split(' ')[0]}
+                    <span className="text-sm sm:text-base"> hp</span>
+                  </p>
                 </div>
                 
-                <div className="sm:rounded-2xl p-4 sm:p-6">
+                <div className="p-4 sm:p-6">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-red-600 rounded-lg flex items-center justify-center mb-2">
                     <Gauge className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <p className="text-xs sm:text-sm text-gray-500 font-semibold mb-1">Torque</p>
-                  <p className="text-lg sm:text-2xl font-black text-gray-900">{motor.rendimiento_potencia_torque.rango_torque_lb_ft.split(' ')[0]}<span className="text-sm sm:text-base"> lb-ft</span></p>
+                  <p className="text-lg sm:text-2xl font-black text-gray-900">
+                    {motor.rendimiento_potencia_torque.rango_torque_lb_ft.split(' ')[0]}
+                    <span className="text-sm sm:text-base"> lb-ft</span>
+                  </p>
                 </div>
                 
-                <div className="sm:rounded-2xl p-4 sm:p-6">
+                <div className="p-4 sm:p-6">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-red-600 rounded-lg flex items-center justify-center mb-2">
                     <Settings className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <p className="text-xs sm:text-sm text-gray-500 font-semibold mb-1">Cilindrada</p>
-                  <p className="text-lg sm:text-2xl font-black text-gray-900">{motor.especificaciones_generales.cilindrada_litros}<span className="text-sm sm:text-base">L</span></p>
+                  <p className="text-lg sm:text-2xl font-black text-gray-900">
+                    {motor.especificaciones_generales.cilindrada_litros}
+                    <span className="text-sm sm:text-base">L</span>
+                  </p>
                 </div>
               </div>
 
@@ -114,40 +246,41 @@ const MotorDetailPage = () => {
 
             {/* Right: Image */}
             <div className="relative order-first lg:order-last">
-              <div className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden  ">
+              <div className="aspect-square rounded-2xl sm:rounded-3xl overflow-hidden">
                 <img
-                  src={`${motor.images[0]}`}
+                  src={motor.images?.[0] || `https://via.placeholder.com/800x800/1f2937/ef4444?text=${encodeURIComponent(motor.nombre_modelo)}`}
                   alt={motor.nombre_modelo}
                   className="w-full h-full object-cover"
                 />
               </div>
-            
             </div>
           </div>
         </div>
       </section>
 
       {/* Video Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2">Video del Motor</h2>
-            <p className="text-sm sm:text-base text-gray-600">Conoce más sobre el {motor.nombre_modelo}</p>
+      {motor.video_url && (
+        <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gray-50">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2">Video del Motor</h2>
+              <p className="text-sm sm:text-base text-gray-600">Conoce más sobre el {motor.nombre_modelo}</p>
+            </div>
+            <div className="aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
+              <iframe
+                width="100%"
+                height="100%"
+                src={motor.video_url}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
           </div>
-          <div className="aspect-video rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full"
-            ></iframe>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Sticky Tab Navigation */}
       <div className="sticky top-16 sm:top-20 z-40 bg-white border-b border-gray-200 shadow-sm overflow-x-auto">
@@ -368,7 +501,7 @@ const MotorDetailPage = () => {
                 <div>
                   <h3 className="text-xl font-black text-gray-900 mb-6">Procedimiento Torque de Biela</h3>
                   <div className="space-y-3">
-                    {motor.datos_mantenimiento_y_ajustes.torque_biela_pasos.map((paso, idx) => (
+                    {motor.datos_mantenimiento_y_ajustes.torque_biela_pasos?.map((paso, idx) => (
                       <div key={idx} className="flex items-start space-x-3 pb-3 border-b border-gray-100 last:border-0">
                         <div className="w-7 h-7 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-sm font-bold">{idx + 1}</span>
@@ -382,7 +515,7 @@ const MotorDetailPage = () => {
                 <div>
                   <h3 className="text-xl font-black text-gray-900 mb-6">Procedimiento Torque de Culata</h3>
                   <div className="space-y-3">
-                    {motor.datos_mantenimiento_y_ajustes.torque_culata_pasos.map((paso, idx) => (
+                    {motor.datos_mantenimiento_y_ajustes.torque_culata_pasos?.map((paso, idx) => (
                       <div key={idx} className="flex items-start space-x-3 pb-3 border-b border-gray-100 last:border-0">
                         <div className="w-7 h-7 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-sm font-bold">{idx + 1}</span>
@@ -429,6 +562,44 @@ const MotorDetailPage = () => {
       </footer>
     </div>
   );
-};
+}
 
-export default MotorDetailPage;
+// Generar todas las rutas estáticas en build time
+export async function getStaticPaths() {
+  
+  const paths = motorescummins.motorescummins.map((motor) => ({
+    params: { 
+      slug: motor.motor_id.toLowerCase().replace(/_/g, '-') 
+    },
+  }));
+  console.log(paths);
+  
+  return {
+    paths,
+    fallback: false, // Cambiar a 'blocking' o true si quieres generar páginas on-demand
+  };
+}
+
+// Obtener los datos del motor específico
+export async function getStaticProps({ params }) {
+  
+  const slug = params.slug;
+  const motorId = slug.toUpperCase().replace(/-/g, '_');
+  
+  const motor = motorescummins.motorescummins.find(
+    (m) => m.motor_id === motorId
+  );
+
+  if (!motor) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      motor,
+    },
+    revalidate: 3600, // Revalidar cada hora (ISR)
+  };
+}

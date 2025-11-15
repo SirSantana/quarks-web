@@ -1,7 +1,9 @@
 import motorescummins from '@/utils/motorescummins.json' 
 import React, { useState, useMemo } from 'react';
-import { Search, X, Check, Zap, Gauge, Weight, Settings } from 'lucide-react';
+import { Search, X, Check, Zap, Gauge, Weight, Settings, ArrowRight } from 'lucide-react';
 import MotorComparator from '@/src/Components/Cummins/EngineComparator';
+import Link from 'next/link';
+import Head from 'next/head';
 
 const CumminsMotorsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,8 +32,160 @@ const CumminsMotorsPage = () => {
   };
 
   const selectedMotorsData = motors.filter(m => selectedMotors.includes(m.motor_id));
+// SEO Data
+  const pageTitle = "Motores Cummins - Catálogo Completo | Especificaciones Técnicas y Comparador";
+  const pageDescription = "Explora nuestra línea completa de motores diésel Cummins. Especificaciones técnicas detalladas, comparador de motores, rendimiento y aplicaciones. Encuentra el motor perfecto para tu vehículo comercial.";
+  const pageUrl = "https://www.quarks.com/cummins";
+  const imageUrl = "https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7";
 
+  // Datos estructurados para lista de productos
+  const productsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Motores Cummins",
+    "description": pageDescription,
+    "numberOfItems": motors.length,
+    "itemListElement": motors.map((motor, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": motor.nombre_modelo,
+        "description": motor.aplicacion_principal,
+        "brand": {
+          "@type": "Brand",
+          "name": "Cummins"
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    }))
+  };
+
+  // Organization Schema
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cummins Inc.",
+    "url": "https://www.quarks.com.com",
+    "logo": "https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7",
+    "description": "Fabricante líder mundial de motores diésel y sistemas de energía",
+    "sameAs": [
+      "https://www.facebook.com/cummins",
+      "https://twitter.com/cummins",
+      "https://www.linkedin.com/company/cummins",
+      "https://www.instagram.com/cummins"
+    ]
+  };
   return (
+    <>
+    <Head>
+        {/* Meta Tags Básicos */}
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content="motores cummins, motor diésel, catálogo cummins, especificaciones técnicas, comparador motores, ISF 2.8, ISB 6.7, X15, motores comerciales, motores industriales, alta potencia" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Cummins Motors" />
+        <meta property="og:locale" content="es_ES" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={pageUrl} />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={imageUrl} />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href={pageUrl} />
+        <link rel='icon' href='https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7' />
+        
+        {/* Robots */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* Datos Estructurados - Lista de Productos */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productsStructuredData) }}
+        />
+        
+        {/* Datos Estructurados - Organización */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        
+        {/* Breadcrumb Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://tudominio.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Motores Cummins",
+                  "item": pageUrl
+                }
+              ]
+            })
+          }}
+        />
+        
+        {/* WebSite Schema con SearchAction */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Cummins Motors",
+              "url": "https://tudominio.com",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://tudominio.com/cummins?search={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+        
+        {/* Alternate Languages */}
+        <link rel="alternate" hrefLang="es" href={pageUrl} />
+        <link rel="alternate" hrefLang="en" href="https://tudominio.com/en/cummins" />
+        <link rel="alternate" hrefLang="x-default" href={pageUrl} />
+        
+        {/* Additional SEO Tags */}
+        <meta name="author" content="Cummins Inc." />
+        <meta name="theme-color" content="#DC2626" />
+        <meta name="apple-mobile-web-app-title" content="Cummins" />
+        <meta name="application-name" content="Cummins Motors" />
+        
+        {/* Preconnect para performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </Head>
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50">
@@ -52,9 +206,9 @@ const CumminsMotorsPage = () => {
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#motores" className="text-sm font-semibold text-gray-700 hover:text-red-600 transition-colors">Catálogo</a>
               <a href="#comparador" className="text-sm font-semibold text-gray-700 hover:text-red-600 transition-colors">Comparador</a>
-              <button className="px-6 py-2.5 bg-red-600 text-white text-sm font-semibold rounded-full hover:bg-red-700 transition-all hover:shadow-lg hover:shadow-red-600/50">
+              {/* <button className="px-6 py-2.5 bg-red-600 text-white text-sm font-semibold rounded-full hover:bg-red-700 transition-all hover:shadow-lg hover:shadow-red-600/50">
                 Contacto
-              </button>
+              </button> */}
             </nav>
           </div>
         </div>
@@ -79,7 +233,7 @@ const CumminsMotorsPage = () => {
           </div>
           
           {/* Search Bar */}
-          <div className="max-w-2xl mx-auto relative group">
+          {/* <div className="max-w-2xl mx-auto relative group">
             <Search className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 group-focus-within:text-red-600 transition-colors" />
             <input
               type="text"
@@ -88,164 +242,168 @@ const CumminsMotorsPage = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-14 pr-6 py-5 rounded-2xl bg-white border-2 border-gray-200 focus:outline-none focus:border-red-600 focus:ring-4 focus:ring-red-600/10 text-base transition-all shadow-lg shadow-gray-200/50"
             />
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Quick View Slider */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
-        <div className="mb-8">
-          <h3 className="text-2xl font-black text-gray-900">Vista Rápida</h3>
-          <p className="text-gray-600 font-medium">Explora nuestros motores más destacados</p>
-        </div>
-        <div className="overflow-x-auto pb-4 -mx-6 px-6 scrollbar-hide">
-          <div className="flex space-x-6 w-max">
-            {motors.map((motor) => (
-              <div
-                key={motor.motor_id}
-                className="relative w-80 h-96 rounded-3xl overflow-hidden cursor-pointer group"
-                onClick={() => {
-                  const element = document.getElementById('motores');
-                  element?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0">
-                  <img
-                    src={`${motor.images[0]}`}
-                    alt={motor.nombre_modelo}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-                </div>
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div className="mb-12">
+        <h3 className="text-3xl font-bold text-gray-900 mb-2">Vista Rápida</h3>
+        <p className="text-gray-500">Explora nuestros motores más destacados</p>
+      </div>
+      
+      <div className="overflow-x-auto pb-6 -mx-6 px-6">
+        <div className="flex gap-6 w-max">
+          {motors.map((motor) => (
+            <div
+              key={motor.motor_id}
+              className="relative w-80 h-[480px] rounded-2xl overflow-hidden cursor-pointer group bg-gray-100"
+              onClick={() => {
+                const element = document.getElementById('motores');
+                element?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              {/* Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={motor.images[0]}
+                  alt={motor.nombre_modelo}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              </div>
 
-                {/* Content */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="mb-4">
-                    <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full mb-4">
-                      <Zap className="w-4 h-4 text-red-400" />
-                      <span className="text-white text-sm font-bold">
-                        {motor.rendimiento_potencia_torque.rango_potencia_hp}
-                      </span>
-                    </div>
+              {/* Content */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                <div className="space-y-3">
+                  <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+                    <Zap className="w-3.5 h-3.5 text-red-500" fill="currentColor" />
+                    <span className="text-sm font-semibold text-gray-900">
+                      {motor.rendimiento_potencia_torque.rango_potencia_hp.split('(')[0].trim()}
+                    </span>
                   </div>
-                  <h4 className="text-3xl font-black text-white mb-2">
-                    {motor.nombre_modelo}
+                  
+                  <h4 className="text-2xl font-bold text-white leading-tight">
+                    {motor.nombre_modelo.split('(')[0].trim()}
                   </h4>
-                  <p className="text-white/80 text-sm font-medium line-clamp-2">
+                  
+                  <p className="text-white/90 text-sm">
                     {motor.especificaciones_generales.configuracion} • {motor.especificaciones_generales.cilindrada_litros}L
                   </p>
                 </div>
-
-                {/* Hover Indicator */}
-                <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-white text-xl">→</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <MotorComparator motors={motorescummins.motorescummins} />
-
-      {/* Motors Grid */}
-      <section id="motores" className="max-w-7xl mx-auto px-6 lg:px-8 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {filteredMotors.map((motor) => (
-            <div
-              key={motor.motor_id}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-200 hover:border-gray-300"
-              onClick={() => toggleMotorSelection(motor.motor_id)}
-            >
-              {/* Selection Indicator */}
-              <div className="absolute top-6 right-6 z-20">
-                <div className={`w-12 h-12 rounded-full border-3 flex items-center justify-center transition-all duration-300 ${
-                  selectedMotors.includes(motor.motor_id)
-                    ? 'bg-red-600 border-red-600 scale-110 shadow-lg shadow-red-600/50'
-                    : 'bg-white/90 border-white backdrop-blur-sm shadow-lg'
-                }`}>
-                  {selectedMotors.includes(motor.motor_id) && (
-                    <Check className="w-7 h-7 text-white" strokeWidth={3} />
-                  )}
-                </div>
               </div>
 
-              {/* Image Section */}
-              <div className="relative h-72 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
-                <img
-                  src={`${motor.images[0]}`}
-                  alt={motor.nombre_modelo}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                <div className="absolute bottom-6 left-6 z-20">
-                  <div className="inline-flex items-center space-x-2 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                    <Settings className="w-4 h-4 text-red-600" />
-                    <span className="text-sm font-bold text-gray-900">{motor.especificaciones_generales.configuracion}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content Section */}
-              <div className="p-8">
-                <div className="mb-6">
-                  <h3 className="text-3xl font-black text-gray-900 mb-2">
-                    {motor.nombre_modelo}
-                  </h3>
-                  <p className="text-sm font-medium text-gray-500">{motor.periodo_produccion}</p>
-                </div>
-
-                {/* Performance Grid */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 border border-gray-200">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                        <Zap className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Potencia</span>
-                    </div>
-                    <p className="text-lg font-bold text-gray-900">{motor.rendimiento_potencia_torque.rango_potencia_hp}</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 border border-gray-200">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                        <Gauge className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Torque</span>
-                    </div>
-                    <p className="text-lg font-bold text-gray-900">{motor.rendimiento_potencia_torque.rango_torque_lb_ft}</p>
-                  </div>
-                </div>
-
-                {/* Application */}
-                <div className="bg-red-50 rounded-2xl p-5 mb-6 border border-red-100">
-                  <p className="text-xs font-bold text-red-600 uppercase tracking-wider mb-2">Aplicación</p>
-                  <p className="text-sm font-medium text-gray-700 leading-relaxed">{motor.aplicacion_principal}</p>
-                </div>
-
-                {/* Bottom Specs */}
-                <div className="flex items-center justify-between pt-6 border-t-2 border-gray-100">
-                  <div>
-                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Cilindrada</p>
-                    <p className="text-lg font-black text-gray-900">{motor.especificaciones_generales.cilindrada_litros}L</p>
-                  </div>
-                  <div className="w-px h-10 bg-gray-200"></div>
-                  <div className="text-center">
-                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Peso</p>
-                    <p className="text-lg font-black text-gray-900">{motor.especificaciones_generales.peso_seco_kg} kg</p>
-                  </div>
-                  <div className="w-px h-10 bg-gray-200"></div>
-                  <div className="text-right">
-                    <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Emisiones</p>
-                    <p className="text-xs font-bold text-red-600">{motor.especificaciones_generales.emisiones_certificacion?.split(',')[0]}</p>
-                  </div>
-                </div>
+              {/* Arrow */}
+              <div className="absolute top-5 right-5 w-9 h-9 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1 shadow-lg">
+                <ArrowRight className="w-4 h-4 text-gray-900" />
               </div>
             </div>
           ))}
         </div>
-      </section>
+      </div>
+    </section>
+
+      <MotorComparator motors={motorescummins.motorescummins} />
+
+      {/* Motors Grid */}
+     <section id="motores" className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        {motors.map((motor) => (
+          <Link href={`/cummins/${motor.motor_id.toLowerCase().replace(/_/g, '-')}`} key={motor.motor_id} passHref
+            className="group relative bg-white rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer border border-gray-100"
+          >
+            {/* Image */}
+            <div className="relative h-64 bg-gray-900 overflow-hidden">
+              <img
+                src={motor.images[0]}
+                alt={motor.nombre_modelo}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              
+              <div className="absolute bottom-4 left-4">
+                <div className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  <Settings className="w-3.5 h-3.5 text-gray-700" />
+                  <span className="text-sm font-semibold text-gray-900">
+                    {motor.especificaciones_generales.configuracion}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-8">
+              {/* Header */}
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {motor.nombre_modelo}
+                </h3>
+                <p className="text-sm text-gray-500">{motor.periodo_produccion}</p>
+              </div>
+
+              {/* Performance */}
+              <div className="flex gap-6 mb-8">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Zap className="w-4 h-4 text-red-500" />
+                    <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                      Potencia
+                    </span>
+                  </div>
+                  <p className="text-base font-bold text-gray-900">
+                    {motor.rendimiento_potencia_torque.rango_potencia_hp.split('(')[0].trim()}
+                  </p>
+                </div>
+                
+                <div className="w-px bg-gray-200"></div>
+                
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Gauge className="w-4 h-4 text-red-500" />
+                    <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                      Torque
+                    </span>
+                  </div>
+                  <p className="text-base font-bold text-gray-900">
+                    {motor.rendimiento_potencia_torque.rango_torque_lb_ft}
+                  </p>
+                </div>
+              </div>
+
+              {/* Application */}
+              <div className="mb-8">
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {motor.aplicacion_principal}
+                </p>
+              </div>
+
+              {/* Footer Specs */}
+              <div className="flex items-center justify-between pt-6 border-t border-gray-100">
+                <div>
+                  <p className="text-xs text-gray-500 mb-0.5">Cilindrada</p>
+                  <p className="text-sm font-bold text-gray-900">
+                    {motor.especificaciones_generales.cilindrada_litros}L
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 mb-0.5">Peso</p>
+                  <p className="text-sm font-bold text-gray-900">
+                    {motor.especificaciones_generales.peso_seco_kg?.split('(')[0].trim()} kg
+                  </p>
+                </div>
+                {/* <div className="text-right">
+                  <p className="text-xs text-gray-500 mb-0.5">Emisiones</p>
+                  <p className="text-xs font-semibold text-red-500">
+                    {motor.especificaciones_generales.emisiones_certificacion?.split(',')[0]}
+                  </p>
+                </div> */}
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
 
       {/* Comparator Modal */}
       {showComparator && (
@@ -348,6 +506,8 @@ const CumminsMotorsPage = () => {
         </div>
       </footer>
     </div>
+    </>
+
   );
 };
 

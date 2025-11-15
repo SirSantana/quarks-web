@@ -14,7 +14,7 @@
     "diseno": "Arquitectura modular y compacta (ideal para espacios reducidos)",
     "diametro_carrera_mm": "94 x 100",
     "orden_encendido": "1-3-4-2",
-    "peso_seco_kg": 214,
+    "peso_seco_kg": "214",
     "sistema_combustible": "HPCR (High Pressure Common Rail)",
     "sistema_aspiracion": "Turbocargador con Compuerta de Descarga (Wastegate Turbocharger) e Intercooler",
     "sistema_control": "Módulo de Control Electrónico (ECM)",
@@ -67,7 +67,7 @@
     "diseno": "Compacto y ligero (diseñado para cumplir con Euro V sin necesidad de refrigeración EGR)",
     "diametro_carrera_mm": "102 x 115",
     "orden_encendido": "1-3-4-2",
-    "peso_seco_kg": 280,
+    "peso_seco_kg": "280",
     "sistema_combustible": "HPCR (High Pressure Common Rail)",
     "sistema_aspiracion": "Turbocargador de Geometría Variable (VGT) o Turbocargador de Compuerta (Wastegate), con Intercooler",
     "sistema_control": "Módulo de Control Electrónico (ECM)",
@@ -192,6 +192,910 @@
       "tipo_refrigerante": "NOAT (Tecnología de Ácido Orgánico Nitritado)"
     },
     "notas_mantenimiento": "Diseño sin EGR simplifica el mantenimiento en el sistema de enfriamiento."
+  }
+},
+{
+  "motor_id": "CUMMINS_QSB_4.5",
+  "nombre_modelo": "Cummins QSB 4.5",
+  "aplicacion_principal": "Maquinaria de Construcción (Excavadoras, Cargadoras), Equipos Agrícolas, Generación de Energía (Grupos Electrógenos), Aplicaciones Marinas Auxiliares",
+  "periodo_produccion": "Moderno (Desde principios de la década de 2000 hasta el presente)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "4 cilindros en línea",
+    "cilindrada_litros": 4.5,
+    "cilindrada_pulgadas_cubicas": 275,
+    "diseno": "Compacto y robusto, comparte la base estructural de la Serie B, pero con control electrónico avanzado.",
+    "diametro_carrera_mm": "107 x 124",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 16,
+    "peso_seco_kg": "390 - 545 (Varía según la configuración de post-tratamiento)",
+    "sistema_combustible": "HPCR (High Pressure Common Rail) de Cummins",
+    "sistema_aspiracion": "Turbocargador (Wastegate o VGT) con Intercooler (Aftercooler)",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "Varía por Tier/Stage: Puede incluir DOC/DPF/SCR (Reducción Catalítica Selectiva)",
+    "emisiones_certificacion": "EPA Tier 3 / Tier 4 Interim / Tier 4 Final, EU Stage IIIA / IV / V"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "110 - 173 hp",
+    "rango_potencia_kw": "82 - 129 kW",
+    "rango_torque_nm": "476 - 700 N•m",
+    "rango_torque_lb_ft": "351 - 516 lb-ft",
+    "torque_maximo_rpm": "1500 - 1800 RPM",
+    "velocidad_maxima_rpm": "2200 - 2500 RPM (Velocidades fijas comunes para grupos electrógenos)"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CJ-4 / CK-4 (Bajo en ceniza para versiones con DPF)",
+      "capacidad_aceite_litros": "Consultar manual (Aproximadamente 12 litros, varía por cárter)",
+      "intervalo_mantenimiento": "500 horas de operación para cambio de aceite (Típico)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.25 (0.010 in)",
+      "escape_mm": "0.51 (0.020 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_tecnicas": "El sistema Quantum permite una integración precisa con el equipo y funciones avanzadas de diagnóstico (Insite)."
+  }
+},
+{
+  "motor_id": "CUMMINS_6BT_5.9",
+  "nombre_modelo": "Cummins 6BT 5.9 (12-Válvulas)",
+  "aplicacion_principal": "Camiones Medianos (Dodge Ram 1989-2002), Autobuses Escolares, Maquinaria Agrícola, Propulsión Marina, Generación de Energía",
+  "periodo_produccion": "Clásico (Finales de la década de 1980 hasta principios de los 2000)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 5.9,
+    "cilindrada_pulgadas_cubicas": 359,
+    "diseno": "Arquitectura de bloque 'B' (Bloque y culata de hierro fundido), completamente mecánico en sus inicios.",
+    "diametro_carrera_mm": "102 x 120",
+    "relacion_compresion": "17.0:1 a 17.5:1 (Varía por versión)",
+    "valvulas_por_cilindro": 2,
+    "valvulas_totales": 12,
+    "peso_seco_kg": "440 - 480 (Dependiendo del equipo auxiliar)",
+    "sistema_combustible": "Inyección Mecánica Directa",
+    "bombas_inyeccion_populares": [
+      "Bosch VE (Menor potencia, modelos 1989-1993)",
+      "Bosch P7100 o 'P-Pump' (Mayor potencia, modelos 1994-1998)"
+    ],
+    "sistema_aspiracion": "Turbocargador (H1C, HX35W o versiones con Intercooler 'A')",
+    "sistema_control": "Mecánico (Sin ECM)"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "160 - 215 hp (En aplicaciones de camioneta)",
+    "rango_potencia_kw": "119 - 160 kW",
+    "rango_torque_nm": "540 - 660 N•m",
+    "rango_torque_lb_ft": "400 - 490 lb-ft",
+    "torque_maximo_rpm": "1500 - 1600 RPM",
+    "velocidad_maxima_rpm": "2500 - 2800 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_tipo": "SAE 15W-40 (Clásico)",
+      "capacidad_aceite_litros": 11.4,
+      "intervalo_cambio_km": "10000 - 15000 (6000 - 9000 millas)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.25 (0.010 in)",
+      "escape_mm": "0.51 (0.020 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "Convencional de baja silicato"
+    },
+    "notas_mantenimiento": "La bomba P7100 es muy popular por su facilidad de ajuste para aumentar potencia. El *KDP* (Killer Dowel Pin) es un problema conocido que requiere atención preventiva."
+  }
+},{
+  "motor_id": "CUMMINS_ISB_6.7",
+  "nombre_modelo": "Cummins ISB 6.7 (Interact System B)",
+  "aplicacion_principal": "Camiones Medianos y Pesados (Clase 5-7), Autobuses Escolares, Pickups Ram 2500/3500 (2007.5 en adelante), Aplicaciones Marinas y Generación de Energía",
+  "periodo_produccion": "Moderno (Desde 2007.5 hasta el presente)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 6.7,
+    "cilindrada_pulgadas_cubicas": 408,
+    "diseno": "Evolución del bloque B, introduciendo un tren de válvulas de 4 por cilindro y culata de hierro fundido más robusta.",
+    "diametro_carrera_mm": "107 x 124",
+    "relacion_compresion": "16.2:1 (Varía según el año y la aplicación)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "510 - 550",
+    "sistema_combustible": "HPCR (High Pressure Common Rail), Inyectores piezoeléctricos o solenoides",
+    "sistema_aspiracion": "Turbocargador de Geometría Variable (VGT) Holset, Intercooler",
+    "sistema_control": "ECM (Módulo de Control Electrónico) de Cummins",
+    "sistema_post_tratamiento": "EGR (Recirculación de Gases de Escape) + DPF (Filtro de Partículas Diésel) + SCR (Reducción Catalítica Selectiva con DEF/AdBlue) en versiones recientes",
+    "emisiones_certificacion": "EPA 2007, EPA 2010, Tier 4"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "160 - 370 hp (Potencias más altas en versiones Ram)",
+    "rango_potencia_kw": "119 - 276 kW",
+    "rango_torque_nm": "610 - 1260 N•m",
+    "rango_torque_lb_ft": "450 - 930 lb-ft",
+    "torque_maximo_rpm": "1500 - 1700 RPM",
+    "velocidad_maxima_rpm": "3000 - 3200 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CJ-4 / CK-4 (Necesario para sistemas de post-tratamiento con DPF)",
+      "capacidad_aceite_litros": "11.4 (12 US Quarts) en versiones de camioneta Ram",
+      "intervalo_cambio_km": "12000 - 24000 (7500 - 15000 millas)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.254 (0.010 in)",
+      "escape_mm": "0.508 (0.020 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT (Tecnología de Ácido Orgánico)"
+    },
+    "notas_mantenimiento": "La fiabilidad está ligada al funcionamiento correcto de los sistemas de emisiones (EGR y DPF/SCR). La bomba de alta presión (CP3) es muy fiable."
+  }
+},
+{
+  "motor_id": "CUMMINS_6CT_8.3",
+  "nombre_modelo": "Cummins 6CT 8.3 (C-Series)",
+  "aplicacion_principal": "Camiones Pesados Medianos (Clase 7 y algunos Clase 8), Autobuses (Urbanos e Interurbanos), Maquinaria de Construcción, Propulsión Marina, Grupos Electrógenos",
+  "periodo_produccion": "Clásico (Iniciado en la década de 1980 hasta principios/mediados de los 2000)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 8.3,
+    "cilindrada_pulgadas_cubicas": 505,
+    "diseno": "Motor mecánico, diseño de culata de hierro fundido con alta durabilidad.",
+    "diametro_carrera_mm": "114 x 135",
+    "relacion_compresion": "16.5:1 (Varía según la versión)",
+    "valvulas_por_cilindro": 2,
+    "valvulas_totales": 12,
+    "peso_seco_kg": "650 - 750 (Dependiendo de los accesorios)",
+    "sistema_combustible": "Inyección Directa Mecánica (Bombas Bosch P7100 o versiones Lucas/CAV)",
+    "sistema_aspiracion": "Turbocargador (T) o Turbocargador con Aftercooler/Intercooler (TA)",
+    "sistema_control": "Mecánico (Sin ECM en versiones clásicas)"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "170 - 300 hp (Varía significativamente por aplicación)",
+    "rango_potencia_kw": "127 - 224 kW",
+    "rango_torque_nm": "740 - 1000 N•m",
+    "rango_torque_lb_ft": "550 - 740 lb-ft",
+    "torque_maximo_rpm": "1300 - 1500 RPM (Típico para alto rendimiento)",
+    "velocidad_maxima_rpm": "2200 - 2500 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_tipo": "SAE 15W-40 (Clásico)",
+      "capacidad_aceite_litros": "Aproximadamente 17 - 19",
+      "intervalo_cambio_km": "15000 - 20000 (O 250 horas en uso industrial)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.25 (0.010 in)",
+      "escape_mm": "0.51 (0.020 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "Convencional"
+    },
+    "notas_mantenimiento": "Al igual que el 6BT, es conocido por su sencillez y facilidad de reparación en campo. Fue sucedido por las versiones electrónicas ISC y QSC."
+  }
+},{
+  "motor_id": "CUMMINS_QSB_6.7",
+  "nombre_modelo": "Cummins QSB 6.7 (Quantum System B)",
+  "aplicacion_principal": "Maquinaria de Construcción (Excavadoras, Cargadoras), Maquinaria Agrícola, Manipulación de Materiales, Aplicaciones Marinas (Propulsión y Auxiliares), Generación de Energía",
+  "periodo_produccion": "Moderno (Desde principios de la década de 2000 hasta el presente)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 6.7,
+    "cilindrada_pulgadas_cubicas": 408,
+    "diseno": "Motor industrial, robusto, basado en la plataforma ISB pero optimizado para ciclos de trabajo pesados y entornos hostiles.",
+    "diametro_carrera_mm": "107 x 124",
+    "relacion_compresion": "16.2:1 a 17.2:1 (Varía según el nivel de emisiones)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "530 - 600 (Varía significativamente con el sistema de post-tratamiento)",
+    "sistema_combustible": "HPCR (High Pressure Common Rail) con inyectores controlados electrónicamente",
+    "sistema_aspiracion": "Turbocargador VGT (Geometría Variable) o Wastegate, Intercooler (Aftercooler)",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "Varía por Tier/Stage: Puede incluir DOC, DPF, y SCR (Urea/DEF) para Tier 4 Final / Stage V",
+    "emisiones_certificacion": "EPA Tier 4 Final, EU Stage V, IMO Tier II/III (Marino)"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "133 - 310 hp (Potencias bajas para grupos electrógenos, altas para maquinaria)",
+    "rango_potencia_kw": "99 - 231 kW",
+    "rango_torque_nm": "500 - 1000 N•m",
+    "rango_torque_lb_ft": "369 - 738 lb-ft",
+    "torque_maximo_rpm": "1500 - 1700 RPM",
+    "velocidad_maxima_rpm": "2200 - 2600 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CJ-4 / CK-4 (Bajo en ceniza, esencial para DPF)",
+      "capacidad_aceite_litros": "Aproximadamente 17 - 18 (Varía por cárter y aplicación)",
+      "intervalo_mantenimiento": "500 horas de operación para cambio de aceite (Estándar industrial)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.254 (0.010 in)",
+      "escape_mm": "0.508 (0.020 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT (Tecnología de Ácido Orgánico)"
+    },
+    "notas_mantenimiento": "La monitorización mediante el software de diagnóstico (Insite) es clave para el mantenimiento predictivo."
+  }
+},{
+  "motor_id": "CUMMINS_L9_ISL9",
+  "nombre_modelo": "Cummins L9 / ISL 9 (Intermediate System L)",
+  "aplicacion_principal": "Camiones Regionales (Recolección de Basura, Volteo), Autobuses Urbanos y Escolares, Aplicaciones Marinas Auxiliares, Generación de Energía",
+  "periodo_produccion": "Moderno (ISL lanzado en 2007; renombrado a L9 en 2017)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 8.9,
+    "cilindrada_pulgadas_cubicas": 543,
+    "diseno": "Motor de tamaño mediano-pesado, reconocido por su alta potencia específica y bajo peso relativo a su desempeño.",
+    "diametro_carrera_mm": "114 x 144.5",
+    "relacion_compresion": "17.0:1",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "730 - 800 (Dependiendo del sistema de post-tratamiento)",
+    "sistema_combustible": "HPCR (High Pressure Common Rail)",
+    "sistema_aspiracion": "Turbocargador VGT (Geometría Variable) Holset, Intercooler",
+    "sistema_control": "ECM (Módulo de Control Electrónico) de Cummins",
+    "sistema_post_tratamiento": "EGR (Recirculación de Gases de Escape) + DPF (Filtro de Partículas Diésel) + SCR (Reducción Catalítica Selectiva con DEF/AdBlue)",
+    "emisiones_certificacion": "EPA 2017, Euro VI"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "260 - 380 hp (400 hp en ciertas aplicaciones de alta potencia)",
+    "rango_potencia_kw": "194 - 283 kW",
+    "rango_torque_nm": "983 - 1695 N•m",
+    "rango_torque_lb_ft": "725 - 1250 lb-ft",
+    "torque_maximo_rpm": "1300 - 1500 RPM",
+    "velocidad_maxima_rpm": "2100 - 2200 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CK-4 / FA-4 (Bajo en ceniza, esencial para DPF)",
+      "capacidad_aceite_litros": "Aproximadamente 27 (Varía según el cárter)",
+      "intervalo_cambio_km": "32000 - 40000 (O 500 horas de operación)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.356 (0.014 in)",
+      "escape_mm": "0.686 (0.027 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_mantenimiento": "Incluye un freno de motor (Compression Brake) integrado. Es conocido por ser un motor muy silencioso y suave para su tamaño."
+  }
+},
+{
+  "motor_id": "CUMMINS_QSL_9",
+  "nombre_modelo": "Cummins QSL 9 (Quantum System L)",
+  "aplicacion_principal": "Maquinaria Pesada (Excavadoras, Grúas, Perforadoras), Equipos Agrícolas Grandes, Propulsión Marina, Generación de Energía (Rango 250-400 kW)",
+  "periodo_produccion": "Moderno (Desde 2007 hasta el presente)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 8.9,
+    "cilindrada_pulgadas_cubicas": 543,
+    "diseno": "Motor robusto con alta densidad de potencia, optimizado para trabajar a velocidades constantes bajo cargas pesadas.",
+    "diametro_carrera_mm": "114 x 144.5",
+    "relacion_compresion": "17.0:1",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "750 - 900 (Varía significativamente con el equipo auxiliar y post-tratamiento)",
+    "sistema_combustible": "HPCR (High Pressure Common Rail)",
+    "sistema_aspiracion": "Turbocargador, con Intercooler (Aftercooler) aire-aire o aire-agua",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "Incluye DOC/DPF/SCR (Reducción Catalítica Selectiva con DEF/AdBlue) para cumplir con Tier 4 Final / Stage V",
+    "emisiones_certificacion": "EPA Tier 4 Final, EU Stage V"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "250 - 400 hp",
+    "rango_potencia_kw": "186 - 298 kW",
+    "rango_torque_nm": "1000 - 1700 N•m",
+    "rango_torque_lb_ft": "738 - 1254 lb-ft",
+    "torque_maximo_rpm": "1500 - 1800 RPM",
+    "velocidad_maxima_rpm": "2100 - 2200 RPM (Muchas aplicaciones industriales operan a 1800 RPM fijas)"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CK-4 (Bajo en ceniza)",
+      "capacidad_aceite_litros": "Aproximadamente 27 (Varía según el cárter en la aplicación)",
+      "intervalo_mantenimiento": "500 horas (Estándar para motores industriales)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.356 (0.014 in)",
+      "escape_mm": "0.686 (0.027 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_tecnicas": "El QSL 9 se destaca por un diseño sin EGR para muchas configuraciones Tier 4 Final, simplificando el mantenimiento y aumentando la fiabilidad en entornos de trabajo pesados."
+  }
+},{
+  "motor_id": "CUMMINS_M11_ISM",
+  "nombre_modelo": "Cummins M11 / ISM (Intermediate System M)",
+  "aplicacion_principal": "Camiones Pesados (Tractocamiones, Volteo, Regional), Autobuses de Lujo, Equipos de Construcción y Minería",
+  "periodo_produccion": "M11 (1994 - 1998, primeros modelos electrónicos); ISM (1998 - 2010, versiones electrónicas con certificación EPA)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 10.8,
+    "cilindrada_pulgadas_cubicas": 661,
+    "diseno": "Bloque robusto de hierro fundido, conocido por ser compacto y ligero para su clase de potencia.",
+    "diametro_carrera_mm": "125 x 147",
+    "relacion_compresion": "17.0:1 (Típico)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "950 - 1050 (Dependiendo de la configuración)",
+    "sistema_combustible": "M11: Inyección Electrónica (CELECT) de Unit Injectors (UI); ISM: Inyección de Unit Injectors controlada electrónicamente (UEI)",
+    "sistema_aspiracion": "Turbocargador (Fixed Geometry), Intercooler aire-aire",
+    "sistema_control": "CELECT y CELECT Plus (ISM usa una versión más avanzada de CELECT Plus con control de emisiones)"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "280 - 450 hp",
+    "rango_potencia_kw": "209 - 336 kW",
+    "rango_torque_nm": "1356 - 1830 N•m",
+    "rango_torque_lb_ft": "1000 - 1350 lb-ft",
+    "torque_maximo_rpm": "1200 - 1400 RPM",
+    "velocidad_maxima_rpm": "2100 - 2200 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CH-4 / CI-4 (Para versiones pre-DPF)",
+      "capacidad_aceite_litros": "34.0 (Aproximadamente)",
+      "intervalo_cambio_km": "25000 - 30000 (15000 - 18000 millas)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.356 (0.014 in)",
+      "escape_mm": "0.686 (0.027 in)",
+      "freno_motor_mm": "0.610 (0.024 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "Convencional de baja silicato"
+    },
+    "notas_mantenimiento": "La fiabilidad se debe a su diseño simple de culata. La calibración de válvulas y frenos de motor es crucial para el rendimiento y la vida útil de los inyectores unitarios."
+  }
+},
+{
+  "motor_id": "CUMMINS_N14",
+  "nombre_modelo": "Cummins N14 (Incluye N14 Plus, CELECT y CELECT Plus)",
+  "aplicacion_principal": "Camiones Pesados de Larga Distancia (Clase 8), Minería, Generación de Energía, Aplicaciones Marinas",
+  "periodo_produccion": "Clásico / Transición Electrónica (Finales de los 80 - 2000)",
+  "sucesor": "Cummins ISX / X15",
+  "predecesor": "Cummins 855 Big Cam",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 14.0,
+    "cilindrada_pulgadas_cubicas": 855,
+    "diseno": "Bloque de hierro fundido extremadamente robusto, diseño de baja fricción y alto flujo de aceite.",
+    "diametro_carrera_mm": "140 x 152",
+    "relacion_compresion": "17.0:1 a 18.5:1 (Varía por versión)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "orden_encendido": "1-5-3-6-2-4",
+    "peso_seco_kg": "1270 - 1300",
+    "sistema_combustible": "Cummins PT (Pressure-Time) en versiones STC; Inyectores Unitarios Electrónicos en versiones CELECT/CELECT Plus",
+    "sistema_aspiracion": "Turbocargador e Intercooler (Aftercooler)",
+    "sistema_control": "Mecánico (STC) o Electrónico (ECM CELECT / CELECT Plus)",
+    "notas_diseno": "Famoso por su durabilidad antes de requerir reacondicionamiento (Overhaul)."
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "310 - 525 hp (El N14 Plus llega hasta 525 hp)",
+    "rango_potencia_kw": "231 - 391 kW",
+    "rango_torque_nm": "1695 - 2000 N•m",
+    "rango_torque_lb_ft": "1250 - 1475 lb-ft",
+    "torque_maximo_rpm": "1200 - 1400 RPM",
+    "velocidad_maxima_rpm": "2100 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CH-4 / CI-4",
+      "capacidad_aceite_litros": "38 - 42",
+      "intervalo_cambio_km": "24000 - 30000 (15000 - 18000 millas)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.36 (0.014 in)",
+      "escape_mm": "0.69 (0.027 in)",
+      "freno_motor_mm": "0.61 (0.024 in)"
+    },
+    "sistema_refrigeracion": {
+      "capacidad_motor_litros": 18.9,
+      "rango_termostato": "82 a 93°C"
+    },
+    "notas_mantenimiento": "La correcta calibración del freno de motor y la holgura de las válvulas es esencial en este diseño de inyector unitario."
+  }
+},{
+  "motor_id": "CUMMINS_ISM_10.8",
+  "nombre_modelo": "Cummins ISM / M11 (Intermediate System M)",
+  "aplicacion_principal": "Camiones Pesados (Tractocamiones de flota, Volteo, Regional), Autobuses de Lujo, Equipos de Construcción y Minería",
+  "periodo_produccion": "ISM (1998 - 2010); M11 (1994 - 1998)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 10.8,
+    "cilindrada_pulgadas_cubicas": 661,
+    "diseno": "Bloque robusto de hierro fundido. Diseño compacto y ligero para su clase, lo que mejora la relación peso-potencia.",
+    "diametro_carrera_mm": "125 x 147",
+    "relacion_compresion": "17.0:1 (Típico)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "950 - 1050 (Dependiendo de la configuración)",
+    "sistema_combustible": "Inyectores Unitarios Electrónicos (UEI) controlados por el sistema CELECT Plus",
+    "sistema_aspiracion": "Turbocargador (Fixed Geometry), Intercooler aire-aire",
+    "sistema_control": "ECM (Módulo de Control Electrónico) CELECT Plus",
+    "emisiones_certificacion": "EPA 98 / EPA 2002"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "280 - 450 hp",
+    "rango_potencia_kw": "209 - 336 kW",
+    "rango_torque_nm": "1356 - 1830 N•m",
+    "rango_torque_lb_ft": "1000 - 1350 lb-ft",
+    "torque_maximo_rpm": "1200 - 1400 RPM",
+    "velocidad_maxima_rpm": "2100 - 2200 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CH-4 / CI-4 (Para versiones pre-DPF)",
+      "capacidad_aceite_litros": "34.0 (Aproximadamente)",
+      "intervalo_cambio_km": "25000 - 30000 (15000 - 18000 millas)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.356 (0.014 in)",
+      "escape_mm": "0.686 (0.027 in)",
+      "freno_motor_mm": "0.610 (0.024 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "Convencional de baja silicato"
+    },
+    "notas_mantenimiento": "La calibración precisa de válvulas y el freno de motor es vital para el rendimiento, ya que los inyectores son operados por el tren de válvulas (Unit Injectors)."
+  }
+},{
+  "motor_id": "CUMMINS_ISX15_X15",
+  "nombre_modelo": "Cummins ISX15 / X15 (Interact System X)",
+  "aplicacion_principal": "Camiones Pesados de Larga Distancia (Clase 8), Transporte de Carga Pesada, Minería, Generación de Alta Potencia",
+  "periodo_produccion": "ISX15 (2007 - 2017); X15 (2017 en adelante)",
+  "sucesor": "Cummins X15 (Modelo actual)",
+  "predecesor": "Cummins N14 y ISM",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 15.0,
+    "cilindrada_pulgadas_cubicas": 915,
+    "diseno": "Bloque robusto de hierro fundido con culata de cuatro válvulas por cilindro. Uso intensivo de electrónica.",
+    "diametro_carrera_mm": "137 x 169",
+    "relacion_compresion": "18.9:1 (Aproximado, varía por versión)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "1270 - 1340",
+    "sistema_combustible": "HPCR (High Pressure Common Rail) para el X15; XPI (Xtra-Pressure Injection) para versiones anteriores",
+    "sistema_aspiracion": "Turbocargador VGT (Geometría Variable) Holset, Intercooler aire-aire",
+    "sistema_control": "ECM (Módulo de Control Electrónico) de Cummins",
+    "sistema_post_tratamiento": "EGR (Recirculación de Gases de Escape) + DPF (Filtro de Partículas Diésel) + SCR (Reducción Catalítica Selectiva con DEF/AdBlue)",
+    "emisiones_certificacion": "EPA 2010, EPA 2017, Euro VI"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "400 - 605 hp",
+    "rango_potencia_kw": "298 - 451 kW",
+    "rango_torque_nm": "1966 - 2779 N•m",
+    "rango_torque_lb_ft": "1450 - 2050 lb-ft",
+    "torque_maximo_rpm": "1000 - 1400 RPM (Zona óptima de rendimiento/eficiencia)",
+    "velocidad_maxima_rpm": "2000 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CK-4 / FA-4 (Bajo en ceniza)",
+      "capacidad_aceite_litros": "37.9 (40 US Quarts)",
+      "intervalo_cambio_km": "32000 - 80000 (Varía significativamente según la serie y análisis de aceite)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.356 (0.014 in)",
+      "escape_mm": "0.686 (0.027 in)",
+      "freno_motor_mm": "0.610 (0.024 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_mantenimiento": "La gestión térmica y el mantenimiento adecuado del sistema de post-tratamiento (DPF y SCR) son críticos para la vida útil. El motor utiliza un freno de compresión (Jacobs Brake)."
+  }
+},{
+  "motor_id": "CUMMINS_X15_PERFORMANCE",
+  "nombre_modelo": "Cummins X15 Performance Series",
+  "aplicacion_principal": "Camiones Pesados de Máximo Desempeño (Tractocamiones), Transporte de Carga Super Pesada, Camiones Cisterna y Transporte de Líquidos",
+  "periodo_produccion": "Moderno (Desde 2017 hasta el presente)",
+  "sucesor": "Actual motor insignia de Cummins",
+  "predecesor": "Cummins ISX15",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 15.0,
+    "cilindrada_pulgadas_cubicas": 915,
+    "diseno": "Optimizado para la gestión térmica y el flujo de aire para manejar el aumento de potencia y torque.",
+    "diametro_carrera_mm": "137 x 169",
+    "relacion_compresion": "18.9:1",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "1270 - 1340",
+    "sistema_combustible": "HPCR (High Pressure Common Rail)",
+    "sistema_aspiracion": "Turbocargador VGT (Geometría Variable) Holset, optimizado para alto flujo",
+    "sistema_control": "ECM (Módulo de Control Electrónico) de Cummins",
+    "sistema_post_tratamiento": "EGR (Recirculación de Gases de Escape) + DPF + SCR (Reducción Catalítica Selectiva)",
+    "freno_motor": "Freno de Compresión (Jacobs Brake) integrado, hasta 600 HP de potencia de frenado."
+  },
+  "rendimiento_potencia_torque": {
+    "serie": "Performance Series (Optimizado para alto rendimiento)",
+    "rango_potencia_hp": "525 - 605 hp",
+    "rango_potencia_kw": "391 - 451 kW",
+    "rango_torque_nm": "2237 - 2779 N•m",
+    "rango_torque_lb_ft": "1650 - 2050 lb-ft",
+    "torque_maximo_rpm": "1000 - 1400 RPM",
+    "velocidad_maxima_rpm": "2000 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "CK-4 (Bajo en ceniza)",
+      "capacidad_aceite_litros": "37.9 (40 US Quarts)",
+      "intervalo_cambio_km": "32000 - 80000 (Sujeto a análisis de aceite y aplicación)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.356 (0.014 in)",
+      "escape_mm": "0.686 (0.027 in)",
+      "freno_motor_mm": "0.610 (0.024 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    }
+  }
+},{
+  "motor_id": "CUMMINS_X10_NUEVO",
+  "nombre_modelo": "Cummins X10 (Nuevo)",
+  "aplicacion_principal": "Camiones Regionales (Clase 7 y ligera Clase 8), Camiones Vocacionales (Volteo, Construcción), Autobuses Interurbanos y de Tránsito",
+  "periodo_produccion": "Anunciado para 2026 (Cumplimiento de EPA 2027)",
+  "sucesor": "Reemplazará al L9/ISL en la plataforma de próxima generación",
+  "predecesor": "Cummins L9 / ISL 9",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea",
+    "cilindrada_litros": 10.0,
+    "cilindrada_pulgadas_cubicas": 610,
+    "diseno": "Arquitectura moderna de combustible independiente, diseño ligero y compacto. Formará parte de la familia 'Cummins-Helios' de motores de combustión independiente de combustible.",
+    "diametro_carrera_mm": "Información detallada no publicada (Optimizado para la eficiencia)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "-",
+    "sistema_combustible": "HPCR (High Pressure Common Rail)",
+    "sistema_aspiracion": "Turbocargador, Intercooler",
+    "sistema_control": "ECM (Módulo de Control Electrónico) de Cummins de próxima generación",
+    "sistema_post_tratamiento": "Sistema integrado de Cummins para cumplimiento EPA 2027",
+    "emisiones_certificacion": "Diseñado para cumplir con la EPA 2027"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "310 - 450 hp (Información provisional)",
+    "rango_potencia_kw": "231 - 336 kW",
+    "rango_torque_nm": "1356 - 1900 N•m",
+    "rango_torque_lb_ft": "1000 - 1400 lb-ft",
+    "torque_maximo_rpm": "1200 - 1500 RPM",
+    "velocidad_maxima_rpm": "2100 - 2200 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "Próxima generación (Estará optimizado para intervalos de servicio prolongados)",
+      "intervalo_cambio_km": "Diseñado para intervalos más largos que el L9 (Información detallada pendiente)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "Información detallada pendiente",
+      "escape_mm": "Información detallada pendiente"
+    },
+    "notas_tecnicas": "Cummins lo posiciona como parte de una plataforma de motor que también tendrá versiones de gas natural, hidrógeno y celda de combustible."
+  }
+},{
+  "motor_id": "CUMMINS_K19",
+  "nombre_modelo": "Cummins K19 / KTA19",
+  "aplicacion_principal": "Minería (Camiones de Acarreo, Perforadoras), Generación de Energía, Propulsión y Auxiliares Marinos, Ferrocarriles",
+  "periodo_produccion": "Clásico / Larga duración (Iniciado en la década de 1970, aún en uso y actualizado a QSK19)",
+  "sucesor_electronico": "Cummins QSK19 (Quantum System K)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea, Bloque Grande (Big Block)",
+    "cilindrada_litros": 19.0,
+    "cilindrada_pulgadas_cubicas": 1150,
+    "diseno": "Bloque de hierro fundido de una sola pieza, diseño de inyección mecánica robusto.",
+    "diametro_carrera_mm": "159 x 159 (Relación cuadrada)",
+    "relacion_compresion": "13.8:1 - 15.0:1 (Varía por aplicación y turbo)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "1900 - 2200 (2 Toneladas, dependiendo de la configuración)",
+    "sistema_combustible": "Inyección Mecánica PT (Pressure-Time) de Cummins",
+    "sistema_aspiracion": "Aspiración Natural (K), Turbocargado (KT), o Twin Turbo/Aftercooled (KTA)",
+    "sistema_control": "Mecánico (Sin ECM en versiones clásicas)"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "450 - 700 hp (Varía significativamente por el sistema de inyección y turbo)",
+    "rango_potencia_kw": "336 - 522 kW",
+    "rango_torque_nm": "1800 - 2800 N•m",
+    "rango_torque_lb_ft": "1328 - 2065 lb-ft",
+    "torque_maximo_rpm": "1300 - 1500 RPM (Motor de bajo régimen y alta carga)",
+    "velocidad_maxima_rpm": "1800 - 2100 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_tipo": "SAE 15W-40 (Heavy Duty)",
+      "capacidad_aceite_litros": "Aproximadamente 45 - 50",
+      "intervalo_mantenimiento": "250 - 500 horas de operación"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.36 (0.014 in)",
+      "escape_mm": "0.69 (0.027 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "Convencional de baja silicato"
+    },
+    "notas_mantenimiento": "La bomba de combustible PT requiere ajustes de presión y tiempo (timing) periódicos. Es el primer motor de Cummins en la línea de 'Grandes Motores' que conduce a la serie QSK."
+  }
+},{
+  "motor_id": "CUMMINS_QSK19",
+  "nombre_modelo": "Cummins QSK19 (Quantum System K)",
+  "aplicacion_principal": "Minería (Perforadoras, Cargadoras), Generación de Energía de Alto Rendimiento (1000-1500 kW), Propulsión y Auxiliares Marinos (Clase Alta)",
+  "periodo_produccion": "Moderno (Desde principios de la década de 2000 hasta el presente)",
+  "predecesor": "Cummins K19 (Versión mecánica)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "6 cilindros en línea, Bloque Grande (Heavy-Duty)",
+    "cilindrada_litros": 19.0,
+    "cilindrada_pulgadas_cubicas": 1150,
+    "diseno": "Bloque robusto, incorpora sistemas de inyección de alta presión y electrónica avanzada para un control preciso de la combustión.",
+    "diametro_carrera_mm": "159 x 159",
+    "relacion_compresion": "14.5:1 (Típico, puede variar)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 24,
+    "peso_seco_kg": "2100 - 2500 (Varía significativamente con el equipo auxiliar)",
+    "sistema_combustible": "HPCR (High Pressure Common Rail) o MCRS (Modular Common Rail System), controlados electrónicamente",
+    "sistema_aspiracion": "Doble Turbocargador (Twin Turbo), Intercooler Aire-Aire o Aire-Agua (Marino)",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "Incluye tecnologías para Tier 4 Final / IMO Tier III, a menudo con SCR y filtración de partículas.",
+    "emisiones_certificacion": "EPA Tier 4 Final, IMO Tier II/III, EU Stage V"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "550 - 800 hp (Varía significativamente entre aplicaciones)",
+    "rango_potencia_kw": "410 - 597 kW",
+    "rango_torque_nm": "2400 - 3300 N•m",
+    "rango_torque_lb_ft": "1770 - 2434 lb-ft",
+    "torque_maximo_rpm": "1400 - 1800 RPM",
+    "velocidad_maxima_rpm": "1800 - 2100 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CI-4 / CK-4 (Según el nivel de emisiones)",
+      "capacidad_aceite_litros": "Aproximadamente 68 - 75",
+      "intervalo_mantenimiento": "500 horas de operación (Estándar para HHP)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.36 (0.014 in)",
+      "escape_mm": "0.69 (0.027 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_tecnicas": "El sistema Quantum permite el control avanzado de la máquina, y los inyectores de alta presión mejoran la eficiencia en el consumo de combustible."
+  }
+},{
+  "motor_id": "CUMMINS_QST30",
+  "nombre_modelo": "Cummins QST30 (Quantum System T)",
+  "aplicacion_principal": "Minería de Gran Escala (Camiones de Acarreo, Palas Hidráulicas), Generación de Energía Crítica, Propulsión Marina de Alta Potencia",
+  "periodo_produccion": "Moderno (Desde principios de la década de 2000 hasta el presente)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "12 cilindros en V",
+    "cilindrada_litros": 30.0,
+    "cilindrada_pulgadas_cubicas": 1831,
+    "diseno": "Motor V12 robusto, diseñado para cargas constantes y ciclos de trabajo extremos (alta potencia y alta demanda).",
+    "diametro_carrera_mm": "140 x 165",
+    "relacion_compresion": "14.5:1 (Típico, puede variar)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 48,
+    "peso_seco_kg": "3400 - 3800 (Aproximadamente, dependiendo de los accesorios)",
+    "sistema_combustible": "Inyección Directa de Unit Injectors controlada electrónicamente (UEI), o HPCR en versiones más nuevas",
+    "sistema_aspiracion": "Doble Turbocargador (Twin Turbo), Intercooler",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "Varía por Tier/Stage; puede utilizar SCR para Tier 4 Final/Stage V",
+    "emisiones_certificacion": "EPA Tier 2 / Tier 4 Final, EU Stage IIIA / IV / V"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "760 - 1580 hp",
+    "rango_potencia_kw": "567 - 1178 kW",
+    "rango_torque_nm": "3500 - 6400 N•m",
+    "rango_torque_lb_ft": "2580 - 4720 lb-ft",
+    "torque_maximo_rpm": "1400 - 1800 RPM",
+    "velocidad_maxima_rpm": "1800 - 2100 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CI-4 / CK-4 (Según el requisito de emisiones)",
+      "capacidad_aceite_litros": "Aproximadamente 95 - 110",
+      "intervalo_mantenimiento": "500 horas de operación"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.35 (0.014 in)",
+      "escape_mm": "0.69 (0.027 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_tecnicas": "El QST30 utiliza un diseño en V para manejar una cilindrada tan grande de manera compacta. Los inyectores unitarios electrónicos son clave en las versiones Tier 2."
+  }
+},{
+  "motor_id": "CUMMINS_QSK45",
+  "nombre_modelo": "Cummins QSK45 (Quantum System K)",
+  "aplicacion_principal": "Minería (Camiones de Acarreo y Palas), Generación de Energía de Gran Escala, Propulsión Marina",
+  "periodo_produccion": "Moderno (Desde principios de los 2000 hasta el presente)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "12 cilindros en V",
+    "cilindrada_litros": 45.0,
+    "cilindrada_pulgadas_cubicas": 2746,
+    "diseno": "Motor V12 robusto, diseñado para cargas constantes y servicio continuo. Forma parte de la plataforma Quantum (QSK).",
+    "diametro_carrera_mm": "159 x 190",
+    "relacion_compresion": "14.5:1 (Típico)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 48,
+    "peso_seco_kg": "4500 - 5000 (Aproximadamente, varía según el equipo auxiliar)",
+    "sistema_combustible": "MCRS (Modular Common Rail System) o Inyectores Unitarios Electrónicos",
+    "sistema_aspiracion": "Turbocargador Múltiple (Generalmente 4 turbos), Intercooler",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "Incluye DOC/SCR para cumplir con Tier 4 Final/Stage V, dependiendo de la aplicación.",
+    "emisiones_certificacion": "EPA Tier 4 Final, EU Stage V"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "1000 - 2700 hp",
+    "rango_potencia_kw": "746 - 2013 kW",
+    "rango_torque_nm": "5000 - 11000 N•m",
+    "rango_torque_lb_ft": "3688 - 8113 lb-ft",
+    "torque_maximo_rpm": "1400 - 1800 RPM",
+    "velocidad_maxima_rpm": "1800 - 2100 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CI-4 / CK-4",
+      "capacidad_aceite_litros": "Aproximadamente 170 - 190",
+      "intervalo_mantenimiento": "500 horas de operación"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.36 (0.014 in)",
+      "escape_mm": "0.69 (0.027 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_tecnicas": "El QSK45 utiliza tecnologías de punta para reducir las emisiones sin sacrificar la durabilidad en los entornos más duros del planeta."
+  }
+},{
+  "motor_id": "CUMMINS_QSK60",
+  "nombre_modelo": "Cummins QSK60 (Quantum System K)",
+  "aplicacion_principal": "Minería (Camiones de Acarreo Ultra Pesados, Palas), Perforación de Petróleo y Gas, Locomotoras, Generación de Energía de Alta Capacidad (2.5-3.5 MW)",
+  "periodo_produccion": "Moderno (Desde principios de los 2000 hasta el presente)",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "16 cilindros en V",
+    "cilindrada_litros": 60.0,
+    "cilindrada_pulgadas_cubicas": 3661,
+    "diseno": "Motor V16 masivo con arquitectura Quantum para control electrónico avanzado y durabilidad extrema.",
+    "diametro_carrera_mm": "159 x 190",
+    "relacion_compresion": "14.5:1 (Típico)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 64,
+    "peso_seco_kg": "7500 - 9000 (Aproximadamente 7.5 a 9 toneladas)",
+    "sistema_combustible": "MCRS (Modular Common Rail System) de Alta Presión o Inyectores Unitarios Electrónicos",
+    "sistema_aspiracion": "Turbocargador Múltiple (Generalmente 4 turbos para motores marinos e industriales), Intercooler",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "Varía; modelos Tier 4 Final/Stage V utilizan una combinación de tecnologías avanzadas para las emisiones.",
+    "emisiones_certificacion": "EPA Tier 4 Final, EU Stage V"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "1800 - 2700 hp (Potencias más altas en aplicaciones marinas y de perforación)",
+    "rango_potencia_kw": "1342 - 2013 kW",
+    "rango_torque_nm": "7000 - 12000 N•m",
+    "rango_torque_lb_ft": "5163 - 8851 lb-ft",
+    "torque_maximo_rpm": "1400 - 1800 RPM",
+    "velocidad_maxima_rpm": "1800 - 2100 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CI-4 / CK-4 (Según el nivel de emisiones)",
+      "capacidad_aceite_litros": "Aproximadamente 270 - 300",
+      "intervalo_mantenimiento": "500 horas de operación (Estándar para HHP)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "0.36 (0.014 in)",
+      "escape_mm": "0.69 (0.027 in)"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_tecnicas": "El control de emisiones Tier 4 Final/Stage V utiliza una combinación de MCRS y tecnología de post-tratamiento para mantener la potencia mientras cumple con las normativas."
+  }
+},{
+  "motor_id": "CUMMINS_QSK95",
+  "nombre_modelo": "Cummins QSK95 (Quantum System K - High Horsepower)",
+  "aplicacion_principal": "Locomotoras Diésel de Alta Potencia, Generación de Energía de Utilidad (Centrales Eléctricas y de Reserva), Minería de Ultra Gran Escala",
+  "periodo_produccion": "Moderno (Lanzado en 2011, en producción)",
+  "posicion_mercado": "El motor diésel de alta potencia más grande de la compañía",
+  "images": ["https://www.cummins.com/es/sites/default/files/styles/product_display/public/2018-08/isx15-2013-heavy-duty-truck.png?itok=FUuCYMV7"],
+
+  "especificaciones_generales": {
+    "tipo_motor": "Ciclo Diésel de 4 Tiempos",
+    "configuracion": "16 cilindros en V (V16)",
+    "cilindrada_litros": 95.0,
+    "cilindrada_pulgadas_cubicas": 5797,
+    "diseno": "Motor V16 de bloque grande, incorpora el sistema MCRS para un control de inyección sin precedentes y durabilidad.",
+    "diametro_carrera_mm": "190 x 210",
+    "relacion_compresion": "Información detallada no publicada (Optimizado para inyección MCRS)",
+    "valvulas_por_cilindro": 4,
+    "valvulas_totales": 64,
+    "peso_seco_kg": "13500 - 16000 (Aproximadamente 13.5 a 16 toneladas)",
+    "sistema_combustible": "MCRS (Modular Common Rail System) de Alta Presión",
+    "sistema_aspiracion": "Turbocargador Múltiple (Generalmente 4 turbos), Intercooler",
+    "sistema_control": "ECM (Módulo de Control Electrónico) Quantum System",
+    "sistema_post_tratamiento": "SCR de alta eficiencia y filtración avanzada para Tier 4 Final y Stage V.",
+    "emisiones_certificacion": "EPA Tier 4 Final, EU Stage V"
+  },
+  "rendimiento_potencia_torque": {
+    "rango_potencia_hp": "3800 - 5200 hp",
+    "rango_potencia_kw": "2834 - 3878 kW",
+    "rango_torque_nm": "16000 - 22000 N•m",
+    "rango_torque_lb_ft": "11800 - 16226 lb-ft",
+    "torque_maximo_rpm": "1500 - 1800 RPM",
+    "velocidad_maxima_rpm": "1800 - 2100 RPM"
+  },
+  "datos_mantenimiento_y_ajustes": {
+    "lubricacion": {
+      "aceite_recomendado_norma": "API CK-4",
+      "capacidad_aceite_litros": "Aproximadamente 350 - 400",
+      "intervalo_mantenimiento": "500 - 1000 horas (Varía por aplicación)"
+    },
+    "calibracion_valvulas_frio": {
+      "admision_mm": "Información detallada pendiente",
+      "escape_mm": "Información detallada pendiente"
+    },
+    "sistema_refrigeracion": {
+      "tipo_refrigerante": "OAT o NOAT"
+    },
+    "notas_tecnicas": "El QSK95 es conocido por su alta densidad de potencia, permitiendo el uso de un motor más pequeño donde antes se requerían motores más grandes y pesados de otras marcas."
   }
 }
     ]
