@@ -18,7 +18,7 @@ const initialData = {
   rpm: 500
 };
 
-let description = 'Enter the data and get the displacement or volume of your cylinder quickly and easily. The online tool to calculate the displacement of vehicle engines, calculate displacement of a motorcycle, calculate displacement of a car, calculate cc of a cylinder, cc calculator.';
+let description = 'Calculate engine displacement, volume, and capacity instantly with our free online Engine Calculator. Enter bore, stroke, and cylinder count to get precise results in seconds. Perfect for mechanics, engineers, students, and automotive enthusiasts.';
 
 export default function EngineDisplacementCalculator() {
   const [calcular, setCalcular] = useState(initialData);
@@ -108,7 +108,7 @@ export default function EngineDisplacementCalculator() {
       title={'Engine Displacement Calculator - CC Calculator Online'} 
       description={description} 
       image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} 
-      keywords={'Cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle, cc calculator, cc engine calculator'} 
+      keywords={'Cylinder displacement calculator,calculate engine displacement,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder displacement calculator,cylinder volume calculator,cylinder volume calculator,cylinder area calculator,cylinder volume formula,formula to calculate the volume of a cylinder,cylinder volume with diameter,calculate cylinder displacement of a motorcycle, cc calculator, cc engine calculator'} 
       url={router?.asPath} 
       visibleNavbar={false}
     >
@@ -120,7 +120,7 @@ export default function EngineDisplacementCalculator() {
               Engine Displacement Calculator 
             </h1>
             <p className="text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
-              Calculate the displacement of your motorcycle, car or engine. Enter your data in millimeters with a comma (80.5).
+              Calculate engine displacement. Enter your data in millimeters with a comma (80.5).
             </p>
           </div>
 
@@ -216,7 +216,7 @@ export default function EngineDisplacementCalculator() {
           {/* Animation Section */}
           <div className="mb-32" ref={ref}>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
-              <h2 className="text-2xl font-semibold text-gray-900">Animation</h2>
+              <h5 className="text-2xl font-semibold text-gray-900">Animation</h5>
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-3">
                   <label className="text-sm font-medium text-gray-600">RPM</label>
@@ -483,10 +483,13 @@ export default function EngineDisplacementCalculator() {
               Engine Displacement Calculator
             </h3>
             <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
-              Engine Displacement
+              engine size calculator
             </h3>
             <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
-              Engine CC Calculator
+              volume cylinder calculator
+            </h3>
+            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
+              engine capacity calculator
             </h3>
           </div>
         </div>
