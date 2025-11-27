@@ -66,6 +66,16 @@
   padding: 8px 0;
   gap: 40px
 }
+.containerListTalleres2 {
+  width: 70%;
+  margin: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 8px 0;
+  gap: 40px
+}
 .containerMapHome{
   position: sticky;
   top: 20px;
@@ -562,7 +572,9 @@ flex-direction: column;
   .containerListTalleres {
     width: 80%;
   }
-
+.containerListTalleres2 {
+    width: 80%;
+  }
   .containerGrowth {
     width: 90%;
     padding: 80px 0;
@@ -642,7 +654,9 @@ flex-direction: column;
     padding: 20px;
     width: 100%;
   }
-
+  .containerListTalleres2 {
+    width: 100%;
+  }
   .containerVariedadTalleres {
     gap: 48px
   }

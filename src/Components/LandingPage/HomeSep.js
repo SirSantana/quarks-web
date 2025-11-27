@@ -20,7 +20,7 @@ export default function HomeSep() {
       <SectionFixedServicios home={true} />
       <section style={{ paddingTop: '24px', backgroundColor: '#EDEDF2', maxWidth: '100%', width: '100vw', marginTop: '32px' }}  >
         {/* <MenuSelectsFilter setIsLoading={setIsLoading}/> */}
-        <div className={styles2.containerListTalleres}>
+        <div className={styles2.containerListTalleres2}>
           <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
             <p style={{ fontSize: '14px', fontWeight: '500', color: '#6C788E' }}>Se encontraron +100 talleres mecanicos cerca a mi en Bogota</p>
             <Button className={'mobileButton'} onClick={() => setMapa(!mapa === true)} variant={ButtonVariant.outlined} style={{ margin: 0 }} size="sm">{mapa ? 'Listado' : 'Mapa'}</Button>

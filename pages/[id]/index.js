@@ -166,7 +166,7 @@ export default function NegocioVDos({ data, loading }) {
       ads={false}
     >
       <section className="w-full max-w-6xl mx-auto px-4 py-6 sm:px-6 sm:py-8">
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 lg:p-10">
+      <div className="bg-white rounded-2xl  p-6 sm:p-8 lg:p-10">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-8">
           {/* Profile Info */}
