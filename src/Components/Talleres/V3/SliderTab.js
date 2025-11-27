@@ -1,86 +1,98 @@
 
-import styles from '@/styles/Negocio.module.css'
-import { useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { MapPin, Award, Clock, MessageCircle, Star, HelpCircle, FileText } from 'lucide-react';
 
-let tabs = ['Ubicacion','Servicios',  'Horario','Redes Sociales', 'Acerca de',  'Reseñas', ];
-// export default function SliderTab({ handleChangeSection, refs, desktop}) {
-//   const [activeTab, setActiveTab] = useState(-1); // Estado para mantener la pestaña activa
-//   const [disableClick, setDisableClick] = useState(false);
-//   const settings = {
-//     horizontal: true,
-//     infinite: false,
-//     speed: 500,
-//     slidesToShow: 1,
-//     slidesToScroll: 2,
-//     variableWidth: true,
-//     arrows: false,
-//     onSwipe: () => {
-//       // Cuando se inicia el desplazamiento, desactivar el clic
-//       setDisableClick(true);
-//     },
-//     afterChange: () => {
-//       // Cuando finaliza el desplazamiento, volver a habilitar el clic
-//       setDisableClick(false);
-//     },
-//   };
-//   const handleTabClick = (index) => {
-//     if (disableClick) {
-//       // Si el clic está desactivado, no hacer nada
-//       return;
-//     }
-//     setActiveTab(index);
-//     const refss = [refs.refServicios, refs.mapSectionRef, refs.refHorarios,refs.refRedes,  refs.refAcercaDe,refs.refReseñas,  ];
-//     handleChangeSection({ ref: refss[index] });
-//   };
+export default function SliderTab ({ sections })  {
+const [activeSection, setActiveSection] = useState('ubicacion');
+  const [isScrolled, setIsScrolled] = useState(false);
+  const scrollContainerRef = useRef(null);
 
-//   return (
-//     <div className={desktop?styles.containerSliderTabDesktop:styles.containerSliderTab} >
-//       <Slider className={styles.sliderTab} {...settings}>
-//         {tabs.map((el, index) => (
-//           <div key={index} className={index === activeTab ? styles.activeTab : styles.tab}>
-//             <h3
-//               className={index === activeTab ? styles.activeTextTab : styles.textTab}
-//               onClick={() => handleTabClick(index)}
-//               style={{ fontSize: "14px", fontWeight: "500", lineHeight: "1.1", overflow: "hidden", textOverflow: "ellipsis", textAlign: 'center' }}
-//             >
-//               {el}
-//             </h3>
-//           </div>
-//         ))}
-//       </Slider>
-//     </div>
-//   );
-// };
+  // Detectar scroll para agregar sombra
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100);
+    };
 
-export default function SliderTab({ handleChangeSection, refs, desktop }) {
-  const [activeTab, setActiveTab] = useState(0); // Estado para la pestaña activa
-  const sliderRef = useRef(null); // Referencia para el contenedor del carrusel
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const handleTabClick = (index) => {
-    setActiveTab(index);
-    const refss = [
-       refs.mapSectionRef,refs.refServicios, refs.refHorarios, 
-      refs.refRedes, refs.refAcercaDe, refs.refReseñas
-    ];
-    handleChangeSection({ ref: refss[index] });
-   
+  // Smooth scroll a la sección
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Altura del navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      setActiveSection(sectionId);
+    }
   };
 
+  // Iconos para cada sección
+  const getIcon = (id) => {
+    const icons = {
+      ubicacion: MapPin,
+      servicios: Award,
+      horarios: Clock,
+      contacto: MessageCircle,
+      resenas: Star,
+      preguntas: HelpCircle,
+      acerca: FileText
+    };
+    return icons[id] || Award;
+  };
 
   return (
-    <div className={styles.containerSliderTab}>
-      <div className={styles.sliderTab} ref={sliderRef}>
-        {tabs.map((el, index) => (
-          <div key={index} className={index === activeTab ? styles.activeTab : styles.tab}>
-            <h3
-              className={index === activeTab ? styles.activeTextTab : styles.textTab}
-              onClick={() => handleTabClick(index)}
-            >
-              {el}
-            </h3>
-          </div>
-        ))}
+    <nav 
+      className="sticky top-0 z-50 bg-white border-b border-gray-200"
+    >
+      <div className="lg:max-w-7xl lg:mx-auto lg:px-6">
+        <div 
+          ref={scrollContainerRef}
+          className="flex gap-2 py-3 overflow-x-auto scrollbar-hide px-4 lg:px-0"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch'
+          }}
+        >
+          {sections.map((section) => {
+            const Icon = getIcon(section.id);
+            const isActive = activeSection === section.id;
+            
+            return (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={`
+                  inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm
+                  transition-all duration-200 whitespace-nowrap shrink-0
+                  ${isActive 
+                    ? 'bg-[#407BFF] text-white shadow-lg shadow-[#407BFF]/30' 
+                    : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  }
+                `}
+              >
+                <Icon size={18} className={isActive ? 'text-white' : 'text-gray-500'} />
+                <span>{section.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
-    </div>
+
+      {/* CSS para ocultar scrollbar */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+    </nav>
   );
-}
+};
