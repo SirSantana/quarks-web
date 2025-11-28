@@ -306,7 +306,7 @@ export default function NegocioVDos({ data, loading }) {
                       </p>
                     </div>
                   </div>
-<AIAssistantBubble tallerName="TALLER MEKAUTOS" />
+{/* <AIAssistantBubble tallerName="TALLER MEKAUTOS" /> */}
                   {/* Button to open in Maps */}
                   {data?.urltallermaps && (
                     <a

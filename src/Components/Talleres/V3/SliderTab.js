@@ -50,7 +50,7 @@ const [activeSection, setActiveSection] = useState('ubicacion');
 
   return (
     <nav 
-      className="sticky top-0 z-50 bg-white border-b border-gray-200"
+      className="sticky  top-0 z-2 bg-white border-b border-gray-200"
     >
       <div className="lg:max-w-7xl lg:mx-auto lg:px-6">
         <div 
