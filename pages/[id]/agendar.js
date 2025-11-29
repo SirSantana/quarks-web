@@ -252,7 +252,7 @@ export default function BookingPage({ data: taller }) {
                       name="marca"
                       value={formData.marca}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none "
+                      className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg  "
                       required
                     >
                       <option value="">Selecciona la marca</option>
@@ -290,7 +290,7 @@ export default function BookingPage({ data: taller }) {
                   name="servicios"
                   value={formData.servicios}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none "
+                  className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg  "
                   required
                 >
                   <option value="">Selecciona un servicio</option>
@@ -324,7 +324,7 @@ export default function BookingPage({ data: taller }) {
                 <label className="text-base font-semibold text-gray-900 mb-4 block">
                   Información de contacto
                 </label>
-                <div>
+                <div className="w-full">
                   <label className="flex items-center gap-2 text-xs text-gray-600 mb-2">
                     <Phone className="w-3.5 h-3.5" />
                     Teléfono celular
@@ -334,7 +334,7 @@ export default function BookingPage({ data: taller }) {
                       name="indicativo"
                       value={formData.indicativo || "+57"}
                       onChange={handleChange}
-                      className="px-3 py-3 pr-8 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none "
+                      className="px-3 py-3 pr-8 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg  "
                     >
                       <option value="+57">🇨🇴 +57</option>
                       <option value="+58">🇻🇪 +58</option>
