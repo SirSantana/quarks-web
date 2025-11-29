@@ -55,12 +55,41 @@ export default function BookingPage({ data: taller }) {
   ];
 
   const marcasVehiculos = [
-    'Audi', 'BMW', 'Chery', 'Chevrolet', 'Citroën', 'Fiat', 'Ford',
-    'Great Wall', 'Haval', 'Honda', 'Hyundai', 'Isuzu', 'JAC', 'Jeep',
-    'Kia', 'Land Rover', 'Mazda', 'Mercedes-Benz', 'MG', 'Mini',
-    'Mitsubishi', 'Nissan', 'Peugeot', 'Porsche', 'Renault', 'Seat',
-    'Skoda', 'SsangYong', 'Subaru', 'Suzuki', 'Tesla', 'Toyota',
-    'Volkswagen', 'Volvo', 'Otra'
+    "Audi",
+    "BMW",
+    "Chery",
+    "Chevrolet",
+    "Citroën",
+    "Fiat",
+    "Ford",
+    "Great Wall",
+    "Haval",
+    "Honda",
+    "Hyundai",
+    "Isuzu",
+    "JAC",
+    "Jeep",
+    "Kia",
+    "Land Rover",
+    "Mazda",
+    "Mercedes-Benz",
+    "MG",
+    "Mini",
+    "Mitsubishi",
+    "Nissan",
+    "Peugeot",
+    "Porsche",
+    "Renault",
+    "Seat",
+    "Skoda",
+    "SsangYong",
+    "Subaru",
+    "Suzuki",
+    "Tesla",
+    "Toyota",
+    "Volkswagen",
+    "Volvo",
+    "Otra",
   ];
 
   const getDisplayDate = (dateValue) => {
@@ -334,11 +363,12 @@ export default function BookingPage({ data: taller }) {
                       name="indicativo"
                       value={formData.indicativo || "+57"}
                       onChange={handleChange}
-                      className="px-3 py-3 pr-8 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg  "
+                      className="px-3 py-3 pr-8 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg w-24"
                     >
                       <option value="+57">🇨🇴 +57</option>
                       <option value="+58">🇻🇪 +58</option>
                     </select>
+
                     <input
                       type="tel"
                       name="celular"
@@ -386,7 +416,9 @@ export default function BookingPage({ data: taller }) {
                   {taller?.promediocalificacionesmaps > 0 && (
                     <div className="flex gap-1 mt-1">
                       <div className="flex gap-0.5">
-                        {renderStars(Number(taller?.promediocalificacionesmaps))}
+                        {renderStars(
+                          Number(taller?.promediocalificacionesmaps)
+                        )}
                       </div>
                       <span className="font-medium text-gray-900 text-base">
                         {taller?.promediocalificacionesmaps}
