@@ -1,11 +1,17 @@
 
 
 const sendWhatsappMessage = ({ numero, path = null, text }) => {
-  let url = `https://api.whatsapp.com/send?phone=57${numero}`;
-  url += `&text=${encodeURI(text ? text : `Buen dia, encontre su taller en https://quarks.com.co${path}, tengo el siguiente problema...`)}&app_absent=0`
-  window.open(url);
-}
+  const mensaje = text
+    ? text
+    : `Buen día, encontré su taller en https://quarks.com.co${path}, tengo el siguiente problema...`;
 
+  // QUITAR TODO LO QUE NO SEA NÚMEROS
+  const cleanNumber = String(numero).replace(/\D/g, '');
+
+  let url = `https://wa.me/57${cleanNumber}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url);
+};
 export const removeAccents=(str)=> {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 }
