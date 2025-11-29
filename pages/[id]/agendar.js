@@ -369,7 +369,7 @@ export default function BookingPage({ data: taller }) {
                       <option value="+58">🇻🇪 +58</option>
                     </select>
 
-                    <input
+                    {/* <input
                       type="tel"
                       name="celular"
                       value={formData.celular}
@@ -377,7 +377,7 @@ export default function BookingPage({ data: taller }) {
                       placeholder="300 123 4567"
                       className="flex-1 px-4 py-3 border border-gray-200 focus:outline-none focus:border-blue-500 transition-colors rounded-lg"
                       required
-                    />
+                    /> */}
                   </div>
                 </div>
               </div>
@@ -413,18 +413,17 @@ export default function BookingPage({ data: taller }) {
                   <h4 className="font-semibold text-gray-900 line-clamp-2 text-base">
                     {taller.nombre}
                   </h4>
-                  {taller?.promediocalificacionesmaps > 0 && (
+                   {taller?.promediocalificacionesmaps > 0 && (
                     <div className="flex gap-1 mt-1">
                       <div className="flex gap-0.5">
-                        {renderStars(
-                          Number(taller?.promediocalificacionesmaps)
-                        )}
+                        {renderStars(Number(taller?.promediocalificacionesmaps))}
                       </div>
-                      <span className="font-medium text-gray-900 text-base">
+                      <span className="font-medium text-gray-900 text-sm">
                         {taller?.promediocalificacionesmaps}
                       </span>
                     </div>
                   )}
+
                 </div>
               </div>
 
