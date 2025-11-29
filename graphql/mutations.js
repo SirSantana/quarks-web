@@ -98,8 +98,8 @@ mutation createOpinion($email:String, $descripcion:String, $idpregunta:ID,$calif
 }
 `
 export const CREATE_SOLICITUD_SERVICIO = gql`
-mutation createSolicitudServicio($descripcion:String,$almacen:ID, $nombre:String, $marca:String, $referencia:String, $servicios:[String], $celular:String,$indicativo:String){
-  createSolicitudServicio(input:{descripcion:$descripcion, almacen:$almacen, nombre:$nombre, marca:$marca, referencia:$referencia, servicios:$servicios, celular:$celular, indicativo:$indicativo})  
+mutation createSolicitudServicio($descripcion:String,$almacen:ID, $nombre:String,$date:String, $timeSlot:String, $marca:String, $referencia:String, $servicios:[String], $celular:String,$indicativo:String){
+  createSolicitudServicio(input:{descripcion:$descripcion, almacen:$almacen, nombre:$nombre, marca:$marca, referencia:$referencia, servicios:$servicios, celular:$celular, indicativo:$indicativo, timeSlot:$timeSlot, date:$date})  
 }
 `
 export const CREATE_ACCION = gql`

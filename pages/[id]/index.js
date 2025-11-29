@@ -4,15 +4,23 @@ import Layout from "@/src/Components/Layout";
 import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import styles from "@/styles/Negocio.module.css";
-import Image from "next/image";
 import dynamic from "next/dynamic";
-import SectionDataSeo from "@/src/Components/Talleres/V3/SectionDataSeo";
-import Button from "@/src/Components/Button/Button";
-import { getLatLng } from "@/utils/scripts";
+import sendWhatsappMessage, { getLatLng } from "@/utils/scripts";
 import { ModalImagePerfil } from "@/utils/Modales";
 import renderStars from "@/utils/renderStars";
-import { ExternalLink, MapPin } from "lucide-react";
-import AIAssistantBubble from "@/src/Components/Talleres/V3/AiAssitantBubble";
+import {
+  ExternalLink,
+  MapPin,
+  Clock,
+  Phone,
+  Globe,
+  MessageCircle,
+  Search,
+  CheckCircle2,
+  ArrowRight,
+} from "lucide-react";
+import ComparisonQuoteBanner from "@/src/Components/Talleres/V3/ComparissonQuoteBanner";
+import sendMessage from "@/utils/fetching";
 
 const RedesSociales = dynamic(
   () => import("@/src/Components/Talleres/RedesSociales"),
@@ -23,10 +31,12 @@ const SectionPreguntasFrecuentes = dynamic(
   () => import("@/src/Components/Talleres/V3/SectionPreguntasFrecuentes"),
   { ssr: false }
 );
+
 const SectionDescription = dynamic(
   () => import("@/src/Components/Talleres/V3/SectionDescription"),
   { ssr: false }
 );
+
 const Revisiones = dynamic(
   () => import("@/src/Components/Talleres/Revisiones"),
   { ssr: false }
@@ -36,6 +46,7 @@ const SectionCategorias = dynamic(
   () => import("@/src/Components/Talleres/V3/SectionCategorias"),
   { ssr: false }
 );
+
 const CardSolicitarServicio = dynamic(
   () => import("@/src/Components/Talleres/V3/CardSolicitarServicio"),
   { ssr: false }
@@ -45,13 +56,16 @@ const RecomiendasTaller = dynamic(
   () => import("@/src/Components/Talleres/RecomiendasTaller"),
   { ssr: false }
 );
+
 const SliderTab = dynamic(
   () => import("@/src/Components/Talleres/V3/SliderTab"),
   { ssr: false, loading: () => <div className={styles.skeletonSlider} /> }
 );
+
 const Horario = dynamic(() => import("@/src/Components/Talleres/V3/Horario"), {
   ssr: false,
 });
+
 const Reseñas = dynamic(() => import("@/src/Components/Talleres/Reseñas"), {
   ssr: false,
 });
@@ -60,26 +74,24 @@ const MapaUbicacion = dynamic(
   () => import("@/src/Components/Talleres/MapaUbicacion"),
   { ssr: false, loading: () => <div className={styles.skeletonMap} /> }
 );
+
 const MapaCobertura = dynamic(
   () => import("@/src/Components/Talleres/MapaBogotaCobertura"),
   { ssr: false, loading: () => <div className={styles.skeletonMap} /> }
 );
 
-const servicios = [
-  "Cambio de Aceite",
-  "Alineación y Balanceo",
-  "Revisión de frenos",
-  "Cambio de filtros",
-  "Reparación de suspensión",
-  "Revisión de batería",
-  "Diagnóstico electrónico",
-  "Cambio de llantas",
-];
+const SectionDataSeo = dynamic(
+  () => import("@/src/Components/Talleres/V3/SectionDataSeo"),
+  { ssr: false }
+);
+
 export default function NegocioVDos({ data, loading }) {
   const router = useRouter();
   const [visibleModalImage, setVisibleModalImage] = useState(false);
   const [visibleModalSolicitarServicio, setVisibleModalSolicitarServicio] =
     useState(false);
+  console.log(data);
+
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${
     data?.localidad
   }, ${data?.ciudad}. Consulta disponibilidad aqui o al ${data?.telefono} - ${
@@ -109,13 +121,9 @@ export default function NegocioVDos({ data, loading }) {
   const handleClickReseñasSection = () => {
     router.push(`${router.asPath}/crear-resena?ide=${data?.id}`);
   };
-  const handleChangeSection = ({ ref }) => {
-    if (!ref.current) {
-      return;
-    }
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
+
   const position = getLatLng({ data: data });
+
   const openModal = () => {
     router.push(`${router.asPath}?modalSolicitar=${data.id}`, undefined, {
       shallow: true,
@@ -123,7 +131,9 @@ export default function NegocioVDos({ data, loading }) {
     });
     setVisibleModalSolicitarServicio(true);
   };
-  console.log(data);
+  const handleCompareClick = () => {
+    router.push(`${router.asPath}/cotizar`);
+  };
   const sections = [
     { id: "ubicacion", label: "Ubicación" },
     { id: "servicios", label: "Servicios" },
@@ -133,7 +143,6 @@ export default function NegocioVDos({ data, loading }) {
     { id: "preguntas", label: "Preguntas" },
     { id: "acerca", label: "Acerca de" },
   ];
-  // if(loading){return <h1>Cargando...</h1>}
 
   return (
     <Layout
@@ -165,116 +174,142 @@ export default function NegocioVDos({ data, loading }) {
       visibleNavbar={false}
       ads={false}
     >
-      <section className="w-full max-w-6xl mx-auto px-4 py-6 sm:px-6 sm:py-8">
-      <div className="bg-white rounded-2xl  p-6 sm:p-8 lg:p-10">
-        {/* Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-8">
-          {/* Profile Info */}
-          <div className="flex flex-col sm:flex-row gap-5 sm:gap-6 flex-1">
-            {/* Profile Image */}
-            <div className="flex-shrink-0 mx-auto sm:mx-0">
-              <img
-                src={data?.fotoperfil}
-                alt={`${data?.nombre}`}
-                className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover cursor-pointer transition-transform duration-300 hover:scale-105 border border-gray-200"
-                onClick={() => setVisibleModalImage(true)}
-              />
-            </div>
-
-            {/* Info */}
-            <div className="flex-1 min-w-0 text-center sm:text-left">
-             <div className="inline-block bg-gray-100 border border-gray-200 text-gray-700 px-4 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider mb-3">
-                {data?.tipo == "Almacen"
-                  ? "Almacén de Autopartes"
-                  : data?.tipo == "Mecanico a Domicilio"
-                  ? "Mecánico a domicilio"
-                  : "Taller Mecánico"}{" "}
-                de {data?.vehiculo ? data?.vehiculo : "Carros"}
-              </div>
-              
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 tracking-tight leading-tight">
-                {data?.nombre}
-              </h1>
-              
-              <div className="flex items-start gap-2 text-gray-600 mb-3 justify-center sm:justify-start">
-                <span className="text-lg mt-0.5">📍</span>
-                <p className="text-sm sm:text-base font-medium">
-                  {data?.direccion}. {data?.ciudad}
-                </p>
+      {/* Hero Section */}
+      <section className="w-full bg-gradient-to-b from-gray-50 to-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+            {/* Left: Image and Basic Info */}
+            <div className="flex flex-col sm:flex-row gap-6 flex-1 w-full">
+              {/* Profile Image */}
+              <div className="flex-shrink-0 mx-auto sm:mx-0">
+                <img
+                  src={data?.fotoperfil}
+                  alt={`${data?.nombre}`}
+                  className="w-32 h-32 sm:w-36 sm:h-36 rounded-full object-cover cursor-pointer transition-all duration-300 hover:shadow-xl border-4 border-white shadow-lg"
+                  onClick={() => setVisibleModalImage(true)}
+                />
               </div>
 
-              {data?.promediocalificacionesmaps > 0 && (
-                <div className="flex items-center gap-2 text-sm sm:text-base justify-center sm:justify-start">
-                  <div className="flex gap-0.5 text-lg">
-                    {renderStars(Number(data?.promediocalificacionesmaps))}
-                  </div>
-                  <span className="font-semibold text-gray-900">
-                    {data?.promediocalificacionesmaps}
-                  </span>
-                  <span className="text-gray-500">
-                    ({data?.numerocalificacionesmaps || 1} reseñas)
-                  </span>
+              {/* Info */}
+              <div className="flex-1 min-w-0 text-center sm:text-left">
+                <div className="inline-block bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider mb-3">
+                  {data?.tipo == "Almacen"
+                    ? "Almacén de Autopartes"
+                    : data?.tipo == "Mecanico a Domicilio"
+                    ? "Mecánico a domicilio"
+                    : "Taller Mecánico"}
                 </div>
-              )}
+
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 leading-tight">
+                  {data?.nombre}
+                </h1>
+
+                <div className="flex items-start gap-2 text-gray-600 mb-4 justify-center sm:justify-start">
+                  <MapPin className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                  <p className="text-base font-medium">
+                    {data?.direccion}, {data?.ciudad}
+                  </p>
+                </div>
+
+                {data?.promediocalificacionesmaps > 0 && (
+                  <div className="flex items-center gap-3 justify-center sm:justify-start mb-4">
+                    <div className="flex gap-1">
+                      {renderStars(Number(data?.promediocalificacionesmaps))}
+                    </div>
+                    <span className="font-bold text-gray-900 text-lg">
+                      {data?.promediocalificacionesmaps}
+                    </span>
+                    <span className="text-gray-500 text-sm">
+                      ({data?.numerocalificacionesmaps || 1} reseñas)
+                    </span>
+                  </div>
+                )}
+
+                {/* Quick Contact Info */}
+                <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+                  {data?.telefono && (
+                    <a
+                      href={`tel:${data.telefono}`}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors"
+                    >
+                      <Phone className="w-4 h-4" />
+                      <span className="hidden sm:inline">Llamar</span>
+                    </a>
+                  )}
+                  {data?.whatsapp && (
+                    <button
+                      onClick={()=>sendWhatsappMessage({ numero: data?.whatsapp, path: router?.asPath })}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium hover:bg-green-700 transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      <span className="hidden sm:inline">WhatsApp</span>
+                    </button>
+                  )}
+                  {data?.paginaweb && (
+                    <a
+                      href={data.paginaweb}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors"
+                    >
+                      <Globe className="w-4 h-4" />
+                      <span className="hidden sm:inline">Sitio web</span>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-
-          {/* CTA Button */}
-          {/* <button
-            onClick={openModal}
-            className="w-full lg:w-auto lg:self-start bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl transition-colors duration-200 whitespace-nowrap text-base"
-          >
-            Solicitar Revisión
-          </button> */}
         </div>
-      </div>
+      </section>
 
-      {/* Modal Image */}
-      {visibleModalImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-          onClick={() => setVisibleModalImage(false)}
-        >
-          <div className="relative max-w-4xl w-full">
-            <button 
-              className="absolute -top-12 right-0 text-white text-4xl font-light hover:text-gray-300 transition-colors"
-              onClick={() => setVisibleModalImage(false)}
-            >
-              ×
-            </button>
-            <img
-              src={data?.fotoperfil}
-              alt={data?.nombre}
-              className="w-full h-auto rounded-2xl"
+      {/* Navigation Tabs */}
+      <section className="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto">
+          <SliderTab sections={sections} />
+        </div>
+      </section>
+
+      {/* Mobile CTA Card - Sticky below tabs */}
+      {data?.whatsapp && (
+        <section className="lg:hidden sticky top-16 z-30 bg-white border-b border-gray-200 shadow-sm">
+          <div className="p-4">
+            <CardSolicitarServicio
+              visibleModalSolicitarServicio={visibleModalSolicitarServicio}
+              setVisibleModalSolicitarServicio={
+                setVisibleModalSolicitarServicio
+              }
+              openModal={openModal}
             />
           </div>
-        </div>
+        </section>
       )}
-    </section>
 
-      <section style={{marginTop:'5%'}} className={styles.sectionContent}>
-        <div ref={mapSectionRef} className={styles.contentContainer}>
-          <SliderTab sections={sections} />
-          <section className={styles.sectionMainContent}>
-            <div className={styles.mapSection}>
-              <section id={sections[0].id} className="scroll-mt-20 py-12 sm:py-16">
-                {/* Title */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-9 h-9 rounded-lg bg-[#407BFF]/10 flex items-center justify-center">
-                    <MapPin size={18} className="text-[#407BFF]" />
+      {/* Main Content */}
+      <section className="w-full bg-gray-50">
+        <div className="max-w-7xl mx-auto px-0 py-8 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Column */}
+            <div className="lg:col-span-2 space-y-12">
+              {/* Ubicación Section */}
+              <section
+                id={sections[0].id}
+                className="scroll-mt-24 bg-white border border-gray-200 p-6 sm:p-8"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 bg-blue-50 flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-blue-600" />
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
-                    Ubicación de {data?.nombre}
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    Ubicación
                   </h2>
                 </div>
 
-                {/* Map Component */}
-                <div className="relative mb-5">
+                <div className="mb-6">
                   {data.tipo === "Mecanico a Domicilio" ? (
                     <MapaCobertura
                       coordenadas={data?.coordenadas || position}
                       img={data?.fotoperfil}
-                      // direccion={fullAddress}
                       nombre={data?.nombre}
                     />
                   ) : (
@@ -283,21 +318,17 @@ export default function NegocioVDos({ data, loading }) {
                       username={data?.userName}
                       idNegocio={data?.id}
                       nombre={data?.nombre}
-                      // direccion={fullAddress}
                       coordenadas={data?.coordenadas || position}
                       img={data?.fotoperfil}
                     />
                   )}
                 </div>
 
-                {/* Address Card */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 bg-white rounded-xl border border-gray-200 hover:border-gray-300 transition-colors">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#407BFF]/10 flex items-center justify-center shrink-0">
-                      <MapPin size={22} className="text-[#407BFF]" />
-                    </div>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 bg-gray-50 border border-gray-200">
+                  <div className="flex items-start gap-3 flex-1">
+                    <MapPin className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-gray-900 text-base mb-1">
+                      <p className="font-semibold text-gray-900 mb-1">
                         {data?.direccion}
                       </p>
                       <p className="text-sm text-gray-600">
@@ -306,148 +337,51 @@ export default function NegocioVDos({ data, loading }) {
                       </p>
                     </div>
                   </div>
-{/* <AIAssistantBubble tallerName="TALLER MEKAUTOS" /> */}
-                  {/* Button to open in Maps */}
+
                   {data?.urltallermaps && (
                     <a
                       href={data.urltallermaps}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#407BFF] hover:bg-[#3668d9] text-white rounded-lg text-sm font-semibold transition-all whitespace-nowrap shadow-lg shadow-[#407BFF]/20 hover:shadow-xl hover:shadow-[#407BFF]/30"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors whitespace-nowrap"
                     >
                       <span>Abrir en Maps</span>
-                      <ExternalLink size={16} />
+                      <ExternalLink className="w-4 h-4" />
                     </a>
                   )}
                 </div>
               </section>
 
-              <div
-                ref={refServicios}
-                id={sections[1].id}
-                style={{
-                  width: "100%",
-                  backgroundColor: "#CFD5E1",
-                  height: "1px",
-                  margin: "16px 0 48px 0",
-                }}
-              />
-
-              <SectionCategorias data={data} />
-              <section className={styles.sectionCardContainer}>
-                <div
-                  style={{
-                    width: "100%",
-                    backgroundColor: "#CFD5E1",
-                    height: "1px",
-                    margin: "48px 0 48px 0",
-                  }}
-                />
-                <CardSolicitarServicio
-                  visibleModalSolicitarServicio={visibleModalSolicitarServicio}
-                  setVisibleModalSolicitarServicio={
-                    setVisibleModalSolicitarServicio
-                  }
-                  openModal={openModal}
-                />
+              {/* Servicios Section */}
+              <section id={sections[1].id} className="scroll-mt-24">
+                <SectionCategorias data={data} />
               </section>
 
-              <div
-                style={{
-                  width: "100%",
-                  backgroundColor: "#CFD5E1",
-                  height: "1px",
-                  margin: "48px 0 48px 0",
-                }}
-              />
-
-              <RecomiendasTaller
-                onClick={handleClickReseñasSection}
-                nombre={data?.nombre}
-              />
-
+              {/* Horarios Section */}
               <section
-                style={{
-                  display: "flex",
-                  gap: "8px",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
+                id={sections[2].id}
+                className="scroll-mt-24 bg-white border border-gray-200 p-6 sm:p-8"
               >
-                <SectionDataSeo data={data} />
+                <Horario horariosSeparados={horariosSeparados} />
               </section>
 
-              <div
-                ref={refHorarios}
-                id={sections[2].id}
-                style={{
-                  width: "100%",
-                  backgroundColor: "#CFD5E1",
-                  height: "1px",
-                  margin: "48px 0 48px 0",
-                }}
-              />
-              <Horario horariosSeparados={horariosSeparados} />
-
+              {/* Contacto Section */}
               {(data?.facebook ||
                 data?.instagram ||
                 data?.whatsapp ||
                 data?.paginaweb) && (
-                <>
-                  <div
-                    ref={refRedes}
-                    id={sections[3].id}
-                    style={{
-                      width: "100%",
-                      backgroundColor: "#CFD5E1",
-                      height: "1px",
-                      margin: "48px 0",
-                    }}
-                  />
+                <section
+                  id={sections[3].id}
+                  className="scroll-mt-24 bg-white border border-gray-200 p-6 sm:p-8"
+                >
                   <RedesSociales data={data} />
-                </>
+                </section>
               )}
 
-              <div
-                style={{
-                  width: "100%",
-                  backgroundColor: "#CFD5E1",
-                  height: "1px",
-                  margin: "48px 0 48px 0",
-                }}
-              />
-
+              {/* Reseñas Section */}
               <section
-                style={{
-                  display: "flex",
-                  gap: "32px",
-                  width: "100%",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <Revisiones id={data?.id} />
-              </section>
-
-              <div
-                ref={refReseñas}
                 id={sections[4].id}
-                style={{
-                  width: "100%",
-                  backgroundColor: "#CFD5E1",
-                  height: "1px",
-                  margin: "48px 0 48px 0",
-                }}
-              />
-
-              <section
-                style={{
-                  display: "flex",
-                  gap: "32px",
-                  width: "100%",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
+                className="scroll-mt-24 bg-white border border-gray-200 p-6 sm:p-8"
               >
                 <Reseñas
                   id={data?.id}
@@ -458,72 +392,143 @@ export default function NegocioVDos({ data, loading }) {
                 />
               </section>
 
-              <div
-                style={{
-                  width: "100%",
-                  backgroundColor: "#CFD5E1",
-                  height: "1px",
-                  margin: "48px 0 48px 0",
-                }}
-              />
+              {/* Revisiones */}
+              <section className="bg-white border border-gray-200 p-6 sm:p-8">
+                <Revisiones id={data?.id} />
+              </section>
 
+              {/* Preguntas Frecuentes */}
               <section
-                style={{
-                  display: "flex",
-                  gap: "32px",
-                  width: "100%",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
+                id={sections[5].id}
+                className="scroll-mt-24 bg-white border border-gray-200 p-6 sm:p-8"
               >
                 <SectionPreguntasFrecuentes data={data} />
               </section>
+
+              {/* Acerca de */}
               <section
-                style={{
-                  display: "flex",
-                  gap: "32px",
-                  width: "100%",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
+                id={sections[6].id}
+                className="scroll-mt-24 bg-white border border-gray-200 p-6 sm:p-8"
               >
                 <SectionDescription data={data} />
               </section>
-            </div>
-            <aside className={styles.stickyAside}>
-              <CardSolicitarServicio
-                visibleModalSolicitarServicio={visibleModalSolicitarServicio}
-                setVisibleModalSolicitarServicio={
-                  setVisibleModalSolicitarServicio
-                }
-                openModal={openModal}
-              />
-            </aside>
-          </section>
+
+              {/* SEO Data */}
+              <section className="bg-white border border-gray-200 p-6 sm:p-8">
+                <SectionDataSeo data={data} />
+              </section>
+
+              {/* Recomienda el taller */}
+              <section className="bg-white border border-gray-200 p-6 sm:p-8">
+                <RecomiendasTaller
+                  onClick={handleClickReseñasSection}
+                  nombre={data?.nombre}
+                />
+              </section>
+              {/* <div className="w-full bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 p-6 md:p-8 rounded-xl shadow-lg transition duration-300">
+      <div className="flex flex-col gap-6">
+
+        <div className="flex items-center gap-4">
+          
+          <div className="w-10 h-10 bg-blue-600 flex items-center justify-center rounded-lg shadow-md flex-shrink-0">
+            <Search className="w-5 h-5 text-white" /> 
+          </div>
+
+          <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+            ¿Quieres **comparar precios**?
+          </h3>
         </div>
-        <section className={styles.containerButtonsMobile}>
-          <Button onClick={openModal} className={"mobileButton"}>
-            Solicitar Revision
-          </Button>
-        </section>
+
+        <div className="flex-1 pl-0 md:pl-14"> 
+            <p className="text-gray-700 mb-4 text-base">
+                Recibe cotizaciones de hasta **5 talleres verificados** en Bogotá. Compara y elige la mejor opción.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700 font-medium">Gratis y sin compromiso</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700 font-medium">Respuesta en pocas horas</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700 font-medium">Talleres verificados</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                    <span className="text-sm text-gray-700 font-medium">Ahorra hasta 30%</span>
+                </div>
+            </div>
+        </div>
+
+        <div className="w-full md:pl-14 pt-4 md:pt-0"> 
+          <button
+            onClick={handleCompareClick}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 transition-colors flex items-center justify-center gap-2 whitespace-nowrap rounded-lg shadow-lg hover:shadow-xl"
+          >
+            <span>Comparar Precios Ahora</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </div> */}
+            </div>
+
+            {/* Sidebar (Desktop) - Sticky Card */}
+            {data?.whatsapp && (
+              <div className="hidden lg:block">
+                <div className="sticky top-24">
+                  <CardSolicitarServicio
+                    visibleModalSolicitarServicio={
+                      visibleModalSolicitarServicio
+                    }
+                    setVisibleModalSolicitarServicio={
+                      setVisibleModalSolicitarServicio
+                    }
+                    openModal={openModal}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </section>
 
+      {/* Mobile CTA Button - REMOVED, now sticky card above */}
+      {/* Card is now sticky below navigation in mobile */}
+
+      {/* Modal Image */}
       {visibleModalImage && (
-        <ModalImagePerfil
-          img={data?.fotoperfil}
-          setVisibleModalImage={setVisibleModalImage}
-        />
+        <div
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setVisibleModalImage(false)}
+        >
+          <div className="relative max-w-4xl w-full">
+            <button
+              className="absolute -top-12 right-0 text-white text-4xl font-light hover:text-gray-300 transition-colors"
+              onClick={() => setVisibleModalImage(false)}
+            >
+              ×
+            </button>
+            <img
+              src={data?.fotoperfil}
+              alt={data?.nombre}
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
       )}
-      {/* {visibleModalSolicitarServicio && <ModalSolicitarServicio setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} />} */}
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
-  // Si puedes obtener todas las rutas en build time, agrégalas aquí
   return {
-    paths: [], // Puedes pre-generar algunas rutas si lo deseas
-    fallback: "blocking", // Si no está pre-generado, intentará generarlo en la petición
+    paths: [],
+    fallback: "blocking",
   };
 }
 
@@ -534,21 +539,21 @@ export async function getStaticProps({ params }) {
     const { data } = await client.query({
       query: GET_ONE_NEGOCIOVDOS,
       variables: { userName: parts },
-      fetchPolicy: "network-only", // Para asegurar datos frescos en cada build
+      fetchPolicy: "network-only",
     });
 
     if (parts === "s&i_master_paint") {
       return {
         redirect: {
           destination: "/si_master_paint",
-          permanent: false, // Se usa 302 en lugar de 301
+          permanent: false,
         },
       };
     }
 
     if (!data?.getOneNegocioVDos) {
       return {
-        notFound: true, // Muestra la página 404 de Next.js
+        notFound: true,
       };
     }
 
@@ -556,7 +561,6 @@ export async function getStaticProps({ params }) {
       props: {
         data: data.getOneNegocioVDos,
       },
-      // revalidate: 100000000000000,
     };
   } catch (error) {
     console.error("Error en getStaticProps:", error);

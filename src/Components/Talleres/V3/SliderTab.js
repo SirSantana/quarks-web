@@ -1,9 +1,8 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Award, Clock, MessageCircle, Star, HelpCircle, FileText } from 'lucide-react';
 
-export default function SliderTab ({ sections })  {
-const [activeSection, setActiveSection] = useState('ubicacion');
+export default function SliderTab ({ sections })  {
+  const [activeSection, setActiveSection] = useState('ubicacion');
   const [isScrolled, setIsScrolled] = useState(false);
   const scrollContainerRef = useRef(null);
 
@@ -50,7 +49,7 @@ const [activeSection, setActiveSection] = useState('ubicacion');
 
   return (
     <nav 
-      className="sticky  top-0 z-2 bg-white border-b border-gray-200"
+      className="sticky top-0 z-20 bg-white border-b border-gray-200"
     >
       <div className="lg:max-w-7xl lg:mx-auto lg:px-6">
         <div 
@@ -72,14 +71,17 @@ const [activeSection, setActiveSection] = useState('ubicacion');
                 onClick={() => scrollToSection(section.id)}
                 className={`
                   inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm
-                  transition-all duration-200 whitespace-nowrap shrink-0
+                  transition-all duration-200 whitespace-nowrap shrink-0 border-2
                   ${isActive 
-                    ? 'bg-[#407BFF] text-white shadow-lg shadow-[#407BFF]/30' 
-                    : 'bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    // ESTILO ACTIVO: Fondo Gris 200 (claro), Texto Gris 800 (oscuro), Borde Gris 300
+                    ? 'bg-gray-200 text-gray-800 border-gray-300 shadow-sm' 
+                    // ESTILO INACTIVO: Fondo gris muy claro, texto gris, borde gris sutil
+                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border-gray-100 hover:border-gray-200'
                   }
                 `}
               >
-                <Icon size={18} className={isActive ? 'text-white' : 'text-gray-500'} />
+                {/* ICONO: Cambiamos el color a gris 700 en estado activo */}
+                <Icon size={18} className={isActive ? 'text-gray-700' : 'text-gray-500'} />
                 <span>{section.label}</span>
               </button>
             );

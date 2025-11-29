@@ -5,6 +5,7 @@ import Icon, { IconCatalog } from '../Icon/Icon'
 import Button, { ButtonVariant } from '../Button/Button'
 import CardReseña from './V3/CardReseña'
 import styles from '@/styles/Negocio.module.css'
+import { Star, MessageSquarePlus } from 'lucide-react' // Importando iconos de Lucide-react (asumiendo que están disponibles)
 
 
 export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nombre, promCalificacion }) {
@@ -15,61 +16,94 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
   const handlerLoginOpinion = () => {
     router.push(`/${userName ? userName : router.query.id}/crear-resenaa`, undefined, { shallow: true, scroll: false });
   }
+
+  // Lógica para determinar el promedio y la cantidad total de reseñas
+  const totalOpinionesNuevas = data?.getOpiniones.length || 0;
+  const totalReseñas = Number(ctdCalificaciones || 0) + totalOpinionesNuevas;
+  const promedio = result?.data?.getCalificacionOpiniones || promCalificacion;
+  const tieneReseñas = totalReseñas > 0;
+
   return (
     <>
-      <h2 style={{ fontSize: '20px', alignSelf: 'flex-start', fontWeight: '600', display: 'flex', gap: '16px', marginBottom: '24px' }} className={styles.titleNegocio}>Calificacion y Opiniones {nombre} </h2>
-      <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', boxSizing: 'border-box', gap: '20px', borderRadius: '16px', width: '100%' }}>
-        <div className={styles.containerSectionReseñas}>
-          <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', width: '100%',alignItems:'center', }}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill={"#407BFF"} // Relleno dinámico según la calificación
-              style={{ cursor: "pointer" }}
-            >
-              <path d="M12 .587l3.668 7.568L24 9.423l-6 5.834 1.419 8.243L12 18.897l-7.419 4.603L6 15.257 0 9.423l8.332-1.268z" />
-            </svg>
-            {data?.getOpiniones.length > 0
-              ?
-              <>
-                <p style={{ fontSize: '28px', fontWeight: '700', color: '#373737', }}>{result?.data?.getCalificacionOpiniones}</p>
-                <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({Number(ctdCalificaciones) + data.getOpiniones.length} reseñas)</p>
-              </>
-              :
-              ctdCalificaciones
-                ?
-                <>
-                  <p style={{ fontSize: '28px', fontWeight: '700', color: '#373737', }}>{promCalificacion}</p>
-                  <p style={{ fontSize: '14px', marginTop: '4px' }} className={styles.textCategory} > · ({Number(ctdCalificaciones)} reseñas)</p>
-                </>
-                : <p>Sin reseñas todavia</p>
+      {/* Título: Usa font-size más moderno y consistente (24px) y mantiene el peso 600 */}
+      <h2 style={{ fontSize: '24px', alignSelf: 'flex-start', fontWeight: '600', marginBottom: '24px', color: '#182537' }} className={styles.titleNegocio}>
+        Calificación y Opiniones {nombre}
+      </h2>
 
-            }
-          </div>
-          <Button onClick={handlerLoginOpinion} variant={ButtonVariant.secondary} fullWidth>
-            <Icon size='lg' style={{ color: 'inherit' }} name={IconCatalog.addCircle} />
-            Crear reseña
-          </Button>
+      {/* Contenedor Principal de la Calificación y Botón */}
+      <div 
+        style={{ 
+          display: 'flex', 
+          flexDirection: 'column', // Flex column en móvil/defecto
+          gap: '24px', 
+          width: '100%', 
+          padding: '24px',
+          borderRadius: '12px',
+          border: '1px solid #E5E7EB', // Borde limpio
+          backgroundColor: '#F9FAFB', // Fondo sutil para destacar la sección
+          boxSizing: 'border-box'
+        }}
+        className={styles.reviewsSummaryContainer} // Usar una clase para hacer que sea row en desktop
+      >
+        
+        {/* Sección de la Calificación */}
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px' }}>
+          
+          {tieneReseñas ? (
+            <>
+              {/* Ícono de Estrella Moderno y Color Primario */}
+              <Star size={32} fill="#407BFF" color="#407BFF" /> 
+              
+              {/* Promedio Grande y Negrita */}
+              <p style={{ fontSize: '36px', fontWeight: '700', color: '#182537', lineHeight: 1 }}>{promedio}</p>
+              
+              {/* Cantidad de Reseñas */}
+              <p style={{ fontSize: '16px', color: '#6B7280', alignSelf: 'flex-end', paddingBottom: '4px' }} className={styles.textCategory} > 
+                ({totalReseñas} reseñas)
+              </p>
+            </>
+          ) : (
+            <p style={{ fontSize: '16px', color: '#6B7280' }}>Sin reseñas todavía.</p>
+          )}
+        </div>
+
+        {/* Botón para Crear Reseña - Usando variant primary/default para un CTA claro */}
+        <div style={{ width: '100%', maxWidth: '300px' }}>
+            <Button onClick={handlerLoginOpinion} fullWidth>
+                {/* Usando MessageSquarePlus de Lucide para un look más moderno */}
+                <MessageSquarePlus size={18} style={{ marginRight: '8px' }} /> 
+                Escribir Reseña
+            </Button>
         </div>
       </div>
-      {/* {data?.getOpiniones.map(reseña => (
-        <Reseña reseña={reseña} key={reseña.id} />
-      ))} */}
-      <div className={styles.containerRevisionesSlider}>
+      
+      {/* Listado de Reseñas */}
+      <div style={{ marginTop: '24px' }} className={styles.containerRevisionesSlider}>
+        {/* Aquí asumimos que CardReseña mantiene el estilo limpio */}
         {data?.getOpiniones.map(reseña => (
           <CardReseña reseña={reseña} key={reseña.id} />
         ))}
       </div>
-      <div style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', boxSizing: 'border-box', gap: '20px', margin: '0 auto', borderRadius: '16px', width: '90%', maxWidth: '600px' }}>
+
+      {/* Botón para Ver Más Reseñas (si aplica) */}
+      <div style={{ margin: '24px auto 0 auto', width: '100%', maxWidth: '600px', boxSizing: 'border-box', padding: '0 24px' }}>
         {(data?.getOpiniones.length > 0 || ctdCalificaciones) && urlMaps &&
-          <Button variant={ButtonVariant.outlined} fullWidth link href={urlMaps}>
-            Mostrar reseñas
+          <Button 
+            variant={ButtonVariant.outlined} 
+            fullWidth 
+            link 
+            href={urlMaps}
+            style={{ 
+              height: '48px', 
+              border: '1px solid #407BFF', // Borde con color primario
+              color: '#407BFF', // Texto con color primario
+              backgroundColor: 'white' 
+            }}
+          >
+            Ver todas las {totalReseñas} reseñas
           </Button>
         }
       </div>
-
     </>
   )
 }
