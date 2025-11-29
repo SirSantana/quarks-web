@@ -329,7 +329,7 @@ export default function BookingPage({ data: taller }) {
                     <Phone className="w-3.5 h-3.5" />
                     Teléfono celular
                   </label>
-                  <div className="max-w-6xl mx-auto p-0 md:p-8 flex flex-nowrap w-full">
+                  <div className="flex w-full items-center gap-2">
                     <select
                       name="indicativo"
                       value={formData.indicativo || "+57"}
