@@ -122,7 +122,7 @@ export default function BookingPage({ data: taller }) {
           <h1 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-2">
             Agendar Cita
           </h1>
-          <p className="text-sm sm:text-base text-gray-600">
+          <p className="text-base sm:text-base text-gray-600">
             Completa el formulario para solicitar una revisión de tu vehículo
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function BookingPage({ data: taller }) {
             >
               {/* Selección de Fecha */}
               <div className="mb-8">
-                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-4">
+                <label className="flex items-center gap-2 text-base font-semibold text-gray-900 mb-4">
                   <Calendar className="w-4 h-4" />
                   Selecciona el día
                 </label>
@@ -189,7 +189,7 @@ export default function BookingPage({ data: taller }) {
 
               {/* Selección de Horario */}
               <div className="mb-8">
-                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-4">
+                <label className="flex items-center gap-2 text-base font-semibold text-gray-900 mb-4">
                   <Clock className="w-4 h-4" />
                   Selecciona el horario
                 </label>
@@ -239,7 +239,7 @@ export default function BookingPage({ data: taller }) {
 
               {/* Información del vehículo */}
               <div className="mb-8">
-                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-4">
+                <label className="flex items-center gap-2 text-base font-semibold text-gray-900 mb-4">
                   <Car className="w-4 h-4" />
                   Información del vehículo
                 </label>
@@ -252,7 +252,7 @@ export default function BookingPage({ data: taller }) {
                       name="marca"
                       value={formData.marca}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSIjNkI3MjgwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==')] bg-[length:12px] bg-[right_1rem_center] bg-no-repeat"
+                      className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none "
                       required
                     >
                       <option value="">Selecciona la marca</option>
@@ -282,7 +282,7 @@ export default function BookingPage({ data: taller }) {
 
               {/* Tipo de servicio */}
               <div className="mb-8">
-                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-4">
+                <label className="flex items-center gap-2 text-base font-semibold text-gray-900 mb-4">
                   <Wrench className="w-4 h-4" />
                   Tipo de servicio
                 </label>
@@ -290,7 +290,7 @@ export default function BookingPage({ data: taller }) {
                   name="servicios"
                   value={formData.servicios}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSIjNkI3MjgwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==')] bg-[length:12px] bg-[right_1rem_center] bg-no-repeat"
+                  className="w-full px-4 py-3 pr-10 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none "
                   required
                 >
                   <option value="">Selecciona un servicio</option>
@@ -304,7 +304,7 @@ export default function BookingPage({ data: taller }) {
 
               {/* Problema */}
               <div className="mb-8">
-                <label className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-4">
+                <label className="flex items-center gap-2 text-base font-semibold text-gray-900 mb-4">
                   <AlertCircle className="w-4 h-4" />
                   Describe el problema
                 </label>
@@ -321,7 +321,7 @@ export default function BookingPage({ data: taller }) {
 
               {/* Contacto */}
               <div className="mb-8 w-full">
-                <label className="text-sm font-semibold text-gray-900 mb-4 block">
+                <label className="text-base font-semibold text-gray-900 mb-4 block">
                   Información de contacto
                 </label>
                 <div>
@@ -334,7 +334,7 @@ export default function BookingPage({ data: taller }) {
                       name="indicativo"
                       value={formData.indicativo || "+57"}
                       onChange={handleChange}
-                      className="px-3 py-3 pr-8 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMUw2IDZMMTEgMSIgc3Ryb2tlPSIjNkI3MjgwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjwvc3ZnPg==')] bg-[length:12px] bg-[right_0.75rem_center] bg-no-repeat"
+                      className="px-3 py-3 pr-8 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg appearance-none "
                     >
                       <option value="+57">🇨🇴 +57</option>
                       <option value="+58">🇻🇪 +58</option>
@@ -364,7 +364,7 @@ export default function BookingPage({ data: taller }) {
 
           <div className=" lg:block lg:col-span-1">
             <div className="bg-white border border-gray-200 p-6 sticky top-4 shadow-sm ">
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">
+              <h3 className="text-base font-semibold text-gray-900 mb-4">
                 Agendar cita con:
               </h3>
 
@@ -380,7 +380,7 @@ export default function BookingPage({ data: taller }) {
                   <span className="text-[10px] font-semibold text-blue-500 uppercase tracking-wider block mb-1">
                     {taller.tipo}
                   </span>
-                  <h4 className="font-semibold text-gray-900 line-clamp-2 text-sm">
+                  <h4 className="font-semibold text-gray-900 line-clamp-2 text-base">
                     {taller.nombre}
                   </h4>
                   {taller?.promediocalificacionesmaps > 0 && (
@@ -388,7 +388,7 @@ export default function BookingPage({ data: taller }) {
                       <div className="flex gap-0.5">
                         {renderStars(Number(taller?.promediocalificacionesmaps))}
                       </div>
-                      <span className="font-medium text-gray-900 text-sm">
+                      <span className="font-medium text-gray-900 text-base">
                         {taller?.promediocalificacionesmaps}
                       </span>
                     </div>
@@ -397,14 +397,14 @@ export default function BookingPage({ data: taller }) {
               </div>
 
               <div className="space-y-3">
-                <div className="flex items-start gap-3 text-sm">
+                <div className="flex items-start gap-3 text-base">
                   <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-gray-900">{taller.direccion}</p>
                     <p className="text-gray-500">{taller.ciudad}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 text-sm">
+                <div className="flex items-center gap-3 text-base">
                   <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
                   <p className="text-gray-900">
                     {taller.telefono.replace(
