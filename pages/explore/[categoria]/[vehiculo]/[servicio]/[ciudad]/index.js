@@ -59,25 +59,25 @@ export default function CiudadPage({ title, query, description, talleresData }) 
           </div>
         ) : ( */}
           <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
-            <ul
+            <div
               style={{
                 display: mapa ? 'none' : 'grid',
                 gridTemplateColumns: 'repeat(auto-fill, minmax(100%, 1fr))', // Cada tarjeta tiene al menos 300px de ancho, pero se adapta al tamaño de la pantalla.
                 gap: '24px',
                 alignItems: 'flex-start',
-                listStyle: 'none',
               }}
             >
               {talleresData?.map((taller, index) => (
-                <li style={{height:'100%'}}>
                   <CardTaller key={taller.nombre} taller={taller} />
-                </li>
               ))}
-            </ul>
+            </div>
             <div className={styles2.containerMapHome}>
               <MapTalleresHome data={talleresData} />
             </div>
+            
           </div>
+
+          
         {/* )} */}
       </div>
       {description &&

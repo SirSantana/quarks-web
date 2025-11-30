@@ -363,21 +363,23 @@ export default function BookingPage({ data: taller }) {
                       name="indicativo"
                       value={formData.indicativo || "+57"}
                       onChange={handleChange}
+                      style={{maxWidth:'30%'}}
                       className="px-3 py-3 pr-8 border border-gray-200 bg-white focus:outline-none focus:border-blue-500 transition-colors rounded-lg w-24"
                     >
-                      <option value="+57">🇨🇴 +57</option>
-                      <option value="+58">🇻🇪 +58</option>
+                      <option value="+57">+57</option>
+                      <option value="+58">+58</option>
                     </select>
 
-                    {/* <input
+                    <input
                       type="tel"
                       name="celular"
                       value={formData.celular}
                       onChange={handleChange}
                       placeholder="300 123 4567"
-                      className="flex-1 px-4 py-3 border border-gray-200 focus:outline-none focus:border-blue-500 transition-colors rounded-lg"
+                      className="px-4 py-3 border border-gray-200 focus:outline-none focus:border-blue-500 transition-colors rounded-lg"
                       required
-                    /> */}
+                      style={{flex:1, maxWidth:'70%'}}
+                    />
                   </div>
                 </div>
               </div>
