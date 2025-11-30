@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Award, Clock, MessageCircle, Star, HelpCircle, FileText } from 'lucide-react';
 
-export default function SliderTab ({ sections })  {
+export default function SliderTab ({ sections })  {
   const [activeSection, setActiveSection] = useState('ubicacion');
   const [isScrolled, setIsScrolled] = useState(false);
   const scrollContainerRef = useRef(null);
 
-  // Detectar scroll para agregar sombra
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
@@ -16,11 +15,10 @@ export default function SliderTab ({ sections })  {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth scroll a la sección
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Altura del navbar
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -33,7 +31,6 @@ export default function SliderTab ({ sections })  {
     }
   };
 
-  // Iconos para cada sección
   const getIcon = (id) => {
     const icons = {
       ubicacion: MapPin,
@@ -70,18 +67,15 @@ export default function SliderTab ({ sections })  {
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
                 className={`
-                  inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm
-                  transition-all duration-200 whitespace-nowrap shrink-0 border-2
+                  inline-flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium text-sm
+                  transition-all duration-200 whitespace-nowrap shrink-0
                   ${isActive 
-                    // ESTILO ACTIVO: Fondo Gris 200 (claro), Texto Gris 800 (oscuro), Borde Gris 300
-                    ? 'bg-gray-200 text-gray-800 border-gray-300 shadow-sm' 
-                    // ESTILO INACTIVO: Fondo gris muy claro, texto gris, borde gris sutil
-                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border-gray-100 hover:border-gray-200'
+                    ? 'bg-blue-500 text-white' 
+                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
                   }
                 `}
               >
-                {/* ICONO: Cambiamos el color a gris 700 en estado activo */}
-                <Icon size={18} className={isActive ? 'text-gray-700' : 'text-gray-500'} />
+                <Icon size={18} className={isActive ? 'text-white' : 'text-gray-500'} />
                 <span>{section.label}</span>
               </button>
             );
@@ -89,7 +83,6 @@ export default function SliderTab ({ sections })  {
         </div>
       </div>
 
-      {/* CSS para ocultar scrollbar */}
       <style jsx>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
