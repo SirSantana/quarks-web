@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import ComparisonQuoteBanner from "@/src/Components/Talleres/V3/ComparissonQuoteBanner";
 import sendMessage from "@/utils/fetching";
+import CallModal from "@/src/Components/Talleres/V3/CallModal";
 
 const RedesSociales = dynamic(
   () => import("@/src/Components/Talleres/RedesSociales"),
@@ -88,9 +89,8 @@ const SectionDataSeo = dynamic(
 export default function NegocioVDos({ data, loading }) {
   const router = useRouter();
   const [visibleModalImage, setVisibleModalImage] = useState(false);
-  const [visibleModalSolicitarServicio, setVisibleModalSolicitarServicio] =
-    useState(false);
-  console.log(data);
+  const [visibleModalSolicitarServicio, setVisibleModalSolicitarServicio] =useState(false);
+ const [isCallModalOpen, setIsCallModalOpen] = useState(false);
 
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${
     data?.localidad
@@ -228,13 +228,13 @@ export default function NegocioVDos({ data, loading }) {
                 {/* Quick Contact Info */}
                 <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
                   {data?.telefono && (
-                    <a
-                      href={`tel:${data.telefono}`}
+                    <button
+                    onClick={() => setIsCallModalOpen(true)}
                       className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors"
                     >
                       <Phone className="w-4 h-4" />
                       <span className="hidden sm:inline">Llamar</span>
-                    </a>
+                    </button>
                   )}
                   {data?.whatsapp && (
                     <button
@@ -521,6 +521,11 @@ export default function NegocioVDos({ data, loading }) {
           </div>
         </div>
       )}
+      <CallModal 
+  isOpen={isCallModalOpen}
+  onClose={() => setIsCallModalOpen(false)}
+  taller={data}
+/>
     </Layout>
   );
 }

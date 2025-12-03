@@ -14,21 +14,7 @@ import {
 import ConfirmationModal from "@/src/Components/Talleres/V3/ConfirmationModal";
 import renderStars from "@/utils/renderStars";
 
-export default function BookingPage({ data: taller }) {
-  const [formData, setFormData] = useState({
-    date: "",
-    timeSlot: "",
-    marca: "",
-    referencia: "",
-    servicios: "",
-    problema: "",
-    celular: "",
-    indicativo: "+57",
-  });
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const servicios = [
+  export const servicios = [
     "Electricos",
     "Frenos",
     "Motor",
@@ -53,6 +39,20 @@ export default function BookingPage({ data: taller }) {
     "Mecánica Básica",
     "Mecánica Avanzada",
   ];
+
+export default function BookingPage({ data: taller }) {
+  const [formData, setFormData] = useState({
+    date: "",
+    timeSlot: "",
+    marca: "",
+    referencia: "",
+    servicios: "",
+    problema: "",
+    celular: "",
+    indicativo: "+57",
+  });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const marcasVehiculos = [
     "Audi",
