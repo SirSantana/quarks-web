@@ -57,7 +57,9 @@ export default function FooterV2({ data }) {
           <Link href="/terms-of-service" className={styles.footerLink}>
             Términos del Servicio
           </Link>
-
+<Link href="/pico-y-placa-hoy" className={styles.footerLink}>
+           Pico y Placa
+          </Link>
         </div>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Síguenos</h3>
