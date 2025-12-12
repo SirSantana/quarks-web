@@ -103,7 +103,7 @@ export default function PicoYPlaceHoyBogota({ data }) {
       url={`${router.asPath}`} 
       icon={'/pico-y-placa.png'} 
       image={'./pico-y-placa.png'} 
-      description={`Pico y Placa ${ciudades[router.query.ciudad]} hoy, ${data?.titulo?.replaceAll('-', ' ')}. Consulta el **calendario**, **horario** y las **placas con restricción** de **carros particulares** y **taxis**. Conoce las **multas** y **excepciones** de la medida. Información oficial y actualizada para planificar tu **movilidad urbana** en ${ciudades[router.query.ciudad]}.`}
+      description={`Pico y Placa ${ciudades[router.query.ciudad]} hoy, ${data?.titulo?.replaceAll('-', ' ')}. Consulta el calendario, horario y las placas con restricción de carros particulares y taxis. Conoce las multas y excepciones de la medida. Información oficial y actualizada para planificar tu movilidad urbana en ${ciudades[router.query.ciudad]}.`}
       fecha={new Date(data?.fecha).toISOString()} 
       lastModified={new Date(data?.fecha).toGMTString()}
     >
