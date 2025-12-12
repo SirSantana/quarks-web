@@ -1,37 +1,12 @@
 import Layout from "@/src/Components/Layout";
 import picoyplaca from '@/pages/picoyplaca.json'
-import styles from '@/styles/PicoYPlaca.module.css'
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-
+import styles from '@/styles/PicoYPlaca.module.css'
 const BuscadorBasico = dynamic(() => import("@/src/Components/LandingPage/BuscadorBasico"), { ssr: false });
 const TitleHomeAnimation = dynamic(() => import("@/src/Components/LandingPage/TitleHomeAnimation"), { ssr: false });
 
-
-// let keyWords = [
-//   "Pico y Placa Bogotá",
-//   "Restricciones de circulación",
-//   "Horario Pico y Placa",
-//   "Consulta Pico y Placa",
-//   "Movilidad en Bogotá",
-//   "Tráfico en Bogotá",
-//   "Multas Pico y Placa",
-//   "Planificar ruta en Bogotá",
-//   "Calendario Pico y Placa",
-//   "Pico y placa mañana",
-//   "Pico y placa Bogota hoy",
-//   "pico y placa hoy",
-//   "pico y placa bogota mañana",
-//   "pico y placa hoy en bogotá",
-//   "hora pico y placa bogota",
-//   "Normativa de tránsito",
-//   "Evitar sanciones Pico y Placa",
-//   "Circulación vehicular",
-//   "Desplazamientos en Bogotá",
-//   "Regulación de tráfico",
-//   "Movilidad urbana"
-// ]
 let horariosCiudades = {
   "medellin": {
     dias: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
@@ -46,56 +21,26 @@ let horariosCiudades = {
     horarios: ['06:00', '20:00']
   },
 }
+
 let ciudades = {
   'bogota': 'Bogotá',
   'medellin': 'Medellín',
   'bucaramanga': 'Bucaramanga',
 }
-let repuestos = [
-  {
-    "repuesto": "Pastillas de freno Chevrolet Corsa",
-    "precio": "90.000",
-    "precioAnt": "98.000",
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_783125-MCO71919736666_092023-F.webp",
-    "stock": 3,
-    "fabricante": "Autotec U.S.A",
-    "descuento": 3,
-    "ventas": 4,
-  },
-  {
-    "repuesto": "Muñecos / Bieleta Barra Estabilizadora Chevrolet Aveo",
-    "precio": "76.000",
-    "precioAnt": "85.000",
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_787143-MCO72599235153_102023-F.webp",
-    "stock": 2,
-    "fabricante": "Saher",
-    "descuento": 0,
-    "ventas": 2,
-  },
-  {
-    "repuesto": "Impulsadores Chevrolet Captiva 2.4 - 3.0 - 3.6 (X16 Unds)",
-    "precio": "380.000",
-    "precioAnt": "410.000",
-    "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_918317-MCO72595597482_112023-F.webp",
-    "stock": 2,
-    "fabricante": "Krammer U.S.A",
-    "descuento": 0,
-    "ventas": 2,
-  }
-]
+
 const meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 
 export default function PicoYPlaceHoyBogota({ data }) {
   const router = useRouter()
   const numeroMes = meses.indexOf(router.query.mes);
-  // const picoyplacaAnteriores = picoyplaca.picoyplaca[numeroMes].filter(el => el.index < data?.index).reverse().slice(0, 3)
-  // const picoyplacaDespues = picoyplaca.picoyplaca[numeroMes].filter(el => el.index > data?.index).slice(0, 3)
   let date = new Date(data?.fecha)
-  console.log(data);
+  console.log(numeroMes, router.query);
+  
   
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": ["WebPage", "NewsArticle"],
+    "headline": `Pico y Placa ${ciudades[router.query.ciudad]} Hoy ${data?.titulo?.replaceAll('-', ' ')}: Placas con Restricción y Horarios`,
     "name": `Pico y Placa ${ciudades[router.query.ciudad]} ${data?.titulo?.replaceAll('-', ' ')}`,
     "description": `Consulta la información oficial y actualizada sobre el Pico y Placa en ${ciudades[router.query.ciudad]} hoy ${data?.titulo?.replaceAll('-', ' ')}. Horarios, excepciones, multas y consejos para cumplir con la normativa.`,
     "url": `https://quarks.com.co/pico-y-placa-hoy/${router.query.ciudad?.toLowerCase()}/${router.query.mes?.toLowerCase()}/${data?.fechaFormat.toLowerCase()}`,
@@ -139,8 +84,8 @@ export default function PicoYPlaceHoyBogota({ data }) {
       "opens": horariosCiudades[router.query.ciudad]?.horarios[0],
       "closes": horariosCiudades[router.query.ciudad]?.horarios[1],
     }],
-    "datePublished": `${new Date(data.fecha).toISOString()}`, // Fecha de publicación inicial
-    "dateModified": `${new Date().toISOString()}`, // Fecha de última modificación
+    "datePublished": `${new Date(data.fecha).toISOString()}`,
+    "dateModified": `${new Date().toISOString()}`,
     "author": {
       "@type": "Organization",
       "name": "Quarks Automotriz"
@@ -148,16 +93,45 @@ export default function PicoYPlaceHoyBogota({ data }) {
     "publisher": {
       "@type": "Organization",
       "name": "Quarks Automotriz",
-
     }
   };
-  return (
-    <Layout picoyplacaStructured={structuredData} title={`Pico y Placa ${ciudades[router.query.ciudad]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} url={`${router.asPath}`} icon={'/pico-y-placa.png'} image={'./pico-y-placa.png'} description={`Consulta el Pico y Placa en Bogota hoy ${data?.titulo?.replaceAll('-', ' ')} de forma rápida y sencilla. Evita multas y planifica tus desplazamientos con nuestra herramienta actualizada al instante. Descubre las restricciones de circulación, horarios y recomendaciones para mejorar tu movilidad en la ciudad. ¡Planifica tu día con anticipación y evita contratiempos en tu ruta!`} fecha={new Date(data?.fecha).toISOString()} lastModified={new Date(data?.fecha).toGMTString()}>
-      <div className={styles.container}>
-        <h1 className={styles.title}>Pico y Placa {router.query.ciudad} Hoy {data?.titulo.replaceAll('-', ' ')}</h1>
-        <p style={{ marginBottom: '32px' }}>Conoce las restricciones de pico y placa para el {data?.titulo.replaceAll('-', ' ')} en {router.query.ciudad}.</p>
 
-        <section className={styles.containerPlaca}>
+  return (
+    <Layout 
+      picoyplacaStructured={structuredData} 
+      title={`Pico y Placa ${ciudades[router.query.ciudad]} Hoy ${data?.titulo?.replaceAll('-', ' ')}`} 
+      url={`${router.asPath}`} 
+      icon={'/pico-y-placa.png'} 
+      image={'./pico-y-placa.png'} 
+      description={`Pico y Placa ${ciudades[router.query.ciudad]} hoy, ${data?.titulo?.replaceAll('-', ' ')}. Consulta el **calendario**, **horario** y las **placas con restricción** de **carros particulares** y **taxis**. Conoce las **multas** y **excepciones** de la medida. Información oficial y actualizada para planificar tu **movilidad urbana** en ${ciudades[router.query.ciudad]}.`}
+      fecha={new Date(data?.fecha).toISOString()} 
+      lastModified={new Date(data?.fecha).toGMTString()}
+    >
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        {/* Hero Section */}
+        <section className="pt-12 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-6xl lg:text-7xl font-bold text-gray-900 tracking-tight mb-6 leading-tight">
+             Pico y Placa {router.query.ciudad} Hoy {data?.titulo.replaceAll('-', ' ')}
+            </h1>
+            <div className="inline-flex flex-col items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm">
+             
+              <time 
+                dateTime={new Date(data?.fecha).toISOString()} 
+                className="text-sm text-gray-400"
+              >
+                {date.toLocaleDateString('es-ES', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </time>
+            </div>
+          </div>
+        </section>
+
+        {/* Main Placa Card - Con fondo amarillo completo */}
+        <section style={{alignSelf:'center', margin:'0 auto'}} className={styles.containerPlaca}>
           <div style={{ backgroundColor: 'transparent', border: '5px solid black', borderRadius: '10px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
             {/* {data?.placas !== 'NO APLICA'
               &&
@@ -188,182 +162,225 @@ export default function PicoYPlaceHoyBogota({ data }) {
             }
           </div>
         </section>
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Placa Hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {router.query.ciudad}, {data?.ciudad ? 'NO ':''} podrán circular vehiculos con placas terminas en {data?.placas} {data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}</p>
-        </div>
+        {/* Pico y Placa Hoy Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">Pico y Placa Hoy</h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Pico y placa hoy {data?.fechaFormat.replaceAll('-', ' ')} en {ciudades[router.query.ciudad]}, {data?.ciudad ? 'NO ' : ''}podrán circular vehiculos con placas terminadas en <span className="font-semibold text-gray-900">{data?.placas}</span>{data?.placas !== 'NO APLICA' && ', desde las ' + data?.horario}.
+            </p>
+          </div>
+        </section>
 
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <TitleHomeAnimation />
-          <BuscadorBasico />
-        </div>
-        {/* <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h3 style={{ marginBottom: '16px' }}>Pico y Placa anteriores dias de {meses[numeroMes]}</h3>
-          {picoyplacaAnteriores?.map(el => (
-            <Link scroll={true} href={`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
-              <div className={styles.containerCardOnePico} >
-                <div>
-                  <h3>{el.titulo.replaceAll('-', ' ')}</h3>
-                  <p>Vehículos Particulares</p>
-                  <h3 style={{ marginTop: '16px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h3>
-                </div>
-                {el?.especial
-                  ?
-                  <div>
-                    <h3 style={{ marginTop: '16px' }}>{el.horario[0]}</h3>
-                    <article style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
-                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
-                      </div>
-                    </article>
-                    <h3 style={{ marginTop: '16px' }}>{el.horario[1]}</h3>
-
-                    <article style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
-                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
-                      </div>
-                    </article>
-                  </div>
-
-                  :
-                  <article className={styles.containerMiniPlaca}>
-                    <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                      <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
-                    </div>
-                  </article>
-                }
-              </div>
-              <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
-            </Link>
-          ))}
-        </div> */}
-        {/* <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h3 style={{ marginBottom: '16px' }}>Pico y Placa siguientes dias de {meses[numeroMes]}</h3>
-          {picoyplacaDespues?.map(el => (
-            <Link scroll={true} href={`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}/${el?.fechaFormat.toLowerCase()}`} style={{ color: 'black', textDecoration: 'none', width: '90%', margin: '0 auto' }}>
-              <div className={styles.containerCardOnePico} >
-                <div>
-                  <h3>{el.titulo.replaceAll('-', ' ')}</h3>
-                  <p>Vehículos Particulares</p>
-                  <h3 style={{ marginTop: '16px' }}>{el?.placas === 'NO APLICA' ? 'SIN RESTRICCIÓN' : el?.especial ? 'Pico y Placa Especial' : el.horario}</h3>
-                </div>
-                {el?.especial
-                  ?
-                  <div>
-                    <h3 style={{ marginTop: '16px' }}>{el.horario[0]}</h3>
-                    <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
-                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[0]}</h4>
-                      </div>
-                    </div>
-                    <h3 style={{ marginTop: '16px' }}>{el.horario[1]}</h3>
-
-                    <div style={{ marginTop: '4px' }} className={styles.containerMiniPlaca}>
-                      <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                        <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas[1]}</h4>
-                      </div>
-                    </div>
-                  </div>
-
-                  :
-                  <div className={styles.containerMiniPlaca}>
-                    <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-                      <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>{el.placas}</h4>
-                    </div>
-                  </div>
-                }
-              </div>
-              <div style={{ width: '100%', backgroundColor: '#C6C6C6', height: '1px', margin: '16px 0', width: '95%', maxWidth: '800px' }} />
-            </Link>
-          ))}
-        </div> */}
-        <Image loading='lazy' src={'/pico y placa banner.jpg'} alt={`Pico y placa ${router.query.ciudad} ${data?.titulo.replaceAll('-', ' ')}`} width={800} height={400} style={{ objectFit: 'cover', margin: '32px 0', width: '90%', maxWidth: '600px', height: '30%', maxHeight: '400px' }} />
-
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h3 style={{ marginBottom: '16px' }}>Conoce el pico y placa del mes de {meses[numeroMes]}</h3>
-          <div onClick={() => router.push(`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}`)} style={{ cursor: 'pointer', marginTop: '4px', width: '300px' }} className={styles.containerMiniPlaca}>
-            <div style={{ backgroundColor: 'transparent', border: '4px solid black', borderRadius: '8px', height: '100%', width: '100%', alignItems: 'center', display: 'flex', justifyContent: 'space-evenly', flexDirection: 'column', padding: '8px' }}>
-              <h4 style={{ fontSize: '32px', fontFamily: 'Impact', letterSpacing: '6px', fontWeight: '100' }}>Pico y Placa</h4>
+        {/* Search Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-3xl mx-auto">
+            <TitleHomeAnimation />
+            <div className="mt-8">
+              <BuscadorBasico />
             </div>
           </div>
-        </div>
+        </section>
 
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px' }}>
-          <h2>Pico y Placa</h2>
-          <p>Conoce el Pico y Placa en {router.query.ciudad} para este {data?.titulo.replaceAll('-', ' ')}</p>
-          <div style={{ margin: '16px 0' }}>
-            <h3>Pico y Placa Carros Particulares:</h3>
-            {data?.placas === 'NO APLICA'
-              ?
-              <p style={{ marginTop: '8px' }}>Hoy {data?.fechaFormat.replaceAll('-', ' ')} <span style={{ fontWeight: '700' }}>NO  hay restricciones.</span></p>
-
-              :
-              data?.especial
-                ?
-                <>
-                  <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>{data?.ciudad ? 'NO ':''}Podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[0]}</span>  de <span style={{ fontWeight: '700' }}> Horario:</span> {data?.horario[0]} y las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas[1]}</span>  de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario[1]}</p>
-                </>
-
-                :
-                <p style={{ marginTop: '8px' }}><span style={{ fontWeight: '700' }}>{data?.ciudad ? 'NO ':''}Podrán</span>  circular las placas terminadas en <span style={{ fontWeight: '700' }}>{data?.placas}</span> de <span style={{ fontWeight: '700' }}>Horario:</span> {data?.horario}</p>
-            }
+        {/* Calendar Link with mini card */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8">
+              Conoce el pico y placa del mes de {router.query.mes.replaceAll('-', ' ')}
+            </h3>
+            <div 
+              onClick={() => router.push(`/pico-y-placa-hoy/${router.query.ciudad}/${router.query.mes}`)}
+              className="inline-block cursor-pointer transition-all hover:scale-105 hover:shadow-xl"
+            >
+              <div className="bg-gradient-to-br from-yellow-400 to-amber-400 rounded-2xl border-4 border-gray-900 p-8 w-80 shadow-lg">
+                <h4 className="text-4xl font-black text-gray-900 tracking-wider text-center">
+                  Pico y Placa
+                </h4>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Pl</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Descubre todo sobre el Pico y Placa en {router.query.ciudad}: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.</p>
-          <p>Infórmate sobre las reglas y restricciones del Pico y Placa en {router.query.ciudad}. Evita sanciones y optimiza tus desplazamientos en la ciudad.</p>
-        </div>
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>hora pico y placa {router.query.ciudad}</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>{data?.ciudad ? 'NO ':''}Podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
-        </div>
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>pico y placa {router.query.ciudad} hoy</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>{data?.placas === 'NO APLICA' ? 'NO APLICA' : <>{data?.ciudad ? 'NO ':''}Podrán circular vehículos con restricción en el horario: <span style={{ fontWeight: '700' }}>{data?.horario}</span></>}</p>
-        </div>
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
-          <p style={{ margin: '8px 0px 16px 0 ' }}>Vehiculos particulars con placas terminas en {data?.placas} {data?.ciudad ? 'NO ':''} podrán circular {data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario} .</p>
-        </div>
-        {/* <h2>Encuentra los mejores repuestos para tu Chevrolet</h2>
-        <section style={{ margin: '32px 0', width: '95%', maxWidth: '1000px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-          {repuestos.map(repuesto => (
-            <Link href={'https://www.cotizatusrepuestos.com/'} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', padding: '16px', border: '1px solid #d9d9d9', borderRadius: '8px', maxWidth: '100%', width: '300px', margin: '0 auto' }}>
-              <img src={repuesto?.imagen} style={{ width: '80%', height: '280px', objectFit: 'contain', margin: '0 auto' }} alt={repuesto?.repuesto} />
-              <p>{repuesto.repuesto}</p>
-              <p style={{ fontSize: '14px', marginTop: '8px' }}>{repuesto.fabricante}</p>
-              <p style={{ fontWeight: '600', color: '#f50057', fontSize: '12px', marginTop: '8px' }}>Antes ${repuesto.precioAnt}</p>
-              <p style={{ fontWeight: '600', fontSize: '24px', marginTop: '8px' }}>${repuesto.precio}</p>
-            </Link>
-          ))}
-        </section> */}
-        <div style={{ margin: '32px 0', width: '95%', maxWidth: '600px', }}>
-          <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}</h2>
-          <h2>Pico y Placa {router.query.ciudad} {data?.titulo.replaceAll('-', ' ')}</h2>
-          <time dateTime={new Date(data?.fecha).toISOString()} itemProp="datePublished">
-            {date.toLocaleDateString('es-ES', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit',
-              timeZoneName: 'short',
-            })}
-          </time>
-        </div>
+        {/* Banner Image */}
+        <section className="py-0 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <Image 
+                loading='lazy' 
+                src={'/pico y placa banner.jpg'} 
+                alt={`Pico y placa ${ciudades[router.query.ciudad]} ${data?.titulo.replaceAll('-', ' ')}`} 
+                width={800} 
+                height={400} 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Pico y Placa Details */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">Pico y Placa</h2>
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed">
+              Conoce el Pico y Placa en {ciudades[router.query.ciudad]} para este {data?.titulo.replaceAll('-', ' ')}
+            </p>
+            
+            <div className="bg-gray-50 rounded-3xl p-8 sm:p-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Pico y Placa Carros Particulares:</h3>
+              {data?.placas === 'NO APLICA' ? (
+                <p className="text-xl text-gray-600">
+                  Hoy {data?.fechaFormat.replaceAll('-', ' ')} <span className="font-semibold text-green-600">NO hay restricciones.</span>
+                </p>
+              ) : data?.especial ? (
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  <span className="font-semibold text-gray-900">{data?.ciudad ? 'NO ' : ''}Podrán</span> circular las placas terminadas en <span className="font-semibold text-gray-900">{data?.placas[0]}</span> de <span className="font-semibold text-gray-900">Horario:</span> {data?.horario[0]} y las placas terminadas en <span className="font-semibold text-gray-900">{data?.placas[1]}</span> de <span className="font-semibold text-gray-900">Horario:</span> {data?.horario[1]}
+                </p>
+              ) : (
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  <span className="font-semibold text-gray-900">{data?.ciudad ? 'NO ' : ''}Podrán</span> circular las placas terminadas en <span className="font-semibold text-gray-900">{data?.placas}</span> de <span className="font-semibold text-gray-900">Horario:</span> {data?.horario}
+                </p>
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Reglas y Horarios Detallados */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-10">
+              Reglas y Horarios Detallados del Pico y Placa en {ciudades[router.query.ciudad]}
+            </h2>
+            <p className="text-xl text-gray-600 mb-16 leading-relaxed">
+              La medida de Pico y Placa en {ciudades[router.query.ciudad]} busca mejorar la <strong>movilidad urbana</strong> y reducir la congestión vehicular, especialmente en <strong>hora pico</strong>. Es crucial conocer las reglas para evitar sanciones.
+            </p>
+
+            <div className="space-y-16">
+              <div className="relative pl-8 border-l-4 border-gray-200">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                  ¿Cuál es el horario del Pico y Placa hoy en {ciudades[router.query.ciudad]}?
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Para el día de <strong>{data?.titulo?.replaceAll('-', ' ')}</strong>, la restricción aplica de <strong>{horariosCiudades[router.query.ciudad]?.horarios[0]} a {horariosCiudades[router.query.ciudad]?.horarios[1]}</strong>. Recuerda que este horario es fijo de lunes a viernes y aplica a vehículos particulares. Verifica las restricciones específicas para el último dígito de tu placa: <strong>{data?.placas}</strong>.
+                </p>
+              </div>
+
+              <div className="relative pl-8 border-l-4 border-gray-200">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                  Multas y Sanciones por Incumplimiento
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Si circulas en <strong>horario de Pico y Placa</strong> con un vehículo restringido, te expones a una sanción. El Código Nacional de Tránsito Terrestre (CNTT), en su artículo 131 (infracción <strong>C14</strong>), establece una multa económica por el incumplimiento de la restricción, además de la inmovilización del vehículo en algunos casos. Consulta el <strong>valor actualizado de la multa por Pico y Placa</strong> para {ciudades[router.query.ciudad]}.
+                </p>
+              </div>
+
+              <div className="relative pl-8 border-l-4 border-gray-200">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                  Excepciones y Permisos Especiales
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Existen algunas <strong>excepciones al Pico y Placa</strong> en {ciudades[router.query.ciudad]}. Los vehículos híbridos, eléctricos, o aquellos que hayan solicitado el <strong>Pico y Placa Solidario</strong> (en ciudades donde aplica como Bogotá) pueden circular sin restricción. Si tu vehículo tiene una placa terminada en <strong>{data?.placas}</strong> y necesitas circular, verifica si cumples con los requisitos para obtener un permiso especial y legal.
+                </p>
+              </div>
+
+              <div className="relative pl-8 border-l-4 border-gray-200">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                  Pico y Placa Mañana en {ciudades[router.query.ciudad]}
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  ¿Quieres saber la restricción para el <strong>Pico y Placa mañana</strong> en {ciudades[router.query.ciudad]}? Planifica tu ruta con anticipación. Generalmente, el sistema de rotación es consecutivo. Te invitamos a consultar nuestro <strong>calendario completo del Pico y Placa del mes de {meses[numeroMes]}</strong> para ver la rotación de placas y horarios.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pico y Pl Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">Pico y Pl</h2>
+            <div className="space-y-6">
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Descubre todo sobre el Pico y Placa en {ciudades[router.query.ciudad]}: restricciones, horarios y consejos para evitar multas y mejorar tu movilidad.
+              </p>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Infórmate sobre las reglas y restricciones del Pico y Placa en {ciudades[router.query.ciudad]}. Evita sanciones y optimiza tus desplazamientos en la ciudad.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Hora Pico y Placa */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
+              hora pico y placa {ciudades[router.query.ciudad]}
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              {data?.placas === 'NO APLICA' ? (
+                'NO APLICA'
+              ) : (
+                <>
+                  {data?.ciudad ? 'NO ' : ''}Podrán circular vehículos con restricción en el horario: <span className="font-semibold text-gray-900">{data?.horario}</span>
+                </>
+              )}
+            </p>
+          </div>
+        </section>
+
+        {/* Pico y Placa Ciudad Hoy */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
+              pico y placa {ciudades[router.query.ciudad]} hoy
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              {data?.placas === 'NO APLICA' ? (
+                'NO APLICA'
+              ) : (
+                <>
+                  {data?.ciudad ? 'NO ' : ''}Podrán circular vehículos con restricción en el horario: <span className="font-semibold text-gray-900">{data?.horario}</span>
+                </>
+              )}
+            </p>
+          </div>
+        </section>
+
+        {/* Pico y Placa Fecha Específica */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-8">
+              Pico y Placa {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Vehiculos particulares con placas terminadas en <span className="font-semibold text-gray-900">{data?.placas}</span> {data?.ciudad ? 'NO ' : ''}podrán circular{data?.placas !== 'NO APLICA' && ' desde las ' + data?.horario}.
+            </p>
+          </div>
+        </section>
+
+        {/* Final Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                Pico y Placa {ciudades[router.query.ciudad]} {data?.titulo.replace(/^[^\-]+\s*\-\s*/g, '').replace(/\-/g, ' ')}
+              </h2>
+            </div>
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                Pico y Placa {ciudades[router.query.ciudad]} {data?.titulo.replaceAll('-', ' ')}
+              </h2>
+            </div>
+          </div>
+        </section>
       </div>
     </Layout>
   )
 }
 
 export async function getStaticPaths() {
-  // Aquí defines las rutas estáticas que quieres pre-generar
-  // Puedes cargar datos de una API o definirlas manualmente si son pocas
   return {
-    paths: [], // Se puede dejar vacío si quieres que las páginas se generen bajo demanda
-    fallback: 'blocking', // Bloquea hasta que se genere la página estática
+    paths: [],
+    fallback: 'blocking',
   };
 }
 
@@ -380,7 +397,7 @@ export async function getStaticProps({ params }) {
 
   if (!picoyplaca?.picoyplaca[yearQuery]?.[mesIndex]) {
     return {
-      notFound: true, // Devuelve un 404 si los datos no existen
+      notFound: true,
     };
   }
 
