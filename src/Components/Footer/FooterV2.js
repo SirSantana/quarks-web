@@ -60,6 +60,9 @@ export default function FooterV2({ data }) {
 <Link href="/pico-y-placa-hoy" className={styles.footerLink}>
            Pico y Placa
           </Link>
+          <Link href="/repuesto" className={styles.footerLink}>
+           Repuestos Automotores
+          </Link>
         </div>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Síguenos</h3>

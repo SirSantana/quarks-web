@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
 import Layout from '@/src/Components/Layout';
-import autopartes from '@/src/data/catalogo_autopartes.json';
 import Link from 'next/link';
+import { Search, Grid3x3, List, SlidersHorizontal, Package, Tag, ShoppingCart } from 'lucide-react';
+import autopartes from '@/src/data/catalogo_autopartes.json';
 
-export default function RepuestosPage() {
+export default function RepuestosPage({ autopartes }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [viewMode, setViewMode] = useState('grid');
@@ -11,16 +12,19 @@ export default function RepuestosPage() {
 
   // Obtener categorías únicas
   const categories = useMemo(() => {
-    const cats = [...new Set(autopartes.map(item => item.categoria).filter(Boolean))];
+    const cats = [...new Set(autopartes.map(item => item.Tipo).filter(Boolean))];
     return cats.sort();
-  }, []);
+  }, [autopartes]);
 
   // Filtrar y ordenar productos
   const filteredProducts = useMemo(() => {
     let filtered = autopartes.filter(product => {
-      const matchesSearch = product.titulo?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           product.descripcion?.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = selectedCategory === '' || product.categoria === selectedCategory;
+      const matchesSearch = product.Nombre?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           product.Tipo?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           product.Marca?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           product.Modelo?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           product.Codigo?.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = selectedCategory === '' || product.Tipo === selectedCategory;
       
       return matchesSearch && matchesCategory;
     });
@@ -29,337 +33,266 @@ export default function RepuestosPage() {
     filtered.sort((a, b) => {
       switch (sortBy) {
         case 'name':
-          return (a.titulo || '').localeCompare(b.titulo || '');
+          return (a.Nombre || '').localeCompare(b.Nombre || '');
         case 'price':
-          return (a.precio || 0) - (b.precio || 0);
+          const priceA = parseFloat((a.Precio || '0').replace(/,/g, ''));
+          const priceB = parseFloat((b.Precio || '0').replace(/,/g, ''));
+          return priceA - priceB;
         case 'category':
-          return (a.categoria || '').localeCompare(b.categoria || '');
+          return (a.Tipo || '').localeCompare(b.Tipo || '');
         default:
           return 0;
       }
     });
 
     return filtered;
-  }, [searchTerm, selectedCategory, sortBy]);
+  }, [searchTerm, selectedCategory, sortBy, autopartes]);
 
-  const ProductCard = ({ product }) => (
-    <Link href={`/repuesto/${product.titulo}`} style={{ textDecoration: 'none' }}>
-      <div style={{
-        backgroundColor: '#ffffff',
-        borderRadius: '16px',
-        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-        border: '1px solid #f3f4f6',
-        overflow: 'hidden',
-        transition: 'all 0.3s ease',
-        cursor: 'pointer',
-        height: '100%'
-      }}>
-        {product.imagen && (
-          <div style={{
-            aspectRatio: '16/9',
-            backgroundColor: '#f9fafb',
-            overflow: 'hidden'
-          }}>
-            <img 
-              src={product.imagen} 
-              alt={product.titulo}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
-          </div>
-        )}
-        <div style={{ padding: '20px' }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            marginBottom: '12px'
-          }}>
-            <span style={{
-              fontSize: '12px',
-              fontWeight: '500',
-              padding: '4px 12px',
-              backgroundColor: '#eff6ff',
-              color: '#2563eb',
-              borderRadius: '20px'
-            }}>
-              {product.categoria || 'General'}
-            </span>
-            {product.precio && (
-              <span style={{
-                fontSize: '18px',
-                fontWeight: 'bold',
-                color: '#16a34a'
-              }}>
-                ${product.precio.toLocaleString()}
-              </span>
+  const formatPrice = (price) => {
+    if (!price) return null;
+    const numPrice = parseFloat(price.replace(/,/g, ''));
+    return numPrice.toLocaleString('es-CO');
+  };
+
+  const calculateDiscount = (precio, precio2) => {
+    if (!precio || !precio2) return null;
+    const p1 = parseFloat(precio.replace(/,/g, ''));
+    const p2 = parseFloat(precio2.replace(/,/g, ''));
+    return Math.round(((p2 - p1) / p2) * 100);
+  };
+
+  const ProductCard = ({ product }) => {
+    const discount = product.Descuento || calculateDiscount(product.Precio, product.Precio2);
+    const hasDiscount = discount && discount > 0;
+
+    return (
+      <Link href={`/repuesto/${product.titulo}`} style={{ textDecoration: 'none' }}>
+        <div className="group relative overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+          {/* Imagen */}
+          <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br">
+            {product.images?.length > 0 ? (
+              <img 
+                src={product.images[0]} 
+                alt={product.Nombre}
+                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <Package className="w-20 h-20 text-gray-300" />
+              </div>
+            )}
+            
+            {/* Badges superiores */}
+            <div className="absolute top-3 left-3 right-3 flex justify-between items-start gap-2">
+              {hasDiscount && (
+                <span className="px-3 py-1 text-xs font-bold bg-red-500 text-white rounded-full shadow-lg">
+                  -{discount}%
+                </span>
+              )}
+            </div>
+
+            {/* Brand badge */}
+            {product.Brand && (
+              <div className="absolute bottom-3 left-3">
+                <span className="px-3 py-1 text-xs font-medium bg-blue-600 text-white rounded-full shadow-lg">
+                  {product.Brand}
+                </span>
+              </div>
             )}
           </div>
-          
-          <h3 style={{
-            fontWeight: '600',
-            color: '#111827',
-            marginBottom: '8px',
-            fontSize: '16px',
-            lineHeight: '1.4',
-            display: '-webkit-box',
-            WebkitLineClamp: 2,
-            WebkitBoxOrient: 'vertical',
-            overflow: 'hidden'
-          }}>
-            {product.titulo}
-          </h3>
-          
-          {product.descripcion && (
-            <p style={{
-              fontSize: '14px',
-              color: '#6b7280',
-              lineHeight: '1.5',
-              display: '-webkit-box',
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden'
-            }}>
-              {product.descripcion}
-            </p>
-          )}
-          
-          <div style={{
-            marginTop: '16px',
-            padding: '8px 16px',
-            backgroundColor: '#3b82f6',
-            color: 'white',
-            borderRadius: '8px',
-            textAlign: 'center',
-            fontSize: '14px',
-            fontWeight: '500'
-          }}>
-            Ver detalles
+
+          {/* Contenido */}
+          <div className="p-5">
+            {/* Código y Referencia */}
+            <div className="flex items-center gap-3 mb-3 text-xs text-gray-500">
+              {product.Codigo && (
+                <span className="flex items-center gap-1">
+                  <Tag className="w-3 h-3" />
+                  {product.Codigo}
+                </span>
+              )}
+              {product.Referencia && (
+                <span className="px-2 py-0.5 bg-gray-100 rounded">
+                  Ref: {product.Referencia}
+                </span>
+              )}
+            </div>
+
+            {/* Título */}
+            <h3 className="text-base font-semibold text-gray-900 line-clamp-2 leading-tight mb-3 min-h-[2.5rem]">
+              {product.Nombre}
+            </h3>
+            
+            {/* Marca y Modelo */}
+            {(product.Marca || product.Modelo) && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {product.Marca && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 rounded">
+                    {product.Marca}
+                  </span>
+                )}
+                {product.Modelo && (
+                  <span className="inline-flex items-center px-2.5 py-0.5 text-xs font-medium bg-gray-100 text-gray-700 rounded">
+                    {product.Modelo}
+                  </span>
+                )}
+              </div>
+            )}
+
+            {/* Precios */}
+            <div className="mb-4">
+              {hasDiscount && product.Precio2 && (
+                <div className="text-sm text-gray-400 line-through mb-1">
+                  ${formatPrice(product.Precio2)}
+                </div>
+              )}
+              {product.Precio && (
+                <div className="text-2xl font-bold text-blue-600">
+                  ${formatPrice(product.Precio)}
+                </div>
+              )}
+            </div>
+            
+            {/* Botón de acción */}
+            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+              <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700">
+                <span>Ver detalles</span>
+                <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </Link>
-  );
+      </Link>
+    );
+  };
 
   return (
     <Layout title="Catálogo de Repuestos">
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '40px 20px'
-      }}>
-        {/* Header */}
-        <div style={{
-          textAlign: 'center',
-          marginBottom: '40px'
-        }}>
-          <h1 style={{
-            fontSize: '36px',
-            fontWeight: 'bold',
-            color: '#111827',
-            marginBottom: '8px'
-          }}>
-            Catálogo de Repuestos
-          </h1>
-          <p style={{
-            fontSize: '18px',
-            color: '#6b7280'
-          }}>
-            Encuentra el repuesto que necesitas para tu vehículo
-          </p>
-        </div>
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">
+              Catálogo de Repuestos
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Encuentra el repuesto perfecto para tu vehículo con la mejor calidad y precio
+            </p>
+          </div>
 
-        {/* Filtros y búsqueda */}
-        <div style={{
-          backgroundColor: '#ffffff',
-          padding: '24px',
-          borderRadius: '16px',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
-          marginBottom: '32px'
-        }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '16px',
-            marginBottom: '20px'
-          }}>
-            {/* Búsqueda */}
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '14px',
-                fontWeight: '500',
-                color: '#374151',
-                marginBottom: '8px'
-              }}>
-                Buscar repuesto
-              </label>
-              <input
-                type="text"
-                placeholder="Buscar por nombre o descripción..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  outline: 'none',
-                  transition: 'border-color 0.2s'
-                }}
-              />
+          {/* Barra de búsqueda y filtros */}
+          <div className="bg-white shadow-sm rounded-2xl p-6 mb-8">
+            {/* Búsqueda principal */}
+            <div className="mb-6">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Buscar por nombre, código, marca, modelo..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow"
+                />
+              </div>
             </div>
 
-            {/* Filtro por categoría */}
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '14px',
-                fontWeight: '500',
-                color: '#374151',
-                marginBottom: '8px'
-              }}>
-                Categoría
-              </label>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  backgroundColor: 'white',
-                  outline: 'none'
-                }}
-              >
-                <option value="">Todas las categorías</option>
-                {categories.map(category => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
+            {/* Filtros en una fila */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+              {/* Categoría */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Categoría
+                </label>
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer"
+                >
+                  <option value="">Todas las categorías</option>
+                  {categories.map(category => (
+                    <option key={category} value={category}>
+                      {category}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Ordenar */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Ordenar por
+                </label>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer"
+                >
+                  <option value="name">Nombre</option>
+                  <option value="price">Precio</option>
+                  <option value="category">Categoría</option>
+                </select>
+              </div>
+
+              {/* Vista */}
+              <div className="flex items-end">
+                <div className="flex gap-2 w-full">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                      viewMode === 'grid'
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    <Grid3x3 className="w-4 h-4" />
+                    <span className="hidden sm:inline">Cuadrícula</span>
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                      viewMode === 'list'
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    <List className="w-4 h-4" />
+                    <span className="hidden sm:inline">Lista</span>
+                  </button>
+                </div>
+              </div>
             </div>
 
-            {/* Ordenar por */}
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '14px',
-                fontWeight: '500',
-                color: '#374151',
-                marginBottom: '8px'
-              }}>
-                Ordenar por
-              </label>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '12px 16px',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '8px',
-                  fontSize: '14px',
-                  backgroundColor: 'white',
-                  outline: 'none'
-                }}
-              >
-                <option value="name">Nombre</option>
-                <option value="price">Precio</option>
-                <option value="category">Categoría</option>
-              </select>
+            {/* Resultados */}
+            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+              <span className="text-sm text-gray-600 font-medium">
+                {filteredProducts.length} {filteredProducts.length === 1 ? 'producto encontrado' : 'productos encontrados'}
+              </span>
             </div>
           </div>
 
-          {/* Estadísticas */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            paddingTop: '16px',
-            borderTop: '1px solid #e5e7eb'
-          }}>
-            <span style={{
-              fontSize: '14px',
-              color: '#6b7280'
-            }}>
-              {filteredProducts.length} productos encontrados
-            </span>
-            
-            <div style={{
-              display: 'flex',
-              gap: '8px'
-            }}>
-              <button
-                onClick={() => setViewMode('grid')}
-                style={{
-                  padding: '8px 12px',
-                  border: `1px solid ${viewMode === 'grid' ? '#3b82f6' : '#d1d5db'}`,
-                  borderRadius: '6px',
-                  backgroundColor: viewMode === 'grid' ? '#eff6ff' : 'white',
-                  color: viewMode === 'grid' ? '#3b82f6' : '#6b7280',
-                  fontSize: '12px',
-                  cursor: 'pointer'
-                }}
-              >
-                Cuadrícula
-              </button>
-              <button
-                onClick={() => setViewMode('list')}
-                style={{
-                  padding: '8px 12px',
-                  border: `1px solid ${viewMode === 'list' ? '#3b82f6' : '#d1d5db'}`,
-                  borderRadius: '6px',
-                  backgroundColor: viewMode === 'list' ? '#eff6ff' : 'white',
-                  color: viewMode === 'list' ? '#3b82f6' : '#6b7280',
-                  fontSize: '12px',
-                  cursor: 'pointer'
-                }}
-              >
-                Lista
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Grid de productos */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: viewMode === 'grid' 
-            ? 'repeat(auto-fill, minmax(300px, 1fr))'
-            : '1fr',
-          gap: '24px'
-        }}>
+          {/* Grid de productos */}
           {filteredProducts.length > 0 ? (
-            filteredProducts.map((product, index) => (
-              <ProductCard key={index} product={product} />
-            ))
+            <div className={`grid gap-6 ${
+              viewMode === 'grid'
+                ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+                : 'grid-cols-1'
+            }`}>
+              {filteredProducts.map((product, index) => (
+                <ProductCard key={product.Codigo || index} product={product} />
+              ))}
+            </div>
           ) : (
-            <div style={{
-              textAlign: 'center',
-              padding: '60px 20px',
-              gridColumn: '1 / -1'
-            }}>
-              <h3 style={{
-                fontSize: '20px',
-                fontWeight: '600',
-                color: '#374151',
-                marginBottom: '8px'
-              }}>
+            <div className="text-center py-20">
+              <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-100 rounded-full mb-4">
+                <Search className="w-10 h-10 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 No se encontraron productos
               </h3>
-              <p style={{
-                fontSize: '16px',
-                color: '#6b7280'
-              }}>
-                Intenta ajustar los filtros de búsqueda
+              <p className="text-gray-600">
+                Intenta ajustar los filtros de búsqueda o usar otros términos
               </p>
             </div>
           )}
@@ -367,4 +300,14 @@ export default function RepuestosPage() {
       </div>
     </Layout>
   );
+}
+
+
+// Obtener datos del servidor
+export async function getStaticProps() {
+  return {
+    props: {
+      autopartes: autopartes || [],
+    },
+  };
 }
