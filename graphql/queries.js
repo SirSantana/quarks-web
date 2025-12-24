@@ -341,6 +341,26 @@ query getCalificacionOpiniones($id:ID) {
   getCalificacionOpiniones(id:$id) 
 }
 `;
+
+export const GET_ALL_REVISIONES = gql`
+  query getAllRevisiones($page: Int!, $limit: Int!) {
+    getAllRevisiones(page: $page, limit: $limit) {
+      id
+      fecha
+      marca
+      referencia
+      descripcion
+      servicios
+      celular
+      almacen {
+      nombre
+      fotoperfil
+      userName
+      revisiones
+    }
+    }
+  }
+`;
 export const GET_REVISIONES= gql`
 query getRevisiones($id:ID) {
   getRevisiones(id:$id) {

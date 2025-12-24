@@ -47,7 +47,7 @@ export default function BookingPage({ data: taller }) {
     marca: "",
     referencia: "",
     servicios: "",
-    problema: "",
+    descripcion: "",
     celular: "",
     indicativo: "+57",
   });
@@ -104,7 +104,8 @@ export default function BookingPage({ data: taller }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(formData);
+    
     if (
       !formData.date ||
       !formData.timeSlot ||
@@ -338,8 +339,8 @@ export default function BookingPage({ data: taller }) {
                   Describe el problema
                 </label>
                 <textarea
-                  name="problema"
-                  value={formData.problema}
+                  name="descripcion"
+                  value={formData.descripcion}
                   onChange={handleChange}
                   placeholder="Describe con detalle lo que necesita tu vehículo..."
                   rows="4"

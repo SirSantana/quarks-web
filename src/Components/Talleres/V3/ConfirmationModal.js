@@ -24,7 +24,7 @@ createSolicitudServicio({ variables: {...formData, servicios:[formData.servicios
 ⏰ *Horario:* ${formData.timeSlot === 'AM' ? 'Mañana (8:00 AM - 12:00 PM)' : 'Tarde (12:00 PM - 6:00 PM)'}
 🚗 *Vehículo:* ${formData.marca} ${formData.referencia}
 🔧 *Servicio:* ${formData.servicios}
-📝 *Descripción:* ${formData.problema}
+📝 *Descripción:* ${formData.descripcion}
 📞 *Celular:* +${formData.indicativo} ${formData.celular}
 
 
@@ -127,12 +127,12 @@ createSolicitudServicio({ variables: {...formData, servicios:[formData.servicios
             </div>
 
             {/* Descripción */}
-            {formData.problema && (
+            {formData.descripcion && (
               <div className="flex items-start gap-3 py-3 border-b border-gray-100">
                 <MessageSquare className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
                   <p className="text-xs text-gray-600 mb-1">Descripción del problema</p>
-                  <p className="text-sm text-gray-900 leading-relaxed">{formData.problema}</p>
+                  <p className="text-sm text-gray-900 leading-relaxed">{formData.descripcion}</p>
                 </div>
               </div>
             )}
