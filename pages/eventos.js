@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Music, Utensils, Palette, Calendar, X, MapPin, List, Heart, Search, Navigation2 } from 'lucide-react';
+import { Music, Utensils, Palette, Calendar, X, MapPin, List, Heart, Search } from 'lucide-react';
 
 const EventMap = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const [currentZoom, setCurrentZoom] = useState(13);
-  const [visibleEvents, setVisibleEvents] = useState(0);
   const [isClient, setIsClient] = useState(false);
   const [MapComponents, setMapComponents] = useState(null);
   const [L, setL] = useState(null);
@@ -53,158 +52,130 @@ const EventMap = () => {
     music: { 
       name: 'Música', 
       icon: Music, 
-      color: '#FF375F', 
-      lightColor: '#FF2D55',
-      emoji: '🎵'
+      color: '#FF375F',
+      emoji: '🎵',
+      image: 'events/image2307.png'
     },
     food: { 
       name: 'Gastronomía', 
       icon: Utensils, 
-      color: '#FFD60A', 
-      lightColor: '#FF9500',
-      emoji: '🍽️'
+      color: '#FFD60A',
+      emoji: '🍽️',
+      image: 'events/image2304.png'
     },
     culture: { 
       name: 'Cultura', 
       icon: Palette, 
-      color: '#00E0B0', 
-      lightColor: '#BF5AF2',
-      emoji: '🎨'
+      color: '#00E0B0',
+      emoji: '🎨',
+      image: 'events/image2305.png'
     },
     dance: { 
       name: 'Baile', 
       icon: Calendar, 
-      color: '#5AC8FA', 
-      lightColor: '#5AC8FA',
-      emoji: '💃'
+      color: '#5AC8FA',
+      emoji: '💃',
+      image: 'events/image2306.png'
     }
   };
 
   const events = [
-    { id: 1, name: 'Festival de Jazz', type: 'music', position: [4.6500, -74.0600], date: '15 Nov', time: '20:00', minZoom: 11, venue: 'Teatro Colón', price: 'Gratis' },
-    { id: 2, name: 'Mercado Gourmet', type: 'food', position: [4.6800, -74.0500], date: '12 Nov', time: '18:00', minZoom: 11, venue: 'Parque 93', price: '$50.000' },
-    { id: 3, name: 'Exposición de Arte', type: 'culture', position: [4.5950, -74.0750], date: '18 Nov', time: '10:00', minZoom: 11, venue: 'MAMBO', price: '$20.000' },
-    { id: 4, name: 'Noche de Salsa', type: 'dance', position: [4.6400, -74.1000], date: '16 Nov', time: '21:00', minZoom: 11, venue: 'Café Havana', price: '$30.000' },
-    { id: 5, name: 'Concierto Rock', type: 'music', position: [4.6200, -74.0650], date: '14 Nov', time: '19:30', minZoom: 13, venue: 'Royal Center', price: '$80.000' },
-    { id: 6, name: 'Festival Gastronómico', type: 'food', position: [4.6600, -74.0800], date: '20 Nov', time: '12:00', minZoom: 13, venue: 'Usaquén', price: 'Gratis' },
-    { id: 7, name: 'Teatro Contemporáneo', type: 'culture', position: [4.6100, -74.0900], date: '17 Nov', time: '19:00', minZoom: 13, venue: 'Teatro Jorge Eliécer', price: '$45.000' },
-    { id: 8, name: 'Milonga Urbana', type: 'dance', position: [4.6700, -74.0550], date: '13 Nov', time: '22:00', minZoom: 13, venue: 'Casa del Tango', price: '$25.000' },
-    { id: 9, name: 'DJ Set Electrónico', type: 'music', position: [4.5850, -74.0700], date: '19 Nov', time: '23:00', minZoom: 13, venue: 'Theatron', price: '$40.000' },
-    { id: 10, name: 'Food Trucks Festival', type: 'food', position: [4.6450, -74.0850], date: '21 Nov', time: '17:00', minZoom: 13, venue: 'Simón Bolívar', price: 'Gratis' },
-    { id: 11, name: 'Café Literario', type: 'culture', position: [4.6150, -74.0680], date: '16 Nov', time: '17:00', minZoom: 15, venue: 'Librería Nacional', price: 'Gratis' },
-    { id: 12, name: 'Bar de Tapas', type: 'food', position: [4.6350, -74.0780], date: '13 Nov', time: '19:00', minZoom: 15, venue: 'Zona T', price: '$60.000' },
-    { id: 13, name: 'Karaoke Night', type: 'music', position: [4.6550, -74.0620], date: '14 Nov', time: '22:00', minZoom: 15, venue: 'Star Karaoke', price: '$35.000' },
-    { id: 14, name: 'Taller de Baile', type: 'dance', position: [4.6250, -74.0950], date: '18 Nov', time: '18:00', minZoom: 15, venue: 'Dance Studio', price: '$40.000' },
-    { id: 15, name: 'Galería Underground', type: 'culture', position: [4.6650, -74.0920], date: '20 Nov', time: '11:00', minZoom: 15, venue: 'Espacio Odeón', price: 'Gratis' },
-    { id: 16, name: 'Pizza al Horno', type: 'food', position: [4.6050, -74.0820], date: '15 Nov', time: '13:00', minZoom: 15, venue: 'La Pizzería', price: '$45.000' },
-    { id: 17, name: 'Jam Session', type: 'music', position: [4.6180, -74.0730], date: '17 Nov', time: '21:00', minZoom: 16, venue: 'Jazz al Parque', price: 'Gratis' },
-    { id: 18, name: 'Cervecería Artesanal', type: 'food', position: [4.6380, -74.0760], date: '19 Nov', time: '20:00', minZoom: 16, venue: 'BBC Bogotá', price: '$55.000' },
-    { id: 19, name: 'Cine Arte', type: 'culture', position: [4.6120, -74.0710], date: '21 Nov', time: '16:00', minZoom: 16, venue: 'Cinemateca', price: '$18.000' },
-    { id: 20, name: 'Clase de Tango', type: 'dance', position: [4.6480, -74.0640], date: '12 Nov', time: '19:00', minZoom: 16, venue: 'Club de Tango', price: '$50.000' },
+    { id: 1, name: 'Festival de Jazz', type: 'music', position: [4.6500, -74.0600], date: '15 Nov', time: '20:00', venue: 'Teatro Colón', price: 'Gratis' },
+    { id: 2, name: 'Mercado Gourmet', type: 'food', position: [4.6800, -74.0500], date: '12 Nov', time: '18:00', venue: 'Parque 93', price: '$50.000' },
+    { id: 3, name: 'Exposición de Arte', type: 'culture', position: [4.5950, -74.0750], date: '18 Nov', time: '10:00', venue: 'MAMBO', price: '$20.000' },
+    { id: 4, name: 'Noche de Salsa', type: 'dance', position: [4.6400, -74.1000], date: '16 Nov', time: '21:00', venue: 'Café Havana', price: '$30.000' },
+    { id: 5, name: 'Concierto Rock', type: 'music', position: [4.6200, -74.0650], date: '14 Nov', time: '19:30', venue: 'Royal Center', price: '$80.000' },
+    { id: 6, name: 'Festival Gastronómico', type: 'food', position: [4.6600, -74.0800], date: '20 Nov', time: '12:00', venue: 'Usaquén', price: 'Gratis' },
+    { id: 7, name: 'Teatro Contemporáneo', type: 'culture', position: [4.6100, -74.0900], date: '17 Nov', time: '19:00', venue: 'Teatro Jorge Eliécer', price: '$45.000' },
+    { id: 8, name: 'Milonga Urbana', type: 'dance', position: [4.6700, -74.0550], date: '13 Nov', time: '22:00', venue: 'Casa del Tango', price: '$25.000' },
+    { id: 9, name: 'DJ Set Electrónico', type: 'music', position: [4.5850, -74.0700], date: '19 Nov', time: '23:00', venue: 'Theatron', price: '$40.000' },
+    { id: 10, name: 'Food Trucks Festival', type: 'food', position: [4.6450, -74.0850], date: '21 Nov', time: '17:00', venue: 'Simón Bolívar', price: 'Gratis' },
+    { id: 11, name: 'Café Literario', type: 'culture', position: [4.6150, -74.0680], date: '16 Nov', time: '17:00', venue: 'Librería Nacional', price: 'Gratis' },
+    { id: 12, name: 'Bar de Tapas', type: 'food', position: [4.6350, -74.0780], date: '13 Nov', time: '19:00', venue: 'Zona T', price: '$60.000' },
+    { id: 13, name: 'Karaoke Night', type: 'music', position: [4.6550, -74.0620], date: '14 Nov', time: '22:00', venue: 'Star Karaoke', price: '$35.000' },
+    { id: 14, name: 'Taller de Baile', type: 'dance', position: [4.6250, -74.0950], date: '18 Nov', time: '18:00', venue: 'Dance Studio', price: '$40.000' },
+    { id: 15, name: 'Galería Underground', type: 'culture', position: [4.6650, -74.0920], date: '20 Nov', time: '11:00', venue: 'Espacio Odeón', price: 'Gratis' },
+    { id: 16, name: 'Pizza al Horno', type: 'food', position: [4.6050, -74.0820], date: '15 Nov', time: '13:00', venue: 'La Pizzería', price: '$45.000' },
+    { id: 17, name: 'Jam Session', type: 'music', position: [4.6180, -74.0730], date: '17 Nov', time: '21:00', venue: 'Jazz al Parque', price: 'Gratis' },
+    { id: 18, name: 'Cervecería Artesanal', type: 'food', position: [4.6380, -74.0760], date: '19 Nov', time: '20:00', venue: 'BBC Bogotá', price: '$55.000' },
+    { id: 19, name: 'Cine Arte', type: 'culture', position: [4.6120, -74.0710], date: '21 Nov', time: '16:00', venue: 'Cinemateca', price: '$18.000' },
+    { id: 20, name: 'Clase de Tango', type: 'dance', position: [4.6480, -74.0640], date: '12 Nov', time: '19:00', venue: 'Club de Tango', price: '$50.000' },
   ];
 
-  const createCustomIcon = (event, size = 'medium') => {
+  const createIslandIcon = (event) => {
     if (!L) return null;
     
     const eventType = eventTypes[event.type];
-    const sizes = {
-      small: { pin: 50, label: 100 },
-      medium: { pin: 60, label: 120 },
-      large: { pin: 70, label: 140 }
-    };
-    const pinSize = isMobile ? sizes[size].pin - 10 : sizes[size].pin;
-    const labelWidth = isMobile ? sizes[size].label : sizes[size].label;
+    // Tamaño base ajustado según zoom
+    const baseSize = 150;
+    const zoomMultiplier = currentZoom < 12 ? 0.5 : currentZoom < 13 ? 0.7 : currentZoom < 14 ? 0.9 : currentZoom < 15 ? 1.1 : 1.3;
+    const size = baseSize * zoomMultiplier;
     
-    const adjustBrightness = (color, percent) => {
-      if (color.startsWith('#')) {
-        const num = parseInt(color.replace('#', ''), 16);
-        const r = Math.max(0, Math.min(255, ((num >> 16) & 0xFF) + percent));
-        const g = Math.max(0, Math.min(255, ((num >> 8) & 0xFF) + percent));
-        const b = Math.max(0, Math.min(255, (num & 0xFF) + percent));
-        return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
-      }
-      return color;
-    };
-    
-    const svgIcon = `
-      <div style="
+    const iconHtml = `
+      <div class="island-container" style="
         position: relative;
-        width: ${labelWidth}px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        width: ${size}px;
+        height: ${size}px;
       ">
-        <div style="
-          position: relative;
-          width: ${pinSize * 0.8}px;
-          height: ${pinSize * 1.1}px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          animation: pinPop 0.35s cubic-bezier(0.25, 1.25, 0.5, 1);
-        ">
-          <div style="
-            position: absolute;
-            width: ${pinSize * 0.8}px;
-            height: ${pinSize * 0.8}px;
-            background: radial-gradient(circle at 30% 30%, ${eventType.color} 30%, ${adjustBrightness(eventType.color, -20)} 100%);
-            border-radius: 50%;
-            box-shadow:
-              0 0 15px ${eventType.color}aa,
-              0 0 35px ${eventType.color}66,
-              0 4px 8px rgba(0,0,0,0.15);
-          ">
-            <div style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              font-size: ${pinSize * 0.4}px;
-              line-height: 1;
-              filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
-            ">${eventType.emoji}</div>
-          </div>
-          <div style="
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: ${pinSize * 0.2}px solid transparent;
-            border-right: ${pinSize * 0.2}px solid transparent;
-            border-top: ${pinSize * 0.3}px solid ${adjustBrightness(eventType.color, -20)};
-            filter: drop-shadow(0 0 8px ${eventType.color}88);
-          "></div>
-          <div style="
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: ${pinSize * 1.6}px;
-            height: ${pinSize * 0.5}px;
-            background: radial-gradient(ellipse, ${eventType.color}66 0%, transparent 70%);
-            filter: blur(10px);
-            opacity: 0.8;
-            pointer-events: none;
-          "></div>
-        </div>
-        <div style="
-          padding: 6px 12px;
-          border-radius: 12px;
-          white-space: nowrap;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
-          max-width: ${labelWidth}px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          background: rgba(0,0,0,0.75);
-          color: white;
+        <!-- Sombra proyectada -->
+        <div class="island-shadow" style="
+          position: absolute;
+          bottom: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: ${size * 0.8}px;
+          height: ${size * 0.3}px;
+          background: radial-gradient(ellipse, rgba(0,0,0,0.4) 0%, transparent 70%);
+          filter: blur(15px);
+          z-index: -1;
+        "></div>
+        
+        <!-- Resplandor de isla -->
+        <div class="island-glow" style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: ${size * 1.3}px;
+          height: ${size * 1.3}px;
+          background: radial-gradient(circle, ${eventType.color}33 0%, transparent 70%);
+          filter: blur(20px);
+          z-index: -1;
+          opacity: 0.6;
+        "></div>
+        
+        <!-- Imagen de la isla -->
+        <img 
+          src="${eventType.image}" 
+          style="
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+            position: relative;
+            z-index: 1;
+          "
+          alt="${event.name}"
+        />
+        
+        <!-- Etiqueta flotante -->
+        <div class="island-label" style="
+          position: absolute;
+          bottom: -35px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(0, 0, 0, 0.85);
           backdrop-filter: blur(12px);
-          box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-          border: 1px solid rgba(255,255,255,0.1);
+          color: white;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 13px;
+          font-weight: 600;
+          white-space: nowrap;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+          border: 1px solid ${eventType.color}66;
+          z-index: 2;
+          pointer-events: none;
         ">
           ${event.name}
         </div>
@@ -212,18 +183,12 @@ const EventMap = () => {
     `;
     
     return L.divIcon({
-      className: 'custom-marker-3d',
-      html: svgIcon,
-      iconSize: [labelWidth, pinSize + 40],
-      iconAnchor: [labelWidth / 2, pinSize + 35],
-      popupAnchor: [0, -(pinSize + 40)]
+      className: 'island-marker-custom',
+      html: iconHtml,
+      iconSize: [size, size + 40],
+      iconAnchor: [size / 2, size / 2],
+      popupAnchor: [0, -size / 2]
     });
-  };
-
-  const getIconSize = (zoom) => {
-    if (zoom < 13) return 'small';
-    if (zoom < 15) return 'medium';
-    return 'large';
   };
 
   const MapEventHandler = () => {
@@ -232,18 +197,12 @@ const EventMap = () => {
     const { useMapEvents } = MapComponents;
     const map = useMapEvents({
       zoomend: () => {
-        const zoom = map.getZoom();
-        setCurrentZoom(zoom);
-        const visible = filteredEvents.filter(e => zoom >= e.minZoom).length;
-        setVisibleEvents(visible);
+        setCurrentZoom(map.getZoom());
       },
     });
 
     useEffect(() => {
-      const zoom = map.getZoom();
-      setCurrentZoom(zoom);
-      const visible = filteredEvents.filter(e => zoom >= e.minZoom).length;
-      setVisibleEvents(visible);
+      setCurrentZoom(map.getZoom());
     }, [map]);
 
     return null;
@@ -263,8 +222,6 @@ const EventMap = () => {
       e.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       e.venue.toLowerCase().includes(searchQuery.toLowerCase())
     );
-
-  const visibleFilteredEvents = filteredEvents.filter(e => currentZoom >= e.minZoom);
 
   if (!isClient || !MapComponents || !L) {
     return (
@@ -438,7 +395,7 @@ const EventMap = () => {
                   </div>
                   <div>
                     <h1 className="text-lg font-semibold text-white">EventMap</h1>
-                    <p className="text-xs text-gray-400">{visibleEvents} eventos</p>
+                    <p className="text-xs text-gray-400">{filteredEvents.length} eventos</p>
                   </div>
                 </div>
                 
@@ -457,24 +414,26 @@ const EventMap = () => {
         {/* Mapa */}
         <MapContainer
           center={center}
-          zoom={13}
-          zoomControl={false}
+          zoom={12}
+          minZoom={11}
+          maxZoom={16}
+          zoomControl={true}
           style={{ height: '100%', width: '100%' }}
           className="z-0"
         >
           <TileLayer
-            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
             attribution='© OpenStreetMap, © CartoDB'
           />
           
           <MapEventHandler />
 
-          {visibleFilteredEvents.map(event => {
+          {filteredEvents.map(event => {
             return (
               <Marker
                 key={event.id}
                 position={event.position}
-                icon={createCustomIcon(event, getIconSize(currentZoom))}
+                icon={createIslandIcon(event)}
                 eventHandlers={{
                   click: () => setSelectedEvent(event),
                 }}
@@ -491,27 +450,32 @@ const EventMap = () => {
           onClick={() => setSelectedEvent(null)}
         >
           <div 
-            className="bg-neutral-900 rounded-t-3xl md:rounded-3xl p-6 md:p-8 w-full md:max-w-md shadow-2xl border border-neutral-800 transform transition-transform"
+            className="relative bg-neutral-900 rounded-t-3xl md:rounded-3xl w-full md:max-w-md shadow-2xl border border-neutral-800 transform transition-transform overflow-visible"
             onClick={e => e.stopPropagation()}
           >
-            <div className="w-12 h-1 bg-neutral-700 rounded-full mx-auto mb-6 md:hidden"></div>
-            
-            <div className="flex justify-between items-start mb-6">
+            {/* Isla flotante superior */}
+            <div className="absolute -top-24 left-1/2 transform -translate-x-1/2 z-10">
               <div className="relative">
+                <img 
+                  src={eventTypes[selectedEvent.type].image}
+                  alt={selectedEvent.name}
+                  className="w-64 h-64 object-contain drop-shadow-2xl floating-modal-island"
+                />
                 <div 
-                  className="w-20 h-20 rounded-3xl flex items-center justify-center shadow-lg"
-                  style={{ backgroundColor: eventTypes[selectedEvent.type].color }}
-                >
-                  <span className="text-4xl">{eventTypes[selectedEvent.type].emoji}</span>
-                </div>
-                <div 
-                  className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center border-4 border-neutral-900 shadow-md"
-                  style={{ backgroundColor: eventTypes[selectedEvent.type].color }}
-                >
-                  {React.createElement(eventTypes[selectedEvent.type].icon, { className: "w-5 h-5 text-black" })}
-                </div>
+                  className="absolute inset-0 opacity-60 blur-2xl"
+                  style={{ 
+                    background: `radial-gradient(circle, ${eventTypes[selectedEvent.type].color}88 0%, transparent 70%)`
+                  }}
+                ></div>
               </div>
-              <div className="flex gap-2">
+            </div>
+
+            {/* Contenido del modal */}
+            <div className="pt-32 p-6 md:p-8">
+              <div className="w-12 h-1 bg-neutral-700 rounded-full mx-auto mb-6 md:hidden"></div>
+              
+              {/* Botones de acción */}
+              <div className="flex justify-end gap-2 mb-6">
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -532,60 +496,165 @@ const EventMap = () => {
                   <X className="w-6 h-6" />
                 </button>
               </div>
+
+              {/* Título y categoría */}
+              <div className="text-center mb-8">
+                <div 
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4"
+                  style={{ 
+                    backgroundColor: `${eventTypes[selectedEvent.type].color}22`,
+                    border: `1px solid ${eventTypes[selectedEvent.type].color}44`
+                  }}
+                >
+                  {React.createElement(eventTypes[selectedEvent.type].icon, { 
+                    className: "w-4 h-4",
+                    style: { color: eventTypes[selectedEvent.type].color }
+                  })}
+                  <span 
+                    className="text-sm font-semibold"
+                    style={{ color: eventTypes[selectedEvent.type].color }}
+                  >
+                    {eventTypes[selectedEvent.type].name}
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                  {selectedEvent.name}
+                </h2>
+              </div>
+              
+              {/* Información del evento */}
+              <div className="space-y-3 mb-8">
+                <div className="flex items-center gap-4 bg-neutral-800/50 rounded-2xl p-4 border border-neutral-700/50 backdrop-blur-sm">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${eventTypes[selectedEvent.type].color}22` }}
+                  >
+                    <MapPin 
+                      className="w-6 h-6"
+                      style={{ color: eventTypes[selectedEvent.type].color }}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-gray-400 font-medium mb-1">Lugar</p>
+                    <p className="text-white font-semibold">{selectedEvent.venue}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4 bg-neutral-800/50 rounded-2xl p-4 border border-neutral-700/50 backdrop-blur-sm">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${eventTypes[selectedEvent.type].color}22` }}
+                  >
+                    <Calendar 
+                      className="w-6 h-6"
+                      style={{ color: eventTypes[selectedEvent.type].color }}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-gray-400 font-medium mb-1">Fecha y hora</p>
+                    <p className="text-white font-semibold">{selectedEvent.date} • {selectedEvent.time}</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-4 bg-neutral-800/50 rounded-2xl p-4 border border-neutral-700/50 backdrop-blur-sm">
+                  <div 
+                    className="w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: `${eventTypes[selectedEvent.type].color}22` }}
+                  >
+                    <span className="text-2xl">💵</span>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs text-gray-400 font-medium mb-1">Precio</p>
+                    <p className="text-white font-semibold">{selectedEvent.price}</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Botón de acción */}
+              <button 
+                className="w-full py-4 rounded-2xl font-semibold text-white shadow-lg hover:shadow-xl transition-all active:scale-[0.98] relative overflow-hidden group"
+                style={{ backgroundColor: eventTypes[selectedEvent.type].color }}
+              >
+                <span className="relative z-10">Ver detalles del evento</span>
+                <div 
+                  className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"
+                ></div>
+              </button>
             </div>
-            
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{selectedEvent.name}</h2>
-            <p 
-              className="text-base md:text-lg font-semibold mb-6"
-              style={{ color: eventTypes[selectedEvent.type].color }}
-            >
-              {eventTypes[selectedEvent.type].name}
-            </p>
-            
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center gap-4 bg-neutral-800 rounded-2xl p-4 border border-neutral-700">
-                <div className="w-12 h-12 bg-neutral-700 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-gray-300" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 font-medium">Lugar</p>
-                  <p className="text-white font-semibold">{selectedEvent.venue}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 bg-neutral-800 rounded-2xl p-4 border border-neutral-700">
-                <div className="w-12 h-12 bg-neutral-700 rounded-xl flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-gray-300" />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 font-medium">Fecha y hora</p>
-                  <p className="text-white font-semibold">{selectedEvent.date} • {selectedEvent.time}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 bg-neutral-800 rounded-2xl p-4 border border-neutral-700">
-                <div className="w-12 h-12 bg-neutral-700 rounded-xl flex items-center justify-center">
-                  <span className="text-2xl">💵</span>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400 font-medium">Precio</p>
-                  <p className="text-white font-semibold">{selectedEvent.price}</p>
-                </div>
-              </div>
-            </div>
-            
-            <button 
-              className="w-full py-4 rounded-2xl font-semibold text-white shadow-lg hover:shadow-xl transition-all active:scale-[0.98]"
-              style={{ backgroundColor: eventTypes[selectedEvent.type].color }}
-            >
-              Ver detalles del evento
-            </button>
           </div>
         </div>
       )}
 
       <style>{`
-        .custom-marker-3d {
-          background: transparent;
-          border: none;
+        .island-marker-custom {
+          background: transparent !important;
+          border: none !important;
+          overflow: visible !important;
+        }
+
+        .island-container {
+          animation: floatIsland 6s ease-in-out infinite;
+        }
+
+        @keyframes floatIsland {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-12px);
+          }
+        }
+
+        .island-marker-custom:hover .island-container {
+          animation: floatIslandHover 2s ease-in-out infinite;
+        }
+
+        @keyframes floatIslandHover {
+          0%, 100% {
+            transform: translateY(-8px) scale(1.08);
+          }
+          50% {
+            transform: translateY(-16px) scale(1.08);
+          }
+        }
+
+        .island-marker-custom:hover .island-glow {
+          opacity: 1 !important;
+          transition: opacity 0.3s ease;
+        }
+
+        .island-marker-custom:hover .island-shadow {
+          opacity: 0.8;
+          transform: translateX(-50%) scale(1.1);
+          transition: all 0.3s ease;
+        }
+
+        .island-label {
+          opacity: 0;
+          transform: translateX(-50%) translateY(5px);
+          transition: all 0.3s ease;
+        }
+
+        .island-marker-custom:hover .island-label {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+
+        .floating-modal-island {
+          animation: floatModalIsland 4s ease-in-out infinite;
+          filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+        }
+
+        @keyframes floatModalIsland {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-8px) rotate(2deg);
+          }
+          75% {
+            transform: translateY(-8px) rotate(-2deg);
+          }
         }
 
         .scrollbar-hide::-webkit-scrollbar {
@@ -597,37 +666,8 @@ const EventMap = () => {
           scrollbar-width: none;
         }
 
-        @keyframes pinBounce {
-          0%, 100% {
-            transform: rotate(-45deg) translateY(0) scale(1);
-          }
-          50% {
-            transform: rotate(-45deg) translateY(-6px) scale(1.05);
-          }
-        }
-        
-        @keyframes labelFade {
-          from {
-            opacity: 0;
-            transform: translateY(-5px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
         .leaflet-container {
-          background: #f5f5f7 !important;
-        }
-
-        .leaflet-control-zoom {
-          display: none !important;
-        }
-        
-        /* Evitar que las etiquetas se corten */
-        .leaflet-marker-icon {
-          overflow: visible !important;
+          background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%) !important;
         }
       `}</style>
     </div>
