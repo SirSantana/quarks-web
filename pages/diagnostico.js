@@ -46,35 +46,48 @@ export default function DiagnosticoPage() {
 
     setLoading(true);
 
-    // Simular llamada API con delay mínimo de 2 segundos
-    const apiPromise = new Promise((resolve) => {
-      setTimeout(() => {
-        // Aquí iría tu llamada real a la API
-        // const response = await fetch('/api/asistente', {...});
-        
-        // Simulación de respuesta
-        const mockResponse = {
-          preciosEstimados: [
-            { item: "Pastillas de freno delanteras", precio: "$180.000 - $250.000" },
-            { item: "Discos de freno", precio: "$300.000 - $450.000" },
-            { item: "Mano de obra", precio: "$80.000 - $120.000" }
-          ],
-          serviciosRequeridos: ["Sistema de frenos", "Inspección de seguridad"],
-          descripcionDetallada: "Basado en los síntomas descritos (ruido al frenar), el problema más probable está relacionado con el desgaste de las pastillas de freno. Es recomendable revisar también el estado de los discos de freno para garantizar un frenado seguro.",
-          prioridad: "Media-Alta",
-          tiempoEstimado: "2-3 horas"
-        };
-        
-        resolve(mockResponse);
-      }, 2000);
-    });
-
     try {
-      const data = await apiPromise;
-      setDiagnostico(data);
+      const apiPromise = fetch('/api/asistente', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          mensaje: formData.problema + ' ' + formData.marca + ' ' + formData.modelo + ' ' + formData.año, 
+          userId: null 
+        }),
+      });
+
+      const minDelay = new Promise(resolve => setTimeout(resolve, 4000));
+      const [res] = await Promise.all([apiPromise, minDelay]);
+
+      if (!res.ok) {
+        const errorData = await res.json();
+
+        // Fallback específico para sobrecarga del modelo
+        if (
+          res.status === 503 &&
+          errorData?.error?.includes('The model is overloaded')
+        ) {
+          alert('El asistente está recibiendo muchas solicitudes en este momento. Por favor, intenta nuevamente en unos segundos.');
+          return;
+        }
+
+        throw new Error(errorData.error || 'Error al procesar la solicitud en la API.');
+      }
+
+      const data = await res.json();
+
+      setDiagnostico(data.response);
       setStep(3);
+      
+      // const slug = data.slug;
+      // if (slug) {
+      //   router.push(`/diagnostico/${slug.replaceAll(' ', '-').replaceAll('ñ','n').toLowerCase()}`);
+      // } else {
+      //   throw new Error('La API no devolvió un identificador válido.');
+      // }
+
     } catch (error) {
-      alert('Ocurrió un error al procesar el diagnóstico. Por favor, intenta nuevamente.');
+      alert(`Ocurrió un error: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -135,17 +148,6 @@ export default function DiagnosticoPage() {
             {/* Step 1: Vehicle Information */}
             {step === 1 && (
               <div className="space-y-6">
-                <div className="text-center">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Car className="w-7 h-7 md:w-8 md:h-8 text-blue-600" />
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                    Datos del Vehículo
-                  </h2>
-                  <p className="text-sm md:text-base text-gray-600">
-                    Ingresa la información de tu vehículo
-                  </p>
-                </div>
 
                 <div className="space-y-4 md:space-y-5">
                   <div>
@@ -214,17 +216,7 @@ export default function DiagnosticoPage() {
             {/* Step 2: Problem Description */}
             {step === 2 && (
               <div className="space-y-6">
-                <div className="text-center">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <AlertCircle className="w-7 h-7 md:w-8 md:h-8 text-blue-600" />
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                    Describe el Problema
-                  </h2>
-                  <p className="text-sm md:text-base text-gray-600">
-                    Cuéntanos los síntomas y detalles
-                  </p>
-                </div>
+               
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -317,7 +309,7 @@ export default function DiagnosticoPage() {
                 <div className="space-y-3">
                   <h3 className="text-base md:text-lg font-bold text-gray-900">Análisis del Problema</h3>
                   <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {diagnostico.descripcionDetallada}
+                    {diagnostico.diagnostico}
                   </p>
                 </div>
 

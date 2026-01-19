@@ -1,4 +1,5 @@
 import { Calculator, Sparkles, X } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ModalAsistente({setIsOpen, isOpen}) {
 
@@ -45,10 +46,10 @@ export default function ModalAsistente({setIsOpen, isOpen}) {
             </div>
           </div>
 
-          <button className="w-full bg-[#407bFF] text-white font-medium py-3 sm:py-3.5 px-4 sm:px-5 rounded-xl hover:bg-blue-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
+          <Link href={'/diagnostico'} className="w-full bg-[#407bFF] text-white font-medium py-3 sm:py-3.5 px-4 sm:px-5 rounded-xl hover:bg-blue-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 group">
             <Sparkles className="w-4 h-4 group-hover:scale-110 transition-transform" />
             <span className="text-xs sm:text-sm">Usar Calculadora de Reparaciones</span>
-          </button>
+          </Link>
 
          
         </div>
