@@ -47,34 +47,55 @@ export default function DiagnosticoPage() {
     setLoading(true);
 
     try {
-      const apiPromise = fetch('/api/asistente', {
+      // Llamada a la API sin delay artificial - el loading visual es suficiente
+      const res = await fetch('/api/asistente', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          mensaje: formData.problema + ' ' + formData.marca + ' ' + formData.modelo + ' ' + formData.año, 
+          mensaje: `${formData.problema} ${formData.marca} ${formData.modelo} ${formData.año}`, 
           userId: null 
         }),
       });
 
-      const minDelay = new Promise(resolve => setTimeout(resolve, 4000));
-      const [res] = await Promise.all([apiPromise, minDelay]);
-
       if (!res.ok) {
-        const errorData = await res.json();
+        let errorMessage = 'Error al procesar la solicitud en la API.';
+        
+        try {
+          const errorData = await res.json();
+          
+          // Fallback específico para sobrecarga del modelo
+          if (
+            res.status === 503 &&
+            errorData?.error?.includes('The model is overloaded')
+          ) {
+            alert('El asistente está recibiendo muchas solicitudes en este momento. Por favor, intenta nuevamente en unos segundos.');
+            return;
+          }
 
-        // Fallback específico para sobrecarga del modelo
-        if (
-          res.status === 503 &&
-          errorData?.error?.includes('The model is overloaded')
-        ) {
-          alert('El asistente está recibiendo muchas solicitudes en este momento. Por favor, intenta nuevamente en unos segundos.');
-          return;
+          // Error de timeout
+          if (res.status === 504 || errorData?.error?.includes('timeout')) {
+            alert('La solicitud tardó demasiado tiempo. Por favor, intenta con una descripción más breve.');
+            return;
+          }
+          
+          errorMessage = errorData.error || errorMessage;
+        } catch (jsonError) {
+          // Si no puede parsear el JSON, usa el status como referencia
+          if (res.status === 504) {
+            alert('La solicitud tardó demasiado tiempo. Por favor, intenta nuevamente.');
+            return;
+          }
+          errorMessage = `Error del servidor (${res.status}). Por favor, intenta nuevamente.`;
         }
 
-        throw new Error(errorData.error || 'Error al procesar la solicitud en la API.');
+        throw new Error(errorMessage);
       }
 
       const data = await res.json();
+
+      if (!data.response) {
+        throw new Error('La API no devolvió un diagnóstico válido.');
+      }
 
       setDiagnostico(data.response);
       setStep(3);
@@ -87,7 +108,14 @@ export default function DiagnosticoPage() {
       // }
 
     } catch (error) {
-      alert(`Ocurrió un error: ${error.message}`);
+      console.error('Error en handleSubmit:', error);
+      
+      // Error de red o timeout del navegador
+      if (error.name === 'AbortError' || error.message.includes('timeout')) {
+        alert('La solicitud tardó demasiado tiempo. Por favor, intenta nuevamente.');
+      } else {
+        alert(`Ocurrió un error: ${error.message}`);
+      }
     } finally {
       setLoading(false);
     }
@@ -330,7 +358,7 @@ export default function DiagnosticoPage() {
                 <div className="space-y-3">
                   <h3 className="text-base md:text-lg font-bold text-gray-900">Análisis del Problema</h3>
                   <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {diagnostico.diagnostico}
+                    {diagnostico.descripcionDetallada}
                   </p>
                 </div>
 
