@@ -17,6 +17,9 @@ export default function BlogPage() {
             <Link href="/blog/what-to-know-before-buying-an-ev" className="mt-8 text-base font-medium text-indigo-600 hover:text-indigo-500">
               Read our first post
             </Link>
+            <Link href="/blog/is-the-mazda-cx-30-worth-it-2026" className="mt-8 text-base font-medium text-indigo-600 hover:text-indigo-500">
+              Secondt post
+            </Link>
           </div>
 
           {/* Hero Image for SEO */}

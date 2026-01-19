@@ -98,6 +98,7 @@ function createSlug(text) {
     .replace(/-+/g, "-") // Reemplaza múltiples guiones seguidos por uno solo
     .replace(/^-+|-+$/g, ""); // Elimina guiones al principio o al final
 }
+
 // Usando un servicio gratuito como ipapi.co
 // async function getUserLocation(req) {
 //   try {
@@ -137,7 +138,7 @@ export default async function handler(req, res) {
 
   try {
     const { mensaje, userId } = req.body;
-    console.log(userId);
+    console.log('hiasdas', userId);
     
     if (!mensaje || typeof mensaje !== "string") {
       return res.status(400).json({ error: "Mensaje inválido" });
@@ -176,7 +177,8 @@ export default async function handler(req, res) {
         .status(500)
         .json({ error: "No se pudo registrar el uso del diagnóstico" });
     }
-
+    console.log('mensahe', mensaje);
+    
     const mensajeTrimmed = mensaje.trim();
 
     if (mensajeTrimmed.length === 0) {
@@ -189,9 +191,10 @@ export default async function handler(req, res) {
       });
     } // Usar la versión limpia para la búsqueda
 
-    const location = await getUserLocation(req);
-    let userCity = location.city;
-    let userCountry = location.country;
+    // const location = await getUserLocation(req);
+    let location = { city: 'Bogotá', country: 'Colombia' };
+    let userCity = location.city || 'Bogotá';
+    let userCountry = location.country || 'Colombia';
 
     const problemaSlug = createSlug(mensajeTrimmed);
     if (!problemaSlug) {
@@ -331,7 +334,8 @@ Selecciona máximo 3-5 categorías que mejor se alineen con tu diagnóstico prel
 
 Genera el diagnóstico ahora:`,
     });
-
+    console.log('res', result.object);
+    
     const structuredResponse = result.object;
 
     // Limpieza y validación mejorada
@@ -434,9 +438,8 @@ Genera el diagnóstico ahora:`,
         detalle: dbError.message,
       });
     }
-    return res.status(200).json({ slug: data.slug }); // DEVOLVER EL ID
+    return res.status(200).json({ slug: data.slug, response: structuredResponse }); // DEVOLVER EL ID
   } catch (error) {
-    console.log(error);
 
     // ... (manejo de errores generales se mantiene igual)
     let userErrorMessage = "Ocurrió un error al procesar tu solicitud.";

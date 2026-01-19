@@ -10,6 +10,8 @@ import { useState } from 'react';
 import { Loader } from '@/utils/loader';
 import Button, { ButtonVariant } from '@/src/Components/Button/Button';
 import CardTaller from '@/src/Components/LandingPage/CardTaller';
+import { MessageCircle, Zap } from 'lucide-react';
+import Link from 'next/link';
 
 const SectionSeoServicios = dynamic(() => import('@/src/Components/LandingPage/SectionSeoServicios'),
   { ssr: false })
@@ -25,6 +27,31 @@ export default function CiudadPage({ title, query, description, talleresData }) 
       keywords={`Talleres de ${query.categoria} en ${query.ciudad} para ${query.vehiculo} en ${query.servicio}, ${description?.tags}`} tags={description?.tags} image={'mecanico-pic.webp'} visibleSlider={false} visibleNavbar={false}>
       {/* <MenuSelectsFilter setIsLoading={setIsLoading} /> */}
       <div className={styles2.containerListTalleres}>
+
+        {/* <div className="w-full bg-gradient-to-r from-blue-500 to-blue-600 mb-6 sticky top-0 z-50 shadow-l">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <div className="flex-shrink-0 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+              <Zap className="w-5 h-5 text-yellow-300 fill-yellow-300" />
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+              <span className="text-sm sm:text-base text-white font-semibold">
+                Ahorra tiempo
+              </span>
+              <span className="text-sm sm:text-base text-blue-50">
+                Recibe cotizaciones de{' '}
+                <span className="font-semibold text-white">varios talleres</span> a la vez
+              </span>
+            </div>
+          </div>
+          
+          <Link href={'/cotizar'} className="w-full sm:w-auto bg-white hover:bg-blue-50 active:bg-blue-100 text-blue-700 font-semibold px-6 py-2.5 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 group">
+            <span className="text-sm sm:text-base">Cotizar ahora</span>
+          </Link>
+        </div>
+      </div>
+    </div> */}
         <section style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '16px'  }}>
           <p style={{ fontSize: '14px', fontWeight: '500', color: '#6C788E' }}>
             {query.servicio
@@ -58,6 +85,7 @@ export default function CiudadPage({ title, query, description, talleresData }) 
             </div>
           </div>
         ) : ( */}
+          
           <div className={`${styles2.containerCardsAndMap} ${mapa ? styles2.containerMapMobile : ''}`}>
             <div
               style={{

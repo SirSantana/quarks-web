@@ -1,0 +1,833 @@
+{
+  "metadata": {
+    "currency": "USD",
+    "ownershipYears": 5,
+    "lastUpdated": "2026-01-01",
+    "country": "USA"
+  },
+  "states": {
+    "AL": { "name": "Alabama", "taxRate": 0.04, "avgInsuranceMultiplier": 1.05, "registrationAvg": 275 },
+    "AK": { "name": "Alaska", "taxRate": 0.0, "avgInsuranceMultiplier": 1.10, "registrationAvg": 200 },
+    "AZ": { "name": "Arizona", "taxRate": 0.056, "avgInsuranceMultiplier": 0.95, "registrationAvg": 225 },
+    "AR": { "name": "Arkansas", "taxRate": 0.065, "avgInsuranceMultiplier": 1.10, "registrationAvg": 250 },
+    "CA": { "name": "California", "taxRate": 0.0725, "avgInsuranceMultiplier": 1.15, "registrationAvg": 350 },
+    "CO": { "name": "Colorado", "taxRate": 0.029, "avgInsuranceMultiplier": 1.00, "registrationAvg": 300 },
+    "CT": { "name": "Connecticut", "taxRate": 0.0635, "avgInsuranceMultiplier": 1.05, "registrationAvg": 200 },
+    "DE": { "name": "Delaware", "taxRate": 0.0, "avgInsuranceMultiplier": 1.10, "registrationAvg": 250 },
+    "FL": { "name": "Florida", "taxRate": 0.06, "avgInsuranceMultiplier": 1.20, "registrationAvg": 275 },
+    "GA": { "name": "Georgia", "taxRate": 0.0, "avgInsuranceMultiplier": 1.10, "registrationAvg": 300 },
+
+    "HI": { "name": "Hawaii", "taxRate": 0.04, "avgInsuranceMultiplier": 0.90, "registrationAvg": 250 },
+    "ID": { "name": "Idaho", "taxRate": 0.06, "avgInsuranceMultiplier": 0.85, "registrationAvg": 200 },
+    "IL": { "name": "Illinois", "taxRate": 0.0625, "avgInsuranceMultiplier": 1.10, "registrationAvg": 300 },
+    "IN": { "name": "Indiana", "taxRate": 0.07, "avgInsuranceMultiplier": 0.95, "registrationAvg": 225 },
+    "IA": { "name": "Iowa", "taxRate": 0.06, "avgInsuranceMultiplier": 0.90, "registrationAvg": 250 },
+    "KS": { "name": "Kansas", "taxRate": 0.065, "avgInsuranceMultiplier": 0.95, "registrationAvg": 250 },
+    "KY": { "name": "Kentucky", "taxRate": 0.06, "avgInsuranceMultiplier": 1.00, "registrationAvg": 250 },
+    "LA": { "name": "Louisiana", "taxRate": 0.0445, "avgInsuranceMultiplier": 1.30, "registrationAvg": 325 },
+    "ME": { "name": "Maine", "taxRate": 0.055, "avgInsuranceMultiplier": 0.90, "registrationAvg": 200 },
+    "MD": { "name": "Maryland", "taxRate": 0.06, "avgInsuranceMultiplier": 1.05, "registrationAvg": 250 },
+
+    "MA": { "name": "Massachusetts", "taxRate": 0.0625, "avgInsuranceMultiplier": 1.00, "registrationAvg": 175 },
+    "MI": { "name": "Michigan", "taxRate": 0.06, "avgInsuranceMultiplier": 1.40, "registrationAvg": 225 },
+    "MN": { "name": "Minnesota", "taxRate": 0.06875, "avgInsuranceMultiplier": 1.00, "registrationAvg": 300 },
+    "MS": { "name": "Mississippi", "taxRate": 0.05, "avgInsuranceMultiplier": 1.05, "registrationAvg": 250 },
+    "MO": { "name": "Missouri", "taxRate": 0.04225, "avgInsuranceMultiplier": 0.95, "registrationAvg": 250 },
+    "MT": { "name": "Montana", "taxRate": 0.0, "avgInsuranceMultiplier": 0.85, "registrationAvg": 225 },
+
+    "NE": { "name": "Nebraska", "taxRate": 0.055, "avgInsuranceMultiplier": 0.90, "registrationAvg": 275 },
+    "NV": { "name": "Nevada", "taxRate": 0.0685, "avgInsuranceMultiplier": 1.10, "registrationAvg": 300 },
+    "NH": { "name": "New Hampshire", "taxRate": 0.0, "avgInsuranceMultiplier": 0.90, "registrationAvg": 400 },
+    "NJ": { "name": "New Jersey", "taxRate": 0.06625, "avgInsuranceMultiplier": 1.10, "registrationAvg": 250 },
+    "NM": { "name": "New Mexico", "taxRate": 0.05125, "avgInsuranceMultiplier": 0.95, "registrationAvg": 225 },
+    "NY": { "name": "New York", "taxRate": 0.04, "avgInsuranceMultiplier": 1.30, "registrationAvg": 275 },
+
+    "NC": { "name": "North Carolina", "taxRate": 0.03, "avgInsuranceMultiplier": 0.95, "registrationAvg": 250 },
+    "ND": { "name": "North Dakota", "taxRate": 0.05, "avgInsuranceMultiplier": 0.85, "registrationAvg": 225 },
+    "OH": { "name": "Ohio", "taxRate": 0.0575, "avgInsuranceMultiplier": 0.95, "registrationAvg": 225 },
+    "OK": { "name": "Oklahoma", "taxRate": 0.045, "avgInsuranceMultiplier": 1.00, "registrationAvg": 275 },
+    "OR": { "name": "Oregon", "taxRate": 0.0, "avgInsuranceMultiplier": 0.95, "registrationAvg": 300 },
+    "PA": { "name": "Pennsylvania", "taxRate": 0.06, "avgInsuranceMultiplier": 1.05, "registrationAvg": 225 },
+
+    "RI": { "name": "Rhode Island", "taxRate": 0.07, "avgInsuranceMultiplier": 1.05, "registrationAvg": 200 },
+    "SC": { "name": "South Carolina", "taxRate": 0.05, "avgInsuranceMultiplier": 1.00, "registrationAvg": 275 },
+    "SD": { "name": "South Dakota", "taxRate": 0.04, "avgInsuranceMultiplier": 0.85, "registrationAvg": 200 },
+    "TN": { "name": "Tennessee", "taxRate": 0.07, "avgInsuranceMultiplier": 1.00, "registrationAvg": 275 },
+    "TX": { "name": "Texas", "taxRate": 0.0625, "avgInsuranceMultiplier": 1.00, "registrationAvg": 250 },
+
+    "UT": { "name": "Utah", "taxRate": 0.0485, "avgInsuranceMultiplier": 0.90, "registrationAvg": 275 },
+    "VT": { "name": "Vermont", "taxRate": 0.06, "avgInsuranceMultiplier": 0.90, "registrationAvg": 225 },
+    "VA": { "name": "Virginia", "taxRate": 0.0415, "avgInsuranceMultiplier": 0.95, "registrationAvg": 250 },
+    "WA": { "name": "Washington", "taxRate": 0.065, "avgInsuranceMultiplier": 1.05, "registrationAvg": 300 },
+    "WV": { "name": "West Virginia", "taxRate": 0.06, "avgInsuranceMultiplier": 0.95, "registrationAvg": 225 },
+    "WI": { "name": "Wisconsin", "taxRate": 0.05, "avgInsuranceMultiplier": 0.95, "registrationAvg": 225 },
+    "WY": { "name": "Wyoming", "taxRate": 0.04, "avgInsuranceMultiplier": 0.85, "registrationAvg": 200 },
+
+    "DC": { "name": "Washington D.C.", "taxRate": 0.06, "avgInsuranceMultiplier": 1.20, "registrationAvg": 300 }
+  },
+  "brands": [
+    {
+      "name": "Mazda",
+      "slug": "mazda",
+      "models": [
+        {
+          "name": "CX-30",
+          "slug": "cx-30",
+          "segment": "Subcompact SUV",
+          "generations": [
+            {
+              "name": "1st Gen",
+              "years": [2020, 2021, 2022, 2023],
+              "trims": [
+                {
+                  "name": "Preferred",
+                  "engine": "2.5L NA",
+                  "drivetrain": "AWD",
+                  "msrp": 23500,
+                  "market": {
+                    "usedPrice": {
+                      "low": 19500,
+                      "average": 22500,
+                      "high": 25500
+                    }
+                  },
+                  "ownershipCost": {
+                    "depreciation": 8200,
+                    "maintenance": 4100,
+                    "repairs": 1900,
+                    "insurance": 7600,
+                    "fuel": 5300,
+                    "taxesAndFees": {
+                      "base": 1800,
+                      "byState": {
+                        "CA": 2800,
+                        "TX": 2100
+                      }
+                    }
+                  },
+                  "hiddenCosts": [
+                    "Above-average insurance for AWD trims",
+                    "Brake replacement costs are slightly higher than segment average"
+                  ],
+                  "knownIssues": [
+                    {
+                      "issue": "Suspension bushings wear",
+                      "mileage": "60k–80k miles",
+                      "severity": "medium"
+                    }
+                  ],
+                  "segmentComparison": {
+                    "segmentAverageTotalCost": 39900,
+                    "differencePercent": 18
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+  "name": "CX-5",
+  "slug": "cx-5",
+  "segment": "Compact SUV",
+  "generations": [
+    {
+      "name": "2nd Gen",
+      "years": [2019, 2020, 2021, 2022],
+      "trims": [
+        {
+          "name": "Touring",
+          "engine": "2.5L NA",
+          "drivetrain": "AWD",
+          "msrp": 26900,
+          "market": {
+            "usedPrice": {
+              "low": 21500,
+              "average": 24500,
+              "high": 28500
+            }
+          },
+          "ownershipCost": {
+            "depreciation": 7800,
+            "maintenance": 4300,
+            "repairs": 1800,
+            "insurance": 7200,
+            "fuel": 5600,
+            "taxesAndFees": {
+              "base": 1900,
+              "byState": {
+                "CA": 2900,
+                "TX": 2200
+              }
+            }
+          },
+          "hiddenCosts": [
+            "AWD trims increase insurance cost",
+            "Tires wear faster on AWD versions"
+          ],
+          "knownIssues": [
+            {
+              "issue": "Infotainment screen delamination",
+              "mileage": "50k–90k miles",
+              "severity": "medium"
+            }
+          ],
+          "segmentComparison": {
+            "segmentAverageTotalCost": 42500,
+            "differencePercent": 6
+          }
+        }
+      ]
+    }
+  ]
+},
+{
+  "name": "Mazda 3",
+  "slug": "mazda-3",
+  "segment": "Compact Car",
+  "generations": [
+    {
+      "name": "4th Gen",
+      "years": [2019, 2020, 2021, 2022],
+      "trims": [
+        {
+          "name": "Select",
+          "engine": "2.5L NA",
+          "drivetrain": "FWD",
+          "msrp": 21900,
+          "market": {
+            "usedPrice": {
+              "low": 17500,
+              "average": 19800,
+              "high": 22500
+            }
+          },
+          "ownershipCost": {
+            "depreciation": 6100,
+            "maintenance": 3600,
+            "repairs": 1400,
+            "insurance": 6100,
+            "fuel": 4900,
+            "taxesAndFees": {
+              "base": 1600,
+              "byState": {
+                "CA": 2400,
+                "TX": 1900
+              }
+            }
+          },
+          "hiddenCosts": [
+            "Lower resale value compared to Toyota/Honda",
+            "Low-profile tires on higher trims increase replacement cost"
+          ],
+          "knownIssues": [
+            {
+              "issue": "Minor interior rattles",
+              "mileage": "30k–60k miles",
+              "severity": "low"
+            }
+          ],
+          "segmentComparison": {
+            "segmentAverageTotalCost": 36000,
+            "differencePercent": -8
+          }
+        }
+      ]
+    }
+  ]
+},
+{
+  "name": "CX-9",
+  "slug": "cx-9",
+  "segment": "Midsize SUV",
+  "generations": [
+    {
+      "name": "2nd Gen",
+      "years": [2018, 2019, 2020, 2021],
+      "trims": [
+        {
+          "name": "Grand Touring",
+          "engine": "2.5L Turbo",
+          "drivetrain": "AWD",
+          "msrp": 34900,
+          "market": {
+            "usedPrice": {
+              "low": 26500,
+              "average": 30500,
+              "high": 34500
+            }
+          },
+          "ownershipCost": {
+            "depreciation": 10200,
+            "maintenance": 5200,
+            "repairs": 2400,
+            "insurance": 8600,
+            "fuel": 6800,
+            "taxesAndFees": {
+              "base": 2300,
+              "byState": {
+                "CA": 3300,
+                "TX": 2600
+              }
+            }
+          },
+          "hiddenCosts": [
+            "Turbo models have higher long-term maintenance",
+            "Fuel consumption higher than segment average"
+          ],
+          "knownIssues": [
+            {
+              "issue": "Carbon buildup on turbo engines",
+              "mileage": "70k–100k miles",
+              "severity": "medium"
+            }
+          ],
+          "segmentComparison": {
+            "segmentAverageTotalCost": 48500,
+            "differencePercent": 12
+          }
+        }
+      ]
+    }
+  ]
+},
+{
+      "name": "CX-50",
+      "slug": "cx-50",
+      "segment": "Compact SUV (Rugged)",
+      "generations": [
+        {
+          "name": "1st Gen",
+          "years": [2023, 2024, 2025],
+          "trims": [
+            {
+              "name": "Preferred",
+              "engine": "2.5L NA",
+              "drivetrain": "i-ACTIV AWD",
+              "msrp": 31650,
+              "market": {
+                "usedPrice": {
+                  "low": 24500,
+                  "average": 28000,
+                  "high": 31000
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 11500,
+                "maintenance": 4200,
+                "repairs": 1600,
+                "insurance": 8800,
+                "fuel": 6800,
+                "taxesAndFees": {
+                  "base": 2200,
+                  "byState": {
+                    "CA": 3200,
+                    "TX": 2500
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Brake pads wear faster due to G-Vectoring Control Plus off-road tuning",
+                "Non-standard tire sizes can be more expensive to replace"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Panoramic sunroof rattles",
+                  "mileage": "5k–15k miles",
+                  "severity": "low"
+                },
+                {
+                  "issue": "Differential noise/whine in early 2023 models",
+                  "mileage": "10k-25k miles",
+                  "severity": "medium"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 41500,
+                "differencePercent": 12
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CX-70",
+      "slug": "cx-70",
+      "segment": "Mid-size SUV (2-row)",
+      "generations": [
+        {
+          "name": "1st Gen",
+          "years": [2025],
+          "trims": [
+            {
+              "name": "Premium",
+              "engine": "3.3L Turbo I6 Mild Hybrid",
+              "drivetrain": "i-ACTIV AWD",
+              "msrp": 45900,
+              "market": {
+                "usedPrice": {
+                  "low": 42000,
+                  "average": 44500,
+                  "high": 46000
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 13800,
+                "maintenance": 4900,
+                "repairs": 2100,
+                "insurance": 9200,
+                "fuel": 7200,
+                "taxesAndFees": {
+                  "base": 3100,
+                  "byState": {
+                    "CA": 4200,
+                    "TX": 3400
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Same platform as CX-90; high replacement cost for specialized hybrid components",
+                "Insurance premiums are in the luxury SUV bracket"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Sluggish 8-speed transmission shifts in low gears",
+                  "mileage": "1k–5k miles",
+                  "severity": "medium"
+                },
+                {
+                  "issue": "Infotainment system connectivity glitches",
+                  "mileage": "Any",
+                  "severity": "low"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 52000,
+                "differencePercent": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mazda 3 Hatchback",
+      "slug": "mazda-3-hatchback",
+      "segment": "Compact Hatchback",
+      "generations": [
+        {
+          "name": "4th Gen",
+          "years": [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+          "trims": [
+            {
+              "name": "Preferred",
+              "engine": "2.5L NA",
+              "drivetrain": "FWD",
+              "msrp": 27390,
+              "market": {
+                "usedPrice": {
+                  "low": 18500,
+                  "average": 22000,
+                  "high": 26000
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 7200,
+                "maintenance": 3800,
+                "repairs": 1400,
+                "insurance": 6800,
+                "fuel": 5100,
+                "taxesAndFees": {
+                  "base": 1900,
+                  "byState": {
+                    "CA": 2700,
+                    "TX": 2100
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Piano black interior trim scratches very easily, reducing perceived resale value",
+                "Low ground clearance leads to common front lip damage"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Cylinder deactivation system vibration",
+                  "mileage": "20k–40k miles",
+                  "severity": "medium"
+                },
+                {
+                  "issue": "Tire bubbling (thin sidewalls on 18-inch wheels)",
+                  "mileage": "5k-20k miles",
+                  "severity": "low"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 35500,
+                "differencePercent": -10
+              }
+            }
+          ]
+        }
+      ]
+    },{
+      "name": "MX-5 Miata",
+      "slug": "mx-5-miata",
+      "segment": "Sports Car",
+      "generations": [
+        {
+          "name": "4th Gen (ND)",
+          "years": [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024],
+          "trims": [
+            {
+              "name": "Club",
+              "engine": "2.0L NA",
+              "drivetrain": "RWD",
+              "msrp": 32500,
+              "market": {
+                "usedPrice": {
+                  "low": 22000,
+                  "average": 26500,
+                  "high": 31000
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 5500,
+                "maintenance": 3800,
+                "repairs": 1600,
+                "insurance": 8500,
+                "fuel": 4200,
+                "taxesAndFees": {
+                  "base": 2100,
+                  "byState": {
+                    "CA": 3100,
+                    "TX": 2400
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Higher insurance premiums due to sports car classification",
+                "Soft top maintenance and eventual replacement"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Transmission failure (specifically ND1 manual)",
+                  "mileage": "20k–50k miles",
+                  "severity": "high"
+                },
+                {
+                  "issue": "Water ingress through roof drains",
+                  "mileage": "Any",
+                  "severity": "medium"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 41000,
+                "differencePercent": -15
+              }
+            }
+          ]
+        }
+      ]
+    }
+        
+      ]
+    },
+    {
+  "name": "Toyota",
+  "slug": "toyota",
+  "models": [
+    {
+      "name": "Corolla Cross",
+      "slug": "corolla-cross",
+      "segment": "Subcompact SUV",
+      "generations": [
+        {
+          "name": "1st Gen",
+          "years": [2022, 2023, 2024],
+          "trims": [
+            {
+              "name": "XLE",
+              "engine": "2.0L NA",
+              "drivetrain": "FWD",
+              "msrp": 24960,
+              "market": {
+                "usedPrice": {
+                  "low": 21000,
+                  "average": 23500,
+                  "high": 26500
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 6200,
+                "maintenance": 3500,
+                "repairs": 1200,
+                "insurance": 6800,
+                "fuel": 5100,
+                "taxesAndFees": {
+                  "base": 1700,
+                  "byState": {
+                    "CA": 2600,
+                    "TX": 2000
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Interior quality below segment average",
+                "Engine feels underpowered when fully loaded"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "CVT noise complaints",
+                  "mileage": "40k–70k miles",
+                  "severity": "low"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 39900,
+                "differencePercent": -9
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RAV4",
+      "slug": "rav4",
+      "segment": "Compact SUV",
+      "generations": [
+        {
+          "name": "5th Gen",
+          "years": [2019, 2020, 2021, 2022, 2023, 2024, 2025],
+          "trims": [
+            {
+              "name": "XLE",
+              "engine": "2.5L 4-Cyl",
+              "drivetrain": "AWD",
+              "msrp": 31535,
+              "market": {
+                "usedPrice": {
+                  "low": 22500,
+                  "average": 28000,
+                  "high": 30500
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 9500,
+                "maintenance": 3800,
+                "repairs": 1200,
+                "insurance": 7200,
+                "fuel": 6400,
+                "taxesAndFees": {
+                  "base": 2400,
+                  "byState": {
+                    "CA": 3400,
+                    "TX": 2600
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Cable gate' issue in Hybrid models (corrosion of high-voltage cable)",
+                "Roof rail leaks can lead to headliner damage if not addressed early"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Battery drain due to DCM (Data Communication Module) firmware",
+                  "mileage": "5k–30k miles",
+                  "severity": "medium"
+                },
+                {
+                  "issue": "Rough transmission shifts in gas-only models",
+                  "mileage": "10k-40k miles",
+                  "severity": "low"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 41500,
+                "differencePercent": -15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Camry",
+      "slug": "camry",
+      "segment": "Mid-size Sedan",
+      "generations": [
+        {
+          "name": "9th Gen",
+          "years": [2025],
+          "trims": [
+            {
+              "name": "LE (Hybrid Standard)",
+              "engine": "2.5L 4-Cyl Hybrid",
+              "drivetrain": "FWD",
+              "msrp": 28400,
+              "market": {
+                "usedPrice": {
+                  "low": 26500,
+                  "average": 27800,
+                  "high": 29000
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 10200,
+                "maintenance": 3200,
+                "repairs": 900,
+                "insurance": 7600,
+                "fuel": 4800,
+                "taxesAndFees": {
+                  "base": 2100,
+                  "byState": {
+                    "CA": 3100,
+                    "TX": 2300
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Hybrid battery air filter requires regular cleaning to prevent overheating",
+                "Higher initial insurance due to complex sensor arrays in the front bumper"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Infotainment lag/reboots (early production software)",
+                  "mileage": "Any",
+                  "severity": "low"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 39000,
+                "differencePercent": -12
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tacoma",
+      "slug": "tacoma",
+      "segment": "Mid-size Pickup",
+      "generations": [
+        {
+          "name": "4th Gen",
+          "years": [2024, 2025],
+          "trims": [
+            {
+              "name": "TRD Off-Road",
+              "engine": "2.4L Turbo I4",
+              "drivetrain": "4WD",
+              "msrp": 42900,
+              "market": {
+                "usedPrice": {
+                  "low": 40500,
+                  "average": 42000,
+                  "high": 44500
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 8500,
+                "maintenance": 4400,
+                "repairs": 1400,
+                "insurance": 6800,
+                "fuel": 11500,
+                "taxesAndFees": {
+                  "base": 3200,
+                  "byState": {
+                    "CA": 4500,
+                    "TX": 3500
+                  }
+                }
+              },
+              "hiddenCosts": [
+                "Premium fuel recommended for maximum turbo engine longevity",
+                "High cost of specialized off-road tires and suspension components"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Interior door handle flex and trim rattles",
+                  "mileage": "1k–5k miles",
+                  "severity": "low"
+                },
+                {
+                  "issue": "Turbo lag or hesitation under heavy load",
+                  "mileage": "5k-15k miles",
+                  "severity": "medium"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 52000,
+                "differencePercent": 15
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4Runner",
+      "slug": "4runner",
+      "segment": "Body-on-frame SUV",
+      "generations": [
+        {
+          "name": "5th Gen (Final Years)",
+          "years": [2010, 2024],
+          "trims": [
+            {
+              "name": "SR5 Premium",
+              "engine": "4.0L V6",
+              "drivetrain": "4WD",
+              "msrp": 43515,
+              "market": {
+                "usedPrice": {
+                  "low": 35000,
+                  "average": 40000,
+                  "high": 44000
+                }
+              },
+              "ownershipCost": {
+                "depreciation": 7200,
+                "maintenance": 5200,
+                "repairs": 1600,
+                "insurance": 6900,  
+                "fuel": 21500,
+                "taxesAndFees": {
+                  "base": 3300,
+                  "byState": {
+                    "CA": 4600,
+                    "TX": 3600
+                  }
+                }
+              },
+              
+              "hiddenCosts": [
+                "Extremely high fuel consumption (17-18 MPG average)",
+                "Frame rust is a major concern in Salt Belt states"
+              ],
+              "knownIssues": [
+                {
+                  "issue": "Brake nose dive due to soft suspension tuning",
+                  "mileage": "Any",
+                  "severity": "low"
+                },
+                {
+                  "issue": "Transfer case actuator failure if 4WD isn't used monthly",
+                  "mileage": "50k-80k miles",
+                  "severity": "high"
+                }
+              ],
+              "segmentComparison": {
+                "segmentAverageTotalCost": 55000,
+                "differencePercent": 18
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+  ]
+}

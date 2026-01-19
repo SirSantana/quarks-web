@@ -22,6 +22,7 @@ import {
 import ComparisonQuoteBanner from "@/src/Components/Talleres/V3/ComparissonQuoteBanner";
 import sendMessage from "@/utils/fetching";
 import CallModal from "@/src/Components/Talleres/V3/CallModal";
+import ModalAsistente from "@/src/Components/Talleres/V3/ModalAsistente";
 
 const RedesSociales = dynamic(
   () => import("@/src/Components/Talleres/RedesSociales"),
@@ -91,6 +92,8 @@ export default function NegocioVDos({ data, loading }) {
   const [visibleModalImage, setVisibleModalImage] = useState(false);
   const [visibleModalSolicitarServicio, setVisibleModalSolicitarServicio] =useState(false);
  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+
+ const [isOpen, setIsOpen] = useState(true);
 
   let descripcionTaller = `Taller ubicado en ${data?.direccion}. ${
     data?.localidad
@@ -521,6 +524,7 @@ export default function NegocioVDos({ data, loading }) {
           </div>
         </div>
       )}
+      <ModalAsistente setIsOpen={setIsOpen} isOpen={isOpen} />
       <CallModal 
   isOpen={isCallModalOpen}
   onClose={() => setIsCallModalOpen(false)}
