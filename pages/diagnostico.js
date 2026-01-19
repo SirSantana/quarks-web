@@ -148,6 +148,15 @@ export default function DiagnosticoPage() {
             {/* Step 1: Vehicle Information */}
             {step === 1 && (
               <div className="space-y-6">
+                <div className="text-center">
+                 
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                    Datos del Vehículo
+                  </h2>
+                  <p className="text-sm md:text-base text-gray-600">
+                    Ingresa la información de tu vehículo
+                  </p>
+                </div>
 
                 <div className="space-y-4 md:space-y-5">
                   <div>
@@ -216,7 +225,15 @@ export default function DiagnosticoPage() {
             {/* Step 2: Problem Description */}
             {step === 2 && (
               <div className="space-y-6">
-               
+                <div className="text-center">
+                
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                    Describe el Problema
+                  </h2>
+                  <p className="text-sm md:text-base text-gray-600">
+                    Cuéntanos los síntomas y detalles
+                  </p>
+                </div>
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
