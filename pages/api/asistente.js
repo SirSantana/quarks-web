@@ -120,7 +120,7 @@ export default async function handler(req, res) {
 
     // PROMPT OPTIMIZADO - Reducido de 2500 a 1200 caracteres
     const result = await generateObject({
-      model: google("gemini-2.5-flash"),
+      model: google("gemini-1.5-flash"),
       schema: responseSchema,
       prompt: `Eres mecánico experto con 25+ años de experiencia. Ubicación: ${userCity}, ${userCountry}. Problema: "${mensaje}"
 
