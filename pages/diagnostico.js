@@ -13,6 +13,7 @@ export default function DiagnosticoPage() {
     problema: ''
   });
   const [diagnostico, setDiagnostico] = useState(null);
+  const [polling, setPolling] = useState(false);
 
   const marcasAutos = [
     "Chevrolet", "Renault", "Mazda", "Nissan", "Toyota", "Hyundai", 
@@ -93,12 +94,11 @@ export default function DiagnosticoPage() {
 
       const data = await res.json();
 
-      if (!data.response) {
-        throw new Error('La API no devolvió un diagnóstico válido.');
-      }
-
-      setDiagnostico(data.response);
-      setStep(3);
+      if (data.status === "pending") {
+  setStep(3);
+  startPolling(data.slug);
+  return;
+}
       
       // const slug = data.slug;
       // if (slug) {
@@ -126,6 +126,31 @@ export default function DiagnosticoPage() {
     setFormData({ marca: '', modelo: '', año: '', problema: '' });
     setDiagnostico(null);
   };
+const startPolling = (slug) => {
+  const interval = setInterval(async () => {
+    const res = await fetch(`/api/diagnostico/${slug}`);
+    const data = await res.json();
+
+    if (data.status === "done") {
+      clearInterval(interval);
+      setDiagnostico(data);
+    }
+
+    if (data.status === "error") {
+      clearInterval(interval);
+      alert("Ocurrió un error generando el diagnóstico");
+    }
+  }, 3000);
+};
+{!diagnostico && (
+  <div className="flex flex-col items-center gap-4 py-10">
+    <Loader2 className="w-10 h-10 animate-spin text-blue-600" />
+    <p className="text-gray-600 text-sm md:text-base">
+      Analizando tu vehículo, esto puede tardar unos segundos…
+    </p>
+  </div>
+)}
+console.log(diagnostico);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -340,7 +365,7 @@ export default function DiagnosticoPage() {
             )}
 
             {/* Step 3: Diagnostic Results */}
-            {step === 3 && diagnostico && (
+            {diagnostico  && (
               <div className="space-y-5 md:space-y-6">
                 <div className="text-center pb-4 border-b border-gray-200">
                   <div className="w-16 h-16 md:w-20 md:h-20 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -358,7 +383,7 @@ export default function DiagnosticoPage() {
                 <div className="space-y-3">
                   <h3 className="text-base md:text-lg font-bold text-gray-900">Análisis del Problema</h3>
                   <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {diagnostico.descripcionDetallada}
+                    {diagnostico.diagnostico}
                   </p>
                 </div>
 
@@ -366,7 +391,7 @@ export default function DiagnosticoPage() {
                 <div className="space-y-3">
                   <h3 className="text-base md:text-lg font-bold text-gray-900">Servicios Requeridos</h3>
                   <div className="flex flex-wrap gap-2">
-                    {diagnostico.serviciosRequeridos.map((servicio, index) => (
+                    {diagnostico.servicios.map((servicio, index) => (
                       <span
                         key={index}
                         className="bg-blue-50 text-blue-700 border border-blue-200 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-medium"
@@ -381,7 +406,7 @@ export default function DiagnosticoPage() {
                 <div className="space-y-3">
                   <h3 className="text-base md:text-lg font-bold text-gray-900">Estimación de Costos</h3>
                   <div className="space-y-2">
-                    {diagnostico.preciosEstimados.map((item, index) => (
+                    {diagnostico.precios.map((item, index) => (
                       <div
                         key={index}
                         className="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors"
