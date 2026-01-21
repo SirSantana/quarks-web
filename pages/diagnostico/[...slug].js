@@ -1,1098 +1,423 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
-import styles2 from "@/styles/Landing.module.css";
-import dynamic from "next/dynamic";
-import talleres from "@/src/data/talleres.json";
-const MapTalleresHome = dynamic(
-  () => import("@/src/Components/LandingPage/MapTalleresHome"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className={styles2.containerMapHome}>
-        <div
-          className={styles2.cardNewTallerSkeleton}
-          style={{ position: "relative", width: "100%", height: "90vh" }}
-        />
-      </div>
-    ),
-  }
-);
-const PreciosSection = dynamic(
-  () => import("@/src/Components/AsistantMechanic/PreciosSection"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className={styles2.containerMapHome}>
-        <div
-          className={styles2.cardNewTallerSkeleton}
-          style={{ position: "relative", width: "100%", height: "90vh" }}
-        />
-      </div>
-    ),
-  }
-);
 import {
   ArrowLeft,
-  Wrench,
-  DollarSign,
-  MapPin,
-  MessageCircle,
-  AlertCircle,
-  Star,
-  Phone,
-  ChevronRight,
-  Clock,
   Car,
-  Map,
-  MapPinCheck,
-  List,
+  MapPin,
+  DollarSign,
+  Wrench,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  TrendingUp,
+  Info,
 } from "lucide-react";
-import { useAuth } from "@/Context/AuthContext";
-import LayoutV2 from "@/src/Components/LayoutV2";
+import Head from "next/head";
 
-const ResultadosPage = () => {
+/* =======================
+   STATIC GENERATION
+======================= */
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: "blocking",
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+
+  try {
+    const BASE_URL =
+      process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+    const res = await fetch(`${BASE_URL}/api/diagnostico/${slug}`);
+
+    if (!res.ok) {
+      return {
+        notFound: true,
+      };
+    }
+
+    const data = await res.json();
+
+    return {
+      props: {
+        diagnosticoData: data,
+      },
+      revalidate: 60 * 60 * 24,
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
+}
+
+/* =======================
+   PAGE COMPONENT
+======================= */
+
+export default function ResultadosPage({ diagnosticoData }) {
   const router = useRouter();
-  const { slug } = router.query;
-  const problemaSlug = Array.isArray(slug) ? slug[0] : slug;
 
-  const [diagnosticoData, setDiagnosticoData] = useState(null);
-  const [cargandoDiagnostico, setCargandoDiagnostico] = useState(true); // Empezamos cargando el diagnóstico
-  const [errorDiagnostico, setErrorDiagnostico] = useState(null);
+  if (router.isFallback) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+          <p className="text-sm text-gray-500">Cargando diagnóstico...</p>
+        </div>
+      </div>
+    );
+  }
 
-  const [talleresActuales, setTalleresActuales] = useState(null);
-  const [cargandoTalleres, setCargandoTalleres] = useState(false); // Empezamos SIN cargar talleres
-  const [errorTalleres, setErrorTalleres] = useState(null);
+  const problema = diagnosticoData.mensaje_usuario?.replace(/["']/g, "");
+  const title = `${problema} - ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} | Diagnóstico Automotriz`;
+  const description = `Diagnóstico completo: ${problema}. Conoce las causas, costo estimado y recomendaciones para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year}.`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/diagnostico/${router.query.slug}`;
 
-  const diagnosticoRef = useRef(null);
-  const preciosRef = useRef(null);
-  const talleresRef = useRef(null);
+  const problemasRelacionados = [
+    {
+      slug: "mi-carro-no-arranca-en-frio",
+      title: "Mi carro no arranca en frío",
+    },
+    {
+      slug: "el-motor-vibra-al-ralenti",
+      title: "El motor vibra al ralentí",
+    },
+    {
+      slug: "frenos-hacen-ruido-al-frenar",
+      title: "Los frenos hacen ruido al frenar",
+    },
+    {
+      slug: "bateria-se-descarga-rapido",
+      title: "La batería se descarga rápido",
+    },
+  ];
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { loading: load, signOut } = useAuth();
+  // Parse precios - manejar array de objetos
+  let itemsPrecios = [];
+  let precioTotalMin = 0;
+  let precioTotalMax = 0;
+  let precioPromedio = 0;
+  let tienePreciosValidos = false;
 
-  // Estilos en línea mejorados
-  const styles = {
-    pageWrapper: {
-      display: "flex",
-      minHeight: "100vh",
-      backgroundColor: "#f9fafb",
-    },
-    menuButton: {
-      position: "fixed",
-      top: "1rem",
-      left: "1rem",
-      zIndex: 30,
-      backgroundColor: "#3b82f6",
-      color: "white",
-      border: "none",
-      borderRadius: "0.5rem",
-      padding: "0.75rem",
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-      transition: "all 0.2s ease",
-    },
-    menuButtonHover: {
-      backgroundColor: "#2563eb",
-    },
-    mainContent: {
-      flex: 1,
-      display: "flex",
-      paddingTop: "48px",
-      justifyContent: "center",
-      marginLeft: sidebarOpen ? "0" : "0",
-      transition: "margin-left 0.3s ease",
-      marginBottom: "500px",
-    },
-    container: {
-      fontFamily: "Poppins, system-ui, -apple-system, sans-serif",
-      maxWidth: "1400px",
-      width: "100%",
-      borderRadius: "16px",
-      display: "flex",
-      flexDirection: "row",
-      marginTop: "48px",
-      gap: "20%",
-      backgroundColor: "#f9fafb",
-    },
-    vehicleInfoItem2: {
-      display: "flex",
-      alignItems: "center",
-      backdropFilter: "blur(10px)",
-      borderRadius: "0.75rem",
-      padding: "0.5rem 0.75rem",
-      border: "1px solid rgb(226, 232, 240)",
-      backgroundColor: "white",
-    },
-    vehicleInfoContainer2: {
-      display: "flex",
-      flexWrap: "wrap",
-      alignItems: "flex-end",
-      justifyContent: "flex-end",
-      fontSize: "14px",
-      marginTop: "24px",
-      color: "#64748b",
-      gap: "0.5rem",
-      backgroundColor: "rgb(248, 250, 252)",
-    },
-    vehicleInfoItem: {
-      display: "flex",
-      alignItems: "center",
-      backgroundColor: "white",
-      backdropFilter: "blur(10px)",
-      borderRadius: "0.75rem",
-      padding: "0.5rem 0.75rem",
-      border: "5px solid rgba(226, 232, 240, 0.5) !important",
-    },
-    vehicleInfoText: {
-      marginLeft: "0.5rem",
-      color: "#64748b",
-    },
-    backButton: {
-      display: "flex",
-      alignItems: "center",
-      background: "none",
-      border: "none",
-      color: "#64748b",
-      cursor: "pointer",
-      fontSize: "0.95rem",
-      transition: "color 0.2s ease",
-      fontFamily: "Poppins ",
-    },
-    iconMarginRight: {
-      marginRight: "0.5rem",
-    },
-    title: {
-      fontSize: "24px",
-      fontWeight: "600",
-      color: "#0f172a",
-      marginBottom: "0.75rem",
-      lineHeight: "1.2",
-    },
-    problemCard: {
-      padding: "24px",
-      // backgroundColor: "#f8fafc",
-      borderRadius: "12px",
-      border: "1px solid #e2e8f0",
-      marginBottom: "2rem",
-      marginTop: "16px",
-    },
-    problemLabel: {
-      fontSize: "0.875rem",
-      color: "#64748b",
-      marginBottom: "0.5rem",
-      fontWeight: "500",
-    },
-    problemText: {
-      fontSize: "1rem",
-      color: "#334155",
-      lineHeight: "1.5",
-      // fontStyle: 'italic',
-      fontWeight: "500",
-      textAlign: "start",
-    },
-    loadingContainer: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "4rem 0",
-    },
-    loadingText: {
-      color: "#64748b",
-      marginTop: "1.25rem",
-      fontSize: "1rem",
-    },
-    loadingSpinner: {
-      animation: "spin 1s linear infinite",
-    },
-    errorContainer: {
-      marginTop: "2rem",
-      padding: "1.25rem",
-      backgroundColor: "#fef2f2",
-      borderRadius: "12px",
-      border: "1px solid #fee2e2",
-    },
-    errorFlex: {
-      display: "flex",
-      alignItems: "flex-start",
-    },
-    errorIcon: {
-      color: "#ef4444",
-      marginRight: "0.75rem",
-      marginTop: "0.25rem",
-    },
-    errorTitle: {
-      fontWeight: "600",
-      color: "#b91c1c",
-      fontSize: "1.125rem",
-      marginBottom: "0.5rem",
-    },
-    errorMessage: {
-      fontSize: "0.975rem",
-      color: "#7f1d1d",
-      lineHeight: "1.5",
-    },
-    errorDetails: {
-      marginTop: "0.75rem",
-      fontSize: "0.875rem",
-      color: "#ef4444",
-      padding: "0.75rem",
-      backgroundColor: "rgba(239, 68, 68, 0.1)",
-      borderRadius: "6px",
-    },
-    retryButton: {
-      marginTop: "1.25rem",
-      padding: "0.75rem 1.25rem",
-      backgroundColor: "#ef4444",
-      color: "white",
-      border: "none",
-      borderRadius: "8px",
-      fontSize: "0.95rem",
-      fontWeight: "500",
-      cursor: "pointer",
-      transition: "background-color 0.2s ease",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    navContainer: {
-      display: "flex",
-      justifyContent: "space-between",
-      backgroundColor: "#ffffff",
-      borderBottom: "1px solid #e2e8f0",
-      position: "sticky",
-      top: 0,
-      zIndex: 20,
-      padding: "0.75rem 0",
-      marginBottom: "2rem",
-    },
-    navButton: {
-      padding: "0.75rem 1rem",
-      fontSize: "0.95rem",
-      fontWeight: "500",
-      color: "#64748b",
-      cursor: "pointer",
-      borderRadius: "8px",
-      transition: "all 0.2s ease",
-      backgroundColor: "transparent",
-      border: "none",
-      textAlign: "center",
-      flex: "1",
-    },
-    navButtonActive: {
-      color: "#2563eb",
-      backgroundColor: "#f0f9ff",
-      fontWeight: "600",
-    },
-    sectionAnchor: {
-      scrollMarginTop: "4.5rem",
-      marginBottom: "48px",
-    },
-    resultContainer: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "3rem",
-    },
-    sectionHeader: {
-      display: "flex",
-      alignItems: "center",
-      marginBottom: "1.25rem",
-    },
-    sectionTitle: {
-      fontSize: "1.25rem",
-      fontWeight: "600",
-      color: "#0f172a",
-    },
-    sectionIconContainer: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "2.5rem",
-      height: "2.5rem",
-      borderRadius: "10px",
-      marginRight: "0.75rem",
-    },
-    diagnosticoCard: {
-      // padding: "1.5rem",
-      // backgroundColor: "#f0f9ff",
-      borderRadius: "12px",
-      color: "#0c4a6e",
-      fontSize: "1rem",
-      lineHeight: "1.6",
-      // boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
-    },
-    priceContainer: {
-      backgroundColor: "#ffffff",
-      borderRadius: "12px",
-      overflow: "hidden",
-      border: "1px solid #e2e8f0",
-      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
-    },
-    priceItem: {
-      display: "flex",
-      justifyContent: "space-between",
-      padding: "1rem 1.25rem",
-      flexDirection: "column",
-      gap: "0.5rem",
-      borderBottom: "1px solid #e2e8f0",
-    },
-    priceItemLast: {
-      borderBottom: "none",
-    },
-    priceItemHighlighted: {
-      backgroundColor: "#f8fafc",
-    },
-    priceLabel: {
-      color: "#334155",
-      fontWeight: "400",
-    },
-    priceValue: {
-      fontWeight: "500",
-      color: "#0f172a",
-    },
-    priceTotalLabel: {
-      color: "#0f172a",
-      fontWeight: "400",
-    },
-    priceTotalValue: {
-      fontWeight: "500",
-      color: "#0f172a",
-    },
-    emptyText: {
-      color: "#64748b",
-      fontSize: "0.95rem",
-      backgroundColor: "#f8fafc",
-      padding: "1.25rem",
-      borderRadius: "12px",
-      border: "1px solid #e2e8f0",
-      textAlign: "center",
-    },
-    tallerContainer: {
-      display: "flex",
-      flexDirection: "column",
-      gap: "1rem",
-    },
-    tallerCard: {
-      padding: "1.25rem",
-      backgroundColor: "#ffffff",
-      borderRadius: "12px",
-      border: "1px solid #e2e8f0",
-      boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
-      transition: "transform 0.2s ease, border-color 0.2s ease",
-    },
-    tallerHeader: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "flex-start",
-      marginBottom: "1rem",
-    },
-    tallerInfo: {
-      flex: "1",
-    },
-    tallerName: {
-      fontWeight: "600",
-      color: "#0f172a",
-      fontSize: "1.1rem",
-      marginBottom: "0.5rem",
-    },
-    tallerMetaContainer: {
-      display: "flex",
-      flexWrap: "wrap",
-      gap: "0.75rem",
-      marginTop: "0.75rem",
-    },
-    tallerMeta: {
-      display: "flex",
-      alignItems: "center",
-      fontSize: "0.875rem",
-      color: "#64748b",
-    },
-    ratingBadge: {
-      display: "flex",
-      alignItems: "center",
-      backgroundColor: "#fef9c3",
-      padding: "0.35rem 0.75rem",
-      borderRadius: "9999px",
-    },
+  if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
+    itemsPrecios = diagnosticoData.precios.map(item => {
+      // Extraer números del string de precio usando regex
+      const precioMatch = item.precio?.match(/(\d[\d,]*)\s*-\s*(\d[\d,]*)/);
+      if (precioMatch) {
+        const min = parseInt(precioMatch[1].replace(/,/g, ''));
+        const max = parseInt(precioMatch[2].replace(/,/g, ''));
+        return {
+          item: item.item,
+          precioMin: min,
+          precioMax: max,
+          precioOriginal: item.precio
+        };
+      }
+      return null;
+    }).filter(Boolean);
 
-    ratingText: {
-      fontSize: "0.875rem",
-      fontWeight: "600",
-      color: "#854d0e",
-    },
-    tallerContact: {
-      display: "flex",
-      justifyContent: "space-between",
-      marginTop: "1rem",
-      paddingTop: "1rem",
-      borderTop: "1px solid #e2e8f0",
-    },
-    tallerContactButton: {
-      display: "flex",
-      alignItems: "center",
-      padding: "0.5rem 0.75rem",
-      backgroundColor: "#e0f2fe",
-      color: "#0284c7",
-      borderRadius: "8px",
-      fontSize: "0.875rem",
-      fontWeight: "500",
-      border: "none",
-      cursor: "pointer",
-      transition: "background-color 0.2s ease",
-    },
-    tallerDetailButton: {
-      display: "flex",
-      alignItems: "center",
-      padding: "0.5rem 0.75rem",
-      backgroundColor: "#f8fafc",
-      color: "#64748b",
-      borderRadius: "8px",
-      fontSize: "0.875rem",
-      fontWeight: "500",
-      border: "none",
-      cursor: "pointer",
-      transition: "background-color 0.2s ease",
-    },
-    ctaButton: {
-      width: "100%",
-      marginTop: "1rem",
-      padding: "1rem 1.25rem",
-      backgroundColor: "#2563eb",
-      color: "white",
-      border: "none",
-      borderRadius: "12px",
-      fontSize: "1.1rem",
-      fontWeight: "600",
-      cursor: "pointer",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      boxShadow:
-        "0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(37, 99, 235, 0.2)",
-      transition: "background-color 0.2s ease, transform 0.1s ease",
-    },
-    ctaButtonFixed: {
-      position: "sticky",
-      bottom: "1.5rem",
-      zIndex: 10,
-      boxShadow:
-        "0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(37, 99, 235, 0.2)",
-    },
-    ctaContainer: {
-      marginTop: "2rem",
-      paddingTop: "1.5rem",
-      borderTop: "1px solid #e2e8f0",
-    },
-    vehicleInfoContainer: {
-      display: "flex",
-      flexWrap: "wrap",
-      alignItems: "flex-end",
-      justifyContent: "flex-end",
-      fontSize: "14px",
-      marginTop: "8px",
-      color: "#64748b",
-    },
-    vehicleInfoItem: {
-      display: "flex",
-      alignItems: "center",
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      backdropFilter: "blur(10px)",
-      borderRadius: "0.75rem",
-      padding: "0.5rem 0.75rem",
-    },
-    vehicleInfoText: {
-      marginLeft: "0.5rem",
-    },
-  };
-  const [isExpanded, setIsExpanded] = useState(false);
-
-
-   const [viewMode, setViewMode] = useState('map'); // 'map' o 'list'
-  
-  const talleresData = talleres.talleres.slice(20, 25).reverse();
-
-  const toggleView = () => {
-    setViewMode(viewMode === 'map' ? 'list' : 'map');
-  };
-
-  useEffect(() => {
-    // !!! CAMBIO: Usamos problemaSlug del router query, no 'slug' ni 'problemaOriginal' !!!
-    if (router.isReady && problemaSlug) {
-      const fetchDiagnostico = async () => {
-        setCargandoDiagnostico(true);
-        setErrorDiagnostico(null);
-        try {
-          const res = await fetch(`/api/diagnostico/${problemaSlug}`);
-
-          // Verificar si la respuesta HTTP fue exitosa
-          if (!res.ok) {
-            const errorData = await res.json(); // Intenta leer el cuerpo del error del API
-            // Maneja el caso específico de "No encontrado" (HTTP 404)
-            if (res.status === 404) {
-              // !!! CAMBIO: Usamos el estado de error renombrado !!!
-              setErrorDiagnostico({
-                message: "Diagnóstico no encontrado.",
-                details: `El problema con el slug "${problemaSlug}" no fue encontrado.`,
-              });
-            } else {
-              // Lanza un error para otros códigos de estado HTTP no exitosos
-              throw new Error(errorData.error || `Error HTTP: ${res.status}`);
-            }
-            // !!! CAMBIO: Usamos el estado de datos renombrado y lo ponemos a null en caso de error !!!
-            setDiagnosticoData(null);
-          } else {
-            const data = await res.json();
-            setDiagnosticoData(data);
-          }
-        } catch (err) {
-          setErrorDiagnostico({
-            message:
-              err.message ||
-              "No se pudo cargar el diagnóstico para este problema.",
-            details: err.message, // Detalles técnicos del error
-          });
-          setDiagnosticoData(null);
-        } finally {
-          setCargandoDiagnostico(false); // Finaliza carga del diagnóstico
-        }
-      };
-
-      fetchDiagnostico(); // Ejecuta la función de fetch del diagnóstico
-    } else if (router.isReady && !problemaSlug) {
-      // Este caso maneja si alguien navega a /resultados/ sin un slug (aunque la ruta dinámica [slug].js lo hace difícil)
-      // !!! CAMBIO: Usamos el estado de error renombrado !!!
-      setErrorDiagnostico({
-        message: "URL inválida.",
-        details: "No se especificó un problema (slug) en la URL.",
-      });
-      // !!! CAMBIO: Usamos el estado de carga renombrado !!!
-      setCargandoDiagnostico(false);
+    // Calcular totales
+    if (itemsPrecios.length > 0) {
+      precioTotalMin = itemsPrecios.reduce((sum, item) => sum + item.precioMin, 0);
+      precioTotalMax = itemsPrecios.reduce((sum, item) => sum + item.precioMax, 0);
+      precioPromedio = Math.round((precioTotalMin + precioTotalMax) / 2);
+      tienePreciosValidos = true;
     }
-    // Dependencias: El efecto se re-ejecuta si el slug de la URL cambia o cuando el router está listo.
-  }, [problemaSlug, router.isReady]);
-
-  // Segundo useEffect: Buscar talleres UNA VEZ que el diagnóstico se ha cargado y tiene ciudad/servicios
-  useEffect(() => {
-    if (
-      diagnosticoData &&
-      diagnosticoData.city &&
-      talleresActuales === null &&
-      !cargandoTalleres
-    ) {
-      const fetchTalleres = async () => {
-        setCargandoTalleres(true); // Inicia carga de talleres
-        setErrorTalleres(null); // Limpia errores previos de talleres
-
-        try {
-          const city = diagnosticoData.city;
-          // Asegura que diagnosticoData.servicios es un array antes de join
-          const servicios = Array.isArray(diagnosticoData.servicios)
-            ? diagnosticoData.servicios.join(",")
-            : "";
-          const slug = diagnosticoData.slug; // Obtiene el slug del diagnóstico cargado
-
-          const res = await fetch(
-            `/api/talleres?city=${encodeURIComponent(
-              city
-            )}&services=${encodeURIComponent(
-              servicios
-            )}&slug=${encodeURIComponent(slug)}`
-          );
-
-          if (!res.ok) {
-            const errorData = await res.json(); // Intenta leer el cuerpo del error
-            throw new Error(errorData.error || `Error HTTP: ${res.status}`); // Lanza un error si no fue exitosa
-          }
-
-          const talleresData = await res.json();
-          setTalleresActuales(talleresData); // Guarda la lista ACTUAL de talleres
-        } catch (err) {
-          // Captura cualquier error durante el fetch o parseo de talleres
-          setErrorTalleres({
-            message: "No se pudieron cargar los talleres recomendados.",
-            details: err.message, // Detalles técnicos del error
-          });
-          setTalleresActuales([]); // Dejar la lista vacía en caso de error al cargar talleres
-        } finally {
-          // Esto se ejecuta siempre al finalizar el fetch de talleres
-          setCargandoTalleres(false); // Finaliza carga de talleres
-        }
-      };
-
-      fetchTalleres(); // Ejecuta la función de fetch de talleres
-    }
-  }, [
-    diagnosticoData?.slug,
-    diagnosticoData?.city,
-    diagnosticoData?.servicios,
-  ]);
+  }
 
   return (
-    <LayoutV2 onNavigate={router.push} ads={false}>
-      <div style={styles.mainContent}>
-        <div style={styles.container}>
-          {/* <button
-            onClick={() => router.back()} 
-            style={styles.backButton}
-            onMouseOver={(e) => (e.currentTarget.style.color = "#2563eb")} 
-            onMouseOut={(e) => (e.currentTarget.style.color = "#64748b")}
-          >
-            <ArrowLeft size={16} style={styles.iconMarginRight} />
-            <span>Volver</span>
-          </button> */}
-          <div>
-            <section
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "4px",
-                marginBottom: "48px",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: "32px",
-                  fontWeight: "600",
-                  color: "#0f172a",
-                }}
-              >
-                🚗 {diagnosticoData?.car_make} {diagnosticoData?.car_model} {diagnosticoData?.car_year}
-              </p>
-              {/* <span style={{ color: "#64748b" }}>
-                {diagnosticoData?.city}, {diagnosticoData?.country}
-              </span> */}
-            </section>
-            <p style={styles.sectionTitle}>Detalles del problema:</p>{" "}
-            {/* Usar headerContainer */}
-            {/* Usar style.title */}
-            {diagnosticoData?.mensaje_usuario && (
-              <div style={styles.problemCard}>
-                {" "}
-                {/* Usar el estilo problemCard que tenías */}
-                {/* Usar style.problemText */}
-                <h1
-                  style={{
-                    fontSize: "16px",
-                    color: "#64748b",
-                    fontWeight: "400",
-                    lineHeight: "1.6",
-                  }}
-                >
-                  "{diagnosticoData.mensaje_usuario}"
-                </h1>{" "}
-                {/* <div style={styles.vehicleInfoContainer2}>
-                  {(diagnosticoData?.car_make ||
-                    diagnosticoData?.car_model ||
-                    diagnosticoData?.car_year) && (
-                    <div style={styles.vehicleInfoItem2}>
-                      <Car size={16} style={{ color: "#64748b" }} />
-                      <span style={styles.vehicleInfoText}>
-                        {diagnosticoData.car_make} {diagnosticoData.car_model}{" "}
-                        {diagnosticoData.car_year}
-                      </span>
-                    </div>
-                  )}
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonicalUrl} />
 
-                  {(diagnosticoData?.city || diagnosticoData?.country) && (
-                    <div style={styles.vehicleInfoItem2}>
-                      <MapPin size={16} style={{ color: "#64748b" }} />
-                      <span style={styles.vehicleInfoText}>
-                        {diagnosticoData.city}, {diagnosticoData.country}
-                      </span>
-                    </div>
-                  )}
-                </div> */}
-                {/* Usar dato de DB */}
-              </div>
-            )}
-            <section ref={diagnosticoRef} style={styles.sectionAnchor}>
-              {" "}
-              {/* Usar ref y sectionAnchor */}
-              <div style={styles.sectionHeader}>
-                {" "}
-                <h2 style={styles.sectionTitle}>
-                  Posible causa del problema
-                </h2>{" "}
-                {/* Usar sectionTitle */}
-              </div>
-              {/* <div style={styles2.diagnosticoCard}>
-                {" "}
-                
-              </div> */}
-              <div className={styles2.diagnosticoCard}>
-                <div
-                  className={`${styles2.diagnosticoText} ${
-                    isExpanded ? styles2.expanded : ""
-                  }`}
-                  onClick={() => setIsExpanded(!isExpanded)}
-                >
-                  <p>{diagnosticoData?.diagnostico} </p>
-                </div>
-              </div>
-            </section>
-            <h2 style={styles.sectionTitle}>Costo total estimado</h2>{" "}
-            {diagnosticoData?.precios && (
-              <PreciosSection diagnosticoData={diagnosticoData} />
-            )}
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="Quarks - Diagnóstico Automotriz" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+
+        {/* Schema.org - FAQPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: {
+                "@type": "Question",
+                name: problema,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: diagnosticoData.diagnostico,
+                },
+              },
+            }),
+          }}
+        />
+
+        {/* Schema.org - Article */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: title,
+              description: description,
+              author: {
+                "@type": "Organization",
+                name: "Quarks",
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Quarks",
+              },
+            }),
+          }}
+        />
+      </Head>
+
+      <div className="min-h-screen bg-white">
+        {/* Header */}
+        <header className="border-b border-gray-100">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
+            <button
+              onClick={() => router.back()}
+              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mb-4"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Volver
+            </button>
+
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+              {problema}
+            </h1>
+
+            <div className="flex flex-wrap items-center gap-3 text-sm">
+              <span className="inline-flex items-center gap-2 text-gray-700">
+                <Car className="w-4 h-4" />
+                <strong>{diagnosticoData.car_make} {diagnosticoData.car_model}</strong>
+                <span className="text-gray-500">({diagnosticoData.car_year})</span>
+              </span>
+
+              {diagnosticoData.city && (
+                <>
+                  <span className="text-gray-300">•</span>
+                  <span className="inline-flex items-center gap-1.5 text-gray-600">
+                    <MapPin className="w-4 h-4" />
+                    {diagnosticoData.city}
+                  </span>
+                </>
+              )}
+            </div>
           </div>
-          {/* Puedes descomentar los botones de navegación si quieres */}
-          {/* { <div style={styles.navContainer}> ... </div> } */}
+        </header>
 
-          {/* <div
-            className={styles2.containerMapHome}
-            style={{
-              width: "100%",
-              margin: "32px 0",
-              maxHeight: "700px",
-              maxWidth: "600px",
-            }}
-          >
-            <MapTalleresHome data={talleres.talleres.slice(20, 25).reverse()} />
-          </div> */}
+        {/* Main Layout */}
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            {/* Main Content - 2 columns */}
+            <article className="lg:col-span-2 space-y-10">
+              {/* Síntoma */}
+              <section>
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">
+                  Síntoma reportado
+                </h2>
+                <blockquote className="text-lg sm:text-xl text-gray-800 leading-relaxed border-l-4 border-blue-600 pl-5">
+                  {diagnosticoData.mensaje_usuario}
+                </blockquote>
+              </section>
 
-          <div style={{ width: "100%", maxWidth: "600px", margin: "0 auto" }}>
-      {/* Header con título y toggle */}
-      <div style={{ 
-        display: "flex", 
-        alignItems: "center", 
-        justifyContent: "space-between", 
-        marginBottom: "24px" 
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <MapPinCheck style={{ width: "20px", height: "20px", color: "#2563eb" }} />
-          <h2 style={{ 
-            fontSize: "20px", 
-            fontWeight: "600", 
-            color: "#111827",
-            margin: 0
-          }}>
-            Talleres especializados
-          </h2>
-        </div>
-        
-        {/* Toggle Button */}
-        <div style={{ 
-          display: "flex", 
-          alignItems: "center", 
-          backgroundColor: "#f3f4f6", 
-          borderRadius: "8px", 
-          padding: "4px", 
-          
-        }}>
-          <button
-            onClick={() => setViewMode('map')}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "8px 12px",
-              borderRadius: "6px",
-              fontSize: "14px",
-              fontWeight: "500",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-              backgroundColor: viewMode === 'map' ? "white" : "transparent",
-              color: viewMode === 'map' ? "#407BFF" : "#6b7280",
-              boxShadow: viewMode === 'map' ? "0 1px 3px rgba(0, 0, 0, 0.1)" : "none"
-            }}
-          >
-            <Map style={{ width: "16px", height: "16px" }} />
-            Mapa
-          </button>
-          <button
-            onClick={() => setViewMode('list')}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              padding: "8px 12px",
-              borderRadius: "6px",
-              fontSize: "14px",
-              fontWeight: "500",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-              backgroundColor: viewMode === 'list' ? "white" : "transparent",
-              color: viewMode === 'list' ? "#2563eb" : "#6b7280",
-              boxShadow: viewMode === 'list' ? "0 1px 3px rgba(0, 0, 0, 0.1)" : "none"
-            }}
-          >
-            <List style={{ width: "16px", height: "16px" }} />
-            Lista
-          </button>
-        </div>
-      </div>
-
-      {/* Contenido condicional */}
-      {viewMode === 'map' ? (
-        <div style={{
-          width: "100%",
-          margin: "0",
-          maxHeight: "700px",
-          maxWidth: "600px",
-        }}>
-          <MapTalleresHome data={talleres.talleres.slice(20, 25).reverse()} />
-        </div>
-      ) : (
-        <div style={{
-          backgroundColor: "white",
-          borderRadius: "8px",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-          border: "1px solid #e5e7eb"
-        }}>
-          {talleresData.map((taller, index) => (
-            <div
-              key={taller.id || index}
-              style={{
-                padding: "16px",
-                borderBottom: index !== talleresData.length - 1 ? "1px solid #f3f4f6" : "none",
-                cursor: "pointer",
-                transition: "background-color 0.15s ease"
-              }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = "#f9fafb"}
-              onMouseLeave={(e) => e.target.style.backgroundColor = "transparent"}
-            >
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                <div style={{
-                  width: "40px",
-                  height: "40px",
-                  backgroundColor: "#3b82f6",
-                  borderRadius: "50%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0
-                }}>
-                  <MapPin style={{ width: "20px", height: "20px", color: "white" }} />
+              {/* Diagnóstico */}
+              <section>
+                <div className="flex items-center gap-2 mb-4">
+                  <CheckCircle className="w-5 h-5 text-green-600" />
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    Diagnóstico
+                  </h2>
                 </div>
-                
-                <div style={{ flex: 1 }}>
-                  <h3 style={{ 
-                    fontSize: "16px", 
-                    fontWeight: "600", 
-                    color: "#111827",
-                    margin: "0 0 4px 0"
-                  }}>
-                    {taller.nombre || `Taller ${index + 1}`}
-                  </h3>
-                  <p style={{ 
-                    fontSize: "14px", 
-                    color: "#6b7280",
-                    margin: "0 0 8px 0"
-                  }}>
-                    {taller.direccion || taller.ubicacion || "Ubicación no disponible"}
+                <div className="prose prose-gray max-w-none">
+                  <p className="text-gray-700 leading-relaxed">
+                    {diagnosticoData.diagnostico}
                   </p>
-                  {taller.telefono && (
-                    <p style={{ 
-                      fontSize: "14px", 
-                      color: "#374151",
-                      margin: 0
-                    }}>
-                      📞 {taller.telefono}
-                    </p>
-                  )}
-                  {taller.distancia && (
-                    <span style={{
-                      display: "inline-block",
-                      marginTop: "8px",
-                      fontSize: "12px",
-                      fontWeight: "500",
-                      color: "#059669",
-                      backgroundColor: "#d1fae5",
-                      padding: "2px 8px",
-                      borderRadius: "12px"
-                    }}>
-                      {taller.distancia} km
-                    </span>
-                  )}
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-          {/* Talleres Recomendados */}
-          {/* <section ref={talleresRef} style={styles.sectionAnchor}>
-          {" "}
-          <div style={styles.sectionHeader}>
-            {" "}
-            <div
-              style={{
-                ...styles.sectionIconContainer,
-                backgroundColor: "#fef2f2",
-              }}
-            >
-              {" "}
-              <MapPin size={20} style={{ color: "#dc2626" }} /> 
-            </div>
-            <h3 style={styles.sectionTitle}>
-              Talleres recomendados en{" "}
-              {diagnosticoData?.city ||
-                diagnosticoData?.country ||
-                "tu ubicación"}
-            </h3>{" "}
-          </div>
-          {cargandoTalleres && (
-            <p style={styles.loading}>Buscando talleres cercanos...</p>
-          )}{" "}
-          {errorTalleres && (
-            <div style={styles.errorContainer}>
-              {" "}
-              <div style={styles.errorFlex}>
-                {" "}
-                <AlertCircle size={24} style={styles.errorIcon} /> 
-                <div>
-                  <p style={styles.errorMessage}>{errorTalleres.message}</p>{" "}
-                  {errorTalleres.details && (
-                    <p style={styles.errorDetails}>{errorTalleres.details}</p>
-                  )}{" "}
-                </div>
-              </div>
-            </div>
-          )}
-          {!cargandoTalleres &&
-            !errorTalleres &&
-            (talleresActuales &&
-            Array.isArray(talleresActuales) &&
-            talleresActuales.length > 0 ? ( // Si hay talleres en la lista...
-              <div style={styles.tallerContainer}>
-                {" "}
-                {talleresActuales.map((taller, index) => (
-                  <div
-                    key={index}
-                    style={styles.tallerCard} // Usar tallerCard
-                    // Mantener efectos hover si quieres
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.transform = "translateY(-2px)";
-                      e.currentTarget.style.borderColor = "#cbd5e1";
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.borderColor = "#e2e8f0";
-                    }}
-                  >
-                    <div style={styles.tallerHeader}>
-                      {" "}
-                      <div style={styles.tallerInfo}>
-                        {" "}
-                        <h3 style={styles.tallerName}>{taller.nombre}</h3>{" "}
-                        <div style={styles.tallerMetaContainer}>
-                          {" "}
-                          <div style={styles.tallerMeta}>
-                            {" "}
-                            <MapPin
-                              size={14}
-                              style={{
-                                ...styles.iconMarginRight,
-                                color: "#94a3b8",
-                              }}
-                            />{" "}
-                            <span>{taller.ubicacion}</span>
+              </section>
+
+              {/* Precios */}
+              {tienePreciosValidos && (
+                <section>
+                  <div className="flex items-center gap-2 mb-4">
+                    <DollarSign className="w-5 h-5 text-blue-600" />
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      Costo estimado de reparación
+                    </h2>
+                  </div>
+
+                  {/* Desglose de items */}
+                  <div className="space-y-3 mb-6">
+                    {itemsPrecios.map((item, index) => (
+                      <div key={index} className="flex justify-between items-start py-3 border-b border-gray-100 last:border-b-0">
+                        <div className="flex-1">
+                          <h3 className="text-sm font-medium text-gray-900">{item.item}</h3>
+                        </div>
+                        <div className="text-right ml-4">
+                          <div className="text-sm font-semibold text-gray-900">
+                            ${item.precioMin.toLocaleString()} - ${item.precioMax.toLocaleString()}
                           </div>
-                          <div style={styles.tallerMeta}>
-                            {" "}
-                            <Clock
-                              size={14}
-                              style={{
-                                ...styles.iconMarginRight,
-                                color: "#94a3b8",
-                              }}
-                            />{" "}
-                            <span>Abierto hasta 20:00</span>{" "}
-                          </div>
+                          <div className="text-xs text-gray-500">COP</div>
                         </div>
                       </div>
-                      <div style={styles.ratingBadge}>
-                        {" "}
-                        <Star
-                          size={14}
-                          style={{
-                            ...styles.iconMarginRight,
-                            color: "#eab308",
-                            fill: "#eab308",
-                          }}
-                        />{" "}
-                        <span style={styles.ratingText}>
-                          {taller.calificacion}
-                        </span>{" "}
+                    ))}
+                  </div>
+
+                  {/* Totales */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t-2 border-gray-200">
+                    <div className="text-center py-3">
+                      <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide">Total Mínimo</div>
+                      <div className="text-xl sm:text-2xl font-bold text-gray-900">
+                        ${precioTotalMin.toLocaleString()}
                       </div>
                     </div>
-
-                    <div style={styles.tallerContact}>
-                      {" "}
-                      <button
-                        style={styles.tallerContactButton} // Usar tallerContactButton
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style.backgroundColor = "#bae6fd")
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style.backgroundColor = "#e0f2fe")
-                        }
-                      >
-                        <Phone size={16} style={styles.iconMarginRight} />{" "}
-                        <span>Llamar ahora</span>
-                      </button>
-                      <button
-                        style={styles.tallerDetailButton} // Usar tallerDetailButton
-                        onMouseOver={(e) =>
-                          (e.currentTarget.style.backgroundColor = "#f1f5f9")
-                        }
-                        onMouseOut={(e) =>
-                          (e.currentTarget.style.backgroundColor = "#f8fafc")
-                        }
-                      >
-                        <span>Ver detalles</span>
-                        <ChevronRight
-                          size={16}
-                          style={{ marginLeft: "0.25rem" }}
-                        />{" "}
-                      </button>
+                    <div className="text-center py-3 bg-blue-50 rounded-lg">
+                      <div className="text-xs text-blue-600 mb-1 font-semibold uppercase tracking-wide">Promedio</div>
+                      <div className="text-xl sm:text-2xl font-bold text-blue-600">
+                        ${precioPromedio.toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="text-center py-3">
+                      <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide">Total Máximo</div>
+                      <div className="text-xl sm:text-2xl font-bold text-gray-900">
+                        ${precioTotalMax.toLocaleString()}
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div style={styles.emptyText}>
-                {" "}
-                No se encontraron talleres recomendados para este problema en la
-                ubicación especificada actualmente.
-              </div>
-            ))}
-        </section> */}
-          {/* <div style={styles.ctaContainer}>
-        {" "}
-        <button
-          style={styles.ctaButton} 
-          onMouseOver={(e) => {
-            e.currentTarget.style.backgroundColor = "#1d4ed8";
-            e.currentTarget.style.transform = "translateY(-1px)";
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.backgroundColor = "#2563eb";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
-        >
-          <MessageCircle size={18} style={styles.iconMarginRight} />
-          <span>Recibir ofertas de talleres cercanos</span>{" "}
-        </button>
-      </div> */}
-          {/* Opcional: Mostrar el slug para referencia/depuración fuera del bloque principal si quieres que se vea siempre */}
-          {/* !!! CAMBIO: Usamos diagnosticoData?.slug !!! */}
-          {/* {diagnosticoData?.slug && (
-        <p style={{ ...styles.slugText, marginTop: "20px" }}>
-          Slug de este diagnóstico: {diagnosticoData.slug}
-        </p>
-      )}{" "} */}
-          {/* Usar style.slugText */}
-        </div>
-      </div>
-    </LayoutV2>
-  );
-};
 
-export default ResultadosPage;
+                  <div className="flex items-start gap-2 text-xs text-gray-600 bg-gray-50 px-4 py-3 rounded-lg mt-4">
+                    <Info className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                    <p>
+                      Los precios son estimados y pueden variar según el taller, 
+                      la ubicación y las condiciones específicas del vehículo.
+                    </p>
+                  </div>
+                </section>
+              )}
+
+              {/* Recomendación */}
+              <aside className="border-l-4 border-amber-400 bg-amber-50 px-5 py-4 rounded-r-lg">
+                <div className="flex gap-3">
+                  <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      Recomendación importante
+                    </h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Este diagnóstico es orientativo basado en los síntomas descritos. 
+                      Para una evaluación precisa, te recomendamos visitar un taller 
+                      especializado que pueda inspeccionar tu vehículo directamente.
+                    </p>
+                  </div>
+                </div>
+              </aside>
+            </article>
+
+            {/* Sidebar - 1 column */}
+            <aside className="space-y-6">
+              {/* Problemas relacionados */}
+              <nav className="border border-gray-200 rounded-xl p-5">
+                <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                  <Wrench className="w-4 h-4" />
+                  Problemas relacionados
+                </h3>
+                <ul className="space-y-3">
+                  {problemasRelacionados.map((item) => (
+                    <li key={item.slug}>
+                      <button
+                        onClick={() => router.push(`/diagnostico/${item.slug}`)}
+                        className="w-full text-left text-sm text-gray-700 hover:text-blue-600 transition-colors flex items-start gap-2 group"
+                      >
+                        <span className="text-gray-400 group-hover:text-blue-600 transition-colors">→</span>
+                        <span>{item.title}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              {/* Ayuda profesional */}
+              <div className="bg-blue-50 border border-blue-100 rounded-xl p-5">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      ¿Necesitas un taller?
+                    </h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Encuentra talleres especializados cerca de ti y compara precios.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => router.push('/talleres')}
+                  className="w-full bg-blue-600 text-white text-sm font-medium py-2.5 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Buscar talleres
+                </button>
+              </div>
+
+              {/* Stats */}
+              <div className="border border-gray-200 rounded-xl p-5">
+                <h3 className="font-semibold text-gray-900 mb-4">
+                  Sobre este diagnóstico
+                </h3>
+                <dl className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <dt className="text-gray-600">Vehículo</dt>
+                    <dd className="text-gray-900 font-medium">
+                      {diagnosticoData.car_make}
+                    </dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-gray-600">Modelo</dt>
+                    <dd className="text-gray-900 font-medium">
+                      {diagnosticoData.car_model}
+                    </dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="text-gray-600">Año</dt>
+                    <dd className="text-gray-900 font-medium">
+                      {diagnosticoData.car_year}
+                    </dd>
+                  </div>
+                  {diagnosticoData.city && (
+                    <div className="flex justify-between">
+                      <dt className="text-gray-600">Ubicación</dt>
+                      <dd className="text-gray-900 font-medium">
+                        {diagnosticoData.city}
+                      </dd>
+                    </div>
+                  )}
+                </dl>
+              </div>
+            </aside>
+          </div>
+        </main>
+      </div>
+    </>
+  );
+}
