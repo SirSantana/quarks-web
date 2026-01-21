@@ -30,7 +30,7 @@ export async function getStaticProps({ params }) {
 
   try {
     const BASE_URL =
-      process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+      process.env.NEXT_PUBLIC_VERCEL_URL || "http://localhost:3000";
 
     const res = await fetch(`${BASE_URL}/api/diagnostico/${slug}`);
 
