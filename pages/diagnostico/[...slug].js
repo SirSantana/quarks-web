@@ -132,6 +132,7 @@ export default function ResultadosPage({ diagnosticoData }) {
 
   return (
     <>
+
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -168,7 +169,8 @@ export default function ResultadosPage({ diagnosticoData }) {
             }),
           }}
         />
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+     crossorigin="anonymous"></script>
         {/* Schema.org - Article */}
         <script
           type="application/ld+json"
@@ -229,29 +231,29 @@ export default function ResultadosPage({ diagnosticoData }) {
 
         {/* Main Layout */}
         <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16">
             {/* Main Content - 2 columns */}
-            <article className="lg:col-span-2 space-y-10">
+            <article className="lg:col-span-2 space-y-16">
               {/* Síntoma */}
               <section>
-                <h2 className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-4">
                   Síntoma reportado
                 </h2>
-                <blockquote className="text-lg sm:text-xl text-gray-800 leading-relaxed border-l-4 border-blue-600 pl-5">
+                <blockquote className="text-lg sm:text-xl text-gray-800 leading-relaxed border-l-4 border-blue-600 pl-6">
                   {diagnosticoData.mensaje_usuario}
                 </blockquote>
               </section>
 
               {/* Diagnóstico */}
               <section>
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-5">
                   <CheckCircle className="w-5 h-5 text-green-600" />
                   <h2 className="text-xl font-semibold text-gray-900">
                     Diagnóstico
                   </h2>
                 </div>
                 <div className="prose prose-gray max-w-none">
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed text-base">
                     {diagnosticoData.diagnostico}
                   </p>
                 </div>
@@ -260,7 +262,7 @@ export default function ResultadosPage({ diagnosticoData }) {
               {/* Precios */}
               {tienePreciosValidos && (
                 <section>
-                  <div className="flex items-center gap-2 mb-4">
+                  <div className="flex items-center gap-2 mb-5">
                     <DollarSign className="w-5 h-5 text-blue-600" />
                     <h2 className="text-xl font-semibold text-gray-900">
                       Costo estimado de reparación
@@ -268,47 +270,47 @@ export default function ResultadosPage({ diagnosticoData }) {
                   </div>
 
                   {/* Desglose de items */}
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-4 mb-8">
                     {itemsPrecios.map((item, index) => (
-                      <div key={index} className="flex justify-between items-start py-3 border-b border-gray-100 last:border-b-0">
-                        <div className="flex-1">
-                          <h3 className="text-sm font-medium text-gray-900">{item.item}</h3>
+                      <div key={index} className="flex justify-between items-start py-4 border-b border-gray-100 last:border-b-0">
+                        <div className="flex-1 pr-4">
+                          <h3 className="text-sm font-medium text-gray-900 leading-relaxed">{item.item}</h3>
                         </div>
-                        <div className="text-right ml-4">
-                          <div className="text-sm font-semibold text-gray-900">
+                        <div className="text-right">
+                          <div className="text-sm font-semibold text-gray-900 whitespace-nowrap">
                             ${item.precioMin.toLocaleString()} - ${item.precioMax.toLocaleString()}
                           </div>
-                          <div className="text-xs text-gray-500">COP</div>
+                          <div className="text-xs text-gray-500 mt-0.5">COP</div>
                         </div>
                       </div>
                     ))}
                   </div>
 
                   {/* Totales */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t-2 border-gray-200">
-                    <div className="text-center py-3">
-                      <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide">Total Mínimo</div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-6 border-t-2 border-gray-200">
+                    <div className="text-center py-4">
+                      <div className="text-xs text-gray-500 mb-2 uppercase tracking-wide font-medium">Total Mínimo</div>
                       <div className="text-xl sm:text-2xl font-bold text-gray-900">
                         ${precioTotalMin.toLocaleString()}
                       </div>
                     </div>
-                    <div className="text-center py-3 bg-blue-50 rounded-lg">
-                      <div className="text-xs text-blue-600 mb-1 font-semibold uppercase tracking-wide">Promedio</div>
+                    <div className="text-center py-4 bg-blue-50 rounded-xl">
+                      <div className="text-xs text-blue-600 mb-2 font-semibold uppercase tracking-wide">Promedio</div>
                       <div className="text-xl sm:text-2xl font-bold text-blue-600">
                         ${precioPromedio.toLocaleString()}
                       </div>
                     </div>
-                    <div className="text-center py-3">
-                      <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide">Total Máximo</div>
+                    <div className="text-center py-4">
+                      <div className="text-xs text-gray-500 mb-2 uppercase tracking-wide font-medium">Total Máximo</div>
                       <div className="text-xl sm:text-2xl font-bold text-gray-900">
                         ${precioTotalMax.toLocaleString()}
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-2 text-xs text-gray-600 bg-gray-50 px-4 py-3 rounded-lg mt-4">
+                  <div className="flex items-start gap-3 text-xs text-gray-600 bg-gray-50 px-5 py-4 rounded-lg mt-6">
                     <Info className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
-                    <p>
+                    <p className="leading-relaxed">
                       Los precios son estimados y pueden variar según el taller, 
                       la ubicación y las condiciones específicas del vehículo.
                     </p>
@@ -317,11 +319,11 @@ export default function ResultadosPage({ diagnosticoData }) {
               )}
 
               {/* Recomendación */}
-              <aside className="border-l-4 border-amber-400 bg-amber-50 px-5 py-4 rounded-r-lg">
-                <div className="flex gap-3">
+              <aside className="border-l-4 border-amber-400 bg-amber-50 px-6 py-5 rounded-r-lg">
+                <div className="flex gap-4">
                   <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
+                    <h3 className="font-semibold text-gray-900 mb-2">
                       Recomendación importante
                     </h3>
                     <p className="text-sm text-gray-700 leading-relaxed">
@@ -335,22 +337,22 @@ export default function ResultadosPage({ diagnosticoData }) {
             </article>
 
             {/* Sidebar - 1 column */}
-            <aside className="space-y-6">
+            <aside className="space-y-8">
               {/* Problemas relacionados */}
-              <nav className="border border-gray-200 rounded-xl p-5">
-                <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <nav className="border border-gray-200 rounded-xl p-6">
+                <h3 className="font-semibold text-gray-900 mb-5 flex items-center gap-2">
                   <Wrench className="w-4 h-4" />
                   Problemas relacionados
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {problemasRelacionados.map((item) => (
                     <li key={item.slug}>
                       <button
                         onClick={() => router.push(`/diagnostico/${item.slug}`)}
                         className="w-full text-left text-sm text-gray-700 hover:text-blue-600 transition-colors flex items-start gap-2 group"
                       >
-                        <span className="text-gray-400 group-hover:text-blue-600 transition-colors">→</span>
-                        <span>{item.title}</span>
+                        <span className="text-gray-400 group-hover:text-blue-600 transition-colors mt-0.5">→</span>
+                        <span className="leading-relaxed">{item.title}</span>
                       </button>
                     </li>
                   ))}
@@ -358,13 +360,13 @@ export default function ResultadosPage({ diagnosticoData }) {
               </nav>
 
               {/* Ayuda profesional */}
-              <div className="bg-blue-50 border border-blue-100 rounded-xl p-5">
-                <div className="flex items-start gap-3 mb-3">
+              <div className="bg-blue-50 border border-blue-100 rounded-xl p-6">
+                <div className="flex items-start gap-3 mb-4">
                   <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
                     <Clock className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
+                    <h3 className="font-semibold text-gray-900 mb-2">
                       ¿Necesitas un taller?
                     </h3>
                     <p className="text-sm text-gray-700 leading-relaxed">
@@ -374,38 +376,38 @@ export default function ResultadosPage({ diagnosticoData }) {
                 </div>
                 <button
                   onClick={() => router.push('/talleres')}
-                  className="w-full bg-blue-600 text-white text-sm font-medium py-2.5 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="w-full bg-blue-600 text-white text-sm font-medium py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Buscar talleres
                 </button>
               </div>
 
               {/* Stats */}
-              <div className="border border-gray-200 rounded-xl p-5">
-                <h3 className="font-semibold text-gray-900 mb-4">
+              <div className="border border-gray-200 rounded-xl p-6">
+                <h3 className="font-semibold text-gray-900 mb-5">
                   Sobre este diagnóstico
                 </h3>
-                <dl className="space-y-3 text-sm">
-                  <div className="flex justify-between">
+                <dl className="space-y-4 text-sm">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <dt className="text-gray-600">Vehículo</dt>
                     <dd className="text-gray-900 font-medium">
                       {diagnosticoData.car_make}
                     </dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <dt className="text-gray-600">Modelo</dt>
                     <dd className="text-gray-900 font-medium">
                       {diagnosticoData.car_model}
                     </dd>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <dt className="text-gray-600">Año</dt>
                     <dd className="text-gray-900 font-medium">
                       {diagnosticoData.car_year}
                     </dd>
                   </div>
                   {diagnosticoData.city && (
-                    <div className="flex justify-between">
+                    <div className="flex justify-between py-2">
                       <dt className="text-gray-600">Ubicación</dt>
                       <dd className="text-gray-900 font-medium">
                         {diagnosticoData.city}
