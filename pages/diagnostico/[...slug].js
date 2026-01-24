@@ -105,36 +105,52 @@ export default function ResultadosPage({ diagnosticoData }) {
   let precioTotalMax = 0;
   let precioPromedio = 0;
   let tienePreciosValidos = false;
+const parsePrecio = (valor) => {
+  if (!valor) return null;
+  return parseInt(valor.replace(/[^\d]/g, ""), 10);
+};
+if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
+  itemsPrecios = diagnosticoData.precios
+    .map((item) => {
+      const precioMatch = item.precio?.match(
+        /(\d[\d.,]*)\s*-\s*(\d[\d.,]*)/
+      );
 
-  if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
-    itemsPrecios = diagnosticoData.precios.map(item => {
-      // Extraer números del string de precio usando regex
-      const precioMatch = item.precio?.match(/(\d[\d,]*)\s*-\s*(\d[\d,]*)/);
       if (precioMatch) {
-        const min = parseInt(precioMatch[1].replace(/,/g, ''));
-        const max = parseInt(precioMatch[2].replace(/,/g, ''));
-        return {
-          item: item.item,
-          precioMin: min,
-          precioMax: max,
-          precioOriginal: item.precio
-        };
-      }
-      return null;
-    }).filter(Boolean);
+        const min = parsePrecio(precioMatch[1]);
+        const max = parsePrecio(precioMatch[2]);
 
-    // Calcular totales
-    if (itemsPrecios.length > 0) {
-      precioTotalMin = itemsPrecios.reduce((sum, item) => sum + item.precioMin, 0);
-      precioTotalMax = itemsPrecios.reduce((sum, item) => sum + item.precioMax, 0);
-      precioPromedio = Math.round((precioTotalMin + precioTotalMax) / 2);
-      tienePreciosValidos = true;
-    }
+        if (min !== null && max !== null) {
+          return {
+            item: item.item,
+            precioMin: min,
+            precioMax: max,
+            precioOriginal: item.precio,
+          };
+        }
+      }
+
+      return null;
+    })
+    .filter(Boolean);
+
+  if (itemsPrecios.length > 0) {
+    precioTotalMin = itemsPrecios.reduce(
+      (sum, item) => sum + item.precioMin,
+      0
+    );
+    precioTotalMax = itemsPrecios.reduce(
+      (sum, item) => sum + item.precioMax,
+      0
+    );
+    precioPromedio = Math.round((precioTotalMin + precioTotalMax) / 2);
+    tienePreciosValidos = true;
   }
+}
+
 
   return (
     <>
-
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -146,7 +162,10 @@ export default function ResultadosPage({ diagnosticoData }) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:site_name" content="Quarks - Diagnóstico Automotriz" />
+        <meta
+          property="og:site_name"
+          content="Quarks - Diagnóstico Automotriz"
+        />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -171,8 +190,11 @@ export default function ResultadosPage({ diagnosticoData }) {
             }),
           }}
         />
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
-     crossorigin="anonymous"></script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+          crossorigin="anonymous"
+        ></script>
         {/* Schema.org - Article */}
         <script
           type="application/ld+json"
@@ -195,9 +217,9 @@ export default function ResultadosPage({ diagnosticoData }) {
         />
       </Head>
 
-        <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white">
         {/* Header */}
-        <Header/>
+        <Header />
 
         {/* Main Layout with 3 columns */}
         <div className="py-4 sm:py-12">
@@ -221,7 +243,9 @@ export default function ResultadosPage({ diagnosticoData }) {
                           </span>
                           <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 flex-shrink-0 mt-0.5" />
                         </div>
-                        <span className="text-xs text-gray-500 mt-1 block">{item.categoria}</span>
+                        <span className="text-xs text-gray-500 mt-1 block">
+                          {item.categoria}
+                        </span>
                       </button>
                     </li>
                   ))}
@@ -232,40 +256,43 @@ export default function ResultadosPage({ diagnosticoData }) {
             {/* Main Content with Right Sidebar */}
             <div className="lg:col-span-9 lg:col-start-4 order-1 lg:order-2">
               <header className="border-b border-gray-100">
-          <div className="max-w-6xl  px-4 sm:px-6 py-4 sm:py-6">
-            <button
-              onClick={() => router.back()}
-              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mb-4"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Volver
-            </button>
+                <div className="max-w-6xl  px-4 sm:px-6 py-4 sm:py-6">
+                  <button
+                    onClick={() => router.back()}
+                    className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mb-4"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Volver
+                  </button>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
-              {problema}
-            </h1>
+                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight mb-4">
+                    {problema}
+                  </h1>
 
-            <div className="flex flex-wrap items-center gap-3 text-sm">
-              <span className="inline-flex items-center gap-2 text-gray-700">
-                <Car className="w-4 h-4" />
-                <strong>{diagnosticoData.car_make} {diagnosticoData.car_model}</strong>
-                <span className="text-gray-500">({diagnosticoData.car_year})</span>
-              </span>
+                  <div className="flex flex-wrap items-center gap-3 text-sm">
+                    <span className="inline-flex items-center gap-2 text-gray-700">
+                      <Car className="w-4 h-4" />
+                      <strong>
+                        {diagnosticoData.car_make} {diagnosticoData.car_model}
+                      </strong>
+                      <span className="text-gray-500">
+                        ({diagnosticoData.car_year})
+                      </span>
+                    </span>
 
-              {diagnosticoData.city && (
-                <>
-                  <span className="text-gray-300">•</span>
-                  <span className="inline-flex items-center gap-1.5 text-gray-600">
-                    <MapPin className="w-4 h-4" />
-                    {diagnosticoData.city}
-                  </span>
-                </>
-              )}
-            </div>
-          </div>
-        </header>
+                    {diagnosticoData.city && (
+                      <>
+                        <span className="text-gray-300">•</span>
+                        <span className="inline-flex items-center gap-1.5 text-gray-600">
+                          <MapPin className="w-4 h-4" />
+                          {diagnosticoData.city}
+                        </span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </header>
               <div className="max-w-6xl  px-4 sm:px-6 mt-16">
-                
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 ">
                   {/* Main Content */}
                   <article className="lg:col-span-8 space-y-20 ">
@@ -302,13 +329,19 @@ export default function ResultadosPage({ diagnosticoData }) {
 
                         <div className="space-y-3 mb-6">
                           {itemsPrecios.map((item, index) => (
-                            <div key={index} className="flex justify-between items-start py-3 border-b border-gray-100 last:border-b-0">
+                            <div
+                              key={index}
+                              className="flex justify-between items-start py-3 border-b border-gray-100 last:border-b-0"
+                            >
                               <div className="flex-1 pr-4">
-                                <h3 className=" text-gray-900 leading-relaxed">{item.item}</h3>
+                                <h3 className=" text-gray-900 leading-relaxed">
+                                  {item.item}
+                                </h3>
                               </div>
                               <div className="text-right">
                                 <p className=" text-gray-900 whitespace-nowrap  font-semibold">
-                                  ${item.precioMin.toLocaleString()} - ${item.precioMax.toLocaleString()}
+                                  ${item.precioMin.toLocaleString()} - $
+                                  {item.precioMax.toLocaleString()}
                                 </p>
                                 <div className="text-xs text-gray-500">COP</div>
                               </div>
@@ -318,19 +351,25 @@ export default function ResultadosPage({ diagnosticoData }) {
 
                         <div className="grid grid-cols-3 gap-4 pt-4 border-t-2 border-gray-200">
                           <div className="text-center py-3">
-                            <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide font-medium">Mínimo</div>
+                            <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide font-medium">
+                              Mínimo
+                            </div>
                             <div className="text-xl font-bold text-gray-900">
                               ${precioTotalMin.toLocaleString()}
                             </div>
                           </div>
                           <div className="text-center py-3 bg-blue-50 rounded-lg">
-                            <div className="text-xs text-blue-600 mb-1 font-semibold uppercase tracking-wide">Promedio</div>
+                            <div className="text-xs text-blue-600 mb-1 font-semibold uppercase tracking-wide">
+                              Promedio
+                            </div>
                             <div className="text-xl font-bold text-blue-600">
                               ${precioPromedio.toLocaleString()}
                             </div>
                           </div>
                           <div className="text-center py-3">
-                            <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide font-medium">Máximo</div>
+                            <div className="text-xs text-gray-500 mb-1 uppercase tracking-wide font-medium">
+                              Máximo
+                            </div>
                             <div className="text-xl font-bold text-gray-900">
                               ${precioTotalMax.toLocaleString()}
                             </div>
@@ -340,7 +379,8 @@ export default function ResultadosPage({ diagnosticoData }) {
                         <div className="flex items-start gap-2 text-xs text-gray-600 bg-gray-50 px-4 py-3 rounded-lg mt-4">
                           <Info className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
                           <p className="leading-relaxed">
-                            Los precios son referenciales y pueden variar según el taller y la ubicación.
+                            Los precios son referenciales y pueden variar según
+                            el taller y la ubicación.
                           </p>
                         </div>
                       </section>
@@ -355,7 +395,8 @@ export default function ResultadosPage({ diagnosticoData }) {
                             Recomendación importante
                           </h3>
                           <p className="text-sm text-gray-700 leading-relaxed">
-                            Este diagnóstico es orientativo. Para mayor precisión, visita un taller especializado.
+                            Este diagnóstico es orientativo. Para mayor
+                            precisión, visita un taller especializado.
                           </p>
                         </div>
                       </div>
@@ -363,10 +404,21 @@ export default function ResultadosPage({ diagnosticoData }) {
                   </article>
 
                   {/* Right Sidebar */}
-                  <aside className="lg:col-span-4 order-3 ">
+                  <aside className="lg:col-span-4 order-3">
                     <div className="lg:sticky lg:top-6 space-y-6">
                       {/* Información del vehículo */}
-                      <div className="bg-white rounded-xl p-5 border border-gray-200">
+                      <div className="bg-white rounded-xl p-5 border border-gray-200 overflow-hidden">
+                        {/* Logo de la marca */}
+                        <div className="flex justify-center mb-5 pb-5 border-b border-gray-100">
+                          <div className="relative w-20 h-20 flex items-center justify-center">
+                            <img
+                              src={`/${diagnosticoData.car_make}.webp`}
+                              alt={`${diagnosticoData.car_make} logo`}
+                              className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                            />
+                          </div>
+                        </div>
+
                         <h3 className="text-sm font-semibold text-gray-900 mb-4">
                           Información del vehículo
                         </h3>
@@ -390,7 +442,7 @@ export default function ResultadosPage({ diagnosticoData }) {
                             </dd>
                           </div>
                           {diagnosticoData.city && (
-                            <div className="flex justify-between items-center">
+                            <div className="flex justify-between items-center ">
                               <dt className="text-gray-600">Ubicación</dt>
                               <dd className="text-gray-900 font-semibold">
                                 {diagnosticoData.city}
@@ -398,6 +450,21 @@ export default function ResultadosPage({ diagnosticoData }) {
                             </div>
                           )}
                         </dl>
+                        {diagnosticoData.servicios &&
+                          diagnosticoData.servicios.length > 0 && (
+                            <div className="flex flex-wrap gap-2 border-t border-gray-100 pt-3">
+                              {diagnosticoData.servicios.map(
+                                (servicio, index) => (
+                                  <span
+                                    key={index}
+                                    className="inline-flex items-center px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-medium rounded-full border border-blue-100 hover:bg-blue-100 transition-colors"
+                                  >
+                                    {servicio}
+                                  </span>
+                                ),
+                              )}
+                            </div>
+                          )}
                       </div>
 
                       {/* CTA Talleres */}
@@ -416,7 +483,7 @@ export default function ResultadosPage({ diagnosticoData }) {
                           </div>
                         </div>
                         <button
-                          onClick={() => router.push('/talleres')}
+                          onClick={() => router.push("/talleres")}
                           className="w-full bg-blue-600 text-white text-sm font-medium py-2.5 px-4 rounded-lg hover:bg-blue-700 transition-colors"
                         >
                           Buscar talleres
@@ -428,16 +495,9 @@ export default function ResultadosPage({ diagnosticoData }) {
               </div>
             </div>
           </div>
-             
-
-        
-           
-
-          
         </div>
       </div>
-            <FooterV2 />
-      
+      <FooterV2 />
     </>
   );
 }
