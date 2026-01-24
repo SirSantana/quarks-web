@@ -225,7 +225,7 @@ if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
         <div className="py-4 sm:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Left Sidebar - Pegado a la izquierda */}
-            <aside className="lg:col-span-3 order-2 lg:order-1 bg-gray-50 lg:min-h-screen lg:fixed lg:left-0 lg:top-0 lg:w-[280px] lg:pt-32 lg:pb-8 lg:px-6 px-4 py-6">
+            {/* <aside className="lg:col-span-3 order-2 lg:order-1 bg-gray-50 lg:min-h-screen lg:fixed lg:left-0 lg:top-0 lg:w-[280px] lg:pt-32 lg:pb-8 lg:px-6 px-4 py-6">
               <nav className="lg:sticky lg:top-32">
                 <h3 className="text-sm font-semibold text-gray-900 mb-4">
                   Otros problemas comunes
@@ -251,7 +251,7 @@ if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
                   ))}
                 </ul>
               </nav>
-            </aside>
+            </aside> */}
 
             {/* Main Content with Right Sidebar */}
             <div className="lg:col-span-9 lg:col-start-4 order-1 lg:order-2">
@@ -414,7 +414,7 @@ if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
                             <img
                               src={`/${diagnosticoData.car_make}.webp`}
                               alt={`${diagnosticoData.car_make} logo`}
-                              className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                              className="w-full h-full object-contain"
                             />
                           </div>
                         </div>

@@ -19,10 +19,9 @@ export default function Header() {
   }, [isMenuOpen]);
 
   const navigation = [
-    { name: "Inicio", href: "/", icon: Home },
-    { name: "Diagnóstico", href: "/diagnostico", icon: Car },
-    { name: "Talleres", href: "/talleres", icon: MapPin },
-    { name: "Problemas Comunes", href: "/problemas", icon: Wrench },
+    { name: "Diagnóstico", href: "/diagnosticos", icon: Car },
+    { name: "Talleres", href: "/", icon: MapPin },
+    // { name: "Problemas Comunes", href: "/diagnosticos", icon: Wrench },
   ];
 
   return (
