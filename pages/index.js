@@ -150,7 +150,7 @@ export default function Home({ initialQuery }) {
           />
         )}
       </Head>
-      <main styles={{ width: '100%' }}>
+      <div styles={{ width: '100%' }}>
         {/* <HomeMarch initialQuery={initialQuery} mode={mode} /> */}
         {/* <BasicHome /> */}
         <HomeSep />
@@ -177,7 +177,7 @@ export default function Home({ initialQuery }) {
           </Button>
         </div> */}
 
-      </main>
+      </div>
       {/* <Footer /> */}
       <FooterV2 />
 

@@ -13,6 +13,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 import Head from "next/head";
+import FooterV2 from "@/src/Components/Footer/FooterV2";
+import Header from "@/src/Components/LandingPage/HeaderDiagnostico";
 
 /* =======================
    STATIC GENERATION
@@ -195,10 +197,10 @@ export default function ResultadosPage({ diagnosticoData }) {
 
         <div className="min-h-screen bg-white">
         {/* Header */}
-        
+        <Header/>
 
         {/* Main Layout with 3 columns */}
-        <main className="py-8 sm:py-12">
+        <div className="py-4 sm:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             {/* Left Sidebar - Pegado a la izquierda */}
             <aside className="lg:col-span-3 order-2 lg:order-1 bg-gray-50 lg:min-h-screen lg:fixed lg:left-0 lg:top-0 lg:w-[280px] lg:pt-32 lg:pb-8 lg:px-6 px-4 py-6">
@@ -280,7 +282,6 @@ export default function ResultadosPage({ diagnosticoData }) {
                     {/* Diagnóstico */}
                     <section>
                       <div className="flex items-center gap-2 mb-4">
-                        <CheckCircle className="w-5 h-5 text-green-600" />
                         <h2 className="text-xl font-semibold text-gray-900">
                           Diagnóstico
                         </h2>
@@ -294,7 +295,6 @@ export default function ResultadosPage({ diagnosticoData }) {
                     {tienePreciosValidos && (
                       <section>
                         <div className="flex items-center gap-2 mb-4">
-                          <DollarSign className="w-5 h-5 text-blue-600" />
                           <h2 className="text-xl font-semibold text-gray-900">
                             Costo estimado
                           </h2>
@@ -304,12 +304,12 @@ export default function ResultadosPage({ diagnosticoData }) {
                           {itemsPrecios.map((item, index) => (
                             <div key={index} className="flex justify-between items-start py-3 border-b border-gray-100 last:border-b-0">
                               <div className="flex-1 pr-4">
-                                <h3 className="text-sm font-medium text-gray-900 leading-relaxed">{item.item}</h3>
+                                <h3 className=" text-gray-900 leading-relaxed">{item.item}</h3>
                               </div>
                               <div className="text-right">
-                                <div className="text-sm font-semibold text-gray-900 whitespace-nowrap">
+                                <p className=" text-gray-900 whitespace-nowrap  font-semibold">
                                   ${item.precioMin.toLocaleString()} - ${item.precioMax.toLocaleString()}
-                                </div>
+                                </p>
                                 <div className="text-xs text-gray-500">COP</div>
                               </div>
                             </div>
@@ -434,8 +434,10 @@ export default function ResultadosPage({ diagnosticoData }) {
            
 
           
-        </main>
+        </div>
       </div>
+            <FooterV2 />
+      
     </>
   );
 }
