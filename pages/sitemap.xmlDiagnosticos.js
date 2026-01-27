@@ -20,7 +20,7 @@ export async function getServerSideProps({ res }) {
         const lastmod = diagnostico.created_at || new Date().toISOString();
         return `
     <url>
-      <loc>${BASE_URL}/diagnostico/${diagnostico.slug}</loc>
+      <loc>${BASE_URL}diagnostico/${diagnostico.slug}</loc>
       <lastmod>${new Date(lastmod).toISOString()}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
@@ -38,19 +38,19 @@ export async function getServerSideProps({ res }) {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${BASE_URL}/diagnosticos</loc>
+    <loc>${BASE_URL}diagnosticos</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>${BASE_URL}/diagnostico/nuevo</loc>
+    <loc>${BASE_URL}diagnostico/nuevo</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>${BASE_URL}/talleres</loc>
+    <loc>${BASE_URL}talleres</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
