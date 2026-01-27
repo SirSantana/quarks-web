@@ -1,7 +1,7 @@
 // pages/sitemap.xml.js
 
 export async function getServerSideProps({ res }) {
-  const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const BASE_URL = process.env.NEXT_PUBLIC_VERCEL_URL;
 
   try {
     // Obtener TODOS los diagnósticos (sin paginación)
