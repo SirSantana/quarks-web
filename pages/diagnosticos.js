@@ -18,7 +18,38 @@ const FooterV2 = () => (
   <div className="h-32 bg-gray-50 border-t border-gray-100" />
 );
 
-export default function DiagnosticosPage() {
+export async function getStaticProps() {
+  const BASE_URL =
+      process.env.NEXT_PUBLIC_VERCEL_URL || "http://localhost:3000";
+  try {
+    const res = await fetch(`${BASE_URL}/api/diagnosticos/publicos?page=1`);
+
+    if (!res.ok) {
+      throw new Error("Error al cargar diagnósticos");
+    }
+
+    const json = await res.json();
+
+    return {
+      props: {
+        initialDiagnostics: json.data || [],
+        initialTotalPages: json.totalPages || 1,
+      },
+      revalidate: 3600, // Revalidar cada hora (ajusta según tus necesidades)
+    };
+  } catch (error) {
+    console.error("Error fetching diagnostics:", error);
+    
+    return {
+      props: {
+        initialDiagnostics: [],
+        initialTotalPages: 1,
+      },
+      revalidate: 60, // Reintentar más frecuentemente si hay error
+    };
+  }
+}
+export default function DiagnosticosPage({ initialDiagnostics, initialTotalPages }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedMake, setSelectedMake] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
@@ -177,20 +208,26 @@ export default function DiagnosticosPage() {
   const hasActiveFilters = searchTerm || selectedMake || selectedYear;
 
   // Función para obtener el logo de la marca
-  useEffect(() => {
+ useEffect(() => {
+    // Solo hacer fetch si page > 1 (la página 1 ya viene de getStaticProps)
+    if (page === 1) {
+      setDiagnostics(initialDiagnostics);
+      setTotalPages(initialTotalPages);
+      return;
+    }
+
     const fetchDiagnostics = async () => {
       setLoading(true);
       setError(null);
 
       try {
         const res = await fetch(`/api/diagnosticos/publicos?page=${page}`);
-
+        
         if (!res.ok) {
           throw new Error("Error al cargar diagnósticos");
         }
 
         const json = await res.json();
-
         setDiagnostics(json.data);
         setTotalPages(json.totalPages);
       } catch (err) {
@@ -201,8 +238,8 @@ export default function DiagnosticosPage() {
     };
 
     fetchDiagnostics();
-  }, [page]);
-  console.log(diagnostics);
+  }, [page, initialDiagnostics, initialTotalPages]);
+  
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />

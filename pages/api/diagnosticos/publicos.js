@@ -6,18 +6,18 @@ const supabase = createClient(
 );
 
 export default async function handler(req, res) {
+
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
   try {
-    const page = parseInt(req.query.page || '1', 10);
+
+    const { page, all } = req.query;
+
     const limit = 10;
 
-    const from = (page - 1) * limit;
-    const to = from + limit - 1;
-
-    const { data, error, count } = await supabase
+    let query = supabase
       .from('diagnostics')
       .select(
         `
@@ -32,10 +32,38 @@ export default async function handler(req, res) {
         servicios,
         precios
         `,
-        { count: 'exact' } // 👈 total para paginación
+        { count: 'exact' }
       )
-      .order('fecha', { ascending: false })
-      .range(from, to);
+      .order('fecha', { ascending: false });
+
+    // ======================
+    // 👉 MODO TODOS
+    // ======================
+    if (all === 'true') {
+
+      const { data, error, count } = await query;
+
+      if (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Error al obtener diagnósticos' });
+      }
+
+      return res.status(200).json({
+        mode: 'all',
+        total: count,
+        data
+      });
+    }
+
+    // ======================
+    // 👉 MODO PAGINADO
+    // ======================
+    const currentPage = parseInt(page || '1', 10);
+
+    const from = (currentPage - 1) * limit;
+    const to = from + limit - 1;
+
+    const { data, error, count } = await query.range(from, to);
 
     if (error) {
       console.error(error);
@@ -43,15 +71,18 @@ export default async function handler(req, res) {
     }
 
     return res.status(200).json({
-      page,
+      mode: 'paged',
+      page: currentPage,
       perPage: limit,
       total: count,
       totalPages: Math.ceil(count / limit),
-      data,
+      data
     });
 
   } catch (err) {
+
     console.error(err);
     return res.status(500).json({ error: 'Error interno del servidor' });
+
   }
 }

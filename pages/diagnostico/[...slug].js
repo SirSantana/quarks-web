@@ -76,9 +76,9 @@ export default function ResultadosPage({ diagnosticoData }) {
   }
 
   const problema = diagnosticoData.mensaje_usuario?.replace(/["']/g, "");
-  const title = `${problema} - ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} | Diagnóstico Automotriz`;
-  const description = `Diagnóstico completo: ${problema}. Conoce las causas, costo estimado y recomendaciones para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year}.`;
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/diagnostico/${router.query.slug}`;
+  const title = `${problema} `;
+  const description = ` ${problema}. Descubre causas, diagnóstico profesional y costos de reparación para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} en ${diagnosticoData.country || "Colombia"}.`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}/diagnostico/${router.query.slug}`;
 
   const problemasRelacionados = [
     {
@@ -105,49 +105,48 @@ export default function ResultadosPage({ diagnosticoData }) {
   let precioTotalMax = 0;
   let precioPromedio = 0;
   let tienePreciosValidos = false;
-const parsePrecio = (valor) => {
-  if (!valor) return null;
-  return parseInt(valor.replace(/[^\d]/g, ""), 10);
-};
-if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
-  itemsPrecios = diagnosticoData.precios
-    .map((item) => {
-      const precioMatch = item.precio?.match(
-        /(\d[\d.,]*)\s*-\s*(\d[\d.,]*)/
-      );
+  const parsePrecio = (valor) => {
+    if (!valor) return null;
+    return parseInt(valor.replace(/[^\d]/g, ""), 10);
+  };
+  if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
+    itemsPrecios = diagnosticoData.precios
+      .map((item) => {
+        const precioMatch = item.precio?.match(/(\d[\d.,]*)\s*-\s*(\d[\d.,]*)/);
 
-      if (precioMatch) {
-        const min = parsePrecio(precioMatch[1]);
-        const max = parsePrecio(precioMatch[2]);
+        if (precioMatch) {
+          const min = parsePrecio(precioMatch[1]);
+          const max = parsePrecio(precioMatch[2]);
 
-        if (min !== null && max !== null) {
-          return {
-            item: item.item,
-            precioMin: min,
-            precioMax: max,
-            precioOriginal: item.precio,
-          };
+          if (min !== null && max !== null) {
+            return {
+              item: item.item,
+              precioMin: min,
+              precioMax: max,
+              precioOriginal: item.precio,
+            };
+          }
         }
-      }
 
-      return null;
-    })
-    .filter(Boolean);
+        return null;
+      })
+      .filter(Boolean);
 
-  if (itemsPrecios.length > 0) {
-    precioTotalMin = itemsPrecios.reduce(
-      (sum, item) => sum + item.precioMin,
-      0
-    );
-    precioTotalMax = itemsPrecios.reduce(
-      (sum, item) => sum + item.precioMax,
-      0
-    );
-    precioPromedio = Math.round((precioTotalMin + precioTotalMax) / 2);
-    tienePreciosValidos = true;
+    if (itemsPrecios.length > 0) {
+      precioTotalMin = itemsPrecios.reduce(
+        (sum, item) => sum + item.precioMin,
+        0,
+      );
+      precioTotalMax = itemsPrecios.reduce(
+        (sum, item) => sum + item.precioMax,
+        0,
+      );
+      precioPromedio = Math.round((precioTotalMin + precioTotalMax) / 2);
+      tienePreciosValidos = true;
+    }
   }
-}
 
+  console.log(diagnosticoData);
 
   return (
     <>
@@ -190,6 +189,29 @@ if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: problema,
+              areaServed: "CO",
+              provider: {
+                "@type": "Organization",
+                name: "Quarks",
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "COP",
+                lowPrice: precioTotalMin,
+                highPrice: precioTotalMax,
+                availability: "https://schema.org/InStock",
+              },
+            }),
+          }}
+        />
+
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
@@ -310,12 +332,30 @@ if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
                     <section>
                       <div className="flex items-center gap-2 mb-4">
                         <h2 className="text-xl font-semibold text-gray-900">
-                          Diagnóstico
+                          Diagnóstico {diagnosticoData.car_make}{" "}
+                          {diagnosticoData.car_model} {diagnosticoData.car_year}
                         </h2>
                       </div>
                       <p className="text-gray-700 leading-relaxed text-base">
                         {diagnosticoData.diagnostico}
                       </p>
+                      <div className="prose prose-gray max-w-none mt-8">
+                        <ul className="space-y-3">
+                          {itemsPrecios.map((item, index) => (
+                            <li
+                              key={index}
+                              className="text-gray-700 leading-relaxed"
+                            >
+                              <span>{item.item}</span> generalmente cuesta entre{" "}
+                              <span className="text-gray-700">
+                                ${item.precioMin.toLocaleString()} y $
+                                {item.precioMax.toLocaleString()} COP
+                              </span>{" "}
+                              en {diagnosticoData.city || "Colombia"}.
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </section>
 
                     {/* Precios */}
@@ -323,7 +363,9 @@ if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
                       <section>
                         <div className="flex items-center gap-2 mb-4">
                           <h2 className="text-xl font-semibold text-gray-900">
-                            Costo estimado
+                            Costo estimado reparacion {diagnosticoData.car_make}{" "}
+                            {diagnosticoData.car_model}{" "}
+                            {diagnosticoData.car_year}:
                           </h2>
                         </div>
 
@@ -413,7 +455,7 @@ if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
                           <div className="relative w-20 h-20 flex items-center justify-center">
                             <img
                               src={`/${diagnosticoData.car_make}.webp`}
-                              alt={`${diagnosticoData.car_make} logo`}
+                              alt={`Logo de ${diagnosticoData.car_make} ${diagnosticoData.car_model}`}
                               className="w-full h-full object-contain"
                             />
                           </div>
