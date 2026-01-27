@@ -280,7 +280,7 @@ export default function ResultadosPage({ diagnosticoData }) {
               <header className="border-b border-gray-100">
                 <div className="max-w-6xl  px-4 sm:px-6 py-4 sm:py-6">
                   <button
-                    onClick={() => router.back()}
+                    onClick={() => router.push('/diagnosticos')}
                     className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mb-4"
                   >
                     <ArrowLeft className="w-4 h-4" />
