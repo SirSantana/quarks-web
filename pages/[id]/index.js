@@ -23,6 +23,7 @@ import ComparisonQuoteBanner from "@/src/Components/Talleres/V3/ComparissonQuote
 import sendMessage from "@/utils/fetching";
 import CallModal from "@/src/Components/Talleres/V3/CallModal";
 import ModalAsistente from "@/src/Components/Talleres/V3/ModalAsistente";
+import ModalCreateReseña from "@/src/Components/Talleres/V3/ModalCreateReseña";
 
 const RedesSociales = dynamic(
   () => import("@/src/Components/Talleres/RedesSociales"),
@@ -92,6 +93,7 @@ export default function NegocioVDos({ data, loading }) {
   const [visibleModalImage, setVisibleModalImage] = useState(false);
   const [visibleModalSolicitarServicio, setVisibleModalSolicitarServicio] =useState(false);
  const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+ const [visibleModalCreateReseña, setVisibleModalCreateReseña] = useState(false);
 
  const [isOpen, setIsOpen] = useState(true);
 
@@ -392,6 +394,7 @@ export default function NegocioVDos({ data, loading }) {
                   urlMaps={data.urltallermaps}
                   nombre={data?.nombre}
                   promCalificacion={data?.promediocalificacionesmaps}
+                  setVisibleModalCreateReseña={setVisibleModalCreateReseña}
                 />
               </section>
 
@@ -530,6 +533,7 @@ export default function NegocioVDos({ data, loading }) {
   onClose={() => setIsCallModalOpen(false)}
   taller={data}
 />
+    {visibleModalCreateReseña && <ModalCreateReseña setVisibleModalSolicitarServicio={setVisibleModalSolicitarServicio} ide={data?.id} />}
     </Layout>
   );
 }

@@ -8,13 +8,13 @@ import styles from '@/styles/Negocio.module.css'
 import { Star, MessageSquarePlus } from 'lucide-react' // Importando iconos de Lucide-react (asumiendo que están disponibles)
 
 
-export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nombre, promCalificacion }) {
+export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nombre, promCalificacion, setVisibleModalCreateReseña }) {
   const result = useQuery(GET_CALIFICACION_OPINIONES, { variables: { id: id } })
   const { data } = useQuery(GET_OPINIONES, { variables: { id: id } })
   const router = useRouter()
-
   const handlerLoginOpinion = () => {
-    router.push(`/${userName ? userName : router.query.id}/crear-resenaa`, undefined, { shallow: true, scroll: false });
+    setVisibleModalCreateReseña(true);
+    // router.push(`/${userName ? userName : router.query.id}/crear-resenaa`, undefined, { shallow: true, scroll: false });
   }
 
   // Lógica para determinar el promedio y la cantidad total de reseñas
@@ -68,13 +68,12 @@ export default function Reseñas({ id, ctdCalificaciones, urlMaps, userName, nom
         </div>
 
         {/* Botón para Crear Reseña - Usando variant primary/default para un CTA claro */}
-        <div style={{ width: '100%', maxWidth: '300px' }}>
+        {/* <div style={{ width: '100%', maxWidth: '300px' }}>
             <Button onClick={handlerLoginOpinion} fullWidth>
-                {/* Usando MessageSquarePlus de Lucide para un look más moderno */}
                 <MessageSquarePlus size={18} style={{ marginRight: '8px' }} /> 
                 Escribir Reseña
             </Button>
-        </div>
+        </div> */}
       </div>
       
       {/* Listado de Reseñas */}

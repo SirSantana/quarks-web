@@ -142,7 +142,6 @@ export default function ModalCreateReseña({ id, ide }) {
             </div>
 
             <section style={{ width: '100%', gap: '8px', display: 'flex', flexDirection: 'column' }}>
-
               <label style={{ fontWeight: '500', fontSize: '14px', color: '#182537' }}>Cuenta Tú experiencia</label>
 
               <div style={{ border: '1px solid #d9d9d9', borderRadius: '4px', width: '100%', boxSizing: 'border-box', padding: '16px' }}>
