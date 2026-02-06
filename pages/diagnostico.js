@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { 
   Car, Wrench, AlertCircle, CheckCircle2, Loader2, ChevronRight, Info
 } from 'lucide-react';
+import { useRouter } from 'next/router';
 
 export default function DiagnosticoPage() {
+  const router = useRouter();
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -14,7 +16,7 @@ export default function DiagnosticoPage() {
   });
   const [diagnostico, setDiagnostico] = useState(null);
   const [polling, setPolling] = useState(false);
-
+const [currentSlug, setCurrentSlug] = useState(null);
   const marcasAutos = [
     "Chevrolet", "Renault", "Mazda", "Nissan", "Toyota", "Hyundai", 
     "Kia", "Ford", "Volkswagen", "Honda", "Suzuki", "Mitsubishi",
@@ -48,7 +50,7 @@ export default function DiagnosticoPage() {
     setLoading(true);
 
     try {
-      // Llamada a la API sin delay artificial - el loading visual es suficiente
+      // Llamada a la API para crear diagnóstico
       const res = await fetch('/api/asistente', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -64,7 +66,6 @@ export default function DiagnosticoPage() {
         try {
           const errorData = await res.json();
           
-          // Fallback específico para sobrecarga del modelo
           if (
             res.status === 503 &&
             errorData?.error?.includes('The model is overloaded')
@@ -73,7 +74,6 @@ export default function DiagnosticoPage() {
             return;
           }
 
-          // Error de timeout
           if (res.status === 504 || errorData?.error?.includes('timeout')) {
             alert('La solicitud tardó demasiado tiempo. Por favor, intenta con una descripción más breve.');
             return;
@@ -81,7 +81,6 @@ export default function DiagnosticoPage() {
           
           errorMessage = errorData.error || errorMessage;
         } catch (jsonError) {
-          // Si no puede parsear el JSON, usa el status como referencia
           if (res.status === 504) {
             alert('La solicitud tardó demasiado tiempo. Por favor, intenta nuevamente.');
             return;
@@ -94,23 +93,24 @@ export default function DiagnosticoPage() {
 
       const data = await res.json();
 
-      if (data.status === "pending") {
-  setStep(3);
-  startPolling(data.slug);
-  return;
-}
-      
-      // const slug = data.slug;
-      // if (slug) {
-      //   router.push(`/diagnostico/${slug.replaceAll(' ', '-').replaceAll('ñ','n').toLowerCase()}`);
-      // } else {
-      //   throw new Error('La API no devolvió un identificador válido.');
-      // }
+      // ✅ Navegar al slug
+      if (data.slug) {
+        const slugUrl = data.slug.toLowerCase();
+        setCurrentSlug(slugUrl);
+        
+        // Cambiar a step 3 y navegar
+        setStep(3);
+        router.push(`/diagnostico/${slugUrl}`, undefined, { shallow: true });
+        
+        // Iniciar polling
+        startPolling(slugUrl);
+      } else {
+        throw new Error('La API no devolvió un identificador válido.');
+      }
 
     } catch (error) {
       console.error('Error en handleSubmit:', error);
       
-      // Error de red o timeout del navegador
       if (error.name === 'AbortError' || error.message.includes('timeout')) {
         alert('La solicitud tardó demasiado tiempo. Por favor, intenta nuevamente.');
       } else {
@@ -125,23 +125,49 @@ export default function DiagnosticoPage() {
     setStep(1);
     setFormData({ marca: '', modelo: '', año: '', problema: '' });
     setDiagnostico(null);
+    setCurrentSlug(null);
+    router.push('/diagnostico', undefined, { shallow: true }); // ← Volver a la URL base
   };
-const startPolling = (slug) => {
-  const interval = setInterval(async () => {
-    const res = await fetch(`/api/diagnostico/${slug}`);
-    const data = await res.json();
 
-    if (data.status === "done") {
-      clearInterval(interval);
-      setDiagnostico(data);
-    }
+ 
 
-    if (data.status === "error") {
-      clearInterval(interval);
-      alert("Ocurrió un error generando el diagnóstico");
-    }
-  }, 3000);
-};
+
+  const startPolling = (slug) => {
+    const interval = setInterval(async () => {
+      try {
+        const res = await fetch(`/api/diagnostico/${slug}`);
+        
+        if (!res.ok) {
+          clearInterval(interval);
+          alert("Error al obtener el diagnóstico");
+          return;
+        }
+
+        const data = await res.json();
+
+        if (data.status === "done") {
+          clearInterval(interval);
+          setDiagnostico({
+            diagnostico: data.diagnostico,
+            servicios: data.servicios || [],
+            precios: data.precios || [],
+            prioridad: data.prioridad || "Media",
+            tiempoEstimado: data.tiempo_estimado || "1-2 horas"
+          });
+        }
+
+        if (data.status === "error") {
+          clearInterval(interval);
+          alert("Ocurrió un error generando el diagnóstico");
+          setStep(1);
+        }
+      } catch (err) {
+        console.error("Error en polling:", err);
+        clearInterval(interval);
+        alert("Error al verificar el estado del diagnóstico");
+      }
+    }, 3000);
+  };
 {!diagnostico && (
   <div className="flex flex-col items-center gap-4 py-10">
     <Loader2 className="w-10 h-10 animate-spin text-blue-600" />
@@ -150,7 +176,6 @@ const startPolling = (slug) => {
     </p>
   </div>
 )}
-console.log(diagnostico);
 
   return (
     <div className="min-h-screen bg-gray-50">

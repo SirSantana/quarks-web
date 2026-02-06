@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import {
   ArrowLeft,
@@ -11,14 +11,12 @@ import {
   AlertCircle,
   Info,
   ChevronRight,
+  Loader2,
 } from "lucide-react";
 import Head from "next/head";
 import FooterV2 from "@/src/Components/Footer/FooterV2";
 import Header from "@/src/Components/LandingPage/HeaderDiagnostico";
 
-/* =======================
-   STATIC GENERATION
-======================= */
 
 export async function getStaticPaths() {
   return {
@@ -38,66 +36,195 @@ export async function getStaticProps({ params }) {
 
     if (!res.ok) {
       return {
-        notFound: true,
+        props: {
+          diagnosticoData: null,
+          slug,
+        },
+        revalidate: 10,
       };
     }
 
     const data = await res.json();
 
+    if (data.status === "pending" || data.status === "processing") {
+      return {
+        props: {
+          diagnosticoData: data,
+          slug,
+        },
+        revalidate: 5,
+      };
+    }
+
     return {
       props: {
         diagnosticoData: data,
+        slug,
       },
       revalidate: 60 * 60 * 24,
     };
   } catch (error) {
     return {
-      notFound: true,
+      props: {
+        diagnosticoData: null,
+        slug,
+      },
+      revalidate: 10,
     };
   }
 }
 
-/* =======================
-   PAGE COMPONENT
-======================= */
-
-export default function ResultadosPage({ diagnosticoData }) {
+export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
   const router = useRouter();
+  const [diagnosticoData, setDiagnosticoData] = useState(initialData);
+  const [isPolling, setIsPolling] = useState(false);
+  console.log(diagnosticoData);
+  
+  useEffect(() => {
+    // Si no hay slug, no hacer nada
+    if (!slug) return;
 
+    // Determinar si necesitamos hacer polling
+    const needsPolling =
+      !diagnosticoData ||
+      diagnosticoData.status === "pending" ||
+      diagnosticoData.status === "processing";
+
+    if (!needsPolling) {
+      setIsPolling(false);
+      return;
+    }
+
+    console.log("🔄 Iniciando polling para slug:", slug);
+    setIsPolling(true);
+
+    const interval = setInterval(async () => {
+      console.log("📡 Haciendo polling...");
+      
+      try {
+        const res = await fetch(`/api/diagnostico/${slug}`);
+
+        if (!res.ok) {
+          console.error("❌ Error en polling:", res.status);
+          return;
+        }
+
+        const data = await res.json();
+        console.log("✅ Datos recibidos:", data.status);
+
+        // Actualizar el estado con los nuevos datos
+        setDiagnosticoData(data);
+
+        if (data.status === "done") {
+          console.log("✅ Diagnóstico completado");
+          setIsPolling(false);
+          clearInterval(interval);
+        } else if (data.status === "error") {
+          console.log("❌ Error en diagnóstico");
+          setIsPolling(false);
+          clearInterval(interval);
+          alert("Error generando el diagnóstico");
+          router.push("/diagnostico");
+        } else {
+          console.log("⏳ Diagnóstico en proceso:", data.status);
+        }
+      } catch (err) {
+        console.error("❌ Error en polling:", err);
+      }
+    }, 3000);
+
+    // Cleanup
+    return () => {
+      console.log("🛑 Deteniendo polling");
+      clearInterval(interval);
+    };
+  }, [slug, diagnosticoData?.status]); // ← Dependencias importantes
+
+  // Mostrar loader mientras carga SSG
   if (router.isFallback) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 border-3 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+          <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-3" />
           <p className="text-sm text-gray-500">Cargando diagnóstico...</p>
         </div>
       </div>
     );
   }
 
-  const problema = diagnosticoData.mensaje_usuario?.replace(/["']/g, "");
-  const title = `${problema} `;
-  const description = ` ${problema}. Descubre causas, diagnóstico profesional y costos de reparación para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} en ${diagnosticoData.country || "Colombia"}.`;
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}/diagnostico/${router.query.slug}`;
+  // Mostrar loader mientras está en pending/processing
+  if (
+    !diagnosticoData ||
+    diagnosticoData.status === "pending" ||
+    diagnosticoData.status === "processing"
+  ) {
+    return (
+      <>
+        <Header />
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center max-w-md mx-auto px-4">
+            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Analizando tu vehículo
+            </h2>
+            <p className="text-gray-600 mb-4">
+              Estamos generando el diagnóstico, esto puede tardar unos
+              segundos...
+            </p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <p className="text-sm text-gray-700">
+                {diagnosticoData?.mensaje_usuario ||
+                  "Procesando información..."}
+              </p>
+            </div>
+            
+            {/* Indicador de estado */}
+            <div className="mt-4 text-xs text-gray-500">
+              Estado: {diagnosticoData?.status || "cargando"}
+              {isPolling && " (actualizando...)"}
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
 
-  const problemasRelacionados = [
-    {
-      slug: "mi-carro-no-arranca-en-frio",
-      title: "Mi carro no arranca en frío",
-    },
-    {
-      slug: "el-motor-vibra-al-ralenti",
-      title: "El motor vibra al ralentí",
-    },
-    {
-      slug: "frenos-hacen-ruido-al-frenar",
-      title: "Los frenos hacen ruido al frenar",
-    },
-    {
-      slug: "bateria-se-descarga-rapido",
-      title: "La batería se descarga rápido",
-    },
-  ];
+  // Si hay error o no hay datos
+  if (diagnosticoData.status === "error") {
+    return (
+      <>
+        <Header />
+        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+          <div className="text-center max-w-md mx-auto px-4">
+            <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <AlertCircle className="w-10 h-10 text-red-600" />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Error en el diagnóstico
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Ocurrió un error al generar el diagnóstico. Por favor, intenta nuevamente.
+            </p>
+            <button
+              onClick={() => router.push("/diagnostico")}
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Realizar nuevo diagnóstico
+            </button>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  // ========== RESTO DEL CÓDIGO ORIGINAL (solo cuando status === "done") ==========
+
+  const problema = diagnosticoData.mensaje_usuario?.replace(/["']/g, "");
+  const title = `${problema}`;
+  const description = `${problema}. Descubre causas, diagnóstico profesional y costos de reparación para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} en ${diagnosticoData.country || "Colombia"}.`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}/diagnostico/${slug}`;
 
   // Parse precios - manejar array de objetos
   let itemsPrecios = [];
@@ -105,15 +232,19 @@ export default function ResultadosPage({ diagnosticoData }) {
   let precioTotalMax = 0;
   let precioPromedio = 0;
   let tienePreciosValidos = false;
+  
   const parsePrecio = (valor) => {
     if (!valor) return null;
     return parseInt(valor.replace(/[^\d]/g, ""), 10);
   };
+
   if (diagnosticoData.precios && Array.isArray(diagnosticoData.precios)) {
     itemsPrecios = diagnosticoData.precios
       .map((item) => {
+        console.log(item);
+        
         const precioMatch = item.precio?.match(/(\d[\d.,]*)\s*-\s*(\d[\d.,]*)/);
-
+          
         if (precioMatch) {
           const min = parsePrecio(precioMatch[1]);
           const max = parsePrecio(precioMatch[2]);
@@ -145,9 +276,8 @@ export default function ResultadosPage({ diagnosticoData }) {
       tienePreciosValidos = true;
     }
   }
-
-  console.log(diagnosticoData);
-
+  console.log(itemsPrecios, precioPromedio, diagnosticoData.precios);
+  
   return (
     <>
       <Head>
