@@ -12,6 +12,7 @@ import {
   Eye,
 } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
+import Head from "next/head";
 // Simulación de Header y Footer - reemplaza con tus componentes reales
 const Header = () => <div className="h-16 bg-white border-b border-gray-100" />;
 const FooterV2 = () => (
@@ -241,6 +242,61 @@ export default function DiagnosticosPage({ initialDiagnostics, initialTotalPages
   }, [page, initialDiagnostics, initialTotalPages]);
   
   return (
+    <>
+      <Head>
+        <title>Fallas de autos comunes</title>
+        <meta name="description" content='Conoce las fallas de autos mas comunes y como resolverlos'  />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={`https://www.quarks.com.co/diagnosticos`} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Fallas de autos comunes" />
+        <meta property="og:description" content='Conoce las fallas de autos mas comunes y como resolverlos' />
+        <meta property="og:url" content={`https://www.quarks.com.co/diagnosticos`} />
+             <meta property="og:image" content='/favicon.png' />
+        
+
+        <meta property="og:image:url" content='/favicon.png' />
+        <meta
+          property="og:site_name"
+          content="Quarks - Diagnóstico Automotriz"
+        />
+ <link rel="icon" href="/favicon.png" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={'Fallas de autos comunes'} />
+        <meta name="twitter:description" content={'Conoce las fallas de autos mas comunes y como resolverlos'} />
+  <meta name="twitter:image" content='/favicon.png' />
+  <meta name="url" content={`https://www.quarks.com.co/diagnosticos`} />
+        <meta property="url" content={`https://www.quarks.com.co/diagnosticos`} />
+        {/* Schema.org - FAQPage */}
+        
+
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+          crossorigin="anonymous"
+        ></script>
+
+
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "jh3neqgrnc");
+        `,
+            }}
+          />
+        )}
+      </Head>
+
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
 
@@ -528,5 +584,6 @@ export default function DiagnosticosPage({ initialDiagnostics, initialTotalPages
 
       <FooterV2 />
     </div>
+    </>
   );
 }

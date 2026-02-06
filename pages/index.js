@@ -101,7 +101,7 @@ export default function Home({ initialQuery }) {
         <meta name="twitter:image" content='/favicon.png' />
         <meta name="url" content={`https://www.quarks.com.co/`} />
         <meta property="url" content={`https://www.quarks.com.co/`} />
-
+        
         <meta property="twitter:description" content={`Encuentra los mejores talleres con reseñas de usuarios y recomendaciones en Bogota. Servicios de ${categorias?.map(el => " " + el.nombre)}`} />
         <meta property="og:title" content={"Los mejores Talleres mecanicos de carros en Bogotá "} key="title" />
         {/* <meta property="og:image" content='/logo-background-quarks.svg' /> */}

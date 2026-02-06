@@ -291,16 +291,22 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonicalUrl} />
+             <meta property="og:image" content='/favicon.png' />
+        
+
+        <meta property="og:image:url" content='/favicon.png' />
         <meta
           property="og:site_name"
           content="Quarks - Diagnóstico Automotriz"
         />
-
+ <link rel="icon" href="/favicon.png" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-
+  <meta name="twitter:image" content='/favicon.png' />
+  <meta name="url" content={canonicalUrl} />
+        <meta property="url" content={canonicalUrl} />
         {/* Schema.org - FAQPage */}
         <script
           type="application/ld+json"
@@ -367,6 +373,22 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
             }),
           }}
         />
+
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "jh3neqgrnc");
+        `,
+            }}
+          />
+        )}
       </Head>
 
       <div className="min-h-screen bg-white">
