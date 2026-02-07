@@ -307,23 +307,39 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
         <meta name="url" content={canonicalUrl} />
         <meta property="url" content={canonicalUrl} />
         {/* Schema.org - FAQPage */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: {
-                "@type": "Question",
-                name: problema,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: diagnosticoData.diagnostico,
-                },
-              },
-            }),
-          }}
-        />
+        {diagnosticoData?.faqs?.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+
+                mainEntity: [
+                  // Pregunta principal (problema del usuario)
+                  {
+                    "@type": "Question",
+                    name: problema,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: diagnosticoData.diagnostico,
+                    },
+                  },
+
+                  // FAQs dinámicos
+                  ...diagnosticoData.faqs.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: f.a,
+                    },
+                  })),
+                ],
+              }),
+            }}
+          />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -352,23 +368,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"
         ></script>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: diagnosticoData?.faqs.map((f) => ({
-                "@type": "Question",
-                name: f.q,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: f.a,
-                },
-              })),
-            }),
-          }}
-        />
+
         {/* Schema.org - Article */}
         <script
           type="application/ld+json"
