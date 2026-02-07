@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         city,
         fecha,
         servicios,
-        precios
+        precios,
         `,
         { count: 'exact' }
       )

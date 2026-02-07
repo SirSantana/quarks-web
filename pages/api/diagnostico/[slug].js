@@ -9,6 +9,7 @@ export default async function handler(req, res) {
   if (req.method !== "GET") {
     return res.status(405).json({ error: "Método no permitido" });
   }
+console.log('req', req.query);
 
   try {
     const { slug } = req.query;
@@ -45,7 +46,11 @@ export default async function handler(req, res) {
       city: diagnostic.city || null,
       country: diagnostic.country || null,
       mensaje_usuario: diagnostic.mensaje_usuario || null,
-      slug: diagnostic.slug
+      slug: diagnostic.slug,
+      causas: diagnostic.causas || [],
+      soluciones: diagnostic.soluciones || [],
+      faqs: diagnostic.faqs || [],
+
     });
 
 

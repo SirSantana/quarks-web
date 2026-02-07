@@ -52,13 +52,27 @@ const ALLOWED_SERVICE_CATEGORIES = [
 // ================== SCHEMA IA ==================
 const responseSchema = z.object({
   diagnostico: z.string(),
+
+  causas: z.array(z.string()).min(2).max(6),
+
+  soluciones: z.array(z.string()).min(2).max(6),
+
+  faqs: z.array(
+    z.object({
+      q: z.string(),
+      a: z.string(),
+    })
+  ).min(2).max(5),
+
   preciosEstimados: z.array(
     z.object({
       item: z.string(),
       precio: z.string(),
     })
   ),
+
   serviciosRequeridos: z.array(z.string()),
+
   carMake: z.string().nullable(),
   carModel: z.string().nullable(),
   carYear: z.string().nullable(),
@@ -115,108 +129,126 @@ export default async function handler(req, res) {
     const result = await generateObject({
       model: google("gemini-2.5-flash"),
       schema: responseSchema,
-      prompt: `# ASISTENTE MECÁNICO VIRTUAL EXPERTO
+      prompt: `
+Eres un MECÁNICO AUTOMOTRIZ CERTIFICADO con más de 25 años de experiencia.
 
-Eres un mecánico certificado con 25+ años de experiencia en diagnósticos automotrices. 
+Tu misión es generar un diagnóstico profesional, claro, educativo y optimizado para SEO.
 
-## CONTEXTO DEL USUARIO
-- **Ubicación**: ${userCity}, ${userCountry}
-- **Problema reportado**: "${mensaje}"
+Este contenido será publicado en una página web.
 
-## ANÁLISIS DEL VEHÍCULO
-${(() => {
-  // Esta función se ejecutará después de que structuredResponse esté disponible
-  const buildVehicleContext = (response) => {
-    const make = response?.carMake?.trim() || "";
-    const model = response?.carModel?.trim() || "";
-    const year = response?.carYear ? parseInt(response.carYear) : null;
+=================================
+DATOS DEL USUARIO
+=================================
 
-    if (!make && !model && !year) {
-      return "**Vehículo**: No especificado (aplicar diagnóstico general)";
-    }
+Ubicación: ${userCity}, ${userCountry}
+Problema: "${mensaje}"
 
-    let vehicleInfo = "**Vehículo identificado**: ";
-    if (year) vehicleInfo += `${year} `;
-    if (make) vehicleInfo += `${make} `;
-    if (model) vehicleInfo += `${model}`;
+=================================
+INSTRUCCIONES GENERALES
+=================================
 
-    return (
-      vehicleInfo +
-      "\n- Aplicar conocimiento específico de esta marca/modelo para diagnóstico más preciso"
-    );
-  };
+- Escribe en español neutro latino
+- Sé claro, empático y profesional
+- No inventes datos
+- No exageres
+- No repitas frases
+- No digas que eres una IA
 
-  return "<!-- Se completará con información del vehículo detectado -->";
-})()}
+=================================
+1. DIAGNÓSTICO PRINCIPAL
+=================================
 
-## INSTRUCCIONES DE DIAGNÓSTICO
+Redacta un diagnóstico explicativo:
 
-### 1. DIAGNÓSTICO PRELIMINAR
-- Identifica las **2-5 causas más probables** basándote en los síntomas
-- Usa analogías simples y explicaciones que cualquier persona entienda
-- Incluye por qué sucede cada problema de forma didáctica
-- Si hay información del vehículo, considera problemas conocidos de esa marca/modelo/año
-- **Límite**: 500 caracteres máximo
-- **Estilo**: Conversacional, empático, con jerga técnica
-- No digas que el problema es algo común, a no ser que si sea verdad en el modelo del auto, no finalices diciendo que Revisaré cada uno para determinar la causa. 
+- 2 a 5 causas probables
+- Explicadas con lenguaje simple
+- Relacionadas con los síntomas
+- Máx 500 caracteres
+- Tono: experto pero cercano
 
-### 2. ESTIMACIÓN DE COSTOS
-- Proporciona costos realistas para **talleres de gama media** en ${userCity}, ${userCountry}
-- Usa la **moneda local** de ${userCountry}
-- Incluye tanto **repuestos** como **mano de obra**
-- Prioriza los ítems más probables del diagnóstico
-- Si no tienes datos específicos de ${userCity}, usa promedios de ${userCountry}
-- Formato de rangos: "150,000 - 300,000 COP" (ejemplo)
+=================================
+2. CAUSAS (LISTA)
+=================================
 
-### 3. CATEGORÍAS DE SERVICIO
-**IMPORTANTE**: Solo selecciona de esta lista exacta (USAR TEXTO EXACTO, SIN MODIFICACIONES):
+Genera una lista clara con:
+
+- 2 a 6 causas técnicas reales
+- En forma corta
+- Sin repetir
+
+Ejemplo:
+["Bujías desgastadas","Sensor MAF sucio"]
+
+=================================
+3. SOLUCIONES (LISTA)
+=================================
+
+Genera soluciones prácticas:
+
+- 2 a 6 acciones reales
+- Ordenadas por prioridad
+- En lenguaje simple
+
+=================================
+4. PREGUNTAS FRECUENTES (FAQ)
+=================================
+
+Genera preguntas reales de usuarios:
+
+- 2 a 5 preguntas
+- Orientadas a costos, riesgos, tiempo y seguridad
+- Respuestas claras
+
+=================================
+5. COSTOS
+=================================
+
+Incluye precios reales en ${userCountry}
+
+- Mano de obra + repuestos
+- Taller promedio
+- En moneda local
+- Rangos claros
+
+Ejemplo: "120,000 - 250,000 COP"
+
+=================================
+6. SERVICIOS
+=================================
+
+Usa SOLO estas categorías:
+
 ${JSON.stringify(ALLOWED_SERVICE_CATEGORIES)}
 
-**REGLAS CRÍTICAS PARA SERVICIOS**:
-- Copiar el texto EXACTAMENTE como aparece en la lista
-- NO añadir saltos de línea (\n)
-- NO modificar la puntuación ni acentos
-- Máximo 3-5 categorías que mejor se alineen con tu diagnóstico preliminar
-- Si tienes dudas, prefiere categorías más generales como "Diagnóstico General (No Electrónico)" o "Mecánica General"
+REGLAS:
+- Copiar exactamente
+- Máx 5
+- Sin modificar
 
-## EJEMPLO DE SERVICIOS CORRECTOS:
-✅ ["Motor", "Sistema de Combustible", "Diagnóstico General (No Electrónico)"]
-❌ ["Motor", "Sistema de Combusti\nble", "Diagnóstico General"]
+=================================
+7. DATOS DEL VEHÍCULO
+=================================
 
-Selecciona máximo 3-5 categorías que mejor se alineen con tu diagnóstico preliminar.
+Extrae solo si es seguro:
 
-### 4. DETECCIÓN DE VEHÍCULO
-- **Marca**: Extrae solo si se menciona claramente (Toyota, Ford, Chevrolet, etc.)
-- **Modelo**: Extrae solo si se especifica (Corolla, Focus, Spark, etc.)
-- **Año**: Extrae solo si se menciona explícitamente un año válido (1990-2025)
-- **Si hay dudas**: Usar null
+- Marca
+- Modelo
+- Año (1990-2026)
 
-## EJEMPLOS DE RESPUESTA ESPERADA
+Si no es claro → null
 
-### Ejemplo 1 - Problema de motor:
-\`\`\`json
-{
-  "diagnostico": "Basándome en los síntomas descritos, Falla de bobina de encendido (40%), sensor MAF sucio (25%), filtro de aire obstruido (20%), problema en inyectores (15%). Síntomas típicos de pérdida de potencia y consumo irregular.",
-  "preciosEstimados": [
-    {"item": "Reemplazo bobina de encendido", "precio": "80,000 - 150,000 COP"},
-    {"item": "Limpieza sensor MAF", "precio": "25,000 - 45,000 COP"},
-    {"item": "Cambio filtro de aire", "precio": "15,000 - 30,000 COP"}
-  ],
-  "serviciosRequeridos": ["Motor", "Sistema eléctrico", "Mantenimiento"],
-  "carMake": "Toyota",
-  "carModel": "Corolla",
-  "carYear": "2015"
-}
-\`\`\`
+=================================
+FORMATO DE RESPUESTA
+=================================
 
-## REGLAS CRÍTICAS
-1. **Solo JSON válido** - Sin texto adicional fuera del objeto
-2. **Límites de caracteres** - Diagnóstico máximo 500 caracteres
-3. **Categorías exactas** - Solo usar las proporcionadas en ALLOWED_SERVICE_CATEGORIES
-4. **Costos locales** - Siempre en moneda de ${userCountry}
-5. **Especificidad** - Si hay marca/modelo, ser específico para ese vehículo
+Responde SOLO con JSON válido.
 
-Genera el diagnóstico ahora:`,
+NO agregues texto.
+
+NO expliques nada fuera.
+
+Genera ahora:
+`,
     });
 
     const response = result.object;
@@ -244,17 +276,24 @@ Genera el diagnóstico ahora:`,
 
     // 5️⃣ Guardar resultado
     await supabase
-      .from("diagnostics")
-      .update({
-        diagnostico,
-        precios,
-        servicios,
-        car_make: response.carMake?.trim() || null,
-        car_model: response.carModel?.trim() || null,
-        car_year: carYear,
-        status: "done",
-      })
-      .eq("id", diagnosticId);
+  .from("diagnostics")
+  .update({
+    diagnostico,
+
+    causas: response.causas,
+    soluciones: response.soluciones,
+    faqs: response.faqs,
+
+    precios,
+    servicios,
+
+    car_make: response.carMake?.trim() || null,
+    car_model: response.carModel?.trim() || null,
+    car_year: carYear,
+
+    status: "done",
+  })
+  .eq("id", diagnosticId);
 
     return res.status(200).json({
       message: "Diagnóstico procesado correctamente",

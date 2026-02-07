@@ -276,7 +276,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
       tienePreciosValidos = true;
     }
   }
-  console.log(itemsPrecios, precioPromedio, diagnosticoData.precios);
+  console.log(diagnosticoData);
   
   return (
     <>
