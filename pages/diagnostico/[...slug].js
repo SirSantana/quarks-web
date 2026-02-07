@@ -17,7 +17,6 @@ import Head from "next/head";
 import FooterV2 from "@/src/Components/Footer/FooterV2";
 import Header from "@/src/Components/LandingPage/HeaderDiagnostico";
 
-
 export async function getStaticPaths() {
   return {
     paths: [],
@@ -79,7 +78,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
   const [diagnosticoData, setDiagnosticoData] = useState(initialData);
   const [isPolling, setIsPolling] = useState(false);
   console.log(diagnosticoData);
-  
+
   useEffect(() => {
     // Si no hay slug, no hacer nada
     if (!slug) return;
@@ -100,7 +99,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
 
     const interval = setInterval(async () => {
       console.log("📡 Haciendo polling...");
-      
+
       try {
         const res = await fetch(`/api/diagnostico/${slug}`);
 
@@ -179,7 +178,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                   "Procesando información..."}
               </p>
             </div>
-            
+
             {/* Indicador de estado */}
             <div className="mt-4 text-xs text-gray-500">
               Estado: {diagnosticoData?.status || "cargando"}
@@ -205,7 +204,8 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
               Error en el diagnóstico
             </h2>
             <p className="text-gray-600 mb-6">
-              Ocurrió un error al generar el diagnóstico. Por favor, intenta nuevamente.
+              Ocurrió un error al generar el diagnóstico. Por favor, intenta
+              nuevamente.
             </p>
             <button
               onClick={() => router.push("/diagnostico")}
@@ -232,7 +232,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
   let precioTotalMax = 0;
   let precioPromedio = 0;
   let tienePreciosValidos = false;
-  
+
   const parsePrecio = (valor) => {
     if (!valor) return null;
     return parseInt(valor.replace(/[^\d]/g, ""), 10);
@@ -242,9 +242,9 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
     itemsPrecios = diagnosticoData.precios
       .map((item) => {
         console.log(item);
-        
+
         const precioMatch = item.precio?.match(/(\d[\d.,]*)\s*-\s*(\d[\d.,]*)/);
-          
+
         if (precioMatch) {
           const min = parsePrecio(precioMatch[1]);
           const max = parsePrecio(precioMatch[2]);
@@ -277,7 +277,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
     }
   }
   console.log(diagnosticoData);
-  
+
   return (
     <>
       <Head>
@@ -291,21 +291,20 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={canonicalUrl} />
-             <meta property="og:image" content='/favicon.png' />
-        
+        <meta property="og:image" content="/favicon.png" />
 
-        <meta property="og:image:url" content='/favicon.png' />
+        <meta property="og:image:url" content="/favicon.png" />
         <meta
           property="og:site_name"
           content="Quarks - Diagnóstico Automotriz"
         />
- <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.png" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content='/favicon.png' />
-  <meta name="url" content={canonicalUrl} />
+        <meta name="twitter:image" content="/favicon.png" />
+        <meta name="url" content={canonicalUrl} />
         <meta property="url" content={canonicalUrl} />
         {/* Schema.org - FAQPage */}
         <script
@@ -353,6 +352,23 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"
         ></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: diagnosticoData?.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: f.a,
+                },
+              })),
+            }),
+          }}
+        />
         {/* Schema.org - Article */}
         <script
           type="application/ld+json"
@@ -432,7 +448,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
               <header className="border-b border-gray-100">
                 <div className="max-w-6xl  px-4 sm:px-6 py-4 sm:py-6">
                   <button
-                    onClick={() => router.push('/diagnosticos')}
+                    onClick={() => router.push("/diagnosticos")}
                     className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-blue-600 transition-colors mb-4"
                   >
                     <ArrowLeft className="w-4 h-4" />
@@ -510,6 +526,76 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                       </div>
                     </section>
 
+                    {/* ================= CAUSAS ================= */}
+                    {diagnosticoData.causas.length > 0 && (
+                      <section id="causas" className="scroll-mt-20">
+                        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                          Causas probables del problema
+                        </h2>
+
+                        <div className="space-y-3">
+                          {diagnosticoData.causas.map((item, index) => (
+                            <div
+                              key={index}
+                              className="flex gap-3 text-gray-700 leading-relaxed"
+                            >
+                              <span className="text-blue-600 font-medium flex-shrink-0">
+                                •
+                              </span>
+                              <p>{item}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    )}
+
+                    {/* ================= SOLUCIONES ================= */}
+                    {diagnosticoData.soluciones.length > 0 && (
+                      <section id="soluciones" className="scroll-mt-20">
+                        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                          Soluciones recomendadas
+                        </h2>
+
+                        <div className="space-y-4">
+                          {diagnosticoData.soluciones.map((item, index) => (
+                            <div
+                              key={index}
+                              className="flex gap-3 text-gray-700 leading-relaxed"
+                            >
+                              <span className="text-gray-400 font-medium flex-shrink-0">
+                                {index + 1}.
+                              </span>
+                              <p>{item}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    )}
+
+                    {/* ================= FAQ ================= */}
+                    {diagnosticoData.faqs.length > 0 && (
+                      <section id="faqs" className="scroll-mt-20">
+                        <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                          Preguntas frecuentes
+                        </h2>
+
+                        <div className="space-y-6">
+                          {diagnosticoData.faqs.map((item, index) => (
+                            <div
+                              key={index}
+                              className="border-b border-gray-100 last:border-b-0 pb-6 last:pb-0"
+                            >
+                              <h3 className="font-semibold text-gray-900 mb-2 leading-relaxed">
+                                {item.q}
+                              </h3>
+                              <p className="text-gray-700 leading-relaxed">
+                                {item.a}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </section>
+                    )}
                     {/* Precios */}
                     {tienePreciosValidos && (
                       <section>
