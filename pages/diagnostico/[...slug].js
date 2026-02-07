@@ -12,6 +12,8 @@ import {
   Info,
   ChevronRight,
   Loader2,
+  Menu,
+  X,
 } from "lucide-react";
 import Head from "next/head";
 import FooterV2 from "@/src/Components/Footer/FooterV2";
@@ -77,8 +79,52 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
   const router = useRouter();
   const [diagnosticoData, setDiagnosticoData] = useState(initialData);
   const [isPolling, setIsPolling] = useState(false);
-  console.log(diagnosticoData);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setMobileNavOpen(false);
+    }
+  };
+
+  // Crear array de secciones disponibles
+  const getSections = () => {
+    if (!diagnosticoData || diagnosticoData.status !== "done") return [];
+
+    const sections = [
+      { id: "sintoma", label: "Síntoma" },
+      { id: "diagnostico", label: "Diagnóstico" },
+    ];
+
+    if (diagnosticoData?.causas?.length > 0) {
+      sections.push({ id: "causas", label: "Causas" });
+    }
+
+    if (diagnosticoData?.soluciones?.length > 0) {
+      sections.push({ id: "soluciones", label: "Soluciones" });
+    }
+
+    if (diagnosticoData?.faqs?.length > 0) {
+      sections.push({ id: "faqs", label: "Preguntas" });
+    }
+
+    // Asegúrate de que tienePreciosValidos esté calculado antes
+    const hasPrices =
+      diagnosticoData?.precios &&
+      Array.isArray(diagnosticoData.precios) &&
+      diagnosticoData.precios.length > 0;
+    if (hasPrices) {
+      sections.push({ id: "precios", label: "Precios" });
+    }
+
+    return sections;
+  };
+
+  // ... (loaders, parseo de precios, etc.)
+
+  const sections = getSections();
   useEffect(() => {
     // Si no hay slug, no hacer nada
     if (!slug) return;
@@ -276,7 +322,6 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
       tienePreciosValidos = true;
     }
   }
-  console.log(diagnosticoData);
 
   return (
     <>
@@ -389,6 +434,61 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: title,
+              description,
+              image: `/${diagnosticoData.car_make}.webp`,
+              datePublished: diagnosticoData.fecha,
+              dateModified: diagnosticoData.fecha,
+
+              author: {
+                "@type": "Organization",
+                name: "Quarks",
+                url: "https://www.quarks.com.co",
+              },
+
+              publisher: {
+                "@type": "Organization",
+                name: "Quarks",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://www.quarks.com.co/favicon.png",
+                },
+              },
+
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": canonicalUrl,
+              },
+            }),
+          }}
+        />
+
+        {diagnosticoData?.soluciones?.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "HowTo",
+                name: `Cómo solucionar: ${problema}`,
+                description: diagnosticoData.diagnostico,
+
+                step: diagnosticoData.soluciones.map((s, i) => ({
+                  "@type": "HowToStep",
+                  position: i + 1,
+                  name: s,
+                  text: s,
+                })),
+              }),
+            }}
+          />
+        )}
 
         {process.env.NODE_ENV === "production" && (
           <script
@@ -485,9 +585,39 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
               <div className="max-w-6xl  px-4 sm:px-6 mt-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 ">
                   {/* Main Content */}
-                  <article className="lg:col-span-8 space-y-20 ">
+
+                  <article className="relative lg:col-span-8 space-y-20 ">
+                    {diagnosticoData?.status === "done" &&
+                      sections.length > 0 && (
+                        <div className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200">
+                          <div className="w-full max-w-6xl mx-auto">
+                            <nav className="flex items-center gap-1 overflow-x-auto py-3 px-4 sm:px-6 scrollbar-hide">
+                              {sections.map((section) => (
+                                <a
+                                  key={section.id}
+                                  href={`#${section.id}`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToSection(section.id);
+                                  }}
+                                  className="px-4 py-2 text-sm font-medium whitespace-nowrap rounded-lg transition-colors 
+                       text-gray-600 hover:text-gray-900 hover:bg-gray-100 
+                       bg-gray-50 lg:bg-transparent border border-gray-100 lg:border-none"
+                                >
+                                  {section.label}
+                                </a>
+                              ))}
+                              {/* Espaciador final para que el último item no quede pegado al borde al scrollear */}
+                              <div className="min-w-[16px] h-1 lg:hidden" />
+                            </nav>
+                          </div>
+
+                          {/* Indicador visual de scroll (opcional) */}
+                          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white via-white/40 to-transparent pointer-events-none lg:hidden" />
+                        </div>
+                      )}
                     {/* Síntoma */}
-                    <section>
+                    <section id="sintoma">
                       <h2 className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">
                         Síntoma reportado
                       </h2>
@@ -497,13 +627,14 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                     </section>
 
                     {/* Diagnóstico */}
-                    <section>
+                    <section id="diagnostico">
                       <div className="flex items-center gap-2 mb-4">
                         <h2 className="text-xl font-semibold text-gray-900">
                           Diagnóstico {diagnosticoData.car_make}{" "}
                           {diagnosticoData.car_model} {diagnosticoData.car_year}
                         </h2>
                       </div>
+
                       <p className="text-gray-700 leading-relaxed text-base">
                         {diagnosticoData.diagnostico}
                       </p>
@@ -598,7 +729,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                     )}
                     {/* Precios */}
                     {tienePreciosValidos && (
-                      <section>
+                      <section id="precios">
                         <div className="flex items-center gap-2 mb-4">
                           <h2 className="text-xl font-semibold text-gray-900">
                             Costo estimado reparacion {diagnosticoData.car_make}{" "}
