@@ -42,8 +42,7 @@ export default async function handler(req, res) {
     if (all === 'true') {
 
       const { data, error, count } = await query;
-      console.log('hola', data);
-      
+
       if (error) {
         console.error(error);
         return res.status(500).json({ error: 'Error al obtener diagnósticos' });
