@@ -58,11 +58,12 @@ export default async function handler(req, res) {
       user_id: userId,
       status: "pending",
     });
- fetch(`${req.headers.origin}/api/diagnostico/process`, {
+    process.nextTick(() => {
+ fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/diagnostico/process`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ slug }),
-  });
+  })});
     // 3️⃣ Responder rápido
     return res.status(202).json({
       slug,

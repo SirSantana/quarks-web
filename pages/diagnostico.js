@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  Car, Wrench, AlertCircle, CheckCircle2, Loader2, ChevronRight, Info
+  Car, Wrench, AlertCircle, CheckCircle2, Loader2, ArrowRight, ArrowLeft, Calendar, FileText
 } from 'lucide-react';
 import { useRouter } from 'next/router';
 
@@ -15,8 +15,8 @@ export default function DiagnosticoPage() {
     problema: ''
   });
   const [diagnostico, setDiagnostico] = useState(null);
-  const [polling, setPolling] = useState(false);
-const [currentSlug, setCurrentSlug] = useState(null);
+  const [currentSlug, setCurrentSlug] = useState(null);
+
   const marcasAutos = [
     "Chevrolet", "Renault", "Mazda", "Nissan", "Toyota", "Hyundai", 
     "Kia", "Ford", "Volkswagen", "Honda", "Suzuki", "Mitsubishi",
@@ -30,27 +30,31 @@ const [currentSlug, setCurrentSlug] = useState(null);
     });
   };
 
-  const canProceedStep1 = () => {
-    return formData.marca !== '' && formData.modelo.trim() !== '' && formData.año !== '';
+  const handleNext = () => {
+    if (step < 5) setStep(step + 1);
   };
 
-  const canProceedStep2 = () => {
-    return formData.problema.trim().length >= 20;
+  const handleBack = () => {
+    if (step > 1) setStep(step - 1);
   };
 
-  const handleContinue = () => {
-    if (step === 1 && canProceedStep1()) {
-      setStep(2);
+  const canProceed = () => {
+    switch(step) {
+      case 1: return formData.marca !== '';
+      case 2: return formData.modelo.trim() !== '';
+      case 3: return formData.año !== '';
+      case 4: return formData.problema.trim().length >= 20;
+      default: return false;
     }
   };
 
   const handleSubmit = async () => {
-    if (!canProceedStep2()) return;
+    if (!canProceed()) return;
 
     setLoading(true);
+    setStep(5);
 
     try {
-      // Llamada a la API para crear diagnóstico
       const res = await fetch('/api/asistente', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -61,85 +65,31 @@ const [currentSlug, setCurrentSlug] = useState(null);
       });
 
       if (!res.ok) {
-        let errorMessage = 'Error al procesar la solicitud en la API.';
-        
-        try {
-          const errorData = await res.json();
-          
-          if (
-            res.status === 503 &&
-            errorData?.error?.includes('The model is overloaded')
-          ) {
-            alert('El asistente está recibiendo muchas solicitudes en este momento. Por favor, intenta nuevamente en unos segundos.');
-            return;
-          }
-
-          if (res.status === 504 || errorData?.error?.includes('timeout')) {
-            alert('La solicitud tardó demasiado tiempo. Por favor, intenta con una descripción más breve.');
-            return;
-          }
-          
-          errorMessage = errorData.error || errorMessage;
-        } catch (jsonError) {
-          if (res.status === 504) {
-            alert('La solicitud tardó demasiado tiempo. Por favor, intenta nuevamente.');
-            return;
-          }
-          errorMessage = `Error del servidor (${res.status}). Por favor, intenta nuevamente.`;
-        }
-
-        throw new Error(errorMessage);
+        throw new Error('Error al procesar la solicitud');
       }
 
       const data = await res.json();
 
-      // ✅ Navegar al slug
       if (data.slug) {
         const slugUrl = data.slug.toLowerCase();
         setCurrentSlug(slugUrl);
-        
-        // Cambiar a step 3 y navegar
-        setStep(3);
         router.push(`/diagnostico/${slugUrl}`, undefined, { shallow: true });
-        
-        // Iniciar polling
         startPolling(slugUrl);
-      } else {
-        throw new Error('La API no devolvió un identificador válido.');
       }
-
     } catch (error) {
-      console.error('Error en handleSubmit:', error);
-      
-      if (error.name === 'AbortError' || error.message.includes('timeout')) {
-        alert('La solicitud tardó demasiado tiempo. Por favor, intenta nuevamente.');
-      } else {
-        alert(`Ocurrió un error: ${error.message}`);
-      }
+      alert(`Ocurrió un error: ${error.message}`);
+      setStep(4);
     } finally {
       setLoading(false);
     }
   };
 
-  const resetForm = () => {
-    setStep(1);
-    setFormData({ marca: '', modelo: '', año: '', problema: '' });
-    setDiagnostico(null);
-    setCurrentSlug(null);
-    router.push('/diagnostico', undefined, { shallow: true }); // ← Volver a la URL base
-  };
-
- 
-
-
   const startPolling = (slug) => {
     const interval = setInterval(async () => {
       try {
         const res = await fetch(`/api/diagnostico/${slug}`);
-        
         if (!res.ok) {
           clearInterval(interval);
-          alert("Error al obtener el diagnóstico");
           return;
         }
 
@@ -158,325 +108,353 @@ const [currentSlug, setCurrentSlug] = useState(null);
 
         if (data.status === "error") {
           clearInterval(interval);
-          alert("Ocurrió un error generando el diagnóstico");
+          alert("Error al generar el diagnóstico");
           setStep(1);
         }
       } catch (err) {
-        console.error("Error en polling:", err);
         clearInterval(interval);
-        alert("Error al verificar el estado del diagnóstico");
       }
     }, 3000);
   };
-{!diagnostico && (
-  <div className="flex flex-col items-center gap-4 py-10">
-    <Loader2 className="w-10 h-10 animate-spin text-blue-600" />
-    <p className="text-gray-600 text-sm md:text-base">
-      Analizando tu vehículo, esto puede tardar unos segundos…
-    </p>
-  </div>
-)}
+
+  const resetForm = () => {
+    setStep(1);
+    setFormData({ marca: '', modelo: '', año: '', problema: '' });
+    setDiagnostico(null);
+    setCurrentSlug(null);
+    router.push('/diagnostico', undefined, { shallow: true });
+  };
+
+  const stepTitles = {
+    1: "¿Cuál es la marca de tu vehículo?",
+    2: "¿Qué modelo es?",
+    3: "¿De qué año?",
+    4: "Describe el problema"
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Blue Header Section */}
-      <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 pb-24 md:pb-32 pt-8 md:pt-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-8 md:mb-12">
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20">
-              <Wrench className="w-8 h-8 md:w-10 md:h-10 text-white" />
-            </div>
-            <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-3">
-              Diagnóstico Inteligente
-            </h1>
-            <p className="text-blue-100 text-base md:text-lg">
-              Obtén un diagnóstico preliminar y estimación de costos
-            </p>
-          </div>
-
-          {/* Progress Indicator */}
-          <div className="flex items-center justify-center gap-2 md:gap-3 max-w-md mx-auto">
-            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-semibold text-sm md:text-base transition-all ${
-              step >= 1 ? 'bg-white text-blue-600 shadow-lg' : 'bg-white/20 text-white/60'
-            }`}>
-              1
-            </div>
-            <div className={`flex-1 h-1 rounded transition-all ${step >= 2 ? 'bg-white' : 'bg-white/20'}`} />
-            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-semibold text-sm md:text-base transition-all ${
-              step >= 2 ? 'bg-white text-blue-600 shadow-lg' : 'bg-white/20 text-white/60'
-            }`}>
-              2
-            </div>
-            <div className={`flex-1 h-1 rounded transition-all ${step >= 3 ? 'bg-white' : 'bg-white/20'}`} />
-            <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-semibold text-sm md:text-base transition-all ${
-              step >= 3 ? 'bg-white text-blue-600 shadow-lg' : 'bg-white/20 text-white/60'
-            }`}>
-              3
-            </div>
-          </div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Progress Bar */}
+      {step <= 4 && (
+        <div className="fixed top-0 left-0 right-0 h-1 bg-gray-200 z-50">
+          <div 
+            className="h-full bg-blue-600 transition-all duration-500 ease-out"
+            style={{ width: `${(step / 4) * 100}%` }}
+          />
         </div>
-      </div>
+      )}
 
-      {/* Content Section */}
-      <div className="max-w-4xl mx-auto px-0 md:px-4 -mt-16 md:-mt-24 pb-8">
-        {/* Desktop: Card with shadow, Mobile: No card */}
-        <div className="md:bg-white md:rounded-2xl md:shadow-2xl">
-          <div className="p-4 md:p-8">
-            {/* Step 1: Vehicle Information */}
-            {step === 1 && (
-              <div className="space-y-6">
-                <div className="text-center">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Car className="w-7 h-7 md:w-8 md:h-8 text-blue-600" />
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                    Datos del Vehículo
-                  </h2>
-                  <p className="text-sm md:text-base text-gray-600">
-                    Ingresa la información de tu vehículo
-                  </p>
+      <div className="min-h-screen flex items-center justify-center md:p-4 pt-8">
+        <div className="w-full max-w-2xl">
+          {/* Logo/Header */}
+          {step <= 4 && (
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-2xl mb-4 shadow-lg">
+                <Wrench className="w-8 h-8 text-white" />
+              </div>
+              <p className="text-sm text-gray-600">
+                Paso {step} de 4
+              </p>
+            </div>
+          )}
+
+          {/* Step 1: Marca */}
+          {step === 1 && (
+            <div className=" md:bg-white md:rounded-3xl md:shadow-xl p-6 md:p-12">
+              <div className="mb-8">
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                  <Car className="w-7 h-7 text-blue-600" />
                 </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  {stepTitles[1]}
+                </h1>
+                <p className="text-gray-600">
+                  Selecciona la marca de tu vehículo
+                </p>
+              </div>
 
-                <div className="space-y-4 md:space-y-5">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Marca del vehículo
-                    </label>
-                    <select
-                      name="marca"
-                      value={formData.marca}
-                      onChange={handleChange}
-                      className="w-full px-4 md:px-5 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-600 text-base md:text-lg bg-white transition-all"
-                    >
-                      <option value="">Selecciona la marca</option>
-                      {marcasAutos.map((marca, index) => (
-                        <option key={index} value={marca}>{marca}</option>
-                      ))}
-                    </select>
-                  </div>
+              <div className="space-y-3">
+                {marcasAutos.map((marca) => (
+                  <button
+                    key={marca}
+                    onClick={() => {
+                      setFormData({ ...formData, marca });
+                      setTimeout(handleNext, 150);
+                    }}
+                    className={`w-full text-left px-6 py-4 rounded-xl border-2 transition-all hover:border-blue-600 hover:bg-blue-50 ${
+                      formData.marca === marca
+                        ? 'border-blue-600 bg-blue-50'
+                        : 'border-gray-200 bg-white'
+                    }`}
+                  >
+                    <span className="text-lg font-medium text-gray-900">{marca}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Modelo
-                    </label>
-                    <input
-                      type="text"
-                      name="modelo"
-                      value={formData.modelo}
-                      onChange={handleChange}
-                      placeholder="Ej: Spark, Logan, Mazda 3"
-                      className="w-full px-4 md:px-5 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-600 text-base md:text-lg transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Año
-                    </label>
-                    <input
-                      type="number"
-                      name="año"
-                      value={formData.año}
-                      onChange={handleChange}
-                      placeholder="Ej: 2020"
-                      min="1990"
-                      max="2026"
-                      className="w-full px-4 md:px-5 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-600 text-base md:text-lg transition-all"
-                    />
-                  </div>
+          {/* Step 2: Modelo */}
+          {step === 2 && (
+            <div className="md:bg-white md:rounded-3xl md:shadow-xl p-6 md:p-12">
+              <div className="mb-8">
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                  <Car className="w-7 h-7 text-blue-600" />
                 </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  {stepTitles[2]}
+                </h1>
+                <p className="text-gray-600">
+                  Ingresa el modelo de tu {formData.marca}
+                </p>
+              </div>
 
+              <input
+                type="text"
+                name="modelo"
+                value={formData.modelo}
+                onChange={handleChange}
+                onKeyPress={(e) => e.key === 'Enter' && canProceed() && handleNext()}
+                placeholder="Ej: Spark, Logan, Mazda 3..."
+                className="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-2xl focus:border-blue-600 focus:ring-4 focus:ring-blue-100 outline-none transition-all mb-6"
+                autoFocus
+              />
+
+              <div className="flex gap-3">
                 <button
-                  onClick={handleContinue}
-                  disabled={!canProceedStep1()}
-                  className={`w-full font-semibold py-3 md:py-4 rounded-xl transition-all flex items-center justify-center gap-2 text-base md:text-lg ${
-                    canProceedStep1()
-                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl active:scale-95'
-                      : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  onClick={handleBack}
+                  className="px-6 py-4 rounded-xl border-2 border-gray-300 hover:bg-gray-50 transition-all"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  disabled={!canProceed()}
+                  className={`flex-1 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
+                    canProceed()
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg'
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
                 >
                   Continuar
-                  <ChevronRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Step 2: Problem Description */}
-            {step === 2 && (
-              <div className="space-y-6">
-                <div className="text-center">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <AlertCircle className="w-7 h-7 md:w-8 md:h-8 text-blue-600" />
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                    Describe el Problema
-                  </h2>
-                  <p className="text-sm md:text-base text-gray-600">
-                    Cuéntanos los síntomas y detalles
-                  </p>
+          {/* Step 3: Año */}
+          {step === 3 && (
+            <div className="md:bg-white md:rounded-3xl md:shadow-xl p-6 md:p-12">
+              <div className="mb-8">
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                  <Calendar className="w-7 h-7 text-blue-600" />
                 </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  {stepTitles[3]}
+                </h1>
+                <p className="text-gray-600">
+                  El año de fabricación de tu {formData.marca} {formData.modelo}
+                </p>
+              </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    ¿Qué le pasa a tu vehículo?
-                  </label>
-                  <textarea
-                    name="problema"
-                    value={formData.problema}
-                    onChange={handleChange}
-                    placeholder="Describe el problema, síntomas, ruidos o cualquier detalle relevante. Por ejemplo: 'El auto hace un ruido chirriante cuando freno, especialmente a altas velocidades.'"
-                    rows="6"
-                    className="w-full px-4 md:px-5 py-3 md:py-4 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-blue-600 text-sm md:text-base resize-none transition-all"
-                  />
-                  <div className="flex items-center justify-between mt-2">
-                    <p className="text-xs md:text-sm text-gray-500">
-                      Mínimo 20 caracteres
-                    </p>
-                    <p className={`text-xs md:text-sm font-medium ${
-                      formData.problema.length >= 20 ? 'text-green-600' : 'text-gray-400'
-                    }`}>
-                      {formData.problema.length} caracteres
-                    </p>
-                  </div>
+              <input
+                type="number"
+                name="año"
+                value={formData.año}
+                onChange={handleChange}
+                onKeyPress={(e) => e.key === 'Enter' && canProceed() && handleNext()}
+                placeholder="2020"
+                min="1990"
+                max="2026"
+                className="w-full px-6 py-5 text-xl border-2 border-gray-300 rounded-2xl focus:border-blue-600 focus:ring-4 focus:ring-blue-100 outline-none transition-all mb-6"
+                autoFocus
+              />
+
+              <div className="flex gap-3">
+                <button
+                  onClick={handleBack}
+                  className="px-6 py-4 rounded-xl border-2 border-gray-300 hover:bg-gray-50 transition-all"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  disabled={!canProceed()}
+                  className={`flex-1 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
+                    canProceed()
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg'
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  Continuar
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Step 4: Problema */}
+          {step === 4 && (
+            <div className="md:bg-white md:rounded-3xl md:shadow-xl p-6 md:p-12">
+              <div className="mb-8">
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6">
+                  <FileText className="w-7 h-7 text-blue-600" />
                 </div>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                  {stepTitles[4]}
+                </h1>
+                <p className="text-gray-600">
+                  Cuéntanos qué está pasando con tu vehículo
+                </p>
+              </div>
 
-                <div className="bg-blue-50 border border-blue-200 rounded-xl p-3 md:p-4">
-                  <div className="flex items-start gap-2 md:gap-3">
-                    <Info className="w-4 h-4 md:w-5 md:h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-xs md:text-sm font-semibold text-gray-900 mb-1">
-                        Tip para un mejor diagnóstico:
-                      </p>
-                      <p className="text-xs md:text-sm text-gray-700">
-                        Menciona cuándo ocurre, qué ruidos escuchas y cualquier cambio en el comportamiento del vehículo.
-                      </p>
+              <textarea
+                name="problema"
+                value={formData.problema}
+                onChange={handleChange}
+                placeholder="Ej: Mi auto hace un ruido extraño al frenar, especialmente cuando voy en bajada..."
+                rows="6"
+                className="w-full px-6 py-5 text-lg border-2 border-gray-300 rounded-2xl focus:border-blue-600 focus:ring-4 focus:ring-blue-100 outline-none transition-all resize-none mb-3"
+                autoFocus
+              />
+
+              <div className="flex items-center justify-between mb-6">
+                <p className="text-sm text-gray-500">Mínimo 20 caracteres</p>
+                <p className={`text-sm font-medium ${
+                  formData.problema.length >= 20 ? 'text-green-600' : 'text-gray-400'
+                }`}>
+                  {formData.problema.length}/20
+                </p>
+              </div>
+
+              {/* Resumen */}
+              {formData.problema.length >= 20 && (
+                <div className="bg-blue-50 rounded-2xl p-5 mb-6 border border-blue-200">
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">Resumen</h3>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Vehículo:</span>
+                      <span className="font-semibold text-gray-900">
+                        {formData.marca} {formData.modelo} {formData.año}
+                      </span>
                     </div>
                   </div>
                 </div>
+              )}
 
-                <div className="flex gap-3 md:gap-4">
-                  <button
-                    onClick={() => setStep(1)}
-                    className="flex-1 bg-white text-blue-600 font-semibold py-3 md:py-4 rounded-xl hover:bg-blue-50 transition-all border-2 border-blue-600 active:scale-95"
-                  >
-                    Atrás
-                  </button>
-                  <button
-                    onClick={handleSubmit}
-                    disabled={!canProceedStep2() || loading}
-                    className={`flex-1 font-semibold py-3 md:py-4 rounded-xl transition-all flex items-center justify-center gap-2 ${
-                      canProceedStep2() && !loading
-                        ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg hover:shadow-xl active:scale-95'
-                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                    }`}
-                  >
-                    {loading ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        <span className="hidden md:inline">Analizando...</span>
-                        <span className="md:hidden">Cargando...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="hidden md:inline">Generar Diagnóstico</span>
-                        <span className="md:hidden">Analizar</span>
-                        <Wrench className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Step 3: Diagnostic Results */}
-            {diagnostico  && (
-              <div className="space-y-5 md:space-y-6">
-                <div className="text-center pb-4 border-b border-gray-200">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                    Diagnóstico Generado
-                  </h2>
-                  <p className="text-sm md:text-base text-gray-500">
-                    {formData.marca} {formData.modelo} {formData.año}
-                  </p>
-                </div>
-
-                {/* Análisis del problema */}
-                <div className="space-y-3">
-                  <h3 className="text-base md:text-lg font-bold text-gray-900">Análisis del Problema</h3>
-                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                    {diagnostico.diagnostico}
-                  </p>
-                </div>
-
-                {/* Servicios requeridos */}
-                <div className="space-y-3">
-                  <h3 className="text-base md:text-lg font-bold text-gray-900">Servicios Requeridos</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {diagnostico.servicios.map((servicio, index) => (
-                      <span
-                        key={index}
-                        className="bg-blue-50 text-blue-700 border border-blue-200 px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-medium"
-                      >
-                        {servicio}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Precios estimados */}
-                <div className="space-y-3">
-                  <h3 className="text-base md:text-lg font-bold text-gray-900">Estimación de Costos</h3>
-                  <div className="space-y-2">
-                    {diagnostico.precios.map((item, index) => (
-                      <div
-                        key={index}
-                        className="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors"
-                      >
-                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                          <span className="text-gray-700 font-medium text-sm md:text-base">{item.item}</span>
-                          <span className="text-blue-600 font-bold text-lg md:text-xl">{item.precio}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs text-gray-500 mt-2">
-                    *Precios aproximados que pueden variar según el taller
-                  </p>
-                </div>
-
-                {/* Info adicional */}
-                <div className="grid grid-cols-2 gap-3 md:gap-4 pt-2">
-                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-                    <p className="text-xs text-gray-600 font-medium mb-1.5">Prioridad</p>
-                    <p className="text-base md:text-lg font-bold text-gray-900">{diagnostico.prioridad}</p>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-4 border border-gray-200">
-                    <p className="text-xs text-gray-600 font-medium mb-1.5">Tiempo Estimado</p>
-                    <p className="text-base md:text-lg font-bold text-gray-900">{diagnostico.tiempoEstimado}</p>
-                  </div>
-                </div>
-
-                {/* Botón para nuevo diagnóstico */}
+              <div className="flex gap-3">
                 <button
-                  onClick={resetForm}
-                  className="w-full bg-blue-600 text-white font-semibold py-3 md:py-4 rounded-xl hover:bg-blue-700 transition-all shadow-sm hover:shadow-md active:scale-95 mt-6"
+                  onClick={handleBack}
+                  className="px-6 py-4 rounded-xl border-2 border-gray-300 hover:bg-gray-50 transition-all"
                 >
-                  Realizar Nuevo Diagnóstico
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={handleSubmit}
+                  disabled={!canProceed() || loading}
+                  className={`flex-1 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${
+                    canProceed() && !loading
+                      ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg'
+                      : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  }`}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Analizando...
+                    </>
+                  ) : (
+                    <>
+                      Obtener Diagnóstico
+                      <Wrench className="w-5 h-5" />
+                    </>
+                  )}
                 </button>
               </div>
-            )}
-          </div>
-        </div>
+            </div>
+          )}
 
-        {/* Footer Help */}
-        <div className="text-center mt-6 px-4 md:px-0">
-          <p className="text-gray-600 text-xs md:text-sm">
-            Este es un diagnóstico preliminar basado en IA. Para confirmación, consulta con un mecánico profesional.
-          </p>
+          {/* Step 5: Loading/Results */}
+          {step === 5 && (
+            <div className="md:bg-white md:rounded-3xl md:shadow-xl p-6 md:p-12">
+              {!diagnostico ? (
+                <div className="text-center py-12">
+                  <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                    Analizando tu vehículo
+                  </h2>
+                  <p className="text-gray-600">
+                    Esto puede tardar unos segundos...
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  <div className="text-center pb-6 border-b border-gray-200">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle2 className="w-8 h-8 text-green-600" />
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                      Diagnóstico Completo
+                    </h2>
+                    <p className="text-gray-600">
+                      {formData.marca} {formData.modelo} {formData.año}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">Análisis</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      {diagnostico.diagnostico}
+                    </p>
+                  </div>
+
+                  {diagnostico.servicios.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-3">Servicios</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {diagnostico.servicios.map((servicio, i) => (
+                          <span key={i} className="bg-blue-100 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium">
+                            {servicio}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {diagnostico.precios.length > 0 && (
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900 mb-3">Costos</h3>
+                      <div className="space-y-2">
+                        {diagnostico.precios.map((item, i) => (
+                          <div key={i} className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                            <span className="text-gray-700">{item.item}</span>
+                            <span className="font-bold text-blue-600">{item.precio}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <button
+                    onClick={resetForm}
+                    className="w-full bg-blue-600 text-white font-semibold py-4 rounded-xl hover:bg-blue-700 transition-all shadow-lg"
+                  >
+                    Nuevo Diagnóstico
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Footer */}
+          {step <= 4 && (
+            <p className="text-center text-sm text-gray-500 mt-6">
+              Diagnóstico preliminar con IA • Consulta un profesional para confirmación
+            </p>
+          )}
         </div>
       </div>
     </div>
