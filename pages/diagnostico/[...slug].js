@@ -268,7 +268,11 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
   // ========== RESTO DEL CÓDIGO ORIGINAL (solo cuando status === "done") ==========
 
   const problema = diagnosticoData.mensaje_usuario?.replace(/["']/g, "");
-  const title = `${problema}`;
+const title = problema
+  .replaceAll(diagnosticoData.car_make, '')
+  .replaceAll(diagnosticoData.car_model, '')
+  .replaceAll(diagnosticoData.car_year, '')
+  .trim();
   const description = `${problema}. Descubre causas, diagnóstico profesional y costos de reparación para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} en ${diagnosticoData.country || "Colombia"}.`;
   const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}/diagnostico/${slug}`;
 

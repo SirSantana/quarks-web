@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       status: "pending",
     });
     process.nextTick(() => {
- fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/diagnostico/process`, {
+ fetch(`http://localhost:3000/api/diagnostico/process`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ slug }),

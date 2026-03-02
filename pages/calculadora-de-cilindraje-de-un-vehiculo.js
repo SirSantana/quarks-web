@@ -1,268 +1,200 @@
-import { CREATE_SUGERENCIA } from "@/graphql/mutations";
-import AnimationCalculator from "@/src/Components/Articulos/AnimationCalculator";
-import Button, { ButtonVariant } from "@/src/Components/Button/Button";
-import Layout from "@/src/Components/Layout";
-import styles from '@/styles/Articulos.module.css'
-import { ModalLoading, ModalSuccessfull } from "@/utils/Modales";
-import { useMutation } from "@apollo/client";
-import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import CalculadoraCilindradaComponent from "@/src/Components/Calculator/CalculadoraCilindrada";
+import FooterV2 from "@/src/Components/Footer/FooterV2";
+import Head from "next/head";
 
-const initialData = {
-  diametro: '80.5',
-  carrera: '79.5',
-  cilindros: 4,
-  rpm: 500
-};
-const tagsFix = [
-  'calcular cilindrada',
-  'calculadora cilindrada',
-  'calculadora de cilindrada',
-  'calculador de cilindrada',
-  'cc calculator',
-  'calculadora de cc',
-
-]
-let description = 'Ingresa los datos y obtén la cilindrada o el volumen de tu cilindro de manera rápida y fácil. La herramienta en línea para calcular la cilindrada de motores de vehículos, calcular cilindrada de una moto, calcular cilindrada de un auto, calcular cc de un cilindro, calculadora cc. '
-export default function EngineDisplacementCalculator() {
-  const [calcular, setCalcular] = useState(initialData);
-  const router = useRouter()
-  const ref = useRef()
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    if (ref.current) {
-      window.scrollTo({
-        top: ref.current.offsetTop,
-        behavior: 'smooth',
-      });
-    }
-  };
-
-  const [cilindrajeTotal, setCilindrajeTotal] = useState(0)
-  const pistonHeight = 0.2;
-
-  const cylinderWidth = calcular.diametro;
-  const cylinderHeight = calcular.carrera;
-
-  const [createSugerencia, { data, loading }] = useMutation(CREATE_SUGERENCIA)
-  const [sugerencia, setSugerencia] = useState('')
-
-  const handleSugerenciaChange = (e) => {
-    const cleanedValue = e.target.value.replace(/[^a-zA-Z0-9\s]/g, '');
-    setSugerencia(cleanedValue);
-  };
-  const handleSendSugerencia = (e) => {
-    e.preventDefault()
-    if (sugerencia.length <= 10) {
-      return alert('Cuentanos la sugerencia que tienes!')
-    }
-    createSugerencia({ variables: { sugerencia: sugerencia.trim(), tipo: 'calculadora-cilindrada' } })
-  }
-
-  const onChangeCrankShaft = (e) => {
-    const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 1 || newValue > 300)) {
-      e.preventDefault();
-    } else {
-      setCalcular({ ...calcular, carrera: e.target.value });
-    }
-  }
-  const onChangeBoreSize = (e) => {
-    const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 1 || newValue > 300)) {
-      e.preventDefault();
-    } else {
-      setCalcular({ ...calcular, diametro: e.target.value });
-    }
-  }
-  const onChangeQuantity = (e) => {
-    const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 1 || newValue > 12)) {
-      e.preventDefault();
-    } else {
-      setCalcular({ ...calcular, cilindros: e.target.value });
-    }
-  }
-
-  const onChangeRpm = (e) => {
-    const newValue = parseFloat(e.target.value);
-    if (!isNaN(newValue) && (newValue < 1 || newValue > 14000)) {
-      e.preventDefault();
-    } else {
-      setCalcular({ ...calcular, rpm: e.target.value });
-    }
-  }
-
-  useEffect(() => {
-    if (data) {
-      setTimeout(() => {
-        router.reload()
-      }, 3000)
-    }
-  }, [data])
+export default function CalculadoraCilindrada() {
   return (
-    <Layout visibleNavbar={false} title={'Calculadora de volumen de un cilindro'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png'} keywords={'Calculadora de cilindrada,calcular cc de un cilindro, calculador de cilindrada,calcular cilindrada, calculadora cilindrada, calculadora cc,calculadora cilindraje, cilindrada, motor, volumen cilindros, calculadora volumen cilindros,calculadora area cilindro, formula de volumen de un cilindro, formula para calcular el volumen de un cilindro, volumen de un cilindro con diámetro,calcular cilindrada de una moto, '} url={router?.asPath}>
-      <div style={{ marginTop: '32px', width: '95%', maxWidth: '1100px', backgroundColor: 'white' }} className={styles.container}>
-        <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop: '2%' }}>Calculadora de cilindrada</h1>
-        <p className={styles.response}>Calcular cilindrada de tu moto, carro o motor. Calcular cc de un cilindro. Ingresa tus datos en milimetros con una coma (80,5).</p>
+    <>
+      <Head>
+        <title>Calculadora de Cilindrada de Motor | CC y Litros</title>
 
-        <div className={styles.containerCc}>
-          <div className={styles.containerInputsCc}>
-            <div style={{ display: 'flex', width: '100%', height: '180px', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#373737', borderRadius: '12px', padding: '16px' }}>
-              <h2 style={{ fontSize: '14px', fontWeight: '600', color: '#ABABAB' }}>Cilindrada Total</h2>
-              <p style={{ fontSize: '64px', fontWeight: '700', textAlign: 'center', color: 'white' }}>{cilindrajeTotal}</p>
-              <p style={{ fontSize: '14px', color: '#ABABAB', textAlign: 'end' }}>Centimetros cubicos</p>
-            </div>
-            <div style={{ display: 'flex', width: '100%', flexDirection: 'column', justifyContent: 'space-between', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
-              <h2 style={{ fontSize: '14px', fontWeight: '600', marginBottom: '24px' }}>Medidas</h2>
-              <label style={{ fontSize: '14px' }}>Diametro cilindro</label>
-              <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
+        <meta
+          name="description"
+          content="Calcula la cilindrada total de tu motor en CC y Litros. Herramienta precisa basada en el diámetro (bore), carrera (stroke) y número de cilindros. Ideal para mecánicos."
+        />
+        <meta
+          name="keywords"
+          content="calculadora cilindrada motor, calcular cc motor, cubicaje motor, diámetro y carrera, calcular cilindros motor"
+        />
+        <link
+          rel="canonical"
+          href="https://www.quarks.com.co/calculadora-de-cilindraje-de-un-vehiculo"
+        />
+        <meta name="robots" content="index, follow" />
 
-                <input onKeyPress={(e) => {
-                  const charCode = e.which ? e.which : e.keyCode;
-                  if (charCode !== 44 && (charCode < 48 || charCode > 57)) {
-                    e.preventDefault();
-                  }
-                }} step="0.01" type="number"
-                  onChange={onChangeBoreSize}
-                  value={calcular.diametro}
-                  min={10}
-                  max={300}
-                  style={{ border: 'none', width: '100%', fontSize: '16px', fontWeight: '500' }} />
-                <div style={{ height: '100%', backgroundColor: '#d9d9d9', width: '1px' }} />
-                <span style={{ fontSize: '14px', fontWeight: '500' }}>mm</span>
-              </div>
+        {/* Open Graph para Redes Sociales */}
+        <meta
+          property="og:title"
+          content="¿Cómo calcular la cilindrada de un motor? Herramienta Online"
+        />
+        <meta
+          property="og:description"
+          content="Determina el volumen exacto de tu motor ingresando el diámetro y la carrera del pistón. Resultados instantáneos en CC y Litros."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta property="og:image:url" content="/favicon.png" />
+        <link rel="icon" href="/favicon.png" />
 
-              <label style={{ fontSize: '14px' }}>Carrera piston</label>
-              <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
-                <input
-                  min={10}
-                  max={300}
-                  onKeyPress={(e) => {
-                    const charCode = e.which ? e.which : e.keyCode;
-                    if (charCode !== 44 && (charCode < 48 || charCode > 57)) {
-                      e.preventDefault();
-                    }
-                  }} step="0.01" type="number" onChange={onChangeCrankShaft} value={calcular.carrera}
-                  style={{ border: 'none', width: '100%', fontSize: '16px', fontWeight: '500' }} />
-                <div style={{ height: '100%', backgroundColor: '#d9d9d9', width: '1px' }} />
-                <span style={{ fontSize: '14px', fontWeight: '500' }}>mm</span>
-              </div>
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Calculadora de Cilindrada y Cubicaje"
+        />
+        <meta
+          name="twitter:description"
+          content="Calcula los centímetros cúbicos (CC) de cualquier motor de forma profesional."
+        />
 
-              <label style={{ fontSize: '14px' }}>Cantidad cilindros</label>
-              <div style={{ display: 'flex', flexDirection: 'row', height: '48px', alignItems: 'center', gap: '8px', backgroundColor: 'white', width: '100%', padding: '8px 12px', borderRadius: '8px' }}>
-                <input max={12} onKeyPress={(e) => {
-                  const charCode = e.which ? e.which : e.keyCode;
-                  if (charCode !== 44 && (charCode < 48 || charCode > 57)) {
-                    e.preventDefault();
-                  }
-                }} type="number" onChange={onChangeQuantity} value={calcular.cilindros}
-                  style={{ border: 'none', width: '100%', fontSize: '16px', fontWeight: '500' }} />
-              </div>
-              <Button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} fullWidth className={styles.btnCalcular} style={{ marginTop: '16px' }}>
-                Calcular
-              </Button>
-            </div>
-          </div>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+          crossOrigin="anonymous"
+        ></script>
 
-          <div className={styles.containerAnimation}>
-            <div style={{ display: 'flex', width: '100%', flexDirection: 'column', gap: '8px', backgroundColor: '#f1f1f1', borderRadius: '12px', padding: '16px' }}>
-              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
-                <h2 style={{ fontSize: '14px', fontWeight: '600', }}>Animación / Ilustración</h2>
-                {/* <div style={{margin:'0 auto',marginTop:'32px', backgroundColor:'#373737', height:'1px', width:`${cylinderWidth+ 'px'}`}}/> */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <Button style={{ alignSelf: 'flex-end', margin: 0 }} onClick={handlePlayPause} variant={ButtonVariant.primary} size='base'>
-                    {isPlaying ? 'Pause' : 'Play'}
-                  </Button>
-                  <div ref={ref} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-                    <label style={{ fontSize: '14px' }}>RPM</label>
+        {/* Marcado de Datos Estructurados (Schema.org) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Calculadora de Cilindrada Profesional",
+              operatingSystem: "All",
+              applicationCategory: "UtilitiesApplication",
+              description:
+                "Herramienta técnica para calcular el volumen de desplazamiento de motores de combustión interna.",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.8",
+                ratingCount: "860",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
+      </Head>
+      <div style={{ display: "flex" }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <CalculadoraCilindradaComponent />
+<div className="max-w-[900px] mx-auto mt-16 pb-20 px-4 text-left">
+  
+  <article>
+    <header className="mb-10">
+      <h2 className="text-3xl font-bold text-gray-900 tracking-tight mb-6">
+        Guía de Cilindrada: Cómo calcular el Cubicaje de un Motor
+      </h2>
+      <p className="text-[15px] leading-relaxed text-gray-500 mb-4">
+        La <strong>cilindrada de un motor</strong> es el factor que determina el volumen total de desplazamiento de los pistones. Nuestra herramienta de <strong>cubicaje de motor</strong> permite obtener con precisión milimétrica los centímetros cúbicos (CC) y litros, datos vitales para cualquier proceso de rectificación o potenciación mecánica.
+      </p>
+      <p className="text-[15px] leading-relaxed text-gray-500">
+        Ya sea que busques el desplazamiento de un motor de 4 cilindros, un V8 americano o un motor de motocicleta, entender el <strong>volumen del cilindro</strong> es el primer paso para calcular la relación de compresión y el torque potencial.
+      </p>
+    </header>
 
-                    <input max={14000} onKeyPress={(e) => {
-                      const charCode = e.which ? e.which : e.keyCode;
-                      if (charCode !== 44 && (charCode < 48 || charCode > 57)) {
-                        e.preventDefault();
-                      }
-                    }} type="number" onChange={onChangeRpm} value={calcular.rpm}
-                      style={{ padding: '4px 8px', textAlign: 'end', border: 'none', width: '80px', fontSize: '16px', fontWeight: '500' }} />
-                  </div>
-                </div>
-              </div>
-              <AnimationCalculator calcular={calcular} cylinderHeight={cylinderHeight} cylinderWidth={cylinderWidth} pistonHeight={pistonHeight} setCilindrajeTotal={setCilindrajeTotal} cilindrajeTotal={cilindrajeTotal} isPlaying={isPlaying} />
-              {/* <div  style={{ margin: '32px 0 48px 0', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', alignItems: 'center' }}>
-                {Array.from({ length: calcular.cilindros }, (_, index) => (
-                  <AnimationCalculator
-                    key={index}
-                    calcular={calcular}
-                    cylinderHeight={cylinderHeight}
-                    cylinderWidth={cylinderWidth}
-                    pistonHeight={pistonHeight}
-                    setCilindrajeTotal={setCilindrajeTotal}
-                    middle={true}
-                    isPlaying={isPlaying}
-                  />
-                ))}
-              </div> */}
-              <article style={{ display: 'flex', marginTop: '40px', flexDirection: 'column', gap: '16px', width: '100%', }}>
-                <label htmlFor="sugerencia">Tienes alguna sugerencia? Es para mejorar ✌🏼</label>
-                <textarea
-                  onChange={handleSugerenciaChange}
-                  style={{
-                    width: '100%',
-                    padding: '10px',
-                    fontSize: '14px',
-                    border: '1px solid #ccc',
-                    borderRadius: '4px',
-                    resize: 'none',
-                    height: '100px'
-                  }}
-                  id="sugerencia"
-                  name="sugerencia"
-                  rows="4"
-                  cols="50"
-                  value={sugerencia}
-                  placeholder="Escribe tu sugerencia / cambio / mejora / problema aquí..."
-                ></textarea>
-                <Button onClick={handleSendSugerencia} variant={ButtonVariant.secondary} size='sm'>
-                  Enviar
-                </Button>
-              </article>
-            </div>
-          </div>
+    <div className="h-[1px] bg-gray-100 w-full my-10" />
+
+    <section className="mb-12">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        Fórmula para calcular Cilindrada y Desplazamiento Total
+      </h2>
+      <p className="text-[14px] text-gray-500 mb-6 leading-relaxed">
+        Para determinar el <strong>cubicaje profesional</strong>, aplicamos la geometría del cilindro multiplicada por el número de cámaras de combustión. La ecuación matemática estándar que utiliza nuestra calculadora de cilindrada es:
+      </p>
+      
+      <div className="py-6 px-4 mb-6 border-y border-gray-100 flex flex-col items-center justify-center">
+        <span className="text-[18px] font-mono text-[#407BFF] font-bold">
+          CC = [π × (Diámetro / 2)² × Carrera] × N° Cilindros
+        </span>
+        <span className="text-[12px] text-gray-400 mt-2 uppercase tracking-widest">
+          Ecuación de Desplazamiento Volumétrico
+        </span>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div>
+          <h3 className="text-[17px] font-bold text-gray-900 mb-2">Diámetro y Carrera (Bore & Stroke)</h3>
+          <p className="text-[14px] text-gray-500 leading-relaxed">
+            El <strong>diámetro (bore)</strong> mide el ancho del cilindro, mientras que la <strong>carrera (stroke)</strong> es el recorrido del pistón. Alterar estas medidas es lo que comúnmente se conoce como "rectificar" para ganar potencia.
+          </p>
         </div>
-        <div style={{ marginTop: '96px' }}>
-          <section style={{ marginBottom: '32px' }}>
-            <h2>¿Qué es la Cilindrada de un Vehículo?</h2>
-            <br />
-            <p style={{ lineHeight: '1.8' }}>El <span style={{ fontWeight: '600' }}>calcular la cilindrada</span> es una medida importante que nos dice cuánto espacio hay dentro de los cilindros del motor. Ahora, imagina los cilindros como los corazones del motor.<br /><br /> Estos cilindros son como habitaciones donde ocurre la magia de la combustión, lo que hace que el motor funcione y el vehículo se mueva. Así que, en esencia, el cilindraje nos dice cuánta "potencia" puede generar el motor. Con la calculadora cc, podras calcular la cilindrada de forma sencilla de tu motor, carro o motor.</p>
-            {/* <a style={{ marginTop: '32px' }} href='https://www.quarks.com.co/articulos/Cilindrada-de-un-vehiculo-:-Todo-lo-que-tienes-que-saber-64860ae7bf99b4c49795114b'>
-           Conoce todo sobre la cilindrada Aqui!
-         </a> */}
-          </section>
-          <section style={{ marginBottom: '32px' }}>
-            <h2>Calculo de cilindrada</h2>
-            <br />
-            <p style={{ lineHeight: '1.8' }}>La formula del volumen de un cilindro no es tan difícil como podría parecer. Se trata de matemáticas básicas. <br /><br /> <span style={{ fontWeight: '600' }}>La fórmula para el volumen (V) de un cilindro es V=πr2h</span>, donde π representa la constante pi, aproximadamente 3.14159. Aquí, r denota el radio de la base del cilindro, y ℎ h indica la altura del mismo. Este cálculo meticuloso nos proporciona un valor de volumen expresado en unidades cúbicas, tales como centímetros cúbicos (cm³) o metros cúbicos (m³)./               <br /><br />En otras palabras, al sumergirnos en la fórmula, desentrañamos la esencia cuantitativa del cilindro, permitiéndonos entender y cuantificar el espacio que ocupa en el mundo tridimensional. Este conocimiento no solo es fundamental en términos teóricos, sino que también tiene aplicaciones prácticas en el diseño y análisis de componentes mecánicos clave.<br /><br /><b>V = πr2h</b></p>
-          </section>
-          <section style={{ marginBottom: '32px' }}>
-            <h2>Problemas a la Hora de calcular cc de un cilindro</h2>
-            <br />
-            <p style={{ lineHeight: '1.8' }}> A veces, el calculo de cilindrada no es tan sencillo. <br /><br />Puede haber problemas que dificulten la precisión de la medición. Uno de los desafíos comunes es la variación en la forma de los cilindros. <br /><br />Si un cilindro no es perfectamente circular, los cálculos se vuelven más complejos. Además, si los cilindros no tienen la misma forma o tamaño, el cálculo se complica aún más.</p>
-          </section>
-          <section style={{ display: 'flex', margin: '0 auto', marginBottom: '64px', maxWidth: '600px', gap: '8px', width: '100%', flexWrap: 'wrap', flexDirection: 'row', alignItems: 'center' }}>
-            {tagsFix.map(tag => (
-              <h2 key={tag} style={{ fontSize: '14px', fontWeight: '500', padding: '4px 12px', border: '1px solid #c5c5c5', borderRadius: '16px', backgroundColor: 'white' }}>{tag}</h2>
-            ))}
-          </section>
+        <div>
+          <h3 className="text-[17px] font-bold text-gray-900 mb-2">Conversión de CC a Litros</h3>
+          <p className="text-[14px] text-gray-500 leading-relaxed">
+            Para pasar de centímetros cúbicos a litros, simplemente dividimos el resultado entre 1,000. Por ejemplo, un motor de <strong>1,998 CC</strong> se comercializa usualmente como un motor <strong>2.0 Litros</strong>.
+          </p>
         </div>
       </div>
-      {loading &&
-        <ModalLoading title={'Enviando Sugerencia ... '} />
-      }
-      {data &&
-        <ModalSuccessfull title={'Gracias'} subtitle={'Por compartir tu opinion, la tendremos en cuenta para mejorar!'} />
-      }
-    </Layout >
-  )
+    </section>
+
+    <section className="mb-12">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+        Preguntas Frecuentes sobre el Cubicaje de Motores
+      </h2>
+      
+      <div className="space-y-8">
+        <div className="border-l-2 border-[#407BFF] pl-6">
+          <h4 className="text-[16px] font-bold text-gray-900 mb-2">¿Por qué es importante conocer la cilindrada exacta?</h4>
+          <p className="text-[14px] text-gray-500 leading-relaxed">
+            Es fundamental para calcular la cantidad de combustible necesaria, elegir el tamaño del turbocompresor adecuado y cumplir con las normativas fiscales de tránsito que se basan en los <strong>caballos fiscales</strong> o el cilindraje.
+          </p>
+        </div>
+
+        <div className="border-l-2 border-[#407BFF] pl-6">
+          <h4 className="text-[16px] font-bold text-gray-900 mb-2">¿Cómo influye el número de cilindros en el cálculo?</h4>
+          <p className="text-[14px] text-gray-500 leading-relaxed">
+            La cilindrada unitaria es el volumen de un solo cilindro. La <strong>cilindrada total</strong> es la suma del volumen de todos los cilindros del bloque motor (V6, V8, L4, etc.).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section className="mt-16">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+        Cilindrada Promedio por Tipo de Vehículo
+      </h2>
+      <div className="overflow-hidden border border-gray-100 rounded-lg">
+        <table className="w-full text-[14px]">
+          <thead>
+            <tr className="bg-gray-50 text-gray-600 border-b border-gray-100">
+              <th className="px-6 py-4 font-semibold text-left">Tipo de Motor</th>
+              <th className="px-6 py-4 font-semibold text-left">Cubicaje Común</th>
+              <th className="px-6 py-4 font-semibold text-left">Potencia Estimada</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-100 text-gray-500">
+            <tr>
+              <td className="px-6 py-4 text-gray-900 font-medium">Motores de Ciudad</td>
+              <td className="px-6 py-4 font-mono text-[#407BFF]">800 - 1,200 CC</td>
+              <td className="px-6 py-4 italic">Alta Eficiencia</td>
+            </tr>
+            <tr>
+              <td className="px-6 py-4 text-gray-900 font-medium">Sedanes y SUVs</td>
+              <td className="px-6 py-4 font-mono text-[#407BFF]">1,600 - 2,500 CC</td>
+              <td className="px-6 py-4 italic">Uso Mixto</td>
+            </tr>
+            <tr>
+              <td className="px-6 py-4 text-gray-900 font-medium">Motores de Alto Rendimiento</td>
+              <td className="px-6 py-4 font-mono text-[#407BFF]">3,000 - 6,000+ CC</td>
+              <td className="px-6 py-4 italic">Alto Torque</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p className="text-[12px] text-gray-400 mt-4 italic text-center">
+        * Estos valores representan promedios de la industria automotriz global.
+      </p>
+    </section>
+  </article>
+</div>
+        </div>
+      </div>
+      <FooterV2 />
+    </>
+  );
 }

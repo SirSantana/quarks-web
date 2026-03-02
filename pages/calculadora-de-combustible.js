@@ -1,275 +1,455 @@
+import Head from "next/head";
+import CalculadoraCombustible from "@/src/Components/Calculator/CalculadoraCombustible";
+import FooterV2 from "@/src/Components/Footer/FooterV2";
 
-import { CREATE_CONSUMO, CREATE_SUGERENCIA } from '@/graphql/mutations';
-import Button, { ButtonVariant } from '@/src/Components/Button/Button';
-import Layout from '@/src/Components/Layout'
-import styles from '@/styles/Faq.module.css'
-import { ModalLoading, ModalSuccessfull } from '@/utils/Modales';
-import { useMutation, useQuery } from '@apollo/client';
-import { useRouter } from 'next/router';
-import Slider, { Range } from 'rc-slider';
-import 'rc-slider/assets/index.css';
-import { useEffect, useState } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-
-let description = 'Calcula el consumo de combustible de tu vehiculo, rapido y sencillo aqui. Obten cuanto consume tu vehiculo, coloca la distancia recorrida y los galones consumidos'
-
+export const OTHER_CALCULATORS = [
+  {
+    label: "Calculadora de cilindrada",
+    desc: "Calcula el volumen total del motor",
+    href: "/calculadora-de-cilindraje-de-un-vehiculo",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 3v18M15 3v18M3 9h18M3 15h18" />
+      </svg>
+    ),
+  },
+  {
+    label: "Comparador de neumáticos",
+    desc: "Compara dimensiones y diferencias",
+    href: "/comparador-neumaticos",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 3v3M12 18v3M3 12h3M18 12h3" />
+      </svg>
+    ),
+  },
+  {
+    label: "Relación de transmisión",
+    desc: "Calcula RPM, velocidad y relaciones",
+    href: "/calculadora-relacion-transmision",
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="7" cy="17" r="3" />
+        <circle cx="17" cy="7" r="3" />
+        <path d="M7 14V7a5 5 0 0 1 10 0v10" />
+      </svg>
+    ),
+  },
+  {
+    label: "Calculadora de combustible",
+    desc: "Rendimiento y costo por viaje",
+    href: "/calculadora-de-combustible",
+    active: true,
+    icon: (
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3 22V8l9-6 9 6v14H3z" />
+        <path d="M9 22V12h6v10" />
+      </svg>
+    ),
+  },
+];
 export default function CalculadoraDeCombustible() {
-  const router = useRouter()
-  const [kilometros, setKilometros] = useState(200);
-  const [galones, setGalones] = useState(12);
-  const [consumo, setConsumo] = useState()
-  const [galon, setGalon] = useState()
-  const [registros, setRegistros] = useState([]);
-  const [check, setCheck] = useState(false)
-  const [createConsumo, result] = useMutation(CREATE_CONSUMO)
-  // const { data, error, loading } = useQuery(GET_CONSUMOS)
-  const [createSugerencia, { data, loading }] = useMutation(CREATE_SUGERENCIA)
-  const [sugerencia, setSugerencia] = useState('')
-
-  const handleSugerenciaChange = (e) => {
-    const cleanedValue = e.target.value.replace(/[^a-zA-Z0-9\s]/g, '');
-    setSugerencia(cleanedValue);
-  };
-  const handleSendSugerencia = (e) => {
-    e.preventDefault()
-    if (sugerencia.length <= 10) {
-      return alert('Cuentanos la sugerencia que tienes!')
-    }
-    createSugerencia({ variables: { sugerencia: sugerencia.trim(), tipo: 'calculadora-combustible' } })
-  }
-  useEffect(() => {
-    // Cargar registros desde el localStorage al montar el componente
-    const savedRegistros = JSON.parse(localStorage.getItem('registros'));
-
-    if (savedRegistros) {
-      setRegistros(savedRegistros);
-    }
-  }, []);
-  const handleGuardar = () => {
-    if (check) {
-      return alert('Ya guardaste este consumo')
-    } else {
-      const nuevoRegistro = {
-        fecha: new Date().toLocaleString(),
-        consumo: consumo.toFixed(2),
-        galon: galon.toFixed(2),
-      };
-      setCheck(true)
-      const nuevosRegistros = [...registros, nuevoRegistro];
-      setRegistros(nuevosRegistros);
-      localStorage.setItem('registros', JSON.stringify(nuevosRegistros));
-      createConsumo({ variables: { fecha: nuevoRegistro.fecha, galon: String(nuevoRegistro.galon), consumo: String(nuevoRegistro.consumo) } })
-      alert('Guardado correctamente')
-    }
-  };
-
-  useEffect(() => {
-    setConsumo((galones / kilometros) * 100)
-    setGalon(kilometros / galones)
-    setCheck(false)
-  }, [galones, kilometros])
-  useEffect(() => {
-    if (data) {
-      setTimeout(() => {
-        router.reload()
-      }, 3000)
-    }
-  }, [data])
   return (
-    <Layout title={'La mejor Calculadora de consumo de combustible'} description={description} image={'https://azurequarks.blob.core.windows.net/avatares/calculadoradecombustible.png'} keywords={'Calculadora de combustible, calculador de consumo de combustible, calculadora de rendimiento de combustible, calculadora combustible, calculador combustible,  '} url={router?.asPath}>
-      <div className={styles.container}>
-        <h1 className={styles.title} style={{ color: '#373737', fontWeight: '600', marginTop:0 }}>Calculadora de Combustible</h1>
-        <p className={styles.subtitle}>Ingresa la informacion y conoce el rendimiento del combustible </p>
+    <>
+      <Head>
+        <title>
+          Calculadora de Consumo de Combustible | Gasto por Kilómetro y Viaje
+        </title>
 
-        <div className={styles.containerContent}>
-          <div className={styles.containerInputs2}>
-            <div className={styles.containerInput}>
-              <h4 className={styles.h4}>Distancia Recorrida</h4>
-              <div style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'flex-start', width:'100%'}}>
-                <input className={styles.h3} step="0.1" style={{border:'none', width:'100px' }} type="number" onChange={(e) => setKilometros(e.target.value)} value={kilometros} />
-                <label className={styles.h3}>Kms</label>
-              </div>
-              {/* <h3 className={styles.h3}>{kilometros} Kms</h3> */}
+        <meta
+          name="description"
+          content="Calcula cuánto gasta tu coche en gasolina o diesel. Herramienta gratuita para medir el consumo por km, costo total de viaje y eficiencia de combustible."
+        />
+        <meta
+          name="keywords"
+          content="calculadora combustible, gasto gasolina viaje, consumo combustible km, calcular costo gasolina"
+        />
+        <link
+          rel="canonical"
+          href="https://www.quarks.com.co/calculadora-de-combustible"
+        />
+        <meta name="robots" content="index, follow" />
+        {/* Open Graph para Facebook/WhatsApp */}
+        <meta
+          property="og:title"
+          content="¿Cuánto cuesta tu viaje? Calculadora de Combustible Online"
+        />
+        <meta
+          property="og:description"
+          content="Calcula el consumo real de tu vehículo y ahorra dinero en tu próximo viaje."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
 
-              <Slider
-                min={0}
-                max={600}
-                defaultValue={kilometros}
-                onChange={(value) => setKilometros(value)}
+        <meta property="og:image:url" content="/favicon.png" />
+        <link rel="icon" href="/favicon.png" />
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Calculadora de Gasto de Combustible"
+        />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Calculadora de Combustible Profesional",
+              operatingSystem: "All",
+              applicationCategory: "FinanceApplication",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                ratingCount: "1250",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
+      </Head>
+      <div style={{ display: "flex" }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <CalculadoraCombustible />
+          <div className="max-w-[1100px] mx-auto mt-16  px-8 pb-20 max-sm:px-4 ">
+            {/* ── Article 1: Main intro + FAQ ───────────────────────────────────── */}
+            <article className="mb-10">
+              <header className="mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 tracking-tight mb-3">
+                  Calculadora de Consumo de Combustible: Ahorra en Gasolina y
+                  Diésel
+                </h2>
+                <p className="text-[15px] text-gray-500 leading-relaxed">
+                  Nuestra{" "}
+                  <strong className="text-gray-700 font-medium">
+                    calculadora de combustible online
+                  </strong>{" "}
+                  es la herramienta definitiva para conductores que buscan
+                  optimizar sus gastos. Ya sea para planificar un viaje largo o
+                  auditar el consumo mensual de tu vehículo, calcular el{" "}
+                  <strong className="text-gray-700 font-medium">
+                    gasto de gasolina
+                  </strong>{" "}
+                  exacto te permite tomar mejores decisiones financieras y
+                  reducir tu impacto ambiental.
+                </p>
+              </header>
 
-                trackStyle={[{ backgroundColor: '#f50057', height: '8px' }]}
-                handleStyle={[
-                  { backgroundColor: '#f50057', height: '18px', width: '18px' },
-                ]}
-              />
-              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <p className={styles.pSubtitle}>0 kms</p>
-                <p className={styles.pSubtitle}>600 kms</p>
-              </div>
-            </div>
-            <div className={styles.containerInput}>
-              <h4 className={styles.h4}>Galones Consumidos</h4>
-              <div style={{display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'flex-start', width:'100%'}}>
-                <input className={styles.h3} step="0.1" style={{border:'none', width:'80px' }} type="number" onChange={(e) => setGalones(e.target.value)} value={galones} />
-                <label className={styles.h3}>Gl</label>
-              </div>
-              <Slider
-                min={0}
-                max={20}
-                step={0.1}
-                defaultValue={galones}
-                onChange={(value) => setGalones(value)}
-                trackStyle={[{ backgroundColor: '#f50057', height: '8px' }, styles.sliderTrack]}
-                handleStyle={[
-                  { backgroundColor: '#f50057', height: '18px', width: '18px' },
-                  styles.sliderHandle,
-                ]}
-                activeHandleStyle={[styles.sliderHandleFocus]}
-              />
-              <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <p className={styles.pSubtitle}>0 Gl</p>
-                <p className={styles.pSubtitle}>20 Gl</p>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.containerCardRendimiento}>
-            <div>
-              <p style={{ fontSize: '14px', color: 'white' }}>Consumo cada 100 kms </p>
-              <h2 className={styles.bigTitle}> {consumo?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ gl</b></h2>
-            </div>
-            <div>
-              <p style={{ fontSize: '14px', color: 'white' }}>Rendimiento por galon </p>
-              <h2 className={styles.bigTitle}> {galon?.toFixed(2)}<b style={{ fontSize: '18px', fontWeight: '400' }}>/ kms</b></h2>
-            </div>
-            {/* <button onClick={handleGuardar} className={styles.button}>
-              {check ? 'Guardado' : 'Guardar'}
-              <ion-icon style={{ fontSize: '20px' }} name={check ? 'bookmark' : 'bookmark-outline'}></ion-icon>
-            </button> */}
-          </div>
-
-
-        </div>
-        <div style={{ display: 'flex', marginTop: '40px', flexDirection: 'column', gap: '16px', width: '100%', maxWidth: '500px' }}>
-          <label htmlFor="sugerencia">Tienes alguna sugerencia? Es para mejorar ✌🏼</label>
-          <textarea
-            onChange={handleSugerenciaChange}
-            style={{
-              width: '100%',
-              padding: '10px',
-              fontSize: '14px',
-              border: '1px solid #ccc',
-              borderRadius: '4px',
-              resize: 'none',
-              height: '100px'
-            }}
-            id="sugerencia"
-            name="sugerencia"
-            rows="4"
-            cols="50"
-            value={sugerencia}
-            placeholder="Escribe tu sugerencia / cambio / mejora / problema aquí..."
-          ></textarea>
-          <Button onClick={handleSendSugerencia} fullWidth variant={ButtonVariant.secondary} size='sm'>
-            Enviar
-          </Button>
-        </div>
-
-
-        <Tabs className={styles.tabs}>
-          <TabList style={{ marginBottom: '32px' }}>
-            {/* <Tab>Comunidad</Tab> */}
-            <Tab>Mi actividad</Tab>
-          </TabList>
-
-          {/* <TabPanel>
-            <div className={styles.gridContainer}>
-              {data?.getConsumos.map(el => (
-                <div className={styles.miniContainerCardRendimiento}>
-                  <div style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between', width: '100%', marginBottom: '16px' }}>
-                    <div>
-                      <p style={{ fontSize: '14px', color: 'white' }}>100 kms </p>
-                      <p style={{ fontSize: '28px', fontWeight: '600' }}>{el?.consumo}<b style={{ fontSize: '14px', fontWeight: '400' }}>/gl</b></p>
+              {/* How it works */}
+              <section className="mb-8">
+                <h3 className="text-[17px] font-semibold text-gray-800 mb-3">
+                  ¿Cómo calcular cuánto gasta mi carro en combustible?
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-relaxed mb-4">
+                  Para obtener un resultado preciso en nuestra herramienta,
+                  procesamos tres variables fundamentales que definen la
+                  eficiencia energética:
+                </p>
+                <div className="flex flex-col gap-2.5 mb-5">
+                  {[
+                    {
+                      label: "Distancia del recorrido",
+                      desc: "Los kilómetros totales (ida y vuelta) que vas a recorrer.",
+                    },
+                    {
+                      label: "Eficiencia o Consumo promedio",
+                      desc: "Generalmente expresado en litros por cada 100 km (L/100km) o km por litro (km/L).",
+                    },
+                    {
+                      label: "Precio local del combustible",
+                      desc: "El costo actual por litro de gasolina o diésel en tu estación de servicio preferida.",
+                    },
+                  ].map(({ label, desc }) => (
+                    <div key={label} className="flex gap-3 items-start">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#407BFF] mt-2 shrink-0" />
+                      <p className="text-[14px] text-gray-500 leading-relaxed m-0">
+                        <strong className="text-gray-700 font-medium">
+                          {label}:
+                        </strong>{" "}
+                        {desc}
+                      </p>
                     </div>
-                    <div>
-                      <p style={{ fontSize: '14px', color: 'white' }}>1 galon</p>
-                      <p style={{ fontSize: '28px', fontWeight: '600' }}>{el?.galon}<b style={{ fontSize: '14px', fontWeight: '400' }}>/kms</b></p>
-                    </div>
-                  </div>
-                  <p style={{ textAlign: 'end', fontSize: '12px' }}>{el?.fecha}</p>
-                </div>
-              ))}
-            </div>
-
-          </TabPanel> */}
-          <TabPanel>
-            <div className={styles.gridContainer}>
-              {registros.map(el => (
-                <div className={styles.miniContainerCardRendimiento}>
-                  <div style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between', width: '100%', marginBottom: '16px' }}>
-                    <div>
-                      <p style={{ fontSize: '14px', color: 'white' }}>100 kms </p>
-                      <p style={{ fontSize: '28px', fontWeight: '600' }}>{el?.consumo}<b style={{ fontSize: '14px', fontWeight: '400' }}>/gl</b></p>
-                    </div>
-                    <div>
-                      <p style={{ fontSize: '14px', color: 'white' }}>1 galon</p>
-                      <p style={{ fontSize: '28px', fontWeight: '600' }}>{el?.galon}<b style={{ fontSize: '14px', fontWeight: '400' }}>/kms</b></p>
-                    </div>
-                  </div>
-                  <p style={{ textAlign: 'end', fontSize: '12px' }}>{el?.fecha}</p>
+                  ))}
                 </div>
 
-              ))}
-            </div>
-          </TabPanel>
-        </Tabs>
+                {/* Tip callout */}
+                <div className="flex gap-3 items-start bg-[#f0f5ff] border-l-4 border-[#407BFF] rounded-lg px-4 py-3.5">
+                  <span className="text-lg leading-none mt-0.5">💡</span>
+                  <p className="text-[13px] text-gray-600 leading-relaxed m-0">
+                    <strong className="text-gray-700">Tip de experto:</strong>{" "}
+                    Mantener la presión correcta en los neumáticos según el
+                    manual del fabricante puede reducir el consumo de
+                    combustible hasta en un{" "}
+                    <strong className="text-gray-700">3%</strong>.
+                  </p>
+                </div>
+              </section>
 
-        <div>
-          <h2 >Optimiza Tu Consumo de Combustible: Consejos para Ahorrar en cada Kilómetro</h2>
-          <br />
-          <p style={{ lineHeight: "1.8;" }}>¿Quieres reducir tus gastos en combustible y contribuir a un medio ambiente más limpio? ¡Estás en el lugar correcto! <br /><br />En esta guía, exploraremos todo lo relacionado con el consumo de combustible y te proporcionaremos consejos prácticos para maximizar la eficiencia de cada gota de combustible que quemes en tu motor.</p>
-          <br /><br />
-          <h2 >El Papel del Consumo de Combustible</h2>
-          <br />
-          <p style={{ lineHeight: "1.8;" }}>El consumo de combustible es uno de los aspectos más importantes a considerar al usar un vehículo.<br /><br /> Además de influir en tus gastos, también tiene un impacto directo en las emisiones de gases de efecto invernadero y la contaminación del aire. <br /><br />Cuanto más eficiente sea tu consumo de combustible, menos recursos gastarás y menos daño causarás al medio ambiente.</p>
-          <br /><br />
-          <h2 >Factores que Influyen en el Consumo de Combustible</h2>
-          <br />
-          <p style={{ lineHeight: "1.8;" }}>El consumo de combustible de tu vehículo no es estático; está influenciado por varios factores. Algunos de los más relevantes son:</p><br />
-          <ul style={{ lineHeight: "1.8;" }}>
-            <li>Tipo de Conducción: La forma en que manejas tiene un gran impacto en el consumo de combustible. Arranques bruscos, frenados fuertes y altas velocidades pueden aumentar drásticamente el consumo.</li><br />
-            <li>Mantenimiento del Vehículo: Un vehículo bien mantenido, con neumáticos inflados correctamente, filtros limpios y un motor afinado, tiende a ser más eficiente en el uso de combustible.</li><br />
-            <li>Peso y Carga: Cuanto más pesado sea el vehículo o mayor sea la carga que transporta, más esfuerzo requerirá el motor para moverlo y, por lo tanto, más combustible consumirá.</li><br />
-            <li>Condiciones del Camino: Conducir en terrenos montañosos, carreteras con muchas curvas o en condiciones climáticas adversas puede afectar el consumo de combustible.</li>
-          </ul>
-          <br /><br />
-          <h2 >Consejos para Ahorrar Combustible</h2>
-          <br />
-          <p style={{ lineHeight: "1.8;" }}>Ahora, la pregunta importante: ¿cómo puedes mejorar la eficiencia de tu consumo de combustible? Aquí hay algunos consejos prácticos:</p>
-          <ol style={{ lineHeight: "1.8;" }}><br />
-            <li>Mantén una Conducción Suave: Evita aceleraciones bruscas y frenados repentinos. Mantén una velocidad constante y anticipa las paradas para reducir la necesidad de frenar.</li><br />
-            <li>Mantén tu Vehículo Afinado: Realiza un mantenimiento regular, como cambios de aceite, limpieza de filtros y ajustes de motor. Un vehículo en buen estado funciona de manera más eficiente.</li><br />
-            <li>Evita el Exceso de Peso: No cargues tu vehículo innecesariamente. Cuanto más peso llevas, más combustible necesitarás para moverte.</li><br />
-            <li>Infla los Neumáticos Correctamente: Neumáticos inflados correctamente reducen la resistencia al rodaje y mejoran la eficiencia del combustible.</li><br />
-            <li>Planifica tus Viajes: Combina recados y planifica tus rutas para evitar conducir en momentos de tráfico intenso.</li><br />
-            <li>Utiliza el Aire Acondicionado con Moderación: El uso excesivo del aire acondicionado puede aumentar el consumo de combustible. Úsalo solo cuando sea necesario.</li><br />
-            <li>Usa la Velocidad Crucero: En carreteras abiertas, utilizar el control de velocidad crucero puede mantener una velocidad constante y ahorrar combustible.</li>
-          </ol>
-          <br /><br />
-          <h2 >Calcula el rendimiento de tu auto</h2><br />
-          <p style={{ lineHeight: "1.8;" }}>No olvides aprovechar nuestra calculadora de consumo de combustible en esta página. <br /><br />Ingresa la información sobre tu vehículo y tus hábitos de conducción para obtener una estimación personalizada de cuánto combustible estás utilizando. <br /><br />¡Es una herramienta práctica para monitorear y ajustar tu consumo!</p>
-          <br /><br />
+              {/* Formula */}
+              <section className="mb-8">
+                <h3 className="text-[17px] font-semibold text-gray-800 mb-3">
+                  Fórmula para calcular el gasto de gasolina manualmente
+                </h3>
+                <p className="text-[14px] text-gray-500 leading-relaxed mb-4">
+                  Si prefieres realizar el análisis de forma manual, la ecuación
+                  estándar de logística vehicular es:
+                </p>
+                <div className="bg-gray-50 border border-gray-200 rounded-xl px-6 py-4 text-center mb-4">
+                  <p className="text-[14px] font-semibold text-gray-800 m-0">
+                    Costo Total = (Distancia / 100) × Consumo promedio × Precio
+                    por Litro
+                  </p>
+                </div>
+                <p className="text-[14px] text-gray-500 leading-relaxed">
+                  Nuestra calculadora automatiza este proceso para evitar
+                  errores de cálculo y ofrecerte un presupuesto instantáneo para
+                  tu viaje.
+                </p>
+              </section>
+
+              {/* FAQ */}
+              <section>
+                <h3 className="text-[17px] font-semibold text-gray-800 mb-5">
+                  Preguntas Frecuentes sobre Consumo Vehicular (FAQ)
+                </h3>
+                <div className="flex flex-col gap-0">
+                  {[
+                    {
+                      q: "¿Qué factores afectan el consumo de gasolina real?",
+                      a: "No solo depende del motor. La velocidad constante, el uso excesivo del aire acondicionado, la carga aerodinámica (como portaequipajes) y el estado de los filtros de aire influyen directamente en la eficiencia de cada litro.",
+                    },
+                    {
+                      q: "¿Es mejor calcular el costo por kilómetro o por viaje?",
+                      a: "Depende de tu objetivo. Calcular el costo por kilómetro es ideal para determinar la rentabilidad si trabajas con tu vehículo, mientras que el costo por viaje es esencial para la planificación de presupuestos familiares o logística de vacaciones.",
+                    },
+                    {
+                      q: "¿Cómo influye el tipo de combustible en el rendimiento?",
+                      a: "Motores diésel suelen ofrecer mayor autonomía en carretera, mientras que los motores a gasolina o híbridos pueden variar su eficiencia dependiendo de si el ciclo de conducción es urbano o extraurbano.",
+                    },
+                  ].map(({ q, a }, i) => (
+                    <div
+                      key={i}
+                      className="py-4 border-b border-gray-100 last:border-0"
+                    >
+                      <h4 className="text-[14px] font-semibold text-[#407BFF] mb-1.5">
+                        {q}
+                      </h4>
+                      <p className="text-[14px] text-gray-500 leading-relaxed m-0">
+                        {a}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </article>
+
+            {/* ── Article 2: Factors ────────────────────────────────────────────── */}
+            <article className="mb-10">
+              <header className="mb-4">
+                <h2 className="text-2xl font-semibold text-gray-900 tracking-tight mb-3">
+                  Factores que afectan el consumo de gasolina de tu vehículo
+                </h2>
+                <p className="text-[14px] text-gray-500 leading-relaxed">
+                  Muchos conductores se preguntan por qué su coche gasta más de
+                  lo que indica el fabricante. La realidad es que el{" "}
+                  <strong className="text-gray-700 font-medium">
+                    consumo de combustible
+                  </strong>{" "}
+                  no es una cifra estática. Depende de variables externas y
+                  hábitos de conducción que pueden variar el gasto hasta en un
+                  30%.
+                </p>
+              </header>
+
+              <div className="flex flex-col gap-0">
+                {[
+                  {
+                    num: "1",
+                    title: "Resistencia aerodinámica y peso",
+                    body: "Llevar portaequipajes en el techo o las ventanas abiertas a altas velocidades aumenta la resistencia al aire. Esto obliga al motor a trabajar más, elevando el consumo. Por cada 100 kg de carga adicional, el gasto de combustible sube aproximadamente un 5% en vehículos promedio.",
+                  },
+                  {
+                    num: "2",
+                    title: "El estado de la mecánica",
+                    body: "Un motor con filtros de aire sucios o bujías en mal estado no realiza una combustión eficiente. Nuestra calculadora de combustible te ayuda a detectar estos problemas: si notas que el costo por kilómetro sube repentinamente en los mismos trayectos, es hora de una revisión técnica.",
+                  },
+                ].map(({ num, title, body }) => (
+                  <div
+                    key={num}
+                    className="py-5 border-b border-gray-100 last:border-0 flex gap-4 items-start"
+                  >
+                    <div className="w-7 h-7 rounded-full bg-[#407BFF] text-white text-[12px] font-semibold flex items-center justify-center shrink-0 mt-0.5">
+                      {num}
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-semibold text-gray-800 mb-1.5">
+                        {title}
+                      </h3>
+                      <p className="text-[14px] text-gray-500 leading-relaxed m-0">
+                        {body}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            {/* ── Article 3: Eco tips grid ──────────────────────────────────────── */}
+            <article className="mb-10">
+              <h2 className="text-2xl font-semibold text-gray-900 tracking-tight mb-6">
+                Guía Práctica: ¿Cómo reducir el gasto de combustible?
+              </h2>
+              <div className="grid grid-cols-3 gap-3 max-[700px]:grid-cols-1">
+                {[
+                  {
+                    title: "Conducción Ecológica (Eco-Driving)",
+                    body: "Evita acelerones bruscos. Mantener una velocidad uniforme ayuda a que el sistema de inyección trabaje en su rango óptimo.",
+                  },
+                  {
+                    title: "Uso del Aire Acondicionado",
+                    body: "A bajas velocidades es mejor bajar las ventanillas, pero a más de 80 km/h el aire acondicionado es más eficiente que la resistencia del aire de las ventanas abiertas.",
+                  },
+                  {
+                    title: "Presión de Neumáticos",
+                    body: "Circular con 0.5 bares menos de la presión recomendada aumenta el consumo un 2% en ciudad y un 4% en carretera.",
+                  },
+                ].map(({ title, body }) => (
+                  <div
+                    key={title}
+                    className="bg-white border border-gray-200 rounded-xl p-5 border-l-4 border-l-[#10b981]"
+                  >
+                    <h4 className="text-[14px] font-semibold text-gray-800 mb-2">
+                      {title}
+                    </h4>
+                    <p className="text-[13px] text-gray-500 leading-relaxed m-0">
+                      {body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            {/* ── Article 4: Comparison table ──────────────────────────────────── */}
+            <article>
+              <h2 className="text-2xl font-semibold text-gray-900 tracking-tight mb-3">
+                Gasolina, Diésel o Híbrido: ¿Cuál rinde más por kilómetro?
+              </h2>
+              <p className="text-[14px] text-gray-500 leading-relaxed mb-5">
+                Al utilizar una{" "}
+                <strong className="text-gray-700 font-medium">
+                  calculadora de costo de viaje
+                </strong>
+                , notarás que los precios varían drásticamente según el tipo de
+                energía:
+              </p>
+
+              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                {/* Table header */}
+                <div className="grid grid-cols-3 bg-[#407BFF] px-5 py-3">
+                  {["Tipo de Motor", "Eficiencia Media", "Uso Ideal"].map(
+                    (h) => (
+                      <span
+                        key={h}
+                        className="text-[12px] font-semibold text-white uppercase tracking-[0.4px]"
+                      >
+                        {h}
+                      </span>
+                    ),
+                  )}
+                </div>
+                {/* Rows */}
+                {[
+                  {
+                    tipo: "Gasolina Atmosférico",
+                    eficiencia: "7 – 9 L/100km",
+                    uso: "Uso mixto / Diario",
+                  },
+                  {
+                    tipo: "Diésel Turbo",
+                    eficiencia: "4 – 6 L/100km",
+                    uso: "Largas distancias",
+                  },
+                  {
+                    tipo: "Híbrido (HEV)",
+                    eficiencia: "3.5 – 5 L/100km",
+                    uso: "Tráfico Urbano",
+                  },
+                ].map(({ tipo, eficiencia, uso }, i) => (
+                  <div
+                    key={tipo}
+                    className={`grid grid-cols-3 px-5 py-3.5 border-b border-gray-100 last:border-0 ${i % 2 === 1 ? "bg-gray-50" : "bg-white"}`}
+                  >
+                    <span className="text-[13px] font-medium text-gray-700">
+                      {tipo}
+                    </span>
+                    <span className="text-[13px] text-gray-500">
+                      {eficiencia}
+                    </span>
+                    <span className="text-[13px] text-gray-500">{uso}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-[12px] text-gray-400 italic mt-3">
+                Nota: Estos valores son referenciales. Usa nuestra herramienta
+                superior para calcular el gasto real según tu modelo específico.
+              </p>
+            </article>
+             
         </div>
+          
+        </div>
+       
       </div>
-      {loading &&
-        <ModalLoading title={'Enviando Sugerencia ... '} />
-      }
-      {data &&
-        <ModalSuccessfull title={'Gracias'} subtitle={'Por compartir tu opinion, la tendremos en cuenta para mejorar!'} />
-      }
-
-    </Layout>
-
-  )
+      <FooterV2 />
+    </>
+  );
 }

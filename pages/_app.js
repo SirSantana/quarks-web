@@ -8,7 +8,6 @@ import { AuthProvider } from '@/Context/AuthContext';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 
-
 export default function App({ Component, pageProps, session }) {
   return (
     <>
