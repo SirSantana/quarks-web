@@ -91,46 +91,126 @@ export default function EngineDisplacementCalculator() {
     <>
       <Head>
         <title>
-          Engine Displacement Calculator | CID, CC & Liters (Bore & Stroke)
+          Engine Displacement Calculator (CID, CC & Liters) – Bore & Stroke
+          Formula
         </title>
 
         <meta
           name="description"
-          content="Calculate engine displacement in Cubic Inches (CID), Liters, and CC. Accurate tool for bore, stroke, and cylinder volume. Essential for engine builders and mechanics."
+          content="Free Engine Displacement Calculator. Instantly calculate CID (Cubic Inch Displacement), CC, and Liters using bore, stroke, and cylinder count. Accurate formula for engine builders, mechanics, and performance tuners."
         />
+
         <meta
-          name="keywords"
-          content="engine displacement calculator, CID calculator, calculate engine size, bore and stroke calculator, cubic inch displacement, engine volume tool"
+          name="robots"
+          content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
         />
+
         <link
           rel="canonical"
           href="https://www.quarks.com.co/engine-displacement-calculator"
         />
-        <meta name="robots" content="index, follow" />
 
-        {/* Open Graph for US Social Media (Facebook, LinkedIn, etc.) */}
+        <meta name="author" content="Quarks Automotive Tools" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Open Graph */}
         <meta
           property="og:title"
-          content="How to Calculate Engine Size? Professional CID & CC Tool"
+          content="Free Engine Displacement Calculator – CID, CC & Liters"
         />
         <meta
           property="og:description"
-          content="Determine exact engine displacement by entering bore, stroke, and cylinder count. Instant results in CID, Liters, and CC."
+          content="Calculate engine size using bore and stroke. Get accurate Cubic Inches (CID), CC and Liters instantly."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/favicon.png" />
-        <meta property="og:image:url" content="/favicon.png" />
-        <link rel="icon" href="/favicon.png" />
+        <meta
+          property="og:url"
+          content="https://www.quarks.com.co/engine-displacement-calculator"
+        />
+        <meta
+          property="og:image"
+          content="https://www.quarks.com.co/glosarioautomotriz.png"
+        />
+        <meta property="og:site_name" content="Quarks Automotive Tools" />
 
-        {/* Twitter Card */}
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Engine Displacement & CID Calculator"
+          content="Engine Displacement Calculator – CID & CC Tool"
         />
         <meta
           name="twitter:description"
-          content="Calculate Cubic Inch Displacement (CID) and CC for any engine build professionally."
+          content="Professional bore and stroke calculator for engine builders and mechanics."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.quarks.com.co/glosarioautomotriz.png"
+        />
+
+        <link rel="icon" href="/favicon.png" />
+
+        {/* Structured Data – SoftwareApplication */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "Engine Displacement Calculator",
+              url: "https://www.quarks.com.co/engine-displacement-calculator",
+              applicationCategory: "UtilitiesApplication",
+              operatingSystem: "All",
+              description:
+                "Online calculator to compute engine displacement in Cubic Inches (CID), CC, and Liters using bore, stroke, and cylinder count.",
+              creator: {
+                "@type": "Organization",
+                name: "Quarks Automotive Tools",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+            }),
+          }}
+        />
+
+        {/* FAQ Structured Data – increases rich results probability */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "How do you calculate engine displacement?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Engine displacement is calculated using the formula: (π/4) × bore² × stroke × number of cylinders.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What is CID in engines?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "CID stands for Cubic Inch Displacement, a measurement of total engine cylinder volume used mainly in the United States.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Is engine displacement the same as engine size?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes. Engine size refers to total cylinder displacement, usually expressed in liters, CC, or cubic inches.",
+                  },
+                },
+              ],
+            }),
+          }}
         />
 
         <script
@@ -153,31 +233,6 @@ export default function EngineDisplacementCalculator() {
             }}
           />
         )}
-        {/* Schema.org Structured Data for Google USA */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "Professional Engine Displacement Calculator",
-              operatingSystem: "All",
-              applicationCategory: "UtilitiesApplication",
-              description:
-                "Technical tool for calculating the volumetric displacement of internal combustion engines in CID, CC, and Liters.",
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.9",
-                ratingCount: "1240",
-              },
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
-              },
-            }),
-          }}
-        />
       </Head>
 
       <div style={{ display: "flex" }}>
