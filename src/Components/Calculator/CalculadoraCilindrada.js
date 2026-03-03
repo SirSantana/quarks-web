@@ -272,7 +272,7 @@ export default function CalculadoraCilindradaComponent() {
                     onChange={setDiametro}
                     suffix="mm"
                     step={0.1}
-                    min={10}
+                    min={0}
                     max={200}
                   />
                 }
@@ -297,7 +297,7 @@ export default function CalculadoraCilindradaComponent() {
                     onChange={setCarrera}
                     suffix="mm"
                     step={0.1}
-                    min={10}
+                    min={0}
                     max={200}
                   />
                 }

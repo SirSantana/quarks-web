@@ -213,8 +213,8 @@ export default function EngineDisplacementCalculatorComponent() {
   // ── Unit ranges ──────────────────────────────────────────────────────────
   const maxBore = unitSystem === "in" ? 6.0 : 150;
   const maxStroke = unitSystem === "in" ? 6.0 : 150;
-  const minBore = unitSystem === "in" ? 1.5 : 40;
-  const minStroke = unitSystem === "in" ? 1.5 : 40;
+  const minBore = unitSystem === "in" ? 1.5 : 0;
+  const minStroke = unitSystem === "in" ? 1.5 : 0;
   const sliderStep = unitSystem === "in" ? 0.001 : 0.5;
   const inputStep = unitSystem === "in" ? 0.001 : 0.1;
   const unitLabel = unitSystem === "in" ? "in" : "mm";
