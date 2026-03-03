@@ -209,7 +209,6 @@ export default function EngineDisplacementCalculatorComponent() {
   useEffect(() => {
     if (data) setTimeout(() => router.reload(), 3000);
   }, [data]);
-
   // ── Unit ranges ──────────────────────────────────────────────────────────
   const maxBore = unitSystem === "in" ? 6.0 : 150;
   const maxStroke = unitSystem === "in" ? 6.0 : 150;
