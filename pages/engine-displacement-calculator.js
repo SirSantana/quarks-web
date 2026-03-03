@@ -1,4 +1,5 @@
 import EngineDisplacementCalculatorComponent from "@/src/Components/Calculator/EngineCalculator";
+import FooterV2 from "@/src/Components/Footer/FooterV2";
 import Head from "next/head";
 
 export const OTHER_CALCULATORS = [
@@ -404,6 +405,8 @@ export default function EngineDisplacementCalculator() {
           </div>
         </div>
       </div>
+        <FooterV2 />
+
     </>
   );
 }

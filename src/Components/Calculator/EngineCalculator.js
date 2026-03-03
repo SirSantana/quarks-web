@@ -198,7 +198,7 @@ export default function EngineDisplacementCalculatorComponent() {
   // US defaults: inches, V8
   const [unitSystem, setUnitSystem] = useState("in");
   const [engineType, setEngineType] = useState("gasoline");
-  const [numCylinders, setNumCylinders] = useState(8);
+  const [numCylinders, setNumCylinders] = useState(4);
   const [bore, setBore] = useState(4.0); // inches
   const [stroke, setStroke] = useState(3.48); // inches
   const [chamberVol, setChamberVol] = useState(2.32); // cc (always cc)
