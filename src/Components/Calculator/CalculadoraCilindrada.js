@@ -90,6 +90,35 @@ function NumberInput({
   min = 0,
   max,
 }) {
+  const [raw, setRaw] = useState(String(value));
+
+  useEffect(() => {
+    setRaw(String(value));
+  }, [value]);
+
+  const handleChange = (e) => {
+    const str = e.target.value;
+    setRaw(str);
+
+    const parsed = parseFloat(str);
+    if (!isNaN(parsed)) {
+      const clamped = Math.min(max ?? Infinity, Math.max(min, parsed));
+      onChange(clamped);
+    }
+  };
+
+  const handleBlur = () => {
+    const parsed = parseFloat(raw);
+    if (isNaN(parsed)) {
+      setRaw(String(min));
+      onChange(min);
+    } else {
+      const clamped = Math.min(max ?? Infinity, Math.max(min, parsed));
+      setRaw(String(clamped));
+      onChange(clamped);
+    }
+  };
+
   return (
     <div className="flex items-baseline gap-0.5">
       <input
@@ -97,15 +126,9 @@ function NumberInput({
         step={step}
         min={min}
         max={max}
-        value={value}
-        onChange={(e) =>
-          onChange(
-            Math.min(
-              max ?? Infinity,
-              Math.max(min, parseFloat(e.target.value) || 0),
-            ),
-          )
-        }
+        value={raw}
+        onChange={handleChange}
+        onBlur={handleBlur}
         className={`${wide ? "w-20" : "w-[70px]"} text-right text-[22px] font-semibold bg-transparent border-none text-gray-900 p-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
       />
       {suffix && <span className="text-[13px] text-gray-300">{suffix}</span>}
@@ -265,7 +288,7 @@ export default function CalculadoraCilindradaComponent() {
                 label="Diámetro del cilindro"
                 sublabel="Calibre (bore)"
                 minLabel="40 mm"
-                maxLabel="150 mm"
+                maxLabel="200 mm"
                 input={
                   <NumberInput
                     value={diametro}
@@ -279,7 +302,7 @@ export default function CalculadoraCilindradaComponent() {
               >
                 <CustomSlider
                   min={40}
-                  max={150}
+                  max={200}
                   step={0.5}
                   value={diametro}
                   onChange={setDiametro}
@@ -290,7 +313,7 @@ export default function CalculadoraCilindradaComponent() {
                 label="Carrera del pistón"
                 sublabel="PMS → PMI (stroke)"
                 minLabel="40 mm"
-                maxLabel="150 mm"
+                maxLabel="200 mm"
                 input={
                   <NumberInput
                     value={carrera}
@@ -304,7 +327,7 @@ export default function CalculadoraCilindradaComponent() {
               >
                 <CustomSlider
                   min={40}
-                  max={150}
+                  max={200}
                   step={0.5}
                   value={carrera}
                   onChange={setCarrera}

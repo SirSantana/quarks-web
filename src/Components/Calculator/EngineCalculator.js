@@ -63,7 +63,7 @@ function Row({ label, value, large = false, sublabel = null }) {
         )}
       </div>
       <span
-        className={`${large ? "text-[22px] font-semibold font-mono  tracking-tight" : "text-[15px] font-medium font-mono "} text-gray-900 text-right`}
+        className={`${large ? "text-[22px] font-semibold font-mono tracking-tight" : "text-[15px] font-medium font-mono"} text-gray-900 text-right`}
       >
         {value}
       </span>
@@ -90,6 +90,34 @@ function NumberInput({
   min = 0,
   max,
 }) {
+  const [raw, setRaw] = useState(String(value));
+
+  useEffect(() => {
+    setRaw(String(value));
+  }, [value]);
+
+  const handleChange = (e) => {
+    const str = e.target.value;
+    setRaw(str);
+    const parsed = parseFloat(str);
+    if (!isNaN(parsed)) {
+      const clamped = Math.min(max ?? Infinity, Math.max(min, parsed));
+      onChange(clamped);
+    }
+  };
+
+  const handleBlur = () => {
+    const parsed = parseFloat(raw);
+    if (isNaN(parsed)) {
+      setRaw(String(min));
+      onChange(min);
+    } else {
+      const clamped = Math.min(max ?? Infinity, Math.max(min, parsed));
+      setRaw(String(clamped));
+      onChange(clamped);
+    }
+  };
+
   return (
     <div className="flex items-baseline gap-0.5">
       <input
@@ -97,15 +125,9 @@ function NumberInput({
         step={step}
         min={min}
         max={max}
-        value={value}
-        onChange={(e) =>
-          onChange(
-            Math.min(
-              max ?? Infinity,
-              Math.max(min, parseFloat(e.target.value) || 0),
-            ),
-          )
-        }
+        value={raw}
+        onChange={handleChange}
+        onBlur={handleBlur}
         className={`${wide ? "w-20" : "w-[78px]"} text-right text-[22px] font-semibold bg-transparent border-none text-gray-900 p-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
       />
       {suffix && <span className="text-[13px] text-gray-300">{suffix}</span>}
@@ -195,13 +217,12 @@ function getCRRating(cr, engineType) {
 export default function EngineDisplacementCalculatorComponent() {
   const router = useRouter();
 
-  // US defaults: inches, V8
   const [unitSystem, setUnitSystem] = useState("in");
   const [engineType, setEngineType] = useState("gasoline");
   const [numCylinders, setNumCylinders] = useState(4);
-  const [bore, setBore] = useState(4.0); // inches
-  const [stroke, setStroke] = useState(3.48); // inches
-  const [chamberVol, setChamberVol] = useState(2.32); // cc (always cc)
+  const [bore, setBore] = useState(4.0);
+  const [stroke, setStroke] = useState(3.48);
+  const [chamberVol, setChamberVol] = useState(2.32);
   const [rpm, setRpm] = useState(5500);
   const [feedback, setFeedback] = useState("");
 
@@ -209,7 +230,7 @@ export default function EngineDisplacementCalculatorComponent() {
   useEffect(() => {
     if (data) setTimeout(() => router.reload(), 3000);
   }, [data]);
-  // ── Unit ranges ──────────────────────────────────────────────────────────
+
   const maxBore = unitSystem === "in" ? 6.0 : 150;
   const maxStroke = unitSystem === "in" ? 6.0 : 150;
   const minBore = unitSystem === "in" ? 1.5 : 0;
@@ -218,7 +239,6 @@ export default function EngineDisplacementCalculatorComponent() {
   const inputStep = unitSystem === "in" ? 0.001 : 0.1;
   const unitLabel = unitSystem === "in" ? "in" : "mm";
 
-  // Switch unit and convert values
   const switchUnit = (newUnit) => {
     if (newUnit === unitSystem) return;
     if (newUnit === "mm") {
@@ -257,6 +277,15 @@ export default function EngineDisplacementCalculatorComponent() {
 
   const valid = bore > 0 && stroke > 0 && numCylinders > 0;
 
+  // ── Primary hero display: unit-aware ─────────────────────────────────────
+  const primaryValue = unitSystem === "in"
+    ? { display: dispCuIn.toFixed(1), unit: "cu in" }
+    : { display: fmt(Math.round(dispTotal)), unit: "cc" };
+
+  const secondaryLine = unitSystem === "in"
+    ? `${dispLiters.toFixed(3)} L · ${fmt(Math.round(dispTotal))} cc · ${numCylinders} cyl`
+    : `${dispLiters.toFixed(3)} L · ${dispCuIn.toFixed(2)} cu in · ${numCylinders} cyl`;
+
   return (
     <div className="min-h-screen bg-[#f4f4f2] px-8 py-14 max-sm:px-4 max-sm:py-7">
       <div className="max-w-[1100px] mx-auto">
@@ -276,7 +305,6 @@ export default function EngineDisplacementCalculatorComponent() {
           <div className="grid grid-cols-[440px_1fr] max-[880px]:grid-cols-1">
             {/* ── LEFT: Form ── */}
             <div className="p-8 border-r border-gray-200 max-[880px]:border-r-0 max-[880px]:border-b max-sm:p-6">
-              {/* Engine type + cylinders */}
               <div className="flex gap-3 mb-4">
                 <CalcSelect
                   label="Engine Type"
@@ -299,7 +327,6 @@ export default function EngineDisplacementCalculatorComponent() {
                 </CalcSelect>
               </div>
 
-              {/* Measurement units */}
               <div className="mb-8">
                 <CalcSelect
                   label="Measurement Units"
@@ -311,7 +338,6 @@ export default function EngineDisplacementCalculatorComponent() {
                 </CalcSelect>
               </div>
 
-              {/* Bore */}
               <SliderField
                 label="Bore"
                 sublabel="Cylinder diameter"
@@ -337,7 +363,6 @@ export default function EngineDisplacementCalculatorComponent() {
                 />
               </SliderField>
 
-              {/* Stroke */}
               <SliderField
                 label="Stroke"
                 sublabel="TDC → BDC distance"
@@ -363,7 +388,6 @@ export default function EngineDisplacementCalculatorComponent() {
                 />
               </SliderField>
 
-              {/* Chamber volume */}
               <SliderField
                 label="Chamber Volume"
                 sublabel="Combustion chamber at TDC (cc)"
@@ -389,7 +413,6 @@ export default function EngineDisplacementCalculatorComponent() {
                 />
               </SliderField>
 
-              {/* RPM */}
               <SliderField
                 label="Engine Speed"
                 sublabel="For mean piston speed calculation"
@@ -427,24 +450,22 @@ export default function EngineDisplacementCalculatorComponent() {
                 </div>
               ) : (
                 <>
-                  {/* Primary — cubic inches (US standard) */}
+                  {/* Primary hero — switches between cu in and cc */}
                   <div className="mb-7">
                     <p className="text-[11px] font-medium text-gray-300 tracking-[0.5px] uppercase mb-1.5">
                       Total displacement
                     </p>
-                    <p className="text-[60px] font-semibold leading-none tracking-[-2px] text-[#407BFF] m-0">
-                      {dispCuIn.toFixed(1)}
-                      <span className="text-lg font-normal text-gray-300 ml-2 tracking-normal">
-                        cu in
+                    <p className="text-[60px] font-semibold leading-none tracking-[-2px] font-mono text-[#407BFF] m-0">
+                      {primaryValue.display}
+                      <span className="text-lg font-normal  text-gray-300 ml-2 tracking-normal">
+                        {primaryValue.unit}
                       </span>
                     </p>
                     <p className="text-sm text-gray-300 mt-1.5 mb-0">
-                      {dispLiters.toFixed(3)} L · {fmt(Math.round(dispTotal))}{" "}
-                      cc · {numCylinders} cyl
+                      {secondaryLine}
                     </p>
                   </div>
 
-                  {/* Geometry badge */}
                   {geomType && (
                     <div
                       className="mb-5 px-3.5 py-3 bg-gray-50 rounded-xl"
@@ -462,12 +483,15 @@ export default function EngineDisplacementCalculatorComponent() {
                     </div>
                   )}
 
-                  {/* Displacement */}
                   <SectionLabel>Displacement</SectionLabel>
                   <Row
                     label="Per cylinder"
                     sublabel="Single cylinder volume"
-                    value={`${(dispPerCyl / 16.387).toFixed(3)} cu in`}
+                    value={
+                      unitSystem === "in"
+                        ? `${(dispPerCyl / 16.387).toFixed(3)} cu in`
+                        : `${dispPerCyl.toFixed(2)} cc`
+                    }
                     large
                   />
                   <Row
@@ -483,7 +507,6 @@ export default function EngineDisplacementCalculatorComponent() {
                     value={`${fmt(Math.round(dispTotal))} cc`}
                   />
 
-                  {/* Compression ratio */}
                   <SectionLabel mt>Compression Ratio</SectionLabel>
                   <Row
                     label="Compression ratio (CR)"
@@ -500,7 +523,6 @@ export default function EngineDisplacementCalculatorComponent() {
                     value={`${(chamberVol / 16.387).toFixed(3)} cu in · ${chamberVol.toFixed(2)} cc`}
                   />
 
-                  {/* CR badge */}
                   {crRating && (
                     <div className="inline-flex items-center gap-1.5 mt-2 mb-4 px-3 py-2 bg-gray-50 rounded-lg">
                       <span
@@ -513,17 +535,28 @@ export default function EngineDisplacementCalculatorComponent() {
                     </div>
                   )}
 
-                  {/* Piston dynamics */}
                   <SectionLabel>Piston Dynamics</SectionLabel>
                   <Row
                     label="Mean piston speed"
                     sublabel={`At ${fmt(rpm)} rpm`}
-                    value={`${fmt(Math.round(meanPistonSpeedFtMin))} ft/min`}
+                    value={
+                      unitSystem === "in"
+                        ? `${fmt(Math.round(meanPistonSpeedFtMin))} ft/min`
+                        : `${meanPistonSpeedMs.toFixed(2)} m/s`
+                    }
                     large
                   />
                   <Row
-                    label="Mean piston speed (metric)"
-                    value={`${meanPistonSpeedMs.toFixed(2)} m/s`}
+                    label={
+                      unitSystem === "in"
+                        ? "Mean piston speed (metric)"
+                        : "Mean piston speed (imperial)"
+                    }
+                    value={
+                      unitSystem === "in"
+                        ? `${meanPistonSpeedMs.toFixed(2)} m/s`
+                        : `${fmt(Math.round(meanPistonSpeedFtMin))} ft/min`
+                    }
                   />
                   <Row
                     label="Stroke / Bore ratio"
@@ -531,10 +564,13 @@ export default function EngineDisplacementCalculatorComponent() {
                   />
                   <Row
                     label="Bore area"
-                    value={`${((Math.PI / 4) * Math.pow(strokeIn, 2)).toFixed(4)} in²`}
+                    value={
+                      unitSystem === "in"
+                        ? `${((Math.PI / 4) * Math.pow(strokeIn, 2)).toFixed(4)} in²`
+                        : `${((Math.PI / 4) * Math.pow(boreMM, 2)).toFixed(2)} mm²`
+                    }
                   />
 
-                  {/* Estimated HP */}
                   <SectionLabel mt>
                     Estimated Power (naturally aspirated)
                   </SectionLabel>
