@@ -42,7 +42,7 @@ const ITEMS_MANTENIMIENTO = [
   {
     id: "correa_distribucion",
     categoria: "Motor",
-    label: "Correa de distribución",
+    label: "Correa / Cadena de distribución",
     desc: "Crítico — su rotura puede causar daños graves al motor.",
     intervalo: "Cada 60.000–120.000 km",
     prioridad: "alta",
