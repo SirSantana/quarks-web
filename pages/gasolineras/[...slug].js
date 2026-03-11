@@ -1,5 +1,4 @@
-import dynamic from 'next/dynamic'
-import Icon, { IconCatalog } from '@/src/Components/Icon/Icon';
+import dynamic from 'next/dynamic';
 import Layout from '@/src/Components/Layout';
 import { useState } from 'react';
 import PriceFormat from '@/utils/priceFormat';
@@ -11,294 +10,299 @@ import { calcularDistancia, priceToCheck } from '@/utils/scripts';
 import ModalGasolinera from '@/src/Components/Gasolineras/ModalGasolinera';
 import Loader from '@/src/Components/Loaders/CardLoader';
 import SelectTipoCombustible from '@/src/Components/Gasolineras/SelectTipoCombustible';
+import { List, Map as MapIcon } from 'lucide-react';
 
-const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'),
-  { ssr: false, loading: () => <Loader /> })
-
-const Star = ({ index, stars, tamaño, }) => {
-  return (
-    // <img src={stars < index + 1 ? `../../star-outline.svg` : `../../star.svg`} style={{ height: `${tamaño}px`, width: `${tamaño}px` }} />
-    <Icon size='sm' name={IconCatalog.star} style={{ color: stars < index + 1 ? '#c5c5c5' : '#FBBC04', fontSize: '12px' }} />
-
-  )
-}
-let estrellas = [0, 1, 2, 3, 4]
-let tagsFix = ['Gasolineras', 'Estaciones de Servicio', 'gasolineras cerca', 'bombas de gasolina', 'gasolinera cerca de mi', 'estación de servicio más cercana', 'bombas de gasolina cerca', 'bombas de gasolina cerca de mi', 'bombas gasolina cerca', 'gasolinera terpel']
+const Map = dynamic(() => import('@/src/Components/Gasolineras/Map'), {
+  ssr: false,
+  loading: () => <Loader />,
+});
 
 export default function Gasolineras({ data }) {
-  const { query, } = useRouter()
-  const [visibleData, setVisibleData] = useState(false)
-  const [estacionCheck, setEstacionCheck] = useState(null)
-  const [visibleModal, setVisibleModal] = useState(false)
-  const [visibleModalFiltros, setVisibleModalFiltros] = useState(false)
-  const [filter, setFilter] = useState('marca')
-  const [userLocation, setUserLocation] = useState([0, 0]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [visibleListado, setVisibleListado] = useState(false)
-  let filteredData = data?.filter(el => el.price !== null).sort((a, b) => a.price - b.price)
-  let filteredDataExtra = data?.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos)
-  const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false)
+  const { query } = useRouter();
+  const ciudad = query?.slug?.[0] || 'Bogotá';
+
+  const [estacionCheck,          setEstacionCheck]          = useState(null);
+  const [visibleModal,           setVisibleModal]           = useState(false);
+  const [visibleModalFiltros,    setVisibleModalFiltros]    = useState(false);
+  const [visibleModalPicoyPlaca, setVisibleModalPicoyPlaca] = useState(false);
+  const [userLocation,           setUserLocation]           = useState([0, 0]);
+  const [isLoading,              setIsLoading]              = useState(false);
+  const [visibleListado,         setVisibleListado]         = useState(false);
 
   const filtros = query?.combustible?.split(',');
-  const gasolineraEncontrada = data?.find(gasolinera => gasolinera.nombre === estacionCheck);
-
-  const queryString2 = query?.ordernar || '';
-  const cerca = queryString2.includes('cerca');
-
 
   data?.forEach(estacion => {
     estacion.distancia = calcularDistancia(userLocation[0], userLocation[1], estacion.lat, estacion.lng);
   });
-  const validPrices = data?.filter(gasolinera => {
-    if (filtros?.includes('extra')) {
-      return gasolinera.priceDos !== null && typeof gasolinera.priceDos === 'number';
-    }
-    if (filtros?.includes('corriente')) {
-      return gasolinera.price !== null && typeof gasolinera.price === 'number';
-    }
-    if (filtros?.includes('diesel')) {
-      return gasolinera.priceCinco !== null && typeof gasolinera.priceCinco === 'number';
-    }
-    // Si no hay filtros, usar 'corriente' por defecto
-    return gasolinera.price !== null && typeof gasolinera.price === 'number';
-  });
 
-  // Ordenar los datos filtrados por precio según el filtro seleccionado
-  const sortedData = validPrices?.sort((a, b) => {
-    if (filtros?.includes('extra')) {
-      return a.priceDos - b.priceDos;
-    }
-    if (filtros?.includes('corriente')) {
-      return a.price - b.price;
-    }
-    if (filtros?.includes('diesel')) {
-      return a.priceCinco - b.priceCinco;
-    }
-    // Si no hay filtros, usar 'corriente' por defecto
+  const filteredData      = data?.filter(el => el.price    !== null).sort((a, b) => a.price    - b.price) ?? [];
+  const filteredDataExtra = data?.filter(el => el.priceDos !== null).sort((a, b) => a.priceDos - b.priceDos) ?? [];
+  const gasolineraEncontrada = data?.find(g => g.nombre === estacionCheck);
+
+  const validPrices = data?.filter(g => {
+    if (filtros?.includes('extra'))  return g.priceDos   !== null && typeof g.priceDos   === 'number';
+    if (filtros?.includes('diesel')) return g.priceCinco !== null && typeof g.priceCinco === 'number';
+    return g.price !== null && typeof g.price === 'number';
+  }) ?? [];
+
+  const sortedData = [...validPrices].sort((a, b) => {
+    if (filtros?.includes('extra'))  return a.priceDos   - b.priceDos;
+    if (filtros?.includes('diesel')) return a.priceCinco - b.priceCinco;
     return a.price - b.price;
   });
 
-  // Sumar todos los precios válidos según el filtro seleccionado
-  const totalPrice = validPrices?.reduce((accumulator, gasolinera) => {
-    if (filtros?.includes('extra')) {
-      return accumulator + gasolinera.priceDos;
-    }
-    if (filtros?.includes('corriente')) {
-      return accumulator + gasolinera.price;
-    }
-    if (filtros?.includes('diesel')) {
-      return accumulator + gasolinera.priceCinco;
-    }
-    // Si no hay filtros, usar 'corriente' por defecto
-    return accumulator + gasolinera.price;
+  const totalPrice = validPrices.reduce((acc, g) => {
+    if (filtros?.includes('extra'))  return acc + g.priceDos;
+    if (filtros?.includes('diesel')) return acc + g.priceCinco;
+    return acc + g.price;
   }, 0);
 
-  // Calcular el precio promedio
-  const averagePrice = validPrices?.length > 0 ? totalPrice / validPrices.length : 0;
+  const averagePrice = validPrices.length > 0 ? totalPrice / validPrices.length : 0;
 
   return (
-    <Layout title={`Mapa de Gasolineras en ${query?.slug?.[0].length > 0 ? query?.slug?.[0] : 'Bogota'}`} visibleNavbar={false} description={'Descubre y compara precios con mas de 85 bombas de gasolina en Bogota. Colombia. Estaciones de gasolina cerca con ubicacion y precios.'} keywords={'Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estacion de gasolina cerca, estación de servicio más cercana, bombas de gasolina cerca'}>
-      <section style={{
-        backgroundColor: 'white', // Fondo blanco
-        margin: '0px auto 0 auto',
-        padding: '24px 0 8px 0',
-        width: '90%',
-        maxWidth: '1200px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '16px',
-      }}>
-        <h1 style={{ color: '#182537' }}>Precio Gasolineras Terpel en {query?.slug?.[0].length > 0 ? query?.slug?.[0] : 'Bogota'}</h1>
-      </section>
-      <div style={{
-        position: 'sticky',
-        top: '0',  // Mantiene el div en la parte superior mientras se hace scroll
-        backgroundColor: 'white',  // Asegura que el fondo sea blanco mientras se desplaza
-        zIndex: 3,  // Asegura que el div se mantenga por encima de otros elementos
-        display: 'flex',
-        flexDirection: 'row',
-        gap: '24px',
-        margin: '0px auto 0 auto',
-        alignItems: 'center',
-        width: '90%',
-        justifyContent: 'space-between',
-        maxWidth: '1200px',
-        overflowX: 'auto',
-        height: 'fit-content',
-        padding: '16px 0'  // Añadir un poco de padding para mantener el diseño consistente
-      }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '24px', alignItems: 'center' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Ciudad</label>
-            <SelectCiudad setIsLoading={setIsLoading} />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Tipo de Combustible</label>
-            <SelectTipoCombustible />
-          </div>
-        </div>
-        <button onClick={() => setVisibleListado(!visibleListado)} style={{
-          cursor: 'pointer', border: '1px solid #6C788E', padding: '8px 12px', borderRadius: '4px', fontSize: '12px', color: '#6C788E', backgroundColor: 'white', fontWeight: '500', marginTop: '16px', whiteSpace: 'nowrap', // Asegura que el texto no se rompa en varias líneas
-          display: 'inline-block'
-        }}>
-          {visibleListado ? 'Ver Mapa' : 'Ver Lista'}
-        </button>
-        {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <label style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Orden por</label>
-          <SelectOrderBy />
-        </div> */}
-      </div>
-      {isLoading ?
-        <div style={{
-          width: '90%',
-          maxWidth: '1200px',
-          border: '1px solid #CFD5E1',
-          borderRadius: '16px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '32px',
-          backgroundColor: "#f3f3f3",
-          margin: '32px auto',
-          position: 'relative',
-          height: '70vh'
-        }} />
-        :
-        <div style={{
-          width: '90%',
-          maxWidth: '1200px',
-          border: '1px solid #CFD5E1',
-          borderRadius: '16px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '32px',
-          margin: '32px auto',
-          position: 'relative',
-        }}>
-          {visibleListado && <div style={{ border: '1px solid #CFD5E1', boxShadow: '', position: 'absolute', height: '90%', top: '16px', left: '16px', bottom: '16px', backgroundColor: 'white', width: '300px', padding: '16px 0px 16px 16px', borderRadius: '8px', zIndex: 2 }}>
-            <ul
-              style={{ listStyleType: 'none', transition: 'overflow 1s ease-in-out', padding: 0, paddingRight: '16px', scrollbarWidth: 'thin', overflowY: 'hidden', height: '100%', display: 'flex', flexDirection: 'column', gap: '32px' }}
-              onMouseEnter={(e) => { e.currentTarget.style.overflowY = 'auto', e.currentTarget.style.padding = '0 4.8px 0 0' }} // Muestra el scroll al hacer hover
-              onMouseLeave={(e) => { e.currentTarget.style.overflowY = 'hidden', e.currentTarget.style.padding = '0 16px 0 0' }}
+    <Layout
+      title={`Mapa de Gasolineras en ${ciudad}`}
+      visibleNavbar={false}
+      description={`Descubre y compara precios con más de 85 bombas de gasolina en ${ciudad}. Estaciones de gasolina cerca con ubicación y precios.`}
+      keywords="Gasolineras, Estaciones de Servicio, gasolineras cerca, bombas de gasolina, gasolinera cerca de mi, estación de servicio más cercana"
+    >
+      {/* ── PAGE HEADER ─────────────────────────────────────────────────── */}
+      <div className="border-b border-gray-100 bg-white relative" style={{ zIndex: 10 }}>
+        <div className="max-w-[1200px] mx-auto px-6 pt-8 pb-0 max-sm:px-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[1px] text-[#407BFF] mb-2">
+            {ciudad}
+          </p>
+          <h1 className="text-[26px] sm:text-[30px] font-bold text-gray-950 tracking-tight leading-snug mb-1">
+            Precio Gasolineras Terpel en {ciudad}
+          </h1>
+          <p className="text-[14px] text-gray-400 mb-5">
+            Precios en tiempo real de combustible en {ciudad}.
+          </p>
+
+          {/* Controls */}
+          <div className="flex items-end gap-6 pb-0 overflow-x-auto scrollbar-hide">
+            <div className="flex items-end gap-5 shrink-0">
+              <div>
+                <label className="block text-[11px] font-semibold uppercase tracking-[0.5px] text-gray-400 mb-1.5">
+                  Ciudad
+                </label>
+                <SelectCiudad setIsLoading={setIsLoading} />
+              </div>
+              <div>
+                <label className="block text-[11px] font-semibold uppercase tracking-[0.5px] text-gray-400 mb-1.5">
+                  Combustible
+                </label>
+                <SelectTipoCombustible />
+              </div>
+            </div>
+
+            {/* Avg price */}
+            {averagePrice > 0 && (
+              <div className="shrink-0 ml-auto pb-1">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.8px] text-gray-400 mb-0.5 text-right">
+                  Precio promedio
+                </p>
+                <p className="text-[22px] font-bold text-gray-900 leading-none tracking-tight">
+                  ${PriceFormat({ price: Math.round(averagePrice).toString() })}
+                  <span className="text-[12px] font-normal text-gray-400 ml-1">COP/gal</span>
+                </p>
+              </div>
+            )}
+
+            {/* Toggle */}
+            <button
+              onClick={() => setVisibleListado(!visibleListado)}
+              className={`shrink-0 inline-flex items-center gap-1.5 px-3 py-2 mb-1 text-[12px] font-medium rounded-lg border transition-colors ${
+                visibleListado
+                  ? 'border-[#407BFF] text-[#407BFF] bg-[#eef2ff]'
+                  : 'border-gray-200 text-gray-500 bg-gray-50 hover:bg-white'
+              }`}
             >
-              {data.map(el => {
-                let price = priceToCheck({ price: el, filtros });
-                return (
-                  <li style={{ display: 'flex', flexDirection: 'column', width: '100%', justifyContent: 'space-between', gap: '8px' }}>
-                    <p style={{ fontSize: '14px', color: '#182537', fontWeight: '500' }}>{el.nombre}</p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
-                      <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <p style={{ fontSize: '14px', color: '#6C788E' }}>Precio:</p><p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>${PriceFormat({ price: price?.toString() })}</p>
-                      </div>
-                      {/* <div style={{ display: 'flex', flexDirection: 'row', gap: '8px', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <p style={{ fontSize: '14px', color: '#6C788E' }}>Distancia:</p><p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>{el?.distancia}</p>
-                    </div> */}
-                    </div>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>}
-          <div style={{ position: 'absolute', bottom: '0px', right: '0px', backgroundColor: 'white', padding: '16px', borderRadius: '4px', zIndex: 2 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FF0000', }}>
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 244l144-144 144 144M256 120v292" /></svg>
-              </div>
-              <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas ALTO del promedio</p>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#FFA500', }}>
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M128 256h256" /></svg>
-              </div>
-              <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio promedio</p>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '20px', height: '20px', padding: '3px', borderRadius: '50%', border: '1px solid white', color: 'white', backgroundColor: '#00A83E', }}>
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="M112 268l144 144 144-144M256 392V100" /></svg>
-              </div>
-              <p style={{ fontSize: '14px', color: '#6C788E', fontWeight: '500' }}>Precio mas BAJO del promedio</p>
-            </div>
-
+              {visibleListado
+                ? <><MapIcon className="w-3.5 h-3.5" /> Ver mapa</>
+                : <><List className="w-3.5 h-3.5" /> Ver lista</>
+              }
+            </button>
           </div>
-          <Map data={data} estacionCheck={estacionCheck} setVisibleModal={setVisibleModal} setEstacionCheck={setEstacionCheck} filtros={filtros} averagePrice={averagePrice} />
         </div>
-      }
-      <div style={{ width: '90%', maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '32px', margin: '64px auto', }}>
-        <section>
-          <h2>Bombas de Gasolina  {query?.slug?.[0]}</h2>
-          <p>Encuentra fácilmente las bombas de gasolina más cercanas a ti. Nuestra plataforma te proporciona información detallada sobre las diferentes bombas de gasolina disponibles, sus ubicaciones exactas, horarios de atención y servicios adicionales que ofrecen.</p>
-        </section>
-
-        <section>
-          <h2>Gasolineras </h2>
-          <p>Explora nuestra extensa red de gasolineras cerca en {query?.slug?.[0]} y sus alrededores. Desde gasolina regular hasta combustibles premium, nuestras gasolineras están diseñadas para satisfacer las necesidades de cada conductor. Encuentra aquí información sobre las gasolineras disponibles, sus servicios y promociones actuales.</p>
-        </section>
-
-        <section>
-          <h2>Gasolineras cerca</h2>
-          <p>Descubre las ventajas de abastecer tu vehículo en las gasolineras Terpel. Con una amplia cobertura en todo el país, las estaciones de servicio ofrecen combustibles de alta calidad y una experiencia de atención al cliente excepcional. Encuentra aquí todas las gasolineras Terpel disponibles en tu área, junto con detalles sobre sus servicios y ubicaciones.</p>
-        </section>
-
-        <section>
-          <h2>Estaciones de Servicio {query?.slug?.[0]}</h2>
-          <p>Encuentra aquí todas las estaciones de servicio disponibles en nuestra plataforma. Desde gasolineras convencionales hasta puntos de carga para vehículos eléctricos, te ofrecen una amplia variedad de opciones para abastecer tu vehículo y disfrutar de una experiencia de conducción sin preocupaciones. Explora las estaciones de servicio y encuentra la más cercana a ti. Gasolinera cerca de mi.</p>
-        </section>
       </div>
-      {visibleModal &&
-        <ModalGasolinera data={gasolineraEncontrada} setVisibleModal={setVisibleModal} precioAlto={filteredData[filteredData.length - 1]} precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]} />}
-      {visibleModalFiltros && <ModalFiltrosGasolineras setVisibleModalFiltros={setVisibleModalFiltros} setUserLocation={setUserLocation} userLocation={userLocation} />}
-      {visibleModalPicoyPlaca && <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />}
 
+      {/* ── MAP / LIST ──────────────────────────────────────────────────── */}
+      <div className="max-w-[1200px] mx-auto px-6 py-5 max-sm:px-4">
+        {isLoading ? (
+          <div className="w-full h-[70vh] bg-gray-100 rounded-2xl animate-pulse" />
+        ) : (
+          <div
+            className="relative w-full rounded-2xl overflow-hidden border border-gray-200"
+            style={{ height: '70vh' }}
+          >
+            {/* Station list panel */}
+            {visibleListado && (
+              <div className="absolute top-3 left-3 bottom-3 w-[280px] bg-white rounded-xl border border-gray-200 shadow-sm z-[2] flex flex-col overflow-hidden">
+                <div className="px-4 py-3 border-b border-gray-100 shrink-0">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.5px] text-gray-400">
+                    {sortedData.length} estaciones
+                  </p>
+                </div>
+                <ul className="flex-1 overflow-y-auto divide-y divide-gray-100 scrollbar-thin">
+                  {sortedData.map((el, i) => {
+                    const price = priceToCheck({ price: el, filtros });
+                    return (
+                      <li
+                        key={i}
+                        className="px-4 py-3 hover:bg-gray-50 cursor-pointer transition-colors"
+                        onClick={() => { setEstacionCheck(el.nombre); setVisibleModal(true); }}
+                      >
+                        <p className="text-[13px] font-semibold text-gray-800 leading-tight mb-1 truncate">
+                          {el.nombre}
+                        </p>
+                        <div className="flex justify-between items-center">
+                          <span className="text-[12px] text-gray-400">{el.distancia}</span>
+                          <span className="text-[13px] font-bold text-gray-900">
+                            ${PriceFormat({ price: price?.toString() })}
+                          </span>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
+            {/* Legend */}
+            <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-xl border border-gray-200 px-4 py-3 z-[2] shadow-sm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.5px] text-gray-400 mb-2">Referencia</p>
+              {[
+                {
+                  color: '#00A83E',
+                  label: 'Precio más BAJO del promedio',
+                  svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-3 h-3"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48" d="M112 268l144 144 144-144M256 392V100"/></svg>,
+                },
+                {
+                  color: '#FFA500',
+                  label: 'Precio promedio',
+                  svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-3 h-3"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48" d="M128 256h256"/></svg>,
+                },
+                {
+                  color: '#FF0000',
+                  label: 'Precio más ALTO del promedio',
+                  svg: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-3 h-3"><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="48" d="M112 244l144-144 144 144M256 120v292"/></svg>,
+                },
+              ].map(({ color, label, svg }) => (
+                <div key={label} className="flex items-center gap-2 mb-1.5 last:mb-0">
+                  <div
+                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 text-white"
+                    style={{ backgroundColor: color }}
+                  >
+                    {svg}
+                  </div>
+                  <span className="text-[12px] text-gray-500">{label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Pico y Placa */}
+            {/* {!visibleListado && (
+              <button
+                onClick={() => setVisibleModalPicoyPlaca(true)}
+                className="absolute bottom-3 left-3 z-[2] bg-amber-400 text-black text-[11px] font-bold uppercase tracking-[0.5px] px-3 py-2 rounded-lg border-2 border-black hover:bg-amber-300 transition-colors"
+              >
+                Pico y Placa
+              </button>
+            )} */}
+
+            <Map
+              data={data}
+              estacionCheck={estacionCheck}
+              setVisibleModal={setVisibleModal}
+              setEstacionCheck={setEstacionCheck}
+              filtros={filtros}
+              averagePrice={averagePrice}
+            />
+          </div>
+        )}
+      </div>
+
+      {/* ── SEO CONTENT ─────────────────────────────────────────────────── */}
+      <div className="max-w-[800px] mx-auto px-6 py-12 max-sm:px-4 border-t border-gray-100">
+        {[
+          {
+            title: `Bombas de Gasolina ${ciudad}`,
+            body: `Encuentra fácilmente las bombas de gasolina más cercanas a ti en ${ciudad}. Nuestra plataforma te proporciona información detallada sobre las diferentes bombas de gasolina disponibles, sus ubicaciones exactas, horarios de atención y servicios adicionales que ofrecen.`,
+          },
+          {
+            title: `Gasolineras en ${ciudad}`,
+            body: `Explora nuestra extensa red de gasolineras cerca en ${ciudad} y sus alrededores. Desde gasolina regular hasta combustibles premium, nuestras gasolineras están diseñadas para satisfacer las necesidades de cada conductor. Encuentra información sobre gasolineras disponibles, sus servicios y promociones actuales.`,
+          },
+          {
+            title: 'Gasolineras cerca',
+            body: 'Descubre las ventajas de abastecer tu vehículo en las gasolineras Terpel. Con una amplia cobertura en todo el país, las estaciones de servicio ofrecen combustibles de alta calidad y una experiencia de atención al cliente excepcional. Encuentra todas las gasolineras Terpel disponibles en tu área.',
+          },
+          {
+            title: `Estaciones de Servicio ${ciudad}`,
+            body: `Encuentra todas las estaciones de servicio disponibles en ${ciudad}. Desde gasolineras convencionales hasta puntos de carga para vehículos eléctricos, te ofrecemos una amplia variedad de opciones para abastecer tu vehículo y disfrutar de una experiencia de conducción sin preocupaciones.`,
+          },
+        ].map(({ title, body }, i, arr) => (
+          <section key={title} className={`py-8 ${i < arr.length - 1 ? 'border-b border-gray-100' : ''}`}>
+            <h2 className="text-[17px] font-bold text-gray-900 mb-2 tracking-tight">{title}</h2>
+            <p className="text-[14px] text-gray-500 leading-[1.75]">{body}</p>
+          </section>
+        ))}
+      </div>
+
+      {/* ── Modals ──────────────────────────────────────────────────────── */}
+      {visibleModal && (
+        <ModalGasolinera
+          data={gasolineraEncontrada}
+          setVisibleModal={setVisibleModal}
+          precioAlto={filteredData[filteredData.length - 1]}
+          precioAltoExtra={filteredDataExtra[filteredDataExtra.length - 1]}
+        />
+      )}
+      {visibleModalFiltros && (
+        <ModalFiltrosGasolineras
+          setVisibleModalFiltros={setVisibleModalFiltros}
+          setUserLocation={setUserLocation}
+          userLocation={userLocation}
+        />
+      )}
+      {visibleModalPicoyPlaca && (
+        <ModalPicoYPlaca setVisibleModalPicoyPlaca={setVisibleModalPicoyPlaca} />
+      )}
     </Layout>
-
-  )
+  );
 }
 
 export async function getServerSideProps({ query }) {
   try {
     const response = await fetch('https://www.terpel.com/api/map_points/eds');
-    if (!response.ok) {
-      throw new Error('No se pudo obtener los datos de la API');
-    }
+    if (!response.ok) throw new Error('No se pudo obtener los datos');
     const data = await response.json();
-    const filteredData = data.filter(obj => obj?.ciu?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == query?.slug[0]?.toLowerCase() || obj?.dep?.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") == query?.slug[0]?.toLowerCase());
-    let dataFormat = filteredData.map(item => ({
-      price: item.price.find(ele => ele.id == 1)?.retailPrice ? item.price.find(ele => ele.id == 1)?.retailPrice : null,
-      priceDos: item.price.find(ele => ele.id == 2)?.retailPrice ? item.price.find(ele => ele.id == 2)?.retailPrice : null,
-      priceTres: item.price.find(ele => ele.id == 3)?.retailPrice ? item.price.find(ele => ele.id == 3)?.retailPrice : null,
-      priceCuatro: item.price.find(ele => ele.id == 4)?.retailPrice ? item.price.find(ele => ele.id == 4)?.retailPrice : null,
-      priceCinco: item.price.find(ele => ele.id == 5)?.retailPrice ? item.price.find(ele => ele.id == 5)?.retailPrice : null,
-      direccion: item.dir,
-      ciudad: item.ciu,
-      lat: item?.lat,
-      lng: item.lon,
-      nombre: item?.nom,
-      img: 'logoterpel',
-      empresa: 'Terpel' // Puedes establecer un valor predeterminado o eliminar esta propiedad si no la necesitas
+
+    const slug = query?.slug?.[0]?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const filteredData = data.filter(obj =>
+      obj?.ciu?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === slug ||
+      obj?.dep?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === slug
+    );
+
+    const dataFormat = filteredData.map(item => ({
+      price:       item.price.find(e => e.id == 1)?.retailPrice ?? null,
+      priceDos:    item.price.find(e => e.id == 2)?.retailPrice ?? null,
+      priceTres:   item.price.find(e => e.id == 3)?.retailPrice ?? null,
+      priceCuatro: item.price.find(e => e.id == 4)?.retailPrice ?? null,
+      priceCinco:  item.price.find(e => e.id == 5)?.retailPrice ?? null,
+      direccion:   item.dir,
+      ciudad:      item.ciu,
+      lat:         item.lat,
+      lng:         item.lon,
+      nombre:      item.nom,
+      img:         'logoterpel',
+      empresa:     'Terpel',
     }));
 
-    // let dataFormat2 = dataShell2.map(item => ({
-    //   price: null,
-    //   direccion: item.address,
-    //   ciudad: 'Bogotá D.C.',
-    //   lat: item?.lat,
-    //   lng: item.lng,
-    //   img: 'logoshell',
-    //   nombre: item?.name,
-    //   empresa: 'Shell' // Puedes establecer un valor predeterminado o eliminar esta propiedad si no la necesitas
-    // }));
-
-    // Devolver los datos obtenidos como props
-    return {
-      props: {
-        data: dataFormat
-      }
-    };
+    return { props: { data: dataFormat } };
   } catch (error) {
     console.error('Error al obtener los datos:', error);
-    return {
-      props: {
-        data: null // Puedes devolver null u otro valor predeterminado en caso de error
-      }
-    };
+    return { props: { data: null } };
   }
 }
