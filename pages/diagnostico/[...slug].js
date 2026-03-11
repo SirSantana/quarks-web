@@ -126,11 +126,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
 
   // ── Data prep ──────────────────────────────────────────────────────────
   const problema = diagnosticoData.mensaje_usuario?.replace(/["']/g, "");
-  const title = problema
-    .replaceAll(diagnosticoData.car_make, "")
-    .replaceAll(diagnosticoData.car_model, "")
-    .replaceAll(diagnosticoData.car_year, "")
-    .trim();
+  const title =  problema
   const description = `${problema}. Descubre causas, diagnóstico profesional y costos de reparación para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} en ${diagnosticoData.country || "Colombia"}.`;
   const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}diagnostico/${slug}`;
 
@@ -461,8 +457,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                   Diagnóstico
                 </p>
                 <h2 className="text-[22px] font-bold text-gray-950 leading-snug tracking-tight mb-4">
-                  {diagnosticoData.car_make} {diagnosticoData.car_model}{" "}
-                  {diagnosticoData.car_year}
+                   {diagnosticoData.mensaje_usuario}
                 </h2>
                 <p className="text-[17px] text-gray-600 leading-[1.8]">
                   {diagnosticoData.diagnostico}
@@ -577,8 +572,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                     Costos estimados
                   </p>
                   <h2 className="text-[22px] font-bold text-gray-950 leading-snug tracking-tight mb-6">
-                    Reparación {diagnosticoData.car_make}{" "}
-                    {diagnosticoData.car_model} {diagnosticoData.car_year}
+                    Reparación estimada: {diagnosticoData.mensaje_usuario}
                   </h2>
                   {/* Line items */}
                   <div className="mb-8">
@@ -661,13 +655,13 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
               </div>
 
               {/* Desktop: vertical sticky */}
-              <div className="sticky top-8 space-y-8 max-[900px]:hidden">
+              <div className="sticky top-8 space-y-8 ">
                 {/* Vehicle */}
                 <div>
                   <div className="flex items-center gap-3 mb-5">
                     <img
                       src={`/${diagnosticoData.car_make}.webp`}
-                      alt={diagnosticoData.car_make}
+                      alt={problema}
                       className="w-11 h-11 object-contain opacity-70"
                     />
                     <div>
