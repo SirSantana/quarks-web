@@ -132,7 +132,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
     .replaceAll(diagnosticoData.car_year, "")
     .trim();
   const description = `${problema}. Descubre causas, diagnóstico profesional y costos de reparación para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} en ${diagnosticoData.country || "Colombia"}.`;
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}/diagnostico/${slug}`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}diagnostico/${slug}`;
 
   let itemsPrecios = [],
     precioTotalMin = 0,
