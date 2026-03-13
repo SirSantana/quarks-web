@@ -35,13 +35,13 @@ function toTitleCase(str) {
 }
 
 function generarVariantesSEO(data) {
-  const modelos = data.Modelo.split("/").map((m) => m.trim());
+  const modelos = data?.Modelo.split("/").map((m) => m.trim());
   const base = [
-    `${data.Tipo}`,
-    `${data.Tipo} ${data.Marca}`,
+    `${data?.Tipo}`,
+    `${data?.Tipo} ${data?.Marca}`,
     `${data.Nombre}`,
-    `${data.Tipo} ${data.Referencia}`,
-    `${data.Tipo} ${data.Brand}`,
+    `${data?.Tipo} ${data?.Referencia}`,
+    `${data?.Tipo} ${data?.Brand}`,
   ];
   const extras = ["repuesto", "original", "precio", "barato", "venta"];
   let variantes = [];
@@ -154,7 +154,7 @@ export default function ProductDetailPage({ repuesto }) {
   };
 
   const relatedByModel = autopartes.filter((p) => {
-    const currentModel = repuesto.Modelo?.split("/")?.[0]
+    const currentModel = repuesto?.Modelo?.split("/")?.[0]
       ?.trim()
       ?.toLowerCase();
     const productModels =
@@ -167,7 +167,7 @@ export default function ProductDetailPage({ repuesto }) {
   });
 
   const relatedByType = autopartes.filter(
-    (p) => p.Tipo === repuesto.Tipo && p.Codigo !== repuesto.Codigo,
+    (p) => p.Tipo === repuesto?.tipo && p.Codigo !== repuesto.Codigo,
   );
 
   // Section anchor nav items
@@ -194,17 +194,17 @@ export default function ProductDetailPage({ repuesto }) {
             </a>
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a
-              href={`/repuesto/${repuesto.Tipo?.toLowerCase()}`}
+              href={`/repuesto/${repuesto?.Tipo?.toLowerCase()}`}
               className="hover:text-gray-700 transition-colors"
             >
-              {repuesto.Tipo.toLowerCase()}
+              {repuesto?.Tipo.toLowerCase()}
             </a>
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a
-              href={`/repuesto/${repuesto.Tipo?.toLowerCase()}/${repuesto.Marca?.toLowerCase()}`}
+              href={`/repuesto/${repuesto?.Tipo?.toLowerCase()}/${repuesto.Marca?.toLowerCase()}`}
               className="hover:text-gray-700 transition-colors"
             >
-              {repuesto.Marca}
+              {repuesto?.Marca}
             </a>
 
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
@@ -306,16 +306,16 @@ export default function ProductDetailPage({ repuesto }) {
           <div className="flex flex-col gap-5">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[1px] text-[#407BFF] mb-2">
-                {repuesto.Tipo}
+                {repuesto?.Tipo}
               </p>
               <h1
                 className="text-[22px] sm:text-[26px] font-bold text-gray-950 tracking-tight leading-snug mb-1"
                 itemProp="name"
               >
-                {repuesto.Nombre}
+                {repuesto?.Nombre}
               </h1>
               <p className="text-[12px] text-gray-400 font-mono">
-                SKU: {repuesto.Codigo}
+                SKU: {repuesto?.Codigo}
               </p>
             </div>
 
@@ -365,7 +365,7 @@ export default function ProductDetailPage({ repuesto }) {
                 Compatible con
               </p>
               <ul className="flex flex-col gap-1.5 list-none p-0">
-                {repuesto.Modelo?.split("/").map((modelo, i) => (
+                {repuesto?.Modelo?.split("/").map((modelo, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <Check
                       size={14}
@@ -478,31 +478,31 @@ export default function ProductDetailPage({ repuesto }) {
               Descripción {toTitleCase(repuesto.Nombre)}
             </h2>
             <p className="text-[15px] text-gray-600 leading-[1.8] mb-6">
-              La <strong className="text-gray-800">{repuesto.Tipo}</strong>{" "}
+              La <strong className="text-gray-800">{repuesto?.Tipo}</strong>{" "}
               código{" "}
-              <strong className="text-gray-800">{repuesto.Codigo}</strong>,
+              <strong className="text-gray-800">{repuesto?.Codigo}</strong>,
               también conocida como{" "}
-              <strong className="text-gray-800">{repuesto.Nombre}</strong>, es
+              <strong className="text-gray-800">{repuesto?.Nombre}</strong>, es
               un repuesto diseñado para{" "}
               <strong className="text-gray-800">
-                {repuesto.Marca} {repuesto.Modelo}
+                {repuesto.Marca} {repuesto?.Modelo}
               </strong>
               . Compatible con la referencia original{" "}
-              <strong className="text-gray-800">{repuesto.Referencia}</strong>,
+              <strong className="text-gray-800">{repuesto?.Referencia}</strong>,
               fabricado por{" "}
-              <strong className="text-gray-800">{repuesto.Brand}</strong>, este
+              <strong className="text-gray-800">{repuesto?.Brand}</strong>, este
               componente garantiza durabilidad, resistencia y un ajuste perfecto
               para tu vehículo. Actualmente disponible con un descuento del{" "}
-              <strong className="text-gray-800">{repuesto.Descuento}%</strong>,
+              <strong className="text-gray-800">{repuesto?.Descuento}%</strong>,
               ofreciendo la mejor relación entre precio y calidad.
             </p>
             <ul className="flex flex-col gap-2 list-none p-0">
               {[
                 `Repuesto nuevo y garantizado`,
-                `Compatible con ${repuesto.Marca} ${repuesto.Modelo}`,
-                `Referencia OEM: ${repuesto.Referencia}`,
-                `Fabricado por ${repuesto.Brand}`,
-                `Descuento especial del ${repuesto.Descuento}%`,
+                `Compatible con ${repuesto?.Marca} ${repuesto?.Modelo}`,
+                `Referencia OEM: ${repuesto?.Referencia}`,
+                `Fabricado por ${repuesto?.Brand}`,
+                `Descuento especial del ${repuesto?.Descuento}%`,
                 `Ideal para mantener la suspensión en óptimas condiciones`,
               ].map((f, i) => (
                 <li key={i} className="flex items-start gap-2.5">
@@ -532,7 +532,7 @@ export default function ProductDetailPage({ repuesto }) {
               <tbody>
                 {[
                   ["Marca", repuesto.Marca],
-                  ["Modelo", repuesto.Modelo],
+                  ["Modelo", repuesto?.Modelo],
                   ["Referencia", repuesto.Referencia],
                   ["Código", repuesto.Codigo],
                   ["Fabricante", repuesto.Brand],
@@ -556,13 +556,13 @@ export default function ProductDetailPage({ repuesto }) {
               </p>
               <p className="text-[14px] text-gray-600 leading-[1.75]">
                 Esta pieza{" "}
-                <strong className="text-gray-800">{repuesto.Tipo}</strong> es
+                <strong className="text-gray-800">{repuesto?.Tipo}</strong> es
                 compatible con vehículos{" "}
                 <strong className="text-gray-800">
-                  {repuesto.Marca} {repuesto.Modelo}
+                  {repuesto?.Marca} {repuesto?.Modelo}
                 </strong>
                 . Verifica la referencia{" "}
-                <strong className="text-gray-800">{repuesto.Referencia}</strong>{" "}
+                <strong className="text-gray-800">{repuesto?.Referencia}</strong>{" "}
                 para asegurarte de que se ajuste a tu vehículo.
               </p>
             </div>
@@ -578,9 +578,9 @@ export default function ProductDetailPage({ repuesto }) {
             </h2>
             <ul className="flex flex-col gap-0 list-none p-0">
               {[
-                `Repuesto homologado para ${repuesto.Marca} ${repuesto.Modelo}`,
-                `Fabricado por ${repuesto.Brand}, con altos estándares de calidad`,
-                `Compatible con referencia ${repuesto.Referencia}`,
+                `Repuesto homologado para ${repuesto?.Marca} ${repuesto?.Modelo}`,
+                `Fabricado por ${repuesto?.Brand}, con altos estándares de calidad`,
+                `Compatible con referencia ${repuesto?.Referencia}`,
                 `Garantiza seguridad y durabilidad en tu vehículo`,
                 `Envíos rápidos a todo el país`,
               ].map((b, i) => (
@@ -621,7 +621,7 @@ export default function ProductDetailPage({ repuesto }) {
                 },
                 {
                   q: "¿Es compatible con otros modelos?",
-                  a: `Principalmente con ${repuesto.Modelo}, aunque puede compartir compatibilidad con variantes similares. Revisa el código ${repuesto.Codigo}.`,
+                  a: `Principalmente con ${repuesto?.Modelo}, aunque puede compartir compatibilidad con variantes similares. Revisa el código ${repuesto.Codigo}.`,
                 },
                 {
                   q: "¿Cuánto tarda el envío?",
@@ -660,7 +660,7 @@ export default function ProductDetailPage({ repuesto }) {
           <p className="text-[14px] text-gray-600 leading-[1.7]">
             Compra{" "}
             <strong className="text-gray-800">
-              {repuesto.Tipo} {repuesto.Marca} {repuesto.Modelo}
+              {repuesto?.Tipo} {repuesto.Marca} {repuesto?.Modelo}
             </strong>{" "}
             (referencia {repuesto.Referencia}, código {repuesto.Codigo}) al
             mejor precio con {repuesto.Descuento}% de descuento. Garantía y
@@ -676,7 +676,7 @@ export default function ProductDetailPage({ repuesto }) {
                 id="related-model-heading"
                 className="text-[18px] font-bold text-gray-950 tracking-tight"
               >
-                Otros repuestos de {repuesto.Modelo?.split("/")?.[0]?.trim()}
+                Otros repuestos de {repuesto?.Modelo?.split("/")?.[0]?.trim()}
               </h2>
               <span className="text-[12px] text-gray-400">
                 {relatedByModel.length} artículos
@@ -700,7 +700,7 @@ export default function ProductDetailPage({ repuesto }) {
                 id="related-type-heading"
                 className="text-[18px] font-bold text-gray-950 tracking-tight"
               >
-                Otros {toTitleCase(repuesto.Tipo)}
+                Otros {toTitleCase(repuesto?.tipo)}
               </h2>
               <span className="text-[12px] text-gray-400">
                 {relatedByType.length} artículos
@@ -889,7 +889,7 @@ export default function ProductDetailPage({ repuesto }) {
 //             <ChevronRight size={14} className={styles.breadcrumbSeparator} />
 //             <a href="#" className={styles.breadcrumbLink}>{repuesto.Marca}</a>
 //             <ChevronRight size={14} className={styles.breadcrumbSeparator} />
-//             <a href="#" className={styles.breadcrumbLink}>{repuesto.Tipo}</a>
+//             <a href="#" className={styles.breadcrumbLink}>{repuesto?.tipo}</a>
 //             <ChevronRight size={14} className={styles.breadcrumbSeparator} />
 //             <span className={styles.breadcrumbCurrent}>{repuesto.Nombre}</span>
 //           </div>
@@ -946,7 +946,7 @@ export default function ProductDetailPage({ repuesto }) {
 //           <div className={styles.productInfo}>
 //             {/* Brand and Actions */}
 //             <div className={styles.productHeader}>
-//               <span className={styles.brandBadge}>{repuesto.Tipo}</span>
+//               <span className={styles.brandBadge}>{repuesto?.tipo}</span>
 
 //               <button
 //                 onClick={toggleWishlist}
@@ -1036,7 +1036,7 @@ export default function ProductDetailPage({ repuesto }) {
 //             <div className={styles.compatibility}>
 //               <h3 className={styles.compatibilityTitle}>Compatible con:</h3>
 //               <div className={styles.compatibilityList}>
-//                 {repuesto.Modelo?.split("/")?.map((modelo, index) => (
+//                 {repuesto?.Modelo?.split("/")?.map((modelo, index) => (
 //                   <div key={index} className={styles.compatibilityItem}>
 //                     <Check size={18} color="#10b981" />
 //                     <span className={styles.compatibilityText}>
@@ -1084,11 +1084,11 @@ export default function ProductDetailPage({ repuesto }) {
 //         <div className={styles.section}>
 //           <h2 className={styles.sectionTitle}>Descripción</h2>
 //           <p className={styles.description}>
-//             La <strong>{repuesto.Tipo}</strong> código{" "}
+//             La <strong>{repuesto?.tipo}</strong> código{" "}
 //             <strong>{repuesto.Codigo}</strong>, también conocida como{" "}
 //             <strong>{repuesto.Nombre}</strong>, es un repuesto diseñado para{" "}
 //             <strong>
-//               {repuesto.Marca} {repuesto.Modelo}
+//               {repuesto.Marca} {repuesto?.Modelo}
 //             </strong>
 //             . Compatible con la referencia original{" "}
 //             <strong>{repuesto.Referencia}</strong>, fabricado por{" "}
@@ -1102,7 +1102,7 @@ export default function ProductDetailPage({ repuesto }) {
 //           <div className={styles.featuresList}>
 //             {[
 //               `Repuesto nuevo y garantizado`,
-//               `Compatible con ${repuesto.Marca} ${repuesto.Modelo}`,
+//               `Compatible con ${repuesto.Marca} ${repuesto?.Modelo}`,
 //               `Referencia OEM: ${repuesto.Referencia}`,
 //               `Fabricado por ${repuesto.Brand}`,
 //               `Descuento especial del ${repuesto.Descuento}%`,
@@ -1127,7 +1127,7 @@ export default function ProductDetailPage({ repuesto }) {
 //               </tr>
 //               <tr>
 //                 <th>Modelo</th>
-//                 <td>{repuesto.Modelo}</td>
+//                 <td>{repuesto?.Modelo}</td>
 //               </tr>
 //               <tr>
 //                 <th>Referencia</th>
@@ -1156,7 +1156,7 @@ export default function ProductDetailPage({ repuesto }) {
 //             <li>
 //               <Check size={18} color="#10b981" />
 //               <span>
-//                 Repuesto original para {repuesto.Marca} {repuesto.Modelo}
+//                 Repuesto original para {repuesto.Marca} {repuesto?.Modelo}
 //               </span>
 //             </li>
 //             <li>
@@ -1209,10 +1209,10 @@ export default function ProductDetailPage({ repuesto }) {
 //         <div className={styles.section}>
 //           <h2 className={styles.sectionTitle}>Compatibilidad</h2>
 //           <p>
-//             Esta pieza <strong>{repuesto.Tipo}</strong> es compatible con
+//             Esta pieza <strong>{repuesto?.tipo}</strong> es compatible con
 //             vehículos{" "}
 //             <strong>
-//               {repuesto.Marca} {repuesto.Modelo}
+//               {repuesto.Marca} {repuesto?.Modelo}
 //             </strong>
 //             . Verifica la referencia <strong>{repuesto.Referencia} </strong>
 //             para asegurarte de que se ajuste a tu vehículo.
@@ -1232,7 +1232,7 @@ export default function ProductDetailPage({ repuesto }) {
 //           <div className={styles.faqItem}>
 //             <h3>¿Es compatible con otros modelos?</h3>
 //             <p>
-//               Principalmente con {repuesto.Modelo}, aunque puede compartir
+//               Principalmente con {repuesto?.Modelo}, aunque puede compartir
 //               compatibilidad con variantes similares. Revisa el código{" "}
 //               {repuesto.Codigo}.
 //             </p>
@@ -1251,7 +1251,7 @@ export default function ProductDetailPage({ repuesto }) {
 //           <p>
 //             Compra{" "}
 //             <strong>
-//               {repuesto.Tipo} {repuesto.Marca} {repuesto.Modelo}
+//               {repuesto?.tipo} {repuesto.Marca} {repuesto?.Modelo}
 //             </strong>
 //             (referencia {repuesto.Referencia}, código {repuesto.Codigo}) al
 //             mejor precio con {repuesto.Descuento}% de descuento. Garantía y
