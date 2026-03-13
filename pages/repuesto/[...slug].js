@@ -82,7 +82,7 @@ export async function getStaticProps({ params }) {
   const slug = params?.slug?.[0] || params?.slug;
 
   const findAutotopart = autopartes.find(
-    el => el.titulo.toLowerCase() === slug.toLowerCase()
+    el => el.titulo?.toLowerCase() === slug?.toLowerCase()
   );
 
   if (!findAutotopart) {
@@ -98,7 +98,6 @@ export async function getStaticProps({ params }) {
     revalidate: 86400
   };
 }
-
 export async function getStaticPaths() {
 
   const paths = autopartes
