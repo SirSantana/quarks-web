@@ -78,14 +78,24 @@ function toTitleCase(str) {
 }
 
 export async function getStaticProps({ params }) {
-  const parts = params?.slug;
-  let findAutotopart = autopartes.find(el => el.titulo === parts[0]);
+
+  const slug = params?.slug?.[0] || params?.slug;
+
+  const findAutotopart = autopartes.find(
+    el => el.titulo.toLowerCase() === slug.toLowerCase()
+  );
+
+  if (!findAutotopart) {
+    return {
+      notFound: true
+    };
+  }
 
   return {
     props: {
-      data: findAutotopart || null,
+      data: findAutotopart
     },
-    // revalidate: 86400,
+    revalidate: 86400
   };
 }
 
