@@ -464,7 +464,7 @@ export default function RepuestosPage({ autopartes }) {
                 {categories.map((cat) => (
                   <Link
                     key={cat}
-                    href={`/repuesto/${slugify(cat)}`}
+                    href={`/repuestos/${slugify(cat)}`}
                     className="shrink-0 px-4 py-2 text-[13px] font-medium rounded-full border border-gray-200 text-gray-500 hover:border-[#407BFF] hover:text-[#407BFF] hover:bg-[#eef2ff] transition-colors"
                     style={{ textDecoration: "none" }}
                   >

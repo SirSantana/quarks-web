@@ -189,19 +189,19 @@ export default function ProductDetailPage({ repuesto }) {
           >
             <Home size={12} className="shrink-0" aria-hidden="true" />
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
-            <a href="/repuesto" className="hover:text-gray-700 transition-colors">
+            <a href="/repuestos" className="hover:text-gray-700 transition-colors">
               Catalogo
             </a>
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a
-              href={`/repuesto/${repuesto?.Tipo?.toLowerCase()}`}
+              href={`/repuestos/${repuesto?.Tipo?.toLowerCase()}`}
               className="hover:text-gray-700 transition-colors"
             >
               {repuesto?.Tipo.toLowerCase()}
             </a>
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a
-              href={`/repuesto/${repuesto?.Tipo?.toLowerCase()}/${repuesto.Marca?.toLowerCase()}`}
+              href={`/repuestos/${repuesto?.Tipo?.toLowerCase()}/${repuesto.Marca?.toLowerCase()}`}
               className="hover:text-gray-700 transition-colors"
             >
               {repuesto?.Marca}
