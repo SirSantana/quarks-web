@@ -286,7 +286,6 @@ export default function RepuestosPage({ autopartes }) {
   const [sortBy, setSortBy] = useState("name");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Derived values computed directly — no useMemo
   const categories = getCategories(autopartes);
   const filteredProducts = getFilteredProducts(autopartes, searchTerm, sortBy);
   const totalPages = Math.ceil(filteredProducts.length / PAGE_SIZE);

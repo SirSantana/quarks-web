@@ -1,5 +1,4 @@
 import motorescummins from '@/utils/motorescummins.json' 
-import React, { useState, useMemo } from 'react';
 import { Search, X, Check, Zap, Gauge, Weight, Settings, ArrowRight } from 'lucide-react';
 import MotorComparator from '@/src/Components/Cummins/EngineComparator';
 import Link from 'next/link';
@@ -12,12 +11,7 @@ const CumminsMotorsPage = () => {
 
   const motors = motorescummins.motorescummins;
 
-  const filteredMotors = useMemo(() => {
-    return motors.filter(motor =>
-      motor.nombre_modelo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      motor.aplicacion_principal.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }, [searchTerm, motors]);
+
 
   const toggleMotorSelection = (motorId) => {
     setSelectedMotors(prev => {
