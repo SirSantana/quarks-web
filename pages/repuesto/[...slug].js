@@ -80,33 +80,21 @@ export default function RepuestosSlug({ data }) {
   );
 }
 
-// Elimina el import global del JSON
-// import autopartes from '@/src/data/catalogo_autopartes.json'; ❌
-
-import { readFileSync } from 'fs';
-import path from 'path';
-
 export async function getStaticProps({ params }) {
-  const filePath = path.join(process.cwd(), 'src/data/catalogo_autopartes.json');
-  const autopartes = JSON.parse(readFileSync(filePath, 'utf-8'));
-
-  const slugDecoded = decodeURIComponent(params?.slug?.[0]);
-  const findAutotopart = autopartes.find(el => el.titulo === slugDecoded);
-  
-  if (!findAutotopart) {
-    return { notFound: true };
-  }
+  const parts = params?.slug;
+  let findAutotopart = autopartes.find(el => el.titulo === parts[0]);
 
   return {
     props: {
-      data: findAutotopart,
+      data: findAutotopart || null,
     },
+    // revalidate: 86400,
   };
 }
 
 export async function getStaticPaths() {
   return {
-    paths: [],
-    fallback: 'blocking',
+    paths: [], 
+    fallback: "blocking",
   };
 }
