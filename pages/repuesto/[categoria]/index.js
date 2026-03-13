@@ -220,6 +220,7 @@ const labelClean = formatLabel(categoriaLabel);
 
   return (
     <Layout
+    
       title={`${labelClean} para Carros · Catálogo de Repuestos Colombia`}
       description={`Venta de ${labelClean} para todas las marcas (Chevrolet, Renault, Mazda). Repuestos originales y homologados con envíos a toda Colombia. ¡Compra online con seguridad!`}
       navbarRepuestos={false}

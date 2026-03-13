@@ -90,8 +90,11 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  return {
-    paths: [], 
+  const paths = autopartes.map((item) => ({
+    params: { slug: [item.titulo] }
+  }));
+   return {
+    paths,
     fallback: "blocking",
   };
 }
