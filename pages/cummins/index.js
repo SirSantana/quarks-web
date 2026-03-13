@@ -1,4 +1,5 @@
 import motorescummins from '@/utils/motorescummins.json' 
+import React, { useState } from 'react';
 import { Search, X, Check, Zap, Gauge, Weight, Settings, ArrowRight } from 'lucide-react';
 import MotorComparator from '@/src/Components/Cummins/EngineComparator';
 import Link from 'next/link';
