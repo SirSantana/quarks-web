@@ -83,20 +83,25 @@ export default function RepuestosSlug({ data }) {
 
 export async function getStaticProps({ params }) {
 
-  const slug = params.slug[0];
+  const slug = Array.isArray(params.slug)
+    ? params.slug[0]
+    : params.slug;
 
   const producto = autopartes.find(
     (item) => item.titulo === slug
   );
 
   if (!producto) {
-    return { notFound: true };
+    return {
+      notFound: true
+    };
   }
 
   return {
     props: {
       data: producto
-    }
+    },
+    revalidate: 86400
   };
 }
 
@@ -112,6 +117,6 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: "blocking"
   };
 }
