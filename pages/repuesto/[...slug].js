@@ -74,7 +74,7 @@ export default function RepuestosSlug({ data }) {
         />
       </Head>
 
-      <ProductDetailPage repuesto={data} />
+      {/* <ProductDetailPage repuesto={data} /> */}
       <FooterV2 />
 
     </Layout>
