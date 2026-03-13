@@ -3,6 +3,7 @@ import Layout from '@/src/Components/Layout';
 import autopartes from '@/src/data/catalogo_autopartes.json';
 import ProductDetailPage from '../../src/Components/Repuestos/RepuestoComponent';
 import Head from 'next/head';
+import FooterV2 from '@/src/Components/Footer/FooterV2';
 
 export default function RepuestosSlug({ data }) {
   if (!data) {
@@ -61,7 +62,7 @@ function toTitleCase(str) {
     .join(' ');
 }
   return (
-    <Layout title={toTitleCase(data.Nombre)} image={data?.images?.[0] || '/piston-glosario.webp' } footer={false} navbarRepuestos={true} visibleNavbar={false} description={generarDescripcionSEO(data)}  url={`/repuesto/${data.titulo}`} >
+    <Layout title={toTitleCase(data.Nombre)} image={data?.images?.[0] || '/piston-glosario.webp' } footer={false} navbarRepuestos={false} visibleNavbar={true} description={generarDescripcionSEO(data)}  url={`/repuesto/${data.titulo}`} >
       <Head>
         {/* Marcado estructurado JSON-LD */}
         <script 
@@ -71,6 +72,7 @@ function toTitleCase(str) {
       </Head>
 
       <ProductDetailPage repuesto={data} />
+      <FooterV2/>
     </Layout>
   )
 }

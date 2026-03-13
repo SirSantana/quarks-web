@@ -1,6 +1,6 @@
 [
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010101",
     "Nombre": "AXIAL CHEVROLET ALTO/WAGON R",
     "Referencia": "4883075F01",
@@ -14,7 +14,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_716546-MCO79853711849_102024-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010102",
     "Nombre": "AXIAL CHEVROLET AVEO",
     "Referencia": "96425091",
@@ -30,7 +30,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010103",
     "Nombre": "AXIAL CHEVROLET CRUZE",
     "Referencia": "13278358",
@@ -45,7 +45,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010104",
     "Nombre": "AXIAL CHEVROLET TAHOE 2003",
     "Referencia": "ES3534",
@@ -59,7 +59,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_656408-MCO92676666198_092025-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010105",
     "Nombre": "AXIAL CHEVROLET TAHOE SILVERADO 2007",
     "Referencia": "ES3577",
@@ -74,7 +74,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010106",
     "Nombre": "AXIAL CHEVROLET ESTEEM 1.3/1.6",
     "Referencia": "4883060G00",
@@ -88,7 +88,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_789922-MCO84943714252_052025-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010107",
     "Nombre": "AXIAL CHEVROLET GRAN VITARA 2.0 / 1.6",
     "Referencia": "4883065D00",
@@ -102,7 +102,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_964774-MCO85255391585_052025-O.webp","https://http2.mlstatic.com/D_NQ_NP_841150-MCO84954694396_052025-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010108",
     "Nombre": "AXIAL GRAN VITARA 2.5/2.7 SZ",
     "Referencia": "4883065J00",
@@ -116,7 +116,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_953329-MCO85255821189_052025-O.webp",""]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010109",
     "Nombre": "AXIAL CHEVROLET LUV 1600 4X2 82/89",
     "Referencia": "8942172211",
@@ -130,7 +130,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_656034-MCO72774350983_112023-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010110",
     "Nombre": "AXIAL CHEVROLET LUV 1600 4X4 82/90",
     "Referencia": "5443500951",
@@ -145,7 +145,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010111",
     "Nombre": "AXIAL CHEVROLET LUV DMAX 2009/2015 GRUESO 18 mm",
     "Referencia": "ES3488",
@@ -160,7 +160,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010112",
     "Nombre": "AXIAL CHEVROLET LUV DMAX 4X2 98/2008",
     "Referencia": "8973048530",
@@ -175,7 +175,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010113",
     "Nombre": "AXIAL CHEVROLET LUV DMAX 4X4 98/2008 14mm",
     "Referencia": "8973048510",
@@ -190,7 +190,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010114",
     "Nombre": "AXIAL CHEVROLET SAIL 14x14X1.5 mm HUEC GRAN",
     "Referencia": "9042063",
@@ -204,7 +204,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_611509-MCO89445944423_082025-O.webp","https://http2.mlstatic.com/D_NQ_NP_742478-MCO85976483874_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_805862-MCO86290928771_062025-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010115",
     "Nombre": "AXIAL CHEVROLET SONIC / COBALT / CAPTIVA 2.4",
     "Referencia": "95218372",
@@ -218,7 +218,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_737228-MCO82148778679_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_852948-MCO81868572926_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_777054-MCO82148789115_012025-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010116",
     "Nombre": "AXIAL CHEVROLET SPARK",
     "Referencia": "93741074",
@@ -232,7 +232,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_940922-MCO73931621586_012024-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010117",
     "Nombre": "AXIAL CHEVROLET SPRINT 85/99",
     "Referencia": "4883082000",
@@ -246,7 +246,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_795353-MCO74034822017_012024-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010118",
     "Nombre": "AXIAL CHEVROLET SWIFT 1.0/1.3/1.6",
     "Referencia": "4883060B00",
@@ -260,7 +260,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_915197-MCO72619785271_112023-O.webp","https://http2.mlstatic.com/D_NQ_NP_986790-MCO81882766432_012025-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010119",
     "Nombre": "AXIAL CHEVROLET TRACKER /CAPTIVA 3.2",
     "Referencia": "95932789",
@@ -274,7 +274,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_689050-MCO74018270407_012024-O.webp"]
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010120",
     "Nombre": "AXIAL CHEVROLET TRAIL BLAZER",
     "Referencia": "EV417",
@@ -289,7 +289,7 @@
 
   },
   {
-    "Tipo": "AXIALES CHEVROLET",
+    "Tipo": "AXIALES",
     "Codigo": "11010121",
     "Nombre": "AXIAL CHEVROLET N/200 N-300 R=L HEMBRA",
     "Referencia": "24543445",
@@ -304,7 +304,7 @@
 
   },
   {
-    "Tipo": "BARRAS DIRECCION CHEVROLET",
+    "Tipo": "BARRAS DIRECCION",
     "Codigo": "11010202",
     "Nombre": "BARRA DIRECCION CHEVROLET LUV 1600 82/90",
     "Referencia": "8942373671",
@@ -317,7 +317,7 @@
     "Precio2":"98000"
   },
   {
-    "Tipo": "BARRAS DIRECCION CHEVROLET",
+    "Tipo": "BARRAS DIRECCION",
     "Codigo": "11010203",
     "Nombre": "BARRA DIRECCION CHEVROLET LUV 2300 4X2 LUV 2.2",
     "Referencia": "8943892100",
@@ -330,7 +330,7 @@
     "Precio2":"210000"
   },
   {
-    "Tipo": "BARRAS DIRECCION CHEVROLET",
+    "Tipo": "BARRAS DIRECCION",
     "Codigo": "11010204",
     "Nombre": "BARRA DIRECCION CHEVROLET LUV 2300 4X4 TROOPER",
     "Referencia": "8943892220",
@@ -343,7 +343,7 @@
     "Precio2":"230000"
   },
   {
-    "Tipo": "BARRAS DIRECCION CHEVROLET",
+    "Tipo": "BARRAS DIRECCION",
     "Codigo": "11010205",
     "Nombre": "BARRA DIRECCION CHEVROLET SAMURAI TER.OJO",
     "Referencia": "4890070A60",
@@ -356,7 +356,7 @@
     "Precio2":"90000"
   },
   {
-    "Tipo": "BARRAS DIRECCION CHEVROLET",
+    "Tipo": "BARRAS DIRECCION",
     "Codigo": "11010206",
     "Nombre": "BARRA DIRECCION CHEVROLET SAMURAI TER. TER",
     "Referencia": "4887070A61",
@@ -369,7 +369,7 @@
     "Precio2":"120000"
   },
   {
-    "Tipo": "BARRAS DIRECCION CHEVROLET",
+    "Tipo": "BARRAS DIRECCION",
     "Codigo": "11010207",
     "Nombre": "BARRA DIRECCION CHEVROLET VITARA 2P/3P",
     "Referencia": "4885060A00",
@@ -382,7 +382,7 @@
     "Precio2":"140000"
   },
   {
-    "Tipo": "COMPENSADORES CHEVROLET",
+    "Tipo": "COMPENSADORES",
     "Codigo": "11010301",
     "Nombre": "COMPENSADOR CHEVROLET BLAZER 4X4",
     "Referencia": "K6251",
@@ -396,7 +396,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_752612-MCO74035266675_012024-O.webp"]
   },
   {
-    "Tipo": "COMPENSADORES CHEVROLET",
+    "Tipo": "COMPENSADORES",
     "Codigo": "11010302",
     "Nombre": "COMPENSADOR CHEVROLET CHEYENNE AUXILIAR",
     "Referencia": "K6447",
@@ -409,7 +409,7 @@
     "Precio2":"95000"
   },
   {
-    "Tipo": "COMPENSADORES CHEVROLET",
+    "Tipo": "COMPENSADORES",
     "Codigo": "11010303",
     "Nombre": "COMPENSADOR CHEVROLET CHEYENNE CAJA ARTICULADA",
     "Referencia": "K6532",
@@ -422,7 +422,7 @@
     "Precio2":"155000"
   },
   {
-    "Tipo": "COMPENSADORES CHEVROLET",
+    "Tipo": "COMPENSADORES",
     "Codigo": "11010304",
     "Nombre": "COMPENSADOR CHEVROLET LUV 1600 82/90",
     "Referencia": "8942417670",
@@ -436,7 +436,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_688078-MCO72774291021_112023-O.webp"]
   },
   {
-    "Tipo": "COMPENSADORES CHEVROLET",
+    "Tipo": "COMPENSADORES",
     "Codigo": "11010305",
     "Nombre": "COMPENSADOR CHEVROLET LUV 2300 TROOPER",
     "Referencia": "8970289720",
@@ -695,7 +695,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_983326-MLA72549086586_112023-O.webp","https://http2.mlstatic.com/D_NQ_NP_923797-MCO82164201673_012025-O.webp"]
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010501",
     "Nombre": "ROTULA CHEVROLET ASTRA ZAFIRA",
     "Referencia": "90497305",
@@ -708,7 +708,7 @@
     "Precio2":"48000"
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010502",
     "Nombre": "ROTULA CHEVROLET AVEO/SAIL",
     "Referencia": "96535089",
@@ -722,7 +722,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_921771-MCO90665239953_082025-O.webp","https://http2.mlstatic.com/D_Q_NP_837925-MCO86291387137_062025-R.webp","https://http2.mlstatic.com/D_NQ_NP_683793-MCO86291405643_062025-O.webp"]
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010503",
     "Nombre": "ROTULA CHEVROLET CAVALIER 90/98",
     "Referencia": "K5273",
@@ -736,7 +736,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_843961-MCO92678449628_092025-O.webp"]
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010504",
     "Nombre": "ROTULA CHEVROLET COBAL/TRACKER/ONIX/SONIC",
     "Referencia": "95017034",
@@ -750,7 +750,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_770915-MCO87981195093_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_968501-MCO87980509695_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_873946-MCO87980966071_072025-O.webp"]
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010505",
     "Nombre": "ROTULA CHEVROLET CORSA 2000/2010",
     "Referencia": "90542574",
@@ -765,7 +765,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010506",
     "Nombre": "ROTULA CHEVROLET CORSA 93/99",
     "Referencia": "90295324",
@@ -780,7 +780,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010507",
     "Nombre": "ROTULA INFERIOR CHEVROLET BLAZER 4X4 93/99",
     "Referencia": "K5289",
@@ -795,7 +795,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010508",
     "Nombre": "ROTULA INFERIOR CHEVROLET C-10 73/86",
     "Referencia": "K6117",
@@ -810,7 +810,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010509",
     "Nombre": "ROTULA INFERIOR CHEVROLET C-30",
     "Referencia": "K6129",
@@ -825,7 +825,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010510",
     "Nombre": "ROTULA INFERIOR CHEVROLET CHEYENNE 1.5/3.5 GRAFILADA",
     "Referencia": "K6445",
@@ -840,7 +840,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010511",
     "Nombre": "ROTULA INFERIOR CHEVROLET CHEYENNE 1.500/3.5 LISA",
     "Referencia": "K6293",
@@ -855,7 +855,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010512",
     "Nombre": "ROTULA INFERIOR CHEVROLET GRAN BLAZER 4X4",
     "Referencia": "K6291",
@@ -870,7 +870,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010513",
     "Nombre": "ROTULA INFERIOR CHEVROLET CHEV.K-10 4X4 FORD/WILLYS",
     "Referencia": "K8195",
@@ -885,7 +885,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010514",
     "Nombre": "ROTULA INFERIOR CHEVROLET LUV 2.3 4X4 DIMAX 4X2 TROOPER LUV 2.2",
     "Referencia": "8944521021",
@@ -900,7 +900,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010515",
     "Nombre": "ROTULA INFERIOR CHEVROLET LUV 2300 4X2",
     "Referencia": "8944594642",
@@ -915,7 +915,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010516",
     "Nombre": "ROTULA INFERIOR CHEVROLET SILVERADO 4X4 98/2008",
     "Referencia": "K6477",
@@ -930,7 +930,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010517",
     "Nombre": "ROTULA DAEWOO RACER/CIELO",
     "Referencia": "1603120",
@@ -945,7 +945,7 @@
 
   },
   {
-    "Tipo": "ROTULAS INFERIORES CHEVROLET",
+    "Tipo": "ROTULAS INFERIORES",
     "Codigo": "11010518",
     "Nombre": "ROTULA CHEVROLET CORSA EVOLUTION 3 HUECOS",
     "Referencia": "90576327",
@@ -960,7 +960,7 @@
 
   },
   {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
+    "Tipo": "ROTULAS SUPERIORES",
     "Codigo": "11010601",
     "Nombre": "ROTULA SUPERIOR CHEVROLET BLAZER 90/2002",
     "Referencia": "K5208",
@@ -975,7 +975,7 @@
 
   },
   {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
+    "Tipo": "ROTULAS SUPERIORES",
     "Codigo": "11010604",
     "Nombre": "ROTULA SUPERIOR CHEVROLET CHEYENNE 1500",
     "Referencia": "K6292",
@@ -990,7 +990,7 @@
 
   },
   {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
+    "Tipo": "ROTULAS SUPERIORES",
     "Codigo": "11010605",
     "Nombre": "ROTULA SUPERIOR CHEVROLET CHEYENNE 3500",
     "Referencia": "K6344",
@@ -1005,7 +1005,7 @@
 
   },
   {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
+    "Tipo": "ROTULAS SUPERIORES",
     "Codigo": "11010606",
     "Nombre": "ROTULA SUPERIOR CHEVROLET K-10 4X4 FORD DODGE",
     "Referencia": "K8194",
@@ -1019,22 +1019,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_843961-MCO92678449628_092025-O.webp"]
 
   },
+
   {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
-    "Codigo": "11010607",
-    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV 1.6/2.3/TROOPER",
-    "Referencia": "8944722550",
-    "Precio": "22,900.00",
-    "titulo": "rotula-superior-chevrolet-luv-1.6-2.3-trooper",
-    "Marca": "Chevrolet",
-    "Modelo": "Luv 1.6 / 2.3 / Trooper",
-    "Brand":"Saher",
-    "Descuento":10,
-    "Precio2":"48000",
-    "images":["https://http2.mlstatic.com/D_NQ_NP_864357-MCO72747408907_112023-O.webp"]
-  },
-  {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
+    "Tipo": "ROTULAS SUPERIORES",
     "Codigo": "11010608",
     "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X2",
     "Referencia": "8972357770",
@@ -1048,8 +1035,22 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_843961-MCO92678449628_092025-O.webp"]
 
   },
+   {
+    "Tipo": "ROTULAS SUPERIORES",
+    "Codigo": "11010607",
+    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV 1.6/2.3/TROOPER",
+    "Referencia": "8944722550",
+    "Precio": "22,900.00",
+    "titulo": "rotula-superior-chevrolet-luv-1.6-2.3-trooper",
+    "Marca": "Chevrolet",
+    "Modelo": "Luv 1.6 / 2.3 / Trooper",
+    "Brand":"Saher",
+    "Descuento":10,
+    "Precio2":"46000",
+    "images":["https://http2.mlstatic.com/D_NQ_NP_843961-MCO92678449628_092025-O.webp"]
+  },
   {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
+    "Tipo": "ROTULAS SUPERIORES",
     "Codigo": "11010609",
     "Nombre": "ROTULA SUPERIOR CHEVROLET LUV DMAX 4X4",
     "Referencia": "8943744240",
@@ -1063,23 +1064,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_843961-MCO92678449628_092025-O.webp"]
 
   },
+ 
   {
-    "Tipo": "ROTULAS SUPERIORES CHEVROLET",
-    "Codigo": "11010607",
-    "Nombre": "ROTULA SUPERIOR CHEVROLET LUV 1.6/2.3/TROOPER",
-    "Referencia": "8944722550",
-    "Precio": "22,900.00",
-    "titulo": "rotula-superior-chevrolet-luv-1.6-2.3-trooper",
-    "Marca": "Chevrolet",
-    "Modelo": "Luv 1.6 / 2.3 / Trooper",
-    "Brand":"Saher",
-    "Descuento":10,
-    "Precio2":"46000",
-    "images":["https://http2.mlstatic.com/D_NQ_NP_843961-MCO92678449628_092025-O.webp"]
-
-  },
-  {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010701",
     "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO derecho",
     "Referencia": "93740722",
@@ -1093,7 +1080,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_881766-MCO86417619221_062025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_668116-MCO72599085405_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_904499-MCO86101331942_062025-O.webp"]
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010702",
     "Nombre": "TERMINAL DIRECCION CHEVROLET AVEO izquierdo",
     "Referencia": "93740723",
@@ -1108,7 +1095,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010703",
     "Nombre": "TERMINAL DIRECCION CHEVROLET BLAZER 93/99 CORTA izquierdo",
     "Referencia": "ES2072L",
@@ -1122,7 +1109,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_606869-MCO92678641986_092025-O.webp"]
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010704",
     "Nombre": "TERMINAL DIRECCION CHEVROLET BLAZER 93/99 LARGA derecho",
     "Referencia": "ES2249R",
@@ -1137,7 +1124,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010705",
     "Nombre": "TERMINAL DIRECCION CHEVROLET CAVALIER 90/97 izquierdo",
     "Referencia": "ES2217L",
@@ -1152,7 +1139,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010706",
     "Nombre": "TERMINAL DIRECCION CHEVROLET CAVALIER 90/97 derecho",
     "Referencia": "ES2216R",
@@ -1168,7 +1155,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010707",
     "Nombre": "TERMINAL DIRECCION CHEVROLET CHEYENNE derecho",
     "Referencia": "ES2836R",
@@ -1183,7 +1170,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010708",
     "Nombre": "TERMINAL DIRECCION CHEVROLET CHEYENNE izquierdo",
     "Referencia": "ES2837L",
@@ -1198,7 +1185,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010709",
     "Nombre": "TERMINAL DIRECCION CHEVROLET CORSA 93/99",
     "Referencia": "93229707",
@@ -1213,7 +1200,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010710",
     "Nombre": "TERMINAL DIRECCION CHEVROLET CRUZE 1.8",
     "Referencia": "13278359",
@@ -1228,7 +1215,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010711",
     "Nombre": "TERMINAL DIRECCION CHEVROLET GRAND VITARA derecho",
     "Referencia": "4881065D00",
@@ -1243,7 +1230,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010712",
     "Nombre": "TERMINAL DIRECCION CHEVROLET GRAND VITARA izquierdo",
     "Referencia": "4882065D00",
@@ -1258,7 +1245,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010713",
     "Nombre": "TERMINAL DIRECCION CHEVROLET JIMNY/VITARA izquierdo CORTA",
     "Referencia": "4882080001",
@@ -1274,7 +1261,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010714",
     "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 1600 82/90",
     "Referencia": "8942373511",
@@ -1288,7 +1275,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_734949-MCO72774416911_112023-O.webp"]
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010715",
     "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300/TROOPER izquierdo",
     "Referencia": "8944194090",
@@ -1303,7 +1290,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010716",
     "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300/TROOPER derecho/ DMAX",
     "Referencia": "8944194080",
@@ -1318,7 +1305,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010717",
     "Nombre": "TERMINAL DIRECCION CHEVROLET NPR /NKR 93/99 derecho",
     "Referencia": "8944196082",
@@ -1333,7 +1320,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010718",
     "Nombre": "TERMINAL DIRECCION CHEVROLET NPR/NKR 93/99 izquierdo",
     "Referencia": "8944196092",
@@ -1348,7 +1335,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010719",
     "Nombre": "TERMINAL DIRECCION CHEVROLET NKR/NPR/NHR 2001/2018 DERECHO",
     "Referencia": "8971073480",
@@ -1363,7 +1350,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010720",
     "Nombre": "TERMINAL DIRECCION CHEVROLET NKR/NPR/NHR 2001/2018 izquierdo",
     "Referencia": "8971073490",
@@ -1378,7 +1365,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010721",
     "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL derecho",
     "Referencia": "9063349",
@@ -1393,7 +1380,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010722",
     "Nombre": "TERMINAL DIRECCION CHEVROLET SAIL izquierdo",
     "Referencia": "9063350",
@@ -1408,7 +1395,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010723",
     "Nombre": "TERMINAL DIRECCION CHEVROLET VITARA CORTA SAMURAI derecho",
     "Referencia": "4881060A00",
@@ -1423,7 +1410,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010724",
     "Nombre": "TERMINAL DIRECCION CHEVROLET SILVERADO TAHOE",
     "Referencia": "ES3493",
@@ -1438,7 +1425,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010725",
     "Nombre": "TERMINAL DIRECCION CHEVROLET SONIC/COBALT CORTAS/ONIX/HYUNDAI SONATA",
     "Referencia": "95218393",
@@ -1452,7 +1439,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_928518-MCO87329910154_072025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_989370-MCO87659303075_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_769852-MCO87329553784_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_918175-MCO87329504014_072025-O.webp"]
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010726",
     "Nombre": "TERMINAL DIRECCION CHEVROLET SPRINT/SWIFT/MAZDA 323",
     "Referencia": "4881082000",
@@ -1466,7 +1453,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_969343-MCO72619807081_112023-O.webp","https://http2.mlstatic.com/D_NQ_NP_925162-MCO81884036954_012025-O.webp"]
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010727",
     "Nombre": "TERMINAL DIRECCION CHEVROLET S.CARRY derecho DAMAS",
     "Referencia": "4881079000",
@@ -1481,7 +1468,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010728",
     "Nombre": "TERMINAL DIRECCION CHEVROLET S.CARRY izquierdo DAMAS",
     "Referencia": "4882079000",
@@ -1496,7 +1483,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010729",
     "Nombre": "TERMINAL DIRECCION CHEVROLET TRACKER",
     "Referencia": "95932790",
@@ -1510,7 +1497,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_842243-MCO89080044537_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_890392-MCO87501326026_072025-O.webp"]
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010730",
     "Nombre": "TERMINAL DIRECCION CHEVROLET TRAIL BLAZER izquierdo",
     "Referencia": "ES3675L",
@@ -1525,7 +1512,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010731",
     "Nombre": "TERMINAL DIRECCION CHEVROLET TRAIL BLAZER derecho",
     "Referencia": "ES3676R",
@@ -1540,7 +1527,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010732",
     "Nombre": "TERMINAL DIRECCION CHEVROLET VITARA/SAMURAI CORTA derecho = 4881080001",
     "Referencia": "4881060A00",
@@ -1555,7 +1542,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010733",
     "Nombre": "TERMINAL DIRECCION CHEVROLET N-200 -N- 300 derecho",
     "Referencia": "24510351",
@@ -1570,7 +1557,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010734",
     "Nombre": "TERMINAL DIRECCION CHEVROLET N-200 - N-300 izquierdo",
     "Referencia": "9050603",
@@ -1585,7 +1572,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010735",
     "Nombre": "TERMINAL DIRECCION CHEVROLET SPARK",
     "Referencia": "93741077",
@@ -1600,7 +1587,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010736",
     "Nombre": "TERMINAL DIRECCION CHEVROLET VITARA LARGA",
     "Referencia": "4882060A00",
@@ -1615,7 +1602,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010737",
     "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300 CON GRASERA derecho",
     "Referencia": "8944194080-A",
@@ -1630,7 +1617,7 @@
 
   },
   {
-    "Tipo": "TERMINALES CHEVROLET",
+    "Tipo": "TERMINALES",
     "Codigo": "11010738",
     "Nombre": "TERMINAL DIRECCION CHEVROLET LUV 2300 CON GRASERA izquierdo",
     "Referencia": "8944194090-A",
@@ -1645,7 +1632,7 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010801",
     "Nombre": "TIJERA SUPERIOR CHEVROLET LUV 1600 82/90 R=L",
     "Referencia": "8942269361",
@@ -1659,7 +1646,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_740101-MCO93090580167_092025-O.webp"]
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010802",
     "Nombre": "TIJERA SUPERIOR CHEVROLET LUV 2300 4X2 R=L LUV 2.2",
     "Referencia": "8944455503",
@@ -1674,7 +1661,7 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010803",
     "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X2 izquierdo",
     "Referencia": "898005836",
@@ -1689,7 +1676,7 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010804",
     "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X2 derecho LUV 2.2",
     "Referencia": "898005837",
@@ -1704,7 +1691,7 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010805",
     "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X4 izquierdo",
     "Referencia": "8973650130",
@@ -1719,7 +1706,7 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010806",
     "Nombre": "TIJERA SUPERIOR CHEVROLET LUV DMAX 4X4 derecho",
     "Referencia": "8973650120",
@@ -1734,7 +1721,7 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010807",
     "Nombre": "TIJERA SUPERIOR CHEVROLET LUV 2300 4X4 TROOPER derecho",
     "Referencia": "8944457080 8943235621",
@@ -1749,7 +1736,7 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010808",
     "Nombre": "TIJERA  SUPERIOR CHEVROLET LUV 2300 4X4 TROOPER izquierdo",
     "Referencia": "8944457090 8943235631",
@@ -1764,21 +1751,21 @@
 
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010809",
     "Nombre": "TIJERA SUPERIOR TROOPER 960 V-6 izquierdo",
     "Referencia": "8943744195",
     "Precio": null
   },
   {
-    "Tipo": "TIJERAS SUPERIORES CHEVROLET",
+    "Tipo": "TIJERAS SUPERIORES",
     "Codigo": "11010810",
     "Nombre": "TIJERA SUPERIOR TROOPER 960 V-6 derecho",
     "Referencia": "8943744185",
     "Precio": null
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010901",
     "Nombre": "TIJERA CHEVROLET ASTRA/ZAFIRA izquierdo CON BUJES",
     "Referencia": "90469039",
@@ -1793,7 +1780,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010902",
     "Nombre": "TIJERA CHEVROLET ASTRA/ZAFIRA derecho CON BUJES",
     "Referencia": "90496040",
@@ -1807,7 +1794,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_831155-MCO87333385030_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_672154-MCO87333385076_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_954535-MCO87661590485_072025-O.webp"]
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010903",
     "Nombre": "TIJERA CHEVROLET AVEO SAIL izquierdo CON ROTULA Y BUJES",
     "Referencia": "96535081",
@@ -1822,7 +1809,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010904",
     "Nombre": "TIJERA CHEVROLET AVEO SAIL derecho CON ROTULA Y BUJES",
     "Referencia": "96535082",
@@ -1837,7 +1824,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010905",
     "Nombre": "TIJERA CHEVROLET CAPTIVA V-6 3.600 USA",
     "Referencia": "25878028",
@@ -1852,7 +1839,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010906",
     "Nombre": "TIJERA CHEVROLET CAPTIVA V-6 3.600 USA",
     "Referencia": "25878029",
@@ -1867,7 +1854,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010907",
     "Nombre": "TIJERA CHEVROLET CAVALER 4CIL 95/98 derecho",
     "Referencia": "22611124",
@@ -1883,7 +1870,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010908",
     "Nombre": "TIJERA CHEVROLET CAVALIER 4CIL.95/98 izquierdo",
     "Referencia": "22611125",
@@ -1898,7 +1885,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010909",
     "Nombre": "TIJERA CHEVROLET COBALT izquierdo CON ROTULA Y BUJES",
     "Referencia": "95940539",
@@ -1912,7 +1899,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_705226-MCO87376882562_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_876329-MCO87706280633_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_646448-MCO87706240645_072025-O.webp"]
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010910",
     "Nombre": "TIJERA CHEVROLET COBALT derecho ROTULA Y BUJES--11010922",
     "Referencia": "95940540",
@@ -1927,7 +1914,7 @@
     
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010911",
     "Nombre": "TIJERA CHEVROLET CORSA EVOLUTION izquierdo ROTULA Y BUJES",
     "Referencia": "93390601",
@@ -1941,7 +1928,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_965333-MCO87378163266_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_741062-MCO87378123138_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_794433-MCO87379016566_072025-O.webp"]
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010912",
     "Nombre": "TIJERA CHEVROLET CORSA EVOLUTION derecho ROTULA Y BUJES",
     "Referencia": "93390602",
@@ -1956,7 +1943,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010913",
     "Nombre": "TIJERA CHEVROLET ESTEEM 1.3/1.6 derecho",
     "Referencia": "4520163G01",
@@ -1971,7 +1958,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010914",
     "Nombre": "TIJERA CHEVROLET ESTEMM 1.3/1.6 izquierdo",
     "Referencia": "4520263G01",
@@ -1986,7 +1973,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010915",
     "Nombre": "TIJERA INFERIOR CHEVROLET LUV 2300 4X2 derecho",
     "Referencia": "8944594602",
@@ -2001,7 +1988,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010916",
     "Nombre": "TIJERA INFERIOR CHEVROLET LUV 2300 4X2 izquierdo",
     "Referencia": "8944594612",
@@ -2016,7 +2003,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010917",
     "Nombre": "TIJERA CHEVROLET N-200 izquierdo",
     "Referencia": "5497127",
@@ -2031,7 +2018,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010918",
     "Nombre": "TIJERA CHEVROLET N-200 derecho",
     "Referencia": "5497128",
@@ -2046,7 +2033,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010919",
     "Nombre": "TIJERA CHEVROLET OPTRA 1.4/1.8 izquierdo",
     "Referencia": "96391850",
@@ -2061,7 +2048,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010920",
     "Nombre": "TIJERA CHEVROLET OPTRA 1.4/1.8 derecho",
     "Referencia": "96391851",
@@ -2075,7 +2062,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_855508-MCO87647340138_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_902797-MCO87979732289_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_955441-MCO87979711801_072025-O.webp"]
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010921",
     "Nombre": "TIJERA CHEVROLET SONIC/ONIX izquierdo CON ROTULA Y BUJES--11010909",
     "Referencia": "95017035",
@@ -2089,7 +2076,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_705226-MCO87376882562_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_876329-MCO87706280633_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_860086-MCO87377368684_072025-O.webp"]
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010922",
     "Nombre": "TIJERA CHEVROLET SONIC ONIX derecho CON ROTULA Y BUJES--11010910",
     "Referencia": "95017036",
@@ -2104,7 +2091,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010923",
     "Nombre": "TIJERA CHEVROLET SUPER CARRY R=L DAMAS",
     "Referencia": "4520085002",
@@ -2119,7 +2106,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010924",
     "Nombre": "TIJERA CHEVROLET SWIFT 1.3/1.6/1.0 izquierdo",
     "Referencia": "4520260E01",
@@ -2134,7 +2121,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010925",
     "Nombre": "TIJERA CHEVROLET SWIFT 1.3/1.6/1.0 derecho",
     "Referencia": "4520160E01",
@@ -2149,7 +2136,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010926",
     "Nombre": "TIJERA CHEVROLET TRACKER LHCON ROTULA Y BUJES",
     "Referencia": "95071273",
@@ -2164,7 +2151,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010927",
     "Nombre": "TIJERA CHEVROLET TRACKER derecho CON ROTULA Y BUJES",
     "Referencia": "95071274",
@@ -2179,7 +2166,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010928",
     "Nombre": "TIJERA CHEVROLET CAPTIVA 2.400 izquierdo COMPLETA",
     "Referencia": "96819161",
@@ -2193,7 +2180,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_860568-MCO92583478287_092025-O.webp","https://http2.mlstatic.com/D_NQ_NP_790202-MCO92177111024_092025-O.webp","https://http2.mlstatic.com/D_NQ_NP_844413-MCO87661874541_072025-O.webp"]
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010929",
     "Nombre": "TIJERA CHEVROLET CAPTIVA 2.400 derecho COMPLETA",
     "Referencia": "96819162",
@@ -2208,7 +2195,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010930",
     "Nombre": "TIJERA CHEVROLET N-300 derecho",
     "Referencia": "24552619",
@@ -2223,7 +2210,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010931",
     "Nombre": "TIJERA CHEVROLET N-300 izquierdo",
     "Referencia": "24552620",
@@ -2238,7 +2225,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010932",
     "Nombre": "TIJERA GRAN VITARA CHEVROLET derecho MACIZA",
     "Referencia": "45201-67D01",
@@ -2253,7 +2240,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010933",
     "Nombre": "TIJERA GRAN VITARA CHEVROLET izquierdo MACIZA",
     "Referencia": "45202-67D01",
@@ -2268,7 +2255,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010934",
     "Nombre": "TIJERA GRAN VITARA SZ derecho",
     "Referencia": "45201-78K00",
@@ -2283,7 +2270,7 @@
 
   },
   {
-    "Tipo": "TIJERAS INFERIORES CHEVROLET",
+    "Tipo": "TIJERAS INFERIORES",
     "Codigo": "11010935",
     "Nombre": "TIJERA GRAN VITARA SZ izquierdo",
     "Referencia": "45202-78K00",
@@ -2299,7 +2286,7 @@
    
   },
   {
-    "Tipo": "BUJES TIJERAS CHEVROLET",
+    "Tipo": "BUJES TIJERAS",
     "Codigo": "11011001",
     "Nombre": "BUJES TIJERA  INFERIOR CHEVROLET CHEYENNE X2",
     "Referencia": "K6327",
@@ -2313,7 +2300,7 @@
     
   },
   {
-    "Tipo": "BUJES TIJERAS CHEVROLET",
+    "Tipo": "BUJES TIJERAS",
     "Codigo": "11011002",
     "Nombre": "BUJES TIJERA SUPERIOR CHEVROLET CHEYENNE",
     "Referencia": "K6395",
@@ -2327,7 +2314,7 @@
     
   },
   {
-    "Tipo": "BUJES TIJERAS CHEVROLET",
+    "Tipo": "BUJES TIJERAS",
     "Codigo": "11011003",
     "Nombre": "BUJE TIJERA SUPERIOR CHEVROLET LUV 2300 TROOPER",
     "Referencia": "8944088401",
@@ -2340,9 +2327,9 @@
     "Precio2":"24000"
   },
   {
-    "Tipo": "UNION TERMINALES CHEVROLET",
+    "Tipo": "UNION TERMINALES",
     "Codigo": "11011201",
-    "Nombre": "CAÑA UNION TERMINALES CHEVROLET DODGE FORD",
+    "Nombre": "CAÑA UNION TERMINALES DODGE FORD",
     "Referencia": "ES2004",
     "Precio": "11,990.00",
     "titulo": "caña-union-terminales-chevrolet-dodge-ford",
@@ -2353,9 +2340,9 @@
     "Precio2":"24000"
   },
   {
-    "Tipo": "UNION TERMINALES CHEVROLET",
+    "Tipo": "UNION TERMINALES",
     "Codigo": "11011202",
-    "Nombre": "UNION TERMINALES CHEVROLET LUV 2300 4X2 LARGA",
+    "Nombre": "UNION TERMINALES LUV 2300 4X2 LARGA",
     "Referencia": "8944594780",
     "Precio": "18,310.00",
     "titulo": "union-terminales-luv-2300-4x2-larga",
@@ -2366,9 +2353,9 @@
     "Precio2":"44000"
   },
   {
-    "Tipo": "UNION TERMINALES CHEVROLET",
+    "Tipo": "UNION TERMINALES",
     "Codigo": "11011203",
-    "Nombre": "UNION TERMINALES CHEVROLET TROOPER/LUV 2300 4X4 CORTA",
+    "Nombre": "UNION TERMINALES TROOPER/LUV 2300 4X4 CORTA",
     "Referencia": "8944194072",
     "Precio": "18,310.00",
     "titulo": "union-terminales-trooper-luv-2300-4x4-corta",
@@ -2379,7 +2366,7 @@
     "Precio2":"44000"
   },
   {
-    "Tipo": "UNION TERMINALES CHEVROLET",
+    "Tipo": "UNION TERMINALES",
     "Codigo": "11011204",
     "Nombre": "UNION TERMINALES SUPER CARRY",
     "Referencia": "4883179000",
@@ -2387,14 +2374,14 @@
 
   },
   {
-    "Tipo": "UNION TERMINALES CHEVROLET",
+    "Tipo": "UNION TERMINALES",
     "Codigo": "11011205",
     "Nombre": "UNION TERMINALES VITARA SUZUKI SJ410",
     "Referencia": "4883663001",
     "Precio": null
   },
   {
-    "Tipo": "BIELAS DIRECCION CHEVROLET",
+    "Tipo": "BIELAS DIRECCION",
     "Codigo": "11011301",
     "Nombre": "BIELA DIRECCION CHEVROLET BLAZER 4X4 93/99",
     "Referencia": "K6339",
@@ -2407,7 +2394,7 @@
     "Precio2":"80000"
   },
   {
-    "Tipo": "BIELAS DIRECCION CHEVROLET",
+    "Tipo": "BIELAS DIRECCION",
     "Codigo": "11011302",
     "Nombre": "BIELA DIRECCION CHEVROLET C-30 HIDRAULICA",
     "Referencia": "K6143",
@@ -2420,7 +2407,7 @@
     "Precio2":"80000"
   },
   {
-    "Tipo": "BIELAS DIRECCION CHEVROLET",
+    "Tipo": "BIELAS DIRECCION",
     "Codigo": "11011303",
     "Nombre": "BIELA DIRECCION CHEVROLET CHEYENNE SILVERADO",
     "Referencia": "K6335",
@@ -2433,7 +2420,7 @@
     "Precio2":"80000"
   },
   {
-    "Tipo": "BRAZOS OXILANTES CHEVROLET",
+    "Tipo": "BRAZOS OXILANTES",
     "Codigo": "11011401",
     "Nombre": "BRAZO OXILANTE CHEVROLET SPARK/ALTO/WAGON R",
     "Referencia": "4520084000",
@@ -2446,7 +2433,7 @@
     "Precio2":"80000"
   },
   {
-    "Tipo": "BRAZOS OXILANTES CHEVROLET",
+    "Tipo": "BRAZOS OXILANTES",
     "Codigo": "11011402",
     "Nombre": "BRAZO OXILANTE CHEVROLET SPRINT",
     "Referencia": "4520082000",
@@ -2643,7 +2630,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_2X_701756-MCO74863091194_032024-F.webp"]
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020201",
     "Nombre": "EJE LEVAS CHEVROLET AVEO FAMILY 1500",
     "Referencia": "96838025",
@@ -2656,7 +2643,7 @@
     "Precio2":"220000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020202",
     "Nombre": "EJE LEVAS CHEVROLET AVEO/OPTRA1400",
     "Referencia": "96376716",
@@ -2669,7 +2656,7 @@
     "Precio2":"240000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020203",
     "Nombre": "EJE LEVAS CHEVROLET CORSA 1.3/1.4",
     "Referencia": "93272192",
@@ -2682,7 +2669,7 @@
     "Precio2":"210000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020204",
     "Nombre": "EJE LEVAS CHEVROLET CORSA 1.600",
     "Referencia": "93244916",
@@ -2695,7 +2682,7 @@
     "Precio2":"240000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020205",
     "Nombre": "EJE LEVAS CHEVROLET ESTEEM 1.3/GRAN VIT. 1600",
     "Referencia": "1271161G00",
@@ -2708,7 +2695,7 @@
     "Precio2":"290000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020206",
     "Nombre": "EJE LEVAS CHEVROLET ESTEEM 1.6",
     "Referencia": "1271052G00",
@@ -2721,21 +2708,21 @@
     "Precio2":"290000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020207",
     "Nombre": "EJE LEVAS ISUZU LV-150",
     "Referencia": "1125112552",
     "Precio": null
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020208",
     "Nombre": "EJE LEVAS LUV 2.200 ASTRA ZAFIRA",
     "Referencia": "93201688",
     "Precio": null
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020209",
     "Nombre": "EJE LEVAS CHEVROLET LUV 2.400 DMAX",
     "Referencia": "93283062",
@@ -2748,7 +2735,7 @@
     "Precio2":"290000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020210",
     "Nombre": "EJE LEVAS CHEVROLET LUV 2.3/TROOPER WFR",
     "Referencia": "8941367841",
@@ -2761,7 +2748,7 @@
     "Precio2":"310000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020211",
     "Nombre": "EJE LEVAS CHEVROLET MONZA 1.8/2.0",
     "Referencia": "52252649",
@@ -2774,7 +2761,7 @@
     "Precio2":"340000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020212",
     "Nombre": "EJE LEVAS CHEVROLET NKR",
     "Referencia": "8941277971",
@@ -2787,7 +2774,7 @@
     "Precio2":"310000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020213",
     "Nombre": "EJE LEVAS CHEVROLET NPR 4HG1 2001/2012",
     "Referencia": "8970778290 8970778240",
@@ -2800,7 +2787,7 @@
     "Precio2":"360000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020214",
     "Nombre": "EJE LEVAS CHEVROLET SPARK",
     "Referencia": "96325213",
@@ -2813,7 +2800,7 @@
     "Precio2":"310000"
   },
   {
-    "Tipo": "EJES DE LEVAS CHEVROLET",
+    "Tipo": "EJES DE LEVAS",
     "Codigo": "11020215",
     "Nombre": "EJE LEVAS CHEVROLET SUPER CARRY CHANA",
     "Referencia": "1271073001",
@@ -2826,7 +2813,7 @@
     "Precio2":"210000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020303",
     "Nombre": "FLAUTA CHEVROLET LUV TROOPER ESCAPE LARGA",
     "Referencia": "8941106471",
@@ -2839,7 +2826,7 @@
     "Precio2":"70000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020304",
     "Nombre": "FLAUTA CHEVROLET LUV TROOPER ADM. CORTA",
     "Referencia": "8941106461",
@@ -2852,7 +2839,7 @@
     "Precio2":"70000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020305",
     "Nombre": "FLAUTA CHEVROLET NKR/NHR LUV DMAX 2.5/3.0",
     "Referencia": "8970361970",
@@ -2865,7 +2852,7 @@
     "Precio2":"76000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020306",
     "Nombre": "FLAUTA CHEVROLET SPARK CHRONOS ADM.CORTA",
     "Referencia": "96325216",
@@ -2879,7 +2866,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_978115-MCO74999324423_032024-O.webp"]
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020307",
     "Nombre": "FLAUTA CHEVROLET SPARK CHRONOS ESCAPE LARGA",
     "Referencia": "96325218",
@@ -2894,7 +2881,7 @@
 
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020308",
     "Nombre": "FLAUTA CHEVROLET SPRINT ADM. CORTA",
     "Referencia": "1286082001",
@@ -2907,7 +2894,7 @@
     "Precio2":"42000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020309",
     "Nombre": "FLAUTA CHEVROLET SPRINT ESC. LARGA",
     "Referencia": "1287082001",
@@ -2920,7 +2907,7 @@
     "Precio2":"42000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020310",
     "Nombre": "FLAUTA SUPER CARRY ADM=ESC",
     "Referencia": "1286073004",
@@ -2933,7 +2920,7 @@
     "Precio2":"37000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020311",
     "Nombre": "FLAUTA SWIFT 1.3/SAMURAI ADM.CORTA",
     "Referencia": "1286082600",
@@ -2946,7 +2933,7 @@
     "Precio2":"52000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020312",
     "Nombre": "FLAUTA SWIFT 1.3/SAMURAI ESC.LARGA",
     "Referencia": "1287082600",
@@ -2959,14 +2946,14 @@
     "Precio2":"52000"
   },
   {
-    "Tipo": "FLAUTAS DE MOTOR CHEVROLET",
+    "Tipo": "FLAUTAS DE MOTOR",
     "Codigo": "11020313",
     "Nombre": "FLAUTA TROOPER 960 V-6 ADMICION",
     "Referencia": "8943647231",
     "Precio": null
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020401",
     "Nombre": "IMPULSADORES C-30 DAIHATSU 4Y =817",
     "Referencia": "3799644",
@@ -2979,7 +2966,7 @@
     "Precio2":"20000"
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020402",
     "Nombre": "IMPULSADORES CAVALIER 4 CIL 95/98",
     "Referencia": "17120070",
@@ -2992,9 +2979,9 @@
     "Precio2":"28000"
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020403",
-    "Nombre": "IMPULSADORES CHEVROLET COBAL /FORD",
+    "Nombre": "IMPULSADORES COBAL /FORD",
     "Referencia": "93361391",
     "Precio": "11,800.00",
     "titulo": "impulsadores-chevrolet-cobal-ford",
@@ -3005,9 +2992,9 @@
     "Precio2":"22000"
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020404",
-    "Nombre": "IMPULSADORES CHEVROLET CHEYENNE / BLAZER RODILLO",
+    "Nombre": "IMPULSADORES CHEYENNE / BLAZER RODILLO",
     "Referencia": "HT-2148 5234670",
     "Precio": "26,800.00",
     "titulo": "impulsadores-chevrolet-cheyenne-blazer-rodillo",
@@ -3018,9 +3005,9 @@
     "Precio2":"41000"
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020405",
-    "Nombre": "IMPULSADORES CHEVROLET CORSA / MONZA DAEWOO / LUV 2.2",
+    "Nombre": "IMPULSADORES CORSA / MONZA DAEWOO / LUV 2.2",
     "Referencia": "5233315",
     "Precio": "87,900.00",
     "titulo": "impulsadores-chevrolet-corsa-monza-daewoo-luv-2.2",
@@ -3032,9 +3019,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_976986-MCO80430984837_112024-O.webp", "https://http2.mlstatic.com/D_NQ_NP_903774-MCO81878566256_012025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_885173-MCO81878319926_012025-O.webp", "https://http2.mlstatic.com/D_NQ_NP_973983-MCO85686263124_062025-O.webp"]
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020406",
-    "Nombre": "IMPULSADORES CHEVROLET OPTRA 1.4 AVEO 1.6",
+    "Nombre": "IMPULSADORES OPTRA 1.4 AVEO 1.6",
     "Referencia": "96376400",
     "Precio": "12,850.00",
     "titulo": "impulsadores-chevrolet-optra-1.4-aveo-1.6",
@@ -3046,9 +3033,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_742105-MCO82162999755_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_781052-MCO85713904884_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_697002-MCO72667018075_112023-O.webp","https://http2.mlstatic.com/D_NQ_NP_736332-MCO85997732829_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_985223-MCO86024238435_062025-O.webp"]
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020407",
-    "Nombre": "IMPULSADORES CHEVROLET OPTRA 1.8 EPICA VIVANT",
+    "Nombre": "IMPULSADORES OPTRA 1.8 EPICA VIVANT",
     "Referencia": "90570967",
     "Precio": "12,850.00",
     "titulo": "impulsadores-chevrolet-optra-1.8-epica-vivant",
@@ -3060,9 +3047,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_958776-MCO89076470705_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_964683-MCO84994824024_052025-O.webp","https://http2.mlstatic.com/D_NQ_NP_641730-MCO83009779895_032025-O.webp","https://http2.mlstatic.com/D_NQ_NP_937395-MCO84994824094_052025-O.webp"]
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020408",
-    "Nombre": "IMPULSADORES CHEVROLET SPRINT / VITARA / SWIFT",
+    "Nombre": "IMPULSADORES SPRINT / VITARA / SWIFT",
     "Referencia": "1289186512",
     "Precio": "11,980.00",
     "titulo": "impulsadores-chevrolet-sprint-vitara-swift",
@@ -3074,9 +3061,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_733099-MCO88725223708_072025-O.webp","https://http2.mlstatic.com/D_NQ_NP_891957-MCO82147033521_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_678533-MCO82147170453_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_960826-MCO81867196032_012025-O.webp"]
   },
   {
-    "Tipo": "IMPULSADORES CHEVROLET",
+    "Tipo": "IMPULSADORES",
     "Codigo": "11020409",
-    "Nombre": "IMPULSADORES CHEVROLET CAPTIVA 2.4 / 3.0 / 3.2 / 3.6 / TRAIL BLAZER / ONIX TURBO 1.0",
+    "Nombre": "IMPULSADORES CAPTIVA 2.4 / 3.0 / 3.2 / 3.6 / TRAIL BLAZER / ONIX TURBO 1.0",
     "Referencia": "12572638",
     "Precio": "11,600.00",
     "titulo": "impulsadores-chevrolet-captiva-trail-blazer-onix-turbo",
@@ -3088,9 +3075,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_993449-MCO75277146450_032024-O.webp","https://http2.mlstatic.com/D_NQ_NP_791532-MCO82147685925_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_950454-MCO83627733843_042025-O.webp","https://http2.mlstatic.com/D_NQ_NP_661033-MCO83627813035_042025-O.webp"]
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020501",
-    "Nombre": "KIT REPARTICION CHEVROLET ALTO WAGON +R 6 PCS 1.2 LTS",
+    "Nombre": "KIT REPARTICION ALTO WAGON +R 6 PCS 1.2 LTS",
     "Referencia": "08180604 104P4",
     "Precio": "126,800.00",
     "titulo": "kit-reparticion-chevrolet-alto-wagon-r-6-pcs-1.2-lts",
@@ -3102,9 +3089,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_941440-MCO74905337887_032024-O.webp","https://http2.mlstatic.com/D_NQ_NP_906309-MCO74905784127_032024-O.webp"]
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020502",
-    "Nombre": "KIT REPARTICION CHEVROLET CAPTIVA 2.4/HHR 16 PCS",
+    "Nombre": "KIT REPARTICION CAPTIVA 2.4/HHR 16 PCS",
     "Referencia": "08184005 8005",
     "Precio": "469,800.00",
     "titulo": "kit-reparticion-chevrolet-captiva-2.4-hhr-16",
@@ -3116,9 +3103,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_751551-MLA72419639490_102023-O.webp","https://http2.mlstatic.com/D_NQ_NP_672008-MLA72487497805_102023-O.webp"]
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020503",
-    "Nombre": "KIT REPARTICION CHEVROLET CAPTIVA V-6 3.0/3.2/3.6 15 PCS",
+    "Nombre": "KIT REPARTICION CAPTIVA V-6 3.0/3.2/3.6 15 PCS",
     "Referencia": "08188002 8002",
     "Precio": "649,800.00",
     "titulo":"kit-reparticion-chevrolet-captiva-v-6-3-0-3-2-3-6",
@@ -3131,9 +3118,9 @@
 
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020504",
-    "Nombre": "KIT REPARTICION CHEVROLET N-200 SPARK GT 7 PCS",
+    "Nombre": "KIT REPARTICION N-200 SPARK GT 7 PCS",
     "Referencia": "08188003 08188003",
     "Precio": "169,800.00",
     "titulo":"kit-reparticion-chevrolet-n-200-spark-gt-7",
@@ -3145,9 +3132,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_863377-MCO74905392719_032024-O.webp"]
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020505",
-    "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.0 11 PIEZAS",
+    "Nombre": "KIT REPARTICION GRAN VITARA 2.0 11 PIEZAS",
     "Referencia": "08180605 08180605",
     "Precio": "272,000.00",
     "titulo":"kit-reparticion-chevrolet-gran-vitara-2-11",
@@ -3159,9 +3146,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_835197-MCO74905523911_032024-O.webp"]
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020506",
-    "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.5 /2.7 17PCS",
+    "Nombre": "KIT REPARTICION GRAN VITARA 2.5 /2.7 17PCS",
     "Referencia": "08180606 08180606",
     "Precio": "538,900.00",
     "titulo":"kit-reparticion-chevrolet-gran-vitara-2-5-2-7-17",
@@ -3173,9 +3160,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_622409-MCO74772557374_032024-O.webp"]
     },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020507",
-    "Nombre": "KIT REPARTICION CHEVROLET GRAN VITARA 2.7 SZ 20 PIEZAS",
+    "Nombre": "KIT REPARTICION GRAN VITARA 2.7 SZ 20 PIEZAS",
     "Referencia": "08180607 08180607",
     "Precio": "549,600.00",
     "titulo":"kit-reparticion-chevrolet-gran-vitara-2.7-sz-20",
@@ -3188,9 +3175,9 @@
 
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020508",
-    "Nombre": "KIT REPARTICION CHEVROLET TRAIL BLAZER MOTOR 4.200 CC 7 PCS",
+    "Nombre": "KIT REPARTICION TRAIL BLAZER MOTOR 4.200 CC 7 PCS",
     "Referencia": "08188004 8004",
     "Precio": "219,945.00",
     "titulo":"kit-reparticion-chevrolet-trail-blazer-motor-4.200-cc-7",
@@ -3203,9 +3190,9 @@
     
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020509",
-    "Nombre": "KIT REPARTICION CHEVROLET SAIL 7 PC",
+    "Nombre": "KIT REPARTICION SAIL 7 PC",
     "Referencia": "08180604 4008",
     "Precio": "178,900.00",
     "titulo":"kit-reparticion-chevrolet-sail-7",
@@ -3217,9 +3204,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_943356-MCO74791465208_032024-O.webp"]
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020510",
-    "Nombre": "KIT REPARTICION CHEVROLET AVEO/OPTRA 1.4/1.6",
+    "Nombre": "KIT REPARTICION AVEO/OPTRA 1.4/1.6",
     "Referencia": "K-110",
     "Precio": "117,800.00",
     "titulo":"kit-reparticion-chevrolet-aveo-optra-1.4-1.6",
@@ -3230,9 +3217,9 @@
     "Precio2":"210000"
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020511",
-    "Nombre": "KIT REPARTICION CHEVROLET OPTRA 1.8/EPICA 2.0/VIVANT 2.0",
+    "Nombre": "KIT REPARTICION OPTRA 1.8/EPICA 2.0/VIVANT 2.0",
     "Referencia": "K-120",
     "Precio": "136,880.00",
     "titulo":"kit-reparticion-chevrolet-optra-1.8-epica-2.0-vivant-2.0",
@@ -3243,9 +3230,9 @@
     "Precio2":"240000"
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020512",
-    "Nombre": "KIT REPARTICION CHEVROLET LUV 2.200",
+    "Nombre": "KIT REPARTICION LUV 2.200",
     "Referencia": "K-130",
     "Precio": "93,100.00",
     "titulo":"kit-reparticion-chevrolet-luv-2.200",
@@ -3256,9 +3243,9 @@
     "Precio2":"190000"
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020513",
-    "Nombre": "KIT REPARTICION CHEVROLET ASTRA 1.8 OPTRA LT/CORSA 1.8",
+    "Nombre": "KIT REPARTICION ASTRA 1.8 OPTRA LT/CORSA 1.8",
     "Referencia": "K-140",
     "Precio": "129,554.00",
     "titulo":"kit-reparticion-chevrolet-astra-1.8-optra-lt-corsa-1.8",
@@ -3269,9 +3256,9 @@
     "Precio2":"240000"
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020514",
-    "Nombre": "KIT REPARTICION CHEVROLET ZAFIRA 2.0",
+    "Nombre": "KIT REPARTICION ZAFIRA 2.0",
     "Referencia": "K-150",
     "Precio": "89,590.00",
     "titulo":"kit-reparticion-chevrolet-zafira-2.0",
@@ -3282,9 +3269,9 @@
     "Precio2":"210000"
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020515",
-    "Nombre": "KIT REPARTICION CHEVROLET TRACKER / CRUZE 1.8 / SONIC",
+    "Nombre": "KIT REPARTICION TRACKER / CRUZE 1.8 / SONIC",
     "Referencia": "K-160",
     "Precio": "162,305.00",
     "titulo": "kit-reparticion-chevrolet-tracker-cruce-1.8",
@@ -3296,9 +3283,9 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_925217-MCO86040049513_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_885296-MCO86040388059_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_662106-MCO86040050429_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_788934-MCO85728790676_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_844275-MCO86040506231_062025-O.webp","https://http2.mlstatic.com/D_NQ_NP_825146-MCO85728343528_062025-O.webp"]
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020516",
-    "Nombre": "KIT REPARTICION CHEVROLET CHERY VAN CARGO 1.300",
+    "Nombre": "KIT REPARTICION CHERY VAN CARGO 1.300",
     "Referencia": "K-170",
     "Precio": "149,407.00",
     "titulo": "kit-reparticion-chevrolet-chery-van-cargo-1.300",
@@ -3309,9 +3296,9 @@
     "Precio2":"290000"
   },
   {
-    "Tipo": "KIT REPARTICION CHEVROLET",
+    "Tipo": "KIT REPARTICION",
     "Codigo": "11020517",
-    "Nombre": "KIT REPARTICION CHEVROLET CORSA 1.3/1.4 ONIX COBALT DAEWOO RACER",
+    "Nombre": "KIT REPARTICION CORSA 1.3/1.4 ONIX COBALT DAEWOO RACER",
     "Referencia": "K-180",
     "Precio": "68,804.00",
     "titulo": "kit-reparticion-chevrolet-corsa-1.3-1.4-onix-cobalt-daewoo-racer",
@@ -3322,9 +3309,9 @@
     "Precio2":"140000"
   },
   {
-    "Tipo": "TAPA REPARTICION CHEVROLET",
+    "Tipo": "TAPA REPARTICION",
     "Codigo": "11020601",
-    "Nombre": "TAPA REPARTICION CHEVROLET SPARK 724/CRONOS CH-48",
+    "Nombre": "TAPA REPARTICION SPARK 724/CRONOS CH-48",
     "Referencia": "96325223",
     "Precio": "17,800.00",
     "titulo": "tapa-reparticion-chevrolet-spark-724-cronos",
@@ -3335,9 +3322,9 @@
     "Precio2":"42000"
   },
   {
-    "Tipo": "TAPA REPARTICION CHEVROLET",
+    "Tipo": "TAPA REPARTICION",
     "Codigo": "11020602",
-    "Nombre": "TAPA REPARTICION CHEVROLET SPRINT/SWIFT 1.300 CH-20",
+    "Nombre": "TAPA REPARTICION SPRINT/SWIFT 1.300 CH-20",
     "Referencia": "1139082010",
     "Precio": "19,200.00",
     "titulo": "tapa-reparticion-chevrolet-sprint-swift-1.300",
@@ -3348,7 +3335,7 @@
     "Precio2":"42000"
   },
   {
-    "Tipo": "TORNILLOS BALANCIN CHEVROLET",
+    "Tipo": "TORNILLOS BALANCIN",
     "Codigo": "11020701",
     "Nombre": "TORNILLO BALANCIN CHEVROLET GRAN VITARA 2.0/2.5",
     "Referencia": "1284232411",
@@ -3361,7 +3348,7 @@
     "Precio2":"7000"
   },
   {
-    "Tipo": "TORNILLOS BALANCIN CHEVROLET",
+    "Tipo": "TORNILLOS BALANCIN",
     "Codigo": "11020702",
     "Nombre": "TORNILLO BALANCIN CHEVROLET LUV DMAX/NKR/NHR",
     "Referencia": "8941522831",
@@ -3374,7 +3361,7 @@
     "Precio2":"8000"
   },
   {
-    "Tipo": "TORNILLOS BALANCIN CHEVROLET",
+    "Tipo": "TORNILLOS BALANCIN",
     "Codigo": "11020703",
     "Nombre": "TORNILLO BALANCIN CHEVROLET LUV/TROOPER WFR HYUNDAI",
     "Referencia": "8942007860",
@@ -3387,7 +3374,7 @@
     "Precio2":"70000"
   },
   {
-    "Tipo": "TORNILLOS BALANCIN CHEVROLET",
+    "Tipo": "TORNILLOS BALANCIN",
     "Codigo": "11020704",
     "Nombre": "TORNILLO BALANCIN CHEVROLET NPR 4HG1",
     "Referencia": "8943675262",
@@ -3400,7 +3387,7 @@
     "Precio2":"9000"
   },
   {
-    "Tipo": "TORNILLOS BALANCIN CHEVROLET",
+    "Tipo": "TORNILLOS BALANCIN",
     "Codigo": "11020705",
     "Nombre": "TORNILLO BALANCIN CHEVROLET SPRINT SWIFT SAMURAI",
     "Referencia": "1284852000",
@@ -3413,7 +3400,7 @@
     "Precio2":"7000"
   },
   {
-    "Tipo": "TORNILLOS BALANCIN CHEVROLET",
+    "Tipo": "TORNILLOS BALANCIN",
     "Codigo": "11020706",
     "Nombre": "TORNILLO BALANCIN CHEVROLET SUPER CARRY SPARK SJ410",
     "Referencia": "1284873010",
@@ -3426,7 +3413,7 @@
     "Precio2":"7000"
   },
   {
-    "Tipo": "TORNILLOS BALANCIN CHEVROLET",
+    "Tipo": "TORNILLOS BALANCIN",
     "Codigo": "11020707",
     "Nombre": "TORNILLO BALANCIN LV-150 ISUZU",
     "Referencia": "1126160341",
@@ -3439,9 +3426,9 @@
     "Precio2":"22000"
   },
   {
-    "Tipo": "VALVULA DESFOGUE PCV CHEVROLET",
+    "Tipo": "VALVULA DESFOGUE PCV",
     "Codigo": "11020801",
-    "Nombre": "VALVULA DESFOGUE PCV CHEVROLET SPARK/MATIZ",
+    "Nombre": "VALVULA DESFOGUE PCV SPARK/MATIZ",
     "Referencia": "VAL-3",
     "Precio": "6,945.00",
     "titulo": "valvula-desfogue-pcv-chevrolet-spark-matiz",
@@ -3452,9 +3439,9 @@
     "Precio2":"18000"
   },
   {
-    "Tipo": "VALVULA DESFOGUE PCV CHEVROLET",
+    "Tipo": "VALVULA DESFOGUE PCV",
     "Codigo": "11020802",
-    "Nombre": "VALVULA DESFOGUE PCV CHEVROLET SWIFT",
+    "Nombre": "VALVULA DESFOGUE PCV SWIFT",
     "Referencia": "VAL-1",
     "Precio": "6,945.00",
     "titulo": "valvula-desfogue-pcv-swift",
@@ -3518,7 +3505,7 @@
     "images":["https://http2.mlstatic.com/D_NQ_NP_846306-MCO82149215667_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_672283-MCO81868802064_012025-O.webp","https://http2.mlstatic.com/D_NQ_NP_891464-MCO82149146415_012025-O.webp"]
   },
   {
-    "Tipo": "VARILLAS ACEITE CHEVROLET",
+    "Tipo": "VARILLAS ACEITE",
     "Codigo": "11021301",
     "Nombre": "VARILLA ACEITE CHEVROLET LUV 2300 4X2 LARGA",
     "Referencia": "8944135700",
@@ -3531,7 +3518,7 @@
     "Precio2":"42000"
   },
   {
-    "Tipo": "VARILLAS ACEITE CHEVROLET",
+    "Tipo": "VARILLAS ACEITE",
     "Codigo": "11021302",
     "Nombre": "VARILLA ACEITE CHEVROLET TROOPER LUV 2300 4X4 CORTA",
     "Referencia": "8944810230",
@@ -3557,9 +3544,9 @@
     "Precio2":"28000"
   },
   {
-    "Tipo": "BIELETA CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BIELETA CONTROL CAMBIOS",
     "Codigo": "11040101",
-    "Nombre": "BIELETA CONTROL CAMBIOS CHEVROLET CORSA 93/99",
+    "Nombre": "BIELETA CONTROL CAMBIOS CORSA 93/99",
     "Referencia": "90245766",
     "Precio": "9,800.00",
     "titulo": "bieleta-control-cambios-chevrolet-corsa-93-99",
@@ -3570,9 +3557,9 @@
     "Precio2":"20000"
   },
   {
-    "Tipo": "BIELETA CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BIELETA CONTROL CAMBIOS",
     "Codigo": "11040102",
-    "Nombre": "BIELETA CONTROL CAMBIOS CHEVROLET CORSA EVOLUTION",
+    "Nombre": "BIELETA CONTROL CAMBIOS CORSA EVOLUTION",
     "Referencia": "93395040",
     "Precio": "9,800.00",
     "titulo": "bieleta-control-cambios-chevrolet-corsa-evolution",
@@ -3583,7 +3570,7 @@
     "Precio2":"20000"
   },
   {
-    "Tipo": "BIELETA CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BIELETA CONTROL CAMBIOS",
     "Codigo": "11040103",
     "Nombre": "BIELETA CONTROL CAMBIOS DAEWOO RACER",
     "Referencia": "94580711",
@@ -3596,7 +3583,7 @@
     "Precio2":"20000"
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040201",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET CORSA 1.6 3406",
     "Referencia": "93386267",
@@ -3609,7 +3596,7 @@
     "Precio2":"250000"
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040202",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET N-300 OJO-OJO 3921",
     "Referencia": "24524965",
@@ -3622,7 +3609,7 @@
     "Precio2":"170000"
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040203",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET N-300 OJO-TORNILLO 3934",
     "Referencia": "24528068",
@@ -3635,7 +3622,7 @@
     "Precio2":"140000"
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040204",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SAIL CHEVROLET 3841",
     "Referencia": "24105496",
@@ -3648,7 +3635,7 @@
     "Precio2":"260000"
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040205",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SPARK",
     "Referencia": "96333366",
@@ -3661,7 +3648,7 @@
     "Precio2":"240000" 
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040206",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SPARK GT",
     "Referencia": "25189435",
@@ -3674,7 +3661,7 @@
     "Precio2":"320000"
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040207",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET SPARK CHRONOS 2379",
     "Referencia": "96568386",
@@ -3687,7 +3674,7 @@
     "Precio2":"210000"
   },
   {
-    "Tipo": "GUAYAS CONTROL DE CAMBIOS CHEVROLET",
+    "Tipo": "GUAYAS CONTROL DE CAMBIOS",
     "Codigo": "11040208",
     "Nombre": "GUAYA CONTROL CAMBIOS CHEVROLET ZAFIRA ASTRA 2.0 3946",
     "Referencia": "93306003",
@@ -3700,9 +3687,9 @@
     "Precio2":"340000"
   },
   {
-    "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BUJES CONTROL CAMBIOS",
     "Codigo": "11040301",
-    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET AVEO OPTRA DAEWOO D-08",
+    "Nombre": "BUJES CONTROL CAMBIOS AVEO OPTRA DAEWOO D-08",
     "Referencia": "90226959",
     "Precio": "8,745.00",
     "titulo": "bujes-control-cambios-chevrolet-aveo-optra-daewoo",
@@ -3713,9 +3700,9 @@
     "Precio2":"16000"
   },
   {
-    "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BUJES CONTROL CAMBIOS",
     "Codigo": "11040302",
-    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET SPARK KRONOS CH-077",
+    "Nombre": "BUJES CONTROL CAMBIOS SPARK KRONOS CH-077",
     "Referencia": "CH-077",
     "Precio": "8,690.00",
     "titulo": "bujes-control-cambios-chevrolet-spark-chronos",
@@ -3726,9 +3713,9 @@
     "Precio2":"16000"
   },
   {
-    "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BUJES CONTROL CAMBIOS",
     "Codigo": "11040303",
-    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET CORSA CH-16",
+    "Nombre": "BUJES CONTROL CAMBIOS CORSA CH-16",
     "Referencia": "90111223",
     "Precio": "9,800.00",
     "titulo": "bujes-control-cambios-chevrolet-corsa",
@@ -3739,9 +3726,9 @@
     "Precio2":"19000"
   },
   {
-    "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BUJES CONTROL CAMBIOS",
     "Codigo": "11040304",
-    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET LUV DMAX CH-70",
+    "Nombre": "BUJES CONTROL CAMBIOS LUV DMAX CH-70",
     "Referencia": "8979436180",
     "Precio": "8,700.00",
     "titulo": "bujes-control-cambios-chevrolet-luv-dmax",
@@ -3752,9 +3739,9 @@
     "Precio2":"19000"
   },
   {
-    "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BUJES CONTROL CAMBIOS",
     "Codigo": "11040305",
-    "Nombre": "BUJES CONTROL CAMBIOS CHEVROLET SWIFT/SPRINT CH-30",
+    "Nombre": "BUJES CONTROL CAMBIOS SWIFT/SPRINT CH-30",
     "Referencia": "932014018",
     "Precio": "10,670.00",
     "titulo": "bujes-control-cambios-chevrolet-swift-sprint",
@@ -3765,7 +3752,7 @@
     "Precio2":"21000"
   },
   {
-    "Tipo": "BUJES CONTROL CAMBIOS CHEVROLET",
+    "Tipo": "BUJES CONTROL CAMBIOS",
     "Codigo": "11040306",
     "Nombre": "BUJES PALANCA CAMBIOS CHEVROLET AVEO,CORSA OPTRA, DAEWOO CH37",
     "Referencia": "90222571",
@@ -4217,7 +4204,7 @@
     "Precio": null
   },
   {
-    "Tipo": "TERMOSTATOS CHEVROLET",
+    "Tipo": "TERMOSTATOS",
     "Codigo": "11090201",
     "Nombre": "TERMOSTATO CHEVROLET AVEO 1.4/1.6 METALICO",
     "Referencia": "09542601 96282726",
@@ -4230,7 +4217,7 @@
     "Precio2":"60000"
   },
   {
-    "Tipo": "TERMOSTATOS CHEVROLET",
+    "Tipo": "TERMOSTATOS",
     "Codigo": "11090202",
     "Nombre": "TERMOSTATO CHEVROLET OPTRA 1.4 / METLICO",
     "Referencia": "0954009 96460002",
@@ -4243,14 +4230,14 @@
     "Precio2":"60000"
   },
   {
-    "Tipo": "TERMOSTATOS CHEVROLET",
+    "Tipo": "TERMOSTATOS",
     "Codigo": "11090203",
     "Nombre": "TERMOSTATO SAIL CHEVROLET",
     "Referencia": "9025192",
     "Precio": "0.00"
   },
   {
-    "Tipo": "TERMOSTATOS CHEVROLET",
+    "Tipo": "TERMOSTATOS",
     "Codigo": "11090204",
     "Nombre": "TERMOSTATO CHEVROLET TRACKER/CRUZE/SONIC METALICO",
     "Referencia": "544014 96984104",
@@ -4263,7 +4250,7 @@
     "Precio2":"160000"
   },
   {
-    "Tipo": "TERMOSTATOS CHEVROLET",
+    "Tipo": "TERMOSTATOS",
     "Codigo": "11090205",
     "Nombre": "TERMOSTATO CHEVROLET OPTRA 1.8 LT. METALICO",
     "Referencia": "92063301 92062728",
@@ -4276,7 +4263,7 @@
     "Precio2":"70000"
   },
   {
-    "Tipo": "TERMOSTATOS CHEVROLET",
+    "Tipo": "TERMOSTATOS",
     "Codigo": "11090206",
     "Nombre": "TERMOSTATO CHEVROLET AVEO PLASTICO",
     "Referencia": "09544017 96407677",
@@ -4289,7 +4276,7 @@
     "Precio2":"65000"
   },
   {
-    "Tipo": "TUBOS CALEFACCION CHEVROLET",
+    "Tipo": "TUBOS CALEFACCION",
     "Codigo": "11090301",
     "Nombre": "TUBO CALEFACCION CHEVROLET ASTRA/ZAFIRA",
     "Referencia": "90322216",
@@ -4304,7 +4291,7 @@
 
   },
   {
-    "Tipo": "TUBOS CALEFACCION CHEVROLET",
+    "Tipo": "TUBOS CALEFACCION",
     "Codigo": "11090302",
     "Nombre": "TUBO CALEFACCION CHEVROLET AVEO 1.4/OPTRA 1.4",
     "Referencia": "96273608",
@@ -4319,7 +4306,7 @@
 
   },
   {
-    "Tipo": "TUBOS CALEFACCION CHEVROLET",
+    "Tipo": "TUBOS CALEFACCION",
     "Codigo": "11090303",
     "Nombre": "TUBO CALEFACCION CHEVROLET CORSA 1.3/1.4 93/99",
     "Referencia": "90448854",
@@ -4334,7 +4321,7 @@
 
   },
   {
-    "Tipo": "TUBOS CALEFACCION CHEVROLET",
+    "Tipo": "TUBOS CALEFACCION",
     "Codigo": "11090304",
     "Nombre": "TUBO CALEFACCION CHEVROLET CORSA EVOLUTION CHEVY",
     "Referencia": "9128719",
@@ -4349,7 +4336,7 @@
 
   },
   {
-    "Tipo": "TUBOS CALEFACCION CHEVROLET",
+    "Tipo": "TUBOS CALEFACCION",
     "Codigo": "11090305",
     "Nombre": "TUBO CALEFACCION CHEVROLET OPTRA 1.8",
     "Referencia": "96553368",
@@ -4364,7 +4351,7 @@
 
   },
   {
-    "Tipo": "TUBOS CALEFACCION CHEVROLET",
+    "Tipo": "TUBOS CALEFACCION",
     "Codigo": "11090306",
     "Nombre": "TUBO CALEFACCION CHEVROLET OPTRA 1.8 LT",
     "Referencia": "96180035",
@@ -4379,7 +4366,7 @@
 
   },
   {
-    "Tipo": "TUBOS CALEFACCION CHEVROLET",
+    "Tipo": "TUBOS CALEFACCION",
     "Codigo": "11090307",
     "Nombre": "TUBO CALEFACCION CHEVROLET SPARK CHRONOS",
     "Referencia": "96565660",
@@ -4619,7 +4606,7 @@
   {
     "Marca": "MAZDA",
     "Modelo": "MATSURI MILENIUM",
-    "Tipo": "AXIALES MAZDA",
+    "Tipo": "AXIALES",
     "Codigo": "12010101",
     "Nombre": "AXIAL MAZDA MATSURI MILENIUM",
     "Referencia": "GA2A-32-240",
@@ -4629,7 +4616,7 @@
   {
     "Marca": "MAZDA",
     "Modelo": "323 NX",
-    "Tipo": "AXIALES MAZDA",
+    "Tipo": "AXIALES",
     "Codigo": "12010102",
     "Nombre": "AXIAL MAZDA 323 NX",
     "Referencia": "BF67-32-240",
@@ -4639,7 +4626,7 @@
   {
     "Marca": "MAZDA",
     "Modelo": "3/5",
-    "Tipo": "AXIALES MAZDA",
+    "Tipo": "AXIALES",
     "Codigo": "12010103",
     "Nombre": "AXIAL MAZDA 3/5",
     "Referencia": "BP4L-32-240",
@@ -4649,7 +4636,7 @@
   {
     "Marca": "MAZDA",
     "Modelo": "2",
-    "Tipo": "AXIALES MAZDA",
+    "Tipo": "AXIALES",
     "Codigo": "12010104",
     "Nombre": "AXIAL MAZDA 2/FORD FIESTA",
     "Referencia": "D653-32-240",
@@ -4659,7 +4646,7 @@
   {
     "Marca": "MAZDA",
     "Modelo": "626 ASAHI",
-    "Tipo": "AXIALES MAZDA",
+    "Tipo": "AXIALES",
     "Codigo": "12010105",
     "Nombre": "AXIAL MAZDA 626 ASAHI",
     "Referencia": "GJ21-32-240",
@@ -4669,7 +4656,7 @@
   {
     "Marca": "MAZDA",
     "Modelo": "6",
-    "Tipo": "AXIALES MAZDA",
+    "Tipo": "AXIALES",
     "Codigo": "12010106",
     "Nombre": "AXIAL MAZDA 6",
     "Referencia": "GJ6E-32-24X",
