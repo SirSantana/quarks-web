@@ -81,41 +81,20 @@ export default function RepuestosSlug({ data }) {
 }
 
 export async function getStaticProps({ params }) {
-
-  const slug = Array.isArray(params.slug)
-    ? params.slug[0]
-    : params.slug;
-
-  const producto = autopartes.find(
-    (item) => item.titulo === slug
-  );
-
-  if (!producto) {
-    return {
-      notFound: true
-    };
-  }
+  const parts = params?.slug;
+  let findAutotopart = autopartes.find(el => el.titulo === parts[0]);
 
   return {
     props: {
-      data: producto
+      data: findAutotopart || null,
     },
-    revalidate: 86400
+    // revalidate: 86400,
   };
 }
 
 export async function getStaticPaths() {
-
-  const paths = autopartes
-    .filter(item => item.titulo)
-    .map(item => ({
-      params: {
-        slug: [item.titulo]
-      }
-    }));
-
   return {
-    paths,
-    fallback: "blocking"
+    paths: [], 
+    fallback: "blocking",
   };
 }
