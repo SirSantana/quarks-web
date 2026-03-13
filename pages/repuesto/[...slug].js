@@ -63,7 +63,6 @@ export default function RepuestosSlug({ data }) {
       footer={false}
       navbarRepuestos={false}
       visibleNavbar={true}
-      description={generarDescripcionSEO(data)}
       url={`/repuesto/${data.titulo}`}
     >
 
@@ -74,7 +73,7 @@ export default function RepuestosSlug({ data }) {
         />
       </Head>
 
-      {/* <ProductDetailPage repuesto={data} /> */}
+      <ProductDetailPage repuesto={data} />
       <FooterV2 />
 
     </Layout>
