@@ -1,6 +1,6 @@
 import Layout from "@/src/Components/Layout";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Wrench } from "lucide-react";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 
 function readingTime(html) {
@@ -33,75 +33,98 @@ export default function ArticlePage({ post }) {
       visibleNavbar={false}
     >
       <div className="min-h-screen bg-white">
-        {/* ── Hero with title overlay ──────────────────────────────── */}
-       {post.image && (
-  <div className="w-full">
+        {/* ── Header con imagen lateral ───────────────────────────── */}
+        <div className="border-b border-gray-200 bg-[#f8f9fb]">
+          <div className="max-w-[900px] mx-auto px-6 max-sm:px-4">
+            <div className="flex flex-col sm:flex-row gap-0">
+              {/* Columna izquierda: contenido */}
+              <div className="flex-1 py-10 pr-0 sm:pr-10 flex flex-col justify-center">
+                <Link
+                  href="/article"
+                  className="inline-flex items-center gap-1.5 text-[12px] text-gray-400 hover:text-[#407BFF] transition-colors mb-6"
+                  style={{ textDecoration: "none" }}
+                >
+                  <ArrowLeft className="w-3 h-3" />
+                  Todas las guías
+                </Link>
 
-    {/* Imagen centrada y contenida */}
-    <div className="w-full flex justify-center overflow-hidden" style={{ height: 'clamp(200px, 28vh, 380px)' }}>
-      <img
-        src={post.image}
-        alt={post.title}
-        className="h-full object-contain"
-        style={{ width: '100%', maxWidth: '720px', objectPosition: 'center' }}
-        loading="eager"
-      />
-    </div>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="inline-flex items-center gap-1.5 bg-[#407BFF]/8 text-[#407BFF] text-[10px] font-bold uppercase tracking-[1.8px] px-2.5 py-1 rounded-sm">
+                    <Wrench className="w-2.5 h-2.5" />
+                    Guía Automotriz
+                  </span>
+                </div>
 
-    {/* Contenido debajo de la imagen */}
-    <div className="px-6 pt-7 pb-8 border-b border-gray-200">
-      <div className="max-w-[800px] mx-auto">
-        <Link
-          href="/article"
-          className="inline-flex items-center gap-1.5 text-[12px] text-gray-400 hover:text-gray-700 transition-colors mb-5"
-          style={{ textDecoration: 'none' }}
-        >
-          <ArrowLeft className="w-3 h-3" />
-          All articles
-        </Link>
-        <p className="text-[11px] font-bold uppercase tracking-[1.5px] text-[#407BFF] mb-3">
-          Quarks · Blog
-        </p>
-        <h1 className="text-[24px] sm:text-[32px] font-bold text-gray-900 tracking-tight leading-snug mb-4 max-w-[680px]">
-          {post.title}
-        </h1>
-        <div className="flex items-center gap-4 text-[13px] text-gray-400 flex-wrap">
-          {post.date && (
-            <span className="flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5" />
-              {formatDate(post.date)}
-            </span>
-          )}
-          <span className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            {minutes} min read
-          </span>
+                <h2 className="text-[24px] sm:text-[32px] font-bold text-gray-950 tracking-tight leading-snug mb-5">
+                  {post.title}
+                </h2>
+
+                {post.description && (
+                  <p className="text-[14px] text-gray-500 leading-relaxed mb-6 font-light">
+                    {post.description}
+                  </p>
+                )}
+
+                <div className="flex items-center gap-5 text-[12px] text-gray-400 flex-wrap pt-4 border-t border-gray-200">
+                  {post.date && (
+                    <span className="flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {formatDate(post.date)}
+                    </span>
+                  )}
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5" />
+                    {minutes} min de lectura
+                  </span>
+                </div>
+              </div>
+
+              {/* Columna derecha: imagen */}
+              {post.image && (
+                <div className="sm:w-[280px] md:w-[320px] flex-shrink-0 flex items-center justify-center border-t sm:border-t-0 sm:border-l border-gray-200 py-8 sm:py-0 sm:pl-10">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full object-contain"
+                    style={{ maxHeight: "220px", maxWidth: "260px" }}
+                    loading="eager"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-)}
-
-        {/* ── Header fallback (no image) ───────────────────────────── */}
+        {/* ── Header sin imagen ────────────────────────────────────── */}
         {!post.image && (
-          <div className="border-b border-gray-100">
-            <div className="max-w-[800px] mx-auto px-6 pt-12 pb-10 max-sm:px-4">
-              <Link
-                href="/article"
-                className="inline-flex items-center gap-1.5 text-[13px] text-gray-400 hover:text-[#407BFF] transition-colors mb-6"
-                style={{ textDecoration: "none" }}
-              >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                All articles
-              </Link>
-              <p className="text-[12px] font-bold uppercase tracking-[1px] text-[#407BFF] mb-3">
-                Quarks · Blog
-              </p>
-              <h1 className="text-[28px] sm:text-[40px] font-bold text-gray-950 tracking-tight leading-snug mb-4">
+          <div className="border-b border-gray-200">
+            {/* Franja técnica superior */}
+            <div className="w-full bg-[#f4f6f9] border-b border-gray-200 py-3 px-6">
+              <div className="max-w-[800px] mx-auto">
+                <Link
+                  href="/article"
+                  className="inline-flex items-center gap-1.5 text-[12px] text-gray-400 hover:text-[#407BFF] transition-colors"
+                  style={{ textDecoration: "none" }}
+                >
+                  <ArrowLeft className="w-3 h-3" />
+                  Todas las guías
+                </Link>
+              </div>
+            </div>
+
+            <div className="max-w-[800px] mx-auto px-6 pt-8 pb-8 max-sm:px-4">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="inline-flex items-center gap-1.5 bg-[#407BFF]/8 text-[#407BFF] text-[10px] font-bold uppercase tracking-[1.8px] px-2.5 py-1 rounded-sm">
+                  <Wrench className="w-2.5 h-2.5" />
+                  Guía Automotriz
+                </span>
+              </div>
+
+              <h2 className="text-[28px] sm:text-[38px] font-bold text-gray-950 tracking-tight leading-snug mb-4">
                 {post.title}
-              </h1>
-              <div className="flex items-center gap-4 text-[13px] text-gray-400 flex-wrap">
+              </h2>
+
+              <div className="flex items-center gap-5 text-[12px] text-gray-400 flex-wrap">
                 {post.date && (
                   <span className="flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5" />
@@ -110,37 +133,34 @@ export default function ArticlePage({ post }) {
                 )}
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5" />
-                  {minutes} min read
+                  {minutes} min de lectura
                 </span>
               </div>
             </div>
           </div>
         )}
 
-        {/* ── Article body ─────────────────────────────────────────── */}
-        <div className="max-w-[800px] mx-auto px-6 max-sm:px-4">
-          {/* Lead description */}
-          {post.description && (
-            <p className="text-[18px] text-gray-500 leading-relaxed pt-10 pb-8 border-b border-gray-100 font-light">
-              {post.description}
-            </p>
-          )}
-
+        {/* ── Cuerpo del artículo ──────────────────────────────────── */}
+        <div className="max-w-[900px] mx-auto px-6 max-sm:px-4">
           <article
             className="prose-article pt-10 pb-4"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
 
           {/* Footer */}
-          <div className="border-t border-gray-100 py-10 mb-10">
+          <div className="border-t border-gray-100 py-10 mb-10 flex items-center justify-between flex-wrap gap-4">
             <Link
               href="/article"
-              className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#407BFF] hover:underline"
+              className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#407BFF] hover:underline"
               style={{ textDecoration: "none" }}
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to all articles
+              Ver todas las guías
             </Link>
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-gray-300 uppercase tracking-[1.5px] font-semibold">
+              <Wrench className="w-3 h-3" />
+              Quarks · Guías
+            </span>
           </div>
         </div>
       </div>
@@ -148,9 +168,10 @@ export default function ArticlePage({ post }) {
       <style jsx global>{`
         /* ── Base ──────────────────────────────────────────────────── */
         .prose-article {
-          font-size: 16.5px;
-          line-height: 1.85;
+          font-size: 16px;
+          line-height: 1.9;
           color: #6b7280;
+          font-family: "Georgia", "Times New Roman", serif;
         }
 
         /* ── Headings ──────────────────────────────────────────────── */
@@ -159,6 +180,10 @@ export default function ArticlePage({ post }) {
         .prose-article h3,
         .prose-article h4,
         .prose-article h5 {
+          font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
           color: #030712;
           font-weight: 700;
           letter-spacing: -0.02em;
@@ -171,25 +196,37 @@ export default function ArticlePage({ post }) {
           margin-bottom: 1.2rem;
         }
         .prose-article h2 {
-          font-size: 1.4rem;
+          font-size: 1.3rem;
           margin-top: 3rem;
           margin-bottom: 1rem;
-          padding-bottom: 0.7rem;
-          border-bottom: 1px solid #f3f4f6;
+          padding-bottom: 0.65rem;
+          border-bottom: 2px solid #f3f4f6;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        .prose-article h2::before {
+          content: "";
+          display: inline-block;
+          width: 3px;
+          height: 1.1em;
+          background: #407bff;
+          border-radius: 2px;
+          flex-shrink: 0;
         }
         .prose-article h3 {
-          font-size: 1.1rem;
+          font-size: 1.05rem;
           margin-top: 2rem;
           margin-bottom: 0.75rem;
           color: #111827;
         }
         .prose-article h4 {
-          font-size: 0.85rem;
+          font-size: 0.8rem;
           margin-top: 1.75rem;
           margin-bottom: 0.6rem;
-          color: #6b7280;
+          color: #9ca3af;
           text-transform: uppercase;
-          letter-spacing: 0.07em;
+          letter-spacing: 0.1em;
           font-weight: 700;
         }
 
@@ -200,6 +237,10 @@ export default function ArticlePage({ post }) {
         .prose-article strong {
           color: #111827;
           font-weight: 600;
+          font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
         }
         .prose-article em {
           color: #374151;
@@ -222,6 +263,11 @@ export default function ArticlePage({ post }) {
         .prose-article ol {
           padding-left: 1.5rem;
           margin-bottom: 1.5rem;
+          font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
+          font-size: 15px;
         }
         .prose-article li {
           margin-bottom: 0.55rem;
@@ -243,33 +289,50 @@ export default function ArticlePage({ post }) {
           margin-bottom: 0.4rem;
         }
 
-        /* ── Blockquote ────────────────────────────────────────────── */
+        /* ── Blockquote — estilo "nota técnica" ────────────────────── */
         .prose-article blockquote {
           border-left: 3px solid #407bff;
           padding: 1rem 1.5rem;
           margin: 2.5rem 0;
           background: #f8faff;
-          border-radius: 0 16px 16px 0;
+          border-radius: 0 8px 8px 0;
+          position: relative;
+        }
+        .prose-article blockquote::before {
+          content: "NOTA TÉCNICA";
+          display: block;
+          font-size: 9px;
+          font-weight: 800;
+          letter-spacing: 0.15em;
+          color: #407bff;
+          font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
+          margin-bottom: 0.5rem;
         }
         .prose-article blockquote p {
           margin: 0;
           color: #374151;
-          font-size: 15px;
+          font-size: 14.5px;
           font-style: normal;
-        }
-        .prose-article blockquote strong {
-          color: #407bff;
+          font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
+          line-height: 1.7;
         }
 
-        /* ── Images — hide duplicate hero image ────────────────────── */
+        /* ── Imágenes ──────────────────────────────────────────────── */
         .prose-article > p:first-child > img:first-child {
           display: none;
         }
         .prose-article img {
           width: 100%;
-          border-radius: 16px;
-          margin: 2rem 0;
-          border: 1px solid #f3f4f6;
+          max-width: 560px;
+          margin: 2rem auto;
+          border-radius: 10px;
+          border: 1px solid #e5e7eb;
           display: block;
         }
 
@@ -277,15 +340,15 @@ export default function ArticlePage({ post }) {
         .prose-article code {
           background: #f3f4f6;
           padding: 2px 7px;
-          border-radius: 6px;
-          font-size: 13.5px;
+          border-radius: 5px;
+          font-size: 13px;
           color: #407bff;
           font-family: "Menlo", "Monaco", monospace;
         }
         .prose-article pre {
           background: #f9fafb;
           border: 1px solid #f3f4f6;
-          border-radius: 14px;
+          border-radius: 10px;
           padding: 1.25rem 1.5rem;
           overflow-x: auto;
           margin: 1.75rem 0;
@@ -302,8 +365,8 @@ export default function ArticlePage({ post }) {
           width: 100%;
           overflow-x: auto;
           margin: 2.5rem 0;
-          border: 1px solid #f3f4f6;
-          border-radius: 16px;
+          border: 1px solid #e5e7eb;
+          border-radius: 10px;
           -webkit-overflow-scrolling: touch;
           box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.04);
         }
@@ -312,18 +375,22 @@ export default function ArticlePage({ post }) {
           border-collapse: collapse;
           font-size: 13.5px;
           min-width: 520px;
+          font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
         }
         .prose-article .prose-table thead {
-          background: #f9fafb;
-          border-bottom: 1px solid #f3f4f6;
+          background: #f4f6f9;
+          border-bottom: 1px solid #e5e7eb;
         }
         .prose-article .prose-table thead th {
-          padding: 12px 18px;
+          padding: 11px 18px;
           text-align: left;
-          font-size: 10.5px;
-          font-weight: 700;
+          font-size: 10px;
+          font-weight: 800;
           text-transform: uppercase;
-          letter-spacing: 0.08em;
+          letter-spacing: 0.1em;
           color: #9ca3af;
           white-space: nowrap;
         }
@@ -331,13 +398,13 @@ export default function ArticlePage({ post }) {
           transition: background 0.1s;
         }
         .prose-article .prose-table tbody tr:hover {
-          background: #fafafa;
+          background: #fafbff;
         }
         .prose-article .prose-table tbody tr:not(:last-child) td {
           border-bottom: 1px solid #f3f4f6;
         }
         .prose-article .prose-table td {
-          padding: 14px 18px;
+          padding: 13px 18px;
           color: #6b7280;
           vertical-align: top;
           line-height: 1.6;
