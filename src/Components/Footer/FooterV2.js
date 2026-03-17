@@ -67,6 +67,9 @@ export default function FooterV2({ data }) {
           <a href="/diagnosticos" className={styles.footerLink}>
             Diagnosticos
           </a>
+          <a href="/article" className={styles.footerLink}>
+            Articulos
+          </a>
         </div>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Síguenos</h3>

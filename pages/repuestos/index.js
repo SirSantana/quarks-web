@@ -13,7 +13,7 @@ import {
 import autopartesData from "@/src/data/catalogo_autopartes.json";
 
 const PAGE_SIZE = 24;
-
+let marcas = ['Chevrolet', 'Suzuki']
 function slugify(text) {
   return text
     .toString()
@@ -387,6 +387,32 @@ export default function RepuestosPage({ autopartes }) {
                   ))}
                 </select>
               </div>
+ 
+                {/* <div className="shrink-0">
+                  <label
+                    htmlFor="filter-marca"
+                    className="block text-[11px] font-semibold uppercase tracking-[0.5px] text-gray-400 mb-1.5"
+                  >
+                    Marca
+                  </label>
+                  <select
+                    id="filter-marca"
+                    defaultValue=""
+                    // onChange={(e) => {
+                    //   if (e.target.value) {
+                    //     window.location.href = `/repuestos/${categoriaSlug}/${slugify(e.target.value)}`;
+                    //   }
+                    // }}
+                    className="px-3.5 py-2.5 text-[14px] border border-gray-200 rounded-xl bg-gray-50 focus:bg-white focus:border-[#407BFF] outline-none transition-colors appearance-none cursor-pointer pr-8"
+                  >
+                    <option value="">Todas las marcas</option>
+                    {marcas.map((m) => (
+                      <option key={m} value={m}>
+                        {m}
+                      </option>
+                    ))}
+                  </select>
+                </div> */}
 
               {/* Sort */}
               <div className="shrink-0">
