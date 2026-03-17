@@ -1,5 +1,4 @@
 import Layout from "@/src/Components/Layout";
-import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 
@@ -57,7 +56,7 @@ export default function ArticleIndex({ posts }) {
           ) : (
             <>
               {/* Featured article — most recent */}
-              <Link
+              <a
                 href={`/article/${posts[0].slug}`}
                 className="group block mb-12"
                 style={{ textDecoration: "none" }}
@@ -112,7 +111,7 @@ export default function ArticleIndex({ posts }) {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </a>
 
               {/* Rest of articles */}
               {posts.length > 1 && (
@@ -132,7 +131,7 @@ export default function ArticleIndex({ posts }) {
                           i < arr.length - 1 ? "border-b border-gray-100" : ""
                         }
                       >
-                        <Link
+                        <a
                           href={`/article/${post.slug}`}
                           className="group flex items-center gap-6 py-6 hover:bg-gray-50 -mx-6 px-6 transition-colors max-sm:-mx-4 max-sm:px-4"
                           style={{ textDecoration: "none" }}
@@ -180,7 +179,7 @@ export default function ArticleIndex({ posts }) {
                           </div>
 
                           <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-[#407BFF] shrink-0 max-sm:hidden transition-colors" />
-                        </Link>
+                        </a>
                       </li>
                     ))}
                   </ul>

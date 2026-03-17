@@ -1,5 +1,4 @@
 import Layout from "@/src/Components/Layout";
-import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Wrench } from "lucide-react";
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 
@@ -39,14 +38,14 @@ export default function ArticlePage({ post }) {
             <div className="flex flex-col sm:flex-row gap-0">
               {/* Columna izquierda: contenido */}
               <div className="flex-1 py-10 pr-0 sm:pr-10 flex flex-col justify-center">
-                <Link
+                <a
                   href="/article"
                   className="inline-flex items-center gap-1.5 text-[12px] text-gray-400 hover:text-[#407BFF] transition-colors mb-6"
                   style={{ textDecoration: "none" }}
                 >
                   <ArrowLeft className="w-3 h-3" />
                   Todas las guías
-                </Link>
+                </a>
 
                 <div className="flex items-center gap-2 mb-4">
                   <span className="inline-flex items-center gap-1.5 bg-[#407BFF]/8 text-[#407BFF] text-[10px] font-bold uppercase tracking-[1.8px] px-2.5 py-1 rounded-sm">
@@ -101,14 +100,14 @@ export default function ArticlePage({ post }) {
             {/* Franja técnica superior */}
             <div className="w-full bg-[#f4f6f9] border-b border-gray-200 py-3 px-6">
               <div className="max-w-[800px] mx-auto">
-                <Link
+                <a
                   href="/article"
                   className="inline-flex items-center gap-1.5 text-[12px] text-gray-400 hover:text-[#407BFF] transition-colors"
                   style={{ textDecoration: "none" }}
                 >
                   <ArrowLeft className="w-3 h-3" />
                   Todas las guías
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -149,14 +148,14 @@ export default function ArticlePage({ post }) {
 
           {/* Footer */}
           <div className="border-t border-gray-100 py-10 mb-10 flex items-center justify-between flex-wrap gap-4">
-            <Link
+            <a
               href="/article"
               className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#407BFF] hover:underline"
               style={{ textDecoration: "none" }}
             >
               <ArrowLeft className="w-4 h-4" />
               Ver todas las guías
-            </Link>
+            </a>
             <span className="inline-flex items-center gap-1.5 text-[11px] text-gray-300 uppercase tracking-[1.5px] font-semibold">
               <Wrench className="w-3 h-3" />
               Quarks · Guías
