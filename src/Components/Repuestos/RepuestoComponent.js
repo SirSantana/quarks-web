@@ -194,14 +194,14 @@ export default function ProductDetailPage({ repuesto }) {
             </a>
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a
-              href={`/repuestos/${repuesto?.Tipo?.toLowerCase()}`}
+              href={`/repuestos/${repuesto?.Tipo?.toLowerCase().replaceAll(' ', '-')}`}
               className="hover:text-gray-700 transition-colors"
             >
               {repuesto?.Tipo.toLowerCase()}
             </a>
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a
-              href={`/repuestos/${repuesto?.Tipo?.toLowerCase()}/${repuesto.Marca?.toLowerCase()}`}
+              href={`/repuestos/${repuesto?.Tipo?.toLowerCase().replaceAll(' ', '-')}/${repuesto?.Marca?.toLowerCase().replaceAll(' ', '-')}`}
               className="hover:text-gray-700 transition-colors"
             >
               {repuesto?.Marca}
