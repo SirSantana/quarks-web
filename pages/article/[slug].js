@@ -170,7 +170,7 @@ export default function ArticlePage({ post }) {
           font-size: 16px;
           line-height: 1.9;
           color: #6b7280;
-          font-family: "Georgia", "Times New Roman", serif;
+          font-family: system-ui, "Times New Roman", serif;
         }
 
         /* ── Headings ──────────────────────────────────────────────── */
@@ -228,7 +228,45 @@ export default function ArticlePage({ post }) {
           letter-spacing: 0.1em;
           font-weight: 700;
         }
-
+        /* ── Botón de compra Amazon ─────────────────────────────────── */
+        .prose-article li a[href*="amazon"],
+        .prose-article li a[href*="amzn"] {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          background: #ff9900;
+          color: #0f172a !important;
+          font-weight: 800;
+          font-size: 13px;
+          text-decoration: none !important;
+          padding: 9px 18px;
+          border-radius: 8px;
+          border-bottom: 3px solid #c47600;
+          transition:
+            background 0.15s,
+            transform 0.1s,
+            border-color 0.15s;
+          letter-spacing: 0.02em;
+          font-family:
+            system-ui,
+            -apple-system,
+            sans-serif;
+          margin-top: 6px;
+          box-shadow: 0 1px 3px rgba(255, 153, 0, 0.25);
+        }
+        .prose-article li a[href*="amazon"]:hover,
+        .prose-article li a[href*="amzn"]:hover {
+          background: #e68a00;
+          border-color: #a86300;
+          transform: translateY(-1px);
+          opacity: 1 !important;
+          box-shadow: 0 4px 12px rgba(255, 153, 0, 0.35);
+        }
+        .prose-article li a[href*="amazon"]:active,
+        .prose-article li a[href*="amzn"]:active {
+          transform: translateY(0);
+          border-bottom-width: 1px;
+        }
         /* ── Paragraphs ────────────────────────────────────────────── */
         .prose-article p {
           margin-bottom: 1.5rem;
@@ -298,7 +336,7 @@ export default function ArticlePage({ post }) {
           position: relative;
         }
         .prose-article blockquote::before {
-          content: "NOTA TÉCNICA";
+          content: "TECHNICAL NOTE";
           display: block;
           font-size: 9px;
           font-weight: 800;
@@ -326,13 +364,46 @@ export default function ArticlePage({ post }) {
         .prose-article > p:first-child > img:first-child {
           display: none;
         }
+
+        /* El <p> que contiene la imagen flota a la derecha */
+        .prose-article p:has(img) {
+          float: right;
+          margin: 0 0 1rem 1.5rem !important;
+          clear: right;
+          line-height: 0;
+        }
+
+        /* La imagen — compacta y contenida */
         .prose-article img {
-          width: 100%;
-          max-width: 560px;
-          margin: 2rem auto;
-          border-radius: 10px;
+          width: 150px;
+          height: 150px;
+          object-fit: contain;
+          border-radius: 12px;
           border: 1px solid #e5e7eb;
+          background: #fafafa;
+          padding: 10px;
+          box-sizing: border-box;
           display: block;
+          margin: 0 !important;
+        }
+
+        /* El hr limpia el float entre productos */
+        .prose-article hr {
+          clear: both;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+          .prose-article p:has(img) {
+            float: none !important;
+            margin: 0 0 1rem 0 !important;
+            text-align: center;
+          }
+          .prose-article img {
+            width: 110px;
+            height: 110px;
+            margin: 16px auto !important;
+          }
         }
 
         /* ── Code ──────────────────────────────────────────────────── */

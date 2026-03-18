@@ -71,6 +71,80 @@ Using a standard OBD-II scanner, look for these specific "P-codes" to confirm th
 
 ---
 
+## Essential Throttle Body Restoration Kit (2026)
+
+Don't let carbon buildup or sensor glitches lead to a $1,000 dealership bill. These are the specific tools and chemicals required to safely service **Drive-by-Wire** systems without damaging sensitive electronics.
+
+---
+
+### 1. Precise Electronic Diagnostics
+
+**THE PROBLEM:** Your car has a "Reduced Engine Power" light. You suspect the Throttle Position Sensor (TPS), but you need to see the "live data" to confirm a failing actuator before buying parts.
+
+**THE SOLUTION:** An OBD2 scanner that graphs the throttle plate angle in real-time. This allows you to identify "dead spots" in the electronic motor or a faulty gas pedal correlation (P2135).
+
+![OBD2 Scanner with Live Data](https://m.media-amazon.com/images/I/61KElcCN4BL._AC_SY550_.jpg)
+
+#### Professional OBD2 Scanner with Live Data
+
+-  **Key Feature:** Graphs TPS (Throttle Position) and APP (Accelerator Pedal) correlation.
+-  **Price Range:** `$29.00 - $32.00 USD`
+-  [**VIEW OFFER ON AMAZON**](https://amzn.to/47bq0RA)
+
+---
+
+### 2. Sensor-Safe Chemical Cleaning
+
+**THE PROBLEM:** Carbon buildup (sludge) is sticking to the butterfly valve. Using a standard degreaser or carburetor cleaner will melt the internal seals and ruin the electronic motor.
+
+**THE SOLUTION:** A specialized cleaner formulated for **Drive-by-Wire** systems. It is safe for the sensitive Teflon-style coatings and plastic components found in modern intake manifolds.
+
+![CRC Throttle Body Cleaner](https://m.media-amazon.com/images/I/61l8oPkS4BL._AC_SX679_.jpg)
+
+#### CRC Throttle Body & Air-Intake Cleaner
+
+-  **Safe For:** Electronic throttle actuators and coated butterfly valves.
+-  **Price Range:** `$11.00 - $12.00 USD`
+-  [**ADD TO CART ON AMAZON**](https://amzn.to/4lEkkp8)
+
+---
+
+### 3. Non-Marring Scrubbing Tools
+
+<!-- **THE PROBLEM:** Using a wire brush or a screwdriver to scrape carbon will scratch the throttle bore, causing a permanent vacuum leak and an uncontrollable high idle.
+
+**THE SOLUTION:** A set of nylon-bristled detailing brushes. These are stiff enough to remove baked-on carbon but soft enough to protect the precision-machined edges of the throttle plate. -->
+
+![Nylon Detailing Brushes](https://m.media-amazon.com/images/I/71T7CRQUsPL._SX522_.jpg)
+
+#### Heavy-Duty Nylon Cleaning Brushes
+
+-  **Advantage:** Won't scratch the aluminum bore or damage the plate coating.
+-  **Price Range:** `$7.00 - $8.00 USD`
+-  [**BUY NOW ON AMAZON**](https://amzn.to/4bjZ98g)
+
+---
+
+### 4. Reach for Recessed Bolts
+
+<!-- **THE PROBLEM:** Throttle bodies are often tucked behind the engine or under the cowl. Standard wrenches cannot reach the bottom bolts, often resulting in stripped heads.
+
+**THE SOLUTION:** A metric socket set with **wobble extensions**. This allows you to reach the 8mm or 10mm bolts from an angle without removing the entire air intake assembly. -->
+
+![Metric Socket Set with Extensions](https://m.media-amazon.com/images/I/71ar8hGmDPL._AC_SX466_.jpg)
+
+#### Metric Socket Set with Wobble Extensions
+
+-  **Includes:** 1/4" drive ratchets and 6-inch extensions for tight engine bays.
+-  **Price Range:** `$38.99 - $41.99 USD`
+-  [**SEE DETAILS ON AMAZON**](https://amzn.to/4bUHenV)
+
+---
+
+> **Transparency Note:** As Amazon Associates, we earn a small commission from qualifying purchases. We only recommend equipment that meets the technical standards for the latest generation of vehicles in **our market**.
+
+---
+
 ## 4. Step-by-Step DIY Cleaning Guide
 
 *Disclaimer: Modern electronic throttle bodies have sensitive coatings. Only use cleaners labeled "Safe for Coated Throttle Bodies."*
