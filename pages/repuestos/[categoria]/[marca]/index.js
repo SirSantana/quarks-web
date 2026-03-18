@@ -245,7 +245,7 @@ export default function MarcaPage({
                     aria-hidden="true"
                   />
                   <a
-                    href={`/repuestos/${categoriaSlug.replaceAll(' ', '-')}`}
+                    href={`/repuestos/${router.query.categoria.replaceAll(' ', '-')}`}
                     className="hover:text-gray-700 transition-colors"
                   >
                     {router.query.categoria}
@@ -256,7 +256,7 @@ export default function MarcaPage({
                     aria-hidden="true"
                   />
                   <a
-                    href={router.asPath}
+                    href={`/repuestos/${router.query.categoria.replaceAll(' ', '-')}/${router.query.marca.replaceAll(' ', '-')}`}
                     className="hover:text-gray-700 transition-colors"
                   >
                     {router.query.marca}
