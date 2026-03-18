@@ -245,7 +245,7 @@ export default function MarcaPage({
                     aria-hidden="true"
                   />
                   <a
-                    href={`/repuesto/${categoriaSlug}`}
+                    href={`/repuestos/${categoriaSlug}`}
                     className="hover:text-gray-700 transition-colors"
                   >
                     {router.query.categoria}
