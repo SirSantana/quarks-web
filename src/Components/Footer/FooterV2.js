@@ -70,6 +70,9 @@ export default function FooterV2({ data }) {
           <a href="/article" className={styles.footerLink}>
             Articulos
           </a>
+          <a href="/engine-displacement-calculator" className={styles.footerLink}>
+            Engine Displacement Calculator
+          </a>
         </div>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Síguenos</h3>
