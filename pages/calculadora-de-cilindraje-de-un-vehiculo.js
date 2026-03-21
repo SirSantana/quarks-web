@@ -1,6 +1,7 @@
 import CalculadoraCilindradaComponent from "@/src/Components/Calculator/CalculadoraCilindrada";
 import FooterV2 from "@/src/Components/Footer/FooterV2";
 import Head from "next/head";
+import Image from "next/image";
 
 export default function CalculadoraCilindrada() {
   return (
@@ -119,6 +120,16 @@ export default function CalculadoraCilindrada() {
               </header>
 
               <div className="h-[1px] bg-gray-100 w-full my-10" />
+
+              <div className="relative w-full max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden">
+                <Image
+                  src="https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png"
+                  alt="Calculadora de Cilindrada - Desplazamiento de Motores de Combustión Interna"
+                  width={200}
+                  height={130}
+                  priority
+                />
+              </div>
 
               <section className="mb-12">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">

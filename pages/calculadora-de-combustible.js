@@ -1,6 +1,7 @@
 import Head from "next/head";
 import CalculadoraCombustible from "@/src/Components/Calculator/CalculadoraCombustible";
 import FooterV2 from "@/src/Components/Footer/FooterV2";
+import Image from "next/image";
 
 export const OTHER_CALCULATORS = [
   {
@@ -133,7 +134,7 @@ export default function CalculadoraDeCombustible() {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
           crossorigin="anonymous"
         ></script>
-         {process.env.NODE_ENV === "production" && (
+        {process.env.NODE_ENV === "production" && (
           <script
             async
             defer
@@ -198,6 +199,15 @@ export default function CalculadoraDeCombustible() {
                 </p>
               </header>
 
+              <div className="relative w-full max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden">
+                <Image
+                  src="https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png"
+                  alt="Calculadora de Consumo de Combustible - Gasto por Km, Costo Total de Viaje y Eficiencia de Combustible"
+                  width={200}
+                  height={130}
+                  priority
+                />
+              </div>
               {/* How it works */}
               <section className="mb-8">
                 <h3 className="text-[17px] font-semibold text-gray-800 mb-3">
@@ -458,11 +468,8 @@ export default function CalculadoraDeCombustible() {
                 superior para calcular el gasto real según tu modelo específico.
               </p>
             </article>
-             
+          </div>
         </div>
-          
-        </div>
-       
       </div>
       <FooterV2 />
     </>

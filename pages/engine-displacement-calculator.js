@@ -1,6 +1,7 @@
 import EngineDisplacementCalculatorComponent from "@/src/Components/Calculator/EngineCalculator";
 import FooterV2 from "@/src/Components/Footer/FooterV2";
 import Head from "next/head";
+import Image from "next/image";
 
 export const OTHER_CALCULATORS = [
   {
@@ -114,12 +115,48 @@ const engineKeywords = [
 ];
 
 const engineReferenceData = [
-  { name: "Chevy Small Block 350", bore: '4.000"', stroke: '3.480"', cylinders: 8, displacement: "5.7L / 350 CID" },
-  { name: "Ford 302 (5.0L Windsor)", bore: '4.000"', stroke: '3.000"', cylinders: 8, displacement: "5.0L / 302 CID" },
-  { name: "GM LS1 / LS6", bore: '3.898"', stroke: '3.622"', cylinders: 8, displacement: "5.7L / 346 CID" },
-  { name: "Honda K20A", bore: "86.0 mm", stroke: "86.0 mm", cylinders: 4, displacement: "2.0L / 122 CID" },
-  { name: "Toyota 2JZ-GTE", bore: "86.0 mm", stroke: "86.0 mm", cylinders: 6, displacement: "3.0L / 183 CID" },
-  { name: "Cummins 5.9L 24V", bore: "4.020\"", stroke: "4.720\"", cylinders: 6, displacement: "5.9L / 359 CID" },
+  {
+    name: "Chevy Small Block 350",
+    bore: '4.000"',
+    stroke: '3.480"',
+    cylinders: 8,
+    displacement: "5.7L / 350 CID",
+  },
+  {
+    name: "Ford 302 (5.0L Windsor)",
+    bore: '4.000"',
+    stroke: '3.000"',
+    cylinders: 8,
+    displacement: "5.0L / 302 CID",
+  },
+  {
+    name: "GM LS1 / LS6",
+    bore: '3.898"',
+    stroke: '3.622"',
+    cylinders: 8,
+    displacement: "5.7L / 346 CID",
+  },
+  {
+    name: "Honda K20A",
+    bore: "86.0 mm",
+    stroke: "86.0 mm",
+    cylinders: 4,
+    displacement: "2.0L / 122 CID",
+  },
+  {
+    name: "Toyota 2JZ-GTE",
+    bore: "86.0 mm",
+    stroke: "86.0 mm",
+    cylinders: 6,
+    displacement: "3.0L / 183 CID",
+  },
+  {
+    name: "Cummins 5.9L 24V",
+    bore: '4.020"',
+    stroke: '4.720"',
+    cylinders: 6,
+    displacement: "5.9L / 359 CID",
+  },
 ];
 
 export default function EngineDisplacementCalculator() {
@@ -300,7 +337,15 @@ export default function EngineDisplacementCalculator() {
               </header>
 
               <div className="h-[1px] bg-gray-100 w-full my-10" />
-
+              <div className="relative w-full max-w-4xl mx-auto mb-12 rounded-2xl overflow-hidden">
+                <Image
+                  src="https://azurequarks.blob.core.windows.net/avatares/calculadora de cilindraje.png"
+                  alt="Engine Displacement Calculator - Calculate CC of motorcycle and car engines"
+                  width={200}
+                  height={130}
+                  priority
+                />
+              </div>
               <section className="mb-12">
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">
                   The Formula: How to Calculate Cubic Inches (CID)
@@ -436,7 +481,7 @@ export default function EngineDisplacementCalculator() {
                   </table>
                 </div>
               </section>
-              
+
               <section className="mt-16 mb-20">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                   <div>
