@@ -227,7 +227,7 @@ export default function MarcaPage({
                   aria-label="Breadcrumb"
                   className="flex items-center gap-1.5 text-[12px] text-gray-400 flex-wrap"
                 >
-                  <Home size={12} className="shrink-0" aria-hidden="true" />
+                  {/* <Home size={12} className="shrink-0" aria-hidden="true" /> */}
                   <ChevronRight
                     size={11}
                     className="shrink-0"

@@ -187,10 +187,10 @@ export default function ProductDetailPage({ repuesto }) {
             aria-label="Breadcrumb"
             className="flex items-center gap-1.5 text-[12px] text-gray-400 flex-wrap"
           >
-            <Home size={12} className="shrink-0" aria-hidden="true" />
+            {/* <Home size={12} className="shrink-0" aria-hidden="true" /> */}
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a href="/repuestos" className="hover:text-gray-700 transition-colors">
-              Catalogo
+              Catalogo de repuestos
             </a>
             <ChevronRight size={11} className="shrink-0" aria-hidden="true" />
             <a
