@@ -1,0 +1,1518 @@
+[
+  {
+    "id": "taller-marconi-01",
+    "nombre": "Cajas Automáticas Marconi",
+    "especialidad": ["transmision", "cajas_automaticas", "diagnostico_electronico"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 28 # 63-27",
+    "telefono": "3194612428",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-13:30",
+    "descripcion": "Líderes en reparación y mantenimiento de cajas automáticas y módulos de transmisión.",
+    "sitio_web": "https://cajasmarconi.com"
+  },
+  {
+    "id": "taller-frenos-bogota-02",
+    "nombre": "Frenos Bogotá DC",
+    "especialidad": ["frenos", "suspension", "seguridad_activa"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Calle 66 # 28A-23",
+    "telefono": "3103415135",
+    "horario": "Lun-Vie 8:00-17:00, Sab 8:00-14:00",
+    "descripcion": "Especialistas en sistemas de frenado ABS, rectificación de discos y tren delantero.",
+    "sitio_web": "https://frenosbogota.com"
+  },
+  {
+    "id": "taller-autolab-03",
+    "nombre": "Autolab (Sede Barrios Unidos)",
+    "especialidad": ["mecanica_general", "motor", "sincronizacion"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 20 # 67-13",
+    "telefono": "3227244908",
+    "horario": "Lun-Sab 7:00-18:00",
+    "descripcion": "Taller multimarca con procesos estandarizados y diagnóstico computarizado avanzado.",
+    "sitio_web": "https://autolab.com.co"
+  },
+  {
+    "id": "taller-iron-machine-04",
+    "nombre": "Iron Machine Specialized Service",
+    "especialidad": ["cajas_automaticas", "mecanica_especializada", "alta_gama"],
+    "localidad": "Suba",
+    "direccion": "Calle 128a # 51-81",
+    "telefono": "3112224050",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-13:00",
+    "descripcion": "Especialistas en cajas automáticas de marcas premium y reparaciones complejas de motor.",
+    "sitio_web": "https://ironmachine.com.co"
+  },
+  {
+    "id": "taller-electronic-systems-05",
+    "nombre": "Electronic Systems JGP",
+    "especialidad": ["electricidad", "computadoras", "sensores"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 70 # 64-45",
+    "telefono": "3124356789",
+    "horario": "Lun-Vie 8:30-18:00",
+    "descripcion": "Laboratorio especializado en reparación de ECUs, módulos de confort y fallas eléctricas difíciles.",
+    "sitio_web": "N/A"
+  },
+  {
+    "id": "taller-emda-06",
+    "nombre": "El Mundo del Amortiguador (EMDA)",
+    "especialidad": ["suspension", "amortiguadores", "alineacion"],
+    "localidad": "Teusaquillo",
+    "direccion": "Carrera 30 # 70-52",
+    "telefono": "3158901234",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Centro especializado en tren delantero, amortiguación y estabilidad vehicular.",
+    "sitio_web": "https://emda.com.co"
+  },
+  {
+    "id": "taller-mekautos-07",
+    "nombre": "Mekautos",
+    "especialidad": ["latoneria_y_pintura", "peritaje", "mecanica_rapida"],
+    "localidad": "Fontibón",
+    "direccion": "Calle 17 # 96A-15",
+    "telefono": "3142953648",
+    "horario": "Lun-Vie 7:30-17:30, Sab 8:00-12:00",
+    "descripcion": "Centro de colisión y mecánica general con tecnología para estirado de chasis y pintura al horno.",
+    "sitio_web": "https://mekautos.com"
+  },
+  {
+    "id": "taller-motrix-08",
+    "nombre": "Motrix Service (Sede Venecia)",
+    "especialidad": ["mecanica_rapida", "aceite", "mantenimiento_preventivo"],
+    "localidad": "Tunjuelito",
+    "direccion": "Transversal 60 # 51a-06 sur",
+    "telefono": "3004567890",
+    "horario": "Lun-Sab 8:00-18:00",
+    "descripcion": "Servicio ágil de mantenimiento preventivo y mecánica general para el sur de la ciudad.",
+    "sitio_web": "https://motrix.com.co"
+  },
+  {
+    "id": "taller-iron-machine-real",
+    "nombre": "Iron Machine Bogotá",
+    "especialidad": ["cajas_automaticas", "mecanica_avanzada", "alta_gama", "escaneo"],
+    "localidad": "Suba (Prado Veraniego)",
+    "direccion": "Calle 128a # 51-81",
+    "telefono": "3142880787",
+    "horario": "Lun-Vie 9:00-19:00, Sab 9:00-15:00",
+    "descripcion": "Especialistas certificados en reparación de transmisiones automáticas y mecánica para vehículos de media y alta gama.",
+    "sitio_web": "https://www.iron-machine.com"
+  },
+  {
+    "id": "taller-frenos-bogota-real",
+    "nombre": "Frenos en Bogotá",
+    "especialidad": ["frenos", "seguridad", "suspension", "abs"],
+    "localidad": "Barrios Unidos (7 de Agosto)",
+    "direccion": "Calle 66 # 28A-23",
+    "telefono": "3104965183",
+    "horario": "Lun-Vie 7:30-18:00, Dom-Fest 9:00-14:00",
+    "descripcion": "Especialistas en seguridad activa, rectificación de discos, bandas y sistemas de frenado hidráulico.",
+    "sitio_web": "https://frenosenbogota.com"
+  },
+  {
+    "id": "taller-automatic-service-real",
+    "nombre": "Automatic Service",
+    "especialidad": ["cajas_automaticas", "diagnostico_electronico", "mantenimiento_transmision"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Calle 72 # 57-28",
+    "telefono": "3024573626",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-14:00",
+    "descripcion": "Taller dedicado exclusivamente a la reparación técnica de cajas automáticas para particulares y vehículos pesados.",
+    "sitio_web": "https://automaticservice.co"
+  },
+  {
+    "id": "cda-7-de-agosto-real",
+    "nombre": "CDA 7 de Agosto",
+    "especialidad": ["revision_tecnico_mecanica", "peritaje", "emisiones", "suspension"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 28 # 66-60",
+    "telefono": "3209510668",
+    "horario": "Lun-Sab 6:00-19:00, Dom-Fest 8:00-13:00",
+    "descripcion": "Centro de diagnóstico autorizado. Ideal para peritajes preventivos y revisión técnico-mecánica legal.",
+    "sitio_web": "https://www.cda7deagosto.com"
+  },
+  {
+    "id": "taller-cst-diesel-real",
+    "nombre": "CST Diesel SAS",
+    "especialidad": ["diesel", "inyectores", "turbos", "common_rail"],
+    "localidad": "Fontibón",
+    "direccion": "Calle 17C # 114A-50 Int 3",
+    "telefono": "3142009758",
+    "horario": "Lun-Vie 8:00-17:30",
+    "descripcion": "Laboratorio especializado en inyección Diesel y mantenimiento de turboalimentadores.",
+    "sitio_web": "https://cstdiesel.com"
+  },
+  {
+    "id": "taller-jl-electromecanica-real",
+    "nombre": "Soluciones Automotriz JL",
+    "especialidad": ["electricidad", "baterias", "escaneo_domicilio", "motores"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 110 # 64-12",
+    "telefono": "3108653384",
+    "horario": "Servicio 24/7 (Domicilio)",
+    "descripcion": "Técnicos especializados en electricidad automotriz y diagnóstico por escáner con servicio a domicilio en Bogotá.",
+    "sitio_web": "https://electromecanicaadomicilio.com"
+  },
+  {
+    "id": "taller-cipagauta-diesel-real",
+    "nombre": "Talleres Cipagauta",
+    "especialidad": ["diesel", "pesados", "mulas", "volquetas"],
+    "localidad": "Fontibón",
+    "direccion": "Carrera 96G # 15C-05",
+    "telefono": "6014131580",
+    "horario": "Lun-Vie 8:00-18:00",
+    "descripcion": "Mantenimiento especializado para vehículos pesados, carga y maquinaria de construcción.",
+    "sitio_web": "https://tallerdieselbogota.com"
+  },
+
+  {
+    "id": "taller-samamotors-09",
+    "nombre": "Sama Motors",
+    "categorias": ["mecanica_general", "frenos", "alineacion_balanceo", "diagnostico_avanzado", "aire_acondicionado"],
+    "servicios": [
+      "diagnostico_computarizado",
+      "cambio_pastillas",
+      "alineacion",
+      "mantenimiento_preventivo",
+      "recarga_gas"
+    ],
+    "marcas": ["chevrolet", "mazda", "renault", "kia"],
+    "localidad": "Suba",
+    "direccion": "Carrera 51 # 127D-27",
+    "telefono": "3114694023",
+    "whatsapp": "3114694023",
+    "horario": "Lun-Vie 8:00-17:00, Sab 8:00-13:00",
+    "descripcion": "Taller automotriz en el norte de Bogotá con servicios de diagnóstico, frenos, alineación, mantenimiento y aire acondicionado.",
+    "sitio_web": "https://www.tallersamamotors.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-carllantas-10",
+    "nombre": "Carllantas Taller Mecánico Automotriz",
+    "categorias": ["mecanica_general", "mantenimiento", "llantas"],
+    "servicios": [
+      "mantenimiento_preventivo",
+      "cambio_aceite_motor",
+      "cambio_llantas",
+      "balanceo"
+    ],
+    "marcas": ["chevrolet", "toyota", "mazda", "nissan"],
+    "localidad": "Teusaquillo",
+    "direccion": "Calle 49 #20-46",
+    "telefono": "3005230831",
+    "whatsapp": "3005230831",
+    "horario": "N/A",
+    "descripcion": "Taller multimarca con amplia trayectoria desde 1962, especializado en mantenimiento y reparación de automóviles y camionetas.",
+    "sitio_web": "https://carllantas.com",
+    "premium": false,
+    "verificado": true
+  },
+  {
+    "id": "taller-megamaster-11",
+    "nombre": "Mega Master Automotriz",
+    "categorias": ["mecanica_general", "electricidad", "cajas_automaticas", "cajas_mecanicas", "hibridos_electricos"],
+    "servicios": [
+      "reparacion_motor",
+      "reparacion_cableado",
+      "diagnostico_transmision",
+      "reparacion_caja_automatica",
+      "diagnostico_bateria_hibrida"
+    ],
+    "marcas": ["chevrolet", "ford", "hyundai", "kia"],
+    "localidad": "Suba",
+    "direccion": "Carrera 58D #130A-44",
+    "telefono": "3504450539",
+    "whatsapp": "3504450539",
+    "horario": "Lun-Vie 7:30-18:00, Sab 10:00-16:00",
+    "descripcion": "Taller con más de 25 años de experiencia en mantenimiento y reparación de vehículos gasolina, diésel e híbridos.",
+    "sitio_web": "https://www.megamaster.com.co",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-autopotencia-12",
+    "nombre": "Taller Autopotencia",
+    "categorias": ["mecanica_general", "mantenimiento"],
+    "servicios": [
+      "mantenimiento_preventivo",
+      "reparacion_motor",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "renault", "mazda"],
+    "localidad": "Suba",
+    "direccion": "Calle 135 #45A-25",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "N/A",
+    "descripcion": "Taller con más de 30 años de experiencia enfocado en mantenimiento y reparación automotriz con atención personalizada.",
+    "sitio_web": "https://www.tallerautopotencia.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-sae-13",
+    "nombre": "SAE Automotriz",
+    "categorias": ["diagnostico_avanzado", "electronica"],
+    "servicios": [
+      "diagnostico_computarizado",
+      "escaneo_avanzado",
+      "diagnostico_sensores"
+    ],
+    "marcas": ["bmw", "mercedes-benz", "audi", "volkswagen"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 55 #76-62",
+    "telefono": "3118531897",
+    "whatsapp": "3118531897",
+    "horario": "N/A",
+    "descripcion": "Taller con más de 25 años de experiencia, reconocido por su servicio profesional y diagnóstico especializado.",
+    "sitio_web": "https://saeautomotriz.co",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-tecnoalemania-14",
+    "nombre": "Tecno Alemania",
+    "categorias": ["mecanica_general", "latoneria_pintura", "diagnostico_avanzado", "peritaje"],
+    "servicios": [
+      "diagnostico_computarizado",
+      "pintura_general",
+      "reparacion_colision",
+      "peritaje_compra"
+    ],
+    "marcas": ["bmw", "mercedes-benz", "audi"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Calle 76 #26-37",
+    "telefono": "3112730568",
+    "whatsapp": "3112730568",
+    "horario": "N/A",
+    "descripcion": "Centro automotriz con servicios integrales incluyendo mecánica, pintura, escáner y peritaje vehicular.",
+    "sitio_web": "https://www.tecnoalemania.com",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-meccargt-15",
+    "nombre": "MEC-CAR GT",
+    "categorias": ["mecanica_general", "diagnostico_avanzado"],
+    "servicios": [
+      "diagnostico_computarizado",
+      "reparacion_motor",
+      "mantenimiento_preventivo",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "mazda", "renault", "kia"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Calle 64 #28-58",
+    "telefono": "3112697231",
+    "whatsapp": "3112697231",
+    "horario": "Lun-Vie 8:00-18:00, Sab 8:00-16:00",
+    "descripcion": "Taller automotriz con servicios de diagnóstico, reparación de motor y mantenimiento general en el sector de Barrios Unidos.",
+    "sitio_web": "http://www.meccargt.co",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-autopista140-16",
+    "nombre": "AutoPista 140",
+    "categorias": ["mecanica_general", "mantenimiento"],
+    "servicios": [
+      "mantenimiento_preventivo",
+      "cambio_aceite_motor",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "toyota", "mazda", "nissan"],
+    "localidad": "Suba",
+    "direccion": "Calle 143 #45-90",
+    "telefono": "3108580677",
+    "whatsapp": "3108580677",
+    "horario": "Lun-Vie 8:20-17:20, Sab 8:30-12:30",
+    "descripcion": "Centro de servicio automotriz enfocado en mantenimiento y reparación multimarca en el norte de Bogotá.",
+    "sitio_web": "http://www.autopista140.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-totalcar-17",
+    "nombre": "Total Car Centro de Mantenimiento Automotriz",
+    "categorias": ["mecanica_general", "mantenimiento", "diagnostico_avanzado"],
+    "servicios": [
+      "diagnostico_computarizado",
+      "mantenimiento_preventivo",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "mazda", "renault"],
+    "localidad": "Suba",
+    "direccion": "Carrera 66 #107-46",
+    "telefono": "3153453875",
+    "whatsapp": "3153453875",
+    "horario": "Lun-Vie 8:00-17:00, Sab 8:00-12:00",
+    "descripcion": "Centro de mantenimiento automotriz con enfoque en diagnóstico y servicio preventivo.",
+    "sitio_web": "http://www.tallertotalcar.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-colombiana-18",
+    "nombre": "Colombiana Automotriz",
+    "categorias": ["mecanica_general", "diagnostico_avanzado"],
+    "servicios": [
+      "reparacion_motor",
+      "diagnostico_computarizado",
+      "mantenimiento_preventivo"
+    ],
+    "marcas": ["chevrolet", "renault", "kia"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 72 #51-51",
+    "telefono": "3177409757",
+    "whatsapp": "3177409757",
+    "horario": "Lun-Vie 8:00-17:00, Sab 8:00-12:00",
+    "descripcion": "Taller reconocido por mantenimiento integral y diagnóstico automotriz en Bogotá.",
+    "sitio_web": "http://www.colombianaautomotriz.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-grandprixr-19",
+    "nombre": "Grand Prix R Serviteca",
+    "categorias": ["frenos", "suspension", "alineacion_balanceo", "mantenimiento"],
+    "servicios": [
+      "cambio_pastillas",
+      "cambio_amortiguadores",
+      "alineacion",
+      "cambio_aceite_motor"
+    ],
+    "marcas": ["chevrolet", "mazda", "nissan"],
+    "localidad": "Kennedy",
+    "direccion": "Carrera 69B #31-51 Sur",
+    "telefono": "3174716611",
+    "whatsapp": "3174716611",
+    "horario": "Lun-Vie 8:00-17:00, Sab 8:00-14:30",
+    "descripcion": "Serviteca especializada en frenos, suspensión, alineación y mantenimiento rápido.",
+    "sitio_web": "https://grandprixr.co",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-ranger-20",
+    "nombre": "Taller Ranger Automotriz",
+    "categorias": ["mecanica_general"],
+    "servicios": [
+      "reparacion_motor",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "mazda"],
+    "localidad": "Kennedy",
+    "direccion": "Transversal 78H #41G-27 Sur",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Taller mecánico con atención personalizada y servicios generales de reparación automotriz.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-kilautos-21",
+    "nombre": "Kilautos Taller Automotriz",
+    "categorias": ["mecanica_general", "mantenimiento"],
+    "servicios": [
+      "mantenimiento_preventivo",
+      "cambio_aceite_motor",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "kia", "renault"],
+    "localidad": "Kennedy",
+    "direccion": "Carrera 82A #8B-41",
+    "telefono": "3213586231",
+    "whatsapp": "3213586231",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Taller con servicios generales de mantenimiento y reparación automotriz en el sur occidente de Bogotá.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-tecnomec-22",
+    "nombre": "Tecnomec Taller Automotriz SAS",
+    "categorias": ["mecanica_general", "mantenimiento"],
+    "servicios": [
+      "reparacion_motor",
+      "mantenimiento_preventivo",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "mazda"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 23 #71A-26",
+    "telefono": "6015644439",
+    "whatsapp": "6015644439",
+    "horario": "N/A",
+    "descripcion": "Empresa dedicada al mantenimiento y reparación de vehículos automotores en Bogotá.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-mi-taller-23",
+    "nombre": "Mi Taller Automotriz SAS",
+    "categorias": ["mecanica_general", "mantenimiento"],
+    "servicios": [
+      "reparacion_motor",
+      "mantenimiento_preventivo",
+      "revision_general"
+    ],
+    "marcas": ["chevrolet", "renault"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 26 #66-34",
+    "telefono": "3227944347",
+    "whatsapp": "3227944347",
+    "horario": "N/A",
+    "descripcion": "Taller automotriz enfocado en mantenimiento y reparación de vehículos en Bogotá.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-servimatic-24",
+    "nombre": "Servimatic",
+    "categorias": ["cajas_automaticas", "mantenimiento"],
+    "servicios": [
+      "reparacion_caja_automatica",
+      "cambio_aceite_transmision",
+      "diagnostico_transmision"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Calle 63 #26-40",
+    "telefono": "6018011219",
+    "whatsapp": "6018011219",
+    "horario": "N/A",
+    "descripcion": "Taller con más de 40 años de experiencia especializado en reparación y mantenimiento de cajas automáticas multimarca.",
+    "sitio_web": "https://www.servimatic.co",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-hidracar-25",
+    "nombre": "HIDRACAR Direcciones Hidráulicas y Cajas Automáticas",
+    "categorias": ["cajas_automaticas", "direccion"],
+    "servicios": [
+      "reparacion_caja_automatica",
+      "reparacion_direccion",
+      "mantenimiento_preventivo"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 28B #63F-40",
+    "telefono": "3108889431",
+    "whatsapp": "3108889431",
+    "horario": "N/A",
+    "descripcion": "Especialistas en sistemas hidráulicos y cajas automáticas con servicio de instalación, mantenimiento y reparación.",
+    "sitio_web": "https://hidracar.com.co",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-ats-transmisiones-26",
+    "nombre": "ATS Transmisiones",
+    "categorias": ["cajas_automaticas", "diagnostico_avanzado"],
+    "servicios": [
+      "reparacion_caja_automatica",
+      "diagnostico_transmision",
+      "venta_repuestos_transmision"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Bogotá",
+    "direccion": "N/A",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "N/A",
+    "descripcion": "Expertos en reparación de cajas automáticas y venta de repuestos como solenoides, cuerpos de válvulas y kits de reparación.",
+    "sitio_web": "https://www.ats1.com.co",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-global-transmisiones-27",
+    "nombre": "Taller Cajas Automáticas Global SAS",
+    "categorias": ["cajas_automaticas", "mantenimiento"],
+    "servicios": [
+      "reparacion_caja_automatica",
+      "mantenimiento_preventivo",
+      "diagnostico_transmision"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Fontibón",
+    "direccion": "Avenida Calle 12 #81D-39",
+    "telefono": "3105772421",
+    "whatsapp": "3105772421",
+    "horario": "N/A",
+    "descripcion": "Empresa enfocada en mantenimiento y reparación de transmisiones automáticas en Bogotá.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-quirigua-transmisiones-28",
+    "nombre": "Taller Cajas Automáticas (Quirigua)",
+    "categorias": ["cajas_automaticas"],
+    "servicios": [
+      "reparacion_caja_automatica",
+      "diagnostico_transmision"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 89A #82-83",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Taller especializado en reparación de cajas automáticas con atención personalizada en el sector de Quirigua.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-peugeot-especializado-29",
+    "nombre": "Taller Especializado Peugeot Citroën",
+    "categorias": ["cajas_automaticas", "diagnostico_avanzado", "especializado_marca"],
+    "servicios": [
+      "reparacion_caja_automatica",
+      "diagnostico_computarizado",
+      "diagnostico_transmision"
+    ],
+    "marcas": ["peugeot", "citroen"],
+    "localidad": "Teusaquillo",
+    "direccion": "Avenida Carrera 30 #64A-20",
+    "telefono": "3202167202",
+    "whatsapp": "3202167202",
+    "horario": "N/A",
+    "descripcion": "Taller especializado en vehículos Peugeot y Citroën con servicio técnico para cajas automáticas y diagnóstico avanzado.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-solo-frenos-norte-30",
+    "nombre": "Solo Frenos del Norte",
+    "categorias": ["frenos"],
+    "servicios": [
+      "diagnostico_abs",
+      "rectificacion_discos",
+      "cambio_pastillas"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Usaquén",
+    "direccion": "Carrera 15 # 134-45",
+    "telefono": "6016278899",
+    "whatsapp": "6016278899",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-13:00",
+    "descripcion": "Centro especializado exclusivamente en sistemas de frenos, diagnóstico ABS y rectificación de discos.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-solo-frenos-noroccidente-31",
+    "nombre": "Solo Frenos Noroccidente",
+    "categorias": ["frenos"],
+    "servicios": [
+      "diagnostico_abs",
+      "cambio_pastillas",
+      "cambio_discos"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Engativá",
+    "direccion": "Calle 80 # 94-35",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-13:00",
+    "descripcion": "Servicio especializado en mantenimiento y reparación de frenos para vehículos particulares y comerciales.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-solo-frenos-carrillo-32",
+    "nombre": "Solo Frenos Carrillo",
+    "categorias": ["frenos"],
+    "servicios": [
+      "rectificacion_discos",
+      "reparacion_bomba_freno",
+      "cambio_liquido_frenos"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 24 # 63-12",
+    "telefono": "3208594432",
+    "whatsapp": "3208594432",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Taller tradicional especializado en frenos, sistema hidráulico y rectificación de componentes.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-frenos-milan-33",
+    "nombre": "Frenos Milan SAS",
+    "categorias": ["frenos", "suspension"],
+    "servicios": [
+      "diagnostico_abs",
+      "cambio_pastillas",
+      "revision_suspension"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Puente Aranda",
+    "direccion": "Carrera 50 # 13-61",
+    "telefono": "6012014455",
+    "whatsapp": "6012014455",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-13:00",
+    "descripcion": "Empresa especializada en frenos con servicios de diagnóstico ABS, suspensión y mantenimiento integral.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": true
+  },
+  {
+    "id": "taller-carfrenos-34",
+    "nombre": "Carfrenos",
+    "categorias": ["frenos", "suspension"],
+    "servicios": [
+      "rectificacion_discos",
+      "cambio_pastillas",
+      "cambio_amortiguadores"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Kennedy",
+    "direccion": "Avenida Boyacá # 38-15 Sur",
+    "telefono": "3114927781",
+    "whatsapp": "3114927781",
+    "horario": "Lun-Vie 8:00-17:00, Sab 8:00-14:00",
+    "descripcion": "Especialistas en frenos, rectificación de discos y mantenimiento del sistema de suspensión.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-frenicentro-35",
+    "nombre": "Frenicentro Automotriz",
+    "categorias": ["frenos", "diagnostico_avanzado"],
+    "servicios": [
+      "diagnostico_abs",
+      "diagnostico_computarizado",
+      "cambio_pastillas"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Teusaquillo",
+    "direccion": "Carrera 28 # 53-20",
+    "telefono": "3007789901",
+    "whatsapp": "3007789901",
+    "horario": "Lun-Vie 8:00-17:30",
+    "descripcion": "Centro automotriz enfocado en diagnóstico y reparación de sistemas de frenos modernos.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": true
+  },
+  {
+    "id": "taller-servifrenos-atlas-36",
+    "nombre": "Servi Frenos Atlas",
+    "categorias": ["frenos", "mantenimiento"],
+    "servicios": [
+      "cambio_liquido_frenos",
+      "reparacion_bomba_freno",
+      "mantenimiento_preventivo"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Fontibón",
+    "direccion": "Carrera 96 # 23-45",
+    "telefono": "3105678890",
+    "whatsapp": "3105678890",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Servicio especializado en mantenimiento de frenos y sistemas hidráulicos.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-emda-37",
+    "nombre": "El Mundo del Amortiguador (EMDA)",
+    "categorias": ["suspension", "alineacion_balanceo", "direccion"],
+    "servicios": [
+      "cambio_amortiguadores",
+      "alineacion",
+      "diagnostico_suspension",
+      "revision_direccion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Teusaquillo",
+    "direccion": "Carrera 30 # 70-52",
+    "telefono": "3158901234",
+    "whatsapp": "3158901234",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Centro especializado en amortiguadores, alineación y diagnóstico de suspensión y dirección.",
+    "sitio_web": "https://emda.com.co",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-alineauto-38",
+    "nombre": "Alineauto",
+    "categorias": ["alineacion_balanceo", "suspension", "direccion"],
+    "servicios": [
+      "alineacion",
+      "balanceo",
+      "diagnostico_suspension",
+      "revision_direccion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Puente Aranda",
+    "direccion": "Carrera 50 # 17-35",
+    "telefono": "6012019988",
+    "whatsapp": "6012019988",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-13:00",
+    "descripcion": "Especialistas en alineación, balanceo y diagnóstico de sistemas de dirección y suspensión.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-servisuspension-39",
+    "nombre": "Servisuspensión Bogotá",
+    "categorias": ["suspension", "direccion"],
+    "servicios": [
+      "cambio_amortiguadores",
+      "diagnostico_suspension",
+      "revision_direccion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Kennedy",
+    "direccion": "Avenida Boyacá # 40-55 Sur",
+    "telefono": "3107784521",
+    "whatsapp": "3107784521",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Taller enfocado en reparación de suspensión, cambio de amortiguadores y revisión de dirección.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-suspension-norte-40",
+    "nombre": "Suspensión Norte",
+    "categorias": ["suspension", "alineacion_balanceo", "direccion"],
+    "servicios": [
+      "alineacion",
+      "diagnostico_suspension",
+      "mantenimiento_direccion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Suba",
+    "direccion": "Calle 138 # 55-20",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Servicio especializado en alineación, suspensión y mantenimiento de dirección para vehículos particulares.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-direcciones-hidraulicas-41",
+    "nombre": "Direcciones Hidráulicas Bogotá",
+    "categorias": ["direccion"],
+    "servicios": [
+      "reparacion_direccion",
+      "reparacion_bomba_direccion",
+      "diagnostico_direccion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 27 # 63-55",
+    "telefono": "3005567789",
+    "whatsapp": "3005567789",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Especialistas en reparación de direcciones hidráulicas y sistemas de asistencia de dirección.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-alineacion-balanceo-42",
+    "nombre": "Centro de Alineación y Balanceo Bogotá",
+    "categorias": ["alineacion_balanceo", "suspension"],
+    "servicios": [
+      "alineacion",
+      "balanceo",
+      "diagnostico_suspension"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 70 # 72-15",
+    "telefono": "3126678890",
+    "whatsapp": "3126678890",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Centro especializado en alineación, balanceo y diagnóstico de desgaste en suspensión.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-electronic-systems-43",
+    "nombre": "Electronic Systems JGP",
+    "categorias": ["electronica", "ecu", "sensores", "electricidad"],
+    "servicios": [
+      "reparacion_ecu",
+      "diagnostico_sensores",
+      "diagnostico_electricidad"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 70 # 64-45",
+    "telefono": "3124356789",
+    "whatsapp": "3124356789",
+    "horario": "Lun-Vie 8:30-18:00",
+    "descripcion": "Laboratorio especializado en reparación de ECUs, módulos electrónicos y diagnóstico de fallas eléctricas complejas.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-autotronik-44",
+    "nombre": "Autotronik Diagnóstico Automotriz",
+    "categorias": ["electronica", "diagnostico", "sensores"],
+    "servicios": [
+      "diagnostico_computarizado",
+      "lectura_scanner",
+      "revision_sensores"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 28 # 68-21",
+    "telefono": "3108897745",
+    "whatsapp": "3108897745",
+    "horario": "Lun-Vie 8:00-17:30",
+    "descripcion": "Centro especializado en diagnóstico computarizado, fallas electrónicas y análisis con escáner automotriz.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-ecusolutions-45",
+    "nombre": "ECU Solutions Colombia",
+    "categorias": ["ecu", "programacion", "electronica", "inmovilizadores"],
+    "servicios": [
+      "programacion_ecu",
+      "reparacion_ecu",
+      "diagnostico_inmovilizadores"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Chapinero",
+    "direccion": "Calle 63 # 13-45",
+    "telefono": "3005563321",
+    "whatsapp": "3005563321",
+    "horario": "Lun-Vie 9:00-18:00",
+    "descripcion": "Especialistas en reparación, programación de ECUs, inmovilizadores y sistemas electrónicos avanzados.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-electrocar-46",
+    "nombre": "ElectroCar Bogotá",
+    "categorias": ["electricidad", "baterias", "arranque", "alternadores"],
+    "servicios": [
+      "revision_bateria",
+      "reparacion_arranque",
+      "diagnostico_sistemas_electricos"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Kennedy",
+    "direccion": "Carrera 78 # 38-20 Sur",
+    "telefono": "3116678899",
+    "whatsapp": "3116678899",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Taller especializado en sistemas eléctricos, carga, arranque y diagnóstico de baterías.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-autoavance-47",
+    "nombre": "Auto Avance Electrónica Automotriz",
+    "categorias": ["electronica", "sensores", "inyeccion", "diagnostico"],
+    "servicios": [
+      "diagnostico_electronico",
+      "revision_sensores",
+      "reparacion_inyeccion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Puente Aranda",
+    "direccion": "Carrera 50 # 10-35",
+    "telefono": "3204456678",
+    "whatsapp": "3204456678",
+    "horario": "Lun-Vie 8:00-17:30",
+    "descripcion": "Especialistas en diagnóstico electrónico, sensores e inyección electrónica.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-inyeccion-electronica-48",
+    "nombre": "Centro de Inyección Electrónica Bogotá",
+    "categorias": ["inyeccion", "sensores", "diagnostico", "ecu"],
+    "servicios": [
+      "revision_inyeccion",
+      "diagnostico_sensores",
+      "reparacion_ecu"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Suba",
+    "direccion": "Calle 132 # 58-22",
+    "telefono": "3007782211",
+    "whatsapp": "3007782211",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Centro enfocado en sistemas de inyección electrónica, diagnóstico y reparación de sensores.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-autoelite-49",
+    "nombre": "Autoelite - Premium Car Service",
+    "categorias": ["mecanica_especializada", "diagnostico_avanzado", "mantenimiento_premium"],
+    "servicios": [
+      "diagnostico_avanzado",
+      "mantenimiento_personalizado",
+      "reparacion_vehiculos_europeos"
+    ],
+    "marcas": ["bmw", "mercedes-benz", "audi", "porsche", "mini"],
+    "localidad": "Suba",
+    "direccion": "Carrera 47 #128-40",
+    "telefono": "3137971016",
+    "whatsapp": "3137971016",
+    "horario": "Lun-Vie 9:00-17:00, Sab 9:00-12:00",
+    "descripcion": "Centro automotriz premium especializado en vehículos europeos de alta gama con diagnóstico avanzado y servicio personalizado.",
+    "sitio_web": "http://autoelite.com.co",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-aog-50",
+    "nombre": "Servicio Especializado AOG BMW MINI MERCEDES",
+    "categorias": ["mecanica_especializada", "diagnostico", "electronica"],
+    "servicios": [
+      "mantenimiento_premium",
+      "diagnostico_electronico",
+      "reparacion_sistemas_complejos"
+    ],
+    "marcas": ["bmw", "mini", "mercedes-benz"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 27B Bis #67-57",
+    "telefono": "3133770403",
+    "whatsapp": "3133770403",
+    "horario": "Lun-Vie 7:00-18:00, Sab 7:00-13:00",
+    "descripcion": "Taller enfocado en mantenimiento y diagnóstico especializado para marcas premium alemanas.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-mtech-51",
+    "nombre": "M Tech Workshop BMW",
+    "categorias": ["diagnostico_avanzado", "electronica", "mecanica_especializada"],
+    "servicios": [
+      "diagnostico_avanzado",
+      "mantenimiento_bmw",
+      "reparacion_sistemas_complejos"
+    ],
+    "marcas": ["bmw"],
+    "localidad": "Usaquén",
+    "direccion": "Carrera 19 #103-22",
+    "telefono": "6012573713",
+    "whatsapp": "6012573713",
+    "horario": "Lun-Vie 8:00-18:00, Sab 8:30-13:00",
+    "descripcion": "Especialistas en BMW con diagnóstico avanzado, mantenimiento y reparación de sistemas complejos.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-bmw-motorsport-52",
+    "nombre": "BMW Motorsport Bogotá",
+    "categorias": ["mecanica_especializada", "performance", "diagnostico"],
+    "servicios": [
+      "mantenimiento_bmw",
+      "optimización_rendimiento",
+      "diagnostico_avanzado"
+    ],
+    "marcas": ["bmw"],
+    "localidad": "Engativá",
+    "direccion": "Calle 72A #65B-27",
+    "telefono": "3114499627",
+    "whatsapp": "3114499627",
+    "horario": "Lun-Vie 7:00-18:00, Sab 8:00-11:00",
+    "descripcion": "Taller enfocado en vehículos BMW con orientación a rendimiento y mantenimiento especializado.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-altagama-53",
+    "nombre": "Altagama Cars BMW MINI",
+    "categorias": ["mecanica_especializada", "mantenimiento", "diagnostico"],
+    "servicios": [
+      "mantenimiento_bmw_mini",
+      "diagnostico_sistemas",
+      "reparacion_general"
+    ],
+    "marcas": ["bmw", "mini"],
+    "localidad": "Suba",
+    "direccion": "Calle 135 #45A-24",
+    "telefono": "3209795415",
+    "whatsapp": "3209795415",
+    "horario": "Lun-Vie 8:30-17:00, Sab 8:30-12:00",
+    "descripcion": "Centro especializado en mantenimiento y diagnóstico de BMW y MINI.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-galeautos-54",
+    "nombre": "Galeautos BMW y Mercedes Benz",
+    "categorias": ["mecanica_especializada", "mantenimiento"],
+    "servicios": [
+      "mantenimiento_bmw_mercedes",
+      "reparacion_general"
+    ],
+    "marcas": ["bmw", "mercedes-benz"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Calle 78 #29B-44",
+    "telefono": "3174977349",
+    "whatsapp": "3174977349",
+    "horario": "N/A",
+    "descripcion": "Taller enfocado en mantenimiento y reparación de vehículos BMW y Mercedes-Benz.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-autoservices-premium-55",
+    "nombre": "Auto Services Premium",
+    "categorias": ["mecanica_especializada", "diagnostico", "mantenimiento_premium"],
+    "servicios": [
+      "mantenimiento_vehiculos_premium",
+      "diagnostico_sistemas",
+      "reparacion_general"
+    ],
+    "marcas": ["bmw", "mercedes-benz", "audi", "volkswagen"],
+    "localidad": "Suba",
+    "direccion": "Calle 129 #57-36",
+    "telefono": "3203470509",
+    "whatsapp": "3203470509",
+    "horario": "Lun-Vie 8:00-17:00, Sab 8:00-14:00",
+    "descripcion": "Centro automotriz enfocado en vehículos de alta gama con servicio técnico especializado.",
+    "sitio_web": "https://autoservices.com.co",
+    "premium": true,
+    "verificado": true
+  },
+  {
+    "id": "taller-premier-56",
+    "nombre": "Mecánica Automotriz Premier",
+    "categorias": ["mecanica_general", "diagnostico", "mantenimiento"],
+    "servicios": [
+      "mantenimiento_general",
+      "diagnostico_sistemas",
+      "reparacion_vehiculos_varios"
+    ],
+    "marcas": ["bmw", "mercedes-benz", "audi", "toyota", "mazda"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 76 #77A-25",
+    "telefono": "3134278371",
+    "whatsapp": "3134278371",
+    "horario": "Lun-Vie 8:00-19:00, Sab 8:00-15:00",
+    "descripcion": "Taller con enfoque técnico alto que atiende tanto vehículos premium como generalistas.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-autofrio-57",
+    "nombre": "AutoFrío Aire Acondicionado Automotriz",
+    "categorias": ["aire_acondicionado", "refrigeracion", "compresor"],
+    "servicios": [
+      "diagnostico_aire_acondicionado",
+      "reparacion_compresor",
+      "recarga_refrigerante"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Puente Aranda",
+    "direccion": "Carrera 50 # 10-58",
+    "telefono": "3112587743",
+    "whatsapp": "3112587743",
+    "horario": "Lun-Vie 8:00-17:30, Sab 8:00-13:00",
+    "descripcion": "Especialistas en diagnóstico, reparación y recarga de sistemas de aire acondicionado automotriz.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-frioauto-58",
+    "nombre": "FrioAuto Bogotá",
+    "categorias": ["aire_acondicionado", "refrigeracion", "mantenimiento"],
+    "servicios": [
+      "mantenimiento_aire_acondicionado",
+      "reparacion_sistemas_climatizacion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Barrios Unidos",
+    "direccion": "Carrera 24 # 63-45",
+    "telefono": "3004457788",
+    "whatsapp": "3004457788",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Taller especializado en mantenimiento y reparación de sistemas de aire acondicionado para vehículos.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-climacar-59",
+    "nombre": "ClimaCar Aire Acondicionado",
+    "categorias": ["aire_acondicionado", "compresor", "gas_refrigerante"],
+    "servicios": [
+      "reparacion_compresores",
+      "recarga_gas_refrigerante",
+      "diagnostico_climatizacion"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Suba",
+    "direccion": "Calle 138 # 52-20",
+    "telefono": "3126674455",
+    "whatsapp": "3126674455",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Centro especializado en sistemas de climatización automotriz, recarga de gas y reparación de compresores.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-aireauto-60",
+    "nombre": "AireAuto Servicio Automotriz",
+    "categorias": ["aire_acondicionado", "ventilacion", "diagnostico"],
+    "servicios": [
+      "diagnostico_sistemas_climatizacion",
+      "mantenimiento_ventilacion",
+      "reparacion_aire_acondicionado"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Kennedy",
+    "direccion": "Carrera 78 # 40-22 Sur",
+    "telefono": "3105568899",
+    "whatsapp": "3105568899",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Servicio técnico en sistemas de aire acondicionado, ventilación y diagnóstico de fallas de climatización.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-servifrio-61",
+    "nombre": "ServiFrío Automotriz",
+    "categorias": ["aire_acondicionado", "refrigeracion", "compresor"],
+    "servicios": [
+      "mantenimiento_preventivo",
+      "reparacion_compresores",
+      "diagnostico_aire_acondicionado"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 70 # 68-15",
+    "telefono": "3208897766",
+    "whatsapp": "3208897766",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Especialistas en sistemas de aire acondicionado, reparación de compresores y mantenimiento preventivo.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-acr-62",
+    "nombre": "ACR Aire Acondicionado Automotriz",
+    "categorias": ["aire_acondicionado", "diagnostico", "gas_refrigerante"],
+    "servicios": [
+      "diagnostico_sistemas",
+      "recarga_gas_refrigerante",
+      "mantenimiento_aire_acondicionado"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Fontibón",
+    "direccion": "Calle 17 # 96-30",
+    "telefono": "3009987766",
+    "whatsapp": "3009987766",
+    "horario": "Lun-Vie 8:00-17:30",
+    "descripcion": "Centro técnico especializado en diagnóstico y mantenimiento de sistemas de aire acondicionado automotriz.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-colserauto-63",
+    "nombre": "Colserauto",
+    "categorias": ["latoneria_y_pintura", "colision", "seguros"],
+    "servicios": [
+      "reparacion_latoneria",
+      "pintura_automotriz",
+      "reparacion_estructural",
+      "gestion_aseguradoras"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Puente Aranda",
+    "direccion": "Carrera 50 # 10-54",
+    "telefono": "6017428383",
+    "whatsapp": "6017428383",
+    "horario": "Lun-Vie 7:30-17:30",
+    "descripcion": "Centro de colisión especializado en latonería y pintura con atención a aseguradoras y reparación estructural.",
+    "sitio_web": "https://colserauto.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-mekautos-64",
+    "nombre": "Mekautos",
+    "categorias": ["latoneria_y_pintura", "colision", "chasis"],
+    "servicios": [
+      "reparacion_latoneria",
+      "pintura_horno",
+      "reparacion_estructural",
+      "estirado_chasis"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Fontibón",
+    "direccion": "Calle 17 # 96A-15",
+    "telefono": "3142953648",
+    "whatsapp": "3142953648",
+    "horario": "Lun-Vie 7:30-17:30, Sab 8:00-12:00",
+    "descripcion": "Centro de colisión con tecnología de estirado de chasis, pintura al horno y reparación estructural.",
+    "sitio_web": "https://mekautos.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-autonal-65",
+    "nombre": "Autonal",
+    "categorias": ["latoneria_y_pintura", "colision", "seguros", "premium"],
+    "servicios": [
+      "reparacion_latoneria",
+      "pintura_automotriz",
+      "gestion_vehiculos_premium",
+      "reparacion_estructural"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Varias sedes",
+    "direccion": "N/A",
+    "telefono": "6017447800",
+    "whatsapp": "6017447800",
+    "horario": "Lun-Vie 7:00-17:00",
+    "descripcion": "Red de talleres automotrices con servicios de latonería, pintura y atención a vehículos de alta gama.",
+    "sitio_web": "https://autonal.com",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-collision-center-66",
+    "nombre": "Collision Center Bogotá",
+    "categorias": ["latoneria_y_pintura", "colision", "premium"],
+    "servicios": [
+      "reparacion_latoneria",
+      "pintura_profesional",
+      "acabados_alta_calidad"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Chapinero",
+    "direccion": "Calle 63 # 13-30",
+    "telefono": "3105563322",
+    "whatsapp": "3105563322",
+    "horario": "Lun-Vie 8:00-17:30",
+    "descripcion": "Centro especializado en reparación de colisiones con acabados de alta calidad y pintura profesional.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-pdr-autofull-67",
+    "nombre": "PDR Autofull Spa",
+    "categorias": ["latoneria_y_pintura", "pdr", "detailing"],
+    "servicios": [
+      "reparacion_abolladuras_sin_pintura",
+      "detallado_automotriz",
+      "restauracion_estetica"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Suba",
+    "direccion": "Calle 127 # 49-33",
+    "telefono": "3207781122",
+    "whatsapp": "3207781122",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Especialistas en reparación de abolladuras sin pintura (PDR) y detallado automotriz.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-autoestetica-68",
+    "nombre": "Auto Estética Bogotá",
+    "categorias": ["latoneria_y_pintura", "pintura", "detailing"],
+    "servicios": [
+      "pintura_automotriz",
+      "restauracion_estetica",
+      "detallado_automotriz"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Engativá",
+    "direccion": "Carrera 70 # 64-30",
+    "telefono": "3114456677",
+    "whatsapp": "3114456677",
+    "horario": "Lun-Sab 8:00-17:00",
+    "descripcion": "Servicios de pintura automotriz, restauración estética y detallado de vehículos.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-servicolision-69",
+    "nombre": "Servicolisión Bogotá",
+    "categorias": ["latoneria_y_pintura", "colision", "seguros"],
+    "servicios": [
+      "reparacion_latoneria",
+      "pintura_automotriz",
+      "reparacion_estructural",
+      "gestion_aseguradoras"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Kennedy",
+    "direccion": "Avenida Boyacá # 40-60 Sur",
+    "telefono": "3108893322",
+    "whatsapp": "3108893322",
+    "horario": "Lun-Vie 8:00-17:00",
+    "descripcion": "Centro de reparación de colisiones con servicios de latonería, pintura y gestión con aseguradoras.",
+    "sitio_web": "N/A",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-bhp-colombia-70",
+    "nombre": "BHP Colombia",
+    "categorias": ["reprogramacion", "ecu", "performance"],
+    "servicios": [
+      "reprogramacion_stage1_stage2",
+      "optimización_rendimiento",
+      "diagnostico_avanzado"
+    ],
+    "marcas": ["bmw", "audi", "volkswagen", "seat", "mercedes-benz"],
+    "localidad": "Bogotá",
+    "direccion": "N/A",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "N/A",
+    "descripcion": "Especialistas en reprogramación ECU (Stage 1, Stage 2), optimización de rendimiento y diagnóstico avanzado.",
+    "sitio_web": "https://bhpcolombia.com",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-revo-colombia-71",
+    "nombre": "Revo Colombia",
+    "categorias": ["reprogramacion", "ecu", "performance"],
+    "servicios": [
+      "reprogramacion_ecu",
+      "software_revo",
+      "optimización_grupo_vag"
+    ],
+    "marcas": ["audi", "volkswagen", "seat", "skoda"],
+    "localidad": "Bogotá",
+    "direccion": "N/A",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "N/A",
+    "descripcion": "Distribuidor oficial de software Revo, especializado en reprogramación para grupo VAG.",
+    "sitio_web": "https://revo.com",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-dimsport-72",
+    "nombre": "Dimsport Colombia",
+    "categorias": ["reprogramacion", "ecu", "diagnostico"],
+    "servicios": [
+      "reprogramacion_ecu",
+      "diagnostico_avanzado",
+      "herramientas_diagnostico"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Bogotá",
+    "direccion": "N/A",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "N/A",
+    "descripcion": "Proveedor de soluciones de reprogramación ECU y herramientas de diagnóstico automotriz.",
+    "sitio_web": "https://dimsport.com",
+    "premium": false,
+    "verificado": false
+  },
+  {
+    "id": "taller-chiptuning-bogota-73",
+    "nombre": "Chip Tuning Bogotá",
+    "categorias": ["reprogramacion", "ecu", "performance"],
+    "servicios": [
+      "reprogramacion_ecu",
+      "aumento_potencia",
+      "optimización_consumo"
+    ],
+    "marcas": ["bmw", "mercedes-benz", "audi", "chevrolet", "ford"],
+    "localidad": "Chapinero",
+    "direccion": "N/A",
+    "telefono": "3107788899",
+    "whatsapp": "3107788899",
+    "horario": "N/A",
+    "descripcion": "Taller especializado en reprogramación de ECU, aumento de potencia y optimización de consumo.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-tuningcol-74",
+    "nombre": "TuningCol Performance",
+    "categorias": ["reprogramacion", "performance", "diagnostico"],
+    "servicios": [
+      "modificaciones_rendimiento",
+      "reprogramacion_ecu",
+      "preparacion_vehiculos"
+    ],
+    "marcas": ["bmw", "audi", "volkswagen", "subaru"],
+    "localidad": "Bogotá",
+    "direccion": "N/A",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "N/A",
+    "descripcion": "Centro enfocado en modificaciones de rendimiento, reprogramación ECU y preparación de vehículos.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  },
+  {
+    "id": "taller-ecumaster-75",
+    "nombre": "ECU Master Colombia",
+    "categorias": ["ecu", "reprogramacion", "electronica"],
+    "servicios": [
+      "gestion_electronica",
+      "programacion_ecu",
+      "control_motor_avanzado"
+    ],
+    "marcas": ["multimarca"],
+    "localidad": "Bogotá",
+    "direccion": "N/A",
+    "telefono": "N/A",
+    "whatsapp": "N/A",
+    "horario": "N/A",
+    "descripcion": "Especialistas en gestión electrónica, programación de ECUs y soluciones avanzadas de control motor.",
+    "sitio_web": "N/A",
+    "premium": true,
+    "verificado": false
+  }
+]

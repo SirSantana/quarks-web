@@ -2,12 +2,10 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  process.env.SUPABASE_SERVICE_ROLE_KEY,
 );
 
 const MAX_MESSAGE_LENGTH = 400;
-
-
 
 function createSlug(text) {
   return text
@@ -50,7 +48,7 @@ export default async function handler(req, res) {
     if (existing) {
       return res.status(200).json(existing);
     }
-
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     // 2️⃣ Crear diagnóstico pendiente
     await supabase.from("diagnostics").insert({
       slug,
@@ -59,11 +57,12 @@ export default async function handler(req, res) {
       status: "pending",
     });
     process.nextTick(() => {
- fetch(`http://localhost:3000/api/diagnostico/process`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ slug }),
-  })});
+      fetch(`${baseUrl}/api/diagnostico/process`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug }),
+      });
+    });
     // 3️⃣ Responder rápido
     return res.status(202).json({
       slug,

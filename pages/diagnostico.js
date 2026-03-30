@@ -64,13 +64,12 @@ export default function DiagnosticoPage() {
     if (step === 4) return formData.problema.trim().length >= 20;
     return false;
   };
-
   const handleSubmit = async () => {
     if (!canProceed()) return;
     setLoading(true);
     setStep(5);
     try {
-      const res = await fetch('/api/asistente', {
+      const res = await fetch('/api/asistentelite', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ mensaje: `${formData.problema} ${formData.marca} ${formData.modelo} ${formData.año}`, userId: null }),

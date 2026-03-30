@@ -12,6 +12,7 @@ import {
 import Head from "next/head";
 import FooterV2 from "@/src/Components/Footer/FooterV2";
 import Header from "@/src/Components/LandingPage/HeaderDiagnostico";
+import talleres from "@/src/data/talleresautos.json";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: "blocking" };
@@ -126,7 +127,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
 
   // ── Data prep ──────────────────────────────────────────────────────────
   const problema = diagnosticoData.mensaje_usuario?.replace(/["']/g, "");
-  const title =  problema
+  const title = problema;
   const description = `${problema}. Descubre causas, diagnóstico profesional y costos de reparación para tu ${diagnosticoData.car_make} ${diagnosticoData.car_model} ${diagnosticoData.car_year} en ${diagnosticoData.country || "Colombia"}.`;
   const canonicalUrl = `${process.env.NEXT_PUBLIC_VERCEL_URL}diagnostico/${slug}`;
 
@@ -170,7 +171,22 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
       : []),
     ...(tienePreciosValidos ? [{ id: "precios", label: "Precios" }] : []),
   ];
+  const serviciosUsuario = diagnosticoData.servicios || [];
 
+  const normalize = (text) =>
+    text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
+  const talleresFiltrados = talleres.filter((taller) =>
+    serviciosUsuario.some((categorias) => {
+      const s = normalize(categorias);
+
+      return taller.categorias?.some((esp) => normalize(esp).includes(s));
+    }),
+  );
+  const talleresTop = talleresFiltrados.slice(0, 6);
   return (
     <>
       <Head>
@@ -457,7 +473,7 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                   Diagnóstico
                 </p>
                 <h2 className="text-[22px] font-bold text-gray-950 leading-snug tracking-tight mb-4">
-                   {diagnosticoData.mensaje_usuario}
+                  {diagnosticoData.mensaje_usuario}
                 </h2>
                 <p className="text-[17px] text-gray-600 leading-[1.8]">
                   {diagnosticoData.diagnostico}
@@ -628,6 +644,99 @@ export default function ResultadosPage({ diagnosticoData: initialData, slug }) {
                   </p>
                 </section>
               )}
+
+ {talleresTop.length > 0 && (
+  <section className="pt-10 pb-12 border-t border-gray-100">
+    <p className="text-[12px] font-semibold uppercase tracking-[1px] text-gray-400 mb-3">
+      Talleres recomendados
+    </p>
+    <h2 className="text-[22px] font-bold text-gray-950 leading-snug tracking-tight mb-6">
+      ¿Dónde reparar tu {diagnosticoData.car_make}?
+    </h2>
+
+    <div className="space-y-3">
+      {talleresTop.map((t) => (
+        <div
+          key={t.id}
+          className="flex items-start gap-4 p-4 border border-gray-100 rounded-xl hover:border-[#407BFF]/40 hover:bg-blue-50/30 transition-all group"
+        >
+          {/* Avatar */}
+          <div className="shrink-0 w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
+            {t.imagen ? (
+              <img
+                src={t.imagen}
+                alt={t.nombre}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span className="text-[15px] font-bold text-gray-400">
+                {t.nombre.charAt(0)}
+              </span>
+            )}
+          </div>
+
+          {/* Info */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-start justify-between gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
+                <p className="text-[14px] font-semibold text-gray-900 leading-snug">
+                  {t.nombre}
+                </p>
+                {t.verificado && (
+                  <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-blue-50 text-[#407BFF] text-[10px] font-semibold rounded-md uppercase tracking-wide">
+                    Verificado
+                  </span>
+                )}
+                {t.premium && (
+                  <span className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-amber-50 text-amber-600 text-[10px] font-semibold rounded-md uppercase tracking-wide">
+                    Premium
+                  </span>
+                )}
+              </div>
+              {t.whatsapp && (
+                <a
+                  href={`https://wa.me/57${t.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-[12px] text-[#407BFF] font-semibold hover:underline"
+                >
+                  Contactar
+                </a>
+              )}
+            </div>
+
+            <div className="flex items-center gap-1 mt-1">
+              <MapPin className="w-3 h-3 text-gray-300 shrink-0" />
+              <p className="text-[13px] text-gray-400 truncate">
+                {t.localidad}{t.direccion && ` · ${t.direccion}`}
+              </p>
+            </div>
+
+            {t.horario && (
+              <div className="flex items-center gap-1 mt-0.5">
+                <Clock className="w-3 h-3 text-gray-300 shrink-0" />
+                <p className="text-[12px] text-gray-400">{t.horario}</p>
+              </div>
+            )}
+
+            {t.categorias?.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mt-2.5">
+                {t.categorias.slice(0, 3).map((cat) => (
+                  <span
+                    key={cat}
+                    className="px-2 py-0.5 bg-gray-100 text-gray-500 text-[11px] font-medium rounded-full capitalize"
+                  >
+                    {cat.replace(/_/g, " ")}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+)}
 
               {/* DISCLAIMER */}
               <div className="flex gap-3 items-start pt-8 border-t border-gray-100">
