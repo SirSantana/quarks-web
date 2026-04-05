@@ -527,7 +527,7 @@ export default function NegocioVDos({ data, loading }) {
           </div>
         </div>
       )}
-      <ModalAsistente setIsOpen={setIsOpen} isOpen={isOpen} />
+      {/* <ModalAsistente setIsOpen={setIsOpen} isOpen={isOpen} /> */}
       <CallModal 
   isOpen={isCallModalOpen}
   onClose={() => setIsCallModalOpen(false)}
