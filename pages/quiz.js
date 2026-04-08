@@ -125,7 +125,7 @@ export default function AutoIQGame() {
   const circ = 2 * Math.PI * 54;
 
   return (
-    <Layout title={'AutoIQ – Simulador de Mecánica Automotriz'} description={'¿Sabes cómo funciona realmente tu motor? Pon a prueba tus conocimientos con AutoIQ, el simulador de trivia mecánica con esquemas técnicos animados. Aprende sobre transmisión, lubricación y sistemas de frenado con una interfaz minimalista y educativa. ¡Domina tu auto hoy!'} >
+    <Layout title={'AutoIQ – Simulador de Mecánica Automotriz'} image={'/favicon.png'} description={'¿Sabes cómo funciona realmente tu motor? Pon a prueba tus conocimientos con AutoIQ, el simulador de trivia mecánica con esquemas técnicos animados. Aprende sobre transmisión, lubricación y sistemas de frenado con una interfaz minimalista y educativa. ¡Domina tu auto hoy!'} >
     <div className="min-h-screen bg-blue-50 text-slate-900 font-sans flex flex-col items-center">
       <style>{css}</style>
       
