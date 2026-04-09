@@ -223,7 +223,6 @@ export default function AutoIQGame() {
 
   const pct = Math.round((score / questions.length) * 100);
   const circ = 2 * Math.PI * 54;
-
   return (
     <Layout
       title="AutoIQ – Simulador de Mecánica Automotriz"
