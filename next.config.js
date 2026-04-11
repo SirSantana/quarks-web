@@ -19,6 +19,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'www.laprecision.com.co',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      }
     ],
   },
   async headers() {
