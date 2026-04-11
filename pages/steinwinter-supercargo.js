@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <Layout
-      title="TruckLore Editorial"
+      title="El Impresionante Camion Steinwinter Supercargo"
       image="https://res.cloudinary.com/db3veuotr/image/upload/v1775921344/image_1_qyaisg.jpg"
       description="¿Sabes cómo funciona realmente tu motor? Pon a prueba tus conocimientos con TruckLore."
       footer={false}
