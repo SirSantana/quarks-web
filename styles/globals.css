@@ -8,3 +8,6 @@ select {
   background-position: right 10px center;
 }
 
+code, pre {
+  font-family: inherit !important;
+}

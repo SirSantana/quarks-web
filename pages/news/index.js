@@ -1,5 +1,6 @@
 "use client";
 
+import Layout from "@/src/Components/Layout";
 import { useEffect, useRef } from "react";
 
 const TICKER_ITEMS = [
@@ -67,7 +68,13 @@ export default function Page() {
         }
         .related-card:hover .related-img { transform: scale(1.03); }
       `}</style>
-
+<Layout
+      title={'prueba'}
+      image={'prueba'}
+      description={'prueba'}
+      footer={false}
+      visibleNavbar={false}
+    >
       <div className="bg-stone-50 min-h-screen w-full">
         <div className="max-w-[1040px] mx-auto px-10 py-12 bg-stone-50 min-h-screen">
 
@@ -413,6 +420,7 @@ export default function Page() {
 
         </div>
       </div>
+      </Layout>
     </>
   );
 }

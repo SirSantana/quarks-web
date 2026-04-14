@@ -8,7 +8,7 @@ import Layout from "@/src/Components/Layout";
 // ─── Markdown renderers ───────────────────────────────────────────────────────
 const mdComponents = {
   h2: ({ children }) => (
-    <h2 className="text-3xl font-bold text-zinc-900 tracking-tight leading-tight">
+    <h2 className="text-3xl font-bold text-zinc-900 tracking-tight leading-tight ">
       {children}
     </h2>
   ),
@@ -74,7 +74,7 @@ const mdComponents = {
           <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase bg-orange-600 px-3 py-1 rounded mb-6">
             Detalle Técnico
           </span>
-          <p className="text-lg md:text-xl font-light leading-relaxed relative z-10">
+          <p className="text-lg md:text-xl font-light leading-relaxed relative z-10 whitespace-pre-line">
             {String(children).trim()}
           </p>
         </aside>
@@ -88,21 +88,21 @@ const mdComponents = {
     // línea 4 (opcional): url de thumbnail
     if (lang === "tiktok") {
       const lines = String(children).trim().split("\n");
-      const url      = lines[0]?.trim() || "#";
-      const handle   = lines[1]?.trim() || "@TruckLore";
-      const caption  = lines[2]?.trim() || "";
+      const url = lines[0]?.trim() || "#";
+      const handle = lines[1]?.trim() || "@TruckLore";
+      const caption = lines[2]?.trim() || "";
       const thumbnail = lines[3]?.trim() || "";
 
       return (
-        <section className="space-y-8 flex flex-col items-center my-16">
-          <div className="w-full text-center">
-            <span className="block text-[11px] font-black tracking-[0.3em] uppercase text-orange-600 mb-2">
-              Contenido Viral
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
-              ¿Cómo se ve en la vida real?
-            </h2>
-          </div>
+        <section className="space-y-8 flex flex-col items-center my-16 text-inherit">
+                <div className="w-full text-center">
+                  <span className="block text-[11px] font-black tracking-[0.3em] uppercase text-orange-600 mb-2">
+                    Contenido Viral
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
+                    ¿Cómo se ve en la vida real?
+                  </h2>
+                </div>
 
           <div className="group relative w-full max-w-[340px] aspect-[9/16] rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[10px] border-zinc-900 bg-black">
             {thumbnail ? (
@@ -291,7 +291,6 @@ export default function ArticlePage({ frontmatter, content }) {
       icon={image}
     >
       <div className="min-h-screen bg-zinc-50 text-zinc-900 selection:bg-orange-100 selection:text-orange-900">
-
         {/* NAV */}
         <nav
           className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -368,7 +367,9 @@ export default function ArticlePage({ frontmatter, content }) {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-zinc-900 font-bold">TruckLore Editorial</span>
+              <span className="text-zinc-900 font-bold">
+                TruckLore Editorial
+              </span>
               {publishDate && <span>Publicado el {publishDate}</span>}
             </div>
           </div>
@@ -377,10 +378,8 @@ export default function ArticlePage({ frontmatter, content }) {
         {/* BODY */}
         <main className="max-w-5xl mx-auto px-6 pb-32">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-16 items-start">
-
             {/* ARTICLE */}
-            <article className="min-w-0 space-y-10 text-zinc-700 text-[17px] leading-[1.8]">
-
+            <article className="min-w-0 space-y-10 text-zinc-700 text-[17px] leading-[1.8] font-Poppins">
               {/* Lead italic */}
               {lead && (
                 <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-medium italic border-l-4 border-zinc-200 pl-6">
