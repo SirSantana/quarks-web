@@ -305,7 +305,7 @@ export default function ArticlePage({ frontmatter, content }) {
             </span>
             <div className="flex items-center gap-6 text-sm text-zinc-500">
               <a
-                href="#"
+                href="/posts"
                 className="hover:text-zinc-900 transition-colors hidden sm:block font-medium"
               >
                 Artículos
@@ -386,12 +386,12 @@ export default function ArticlePage({ frontmatter, content }) {
                   {lead}
                 </p>
               )}
+              <StatsGrid stats={stats} />
 
               {/* Markdown body */}
               <ReactMarkdown components={mdComponents}>{content}</ReactMarkdown>
 
               {/* Stats grid — del frontmatter, aparece al final del contenido */}
-              <StatsGrid stats={stats} />
 
               <div className="h-px bg-zinc-200" />
 
