@@ -67,7 +67,7 @@ https://res.cloudinary.com/db3veuotr/image/upload/v1776309878/image_8_psujdm.jpg
 > "Era innecesariamente grande, usaba más combustible, llevaba más aceite y necesitaba más agua — todo lo cual añadía peso y reducía la agilidad del coche."
 > — Jackie Stewart, piloto BRM 1966–67
 
-```label
+``label
 La arquitectura
 ```
 

@@ -42,9 +42,9 @@ newsletter:
   body: "Receive every Sunday a story about machines that time left behind."
 ---
 
-\```label
+```label
 A race without precedent
-\```
+```
 
 ## When speed was propaganda
 
@@ -56,18 +56,18 @@ They needed something completely different.
 
 Mercedes-Benz accepted the challenge and turned to one of the most brilliant engineering minds of the twentieth century: Ferdinand Porsche. What they designed was not a racing car. It was a machine created with a single purpose: to exceed 700 km/h.
 
-\```tiktok
+```tiktok
 https://vm.tiktok.com/ZGdHJxWEo/
 @LlantaPinchadaTV
 The Mercedes-Benz T80, the machine designed to break 700 km/h… that never got to try. ⚡🏁 #Engineering #Mercedes #Speed
 https://res.cloudinary.com/db3veuotr/image/upload/v1776264168/image_6_xcirfr.jpg
-\```
+```
 
 > "It was not designed to race. It was designed to **break** the limits of speed."
 
-\```label id="no-auto"
+```label id="no-auto"
 It was not a car
-\```
+```
 
 ## It was an engine with wheels
 
@@ -79,9 +79,9 @@ But the T80 was not going to run under standard conditions.
 
 For the record attempt, the MW 50 system was planned: a mixture of methanol and water injected into the engine to drastically increase power output. With this system, the engine was estimated to reach around 3,000 horsepower.
 
-\```callout id="mw50"
+```callout id="mw50"
 The use of the MW 50 system allowed supercharging pressure to be increased without causing detonation, cooling the mixture and enabling extreme performance for short periods — ideal for a maximum speed attempt.
-\```
+```
 
 ## When aerodynamics decides everything
 
@@ -99,9 +99,9 @@ These surfaces did not generate elevation, but the opposite. They applied negati
 
 The six wheels also played a fundamental role. They not only distributed weight, but increased directional stability under conditions where any deviation could be catastrophic.
 
-\```label id="record"
+```label id="record"
 The attempt that never happened
-\```
+```
 
 ## The race against time
 
@@ -115,9 +115,9 @@ With the outbreak of World War II in 1939, all resources were redirected to the 
 
 The T80 never underwent a full-speed test run.
 
-\```callout id="dato"
+```callout id="dato"
 The vehicle was nicknamed "Schwarzer Vogel" (Black Bird) and was planned to use a special high-performance fuel adapted from aeronautical use.
-\```
+```
 
 ## The machine that went too far
 
