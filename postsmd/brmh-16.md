@@ -58,7 +58,7 @@ En mayo de 1965, Sir Alfred Owen — propietario del grupo empresarial que finan
 Fue la decisión que definió el declive de BRM.
 
 ```tiktok
-https://vm.tiktok.com/ZGdHe98LN/
+https://vm.tiktok.com/ZGdHeHYWY/
 @LlantaPinchadaTV
 El BRM H16: el motor más complejo de la historia de la F1 que solo ganó UNA carrera 🏎️🔩 #F1 #BRM #MotorH16
 https://res.cloudinary.com/db3veuotr/image/upload/v1776309878/image_8_psujdm.jpg
