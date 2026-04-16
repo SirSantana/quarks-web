@@ -1,17 +1,13 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
+import { useState, useRef, useCallback } from "react";
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────
 
 const MOCK_IDEA = {
   title: "El Futuro del Auto Eléctrico",
-  idea:
-    "Exploramos cómo los vehículos eléctricos están redefiniendo la industria automotriz latinoamericana — desde la infraestructura de carga hasta el impacto cultural en el conductor moderno.",
-  hook:
-    "¿Qué pasaría si tu próximo auto pudiera cargarse mientras duermes y costarte menos que un tanque de gasolina?",
+  idea: "Exploramos cómo los vehículos eléctricos están redefiniendo la industria automotriz latinoamericana — desde la infraestructura de carga hasta el impacto cultural en el conductor moderno.",
+  hook: "¿Qué pasaría si tu próximo auto pudiera cargarse mientras duermes y costarte menos que un tanque de gasolina?",
 };
 
 const MOCK_SCRIPT = {
@@ -33,7 +29,7 @@ La infraestructura de carga pública está creciendo más rápido de lo que pens
 Aquí viene lo más impactante. Gastar en electricidad lo equivalente a gasolina me costaría un 70% menos. En un año, el ahorro cubre prácticamente el mantenimiento completo.
 
 [CONCLUSIÓN — 14:30]
-¿Mi veredicto? Si vives en ciudad, si tienes dónde cargar en casa o en el trabajo... el eléctrico no es el futuro. Ya es el presente. En es mejor de lo que te imaginas.
+¿Mi veredicto? Si vives en ciudad, si tienes dónde cargar en casa o en el trabajo... el eléctrico no es el futuro. Ya es el presente. Y es mejor de lo que te imaginas.
 
 Déjame tu opinión en los comentarios. ¿Cambiarías tu auto de gasolina por uno eléctrico hoy?`,
 };
@@ -56,16 +52,7 @@ const MOCK_FACEBOOK = {
     "¿Lo mejor? Cargar en casa por las noches. Es como tener una gasolinera privada que nunca cierra. Si estás pensando en hacer el cambio, el momento es ahora. La tecnología llegó. La infraestructura está creciendo. Y los precios están bajando.",
   ],
   cta: "¿Ya manejas eléctrico o estás considerándolo? Cuéntame en los comentarios. 👇 Y si te fue útil esta experiencia, comparte para que más personas tomen la mejor decisión.",
-  hashtags: [
-    "#AutoEléctrico",
-    "#ElectricVehicle",
-    "#Tesla",
-    "#BYD",
-    "#AutosEléctricos",
-    "#Sostenibilidad",
-    "#Latinoamérica",
-    "#TechAutomotriz",
-  ],
+  hashtags: ["#AutoEléctrico", "#ElectricVehicle", "#Tesla", "#BYD", "#AutosEléctricos", "#Sostenibilidad", "#Latinoamérica", "#TechAutomotriz"],
 };
 
 const MOCK_TRANSLATION = (type) => ({
@@ -81,640 +68,365 @@ const MOCK_TRANSLATION = (type) => ({
       : `I drove 2,500 miles on electric. What nobody tells you 👇\n\nFor 30 days, I swapped my gas car for three different electric vehicles. And no, it wasn't comfortable from the start. I had fears. I had doubts. And I also had surprises I didn't expect.\n\nThe biggest one: cost. In one month, I spent the equivalent of what I normally use in gas in one week. The math is brutal, and it's in favor of electric.\n\nAre you already driving electric or considering it? Tell me in the comments. 👇`,
 });
 
-// ─── Utility ──────────────────────────────────────────────────────────────────
+// ─── Constants ────────────────────────────────────────────────────────────────
 
 let nodeCounter = 0;
 const uid = () => `node-${Date.now()}-${nodeCounter++}`;
 
-const NODE_COLORS = {
-  idea: { bg: "bg-[#1a1a2e]", accent: "#7c6af7", border: "border-[#7c6af7]/40", accentBg: "bg-[#7c6af7]/10", accentText: "text-[#7c6af7]", label: "IDEA" },
-  script: { bg: "bg-[#0f1f1a]", accent: "#2adf8e", border: "border-[#2adf8e]/40", accentBg: "bg-[#2adf8e]/10", accentText: "text-[#2adf8e]", label: "SCRIPT" },
-  clips: { bg: "bg-[#1f150e]", accent: "#f59e2a", border: "border-[#f59e2a]/40", accentBg: "bg-[#f59e2a]/10", accentText: "text-[#f59e2a]", label: "CLIPS" },
-  facebook: { bg: "bg-[#0e1520]", accent: "#3b82f6", border: "border-[#3b82f6]/40", accentBg: "bg-[#3b82f6]/10", accentText: "text-[#3b82f6]", label: "FACEBOOK" },
-  translation: { bg: "bg-[#1a0f1a]", accent: "#e040fb", border: "border-[#e040fb]/40", accentBg: "bg-[#e040fb]/10", accentText: "text-[#e040fb]", label: "TRANSLATION" },
+const INPUT_SCREEN_X = 36;
+const INPUT_SCREEN_Y = 72;
+const INPUT_W = 376;
+
+const NODE_META = {
+  idea:        { accent: "#a78bfa", label: "IDEA",        bg: "#110f24", border: "#a78bfa50" },
+  script:      { accent: "#34d399", label: "SCRIPT",      bg: "#081a13", border: "#34d39950" },
+  clips:       { accent: "#fbbf24", label: "CLIPS",       bg: "#191008", border: "#fbbf2450" },
+  facebook:    { accent: "#60a5fa", label: "FACEBOOK",    bg: "#080f1e", border: "#60a5fa50" },
+  translation: { accent: "#e879f9", label: "TRANSLATION", bg: "#160b18", border: "#e879f950" },
 };
 
-// ─── Components ───────────────────────────────────────────────────────────────
+// ─── Reusable small bits ──────────────────────────────────────────────────────
 
 function TagBadge({ text, accent }) {
   return (
-    <span
-      className="inline-block px-2 py-0.5 rounded text-[11px] font-mono tracking-wider mr-1.5 mb-1"
-      style={{
-        color: accent,
-        border: `1px solid ${accent}33`,
-        background: `${accent}11`,
-      }}
-    >
-      {text}
-    </span>
+    <span style={{
+      display: "inline-block", padding: "2px 8px", borderRadius: 4,
+      fontSize: 11, fontFamily: "monospace", letterSpacing: "0.04em",
+      color: accent, border: `1px solid ${accent}44`, background: `${accent}18`,
+      marginRight: 6, marginBottom: 4,
+    }}>{text}</span>
   );
 }
 
-function NodeButton({
-  label,
-  onClick,
-  accent,
-  small,
-}) {
-  const [hover, setHover] = useState(false);
+function Btn({ label, accent, onClick }) {
+  const [hov, setHov] = useState(false);
   return (
     <button
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      onClick={(e) => {
-        e.stopPropagation();
-        onClick();
-      }}
-      className={`inline-flex items-center gap-1.5 rounded-md font-medium font-mono tracking-tight cursor-pointer transition-all duration-150 mr-1.5 mb-1.5 whitespace-nowrap border
-        ${small ? "px-2.5 py-1 text-[11px]" : "px-3.5 py-1.5 text-[12px]"}
-      `}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      onClick={e => { e.stopPropagation(); onClick(); }}
       style={{
-        borderColor: hover ? accent : `${accent}55`,
-        background: hover ? `${accent}22` : "transparent",
-        color: hover ? accent : `${accent}cc`,
+        display: "inline-flex", alignItems: "center", gap: 5,
+        padding: "5px 11px", borderRadius: 6, fontSize: 11,
+        fontFamily: "monospace", fontWeight: 500, cursor: "pointer",
+        border: `1px solid ${hov ? accent : accent + "44"}`,
+        background: hov ? `${accent}22` : "transparent",
+        color: hov ? accent : `${accent}bb`,
+        transition: "all .15s", marginRight: 6, marginBottom: 6, whiteSpace: "nowrap",
       }}
-    >
-      <span className="text-[10px]">▶</span>
-      {label}
-    </button>
+    ><span style={{ fontSize: 9 }}>▶</span>{label}</button>
   );
 }
 
-// ─── IdeaNode ─────────────────────────────────────────────────────────────────
+// ─── Node content renderers ───────────────────────────────────────────────────
 
-function IdeaNode({
-  node,
-  onGenerate,
-}) {
-  const { accent } = NODE_COLORS.idea;
+function IdeaContent({ node, onGen }) {
+  const { accent } = NODE_META.idea;
   const c = node.content;
   return (
-    <div>
-      <p className="text-[12px] text-gray-500 mb-2.5 font-mono">💡 CONCEPTO</p>
-      <p className="text-[14px] text-gray-300 leading-relaxed mb-3.5">{c.idea}</p>
-      <div
-        className="border-l-2 pl-3 mb-[18px] py-2.5 rounded-r-md"
-        style={{
-          borderLeftColor: accent,
-          background: `${accent}08`,
-        }}
-      >
-        <p className="text-[11px] mb-1 font-mono" style={{ color: `${accent}aa` }}>
-          HOOK
-        </p>
-        <p className="text-[13px] text-gray-100 leading-relaxed italic">
-          "{c.hook}"
-        </p>
+    <>
+      <p style={{ fontSize: 11, color: "#666", marginBottom: 8, fontFamily: "monospace" }}>💡 CONCEPTO</p>
+      <p style={{ fontSize: 13, color: "#ccc", lineHeight: 1.65, marginBottom: 12 }}>{c.idea}</p>
+      <div style={{ borderLeft: `2px solid ${accent}`, background: `${accent}0d`, padding: "10px 12px", borderRadius: "0 6px 6px 0", marginBottom: 14 }}>
+        <p style={{ fontSize: 10, color: `${accent}88`, marginBottom: 4, fontFamily: "monospace", letterSpacing: "0.08em" }}>HOOK</p>
+        <p style={{ fontSize: 13, color: "#e5e5e5", lineHeight: 1.6, fontStyle: "italic" }}>"{c.hook}"</p>
       </div>
-      <div className="flex flex-wrap">
-        <NodeButton
-          label="Generate Script"
-          accent={accent}
-          onClick={() => onGenerate("script", node.id)}
-        />
-        <NodeButton
-          label="Translate to English"
-          accent={accent}
-          onClick={() => onGenerate("translation", node.id)}
-        />
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <Btn label="Generate Script" accent={accent} onClick={() => onGen("script", node.id)} />
+        <Btn label="Translate to English" accent={accent} onClick={() => onGen("translation", node.id)} />
       </div>
-    </div>
+    </>
   );
 }
 
-// ─── ScriptNode ───────────────────────────────────────────────────────────────
-
-function ScriptNode({
-  node,
-  onGenerate,
-}) {
-  const { accent } = NODE_COLORS.script;
+function ScriptContent({ node, onGen }) {
+  const { accent } = NODE_META.script;
   const [expanded, setExpanded] = useState(false);
   const lines = (node.content.script || "").split("\n");
   const preview = lines.slice(0, 6).join("\n");
-
   return (
-    <div>
-      <p className="text-[12px] text-gray-500 mb-2.5 font-mono">🎬 GUIÓN YOUTUBE</p>
-      <div
-        className={`bg-black rounded-md p-3 mb-3.5 border border-[#222] overflow-y-auto transition-[max-height] duration-300 text-[12px] leading-[1.7] text-gray-400 font-mono whitespace-pre-wrap ${
-          expanded ? "max-h-[320px]" : "max-h-[140px]"
-        }`}
-      >
-        {expanded ? node.content.script : preview + "\n..."}
-      </div>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setExpanded(!expanded);
-        }}
-        className="text-[11px] bg-transparent border-none cursor-pointer mb-3 font-mono"
-        style={{ color: `${accent}99` }}
-      >
+    <>
+      <p style={{ fontSize: 11, color: "#666", marginBottom: 8, fontFamily: "monospace" }}>🎬 GUIÓN YOUTUBE</p>
+      <div style={{
+        background: "#030303", borderRadius: 6, padding: 12, marginBottom: 8,
+        border: "1px solid #1c1c1c", maxHeight: expanded ? 300 : 130,
+        overflowY: "auto", fontSize: 12, lineHeight: 1.75, color: "#999",
+        fontFamily: "monospace", whiteSpace: "pre-wrap", transition: "max-height .3s ease",
+      }}>{expanded ? node.content.script : preview + "\n..."}</div>
+      <button onClick={e => { e.stopPropagation(); setExpanded(!expanded); }}
+        style={{ fontSize: 11, color: `${accent}77`, background: "none", border: "none", cursor: "pointer", marginBottom: 10, fontFamily: "monospace" }}>
         {expanded ? "▲ Collapse" : "▼ Read full script"}
       </button>
-      <div className="flex flex-wrap">
-        <NodeButton
-          label="Generate Shorts"
-          accent={accent}
-          onClick={() => onGenerate("clips", node.id)}
-        />
-        <NodeButton
-          label="Create Facebook Post"
-          accent={accent}
-          onClick={() => onGenerate("facebook", node.id)}
-        />
-        <NodeButton
-          label="Translate to English"
-          accent={accent}
-          onClick={() => onGenerate("translation", node.id)}
-        />
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <Btn label="Generate Shorts" accent={accent} onClick={() => onGen("clips", node.id)} />
+        <Btn label="Facebook Post" accent={accent} onClick={() => onGen("facebook", node.id)} />
+        <Btn label="Translate" accent={accent} onClick={() => onGen("translation", node.id)} />
       </div>
-    </div>
+    </>
   );
 }
 
-// ─── ClipsNode ────────────────────────────────────────────────────────────────
-
-function ClipsNode({
-  node,
-  onGenerate,
-}) {
-  const { accent } = NODE_COLORS.clips;
-  const clips = node.content.clips || [];
+function ClipsContent({ node, onGen }) {
+  const { accent } = NODE_META.clips;
   return (
-    <div>
-      <p className="text-[12px] text-gray-500 mb-2.5 font-mono">📱 SHORTS / REELS</p>
-      <div className="flex flex-col gap-2.5 mb-3.5">
-        {clips.map((clip, i) => (
-          <div
-            key={i}
-            className="bg-black border rounded-md p-2.5"
-            style={{ borderColor: `${accent}33` }}
-          >
-            <div
-              className="text-[10px] font-mono mb-1.5 tracking-widest"
-              style={{ color: accent }}
-            >
-              CLIP {i + 1}
-            </div>
-            <p className="text-[12px] text-gray-400 leading-relaxed whitespace-pre-wrap">
-              {clip}
-            </p>
+    <>
+      <p style={{ fontSize: 11, color: "#666", marginBottom: 8, fontFamily: "monospace" }}>📱 SHORTS / REELS</p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 14 }}>
+        {(node.content.clips || []).map((clip, i) => (
+          <div key={i} style={{ background: "#030303", border: `1px solid ${accent}28`, borderRadius: 6, padding: "10px 12px" }}>
+            <div style={{ fontSize: 10, color: accent, fontFamily: "monospace", marginBottom: 5, letterSpacing: "0.1em" }}>CLIP {i + 1}</div>
+            <p style={{ fontSize: 12, color: "#999", lineHeight: 1.65, whiteSpace: "pre-wrap" }}>{clip}</p>
           </div>
         ))}
       </div>
-      <div className="flex flex-wrap">
-        <NodeButton
-          label="Regenerate"
-          accent={accent}
-          onClick={() => {}}
-        />
-        <NodeButton
-          label="Translate to English"
-          accent={accent}
-          onClick={() => onGenerate("translation", node.id)}
-        />
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <Btn label="Regenerate" accent={accent} onClick={() => {}} />
+        <Btn label="Translate" accent={accent} onClick={() => onGen("translation", node.id)} />
       </div>
-    </div>
+    </>
   );
 }
 
-// ─── FacebookNode ─────────────────────────────────────────────────────────────
-
-function FacebookNode({
-  node,
-  onGenerate,
-}) {
-  const { accent } = NODE_COLORS.facebook;
+function FacebookContent({ node, onGen }) {
+  const { accent } = NODE_META.facebook;
   const c = node.content;
   return (
-    <div>
-      <p className="text-[12px] text-gray-500 mb-2.5 font-mono">📘 FACEBOOK POST</p>
-      <div
-        className="border-l-2 pl-3 mb-3.5 py-2.5 rounded-r-md"
-        style={{
-          borderLeftColor: accent,
-          background: `${accent}08`,
-        }}
-      >
-        <p className="text-[14px] text-gray-100 font-semibold leading-relaxed">
-          {c.postHook}
-        </p>
+    <>
+      <p style={{ fontSize: 11, color: "#666", marginBottom: 8, fontFamily: "monospace" }}>📘 FACEBOOK POST</p>
+      <div style={{ borderLeft: `2px solid ${accent}`, background: `${accent}0d`, padding: "10px 12px", borderRadius: "0 6px 6px 0", marginBottom: 12 }}>
+        <p style={{ fontSize: 14, color: "#f0f0f0", fontWeight: 600, lineHeight: 1.5 }}>{c.postHook}</p>
       </div>
-      <div className="flex flex-col gap-2 mb-3">
+      <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 12 }}>
         {(c.paragraphs || []).map((p, i) => (
-          <p key={i} className="text-[12px] text-gray-400 leading-relaxed">
-            {p}
-          </p>
+          <p key={i} style={{ fontSize: 12, color: "#aaa", lineHeight: 1.7 }}>{p}</p>
         ))}
       </div>
-      <div
-        className="border rounded-md p-2 mb-3"
-        style={{
-          background: `${accent}11`,
-          borderColor: `${accent}33`,
-        }}
-      >
-        <p className="text-[12px] text-gray-200 leading-relaxed">{c.cta}</p>
+      <div style={{ background: `${accent}11`, border: `1px solid ${accent}33`, borderRadius: 6, padding: "8px 12px", marginBottom: 12 }}>
+        <p style={{ fontSize: 12, color: "#ddd", lineHeight: 1.6 }}>{c.cta}</p>
       </div>
-      <div className="mb-3.5">
-        {(c.hashtags || []).map((h) => (
-          <TagBadge key={h} text={h} accent={accent} />
-        ))}
+      <div style={{ marginBottom: 14 }}>
+        {(c.hashtags || []).map(h => <TagBadge key={h} text={h} accent={accent} />)}
       </div>
-      <NodeButton
-        label="Translate to English"
-        accent={accent}
-        onClick={() => onGenerate("translation", node.id)}
-      />
-    </div>
+      <Btn label="Translate to English" accent={accent} onClick={() => onGen("translation", node.id)} />
+    </>
   );
 }
 
-// ─── TranslationNode ──────────────────────────────────────────────────────────
-
-function TranslationNode({ node }) {
-  const { accent } = NODE_COLORS.translation;
+function TranslationContent({ node }) {
+  const { accent } = NODE_META.translation;
   const c = node.content;
   return (
-    <div>
-      <div className="flex items-center gap-2 mb-3">
-        <p className="text-[12px] text-gray-500 font-mono">🌐 ENGLISH VERSION</p>
+    <>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+        <p style={{ fontSize: 11, color: "#666", fontFamily: "monospace" }}>🌐 ENGLISH VERSION</p>
         {c.originalType && (
-          <span
-            className="text-[10px] px-2 py-0.5 rounded font-mono"
-            style={{
-              background: `${NODE_COLORS[c.originalType].accent}22`,
-              color: NODE_COLORS[c.originalType].accent,
-            }}
-          >
+          <span style={{ fontSize: 10, padding: "2px 8px", borderRadius: 4, fontFamily: "monospace", background: `${NODE_META[c.originalType].accent}22`, color: NODE_META[c.originalType].accent }}>
             from {c.originalType.toUpperCase()}
           </span>
         )}
       </div>
-      <div
-        className="bg-black border rounded-md p-3.5 text-[12px] leading-[1.8] text-gray-400 whitespace-pre-wrap max-h-[260px] overflow-y-auto"
-        style={{ borderColor: `${accent}33` }}
-      >
+      <div style={{ background: "#030303", border: `1px solid ${accent}33`, borderRadius: 6, padding: 14, fontSize: 12, lineHeight: 1.8, color: "#999", whiteSpace: "pre-wrap", maxHeight: 260, overflowY: "auto" }}>
         {c.translatedText}
       </div>
-    </div>
+    </>
   );
 }
 
-// ─── NodeWrapper (Draggable) ──────────────────────────────────────────────────
+// ─── NodeCard ─────────────────────────────────────────────────────────────────
 
-function NodeWrapper({
-  node,
-  onUpdatePosition,
-  children,
-  onBringToFront,
-  zIndex,
-}) {
-  const { accent, label, bg } = NODE_COLORS[node.type];
+function NodeCard({ node, onUpdatePos, onBringToFront, onClose, onGen, zIndex }) {
+  const { accent, label, bg, border } = NODE_META[node.type];
   const dragging = useRef(false);
-  const dragStart = useRef({ mx: 0, my: 0, nx: 0, ny: 0 });
+  const origin = useRef({ mx: 0, my: 0, nx: 0, ny: 0 });
+  const [hoverClose, setHoverClose] = useState(false);
 
-  const onMouseDown = useCallback(
-    (e) => {
-      if (e.target.closest("button")) return;
-      e.preventDefault();
-      dragging.current = true;
-      dragStart.current = {
-        mx: e.clientX,
-        my: e.clientY,
-        nx: node.position.x,
-        ny: node.position.y,
-      };
-      onBringToFront(node.id);
-
-      const onMove = (ev) => {
-        if (!dragging.current) return;
-        onUpdatePosition(node.id, {
-          x: dragStart.current.nx + ev.clientX - dragStart.current.mx,
-          y: dragStart.current.ny + ev.clientY - dragStart.current.my,
-        });
-      };
-      const onUp = () => {
-        dragging.current = false;
-        window.removeEventListener("mousemove", onMove);
-        window.removeEventListener("mouseup", onUp);
-      };
-      window.addEventListener("mousemove", onMove);
-      window.addEventListener("mouseup", onUp);
-    },
-    [node.id, node.position, onUpdatePosition, onBringToFront]
-  );
+  const onMouseDown = useCallback((e) => {
+    if (e.target.closest("button")) return;
+    e.preventDefault();
+    dragging.current = true;
+    origin.current = { mx: e.clientX, my: e.clientY, nx: node.position.x, ny: node.position.y };
+    onBringToFront(node.id);
+    const move = (ev) => {
+      if (!dragging.current) return;
+      onUpdatePos(node.id, { x: origin.current.nx + ev.clientX - origin.current.mx, y: origin.current.ny + ev.clientY - origin.current.my });
+    };
+    const up = () => { dragging.current = false; window.removeEventListener("mousemove", move); window.removeEventListener("mouseup", up); };
+    window.addEventListener("mousemove", move);
+    window.addEventListener("mouseup", up);
+  }, [node.id, node.position, onUpdatePos, onBringToFront]);
 
   return (
-    <div
-      onMouseDown={onMouseDown}
-      className={`absolute w-[340px] border rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] cursor-grab select-none transition-shadow duration-200 ${bg}`}
-      style={{
-        left: node.position.x,
-        top: node.position.y,
-        borderColor: `${accent}44`,
-        boxShadow: `0 0 0 1px ${accent}22, 0 20px 60px rgba(0,0,0,0.6)`,
-        zIndex,
-      }}
-    >
-      {/* Header */}
-      <div
-        className="flex items-center justify-between px-3.5 py-2.5 border-b rounded-t-xl"
-        style={{
-          borderBottomColor: `${accent}22`,
-          background: `${accent}0a`,
-        }}
-      >
-        <div className="flex items-center gap-2">
-          <div
-            className="w-2 h-2 rounded-full"
-            style={{
-              background: accent,
-              boxShadow: `0 0 6px ${accent}`,
-            }}
-          />
-          <span
-            className="text-[10px] font-mono tracking-widest font-bold"
-            style={{ color: accent }}
-          >
-            {label}
-          </span>
-        </div>
+    <div onMouseDown={onMouseDown} style={{
+      position: "absolute", left: node.position.x, top: node.position.y,
+      width: 340, background: bg, border: `1px solid ${border}`,
+      borderRadius: 14, boxShadow: `0 0 0 1px ${accent}14, 0 28px 70px rgba(0,0,0,0.75)`,
+      cursor: "grab", userSelect: "none", zIndex,
+    }}>
+      <div style={{
+        display: "flex", alignItems: "center", gap: 8, padding: "9px 14px",
+        borderBottom: `1px solid ${accent}18`, background: `${accent}09`, borderRadius: "14px 14px 0 0",
+      }}>
+        <div style={{ width: 7, height: 7, borderRadius: "50%", background: accent, boxShadow: `0 0 7px ${accent}` }} />
+        <span style={{ fontSize: 10, fontFamily: "monospace", letterSpacing: "0.15em", color: accent, fontWeight: 700 }}>{label}</span>
         {node.content.title && (
-          <span className="text-[11px] text-gray-500 max-w-[180px] overflow-hidden truncate whitespace-nowrap">
+          <span style={{ fontSize: 11, color: "#444", flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", textAlign: "center" }}>
             {node.content.title}
           </span>
         )}
-        <div className="flex gap-1">
-          <div className="w-2 h-2 rounded-full bg-[#333]" />
-          <div className="w-2 h-2 rounded-full bg-[#333]" />
-        </div>
+        <button
+          onMouseEnter={() => setHoverClose(true)}
+          onMouseLeave={() => setHoverClose(false)}
+          onClick={e => { e.stopPropagation(); onClose(node.id); }}
+          style={{
+            marginLeft: "auto", width: 20, height: 20, borderRadius: "50%",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            border: `1px solid ${hoverClose ? "#ff444488" : "#2a2a2a"}`,
+            background: hoverClose ? "#ff444420" : "transparent",
+            cursor: "pointer", fontSize: 10,
+            color: hoverClose ? "#ff6666" : "#383838",
+            transition: "all .15s", flexShrink: 0,
+          }}
+        >✕</button>
       </div>
-
-      {/* Body */}
-      <div className="p-4 cursor-auto">{children}</div>
+      <div style={{ padding: 16, cursor: "auto" }}>
+        {node.type === "idea"        && <IdeaContent node={node} onGen={onGen} />}
+        {node.type === "script"      && <ScriptContent node={node} onGen={onGen} />}
+        {node.type === "clips"       && <ClipsContent node={node} onGen={onGen} />}
+        {node.type === "facebook"    && <FacebookContent node={node} onGen={onGen} />}
+        {node.type === "translation" && <TranslationContent node={node} />}
+      </div>
     </div>
   );
 }
 
-// ─── Connection Lines (SVG) ───────────────────────────────────────────────────
+// ─── Connection Lines ─────────────────────────────────────────────────────────
 
 function ConnectionLines({ nodes }) {
-  const nodeMap = new Map(nodes.map((n) => [n.id, n]));
+  const nodeMap = new Map(nodes.map(n => [n.id, n]));
+  const inputPortX = INPUT_SCREEN_X + INPUT_W;
+  const inputPortY = INPUT_SCREEN_Y + 260;
 
   return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none z-0">
+    <svg style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 1 }}>
       <defs>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-          <feMerge>
-            <feMergeNode in="coloredBlur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
+        <filter id="lg" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
       </defs>
-      {nodes
-        .filter((n) => n.parentId)
-        .map((n) => {
+      {nodes.map(n => {
+        let x1, y1;
+        if (!n.parentId) {
+          x1 = inputPortX;
+          y1 = inputPortY;
+        } else {
           const parent = nodeMap.get(n.parentId);
           if (!parent) return null;
-          const x1 = parent.position.x + 170;
-          const y1 = parent.position.y + 60;
-          const x2 = n.position.x + 170;
-          const y2 = n.position.y + 60;
-          const cx = (x1 + x2) / 2;
-          const accent = NODE_COLORS[n.type].accent;
-          return (
-            <path
-              key={n.id}
-              d={`M${x1},${y1} C${cx},${y1} ${cx},${y2} ${x2},${y2}`}
-              fill="none"
-              stroke={accent}
-              strokeWidth="1"
-              strokeOpacity="0.3"
-              strokeDasharray="4 4"
-              filter="url(#glow)"
-            />
-          );
-        })}
+          x1 = parent.position.x + 340;
+          y1 = parent.position.y + 60;
+        }
+        const x2 = n.position.x;
+        const y2 = n.position.y + 60;
+        const dx = Math.abs(x2 - x1) * 0.45;
+        const cx1 = x1 + dx;
+        const cx2 = x2 - dx;
+        const accent = NODE_META[n.type].accent;
+        return (
+          <g key={n.id}>
+            <path d={`M${x1},${y1} C${cx1},${y1} ${cx2},${y2} ${x2},${y2}`}
+              fill="none" stroke={accent} strokeWidth="4" strokeOpacity="0.15" filter="url(#lg)" />
+            <path d={`M${x1},${y1} C${cx1},${y1} ${cx2},${y2} ${x2},${y2}`}
+              fill="none" stroke={accent} strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="5 4" />
+            <circle cx={x1} cy={y1} r="3.5" fill={accent} opacity="0.5" />
+            <circle cx={x2} cy={y2} r="3.5" fill={accent} opacity="0.8" />
+          </g>
+        );
+      })}
     </svg>
   );
 }
 
-// ─── Canvas ───────────────────────────────────────────────────────────────────
+// ─── Input Card ───────────────────────────────────────────────────────────────
 
-function Canvas({
-  nodes,
-  setNodes,
-}) {
-  const [zOrders, setZOrders] = useState({});
-  const maxZ = useRef(10);
-
-  const bringToFront = useCallback((id) => {
-    maxZ.current += 1;
-    setZOrders((z) => ({ ...z, [id]: maxZ.current }));
-  }, []);
-
-  const updatePosition = useCallback((id, pos) => {
-    setNodes((prev) => prev.map((n) => (n.id === id ? { ...n, position: pos } : n)));
-  }, [setNodes]);
-
-  const generateChild = useCallback(
-    (type, parentId) => {
-      const parent = nodes.find((n) => n.id === parentId);
-      if (!parent) return;
-
-      let content;
-      if (type === "translation") {
-        content = MOCK_TRANSLATION(parent.type);
-      } else if (type === "script") {
-        content = MOCK_SCRIPT;
-      } else if (type === "clips") {
-        content = MOCK_CLIPS;
-      } else if (type === "facebook") {
-        content = MOCK_FACEBOOK;
-      } else {
-        content = MOCK_IDEA;
-      }
-
-      const newNode = {
-        id: uid(),
-        type,
-        content,
-        position: {
-          x: parent.position.x + 380,
-          y: parent.position.y + Math.random() * 40 - 20,
-        },
-        parentId,
-      };
-      setNodes((prev) => [...prev, newNode]);
-    },
-    [nodes, setNodes]
-  );
-
-  return (
-    <div className="relative w-full h-full overflow-hidden">
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-50"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      <ConnectionLines nodes={nodes} />
-
-      {nodes.map((node) => (
-        <NodeWrapper
-          key={node.id}
-          node={node}
-          onUpdatePosition={updatePosition}
-          onBringToFront={bringToFront}
-          zIndex={zOrders[node.id] || 10}
-        >
-          {node.type === "idea" && (
-            <IdeaNode node={node} onGenerate={generateChild} />
-          )}
-          {node.type === "script" && (
-            <ScriptNode node={node} onGenerate={generateChild} />
-          )}
-          {node.type === "clips" && (
-            <ClipsNode node={node} onGenerate={generateChild} />
-          )}
-          {node.type === "facebook" && (
-            <FacebookNode node={node} onGenerate={generateChild} />
-          )}
-          {node.type === "translation" && <TranslationNode node={node} />}
-        </NodeWrapper>
-      ))}
-    </div>
-  );
-}
-
-// ─── InputCenter ──────────────────────────────────────────────────────────────
-
-function InputCenter({
-  onCreateNode,
-  visible,
-}) {
+function InputCard({ onCreateNode }) {
   const [topic, setTopic] = useState("Vehículos eléctricos en Latinoamérica");
   const [tone, setTone] = useState("educativo");
   const [lang, setLang] = useState("español");
 
-  const inputClass = "bg-[#111] border border-[#333] rounded-lg text-gray-200 px-3.5 py-2.5 text-[13px] font-mono outline-none w-full transition-colors focus:border-gray-500";
-  const selectClass = "bg-[#111] border border-[#333] rounded-lg text-gray-400 px-3 py-2 text-[12px] font-mono outline-none cursor-pointer flex-1 appearance-none";
+  const fLabel = (t) => (
+    <label style={{ display: "block", fontSize: 10, fontFamily: "monospace", color: "#4a4a4a", letterSpacing: "0.12em", marginBottom: 5, textTransform: "uppercase" }}>{t}</label>
+  );
+  const inputSt = {
+    width: "100%", background: "#080808", border: "1px solid #232323",
+    borderRadius: 7, color: "#d4d4d4", padding: "9px 12px", fontSize: 12,
+    fontFamily: "monospace", outline: "none", boxSizing: "border-box",
+  };
+  const selectSt = {
+    width: "100%", background: "#080808", border: "1px solid #232323",
+    borderRadius: 7, color: "#888", padding: "8px 10px", fontSize: 12,
+    fontFamily: "monospace", outline: "none", cursor: "pointer", appearance: "none",
+  };
 
   const actions = [
-    { label: "YouTube Script", type: "script", accent: "#2adf8e", icon: "▶" },
-    { label: "Facebook Post", type: "facebook", accent: "#3b82f6", icon: "📘" },
-    { label: "Idea + Hook", type: "idea", accent: "#7c6af7", icon: "💡" },
+    { label: "YouTube Script",  type: "script",   accent: "#34d399", icon: "▶", desc: "Guión largo con segmentos y hooks" },
+    { label: "Facebook Post",   type: "facebook", accent: "#60a5fa", icon: "📘", desc: "Post con hashtags, párrafos y CTA" },
+    { label: "Idea + Hook",     type: "idea",     accent: "#a78bfa", icon: "💡", desc: "Concepto central con hook viral" },
   ];
 
   return (
-    <div
-      className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] z-[100] transition-all duration-500 cubic-bezier(0.34,1.56,0.64,1)
-        ${visible ? "scale-100 opacity-100 pointer-events-auto" : "scale-75 opacity-0 pointer-events-none"}
-      `}
-    >
-      {/* Brand */}
-      <div className="text-center mb-7">
-        <p className="text-[11px] font-mono tracking-[0.3em] text-gray-600 mb-2">
-          AUTOMOTIVE CONTENT STUDIO
-        </p>
-        <h1 className="text-[26px] font-light text-gray-100 tracking-tight font-sans">
-          Create. Deploy. Dominate.
-        </h1>
+    <div style={{
+      position: "fixed", left: INPUT_SCREEN_X, top: INPUT_SCREEN_Y, width: INPUT_W,
+      background: "#0b0b0b", border: "1px solid #222", borderRadius: 16,
+      boxShadow: "0 0 0 1px #ffffff06, 0 40px 90px rgba(0,0,0,0.9)", zIndex: 300, overflow: "hidden",
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 9, padding: "12px 16px", borderBottom: "1px solid #181818", background: "#0e0e0e" }}>
+        <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#34d399", boxShadow: "0 0 8px #34d399" }} />
+        <span style={{ fontSize: 10, fontFamily: "monospace", letterSpacing: "0.2em", color: "#34d399", fontWeight: 700 }}>CONTENT STUDIO</span>
+        <span style={{ marginLeft: "auto", fontSize: 10, fontFamily: "monospace", color: "#333" }}>AUTOMOTIVE</span>
       </div>
-
-      {/* Card */}
-      <div className="bg-[#111] border border-[#2a2a2a] rounded-2xl p-6 shadow-[0_40px_100px_rgba(0,0,0,0.8)]">
-        {/* Topic Input */}
-        <div className="mb-3.5">
-          <label className="block text-[10px] font-mono text-gray-600 tracking-wider mb-1.5 uppercase">
-            Topic
-          </label>
-          <input
-            value={topic}
-            onChange={(e) => setTopic(e.target.value)}
-            placeholder="Enter topic..."
-            className={inputClass}
-          />
+      <div style={{ padding: 16 }}>
+        <div style={{ marginBottom: 12 }}>
+          {fLabel("Topic")}
+          <input value={topic} onChange={e => setTopic(e.target.value)} placeholder="Enter topic..." style={inputSt} />
         </div>
-
-        {/* Selects */}
-        <div className="flex gap-2.5 mb-6">
-          <div className="flex-1">
-            <label className="block text-[10px] font-mono text-gray-600 tracking-wider mb-1.5 uppercase">
-              Tone
-            </label>
-            <select value={tone} onChange={(e) => setTone(e.target.value)} className={selectClass}>
-              <option value="educativo">Educativo</option>
-              <option value="entretenido">Entretenido</option>
-              <option value="persuasivo">Persuasivo</option>
-              <option value="informativo">Informativo</option>
-              <option value="controversial">Controversial</option>
-            </select>
-          </div>
-          <div className="flex-1">
-            <label className="block text-[10px] font-mono text-gray-600 tracking-wider mb-1.5 uppercase">
-              Language
-            </label>
-            <select value={lang} onChange={(e) => setLang(e.target.value)} className={selectClass}>
-              <option value="español">Español</option>
-              <option value="english">English</option>
-              <option value="português">Português</option>
-            </select>
-          </div>
+        <div style={{ display: "flex", gap: 10, marginBottom: 16 }}>
+          <div style={{ flex: 1 }}>{fLabel("Tone")}<select value={tone} onChange={e => setTone(e.target.value)} style={selectSt}>
+            <option value="educativo">Educativo</option>
+            <option value="entretenido">Entretenido</option>
+            <option value="persuasivo">Persuasivo</option>
+            <option value="informativo">Informativo</option>
+            <option value="controversial">Controversial</option>
+          </select></div>
+          <div style={{ flex: 1 }}>{fLabel("Language")}<select value={lang} onChange={e => setLang(e.target.value)} style={selectSt}>
+            <option value="español">Español</option>
+            <option value="english">English</option>
+            <option value="português">Português</option>
+          </select></div>
         </div>
-
-        {/* Action Buttons */}
-        <div className="text-[10px] font-mono text-gray-600 tracking-wider mb-2.5 uppercase">
-          Create Node
+        <div style={{ fontSize: 10, fontFamily: "monospace", color: "#2e2e2e", letterSpacing: "0.1em", marginBottom: 10 }}>
+          ── CREATE NODE ──────────────
         </div>
-        <div className="flex flex-col gap-2">
-          {actions.map((a) => {
-            const [hover, setHover] = useState(false);
+        <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+          {actions.map(a => {
+            const [hov, setHov] = useState(false);
             return (
-              <button
-                key={a.type}
-                onMouseEnter={() => setHover(true)}
-                onMouseLeave={() => setHover(false)}
-                onClick={() => onCreateNode(a.type, topic, tone, lang)}
-                className="flex items-center gap-3 p-3 rounded-lg border bg-[#0a0a0a] cursor-pointer transition-all duration-150 text-left"
+              <button key={a.type}
+                onMouseEnter={() => setHov(true)}
+                onMouseLeave={() => setHov(false)}
+                onClick={() => onCreateNode(a.type)}
                 style={{
-                  borderColor: hover ? `${a.accent}88` : "#2a2a2a",
-                  background: hover ? `${a.accent}14` : "#0a0a0a",
-                }}
-              >
-                <span className="text-base">{a.icon}</span>
-                <div>
-                  <p
-                    className="text-[13px] font-medium font-sans transition-colors duration-150"
-                    style={{ color: hover ? a.accent : "#ccc" }}
-                  >
-                    Create {a.label}
-                  </p>
-                  <p className="text-[11px] text-gray-600 font-mono">
-                    {a.type === "script"
-                      ? "Long-form content with hooks & segments"
-                      : a.type === "facebook"
-                      ? "Engagement post with hashtags & CTA"
-                      : "Core concept with viral hook"}
-                  </p>
+                  display: "flex", alignItems: "center", gap: 11,
+                  padding: "10px 14px", borderRadius: 9, cursor: "pointer", textAlign: "left",
+                  border: `1px solid ${hov ? a.accent + "60" : "#1e1e1e"}`,
+                  background: hov ? `${a.accent}10` : "#070707",
+                  transition: "all .15s",
+                }}>
+                <span style={{ fontSize: 14 }}>{a.icon}</span>
+                <div style={{ flex: 1 }}>
+                  <p style={{ fontSize: 13, fontWeight: 500, color: hov ? a.accent : "#b0b0b0", transition: "color .15s", marginBottom: 1 }}>{a.label}</p>
+                  <p style={{ fontSize: 10, color: "#424242", fontFamily: "monospace" }}>{a.desc}</p>
                 </div>
-                <span
-                  className="ml-auto text-base transition-colors duration-150"
-                  style={{ color: hover ? a.accent : "#333" }}
-                >
-                  →
-                </span>
+                <span style={{ fontSize: 13, color: hov ? a.accent : "#252525", transition: "color .15s" }}>→</span>
               </button>
             );
           })}
@@ -724,78 +436,138 @@ function InputCenter({
   );
 }
 
-// ─── Toolbar ──────────────────────────────────────────────────────────────────
+// ─── Canvas ───────────────────────────────────────────────────────────────────
 
-function Toolbar({
-  nodeCount,
-  onToggleInput,
-  showInput,
-}) {
+function Canvas({ nodes, setNodes }) {
+  const [zOrders, setZOrders] = useState({});
+  const maxZ = useRef(10);
+
+  const bringToFront = useCallback((id) => {
+    maxZ.current += 1;
+    setZOrders(z => ({ ...z, [id]: maxZ.current }));
+  }, []);
+
+  const updatePos = useCallback((id, pos) => {
+    setNodes(prev => prev.map(n => n.id === id ? { ...n, position: pos } : n));
+  }, [setNodes]);
+
+  const closeNode = useCallback((id) => {
+    setNodes(prev => {
+      const toRemove = new Set();
+      const q = [id];
+      while (q.length) {
+        const cur = q.shift();
+        toRemove.add(cur);
+        prev.filter(n => n.parentId === cur).forEach(n => q.push(n.id));
+      }
+      return prev.filter(n => !toRemove.has(n.id));
+    });
+  }, [setNodes]);
+
+  const genChild = useCallback((type, parentId) => {
+    const parent = nodes.find(n => n.id === parentId);
+    if (!parent) return;
+    let content;
+    if (type === "translation") content = MOCK_TRANSLATION(parent.type);
+    else if (type === "script") content = MOCK_SCRIPT;
+    else if (type === "clips") content = MOCK_CLIPS;
+    else if (type === "facebook") content = MOCK_FACEBOOK;
+    else content = MOCK_IDEA;
+    const newNode = {
+      id: uid(), type, content,
+      position: { x: parent.position.x + 370, y: parent.position.y + (Math.random() * 60 - 30) },
+      parentId,
+    };
+    maxZ.current += 1;
+    setZOrders(z => ({ ...z, [newNode.id]: maxZ.current }));
+    setNodes(prev => [...prev, newNode]);
+  }, [nodes, setNodes]);
+
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[200] flex items-center gap-3 bg-[#111] border border-[#2a2a2a] rounded-xl px-4 py-2 shadow-[0_8px_40px_rgba(0,0,0,0.7)]">
-      <div className="flex items-center gap-2 pr-3 border-r border-[#2a2a2a]">
-        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-        <span className="text-[11px] text-gray-400 font-mono uppercase tracking-tighter">
-          Studio Active
-        </span>
-      </div>
-      <div className="text-[11px] text-gray-500 font-mono">
-        Nodes: <span className="text-gray-200">{nodeCount}</span>
-      </div>
-      <button
-        onClick={onToggleInput}
-        className={`px-3 py-1 rounded-md text-[11px] font-bold font-mono transition-all duration-200 uppercase tracking-wider cursor-pointer ${
-          showInput
-            ? "bg-red-500/10 text-red-500 border border-red-500/50"
-            : "bg-white text-black hover:bg-gray-200"
-        }`}
-      >
-        {showInput ? "Cancel" : "New Project"}
-      </button>
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+      <div style={{
+        position: "absolute", inset: 0, pointerEvents: "none",
+        backgroundImage: "radial-gradient(circle, #ffffff08 1px, transparent 1px)",
+        backgroundSize: "28px 28px",
+      }} />
+      <ConnectionLines nodes={nodes} />
+      {nodes.map(node => (
+        <NodeCard key={node.id} node={node}
+          onUpdatePos={updatePos} onBringToFront={bringToFront}
+          onClose={closeNode} onGen={genChild}
+          zIndex={zOrders[node.id] || 10}
+        />
+      ))}
+      {nodes.length === 0 && (
+        <div style={{
+          position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)",
+          fontSize: 11, fontFamily: "monospace", color: "#252525", letterSpacing: "0.12em", pointerEvents: "none",
+        }}>
+          SELECCIONA UN TIPO DE CONTENIDO PARA COMENZAR →
+        </div>
+      )}
     </div>
   );
 }
 
-// ─── App Root ─────────────────────────────────────────────────────────────────
+// ─── Toolbar ──────────────────────────────────────────────────────────────────
+
+function Toolbar({ nodeCount }) {
+  return (
+    <div style={{
+      position: "fixed", top: 14, right: 20, zIndex: 400,
+      display: "flex", alignItems: "center", gap: 10,
+      background: "#0b0b0b", border: "1px solid #1e1e1e", borderRadius: 10,
+      padding: "6px 14px", boxShadow: "0 8px 28px rgba(0,0,0,0.7)",
+    }}>
+      <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#34d399", boxShadow: "0 0 5px #34d399" }} />
+      <span style={{ fontSize: 11, fontFamily: "monospace", color: "#444", letterSpacing: "0.06em" }}>
+        {nodeCount} node{nodeCount !== 1 ? "s" : ""}
+      </span>
+      <span style={{ fontSize: 10, color: "#222", fontFamily: "monospace" }}>│</span>
+      <span style={{ fontSize: 10, color: "#2e2e2e", fontFamily: "monospace" }}>drag · ✕ close</span>
+    </div>
+  );
+}
+
+// ─── Root ─────────────────────────────────────────────────────────────────────
 
 export default function AutomotiveStudio() {
-  const [nodes, setNodes] = useState([
-    {
-      id: "root-1",
-      type: "idea",
-      content: MOCK_IDEA,
-      position: { x: 100, y: 200 },
-      parentId: null,
-    },
-  ]);
-  const [showInput, setShowInput] = useState(false);
+  const [nodes, setNodes] = useState([]);
 
-  const handleCreateNode = (type, topic) => {
+  const handleCreateNode = useCallback((type) => {
+    let content;
+    if (type === "script") content = MOCK_SCRIPT;
+    else if (type === "facebook") content = MOCK_FACEBOOK;
+    else if (type === "clips") content = MOCK_CLIPS;
+    else content = MOCK_IDEA;
+
+    const rootCount = nodes.filter(n => n.parentId === null).length;
     const newNode = {
-      id: uid(),
-      type,
-      content: type === "script" ? MOCK_SCRIPT : type === "facebook" ? MOCK_FACEBOOK : MOCK_IDEA,
-      position: { x: 400 + Math.random() * 50, y: 200 + Math.random() * 50 },
+      id: uid(), type, content,
+      position: {
+        x: INPUT_SCREEN_X + INPUT_W + 70 + rootCount * 20,
+        y: INPUT_SCREEN_Y + rootCount * 70,
+      },
       parentId: null,
     };
-    setNodes((prev) => [...prev, newNode]);
-    setShowInput(false);
-  };
+    setNodes(prev => [...prev, newNode]);
+  }, [nodes]);
 
   return (
-    <div className="w-full h-screen bg-[#050505] text-white overflow-hidden font-sans">
-      <Toolbar
-        nodeCount={nodes.length}
-        showInput={showInput}
-        onToggleInput={() => setShowInput(!showInput)}
-      />
-      
-      <Canvas nodes={nodes} setNodes={setNodes} />
-      
-      <InputCenter
-        visible={showInput}
-        onCreateNode={handleCreateNode}
-      />
-    </div>
+    <>
+      <style>{`
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{overflow:hidden;background:#080808;}
+        ::-webkit-scrollbar{width:3px;}
+        ::-webkit-scrollbar-track{background:transparent;}
+        ::-webkit-scrollbar-thumb{background:#222;border-radius:4px;}
+      `}</style>
+      <div style={{ width: "100vw", height: "100vh", background: "#080808", position: "relative", fontFamily: "system-ui,sans-serif" }}>
+        <Toolbar nodeCount={nodes.length} />
+        <InputCard onCreateNode={handleCreateNode} />
+        <Canvas nodes={nodes} setNodes={setNodes} />
+      </div>
+    </>
   );
 }
