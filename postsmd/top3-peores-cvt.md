@@ -52,7 +52,7 @@ Nissan fue pionero en llevar las transmisiones CVT a los mercados masivos de Est
 Los síntomas eran consistentes y reconocibles: sacudidas violentas al acelerar entre 25 y 50 km/h, pérdida repentina de potencia en autopista, recalentamiento en días calurosos, y en los casos más graves, fallo total de transmisión antes de los 100.000 km. Los afectados no eran pocos: el Altima, el Sentra, el Rogue, el Pathfinder, el Murano y la Versa compartían variantes del mismo sistema Jatco, y todos acumularon miles de quejas en la base de datos de la NHTSA.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://youtu.be/I_QwwSDjWWw
 @LlantaPinchadaTV
 La CVT de Nissan: el problema que la marca "no sabía" desde 2009 🚗💥 #CVT #Nissan #Transmision
 https://res.cloudinary.com/db3veuotr/image/upload/v1776277568/image_2341_3_qjqtfr.jpg
