@@ -1,10 +1,6 @@
 "use client";
 
 // pages/index.js
-// Lee todos los .md de /postsmd y muestra un grid de artículos
-// con el mismo styling de TruckLore
-//
-// getStaticProps corre en el servidor (Node), el componente en el cliente.
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -38,121 +34,49 @@ export async function getStaticProps() {
   return { props: { articles } };
 }
 
-// ─── Article card ─────────────────────────────────────────────────────────────
-function ArticleCard({ article, featured = false }) {
+// ─── FEATURED: hero con imagen de fondo ───────────────────────────────────────
+function FeaturedArticle({ article }) {
   const { slug, title, subtitle, badge, readTime, publishDate, image, imageAlt } = article;
-
-  if (featured) {
-    return (
-      <Link href={`/posts/${slug}`} className="group block">
-        <div className="relative w-full h-[50vh] min-h-[360px] max-h-[520px] overflow-hidden rounded-3xl shadow-xl shadow-zinc-200/50">
-          {image ? (
-            <Image
-              src={image}
-              alt={imageAlt}
-              fill
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              priority
-            />
-          ) : (
-            <div className="absolute inset-0 bg-zinc-200" />
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-
-          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
-            <div className="flex items-center gap-3 mb-4">
-              {badge && (
-                <span className="bg-orange-600 text-white text-[10px] font-black tracking-[0.2em] uppercase px-3 py-1.5 rounded-md">
-                  {badge}
-                </span>
-              )}
-              {readTime && (
-                <span className="text-xs font-medium text-white/60">
-                  {readTime} min de lectura
-                </span>
-              )}
-            </div>
-            <h2 className="text-2xl md:text-4xl font-extrabold text-white leading-[1.15] tracking-tight mb-3 max-w-3xl">
-              {title}
-            </h2>
-            {subtitle && (
-              <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-2xl line-clamp-2 font-light">
-                {subtitle}
-              </p>
-            )}
-            <div className="flex items-center gap-3 mt-5">
-              <div className="w-7 h-7 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-[10px] shrink-0">
-                TL
-              </div>
-              <span className="text-xs text-white/50 font-medium">
-                TruckLore Editorial
-                {publishDate && <> · {publishDate}</>}
-              </span>
-            </div>
-          </div>
-        </div>
-      </Link>
-    );
-  }
-
   return (
     <Link href={`/posts/${slug}`} className="group block">
-      <div className="bg-white border border-zinc-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 h-full flex flex-col">
-        {/* Imagen */}
-        <div className="relative w-full aspect-[16/9] overflow-hidden">
-          {image ? (
-            <Image
-              src={image}
-              alt={imageAlt}
-              fill
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            />
-          ) : (
-            <div className="absolute inset-0 bg-zinc-100 flex items-center justify-center">
-              <span className="text-zinc-300 text-4xl font-black">TL</span>
-            </div>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-          {badge && (
-            <div className="absolute top-4 left-4">
-              <span className="bg-orange-600 text-white text-[10px] font-black tracking-[0.2em] uppercase px-2.5 py-1 rounded-md">
+      <div className="relative w-full h-[56vh] min-h-[400px] max-h-[560px] overflow-hidden rounded-3xl shadow-xl shadow-zinc-200/50">
+        {image ? (
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            priority
+          />
+        ) : (
+          <div className="absolute inset-0 bg-zinc-200" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
+          <div className="flex items-center gap-3 mb-4">
+            {badge && (
+              <span className="bg-orange-600 text-white text-[10px] font-black tracking-[0.2em] uppercase px-3 py-1.5 rounded-md">
                 {badge}
               </span>
-            </div>
-          )}
-        </div>
-
-        {/* Contenido */}
-        <div className="p-6 flex flex-col flex-1">
-          <div className="flex items-center gap-3 mb-3">
+            )}
             {readTime && (
-              <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-widest">
-                {readTime} min de lectura
-              </span>
+              <span className="text-xs font-medium text-white/60">{readTime} min de lectura</span>
             )}
           </div>
-
-          <h2 className="text-lg font-bold text-zinc-900 leading-snug tracking-tight mb-2 group-hover:text-orange-600 transition-colors line-clamp-3 flex-1">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-white leading-[1.15] tracking-tight mb-3 max-w-3xl">
             {title}
           </h2>
-
           {subtitle && (
-            <p className="text-sm text-zinc-500 leading-relaxed line-clamp-2 mb-4">
+            <p className="text-sm md:text-base text-white/70 leading-relaxed max-w-2xl line-clamp-2 font-light">
               {subtitle}
             </p>
           )}
-
-          <div className="flex items-center justify-between mt-auto pt-4 border-t border-zinc-100">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-[9px] shrink-0">
-                TL
-              </div>
-              {publishDate && (
-                <span className="text-[11px] text-zinc-400">{publishDate}</span>
-              )}
+          <div className="flex items-center gap-3 mt-5">
+            <div className="w-7 h-7 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-[10px] shrink-0">
+              TL
             </div>
-            <span className="text-[11px] font-bold text-orange-600 uppercase tracking-widest group-hover:underline">
-              Leer →
+            <span className="text-xs text-white/50 font-medium">
+              TruckLore Editorial{publishDate && <> · {publishDate}</>}
             </span>
           </div>
         </div>
@@ -161,7 +85,114 @@ function ArticleCard({ article, featured = false }) {
   );
 }
 
-// ─── Main page ────────────────────────────────────────────────────────────────
+// ─── FLAT GRID ITEM: imagen + texto, sin card ─────────────────────────────────
+function FlatGridItem({ article }) {
+  const { slug, title, subtitle, badge, readTime, publishDate, image, imageAlt } = article;
+  return (
+    <Link href={`/posts/${slug}`} className="group block">
+      {/* Imagen */}
+      <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl bg-zinc-200 mb-4">
+        {image ? (
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-zinc-400 text-2xl font-black">TL</span>
+          </div>
+        )}
+        {badge && (
+          <div className="absolute top-3 left-3">
+            <span className="bg-orange-600 text-white text-[9px] font-black tracking-[0.2em] uppercase px-2.5 py-1 rounded-md">
+              {badge}
+            </span>
+          </div>
+        )}
+      </div>
+      {/* Texto directo, sin caja */}
+      <div className="space-y-1.5">
+        <div className="flex items-center gap-2 text-[10px] text-zinc-400 font-bold uppercase tracking-widest">
+          {readTime && <span>{readTime} min</span>}
+          {readTime && publishDate && <span>·</span>}
+          {publishDate && <span>{publishDate}</span>}
+        </div>
+        <h3 className="text-base font-bold text-zinc-900 leading-snug tracking-tight group-hover:text-orange-600 transition-colors line-clamp-2">
+          {title}
+        </h3>
+        {subtitle && (
+          <p className="text-sm text-zinc-500 leading-relaxed line-clamp-2">{subtitle}</p>
+        )}
+      </div>
+    </Link>
+  );
+}
+
+// ─── FLAT ROW ITEM: imagen pequeña + texto en fila ────────────────────────────
+// Para la segunda sección, un layout diferente: fila horizontal sin card
+function FlatRowItem({ article, index }) {
+  const { slug, title, subtitle, badge, readTime, publishDate, image, imageAlt } = article;
+  return (
+    <Link href={`/posts/${slug}`} className="group block">
+      <div className="flex gap-5 items-start py-6 border-b border-zinc-200 last:border-0">
+        {/* Número */}
+        <span className="text-[11px] text-zinc-300 font-black tabular-nums mt-0.5 shrink-0 w-5">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        {/* Imagen */}
+        <div className="relative w-20 h-20 shrink-0 rounded-xl overflow-hidden bg-zinc-200">
+          {image ? (
+            <Image
+              src={image}
+              alt={imageAlt}
+              fill
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-zinc-400 text-xs font-black">TL</span>
+            </div>
+          )}
+        </div>
+        {/* Texto */}
+        <div className="flex-1 min-w-0 space-y-1">
+          {badge && (
+            <span className="inline-block bg-orange-600 text-white text-[9px] font-black tracking-[0.18em] uppercase px-2 py-0.5 rounded">
+              {badge}
+            </span>
+          )}
+          <h3 className="text-sm font-bold text-zinc-900 leading-snug group-hover:text-orange-600 transition-colors line-clamp-2">
+            {title}
+          </h3>
+          {subtitle && (
+            <p className="text-xs text-zinc-500 line-clamp-1">{subtitle}</p>
+          )}
+          <div className="flex items-center gap-2 text-[10px] text-zinc-400 pt-0.5">
+            {readTime && <span>{readTime} min</span>}
+            {readTime && publishDate && <span>·</span>}
+            {publishDate && <span>{publishDate}</span>}
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+// ─── Section divider ──────────────────────────────────────────────────────────
+function SectionDivider({ label }) {
+  return (
+    <div className="flex items-center gap-3 mb-8">
+      <span className="text-[10px] font-black text-zinc-400 uppercase tracking-[0.3em] shrink-0">
+        {label}
+      </span>
+      <div className="h-px flex-1 bg-zinc-200" />
+    </div>
+  );
+}
+
+// ─── MAIN PAGE ────────────────────────────────────────────────────────────────
 export default function HomePage({ articles }) {
   const [scrolled, setScrolled] = useState(false);
 
@@ -171,7 +202,9 @@ export default function HomePage({ articles }) {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const [featured, ...rest] = articles;
+  const featured = articles[0];
+  const flatGrid = articles.slice(1, 4);   // 3 artículos → grid plano 3 col
+  const flatRows = articles.slice(4);      // resto → filas planas con imagen pequeña
 
   return (
     <Layout
@@ -195,10 +228,7 @@ export default function HomePage({ articles }) {
               Truck<span className="text-orange-600">Lore</span>
             </span>
             <div className="flex items-center gap-6 text-sm text-zinc-500">
-              <a
-                href="#"
-                className="hover:text-zinc-900 transition-colors hidden sm:block font-medium"
-              >
+              <a href="#" className="hover:text-zinc-900 transition-colors hidden sm:block font-medium">
                 Artículos
               </a>
             </div>
@@ -221,8 +251,6 @@ export default function HomePage({ articles }) {
               Cada semana, una historia sobre ingeniería y las máquinas que el tiempo dejó atrás.
             </p>
           </div>
-
-          {/* Divider decorativo */}
           <div className="flex items-center gap-4 mt-10">
             <div className="h-px flex-1 bg-zinc-200" />
             <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-[0.3em]">
@@ -235,31 +263,33 @@ export default function HomePage({ articles }) {
         {/* CONTENT */}
         <main className="max-w-5xl mx-auto px-6 pb-32 space-y-16">
 
-          {/* Artículo destacado (el primero del folder) */}
+          {/* 1 — Destacado */}
           {featured && (
             <section>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400">
-                  Destacado
-                </span>
-                <div className="h-px flex-1 bg-zinc-100" />
-              </div>
-              <ArticleCard article={featured} featured />
+              <SectionDivider label="Destacado" />
+              <FeaturedArticle article={featured} />
             </section>
           )}
 
-          {/* Grid del resto de artículos */}
-          {rest.length > 0 && (
+          {/* 2 — Grid plano 3 columnas, sin cards */}
+          {flatGrid.length > 0 && (
             <section>
-              <div className="flex items-center gap-3 mb-8">
-                <span className="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400">
-                  Todos los artículos
-                </span>
-                <div className="h-px flex-1 bg-zinc-100" />
+              <SectionDivider label="Recientes" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {flatGrid.map((article) => (
+                  <FlatGridItem key={article.slug} article={article} />
+                ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {rest.map((article) => (
-                  <ArticleCard key={article.slug} article={article} />
+            </section>
+          )}
+
+          {/* 3 — Lista de filas planas con imagen pequeña */}
+          {flatRows.length > 0 && (
+            <section>
+              <SectionDivider label="Todos los artículos" />
+              <div>
+                {flatRows.map((article, i) => (
+                  <FlatRowItem key={article.slug} article={article} index={i} />
                 ))}
               </div>
             </section>
@@ -269,9 +299,7 @@ export default function HomePage({ articles }) {
           {articles.length === 0 && (
             <div className="text-center py-24">
               <span className="text-6xl font-black text-zinc-100">TL</span>
-              <p className="mt-4 text-zinc-400 text-sm">
-                Aún no hay artículos publicados.
-              </p>
+              <p className="mt-4 text-zinc-400 text-sm">Aún no hay artículos publicados.</p>
             </div>
           )}
         </main>
@@ -288,15 +316,9 @@ export default function HomePage({ articles }) {
               </p>
             </div>
             <div className="flex gap-8 text-xs font-bold text-zinc-500 uppercase tracking-widest">
-              <a href="#" className="hover:text-orange-600 transition-colors">
-                Archivo
-              </a>
-              <a href="#" className="hover:text-orange-600 transition-colors">
-                Sobre nosotros
-              </a>
-              <a href="#" className="hover:text-orange-600 transition-colors">
-                Contacto
-              </a>
+              <a href="#" className="hover:text-orange-600 transition-colors">Archivo</a>
+              <a href="#" className="hover:text-orange-600 transition-colors">Sobre nosotros</a>
+              <a href="#" className="hover:text-orange-600 transition-colors">Contacto</a>
             </div>
             <p className="text-[10px] text-zinc-400 font-medium">
               © 2026 · BOGOTÁ, COLOMBIA
