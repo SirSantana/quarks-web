@@ -58,6 +58,12 @@ En Fissore diseñó, entre otros, el TVR Trident, el De Tomaso Vallelunga y estu
 
 Lo que nadie le había contado era el tamaño del problema que tenía sobre la mesa.
 
+```tiktok
+https://vm.tiktok.com/ZGdHdTvSV/
+@LlantaPinchadaTV
+El Citroën Karin: la pirámide con ruedas que nadie esperaba en París 1980 🔺🚗 #Citroen #Karin #ConceptCar #Diseño
+https://res.cloudinary.com/db3veuotr/image/upload/v1776436807/image_10_zergny.jpg
+```
 
 > "La compañía tiene reputación por diseñar coches de vanguardia con un gusto diferente. Hoy en día, los fabricantes tienen miedo de lanzar coches distintos — excepto Citroën. Y eso es lo que me atrae de ellos."
 > — Trevor Fiore, al asumir la dirección de diseño de Citroën, 1980
