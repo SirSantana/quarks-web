@@ -58,7 +58,7 @@ El problema es que no puedes tener las dos cosas a la vez. Un motor de alta comp
 En 1998, Nissan decidió no vivir con eso.
 
 ```tiktok
-https://vm.tiktok.com/ZGdH8ST33/
+https://youtu.be/_Ys0ilWtoTo
 @LlantaPinchadaTV
 El Nissan VC-Turbo: 20 años para resolver el problema más viejo del motor de gasolina. Aquí cómo funciona 🔧⚙️ #Nissan #VCTurbo #Motor #Ingenieria
 https://res.cloudinary.com/db3veuotr/image/upload/v1776621873/image_12_gvq2ez.jpg

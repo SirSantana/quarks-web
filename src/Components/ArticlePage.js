@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Layout from "@/src/Components/Layout";
 
@@ -57,7 +58,6 @@ const mdComponents = {
     }
     const lang = (className || "").replace("language-", "");
 
-    // ```label → etiqueta naranja pequeña (igual al <span> del original)
     if (lang === "label") {
       return (
         <span className="block text-[11px] font-black tracking-[0.25em] uppercase text-orange-600">
@@ -66,7 +66,6 @@ const mdComponents = {
       );
     }
 
-    // ```callout → fact box oscuro igual al original
     if (lang === "callout") {
       return (
         <aside className="bg-zinc-900 text-zinc-100 rounded-3xl p-8 md:p-10 relative overflow-hidden group">
@@ -81,11 +80,6 @@ const mdComponents = {
       );
     }
 
-    // ```tiktok → tarjeta TikTok completa, idéntica al original
-    // línea 1: url del video
-    // línea 2: handle (@LlantaPinchadaTV)
-    // línea 3: caption del video
-    // línea 4 (opcional): url de thumbnail
     if (lang === "tiktok") {
       const lines = String(children).trim().split("\n");
       const url = lines[0]?.trim() || "#";
@@ -95,14 +89,14 @@ const mdComponents = {
 
       return (
         <section className="space-y-8 flex flex-col items-center my-16 text-inherit">
-                <div className="w-full text-center">
-                  <span className="block text-[11px] font-black tracking-[0.3em] uppercase text-orange-600 mb-2">
-                    Contenido Viral
-                  </span>
-                  <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
-                    ¿Cómo se ve en la vida real?
-                  </h2>
-                </div>
+          <div className="w-full text-center">
+            <span className="block text-[11px] font-black tracking-[0.3em] uppercase text-orange-600 mb-2">
+              Contenido Viral
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
+              ¿Cómo se ve en la vida real?
+            </h2>
+          </div>
 
           <div className="group relative w-full max-w-[340px] aspect-[9/16] rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[10px] border-zinc-900 bg-black">
             {thumbnail ? (
@@ -134,7 +128,6 @@ const mdComponents = {
               </span>
             </a>
 
-            {/* Botones laterales simulados */}
             <div className="absolute right-4 bottom-32 flex flex-col gap-6 items-center opacity-70">
               {["❤️", "💬", "🔗"].map((icon) => (
                 <div
@@ -146,7 +139,6 @@ const mdComponents = {
               ))}
             </div>
 
-            {/* Info del creador */}
             <div className="absolute bottom-8 left-6 right-6">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-8 h-8 rounded-full bg-zinc-800 border border-white/20 overflow-hidden font-bold text-[10px] flex items-center justify-center text-white">
@@ -255,8 +247,134 @@ function Specs({ items }) {
   );
 }
 
+// ─── Related Articles ─────────────────────────────────────────────────────────
+function RelatedArticles({ articles }) {
+  if (!articles?.length) return null;
+
+  return (
+    <section className="border-t border-zinc-200 pt-20 pb-4">
+      {/* Section header */}
+      <div className="flex items-center justify-between mb-12">
+        <div>
+          <span className="block text-[11px] font-black tracking-[0.3em] uppercase text-orange-600 mb-2">
+            Seguir leyendo
+          </span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 tracking-tight">
+            También te puede interesar
+          </h2>
+        </div>
+        <Link
+          href="/posts"
+          className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-400 hover:text-zinc-900 transition-colors group"
+        >
+          Ver todos
+          <span className="inline-block transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </Link>
+      </div>
+
+      {/* Cards grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {articles.map((article, i) => (
+          <RelatedCard key={article.slug} article={article} featured={i === 0} />
+        ))}
+      </div>
+
+      {/* Mobile "ver todos" */}
+      <div className="flex justify-center mt-10 sm:hidden">
+        <Link
+          href="/posts"
+          className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors border border-zinc-200 rounded-full px-6 py-3"
+        >
+          Ver todos los artículos →
+        </Link>
+      </div>
+    </section>
+  );
+}
+
+function RelatedCard({ article, featured }) {
+  const { slug, title, subtitle, badge, readTime, publishDate, image, imageAlt } =
+    article;
+
+  return (
+    <Link
+      href={`/posts/${slug}`}
+      className={`group relative flex flex-col bg-white border border-zinc-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${
+        featured ? "sm:col-span-2 lg:col-span-1" : ""
+      }`}
+    >
+      {/* Image */}
+      <div className="relative w-full overflow-hidden bg-zinc-100"
+           style={{ paddingTop: "56.25%" /* 16:9 */ }}>
+        {image ? (
+          <Image
+            src={image}
+            alt={imageAlt || title}
+            fill
+            className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          /* Placeholder when no image */
+          <div className="absolute inset-0 bg-gradient-to-br from-zinc-200 to-zinc-300 flex items-center justify-center">
+            <span className="text-4xl font-black text-zinc-400 select-none">
+              TL
+            </span>
+          </div>
+        )}
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Badge pill over image */}
+        {badge && (
+          <div className="absolute top-4 left-4">
+            <span className="bg-orange-600 text-white text-[10px] font-black tracking-[0.2em] uppercase px-3 py-1.5 rounded-md shadow">
+              {badge}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-6 gap-3">
+        {/* Meta row */}
+        <div className="flex items-center gap-3 text-[11px] font-medium text-zinc-400 uppercase tracking-widest">
+          {readTime && <span>{readTime} min</span>}
+          {readTime && publishDate && (
+            <span className="w-1 h-1 rounded-full bg-zinc-300" />
+          )}
+          {publishDate && <span>{publishDate}</span>}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-base font-bold text-zinc-900 leading-snug tracking-tight group-hover:text-orange-600 transition-colors line-clamp-2">
+          {title}
+        </h3>
+
+        {/* Subtitle */}
+        {subtitle && (
+          <p className="text-[13px] text-zinc-500 leading-relaxed line-clamp-2 flex-1">
+            {subtitle}
+          </p>
+        )}
+
+        {/* CTA row */}
+        <div className="flex items-center justify-between mt-2 pt-4 border-t border-zinc-100">
+          <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">
+            TruckLore Editorial
+          </span>
+          <span className="w-8 h-8 rounded-full border border-zinc-200 flex items-center justify-center text-zinc-400 group-hover:bg-orange-600 group-hover:border-orange-600 group-hover:text-white transition-all duration-200 text-xs">
+            →
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
-export default function ArticlePage({ frontmatter, content }) {
+export default function ArticlePage({ frontmatter, content, relatedArticles = [] }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -376,11 +494,10 @@ export default function ArticlePage({ frontmatter, content }) {
         </header>
 
         {/* BODY */}
-        <main className="max-w-5xl mx-auto px-6 pb-32">
+        <main className="max-w-5xl mx-auto px-6 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-16 items-start">
             {/* ARTICLE */}
             <article className="min-w-0 space-y-10 text-zinc-700 text-[17px] leading-[1.8] font-Poppins">
-              {/* Lead italic */}
               {lead && (
                 <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-medium italic border-l-4 border-zinc-200 pl-6">
                   {lead}
@@ -388,10 +505,7 @@ export default function ArticlePage({ frontmatter, content }) {
               )}
               <StatsGrid stats={stats} />
 
-              {/* Markdown body */}
               <ReactMarkdown components={mdComponents}>{content}</ReactMarkdown>
-
-              {/* Stats grid — del frontmatter, aparece al final del contenido */}
 
               <div className="h-px bg-zinc-200" />
 
@@ -440,6 +554,11 @@ export default function ArticlePage({ frontmatter, content }) {
                 </div>
               )}
             </aside>
+          </div>
+
+          {/* ── RELATED ARTICLES ─────────────────────────────────────────── */}
+          <div className="mt-24">
+            <RelatedArticles articles={relatedArticles} />
           </div>
         </main>
 
