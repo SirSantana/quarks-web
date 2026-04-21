@@ -227,26 +227,32 @@ function Timeline({ items }) {
 // ─── Specs ────────────────────────────────────────────────────────────────────
 function Specs({ items }) {
   if (!items?.length) return null;
+
   return (
     <div className="bg-zinc-100/50 rounded-2xl p-6">
       <h3 className="text-xs font-black tracking-widest uppercase text-zinc-400 mb-5">
         Ficha técnica
       </h3>
+
       <div className="space-y-4">
         {items.map(([k, v]) => (
           <div
             key={k}
-            className="flex justify-between items-center text-[13px]"
+            className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 items-start text-[13px]"
           >
-            <span className="text-zinc-500 font-medium">{k}</span>
-            <span className="font-bold text-zinc-900">{v}</span>
+            <span className="text-zinc-500 font-medium">
+              {k}
+            </span>
+
+            <span className="font-bold text-zinc-900 text-right break-words max-w-[180px]">
+              {v}
+            </span>
           </div>
         ))}
       </div>
     </div>
   );
 }
-
 // ─── Related Articles ─────────────────────────────────────────────────────────
 function RelatedArticles({ articles }) {
   if (!articles?.length) return null;
