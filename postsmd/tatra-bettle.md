@@ -58,7 +58,7 @@ Hans Ledwinka nació en 1878 en Austria y pasó casi toda su vida profesional en
 Las tres ideas que definen su legado son tan fundamentales que hoy cuestan trabajo reconocerlas como innovaciones: el **chasis tubular central** — una columna vertebral de acero que reemplazaba el pesado bastidor perimetral y reducía el peso drásticamente —, la **suspensión trasera de brazo basculante** con eje dividido que daba independencia real a las ruedas traseras, y el **motor bóxer refrigerado por aire montado en la parte trasera** — sin radiador, sin sistema de refrigeración por agua, sin la complejidad que implicaba mover la potencia desde el frente hasta las ruedas motrices traseras a través de un eje propulsor largo.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://youtu.be/CtIVgiHAVMw
 @LlantaPinchadaTV
 La historia que Volkswagen prefiere olvidar: el Tatra que inspiró al Beetle ☭🚗🇩🇪 #Tatra #Volkswagen #Beetle #Historia
 https://res.cloudinary.com/db3veuotr/image/upload/v1776870652/Group_2332_1_rwut3r.jpg
