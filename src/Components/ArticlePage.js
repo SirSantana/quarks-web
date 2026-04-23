@@ -93,8 +93,8 @@ const mdComponents = {
             <span className="block text-[11px] font-black tracking-[0.3em] uppercase text-orange-600 mb-2">
               Contenido Viral
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 tracking-tight">
-              ¿Cómo se ve en la vida real?
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 ">
+              ¿Cómo se ve en la <br className="md:hidden" />vida real?
             </h2>
           </div>
 
