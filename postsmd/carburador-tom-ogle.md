@@ -59,6 +59,12 @@ Thomas Ogle era un inventor autodidacta de El Paso, Texas, que afirmaba haber di
 
 No era ingeniero. Era mecánico. Tenía alrededor de 22 años. Y dijo haber descubierto el principio por accidente.
 
+```tiktok
+https://vm.tiktok.com/ZGdHjonms/
+@LlantaPinchadaTV
+Tom Ogle: el mecánico de Texas que dijo lograr 100 mpg, consiguió una patente, y murió a los 26 años sin que nadie replicara su invento ⛽🇺🇸 #TomOgle #Oglemobile #Invento #Misterio
+https://res.cloudinary.com/db3veuotr/image/upload/v1777039949/image_2318_1_hqemnt.jpg
+```
 
 > "Lo hice, funciona, y no es un fraude."
 > — Tom Ogle, El Paso Times, 1 de mayo de 1977
