@@ -67,7 +67,7 @@ Los ingenieros detrás del desarrollo del motor Quad 4 estaban ansiosos por demo
 La propuesta era radical: no un concept car de showroom, no un ejercicio de estilo para los salones del automóvil. Un vehículo capaz de batir el récord mundial de velocidad en circuito cerrado.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://vm.tiktok.com/ZGdHhdDgd/
 @LlantaPinchadaTV
 El Oldsmobile Aerotech: el coche que nadie recuerda que batió al Bugatti Veyron 18 años antes con un motor de cuatro cilindros 🏎️💨 #Oldsmobile #Aerotech #RecordVelocidad #Ingenieria
 https://res.cloudinary.com/db3veuotr/image/upload/v1777334066/image_24_hsyafx.jpg

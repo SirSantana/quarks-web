@@ -67,7 +67,7 @@ The engineers behind the Quad 4 engine development were eager to demonstrate the
 The proposal was radical: not a showroom concept car, not a styling exercise for motor shows. A vehicle capable of breaking the world closed-circuit speed record.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://vm.tiktok.com/ZGdHhdDgd/
 @LlantaPinchadaTV
 The Oldsmobile Aerotech: the car nobody remembers that beat the Bugatti Veyron 18 years early with a four-cylinder engine 🏎️💨 #Oldsmobile #Aerotech #SpeedRecord #Engineering
 https://res.cloudinary.com/db3veuotr/image/upload/v1777334066/image_24_hsyafx.jpg
