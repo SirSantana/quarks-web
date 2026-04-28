@@ -65,12 +65,12 @@ Shigenori Fukuda was the designer behind this style. He convinced his colleagues
 
 Fukuda drew inspiration for the car's detail solutions from the then-recent film '2001: A Space Odyssey'. He wanted to avoid using classic automotive design elements as much as possible and instead used futuristic-looking elements drawn from aviation and motorsport.
 
-\```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+```tiktok
+https://vm.tiktok.com/ZGdHr6aPS/
 @LlantaPinchadaTV
 The 1970 Mazda RX-500: the concept car Kubrick didn't design but could have — and that the world knew as a Matchbox 🚗🛸 #MazdaRX500 #Wankel #Tokyo1970 #Engineering
 https://res.cloudinary.com/db3veuotr/image/upload/v1777161990/image_20_neawe5.jpg
-\```
+```
 
 > "It looked like it came from another planet compared to the Cosmo, the Luce and the R100 — the production rotary cars of the era."
 > — AllCarIndex, describing the public's first reaction in Tokyo
