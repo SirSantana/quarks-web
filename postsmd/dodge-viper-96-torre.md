@@ -62,7 +62,7 @@ La versión 1996 del RT/10 es considerada a veces por la comunidad Viper como "g
 El coche no tenía ABS. No tenía control de tracción. No tenía asistente de ningún tipo entre el V10 y el asfalto. Era un verdadero héroe y coche de póster. Uno de los pocos coches americanos con motor V10.  En 1996 costaba 58.600 dólares — casi el doble que un Corvette de la misma época.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://youtu.be/pWKbAVL21Mg
 @LlantaPinchadaTV
 El Dodge Viper que pasó 28 años en un poste con 12 millas en el odómetro — y un nido de pájaros en el V10 🐦🐍 #DodgeViper #Kentucky #Historia #Ingenieria
 https://res.cloudinary.com/db3veuotr/image/upload/v1777379757/image_26_rxluup.jpg
