@@ -70,7 +70,7 @@ Para 1958, el ingeniero jefe de NSU Walter Froede había refinado el concepto en
 El Ro 80 era otra cosa. Era la apuesta total.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://vm.tiktok.com/ZGdHksRRV/
 @LlantaPinchadaTV
 El NSU Ro 80 de 1967: el coche más avanzado del mundo que mató a su fabricante en 10 años 🚗💨 #NSU #Ro80 #Wankel #Ingenieria #CarOfTheYear
 https://res.cloudinary.com/db3veuotr/image/upload/v1777335516/image_25_eh3aeq.jpg
