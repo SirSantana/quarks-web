@@ -62,7 +62,7 @@ Después vinieron GM, Briggs, Kaiser-Frazer, el Ejército del Aire durante la Se
 Tremulis estuvo en el departamento de diseño de Ford entre 1952 y 1962, y estableció su propia empresa consultora en 1963.  Durante esa década en Ford, produjo diseños tan avanzados que aún hoy se consideran muy adelantados a su tiempo: el Nucleon de propulsión atómica, el Gyron estabilizado por giroscopio de dos ruedas, y el Seattle-ite XXI de seis ruedas, en honor a la Feria Mundial de Seattle. 
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://vm.tiktok.com/ZGdHSwwCn/
 @LlantaPinchadaTV
 El Ford Seattle-ite XXI de 1962: GPS, motor nuclear intercambiable y seis ruedas. Predijo el coche moderno con 60 años de antelación 🚗☢️ #FordSeattleite #ConceptCar #Ingenieria #1962
 https://res.cloudinary.com/db3veuotr/image/upload/v1777162369/image_21_mdtlbu.jpg
