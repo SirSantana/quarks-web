@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import ArticlePage from "@/src/Components/ArticlePage";
+import Layout from "@/src/Components/Layout";
 
 // Carpeta donde viven los .md
 const ARTICLES_DIR = path.join(process.cwd(), "postsmd");
@@ -62,12 +63,38 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function ArticuloPage({ frontmatter, content, relatedArticles }) {
+export default function ArticuloPage({
+  frontmatter,
+  content,
+  relatedArticles,
+}) {
+  const url = `/${frontmatter.slug || ""}`;
+
   return (
-    <ArticlePage
-      frontmatter={frontmatter}
-      content={content}
-      relatedArticles={relatedArticles}
-    />
+    <Layout
+      title={frontmatter.title}
+      image={frontmatter.image}
+      description={frontmatter.subtitle}
+      url={url}
+      fecha={frontmatter.publishDate}
+      footer={false}
+      visibleNavbar={false}
+      icon={frontmatter.image}
+      
+      // 🔥 ESTO ES LO IMPORTANTE
+      productoMarcado={{
+        titulo: frontmatter.title,
+        descripcion: frontmatter.subtitle,
+        image: frontmatter.image,
+        fecha: frontmatter.publishDate,
+        url: `https://www.quarks.com.co${url}`,
+      }}
+    >
+      <ArticlePage
+        frontmatter={frontmatter}
+        content={content}
+        relatedArticles={relatedArticles}
+      />
+    </Layout>
   );
 }

@@ -4,24 +4,33 @@ import Navbar from "./Navbar/Navbar";
 import NavbarRepuestos from "./Navbar/NavbarRepuestos";
 
 function generarMarcadoEstructurado(articulo) {
-  if (articulo) {
-    return {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: articulo.titulo,
-      image: [articulo.image],
-      url: articulo.url,
-      datePublished: articulo?.fecha,
-      dateModified: articulo?.fecha,
-      author: [
-        {
-          "@type": "Person",
-          name: "Miguel Salazar",
-          url: "https://scontent.fbog4-2.fna.fbcdn.net/v/t1.6435-9/118200733_104636334698420_6059036456657205315_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2be8e3&_nc_ohc=JlxtUCVL6iMAX-V2mU7&_nc_oc=AQk0DHIhyaER-NyXkFMhauXNynNSMDkMDDdkIrv0NwoMNcMS2S1xpel-d0VZDoJgxec&_nc_ht=scontent.fbog4-2.fna&oh=00_AfA3DyUAGymCxzo0gzHFBXH_EccrnPpEriqXWY9FWM3Anw&oe=65BBF572",
-        },
-      ],
-    };
-  }
+  if (!articulo) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: articulo.titulo,
+    description: articulo.descripcion,
+    image: [articulo.image],
+    datePublished: articulo.fecha,
+    dateModified: articulo.fecha,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articulo.url,
+    },
+    author: {
+      "@type": "Person",
+      name: "Miguel Salazar",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Quarks",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.quarks.com.co/logo.png",
+      },
+    },
+  };
 }
 
 export default function Layout({
@@ -47,86 +56,100 @@ export default function Layout({
   style,
   picoyplacaStructured,
   negocio = false,
-  repuestos=[]
+  repuestos = [],
 }) {
-  const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
-  const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Catálogo de Repuestos Quarks",
-  description: "Venta de autopartes en Colombia",
-  itemListElement: repuestos?.map((product, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    url: `https://www.quarks.com.co/repuesto/${product.titulo}`,
-    name: product.Nombre,
-    image: product.images?.[0] || "",
-  })),
-};
+  const absoluteUrl = `https://www.quarks.com.co${url || ""}`;
+
+  const absoluteImage = image?.startsWith("http")
+    ? image
+    : `https://www.quarks.com.co${image || "/default.jpg"}`;
+
+  const marcadoEstructurado = generarMarcadoEstructurado(
+    productoMarcado && {
+      ...productoMarcado,
+      image: absoluteImage,
+      url: absoluteUrl,
+    }
+  );
+
+  const jsonLdRepuestos = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Catálogo de Repuestos Quarks",
+    description: "Venta de autopartes en Colombia",
+    itemListElement: repuestos?.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://www.quarks.com.co/repuesto/${product.titulo}`,
+      name: product.Nombre,
+      image: product.images?.[0] || "",
+    })),
+  };
+
   return (
     <>
       <Head>
         <title>{title}</title>
+
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          content="width=device-width, initial-scale=1.0"
         />
+
         <meta name="description" content={description} />
-        {keywords ? (
-          <meta name="keywords" content={keywords} />
-        ) : (
-          <meta name="keywords" content={"Mundo automotriz"} />
-        )}
+        <meta
+          name="keywords"
+          content={keywords || "Mundo automotriz"}
+        />
 
         <meta name="language" content="spanish" />
 
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@quarks-automotriz" />
-        <meta name="twitter:creator" content="@quarks-automotriz" />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:image" content={image} />
-        <meta name="url" content={`https://www.quarks.com.co${url}`} />
-        <meta property="url" content={`https://www.quarks.com.co${url}`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={absoluteImage} />
 
-        <meta property="twitter:description" content={description} />
-        <meta property="og:title" content={title} key="title" />
-        <meta property="og:image" content={image} />
-        <meta property="og:image:url" content={image} />
+        {/* Open Graph */}
+        <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:url" content={`https://www.quarks.com.co${url}`} />
-        {type && <meta property="og:type" content={type} />}
-        <meta property="og:locale" content="es_CO" />
-        <meta property="og:locale:alternate" content="es_CO" />
+        <meta property="og:image" content={absoluteImage} />
+        <meta property="og:url" content={absoluteUrl} />
+        <meta property="og:type" content={type || "article"} />
         <meta property="og:site_name" content="Quarks" />
-        <meta property="og:image:width" content="200" />
-        <meta property="og:image:height" content="200" />
-        <meta property="og:image:type" content="image/png" />
+
+        {/* 🔥 CLAVE PARA GOOGLE */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <meta property="og:locale" content="es_CO" />
+
+        {/* SEO */}
+        <link rel="canonical" href={absoluteUrl} />
+
         {index ? (
-          <>
-            <meta
-              name="robots"
-              content="follow, index, max-image-preview:large"
-            />
-            <meta name="bingbot" content="follow, index" />
-            <meta name="GOOGLEBOT" content="follow, index" />
-          </>
+          <meta
+            name="robots"
+            content="index, follow, max-image-preview:large"
+          />
         ) : (
           <meta name="robots" content="noindex, follow" />
         )}
 
-        {lastModified && (
-          <meta http-equiv="Last-Modified" content={lastModified} />
-        )}
-        {tags?.map((tag) => (
-          <meta key={tag} property="article:tag" content={tag} />
-        ))}
+        {/* Fechas */}
         {fecha && (
           <>
             <meta property="article:published_time" content={fecha} />
             <meta property="article:modified_time" content={fecha} />
-            <meta property="date" content={fecha} />
           </>
         )}
+
+        {/* Tags */}
+        {tags?.map((tag) => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
+
+        {/* Precio */}
         {price && (
           <>
             <meta property="product:price:amount" content={price} />
@@ -134,32 +157,18 @@ export default function Layout({
           </>
         )}
 
+        {/* Verificación */}
         {!negocio && (
           <meta
             name="google-site-verification"
             content="O_W8kGCJz8lwIupFfTJjUS4z3M7xEh24pXVJQAyvVw0"
           />
         )}
-        <link rel="icon" href="/favicon.png" />
-        <link rel="canonical" href={`https://www.quarks.com.co${url}`} />
-        {process.env.NODE_ENV === "production" && ads && (
-          <>
-            <link
-              rel="preconnect"
-              href="https://pagead2.googlesyndication.com"
-              crossorigin
-            />
-            <link
-              rel="preconnect"
-              href="https://googleads.g.doubleclick.net"
-              crossorigin
-            />
-          </>
-        )}
-        <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
-        {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" /> */}
 
-        {productoMarcado && (
+        <link rel="icon" href="/favicon.png" />
+
+        {/* JSON-LD Artículo */}
+        {marcadoEstructurado && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -167,6 +176,18 @@ export default function Layout({
             }}
           />
         )}
+
+        {/* JSON-LD Repuestos */}
+        {repuestos.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(jsonLdRepuestos),
+            }}
+          />
+        )}
+
+        {/* Otros schemas */}
         {picoyplacaStructured && (
           <script
             type="application/ld+json"
@@ -175,44 +196,31 @@ export default function Layout({
             }}
           />
         )}
-        {process.env.NODE_ENV === "production" && ads && (
-          <script
-            async
-            defer
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
-            crossOrigin="anonymous"
-          ></script>
-        )}
 
-        {process.env.NODE_ENV === "production" && (
-          <script
-            async
-            defer
-            dangerouslySetInnerHTML={{
-              __html: `
-          (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "jh3neqgrnc");
-        `,
-            }}
-          />
+        {/* Ads */}
+        {process.env.NODE_ENV === "production" && ads && (
+          <>
+            <link
+              rel="preconnect"
+              href="https://pagead2.googlesyndication.com"
+              crossOrigin="anonymous"
+            />
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+              crossOrigin="anonymous"
+            ></script>
+          </>
         )}
-        {repuestos.length > 0 && <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />}
       </Head>
 
       <main>
         {visibleNavbar && <Navbar />}
         {navbarRepuestos && <NavbarRepuestos />}
 
-        {/* <Nav /> */}
-        {/* <NewNavbar/> */}
         {children}
       </main>
+
       {footer && <FooterV2 />}
     </>
   );
