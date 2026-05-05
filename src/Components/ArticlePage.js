@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import Layout from "@/src/Components/Layout";
-import { Head } from "next/document";
 
 // ─── Markdown renderers ───────────────────────────────────────────────────────
 const mdComponents = {
@@ -95,8 +94,7 @@ const mdComponents = {
               Contenido Viral
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 ">
-              ¿Cómo se ve en la <br className="md:hidden" />
-              vida real?
+              ¿Cómo se ve en la <br className="md:hidden" />vida real?
             </h2>
           </div>
 
@@ -242,7 +240,9 @@ function Specs({ items }) {
             key={k}
             className="grid grid-cols-[minmax(0,1fr)_auto] gap-4 items-start text-[13px]"
           >
-            <span className="text-zinc-500 font-medium">{k}</span>
+            <span className="text-zinc-500 font-medium">
+              {k}
+            </span>
 
             <span className="font-bold text-zinc-900 text-right break-words max-w-[180px]">
               {v}
@@ -283,11 +283,7 @@ function RelatedArticles({ articles }) {
       {/* Cards grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article, i) => (
-          <RelatedCard
-            key={article.slug}
-            article={article}
-            featured={i === 0}
-          />
+          <RelatedCard key={article.slug} article={article} featured={i === 0} />
         ))}
       </div>
 
@@ -305,16 +301,8 @@ function RelatedArticles({ articles }) {
 }
 
 function RelatedCard({ article, featured }) {
-  const {
-    slug,
-    title,
-    subtitle,
-    badge,
-    readTime,
-    publishDate,
-    image,
-    imageAlt,
-  } = article;
+  const { slug, title, subtitle, badge, readTime, publishDate, image, imageAlt } =
+    article;
 
   return (
     <Link
@@ -324,10 +312,8 @@ function RelatedCard({ article, featured }) {
       }`}
     >
       {/* Image */}
-      <div
-        className="relative w-full overflow-hidden bg-zinc-100"
-        style={{ paddingTop: "56.25%" /* 16:9 */ }}
-      >
+      <div className="relative w-full overflow-hidden bg-zinc-100"
+           style={{ paddingTop: "56.25%" /* 16:9 */ }}>
         {image ? (
           <Image
             src={image}
@@ -394,11 +380,7 @@ function RelatedCard({ article, featured }) {
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
-export default function ArticlePage({
-  frontmatter,
-  content,
-  relatedArticles = [],
-}) {
+export default function ArticlePage({ frontmatter, content, relatedArticles = [] }) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -423,192 +405,197 @@ export default function ArticlePage({
     newsletter,
   } = frontmatter;
 
-
   return (
-    
-        <div className="min-h-screen bg-zinc-50 text-zinc-900 selection:bg-orange-100 selection:text-orange-900">
-          {/* NAV */}
-          <nav
-            className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-              scrolled
-                ? "bg-zinc-50/95 backdrop-blur border-b border-zinc-200"
-                : "bg-transparent"
-            }`}
-          >
-            <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-              <span className="text-base font-bold tracking-tight">
-                Truck<span className="text-orange-600">Lore</span>
-              </span>
-              <div className="flex items-center gap-6 text-sm text-zinc-500">
-                <a
-                  href="/posts"
-                  className="hover:text-zinc-900 transition-colors hidden sm:block font-medium"
-                >
-                  Artículos
-                </a>
-              </div>
-            </div>
-          </nav>
-
-          {/* HERO IMAGE */}
-          <div className="max-w-5xl mx-auto px-0 sm:px-6 pt-20 md:pt-24">
-            <div className="relative w-full h-[45vh] min-h-[320px] max-h-[440px] overflow-hidden sm:rounded-3xl shadow-xl shadow-zinc-200/50">
-              <Image
-                src={image}
-                alt={imageAlt || title}
-                fill
-                className="object-cover object-center"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              {imageLabel && (
-                <div className="absolute bottom-6 left-6">
-                  <span className="bg-white/90 backdrop-blur text-zinc-800 text-[10px] md:text-xs font-bold uppercase tracking-widest px-3 py-2 rounded-lg border border-white/50 shadow-sm">
-                    {imageLabel}
-                  </span>
-                </div>
-              )}
+    <Layout
+      title={title}
+      image={image}
+      description={subtitle}
+      footer={false}
+      visibleNavbar={false}
+      icon={image}
+    >
+      <div className="min-h-screen bg-zinc-50 text-zinc-900 selection:bg-orange-100 selection:text-orange-900">
+        {/* NAV */}
+        <nav
+          className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+            scrolled
+              ? "bg-zinc-50/95 backdrop-blur border-b border-zinc-200"
+              : "bg-transparent"
+          }`}
+        >
+          <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span className="text-base font-bold tracking-tight">
+              Truck<span className="text-orange-600">Lore</span>
+            </span>
+            <div className="flex items-center gap-6 text-sm text-zinc-500">
+              <a
+                href="/posts"
+                className="hover:text-zinc-900 transition-colors hidden sm:block font-medium"
+              >
+                Artículos
+              </a>
             </div>
           </div>
+        </nav>
 
-          {/* HEADER */}
-          <header className="max-w-5xl mx-auto px-6 pt-12 pb-14">
-            <div className="flex items-center gap-4 mb-6">
-              {badge && (
-                <span className="bg-orange-600 text-white text-[10px] font-black tracking-[0.2em] uppercase px-3 py-1.5 rounded-md">
-                  {badge}
+        {/* HERO IMAGE */}
+        <div className="max-w-5xl mx-auto px-0 sm:px-6 pt-20 md:pt-24">
+          <div className="relative w-full h-[45vh] min-h-[320px] max-h-[440px] overflow-hidden sm:rounded-3xl shadow-xl shadow-zinc-200/50">
+            <Image
+              src={image}
+              alt={imageAlt || title}
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            {imageLabel && (
+              <div className="absolute bottom-6 left-6">
+                <span className="bg-white/90 backdrop-blur text-zinc-800 text-[10px] md:text-xs font-bold uppercase tracking-widest px-3 py-2 rounded-lg border border-white/50 shadow-sm">
+                  {imageLabel}
                 </span>
-              )}
-              {readTime && (
-                <span className="text-xs font-medium text-zinc-400">
-                  {readTime} min de lectura
-                </span>
-              )}
-            </div>
-
-            <h1 className="text-4xl md:text-6xl font-extrabold text-zinc-900 leading-[1.1] mb-8 max-w-4xl tracking-tight">
-              {title}
-            </h1>
-
-            {subtitle && (
-              <p className="text-xl md:text-2xl text-zinc-500 leading-relaxed max-w-3xl mb-8 font-light">
-                {subtitle}
-              </p>
+              </div>
             )}
+          </div>
+        </div>
 
-            <div className="flex items-center gap-4 text-sm text-zinc-400 border-t border-zinc-200 pt-8">
-              <div className="w-10 h-10 rounded-full bg-zinc-200 overflow-hidden shrink-0 border-2 border-white shadow-sm">
-                <div className="w-full h-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold">
-                  TL
-                </div>
+        {/* HEADER */}
+        <header className="max-w-5xl mx-auto px-6 pt-12 pb-14">
+          <div className="flex items-center gap-4 mb-6">
+            {badge && (
+              <span className="bg-orange-600 text-white text-[10px] font-black tracking-[0.2em] uppercase px-3 py-1.5 rounded-md">
+                {badge}
+              </span>
+            )}
+            {readTime && (
+              <span className="text-xs font-medium text-zinc-400">
+                {readTime} min de lectura
+              </span>
+            )}
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-extrabold text-zinc-900 leading-[1.1] mb-8 max-w-4xl tracking-tight">
+            {title}
+          </h1>
+
+          {subtitle && (
+            <p className="text-xl md:text-2xl text-zinc-500 leading-relaxed max-w-3xl mb-8 font-light">
+              {subtitle}
+            </p>
+          )}
+
+          <div className="flex items-center gap-4 text-sm text-zinc-400 border-t border-zinc-200 pt-8">
+            <div className="w-10 h-10 rounded-full bg-zinc-200 overflow-hidden shrink-0 border-2 border-white shadow-sm">
+              <div className="w-full h-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold">
+                TL
               </div>
-              <div className="flex flex-col">
-                <span className="text-zinc-900 font-bold">
-                  TruckLore Editorial
-                </span>
-                {publishDate && <span>Publicado el {publishDate}</span>}
-              </div>
             </div>
-          </header>
-
-          {/* BODY */}
-          <main className="max-w-5xl mx-auto px-6 pb-20">
-            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-16 items-start">
-              {/* ARTICLE */}
-              <article className="min-w-0 space-y-10 text-zinc-700 text-[17px] leading-[1.8] font-Poppins">
-                {lead && (
-                  <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-medium italic border-l-4 border-zinc-200 pl-6">
-                    {lead}
-                  </p>
-                )}
-                <StatsGrid stats={stats} />
-
-                <ReactMarkdown components={mdComponents}>
-                  {content}
-                </ReactMarkdown>
-
-                <div className="h-px bg-zinc-200" />
-
-                <footer className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
-                  <div className="flex gap-3">
-                    {["Twitter", "LinkedIn", "Facebook"].map((platform) => (
-                      <button
-                        key={platform}
-                        className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-100 transition-colors cursor-pointer"
-                      >
-                        <span className="sr-only">{platform}</span>
-                        <div className="w-4 h-4 bg-zinc-400 rounded-sm" />
-                      </button>
-                    ))}
-                  </div>
-                  <button className="flex items-center gap-2 text-sm font-bold text-zinc-900 border-2 border-zinc-900 rounded-full px-8 py-3 hover:bg-zinc-900 hover:text-white transition-all cursor-pointer">
-                    Guardar lectura para después
-                  </button>
-                </footer>
-              </article>
-
-              {/* SIDEBAR */}
-              <aside className="lg:sticky lg:top-24 space-y-8">
-                <Timeline items={timeline} />
-                <Specs items={specs} />
-
-                {newsletter !== false && (
-                  <div className="bg-orange-600 rounded-2xl p-6 text-white shadow-lg shadow-orange-200">
-                    <h3 className="text-lg font-bold mb-2 leading-tight">
-                      {newsletter?.title || "¿Ingeniería olvidada?"}
-                    </h3>
-                    <p className="text-sm opacity-90 mb-6 leading-relaxed">
-                      {newsletter?.body ||
-                        "Recibe cada domingo una historia sobre máquinas que el tiempo dejó atrás."}
-                    </p>
-                    <form className="space-y-3">
-                      <input
-                        type="email"
-                        placeholder="Tu email..."
-                        className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2 text-sm placeholder:text-white/60 outline-none focus:bg-white/20 transition-all"
-                      />
-                      <button className="w-full bg-white text-orange-600 font-bold py-3 rounded-xl text-xs uppercase tracking-widest hover:bg-zinc-100 transition-colors shadow-sm">
-                        Unirme a la lista
-                      </button>
-                    </form>
-                  </div>
-                )}
-              </aside>
+            <div className="flex flex-col">
+              <span className="text-zinc-900 font-bold">
+                TruckLore Editorial
+              </span>
+              {publishDate && <span>Publicado el {publishDate}</span>}
             </div>
+          </div>
+        </header>
 
-            {/* ── RELATED ARTICLES ─────────────────────────────────────────── */}
-            <div className="mt-24">
-              <RelatedArticles articles={relatedArticles} />
-            </div>
-          </main>
-
-          {/* FOOTER */}
-          <footer className="border-t border-zinc-200 bg-white py-12">
-            <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-              <div className="flex flex-col items-center md:items-start gap-2">
-                <span className="text-xl font-black">
-                  Truck<span className="text-orange-600">Lore</span>
-                </span>
-                <p className="text-xs text-zinc-400 uppercase tracking-widest">
-                  Historias de metal y visión
+        {/* BODY */}
+        <main className="max-w-5xl mx-auto px-6 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-16 items-start">
+            {/* ARTICLE */}
+            <article className="min-w-0 space-y-10 text-zinc-700 text-[17px] leading-[1.8] font-Poppins">
+              {lead && (
+                <p className="text-lg md:text-xl text-zinc-600 leading-relaxed font-medium italic border-l-4 border-zinc-200 pl-6">
+                  {lead}
                 </p>
-              </div>
-              <div className="flex gap-8 text-xs font-bold text-zinc-500 uppercase tracking-widest">
-                <a href="#" className="hover:text-orange-600 transition-colors">
-                  Archivo
-                </a>
-                <a href="#" className="hover:text-orange-600 transition-colors">
-                  Sobre nosotros
-                </a>
-                <a href="#" className="hover:text-orange-600 transition-colors">
-                  Contacto
-                </a>
-              </div>
-              <p className="text-[10px] text-zinc-400 font-medium">
-                © 2026 · BOGOTÁ, COLOMBIA
+              )}
+              <StatsGrid stats={stats} />
+
+              <ReactMarkdown components={mdComponents}>{content}</ReactMarkdown>
+
+              <div className="h-px bg-zinc-200" />
+
+              <footer className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
+                <div className="flex gap-3">
+                  {["Twitter", "LinkedIn", "Facebook"].map((platform) => (
+                    <button
+                      key={platform}
+                      className="w-10 h-10 rounded-full border border-zinc-200 flex items-center justify-center hover:bg-zinc-100 transition-colors cursor-pointer"
+                    >
+                      <span className="sr-only">{platform}</span>
+                      <div className="w-4 h-4 bg-zinc-400 rounded-sm" />
+                    </button>
+                  ))}
+                </div>
+                <button className="flex items-center gap-2 text-sm font-bold text-zinc-900 border-2 border-zinc-900 rounded-full px-8 py-3 hover:bg-zinc-900 hover:text-white transition-all cursor-pointer">
+                  Guardar lectura para después
+                </button>
+              </footer>
+            </article>
+
+            {/* SIDEBAR */}
+            <aside className="lg:sticky lg:top-24 space-y-8">
+              <Timeline items={timeline} />
+              <Specs items={specs} />
+
+              {newsletter !== false && (
+                <div className="bg-orange-600 rounded-2xl p-6 text-white shadow-lg shadow-orange-200">
+                  <h3 className="text-lg font-bold mb-2 leading-tight">
+                    {newsletter?.title || "¿Ingeniería olvidada?"}
+                  </h3>
+                  <p className="text-sm opacity-90 mb-6 leading-relaxed">
+                    {newsletter?.body ||
+                      "Recibe cada domingo una historia sobre máquinas que el tiempo dejó atrás."}
+                  </p>
+                  <form className="space-y-3">
+                    <input
+                      type="email"
+                      placeholder="Tu email..."
+                      className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-2 text-sm placeholder:text-white/60 outline-none focus:bg-white/20 transition-all"
+                    />
+                    <button className="w-full bg-white text-orange-600 font-bold py-3 rounded-xl text-xs uppercase tracking-widest hover:bg-zinc-100 transition-colors shadow-sm">
+                      Unirme a la lista
+                    </button>
+                  </form>
+                </div>
+              )}
+            </aside>
+          </div>
+
+          {/* ── RELATED ARTICLES ─────────────────────────────────────────── */}
+          <div className="mt-24">
+            <RelatedArticles articles={relatedArticles} />
+          </div>
+        </main>
+
+        {/* FOOTER */}
+        <footer className="border-t border-zinc-200 bg-white py-12">
+          <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <span className="text-xl font-black">
+                Truck<span className="text-orange-600">Lore</span>
+              </span>
+              <p className="text-xs text-zinc-400 uppercase tracking-widest">
+                Historias de metal y visión
               </p>
             </div>
-          </footer>
-        </div>
+            <div className="flex gap-8 text-xs font-bold text-zinc-500 uppercase tracking-widest">
+              <a href="#" className="hover:text-orange-600 transition-colors">
+                Archivo
+              </a>
+              <a href="#" className="hover:text-orange-600 transition-colors">
+                Sobre nosotros
+              </a>
+              <a href="#" className="hover:text-orange-600 transition-colors">
+                Contacto
+              </a>
+            </div>
+            <p className="text-[10px] text-zinc-400 font-medium">
+              © 2026 · BOGOTÁ, COLOMBIA
+            </p>
+          </div>
+        </footer>
+      </div>
+    </Layout>
   );
 }
