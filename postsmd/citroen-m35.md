@@ -69,7 +69,7 @@ En 1969, NSU quebró y fue comprada por Volkswagen. Citroën se vio obligada a c
 La decisión que tomó Pierre Bercot ante ese escenario fue extraordinaria: en lugar de esperar a resolver los problemas en el laboratorio, los resolvería en la calle. Con clientes reales. En sus coches de uso diario. Y con la honestidad suficiente para admitirlo en la pegatina de la luna trasera.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://vm.tiktok.com/ZGdHUKDfa/
 @LlantaPinchadaTV
 El Citroën M35: el coche que Citroën vendió a sus mejores clientes para usarlos como cobayas — y luego los destruyó 🇫🇷🔧 #Citroen #M35 #Wankel #Ingenieria
 https://res.cloudinary.com/db3veuotr/image/upload/v1778004015/image_31_zkp8lj.jpg

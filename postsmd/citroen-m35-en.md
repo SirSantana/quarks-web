@@ -69,7 +69,7 @@ In 1969, NSU went bankrupt and was bought by Volkswagen. Citroën found itself f
 The decision Pierre Bercot took in that scenario was extraordinary: rather than waiting to solve the problems in the laboratory, he would solve them on the road. With real customers. In their daily-use cars. And with sufficient honesty to admit it on the rear window sticker.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://vm.tiktok.com/ZGdHUKDfa/
 @LlantaPinchadaTV
 The Citroën M35: the car Citroën sold to its best customers to use them as guinea pigs — then destroyed 🇫🇷🔧 #Citroen #M35 #Wankel #Engineering
 https://res.cloudinary.com/db3veuotr/image/upload/v1778004015/image_31_zkp8lj.jpg
