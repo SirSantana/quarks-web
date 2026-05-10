@@ -71,7 +71,7 @@ Durante la Segunda Guerra Mundial, Paul Magès, empleado de Citroën sin formaci
 Magès no era ingeniero de formación. Era un empleado de Citroën con una idea obsesiva: reemplazar los muelles de acero por esferas presurizadas llenas de gas y fluido hidráulico. Trabajó en el concepto durante los años de la ocupación nazi, en secreto, con los recursos que encontraba. Lo que entregó cuando la guerra terminó era el sistema que en 1955 haría al DS incomprensible para cualquier persona que lo viera por primera vez.
 
 ```tiktok
-https://vm.tiktok.com/ZGduKhXNK/
+https://vm.tiktok.com/ZGdHaSGr6/
 @LlantaPinchadaTV
 El Citroën DS de 1955: 12.000 pedidos el primer día, De Gaulle sobrevivió un atentado, y Rolls-Royce copió su suspensión. La historia del coche más avanzado del siglo XX 🇫🇷🚗 #CitroenDS #Ingenieria #Historia
 https://res.cloudinary.com/db3veuotr/image/upload/v1778337928/image_35_na4bvs.jpg
