@@ -89,6 +89,33 @@ A 14:1, el VC-Turbo funciona como un motor de alta eficiencia en modo Atkinson �
 
 El propio sistema multienlace tiene un beneficio secundario notable: elimina la necesidad de **árboles de equilibrado**, que los motores de cuatro cilindros convencionales necesitan para compensar sus vibraciones inherentes. La geometría del multienlace hace que el pistón se mueva de forma más vertical y simétrica que en una biela convencional, reduciendo las fuerzas laterales sobre las paredes del cilindro y el ruido de fondo.
 
+```affiliate
+https://amzn.to/4eBkmwy
+Mobil 1 - Aceite de motor sintético completo para camionetas y SUV 0W-20
+5 cuartos de galón (Paquete de 2)
+$49.99
+4.8
+https://m.media-amazon.com/images/I/71m1-s83IYL._AC_SX679_PIbundle-2,TopRight,0,0_SH20_.jpg
+```
+
+```affiliate
+https://amzn.to/4nloK54
+Juego de herramientas de llaves de vaso del mecánico con estuche
+201 piezas
+$53.99
+4.7
+https://m.media-amazon.com/images/I/9154f8zK31L._AC_SY879_.jpg
+```
+
+```affiliate
+https://amzn.to/4nozCze
+Modelo de motor de combustión V8 que funciona
+270 piezas
+$59.99
+4.8
+https://m.media-amazon.com/images/I/71V66hjmGCL._SX522_.jpg
+```
+
 ```label
 El nacimiento
 ```

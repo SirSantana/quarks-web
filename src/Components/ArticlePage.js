@@ -80,6 +80,67 @@ const mdComponents = {
       );
     }
 
+    if (lang === "affiliate") {
+  const items = String(children).trim().split("\n---\n").map(block => {
+    const lines = block.trim().split("\n");
+    return {
+      url:   lines[0]?.trim() || "#",
+      name:  lines[1]?.trim() || "",
+      desc:  lines[2]?.trim() || "",
+      price: lines[3]?.trim() || "",
+      rating: lines[4]?.trim() || "",
+      image: lines[5]?.trim() || "",
+    };
+  });
+
+  const stars = (r) => {
+    const n = Math.round(parseFloat(r));
+    return "★".repeat(n) + "☆".repeat(5 - n);
+  };
+
+  return (
+    <section className="my-10 space-y-3">
+      <span className="block text-[11px] font-black tracking-[0.25em] uppercase text-orange-600">
+        Lo que usamos
+      </span>
+
+      <div className="flex flex-col gap-1.5">
+        {items.map((item, i) => (
+          <a
+            key={i}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="flex items-center gap-3 rounded-xl border border-zinc-100 bg-white px-3 py-3 hover:border-zinc-200 transition-colors no-underline"
+          >
+            <div className="w-14 h-14 rounded-lg bg-zinc-100 flex-shrink-0 overflow-hidden flex items-center justify-center text-zinc-300">
+              {item.image
+                ? <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                : <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              }
+            </div>
+
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold text-zinc-900 truncate m-0">{item.name}</p>
+              <p className="text-xs text-zinc-400 truncate m-0">
+                <span className="text-amber-400">{stars(item.rating)}</span>
+                {" "}{item.rating} · {item.desc}
+              </p>
+            </div>
+
+            <div className="flex flex-col items-end gap-1 flex-shrink-0">
+              <span className="text-[15px] font-black tracking-tight text-zinc-900">{item.price}</span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-orange-600 flex items-center gap-1">
+                Amazon ↗
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
     if (lang === "tiktok") {
       const lines = String(children).trim().split("\n");
       const url = lines[0]?.trim() || "#";

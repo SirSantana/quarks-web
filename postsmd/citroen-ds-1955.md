@@ -100,6 +100,35 @@ El DS podía tener una altura al suelo de entre 9 y 28 centímetros.  El conduct
 La suspensión hidroneumática tenía un comportamiento paradójico que desconcertaba a los conductores habituados a muelles convencionales: en curvas a alta velocidad, el sistema corregía activamente la inclinación de la carrocería. Los coches con muelles de acero se inclinan hacia el exterior de la curva — toda la carrocería gira sobre el eje longitudinal. El DS se nivelaba solo. Los pasajeros sentían que estaban en un tren, no en un coche. El efecto era tan inusual que algunos conductores inexpertos interpretaban la ausencia de balanceo como pérdida de adherencia — cuando en realidad era exactamente lo contrario.
 ```
 
+```affiliate
+https://amzn.to/4eBkmwy
+Mobil 1 - Aceite de motor sintético completo para camionetas y SUV 0W-20
+5 cuartos de galón (Paquete de 2)
+$49.99
+4.8
+https://m.media-amazon.com/images/I/71m1-s83IYL._AC_SX679_PIbundle-2,TopRight,0,0_SH20_.jpg
+```
+
+```affiliate
+https://amzn.to/4nloK54
+Juego de herramientas de llaves de vaso del mecánico con estuche
+201 piezas
+$53.99
+4.7
+https://m.media-amazon.com/images/I/9154f8zK31L._AC_SY879_.jpg
+```
+
+```affiliate
+https://amzn.to/4nozCze
+Modelo de motor de combustión V8 que funciona
+270 piezas
+$59.99
+4.8
+https://m.media-amazon.com/images/I/71V66hjmGCL._SX522_.jpg
+```
+
+
+
 ```label
 Los frenos, la dirección y el volante
 ```
