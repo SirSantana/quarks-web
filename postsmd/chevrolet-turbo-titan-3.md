@@ -100,6 +100,33 @@ Con el GT-309, tenía la misma eficiencia de combustible que un semirremolque di
 El diseño de Bill Mitchell
 ```
 
+```affiliate
+https://amzn.to/4eBkmwy
+Mobil 1 - Aceite de motor sintético completo para camionetas y SUV 0W-20
+5 cuartos de galón (Paquete de 2)
+$49.99
+4.8
+https://m.media-amazon.com/images/I/71m1-s83IYL._AC_SX679_PIbundle-2,TopRight,0,0_SH20_.jpg
+```
+
+```affiliate
+https://amzn.to/4nloK54
+Juego de herramientas de llaves de vaso del mecánico con estuche
+201 piezas
+$53.99
+4.7
+https://m.media-amazon.com/images/I/9154f8zK31L._AC_SY879_.jpg
+```
+
+```affiliate
+https://amzn.to/4nozCze
+Modelo de motor de combustión V8 que funciona
+270 piezas
+$59.99
+4.8
+https://m.media-amazon.com/images/I/71V66hjmGCL._SX522_.jpg
+```
+
 ## El mismo hombre que diseñó el Stingray — ahora diseñando un camión de ciencia ficción
 
 El GT-309 había sido rebautizado Whirlfire Turbo Power — un guiño al Whirlfire GT-304 del concept Firebird I de 1954. El diseñador líder Bill Mitchell había envuelto la tecnología de los ingenieros en un estilo llamativo que luce relevante incluso 60 años después. 
