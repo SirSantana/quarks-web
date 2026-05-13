@@ -96,9 +96,6 @@ Comparado con un motor diésel de potencia similar, el GT-309 era más compacto 
 
 Con el GT-309, tenía la misma eficiencia de combustible que un semirremolque diésel cuando circulaba a 65 millas por hora. Fuera de esta estrecha ventana de comparación, rápidamente se volvía menos y menos eficiente.  Era el problema insalvable que compartía con todas las turbinas de vehículo: perfectas a velocidad constante, terribles en arranques, paradas, aceleraciones y condiciones urbanas.
 
-```label
-El diseño de Bill Mitchell
-```
 
 ```affiliate
 https://amzn.to/4eBkmwy
@@ -126,6 +123,13 @@ $59.99
 4.8
 https://m.media-amazon.com/images/I/71V66hjmGCL._SX522_.jpg
 ```
+
+
+```label
+El diseño de Bill Mitchell
+```
+
+
 
 ## El mismo hombre que diseñó el Stingray — ahora diseñando un camión de ciencia ficción
 

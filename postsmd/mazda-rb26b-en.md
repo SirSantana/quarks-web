@@ -144,6 +144,34 @@ Mazda Motorsports published a six-minute video detailing the rebuild of the 787B
 
 Decades after the victory, Mazda's Heritage Collection team stripped and rebuilt the R26B from the original #55. What they found was an engine designed to be perfect — not for its creators, but for the specific circuit of La Sarthe, in the specific year of 1991, with the specific amount of power needed to survive 24 hours against Europe's best teams.
 
+
+```affiliate
+https://amzn.to/4eBkmwy
+Mobil 1 - Aceite de motor sintético completo para camionetas y SUV 0W-20
+5 cuartos de galón (Paquete de 2)
+$49.99
+4.8
+https://m.media-amazon.com/images/I/71m1-s83IYL._AC_SX679_PIbundle-2,TopRight,0,0_SH20_.jpg
+```
+
+```affiliate
+https://amzn.to/4nloK54
+Juego de herramientas de llaves de vaso del mecánico con estuche
+201 piezas
+$53.99
+4.7
+https://m.media-amazon.com/images/I/9154f8zK31L._AC_SY879_.jpg
+```
+
+```affiliate
+https://amzn.to/4nozCze
+Modelo de motor de combustión V8 que funciona
+270 piezas
+$59.99
+4.8
+https://m.media-amazon.com/images/I/71V66hjmGCL._SX522_.jpg
+```
+
 ```label
 The legacy
 ```
