@@ -5,7 +5,7 @@ lead: "Imagina un camión de 13 metros de altura y 29 metros de longitud total c
 badge: "Ingeniería Curiosa"
 readTime: 7
 publishDate: "4 de mayo, 2026"
-image: "[imagen del Ford Big Red en la Feria Mundial de Nueva York, agosto 1964]"
+image: "https://res.cloudinary.com/db3veuotr/image/upload/v1778601995/image_39_efvy5t.jpg"
 imageAlt: "El Ford Big Red — semirremolque de turbina de gas de 600 CV — expuesto en la Feria Mundial de Nueva York junto al Ford Mustang, agosto de 1964"
 imageLabel: "Ford Big Red · Turbina 600 CV · Feria Mundial de Nueva York · 1964"
 stats:
