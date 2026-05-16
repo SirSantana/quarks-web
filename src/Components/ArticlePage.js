@@ -561,7 +561,7 @@ export default function ArticlePage({ frontmatter, content, relatedArticles = []
         </header>
 
         {/* BODY */}
-        <main className="max-w-5xl mx-auto px-6 pb-20">
+        <div className="max-w-5xl mx-auto px-6 pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-16 items-start">
             {/* ARTICLE */}
             <article className="min-w-0 space-y-10 text-zinc-700 text-[17px] leading-[1.8] font-Poppins">
@@ -627,7 +627,7 @@ export default function ArticlePage({ frontmatter, content, relatedArticles = []
           <div className="mt-24">
             <RelatedArticles articles={relatedArticles} />
           </div>
-        </main>
+        </div>
 
         {/* FOOTER */}
         <footer className="border-t border-zinc-200 bg-white py-12">
