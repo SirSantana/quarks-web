@@ -1,135 +1,174 @@
 import { GET_CALIFICACION_OPINIONES } from "@/graphql/queries";
-import { categorias } from "@/src/data/Categorias";
 import { useQuery } from "@apollo/client";
 import Link from "next/link";
 import renderStars from "@/utils/renderStars";
-import { MapPin, Star, ChevronRight } from "lucide-react";
+import { MapPin, Clock, ShieldCheck, Hash, ChevronRight, CalendarCheck } from "lucide-react";
 
-export default function CardTaller({ taller }) {
-  const { data } = useQuery(GET_CALIFICACION_OPINIONES, { 
-    variables: { id: taller?.id } 
+// Parsear el horario para mostrar si está abierto ahora
+function getEstadoHorario(horarioStr) {
+  if (!horarioStr) return { abierto: null, texto: null };
+  try {
+    const dias = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    const now = new Date();
+    const diaActual = dias[now.getDay()];
+    const horaActual = now.getHours() * 60 + now.getMinutes();
+
+    const entradas = horarioStr.split(',').map(e => e.trim());
+    const entrada = entradas.find(e => e.startsWith(diaActual));
+    if (!entrada) return { abierto: false, texto: 'Cerrado hoy' };
+    if (entrada.includes('Cerrado')) return { abierto: false, texto: 'Cerrado hoy' };
+
+    // Ej: "Lun 8:00 AM - 5:30 PM"
+    const match = entrada.match(/(\d+:\d+\s?[AP]M)\s*-\s*(\d+:\d+\s?[AP]M)/i);
+    if (!match) return { abierto: null, texto: entrada.replace(diaActual, '').trim() };
+
+    const toMin = (str) => {
+      const [time, period] = str.trim().split(/\s+/);
+      let [h, m] = time.split(':').map(Number);
+      if (period?.toUpperCase() === 'PM' && h !== 12) h += 12;
+      if (period?.toUpperCase() === 'AM' && h === 12) h = 0;
+      return h * 60 + m;
+    };
+
+    const apertura = toMin(match[1]);
+    const cierre = toMin(match[2]);
+    const abierto = horaActual >= apertura && horaActual < cierre;
+
+    return {
+      abierto,
+      texto: abierto
+        ? `Abierto · Cierra a las ${match[2].trim()}`
+        : `Cerrado · Abre a las ${match[1].trim()}`
+    };
+  } catch {
+    return { abierto: null, texto: null };
+  }
+}
+
+export default function CardTaller({ taller, index }) {
+  const { data } = useQuery(GET_CALIFICACION_OPINIONES, {
+    variables: { id: taller?.id },
   });
 
-  const getBusinessType = () => {
-    if (taller?.tipo === 'Almacen') return "Almacén de Autopartes";
-    if (taller?.tipo === 'Mecanico a Domicilio') return "Mecánico a domicilio";
-    return "Taller Mecánico";
+  const rating = Number(data?.getCalificacionOpiniones);
+  const { abierto, texto: textoHorario } = getEstadoHorario(taller?.horario);
+
+  const handleContact = (e) => {
+    e.preventDefault();
+    const msg = encodeURIComponent(`Hola ${taller?.nombre}, vi tu taller y me gustaría contactarte.`);
+    window.open(`https://wa.me/${taller?.telefono || '573143551942'}?text=${msg}`, '_blank');
   };
 
   return (
-    <Link 
-      href={`/${taller?.userName}`} 
-      className="group block bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-gray-300 hover:shadow-md w-full"
+    <Link
+      href={`/${taller?.userName}`}
+      className="group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200"
     >
-      {/* Header con imagen y info principal */}
-      <div className="p-5">
-        <div className="flex gap-4">
-          {/* Imagen */}
-          <div className="relative flex-shrink-0">
-            <div className="w-20 h-20 rounded-xl bg-gray-100 overflow-hidden border border-gray-200">
-              <img
-                src={taller?.fotoperfil || '/taller-ilustration.webp'}
-                alt={taller?.nombre}
-                loading="lazy"
-                className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${
-                  taller?.fotoperfil ? 'object-cover' : 'object-contain p-2'
-                }`}
-              />
-            </div>
+      {/* Foto */}
+      <div className="relative w-full h-36 bg-gray-100 overflow-hidden flex-shrink-0">
+        <img
+          src={taller?.fotoperfil || '/taller-ilustration.webp'}
+          alt={taller?.nombre}
+          loading="lazy"
+          className={`w-full h-full transition-transform duration-300 group-hover:scale-105 ${
+            taller?.fotoperfil ? 'object-cover' : 'object-contain p-4'
+          }`}
+        />
+        {index === 1 && (
+          <div className="absolute top-2 left-2 bg-[#007BFF] text-white text-[10px] font-extrabold px-2 py-0.5 rounded-md shadow">
+            Mejor coincidencia
           </div>
+        )}
+      </div>
 
-          {/* Info */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-2 mb-1">
-              <span className="inline-block text-xs font-semibold text-blue-500 uppercase tracking-wide">
-                {getBusinessType()}
+      {/* Contenido */}
+      <div className="flex flex-col flex-1 p-3">
+
+        {/* Número + Nombre */}
+        <div className="flex items-start gap-1 mb-1.5">
+          <span className="text-sm font-semibold text-gray-800 leading-tight flex-shrink-0">{index}.</span>
+          <h3 className="text-sm font-semibold text-gray-900 leading-tight line-clamp-2 group-hover:text-blue-600 transition-colors flex-1">
+            {taller?.nombre}
+          </h3>
+          <ChevronRight size={13} className="flex-shrink-0 text-gray-300 group-hover:text-blue-400 mt-0.5 transition-colors" />
+        </div>
+
+        {/* Rating */}
+        {rating > 0 ? (
+          <div className="flex items-center gap-1 mb-2">
+            <div className="flex gap-0.5">{renderStars(rating)}</div>
+            <span className="text-xs font-bold text-gray-800">{rating}</span>
+          </div>
+        ) : (
+          <div className="mb-2">
+            <span className="text-[11px] text-gray-400">Sin reseñas aún</span>
+          </div>
+        )}
+
+        {/* Metadatos */}
+        <div className="flex flex-col gap-1.5 flex-1 mb-3">
+
+          {/* Horario real */}
+          {textoHorario && (
+            <div className="flex items-center gap-1.5 text-xs">
+              <Clock size={11} className="flex-shrink-0 text-gray-400" />
+              <span className={`font-semibold ${abierto ? 'text-green-600' : 'text-red-500'}`}>
+                {textoHorario}
               </span>
-              
-              {/* Rating con estrellas */}
-              
             </div>
+          )}
 
-            <h3 className="text-lg font-bold text-gray-900 line-clamp-2 leading-tight mb-2">
-              {taller?.nombre}
-            </h3>
-{data?.getCalificacionOpiniones > 0 && (
-                <div className="flex items-center gap-1 bg-gray-50 px-2 py-1 rounded-lg flex-shrink-0">
-                  <div className="flex gap-0.5">
-                    {renderStars(Number(data?.getCalificacionOpiniones))}
-                  </div>
-                  <span className="text-sm font-semibold text-gray-900">
-                    {data?.getCalificacionOpiniones}
-                  </span>
-                </div>
-              )}
-            {/* Ubicación */}
-            <div className="flex items-center gap-1.5 text-sm text-gray-600 my-2">
-              <MapPin className="w-4 h-4 flex-shrink-0 text-gray-400" />
-              <span className="truncate">{taller.direccion}, {taller?.ciudad}</span>
-            </div>
-
+          {/* Distancia + Dirección */}
+          <div className="flex items-start gap-1.5 text-xs text-gray-600">
+            <MapPin size={11} className="flex-shrink-0 text-gray-400 mt-0.5" />
+            <span className="line-clamp-2">{taller.direccion}, {taller?.ciudad}</span>
           </div>
-        </div>
-      </div>
 
-      {/* Categorías/Servicios */}
-      {taller?.categorias && taller.categorias.length > 0 && (
-        <div className="px-5 pb-4">
-          <div className="overflow-x-auto scrollbar-hide -mx-5 px-5">
-            <div className="flex gap-2 min-w-max">
-              {taller.categorias.slice(0, 5).map((el) => {
-                const category = categorias?.find(
-                  (cat) => cat.db.toLowerCase() === el.toLowerCase()
-                );
-                return (
-                  category && (
-                    <div
-                      key={category?.nombre}
-                      className="inline-flex items-center gap-1.5 bg-gray-50 border border-gray-200 rounded-md px-2.5 py-1.5 flex-shrink-0"
-                    >
-                      {category?.img && (
-                        <img
-                          src={`/${category.img}`}
-                          alt=""
-                          className="w-3.5 h-3.5"
-                        />
-                      )}
-                      <span className="text-xs font-medium text-gray-700 whitespace-nowrap">
-                        {category?.nombre}
-                      </span>
-                    </div>
-                  )
-                );
-              })}
-              {taller.categorias.length > 5 && (
-                <div className="inline-flex items-center bg-gray-100 rounded-md px-2.5 py-1.5 flex-shrink-0">
-                  <span className="text-xs font-semibold text-gray-600 whitespace-nowrap">
-                    +{taller.categorias.length - 5} más
-                  </span>
-                </div>
+          {/* Garantía si existe */}
+          {taller?.garantia && (
+            <div className="flex items-center gap-1.5 text-xs text-gray-600">
+              <ShieldCheck size={11} className="flex-shrink-0 text-gray-400" />
+              <span>{taller.garantia}</span>
+            </div>
+          )}
+
+          {/* Categorías como tags pequeños */}
+          {taller?.categorias?.length > 0 && (
+            <div className="flex flex-wrap gap-1 mt-0.5">
+              {taller.categorias.slice(0, 2).map((cat) => (
+                <span
+                  key={cat}
+                  className="text-[10px] font-medium text-gray-500 bg-gray-100 rounded px-1.5 py-0.5"
+                >
+                  {cat}
+                </span>
+              ))}
+              {taller.categorias.length > 2 && (
+                <span className="text-[10px] font-medium text-gray-400 bg-gray-100 rounded px-1.5 py-0.5">
+                  +{taller.categorias.length - 2}
+                </span>
               )}
             </div>
-          </div>
+          )}
         </div>
-      )}
 
-      {/* Footer con CTA */}
-      <div className="px-5 py-4 bg-gray-50 border-t border-gray-100">
-        <button className="w-full bg-blue-500 text-white font-semibold text-sm py-3 rounded-lg transition-colors hover:bg-blue-600 flex items-center justify-center gap-2">
-          <span>Ver perfil completo</span>
-          <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </button>
+        {/* Botones */}
+        <div className="grid grid-cols-2 gap-1.5 mt-auto">
+          {/* <button
+            onClick={handleContact}
+            className="flex items-center justify-center py-2 text-[11px] font-bold text-[#007BFF] border border-[#007BFF] rounded-lg hover:bg-blue-50 transition-colors"
+          >
+            Cotización
+          </button> */}
+          <button
+            onClick={(e) => e.preventDefault()}
+            className="flex items-center justify-center gap-1 py-2 text-[11px] font-bold text-white bg-[#007BFF] rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            <CalendarCheck size={11} />
+            Disponibilidad
+          </button>
+        </div>
       </div>
-
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </Link>
   );
 }
