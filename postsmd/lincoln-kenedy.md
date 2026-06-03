@@ -72,7 +72,7 @@ Kennedy era consciente del efecto político de la visibilidad. A diferencia de E
 https://vm.tiktok.com/ZGduKhXNK/
 @LlantaPinchadaTV
 El SS-100-X: el Lincoln de Kennedy que costó $7.347 y recibió $200.000 en modificaciones — y siguió siendo el coche presidencial 14 años después del magnicidio 🇺🇸🚗 #JFK #SS100X #LincolnContinental #Dallas1963
-https://res.cloudinary.com/db3veuotr/image/upload/v1780347387/image_47_rgplup.jpg
+https://www.facebook.com/share/v/1BUJNs7CEg/
 ```
 
 > "El camino de seguimiento del SS-100-X tras el asesinato es bastante claro. Según registros del Servicio Secreto, aproximadamente a la 1:09 p.m. del 22 de noviembre, la limusina presidencial y los vehículos de seguridad partieron del Hospital Parkland y regresaron al aeropuerto Love Field."
