@@ -47,22 +47,22 @@ export default function Layout({
   style,
   picoyplacaStructured,
   negocio = false,
-  repuestos=[]
+  repuestos = [],
 }) {
   const marcadoEstructurado = generarMarcadoEstructurado(productoMarcado);
   const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Catálogo de Repuestos Quarks",
-  description: "Venta de autopartes en Colombia",
-  itemListElement: repuestos?.map((product, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    url: `https://www.quarks.com.co/repuesto/${product.titulo}`,
-    name: product.Nombre,
-    image: product.images?.[0] || "",
-  })),
-};
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Catálogo de Repuestos Quarks",
+    description: "Venta de autopartes en Colombia",
+    itemListElement: repuestos?.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `https://www.quarks.com.co/repuesto/${product.titulo}`,
+      name: product.Nombre,
+      image: product.images?.[0] || "",
+    })),
+  };
   return (
     <>
       <Head>
@@ -98,8 +98,8 @@ export default function Layout({
         <meta property="og:locale" content="es_CO" />
         <meta property="og:locale:alternate" content="es_CO" />
         <meta property="og:site_name" content="Quarks" />
-        <meta property="og:image:width" content="200" />
-        <meta property="og:image:height" content="200" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
         {index ? (
           <>
@@ -199,10 +199,12 @@ export default function Layout({
             }}
           />
         )}
-        {repuestos.length > 0 && <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />}
+        {repuestos.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
+        )}
       </Head>
 
       <main>

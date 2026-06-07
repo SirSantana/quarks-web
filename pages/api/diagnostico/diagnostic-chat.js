@@ -1,141 +1,118 @@
 import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
 import { z } from "zod";
-import { createClient } from "@supabase/supabase-js";
-
-/* ================== SUPABASE ================== */
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
-
-/* ================== SCHEMA IA ================== */
 
 const responseSchema = z.object({
-  message: z.string(),
   isFinal: z.boolean(),
+  message: z.string(),
 
-  preciosEstimados: z.array(
-    z.object({
-      item: z.string(),
-      precio: z.string(),
-    })
-  ).optional()
+  // Solo cuando isFinal = false: preguntas dinámicas para el usuario
+  preguntasSeguimiento: z
+    .array(
+      z.object({
+        pregunta: z.string(),
+        opciones: z.array(z.string()).min(2).max(5),
+      })
+    )
+    .optional(),
+
+  // Solo cuando isFinal = true
+  sintomasIdentificados: z.array(z.string()).optional(),
+  causasProbables: z
+    .array(
+      z.object({
+        causa: z.string(),
+        probabilidad: z.number(),
+        explicacion: z.string(),
+      })
+    )
+    .optional(),
+  pruebasRecomendadas: z
+    .array(
+      z.object({
+        id: z.number(),
+        nombre: z.string(),
+        descripcion: z.string(),
+        prioridad: z.enum(["Importante", "Recomendado", "Opcional"]),
+      })
+    )
+    .optional(),
+  solucionesCostos: z
+    .array(
+      z.object({
+        item: z.string(),
+        precioMin: z.number(),
+        precioMax: z.number(),
+        tiempoEstimado: z.string(),
+      })
+    )
+    .optional(),
 });
 
-/* ================== HANDLER ================== */
+const FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"];
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
+  if (req.method !== "POST")
     return res.status(405).json({ error: "Método no permitido" });
-  }
 
   try {
-    const { slug, brand, model, conversation } = req.body;
+    const { slug, conversation, brand, model } = req.body;
+console.log(slug, conversation);
 
-    if (!slug) {
-      return res.status(400).json({ error: "Slug requerido" });
+    if (!slug || !conversation) {
+      return res.status(400).json({ error: "Faltan parámetros requeridos" });
     }
 
-    if (!conversation || !Array.isArray(conversation)) {
-      return res.status(400).json({ error: "Conversación inválida" });
-    }
+    const prompt = `
+Eres un mecánico experto en Colombia. Analiza la conversación sobre el vehículo ${brand || "Vehículo"} ${model || ""}.
 
-    /* ================== IA ================== */
+REGLAS ESTRICTAS:
+1. Lee toda la conversación y evalúa si tienes suficiente información para un diagnóstico certero.
+2. Si la información es suficiente → pon isFinal = true y llena todos los arrays del diagnóstico.
+3. Si necesitas más datos → pon isFinal = false, en 'message' escribe un breve resumen de lo que entendiste, y en 'preguntasSeguimiento' genera entre 1 y 3 preguntas ESPECÍFICAS al problema descrito (no genéricas). Cada pregunta debe tener entre 2 y 5 opciones de respuesta cortas y concretas.
+4. Las preguntas deben ser relevantes al síntoma: si alguien dice "vibración", pregunta cuándo vibra, a qué velocidad, si va acompañado de ruido, etc.
+5. Cuando isFinal = true: causasProbables con porcentajes que sumen ~100, pruebasRecomendadas con prioridades, solucionesCostos con precios reales en COP.
 
-    const result = await generateObject({
-      model: google("gemini-2.5-flash"),
-      schema: responseSchema,
-      prompt: `
-Eres un mecánico automotriz experto con 25 años de experiencia en Colombia.
-
-Vehículo: ${brand} ${model}
-
-Analiza la conversación completa.
-
-REGLAS CRÍTICAS:
-
-- Si existe una causa probable identificable,
-  emite inmediatamente el diagnóstico final.
-  isFinal = true
-
-- Si isFinal = true, incluye también precios estimados reales en COP.
-- Los precios deben incluir mano de obra + repuestos.
-- Usa rangos claros. Ejemplo: "350.000 - 800.000 COP"
-
-- Solo haz UNA pregunta adicional si la información es completamente insuficiente.
-- No prolongues la conversación innecesariamente.
-- No hagas más de una pregunta por respuesta.
-- Máximo 500 caracteres si es diagnóstico final.
-
-Español neutro latino.
-Tono profesional y claro.
-
-Conversación:
+Conversación actual:
 ${JSON.stringify(conversation)}
+`;
 
-Responde SOLO en JSON válido:
+    let lastError;
 
-{
-  "message": "...",
-  "isFinal": boolean,
-  "preciosEstimados": [
-    { "item": "...", "precio": "..." }
-  ]
-}
-
-Si NO es diagnóstico final, no incluyas preciosEstimados.
-`
-    });
-
-    const response = result.object;
-
-    const firstUserMessage =
-      conversation.find((msg) => msg.role === "user")?.content || "";
-
-    /* ================== GUARDAR EN DB ================== */
-
-    if (response.isFinal) {
-
-      const precios = Array.isArray(response.preciosEstimados)
-        ? response.preciosEstimados.filter(
-            (p) => p.item && p.precio
-          )
-        : [];
-
-      const { error: dbError } = await supabase
-        .from("diagnostics")
-        .upsert({
-          slug,
-          car_model: model,
-          car_make: brand,
-          diagnostico: response.message.trim(),
-          precios,
-          status: "done",
-          fecha: new Date(),
-          mensaje_usuario: firstUserMessage,
+    for (const modelId of FALLBACK_MODELS) {
+      try {
+        const result = await generateObject({
+          model: google(modelId),
+          schema: responseSchema,
+          maxRetries: 2,
+          prompt,
         });
 
-      if (dbError) {
-        console.error("Error guardando en DB:", dbError);
+        return res.status(200).json(result.object);
+      } catch (err) {
+        const isOverload =
+          err.message?.includes("high demand") ||
+          err.message?.includes("overloaded") ||
+          err.message?.includes("503") ||
+          err.reason === "maxRetriesExceeded";
+
+        lastError = err;
+
+        if (isOverload) {
+          console.warn(`[diagnostic-chat] ${modelId} saturado, probando siguiente...`);
+          continue;
+        }
+
+        throw err;
       }
     }
 
-    /* ================== RESPUESTA ================== */
-
-    return res.status(200).json({
-      message: response.message,
-      isFinal: response.isFinal,
-      preciosEstimados: response.isFinal
-        ? response.preciosEstimados || []
-        : []
+    console.error("[diagnostic-chat] Todos los modelos saturados:", lastError);
+    return res.status(503).json({
+      error: "El servicio de IA está temporalmente saturado. Intenta de nuevo en unos segundos.",
     });
-
   } catch (error) {
-    console.error("❌ Error en diagnóstico:", error);
-    return res.status(500).json({
-      error: "Error procesando diagnóstico",
-    });
+    console.error("[diagnostic-chat] Error:", error);
+    return res.status(500).json({ error: "Error interno del servidor" });
   }
 }
