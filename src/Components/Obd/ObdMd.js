@@ -672,20 +672,33 @@ function buildMdComponents() {
           .trim()
           .split("\n")
           .map((l) => {
-            const [make, ...rest] = l.split("|").map((s) => s.trim());
-            return { make, models: rest.join("|") };
+            const [make, rest = ""] = l.split("|").map((s) => s.trim());
+
+            const match = rest.match(/^(.*?)\s*\((.*)\)$/);
+
+            return {
+              make,
+              models: match ? match[1] : rest,
+              note: match ? match[2] : "",
+            };
           });
+
         return (
           <div>
             {rows.map((r, i) => (
               <div
                 key={i}
-                className="grid gap-4 py-3"
+                className="grid gap-4 py-4"
                 style={{
                   gridTemplateColumns: "120px 1fr",
-                  alignItems: "baseline",
                   borderBottom:
                     i < rows.length - 1 ? `1px solid ${C.subtle}` : "none",
+
+                  maxWidth: "100%",
+                  overflowWrap: "break-word",
+                  wordBreak: "break-word",
+                  whiteSpace: "normal",
+                  minWidth: 0,
                 }}
               >
                 <span
@@ -694,21 +707,41 @@ function buildMdComponents() {
                       "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
                     fontSize: 14,
                     fontWeight: 700,
+                    color: C.ink,
+                    whiteSpace: "nowrap",
                   }}
                 >
                   {r.make}
                 </span>
-                <span
-                  style={{
-                    fontSize: 13,
-                    color: C.muted,
-                    lineHeight: 1.55,
-                    wordBreak: "break-word",
-                    whiteSpace: "normal",
-                  }}
-                >
-                  {r.models}
-                </span>
+
+                <div>
+                  <p
+                    style={{
+                      fontSize: 13,
+                      color: C.body,
+                      lineHeight: 1.6,
+                      fontWeight: 500,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {r.models}
+                  </p>
+
+                  {r.note && (
+                    <p
+                      style={{
+                        marginTop: 8,
+                        paddingLeft: 10,
+                        borderLeft: `2px solid ${C.line}`,
+                        fontSize: 12,
+                        lineHeight: 1.6,
+                        color: C.ghost,
+                      }}
+                    >
+                      {r.note}
+                    </p>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -1412,6 +1445,16 @@ export default function CodePage({ frontmatter, content }) {
               ))}
             </section>
           )}
+
+          <img
+            src={`/api/og/obd2/${frontmatter.code}`}
+            alt={`Código de falla OBD2 ${frontmatter.code} - ${frontmatter.title}, síntomas, causas y solución`}
+            style={{
+              width: "100%",
+              display: "block",
+              marginTop: 54,
+            }}
+          />
         </main>
 
         <aside
