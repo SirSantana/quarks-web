@@ -375,17 +375,32 @@ function buildMdComponents() {
                   }}
                 >
                   <div className="flex justify-between items-center gap-4 mb-2">
-                    <span
+                    <div
                       style={{
-                        fontFamily:
-                          "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
-                        fontSize: 15,
-                        fontWeight: 600,
-                        color: C.ink,
+                        flex: 1,
+                        minWidth: 0,
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
                       }}
                     >
-                      {c.title}
-                    </span>
+                      <span
+                        style={{
+                          fontFamily:
+                            "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
+                          fontSize: 15,
+                          fontWeight: 600,
+                          color: C.ink,
+                          flex: 1,
+                          minWidth: 0,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {c.title}
+                      </span>
+                    </div>
+
                     <span
                       style={{
                         fontFamily:
@@ -508,6 +523,8 @@ function buildMdComponents() {
                         margin: 0,
                         marginBottom: 10,
                         lineHeight: 1.4,
+                        wordBreak: "break-word",
+                        whiteSpace: "normal",
                       }}
                     >
                       {title}
@@ -1213,7 +1230,7 @@ function Hero({ frontmatter }) {
             style={{ borderColor: C.line, background: C.white }}
           >
             {/* Header row */}
-            <div className="flex justify-between items-center mb-3 gap-2">
+            <div className="flex justify-between items-center mb-3">
               <span
                 style={{
                   fontFamily:
@@ -1222,14 +1239,12 @@ function Hero({ frontmatter }) {
                   letterSpacing: "1.2px",
                   textTransform: "uppercase",
                   color: C.ghost,
-                  minWidth: 0,
                 }}
               >
                 Severidad
               </span>
-
               <span
-                className="font-bold uppercase rounded shrink-0"
+                className="font-bold uppercase rounded"
                 style={{
                   fontFamily:
                     "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
@@ -1238,9 +1253,6 @@ function Hero({ frontmatter }) {
                   padding: "3px 8px",
                   color: sev.color,
                   background: sev.bg,
-                  maxWidth: "60%",
-                  overflowWrap: "break-word",
-                  textAlign: "right",
                 }}
               >
                 {sev.label}
