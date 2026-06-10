@@ -632,7 +632,7 @@ function SectionNav({ active, setActive }) {
   };
 
   return (
-    <div className="sticky z-[90]" style={{ top: 65, borderBottom: `1px solid ${C.line}`, background: "rgba(248,248,246,0.95)", backdropFilter: "blur(8px)" }}>
+    <div className="sticky z-[90]" style={{ top: 75, borderBottom: `1px solid ${C.line}`, background: "rgba(248,248,246,0.95)", backdropFilter: "blur(8px)" }}>
       <div className="flex overflow-x-auto mx-auto" style={{ maxWidth: 1200, padding: "0 clamp(16px,4vw,48px)", scrollbarWidth: "none" }}>
         {NAV_SECTIONS.map(({ id, label }) => (
           <button
@@ -650,185 +650,161 @@ function SectionNav({ active, setActive }) {
   );
 }
 
-function TechGrid({ color = "#E4E4E0", opacity = 1 }) {
-  // 12 vertical lines (every 100px across 1200px) + 6 horizontal (every 105px across 630px)
-  const vLines = Array.from({ length: 13 }, (_, i) => i * 100);
-  const hLines = Array.from({ length: 7  }, (_, i) => i * 105);
- 
+// ─── Technical grid (inline SVG, position: absolute) ─────────────────────────
+function TechGrid() {
+  const vCount = 13;
+  const hCount = 7;
   return (
     <svg
       aria-hidden="true"
-      style={{
-        position:  "absolute",
-        inset:     0,
-        width:     "100%",
-        height:    "100%",
-        pointerEvents: "none",
-        zIndex:    0,
-      }}
+      className="absolute inset-0 w-full h-full pointer-events-none z-0"
       preserveAspectRatio="none"
     >
-      {vLines.map((x) => (
+      {Array.from({ length: vCount }, (_, i) => (
         <line
-          key={`v${x}`}
-          x1={`${(x / 1200) * 100}%`} y1="0%"
-          x2={`${(x / 1200) * 100}%`} y2="100%"
-          stroke={color} strokeWidth="1" opacity={opacity}
+          key={`v${i}`}
+          x1={`${(i / (vCount - 1)) * 100}%`} y1="0%"
+          x2={`${(i / (vCount - 1)) * 100}%`} y2="100%"
+          stroke="#E4E4E0" strokeWidth="1" opacity="0.8"
         />
       ))}
-      {hLines.map((y) => (
+      {Array.from({ length: hCount }, (_, i) => (
         <line
-          key={`h${y}`}
-          x1="0%"  y1={`${(y / 630) * 100}%`}
-          x2="100%" y2={`${(y / 630) * 100}%`}
-          stroke={color} strokeWidth="1" opacity={opacity}
+          key={`h${i}`}
+          x1="0%" y1={`${(i / (hCount - 1)) * 100}%`}
+          x2="100%" y2={`${(i / (hCount - 1)) * 100}%`}
+          stroke="#E4E4E0" strokeWidth="1" opacity="0.8"
         />
       ))}
     </svg>
   );
 }
+
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero({ frontmatter }) {
   const { code, title, category, severity } = frontmatter;
-  const sev = SEV[severity] ?? SEV.medium;
+  const sev    = SEV[severity] ?? SEV.medium;
   const router = useRouter();
- 
+
   return (
-    <header
-      style={{
-        position:   "relative",        // ← grid anchors here
-        overflow:   "hidden",
-        maxWidth:   1200,
-        margin:     "0 auto",
-        padding:    "52px clamp(16px,4vw,48px) 0",
-      }}
-    >
-      {/* ── Technical grid ── */}
-      <TechGrid color={C.line} opacity={0.8} />
- 
-      {/* ── Severity color strip — left edge ── */}
-      <div style={{
-        position:        "absolute",
-        left:            0,
-        top:             0,
-        bottom:          0,
-        width:           4,
-        background:      sev.color,
-        zIndex:          1,
-        borderRadius:    "0 2px 2px 0",
-      }} />
- 
-      {/* ── All content sits above the grid (z-index: 1) ── */}
-      <div style={{ position: "relative", zIndex: 1 }}>
- 
+    <header className="relative overflow-hidden max-w-[1200px] mx-auto px-4 md:px-12 pt-14">
+
+      {/* Grid background */}
+      <TechGrid />
+
+      {/* Left severity accent strip */}
+      <div
+        className="absolute left-0 top-0 bottom-0 w-1 rounded-r-sm z-10"
+        style={{ background: sev.color }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10">
+
         {/* Breadcrumb */}
         <div
           onClick={() => router.push("/obd2")}
+          className="flex items-center flex-wrap gap-2 mb-8 cursor-pointer uppercase"
           style={{
-            display:     "flex",
-            alignItems:  "center",
-            gap:         8,
-            marginBottom: 32,
-            fontFamily:  "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-            fontSize:    11,
-            color:       C.ghost,
+            fontFamily:    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+            fontSize:      11,
+            color:         C.ghost,
             letterSpacing: "0.8px",
-            cursor:      "pointer",
-            textTransform: "uppercase",
           }}
         >
           Códigos OBD-II <ChevronRight size={12} />
           Powertrain     <ChevronRight size={12} />
           <span style={{ color: C.fire }}>{code}</span>
         </div>
- 
-        {/* Top grid: big code + severity panel */}
-        <div style={{
-          display:             "grid",
-          gridTemplateColumns: "1fr auto",
-          gap:                 48,
-          alignItems:          "flex-start",
-          paddingBottom:       40,
-          borderBottom:        `1px solid ${C.line}`,
-        }}>
- 
-          {/* Left — code + title + category */}
+
+        {/* Main grid — stacks on mobile */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start pb-10"
+          style={{ borderBottom: `1px solid ${C.line}` }}
+        >
+
+          {/* Left col */}
           <div>
-            <div style={{
-              fontFamily:   "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-              fontSize:     "clamp(56px, 8vw, 96px)",
-              fontWeight:   700,
-              color:        C.fire,
-              letterSpacing: "-2px",
-              lineHeight:   1,
-              marginBottom: 10,
-            }}>
+            <div
+              className="font-bold leading-none mb-2.5"
+              style={{
+                fontFamily:    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+                fontSize:      "clamp(52px, 8vw, 96px)",
+                color:         C.fire,
+                letterSpacing: "-2px",
+              }}
+            >
               {code}
             </div>
- 
-            <h1 style={{
-              fontFamily:   "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
-              fontSize:     "clamp(17px, 2.2vw, 24px)",
-              fontWeight:   600,
-              letterSpacing: "-0.4px",
-              lineHeight:   1.25,
-              margin:       0,
-              marginBottom: 10,
-              maxWidth:     560,
-            }}>
+
+            <h1
+              className="font-semibold leading-snug m-0 mb-2.5 max-w-[560px]"
+              style={{
+                fontFamily:    "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
+                fontSize:      "clamp(17px, 2.2vw, 24px)",
+                letterSpacing: "-0.4px",
+              }}
+            >
               {title}
             </h1>
- 
-            <p style={{
-              fontFamily:   "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-              fontSize:     11,
-              color:        C.ghost,
-              letterSpacing: "1px",
-              textTransform: "uppercase",
-              margin:       0,
-            }}>
+
+            <p
+              className="m-0 uppercase"
+              style={{
+                fontFamily:    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+                fontSize:      11,
+                color:         C.ghost,
+                letterSpacing: "1px",
+              }}
+            >
               {category}
             </p>
           </div>
- 
-          {/* Right — severity panel */}
-          <div style={{
-            padding:      24,
-            border:       `1px solid ${C.line}`,
-            borderRadius: 10,
-            background:   C.white,
-            minWidth:     210,
-          }}>
+
+          {/* Right col — severity panel */}
+          <div
+            className="w-full md:min-w-[210px] p-6 border rounded-[10px]"
+            style={{ borderColor: C.line, background: C.white }}
+          >
+            {/* Header row */}
             <div className="flex justify-between items-center mb-3">
-              <span style={{
-                fontFamily:   "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-                fontSize:     10,
-                letterSpacing: "1.2px",
-                textTransform: "uppercase",
-                color:        C.ghost,
-              }}>
+              <span
+                style={{
+                  fontFamily:    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+                  fontSize:      10,
+                  letterSpacing: "1.2px",
+                  textTransform: "uppercase",
+                  color:         C.ghost,
+                }}
+              >
                 Severidad
               </span>
-              <span style={{
-                fontFamily:   "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-                fontSize:     11,
-                fontWeight:   700,
-                letterSpacing: "0.5px",
-                textTransform: "uppercase",
-                padding:      "3px 8px",
-                borderRadius: 4,
-                color:        sev.color,
-                background:   sev.bg,
-              }}>
+              <span
+                className="font-bold uppercase rounded"
+                style={{
+                  fontFamily:    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+                  fontSize:      11,
+                  letterSpacing: "0.5px",
+                  padding:       "3px 8px",
+                  color:         sev.color,
+                  background:    sev.bg,
+                }}
+              >
                 {sev.label}
               </span>
             </div>
- 
-            {/* Severity bar */}
-            <div style={{ height: 4, background: C.subtle, borderRadius: 2, overflow: "hidden", marginBottom: 24 }}>
-              <div style={{ height: "100%", width: sev.barW, background: sev.color, borderRadius: 2 }} />
+
+            {/* Bar */}
+            <div
+              className="h-1 rounded-full overflow-hidden mb-6"
+              style={{ background: C.subtle }}
+            >
+              <div
+                className="h-full rounded-full"
+                style={{ width: sev.barW, background: sev.color }}
+              />
             </div>
- 
+
             {/* Meta rows */}
             {[
               ["Protocolo",    "SAE J1979",    null   ],
@@ -840,7 +816,7 @@ function Hero({ frontmatter }) {
               <QFRow key={k} label={k} value={v} valueColor={vc} />
             ))}
           </div>
- 
+
         </div>
       </div>
     </header>
