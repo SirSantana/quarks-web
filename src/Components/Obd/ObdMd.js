@@ -22,6 +22,7 @@ import {
   Car,
   DollarSign,
   Wind,
+  HelpCircleIcon,
 } from "lucide-react";
 import { useRouter } from "next/router";
 
@@ -930,6 +931,91 @@ function Section({
   );
 }
 
+const TERM_GLOSSARY = {
+  "Protocolo":    "Estándar de comunicación usado entre el escáner OBD y la ECU del vehículo. SAE J1979 define los modos de diagnóstico y los PIDs universales.",
+  "Modo OBD":     "$03 recupera códigos de falla confirmados. $07 recupera códigos pendientes (detectados pero aún no confirmados por el monitor).",
+  "MIL activo":   "Malfunction Indicator Lamp — la luz «Check Engine». Se activa cuando la ECU detecta una falla que afecta las emisiones o la seguridad.",
+  "Freeze frame": "Instantánea de los parámetros del motor (RPM, carga, temp.) registrada en el momento exacto en que se activó el código.",
+  "Tipo":         "Los códigos genéricos SAE (P0xxx) son universales para todos los fabricantes. Los códigos de fabricante (P1xxx) son específicos de cada marca.",
+  "Código":       "Identificador alfanumérico estándar OBD-II. La primera letra indica el sistema: P=Powertrain, B=Body, C=Chassis, U=Red.",
+  "Sistema":      "Powertrain engloba motor, transmisión y sus sistemas de control y emisiones.",
+  "Causas":       "Número de causas raíz identificadas para este código, ordenadas por probabilidad de ocurrencia.",
+  "Reparaciones": "Procedimientos de reparación disponibles con pasos detallados, tiempo estimado y nivel de dificultad.",
+};
+ 
+// ─── Tooltip ──────────────────────────────────────────────────────────────────
+function Tooltip({ text }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+ 
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [open]);
+ 
+  return (
+    <span ref={ref} style={{ position: "relative", display: "inline-flex", alignItems: "center" }}>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        onMouseEnter={() => setOpen(true)}
+        onMouseLeave={() => setOpen(false)}
+        style={{
+          background: "none",
+          border: "none",
+          padding: 0,
+          cursor: "pointer",
+          display: "inline-flex",
+          alignItems: "center",
+          color: open ? C.fire : C.faint,
+          transition: "color 0.15s",
+          marginLeft: 4,
+        }}
+        aria-label="Más información"
+      >
+        <HelpCircleIcon size={10} />
+      </button>
+ 
+      {open && (
+        <span
+          style={{
+            position: "absolute",
+            left: 0,
+            bottom: "calc(100% + 8px)",
+            width: 220,
+            padding: "10px 12px",
+            background: C.ink,
+            borderRadius: 7,
+            fontSize: 11,
+            lineHeight: 1.65,
+            color: "#E8E8E4",
+            fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+            fontWeight: 400,
+            letterSpacing: "0.2px",
+            zIndex: 200,
+            pointerEvents: "none",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.18)",
+          }}
+        >
+          {text}
+          {/* Arrow */}
+          <span style={{
+            position: "absolute",
+            bottom: -5,
+            left: 10,
+            width: 10,
+            height: 10,
+            background: C.ink,
+            transform: "rotate(45deg)",
+            borderRadius: 2,
+          }} />
+        </span>
+      )}
+    </span>
+  );
+}
+
 // ─── Sidebar card ─────────────────────────────────────────────────────────────
 function SideCard({ title, children }) {
   return (
@@ -961,6 +1047,7 @@ function SideCard({ title, children }) {
 }
 
 function QFRow({ label, value, valueColor }) {
+  const tip = TERM_GLOSSARY[label];
   return (
     <div
       className="flex justify-between py-2"
@@ -976,6 +1063,7 @@ function QFRow({ label, value, valueColor }) {
         }}
       >
         {label}
+        {tip && <Tooltip text={tip} />}
       </span>
       <span
         style={{ fontWeight: 500, fontSize: 12, color: valueColor || C.ink }}
@@ -1181,144 +1269,74 @@ function Hero({ frontmatter }) {
   const { code, title, category, severity } = frontmatter;
   const sev = SEV[severity] ?? SEV.medium;
   const router = useRouter();
-
+ 
   return (
-    <header className="relative overflow-hidden max-w-[1200px] mx-auto px-4 md:px-12 pt-14">
-      {/* Grid background */}
-      <TechGrid />
-
-      {/* Left severity accent strip */}
+    <header className="mx-auto" style={{ maxWidth: 1200, padding: "52px clamp(16px,4vw,48px) 0" }}>
       <div
-        className="absolute left-0 top-0 bottom-0 w-1 rounded-r-sm z-10"
-        style={{ background: sev.color }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Breadcrumb */}
-        <div
-          onClick={() => router.push("/obd2")}
-          className="flex items-center flex-wrap gap-2 mb-8 cursor-pointer uppercase"
-          style={{
-            fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-            fontSize: 11,
-            color: C.ghost,
-            letterSpacing: "0.8px",
-          }}
-        >
-          Códigos OBD-II <ChevronRight size={12} />
-          Powertrain <ChevronRight size={12} />
-          <span style={{ color: C.fire }}>{code}</span>
+        className="flex items-center gap-2 mb-8"
+        style={{ fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)", fontSize: 11, color: C.ghost, letterSpacing: "0.8px", cursor: "pointer", textTransform: "uppercase" }}
+        onClick={() => router.push("/obd2")}
+      >
+        Códigos OBD-II <ChevronRight size={12} />
+        Powertrain <ChevronRight size={12} />
+        <span style={{ color: C.fire }}>{code}</span>
+      </div>
+ 
+      <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "48px", alignItems: "flex-start", paddingBottom: "40px", borderBottom: `1px solid ${C.line}` }}>
+        <div>
+          <div style={{ fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)", fontSize: "clamp(56px, 8vw, 96px)", fontWeight: 700, color: C.fire, letterSpacing: "-2px", lineHeight: 1, marginBottom: 10 }}>
+            {code}
+          </div>
+          <h1 style={{ fontFamily: "var(--font-space-grotesk,'Space Grotesk',sans-serif)", fontSize: "clamp(17px, 2.2vw, 24px)", fontWeight: 600, letterSpacing: "-0.4px", lineHeight: 1.25, margin: 0, marginBottom: 10, maxWidth: 560 }}>
+            {title}
+          </h1>
+          <p style={{ fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)", fontSize: 11, color: C.ghost, letterSpacing: "1px", textTransform: "uppercase", margin: 0 }}>
+            {category}
+          </p>
         </div>
-
-        {/* Main grid — stacks on mobile */}
+ 
         <div
-          className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start pb-10"
-          style={{ borderBottom: `1px solid ${C.line}` }}
+          className="w-full md:min-w-[210px] p-6 border rounded-[10px]"
+          style={{ borderColor: C.line, background: C.white }}
         >
-          {/* Left col */}
-          <div>
-            <div
-              className="font-bold leading-none mb-2.5"
-              style={{
-                fontFamily:
-                  "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-                fontSize: "clamp(52px, 8vw, 96px)",
-                color: C.fire,
-                letterSpacing: "-2px",
-              }}
+          {/* Header row */}
+          <div className="flex justify-between items-center mb-3">
+            <span
+              className="flex items-center"
+              style={{ fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)", fontSize: 10, letterSpacing: "1.2px", textTransform: "uppercase", color: C.ghost }}
             >
-              {code}
-            </div>
-
-            <h1
-              className="font-semibold leading-snug m-0 mb-2.5 max-w-[560px]"
-              style={{
-                fontFamily:
-                  "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
-                fontSize: "clamp(17px, 2.2vw, 24px)",
-                letterSpacing: "-0.4px",
-              }}
+              Severidad
+              <Tooltip text="Indica el nivel de urgencia del código: Alta puede causar daño inmediato al motor, Media requiere atención pronto, Baja puede ignorarse temporalmente." />
+            </span>
+            <span
+              className="font-bold uppercase rounded"
+              style={{ fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)", fontSize: 11, letterSpacing: "0.5px", padding: "3px 8px", color: sev.color, background: sev.bg }}
             >
-              {title}
-            </h1>
-
-            <p
-              className="m-0 uppercase"
-              style={{
-                fontFamily:
-                  "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-                fontSize: 11,
-                color: C.ghost,
-                letterSpacing: "1px",
-              }}
-            >
-              {category}
-            </p>
+              {sev.label}
+            </span>
           </div>
-
-          {/* Right col — severity panel */}
-          <div
-            className="w-full md:min-w-[210px] p-6 border rounded-[10px]"
-            style={{ borderColor: C.line, background: C.white }}
-          >
-            {/* Header row */}
-            <div className="flex justify-between items-center mb-3">
-              <span
-                style={{
-                  fontFamily:
-                    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-                  fontSize: 10,
-                  letterSpacing: "1.2px",
-                  textTransform: "uppercase",
-                  color: C.ghost,
-                }}
-              >
-                Severidad
-              </span>
-              <span
-                className="font-bold uppercase rounded"
-                style={{
-                  fontFamily:
-                    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-                  fontSize: 11,
-                  letterSpacing: "0.5px",
-                  padding: "3px 8px",
-                  color: sev.color,
-                  background: sev.bg,
-                }}
-              >
-                {sev.label}
-              </span>
-            </div>
-
-            {/* Bar */}
-            <div
-              className="h-1 rounded-full overflow-hidden mb-6"
-              style={{ background: C.subtle }}
-            >
-              <div
-                className="h-full rounded-full"
-                style={{ width: sev.barW, background: sev.color }}
-              />
-            </div>
-
-            {/* Meta rows */}
-            {[
-              ["Protocolo", "SAE J1979", null],
-              ["Modo OBD", "$03 / $07", null],
-              ["MIL activo", "Sí", C.fire],
-              ["Freeze frame", "Disponible", C.ok],
-              ["Tipo", "Genérico SAE", null],
-            ].map(([k, v, vc]) => (
-              <QFRow key={k} label={k} value={v} valueColor={vc} />
-            ))}
+ 
+          {/* Bar */}
+          <div className="h-1 rounded-full overflow-hidden mb-6" style={{ background: C.subtle }}>
+            <div className="h-full rounded-full" style={{ width: sev.barW, background: sev.color }} />
           </div>
+ 
+          {/* Meta rows */}
+          {[
+            ["Protocolo",    "SAE J1979",   null   ],
+            ["Modo OBD",     "$03 / $07",   null   ],
+            ["MIL activo",   "Sí",          C.fire ],
+            ["Freeze frame", "Disponible",  C.ok   ],
+            ["Tipo",         "Genérico SAE",null   ],
+          ].map(([k, v, vc]) => (
+            <QFRow key={k} label={k} value={v} valueColor={vc} />
+          ))}
         </div>
       </div>
     </header>
   );
 }
+ 
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function CodePage({ frontmatter, content }) {
@@ -1508,7 +1526,7 @@ export default function CodePage({ frontmatter, content }) {
             </SideCard>
           )}
 
-          <div
+          {/* <div
             style={{
               padding: "18px 20px",
               borderRadius: 10,
@@ -1543,7 +1561,7 @@ export default function CodePage({ frontmatter, content }) {
               MIL parpadeando = fallo activo en curso. Detén el vehículo. El
               catalizador puede destruirse en minutos de conducción continua.
             </p>
-          </div>
+          </div> */}
         </aside>
       </div>
 
