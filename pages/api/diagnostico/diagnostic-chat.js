@@ -12,7 +12,7 @@ const responseSchema = z.object({
       z.object({
         pregunta: z.string(),
         opciones: z.array(z.string()).min(2).max(5),
-      })
+      }),
     )
     .optional(),
 
@@ -24,7 +24,7 @@ const responseSchema = z.object({
         causa: z.string(),
         probabilidad: z.number(),
         explicacion: z.string(),
-      })
+      }),
     )
     .optional(),
   pruebasRecomendadas: z
@@ -34,7 +34,7 @@ const responseSchema = z.object({
         nombre: z.string(),
         descripcion: z.string(),
         prioridad: z.enum(["Importante", "Recomendado", "Opcional"]),
-      })
+      }),
     )
     .optional(),
   solucionesCostos: z
@@ -44,12 +44,14 @@ const responseSchema = z.object({
         precioMin: z.number(),
         precioMax: z.number(),
         tiempoEstimado: z.string(),
-      })
+      }),
     )
     .optional(),
 });
 
-const FALLBACK_MODELS = ["gemini-2.5-flash", "gemini-2.0-flash"];
+const FALLBACK_MODELS = [
+  // "gemini-2.5-flash",
+   "gemini-2.0-flash"];
 
 export default async function handler(req, res) {
   if (req.method !== "POST")
@@ -57,7 +59,7 @@ export default async function handler(req, res) {
 
   try {
     const { slug, conversation, brand, model } = req.body;
-console.log(slug, conversation);
+    console.log(slug, conversation);
 
     if (!slug || !conversation) {
       return res.status(400).json({ error: "Faltan parámetros requeridos" });
@@ -88,7 +90,45 @@ ${JSON.stringify(conversation)}
           prompt,
         });
 
-        return res.status(200).json(result.object);
+        const data = result.object;
+
+        if (data.isFinal) {
+          const { createClient } = await import("@supabase/supabase-js");
+          const supabase = createClient(
+            process.env.NEXT_PUBLIC_SUPABASE_URL,
+            process.env.SUPABASE_SERVICE_ROLE_KEY,
+          );
+
+          const costos = data.solucionesCostos || [];
+          const { error: sbError } = await supabase
+            .from("diagnostics_v2")
+            .upsert(
+              {
+                slug,
+                car_make: brand,
+                car_model: model,
+                user_problem:
+                  conversation.find((m) => m.role === "user")?.content || "",
+                conversation,
+                sintomas: data.sintomasIdentificados || [],
+                causas_probables: data.causasProbables || [],
+                pruebas_recomendadas: data.pruebasRecomendadas || [],
+                soluciones_costos: data.solucionesCostos || [],
+                precio_min: costos.length
+                  ? Math.min(...costos.map((s) => s.precioMin))
+                  : null,
+                precio_max: costos.length
+                  ? Math.max(...costos.map((s) => s.precioMax))
+                  : null,
+                status: "done",
+              },
+              { onConflict: "slug" },
+            );
+          if (sbError) console.error("[supabase] Error:", sbError);
+          else console.log("[supabase] Guardado correctamente");
+        }
+
+        return res.status(200).json(data);
       } catch (err) {
         const isOverload =
           err.message?.includes("high demand") ||
@@ -99,7 +139,9 @@ ${JSON.stringify(conversation)}
         lastError = err;
 
         if (isOverload) {
-          console.warn(`[diagnostic-chat] ${modelId} saturado, probando siguiente...`);
+          console.warn(
+            `[diagnostic-chat] ${modelId} saturado, probando siguiente...`,
+          );
           continue;
         }
 
@@ -109,7 +151,8 @@ ${JSON.stringify(conversation)}
 
     console.error("[diagnostic-chat] Todos los modelos saturados:", lastError);
     return res.status(503).json({
-      error: "El servicio de IA está temporalmente saturado. Intenta de nuevo en unos segundos.",
+      error:
+        "El servicio de IA está temporalmente saturado. Intenta de nuevo en unos segundos.",
     });
   } catch (error) {
     console.error("[diagnostic-chat] Error:", error);
