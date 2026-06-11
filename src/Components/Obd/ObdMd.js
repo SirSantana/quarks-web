@@ -207,6 +207,7 @@ function CalloutBox({ color, bg, border, children }) {
 
 // ─── Markdown renderers ───────────────────────────────────────────────────────
 function buildMdComponents() {
+  const router = useRouter();
   return {
     h2: ({ children }) => {
       const text = React.Children.toArray(children).join("");
@@ -674,9 +675,7 @@ function buildMdComponents() {
           .split("\n")
           .map((l) => {
             const [make, rest = ""] = l.split("|").map((s) => s.trim());
-
             const match = rest.match(/^(.*?)\s*\((.*)\)$/);
-
             return {
               make,
               models: match ? match[1] : rest,
@@ -686,63 +685,105 @@ function buildMdComponents() {
 
         return (
           <div>
-            {rows.map((r, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 py-4"
-                style={{
-                  borderBottom:
-                    i < rows.length - 1 ? `1px solid ${C.subtle}` : "none",
-                  maxWidth: "100%",
-                  overflowWrap: "anywhere",
-                  wordBreak: "break-word",
-                  whiteSpace: "normal",
-                  minWidth: 0,
-                }}
-              >
-                <span
+            {rows.map((r, i) => {
+              const makeSlug = r.make
+                .toLowerCase()
+                .replace(/\s*\/\s*.+/, "")
+                .trim();
+
+              // Split "Corolla, Camry, RAV4" → ["Corolla", "Camry", "RAV4"]
+              const modelList = r.models
+                .split(",")
+                .map((m) => m.trim())
+                .filter(Boolean);
+
+              return (
+                <div
+                  key={i}
+                  className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-2 md:gap-4 py-4"
                   style={{
-                    fontFamily:
-                      "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: C.ink,
-                    whiteSpace: "nowrap",
+                    borderBottom:
+                      i < rows.length - 1 ? `1px solid ${C.subtle}` : "none",
+                    minWidth: 0,
                   }}
                 >
-                  {r.make}
-                </span>
-
-                <div>
-                  <p
+                  {/* Make — links to /vehicles/[make] */}
+                  <Link
+                    href={`/vehicles/${makeSlug}`}
                     style={{
-                      fontSize: 13,
-                      color: C.body,
-                      lineHeight: 1.6,
-                      fontWeight: 500,
+                      fontFamily:
+                        "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
+                      fontSize: 14,
+                      fontWeight: 700,
+                      color: C.ink,
+                      textDecoration: "none",
                       whiteSpace: "nowrap",
+                      alignSelf: "flex-start",
                     }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = C.fire)}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = C.ink)}
                   >
-                    {r.models}
-                  </p>
+                    {r.make}
+                  </Link>
 
-                  {r.note && (
-                    <p
-                      style={{
-                        marginTop: 8,
-                        paddingLeft: 10,
-                        borderLeft: `2px solid ${C.line}`,
-                        fontSize: 12,
-                        lineHeight: 1.6,
-                        color: C.ghost,
-                      }}
-                    >
-                      {r.note}
-                    </p>
-                  )}
+                  <div>
+                    {/* Each model as its own link */}
+                    <div className="flex flex-wrap gap-2">
+                      {modelList.map((model) => {
+                        const modelSlug = model
+                          .toLowerCase()
+                          .replace(/\s+/g, "-");
+                        return (
+                          <Link
+                            key={model}
+                            href={`/vehicles/${makeSlug}/${modelSlug}`}
+                            className="inline-flex items-center gap-1 transition-all duration-150"
+                            style={{
+                              fontSize: 13,
+                              color: C.body,
+                              fontWeight: 500,
+                              textDecoration: "none",
+                              padding: "2px 8px",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.color = C.fire;
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.color = C.body;
+                            }}
+                          >
+                            {model}
+                            <ChevronRight
+                              size={10}
+                              style={{ color: C.faint, flexShrink: 0 }}
+                            />
+                          </Link>
+                        );
+                      })}
+                    </div>
+
+                    {r.note && (
+                      <p
+                        style={{
+                          marginTop: 8,
+                          paddingLeft: 10,
+                          borderLeft: `2px solid ${C.line}`,
+                          fontSize: 12,
+                          lineHeight: 1.6,
+                          color: C.ghost,
+                          margin: "8px 0 0",
+                          overflowWrap: "anywhere",
+                          wordBreak: "break-word",
+                          whiteSpace: "normal",
+                        }}
+                      >
+                        {r.note}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         );
       }
@@ -1281,7 +1322,6 @@ function TechGrid() {
   );
 }
 
-// ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero({ frontmatter }) {
   const { code, title, category, severity } = frontmatter;
   const sev = SEV[severity] ?? SEV.medium;
@@ -1289,136 +1329,144 @@ function Hero({ frontmatter }) {
 
   return (
     <header
-      className="mx-auto"
+      className="relative overflow-hidden mx-auto"
       style={{ maxWidth: 1200, padding: "52px clamp(16px,4vw,48px) 0" }}
     >
-      <div
-        className="flex items-center gap-2 mb-8"
-        style={{
-          fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-          fontSize: 11,
-          color: C.ghost,
-          letterSpacing: "0.8px",
-          cursor: "pointer",
-          textTransform: "uppercase",
-        }}
-        onClick={() => router.push("/obd2")}
-      >
-        Códigos OBD-II <ChevronRight size={12} />
-        Powertrain <ChevronRight size={12} />
-        <span style={{ color: C.fire }}>{code}</span>
-      </div>
+      <TechGrid />
 
+      {/* Left accent strip */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12"
-  style={{
-    alignItems: "flex-start",
-    paddingBottom: "40px",
-    borderBottom: `1px solid ${C.line}`,
-  }}
-      >
-        <div>
-          <div
-            style={{
-              fontFamily:
-                "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-              fontSize: "clamp(56px, 8vw, 96px)",
-              fontWeight: 700,
-              color: C.fire,
-              letterSpacing: "-2px",
-              lineHeight: 1,
-              marginBottom: 10,
-            }}
-          >
-            {code}
-          </div>
-          <h1
-            style={{
-              fontFamily:
-                "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
-              fontSize: "clamp(17px, 2.2vw, 24px)",
-              fontWeight: 600,
-              letterSpacing: "-0.4px",
-              lineHeight: 1.25,
-              margin: 0,
-              marginBottom: 10,
-              maxWidth: 560,
-            }}
-          >
-            {title}
-          </h1>
-          <p
-            style={{
-              fontFamily:
-                "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-              fontSize: 11,
-              color: C.ghost,
-              letterSpacing: "1px",
-              textTransform: "uppercase",
-              margin: 0,
-            }}
-          >
-            {category}
-          </p>
+        className="absolute left-0 top-0 bottom-0 w-1 rounded-r-sm z-10"
+        style={{ background: C.fire }}
+      />
+
+      <div className="relative z-10">
+        {/* Breadcrumb */}
+        <div
+          className="flex items-center flex-wrap gap-2 mb-8 uppercase cursor-pointer"
+          style={{
+            fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+            fontSize: 11,
+            color: C.ghost,
+            letterSpacing: "0.8px",
+          }}
+          onClick={() => router.push("/obd2")}
+        >
+          Códigos OBD-II <ChevronRight size={12} />
+          Powertrain <ChevronRight size={12} />
+          <span style={{ color: C.fire }}>{code}</span>
         </div>
 
+        {/* Main grid — stacks on mobile, side-by-side on lg+ */}
         <div
-          className="w-full md:min-w-[210px] p-6 border rounded-[10px]"
-          style={{ borderColor: C.line, background: C.white }}
+          className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 pb-10"
+          style={{ borderBottom: `1px solid ${C.line}` }}
         >
-          {/* Header row */}
-          <div className="flex justify-between items-center mb-3">
-            <span
-              className="flex items-center"
+          {/* Left — code + title */}
+          <div>
+            <div
               style={{
                 fontFamily:
                   "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-                fontSize: 10,
-                letterSpacing: "1.2px",
-                textTransform: "uppercase",
-                color: C.ghost,
+                fontSize: "clamp(56px, 8vw, 96px)",
+                fontWeight: 700,
+                color: C.fire,
+                letterSpacing: "-2px",
+                lineHeight: 1,
+                marginBottom: 10,
               }}
             >
-              Severidad
-              <Tooltip text="Indica el nivel de urgencia del código: Alta puede causar daño inmediato al motor, Media requiere atención pronto, Baja puede ignorarse temporalmente." />
-            </span>
-            <span
-              className="font-bold uppercase rounded"
+              {code}
+            </div>
+            <h1
+              style={{
+                fontFamily:
+                  "var(--font-space-grotesk,'Space Grotesk',sans-serif)",
+                fontSize: "clamp(17px, 2.2vw, 24px)",
+                fontWeight: 600,
+                letterSpacing: "-0.4px",
+                lineHeight: 1.25,
+                margin: 0,
+                marginBottom: 10,
+                maxWidth: 560,
+              }}
+            >
+              {title}
+            </h1>
+            <p
               style={{
                 fontFamily:
                   "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
                 fontSize: 11,
-                letterSpacing: "0.5px",
-                padding: "3px 8px",
-                color: sev.color,
-                background: sev.bg,
+                color: C.ghost,
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+                margin: 0,
               }}
             >
-              {sev.label}
-            </span>
+              {category}
+            </p>
           </div>
 
-          {/* Bar */}
+          {/* Right — severity panel, full width on mobile */}
           <div
-            className="h-1 rounded-full overflow-hidden mb-6"
-            style={{ background: C.subtle }}
+            className="w-full lg:min-w-[210px] lg:max-w-[260px] p-6 border rounded-[10px]"
+            style={{ borderColor: C.line, background: C.white }}
           >
-            <div
-              className="h-full rounded-full"
-              style={{ width: sev.barW, background: sev.color }}
-            />
-          </div>
+            {/* Header row */}
+            <div className="flex justify-between items-center mb-3">
+              <span
+                className="flex items-center"
+                style={{
+                  fontFamily:
+                    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+                  fontSize: 10,
+                  letterSpacing: "1.2px",
+                  textTransform: "uppercase",
+                  color: C.ghost,
+                }}
+              >
+                Severidad
+                <Tooltip text="Indica el nivel de urgencia del código: Alta puede causar daño inmediato al motor, Media requiere atención pronto, Baja puede ignorarse temporalmente." />
+              </span>
+              <span
+                className="font-bold uppercase rounded"
+                style={{
+                  fontFamily:
+                    "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+                  fontSize: 11,
+                  letterSpacing: "0.5px",
+                  padding: "3px 8px",
+                  color: sev.color,
+                  background: sev.bg,
+                }}
+              >
+                {sev.label}
+              </span>
+            </div>
 
-          {/* Meta rows */}
-          {[
-            ["Protocolo", "SAE J1979", null],
-            ["Modo OBD", "$03 / $07", null],
-            ["MIL activo", "Sí", C.fire],
-            ["Freeze frame", "Disponible", C.ok],
-            ["Tipo", "Genérico SAE", null],
-          ].map(([k, v, vc]) => (
-            <QFRow key={k} label={k} value={v} valueColor={vc} />
-          ))}
+            {/* Bar */}
+            <div
+              className="h-1 rounded-full overflow-hidden mb-6"
+              style={{ background: C.subtle }}
+            >
+              <div
+                className="h-full rounded-full"
+                style={{ width: sev.barW, background: sev.color }}
+              />
+            </div>
+
+            {/* Meta rows */}
+            {[
+              ["Protocolo", "SAE J1979", null],
+              ["Modo OBD", "$03 / $07", null],
+              ["MIL activo", "Sí", C.fire],
+              ["Freeze frame", "Disponible", C.ok],
+              ["Tipo", "Genérico SAE", null],
+            ].map(([k, v, vc]) => (
+              <QFRow key={k} label={k} value={v} valueColor={vc} />
+            ))}
+          </div>
         </div>
       </div>
     </header>
