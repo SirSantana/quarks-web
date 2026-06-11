@@ -1,0 +1,157 @@
+// pages/obd2/[slug].jsx
+
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import CodePage from "@/src/Components/Obd/ObdMdEn";
+import Head from "next/head";
+
+const CONTENT_DIR = path.join(process.cwd(), "utils/content/codes/en");
+
+// ─── SSG ─────────────────────────────────────────────────────────────────────
+export async function getStaticPaths() {
+  // Create the folder if it doesn't exist (prevents crash on first build)
+  if (!fs.existsSync(CONTENT_DIR)) {
+    return { paths: [], fallback: false };
+  }
+
+  const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".md"));
+
+  return {
+    paths: files.map((f) => ({
+      params: { slug: f.replace(".md", "") }, // "P0300" → /obd2/P0300
+    })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const filePath = path.join(CONTENT_DIR, `${params.slug.toUpperCase()}.md`);
+
+  if (!fs.existsSync(filePath)) {
+    return { notFound: true };
+  }
+
+  const raw = fs.readFileSync(filePath, "utf8");
+  const { data: frontmatter, content } = matter(raw);
+
+  return {
+    props: { frontmatter, content },
+  };
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+export default function OBD2CodePage({ frontmatter, content }) {
+  const { code, title, severity, relatedCodes = [], faqs = [] } = frontmatter;
+  
+  const pageTitle = `${code} Code: Symptoms, Causes, Fixes & Repair Cost`;
+  const description = `${code} OBD-II trouble code guide. Learn the symptoms, causes, diagnostics, repair procedures, costs and whether it is safe to drive with a ${code} code.`;
+  
+  let ads = true;
+
+  const canonical = `https://www.quarks.com.co/obd2/en/${code.toLowerCase()}`;
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+  
+  return (
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema),
+          }}
+        />
+        <meta name="description" content={description} />
+
+        <meta
+          name="keywords"
+          content={`${code}, ${code} code, ${code} obd2, ${code} symptoms, ${code} causes, ${code} repair, ${code} fix`}
+        />
+
+        <link rel="canonical" href={canonical} />
+
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+
+        <meta property="og:type" content="article" />
+
+        <meta property="og:title" content={pageTitle} />
+
+        <meta property="og:description" content={description} />
+
+        <meta property="og:url" content={canonical} />
+
+        <meta
+          property="og:image"
+          content={`https://www.quarks.com.co/api/og/obd2-en/${frontmatter.code}`}
+        />
+
+        <meta
+          name="twitter:image"
+          content={`https://www.quarks.com.co/api/og/obd2-en/${frontmatter.code}`}
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <meta name="twitter:title" content={pageTitle} />
+
+        <meta name="twitter:description" content={description} />
+        <link rel="icon" href="/icon-obd.jpg" />
+
+        {process.env.NODE_ENV === "production" && ads && (
+          <>
+            <link
+              rel="preconnect"
+              href="https://pagead2.googlesyndication.com"
+              crossOrigin="anonymous"
+            />
+            <link
+              rel="preconnect"
+              href="https://googleads.g.doubleclick.net"
+              crossOrigin="anonymous"
+            />
+          </>
+        )}
+        <link rel="preconnect" href="https://www.clarity.ms" crossOrigin="anonymous" />
+
+         {process.env.NODE_ENV === "production" && ads && (
+          <script
+            async
+            defer
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1233996863721897"
+            crossOrigin="anonymous"
+          ></script>
+        )}
+
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            dangerouslySetInnerHTML={{
+              __html: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "jh3neqgrnc");
+        `,
+            }}
+          />
+        )}
+      </Head>
+
+      <CodePage frontmatter={frontmatter} content={content} />
+    </>
+  );
+}

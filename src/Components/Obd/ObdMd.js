@@ -1144,7 +1144,17 @@ function Navbar({ code, onCopy, copied }) {
         backdropFilter: "blur(12px)",
       }}
     >
-      <a
+      
+
+      <Link
+        href="/obd2/"
+        className="flex items-center gap-2 no-underline"
+        style={{ fontSize: 13, fontWeight: 500, color: C.muted }}
+      >
+        <ArrowLeft size={14} />
+        <span className="hidden sm:inline">Volver a códigos</span>
+      </Link>
+<a
         href="/"
         className="flex items-center gap-2 no-underline"
         style={{
@@ -1170,16 +1180,6 @@ function Navbar({ code, onCopy, copied }) {
           }}
         />
       </a>
-
-      <Link
-        href="/"
-        className="flex items-center gap-2 no-underline"
-        style={{ fontSize: 13, fontWeight: 500, color: C.muted }}
-      >
-        <ArrowLeft size={14} />
-        <span className="hidden sm:inline">Volver a códigos</span>
-      </Link>
-
       <div className="flex items-center gap-2">
         {[
           {
