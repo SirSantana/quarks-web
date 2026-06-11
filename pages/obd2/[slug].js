@@ -107,6 +107,22 @@ export default function OBD2CodePage({ frontmatter, content }) {
 
         <meta name="twitter:description" content={description} />
         <link rel="icon" href="/icon-obd.jpg" />
+
+        {process.env.NODE_ENV === "production" && ads && (
+          <>
+            <link
+              rel="preconnect"
+              href="https://pagead2.googlesyndication.com"
+              crossorigin
+            />
+            <link
+              rel="preconnect"
+              href="https://googleads.g.doubleclick.net"
+              crossorigin
+            />
+          </>
+        )}
+        <link rel="preconnect" href="https://www.clarity.ms" crossorigin />
       </Head>
 
       <CodePage frontmatter={frontmatter} content={content} />
