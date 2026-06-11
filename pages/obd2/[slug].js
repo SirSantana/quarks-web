@@ -46,7 +46,7 @@ export default function OBD2CodePage({ frontmatter, content }) {
   const pageTitle = `Código ${code}: Síntomas, Causas, Soluciones y Costo de Reparación`;
   const description = `Guía completa del código de falla OBD-II ${code}. Conoce los síntomas, causas, diagnóstico, procedimientos de reparación, costos y si es seguro conducir con el código ${code}.`;
   // const pageTitle = `${code} Code: Symptoms, Causes, Fixes & Repair Cost`;
-
+let ads= true
   // const description = `${code} OBD-II trouble code guide. Learn the symptoms, causes, diagnostics, repair procedures, costs and whether it is safe to drive with a ${code} code.`;
 
   const canonical = `https://www.quarks.com.co/obd2/${code.toLowerCase()}`;
