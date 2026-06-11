@@ -84,7 +84,7 @@ function SevDot({ level }) {
   return (
     <span
       className="inline-block rounded-full shrink-0"
-      style={{ width: 7, height: 7, background: color, marginTop: 6 }}
+      style={{ width: 7, height: 7, background: color, }}
     />
   );
 }
