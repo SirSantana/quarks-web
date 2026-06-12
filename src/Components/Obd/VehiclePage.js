@@ -151,7 +151,7 @@ function Navbar() {
 }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
-function Hero({ make, model, stats }) {
+function Hero({ make, makeSlug, model, stats }) {
   return (
     <header className="relative overflow-hidden max-w-[1200px] mx-auto px-4 md:px-12 pt-14 pb-0">
 
@@ -170,8 +170,27 @@ function Hero({ make, model, stats }) {
           className="flex items-center flex-wrap gap-2 mb-8 uppercase"
           style={{ fontFamily: MONO, fontSize: 11, color: C.ghost, letterSpacing: "0.8px" }}
         >
-          Vehículos <ChevronRight size={12} />
-          <span style={{ color: C.muted }}>{make}</span> <ChevronRight size={12} />
+          <Link
+            href="/vehicles"
+            className="no-underline hover:underline transition-colors"
+            style={{ color: C.ghost }}
+          >
+            Vehículos
+          </Link>
+
+          <ChevronRight size={12} />
+
+          <Link
+            href={`/vehicles/${makeSlug}`}
+            className="no-underline hover:underline transition-colors"
+            style={{ color: C.muted }}
+          >
+            {make}
+          </Link>
+
+          <ChevronRight size={12} />
+
+          {/* Current page — not a link */}
           <span style={{ color: C.ink, fontWeight: 700 }}>{model}</span>
         </div>
 
@@ -198,7 +217,7 @@ function Hero({ make, model, stats }) {
 
             <h1
               className="m-0 mb-4 font-bold leading-none"
-              style={{ fontFamily: MONO, fontSize: "clamp(44px,7vw,88px)", letterSpacing: "-3px", color:"#FF3B00" }}
+              style={{ fontFamily: MONO, fontSize: "clamp(44px,7vw,88px)", letterSpacing: "-3px", color: C.fire }}
             >
               {model}
             </h1>
@@ -325,7 +344,7 @@ function FilterBar({ active, onChange, search, onSearch }) {
 }
 
 // ─── VehiclePage ──────────────────────────────────────────────────────────────
-export default function VehiclePage({ make, model, codes, stats }) {
+export default function VehiclePage({ make, model, codes, stats, makeSlug }) {
   const [sevFilter, setSevFilter] = useState(null);
   const [search,    setSearch   ] = useState("");
 
@@ -344,7 +363,7 @@ export default function VehiclePage({ make, model, codes, stats }) {
       style={{ background: C.base, color: C.ink, fontFamily: DISPLAY }}
     >
       <Navbar />
-      <Hero make={make} model={model} stats={stats} />
+      <Hero make={make} model={model} stats={stats} makeSlug={makeSlug}/>
 
       <div className="max-w-[1200px] mx-auto px-4 md:px-12 pb-24">
 

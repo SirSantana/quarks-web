@@ -19,7 +19,10 @@ function slugify(str = "") {
 // ─── Parse affectedVehicles from frontmatter ──────────────────────────────────
 // Reads the YAML array at the top of each .md:
 //   affectedVehicles:
-//     - { make: "Toyota", models: "Corolla, RAV4 (note here)" }
+//     - { make: "Chevrolet / GMC", models: "Silverado, Tahoe (note)" }
+//
+// Makes with slashes ("Chevrolet / GMC", "Jeep / Dodge") are kept as-is for
+// display but slugified as "chevrolet-gmc" / "jeep-dodge" for the URL.
 //
 // Returns [{ make, models: string[], note: string }]
 function parseAffectedVehicles(data) {
@@ -29,7 +32,12 @@ function parseAffectedVehicles(data) {
   return raw.flatMap(({ make, models = "" }) => {
     if (!make) return [];
 
-    // Split note from models: "Corolla, RAV4 (the note)" → models + note
+    // Normalize display make: trim extra spaces around slashes
+    // "Chevrolet / GMC" → "Chevrolet / GMC"  (kept for display)
+    const displayMake = String(make).replace(/\s*\/\s*/g, " / ").trim();
+
+    // Split note from models: "Silverado, Tahoe (the note)" → models + note
+    // Use /s flag so the dot matches newlines inside long notes
     const noteMatch = String(models).match(/^(.*?)\s*\(([^)]+)\)\s*$/s);
 
     let modelList, note;
@@ -41,7 +49,7 @@ function parseAffectedVehicles(data) {
       note      = "";
     }
 
-    return modelList.map((model) => ({ make: make.trim(), model, note }));
+    return modelList.map((model) => ({ make: displayMake, model, note }));
   });
 }
 
@@ -113,11 +121,11 @@ export async function getStaticProps({ params }) {
   };
 
   return {
-    props: { make: entry.make, model: entry.model, codes, stats },
+    props: { make: entry.make, makeSlug: params.make, model: entry.model, codes, stats },
   };
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
-export default function VehicleRoute({ make, model, codes, stats }) {
-  return <VehiclePage make={make} model={model} codes={codes} stats={stats} />;
+export default function VehicleRoute({ make, makeSlug, model, codes, stats }) {
+  return <VehiclePage make={make} makeSlug={makeSlug} model={model} codes={codes} stats={stats} />;
 }

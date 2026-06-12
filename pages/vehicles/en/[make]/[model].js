@@ -5,7 +5,7 @@ import path from "path";
 import matter from "gray-matter";
 import VehiclePage from "@/src/Components/Obd/VehiclePage";
 
-const CONTENT_DIR = path.join(process.cwd(), "utils/content/codes");
+const CONTENT_DIR = path.join(process.cwd(), "utils/content/codes/en");
 
 function slugify(str = "") {
   return str
