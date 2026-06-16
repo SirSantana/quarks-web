@@ -73,6 +73,9 @@ export default function FooterV2({ data }) {
           <a href="/engine-displacement-calculator" className={styles.footerLink}>
             Engine Displacement Calculator
           </a>
+          <a href="/obd2" className={styles.footerLink}>
+            OBD Codes
+          </a>
         </div>
         <div className={styles.footerColumn}>
           <h3 className={styles.footerHeading}>Síguenos</h3>

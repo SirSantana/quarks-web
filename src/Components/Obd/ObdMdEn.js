@@ -1369,7 +1369,7 @@ function Hero({ frontmatter }) {
         >
           {/* Left — code + title */}
           <div>
-            <div
+            <h2
               style={{
                 fontFamily:
                   "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
@@ -1382,7 +1382,7 @@ function Hero({ frontmatter }) {
               }}
             >
               {code}
-            </div>
+            </h2>
             <h1
               style={{
                 fontFamily:
@@ -1396,7 +1396,7 @@ function Hero({ frontmatter }) {
                 maxWidth: 560,
               }}
             >
-              {title}
+              {title} - {code}
             </h1>
             <p
               style={{
