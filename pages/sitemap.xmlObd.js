@@ -70,7 +70,7 @@ export async function getServerSideProps({ res }) {
 
     // /obd2/[code]
     codeUrls.push(
-      url(`${BASE_URL}/obd2/${code}`, { priority: "0.9", changefreq: "weekly" })
+      url(`${BASE_URL}obd2/${code}`, { priority: "0.9", changefreq: "weekly" })
     );
 
     // /vehicles/[make]/[model]  &  /vehicles/[make]
@@ -86,19 +86,19 @@ export async function getServerSideProps({ res }) {
   // ── Static pages ──────────────────────────────────────────────────────────
   const staticUrls = [
     url(`${BASE_URL}`,          { priority: "1.0", changefreq: "daily"   }),
-    url(`${BASE_URL}/obd2`,     { priority: "0.9", changefreq: "weekly"  }),
-    url(`${BASE_URL}/vehicles`, { priority: "0.8", changefreq: "weekly"  }),
+    url(`${BASE_URL}obd2`,     { priority: "0.9", changefreq: "weekly"  }),
+    url(`${BASE_URL}vehicles`, { priority: "0.8", changefreq: "weekly"  }),
   ];
 
   // ── Make pages ────────────────────────────────────────────────────────────
   const makeUrls = Array.from(makeKeys).map((makeSlug) =>
-    url(`${BASE_URL}/vehicles/${makeSlug}`, { priority: "0.7", changefreq: "weekly" })
+    url(`${BASE_URL}vehicles/${makeSlug}`, { priority: "0.7", changefreq: "weekly" })
   );
 
   // ── Model pages ───────────────────────────────────────────────────────────
   const modelUrls = Array.from(vehicleKeys).map((key) => {
     const [makeSlug, modelSlug] = key.split("::");
-    return url(`${BASE_URL}/vehicles/${makeSlug}/${modelSlug}`, {
+    return url(`${BASE_URL}vehicles/${makeSlug}/${modelSlug}`, {
       priority:   "0.7",
       changefreq: "weekly",
     });
