@@ -1292,7 +1292,7 @@ function SectionNav({ active, setActive }) {
 // ─── Technical grid (inline SVG, position: absolute) ─────────────────────────
 function TechGrid() {
   const vCount = 13;
-  const hCount = 7;
+  const hCount = 7
   return (
     <svg
       aria-hidden="true"

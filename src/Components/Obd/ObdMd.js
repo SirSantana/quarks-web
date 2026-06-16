@@ -1109,17 +1109,24 @@ function QFRow({ label, value, valueColor }) {
   return (
     <div
       className="flex justify-between py-2"
-      style={{ fontSize: 12, borderBottom: `1px solid ${C.base}` }}
+  style={{
+    fontSize: 12,
+    borderBottom: `1px solid ${C.base}`,
+    overflow: "visible",
+    position: "relative",
+  }}
     >
-      <span
-        style={{
-          fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
-          fontSize: 10,
-          letterSpacing: "0.5px",
-          textTransform: "uppercase",
-          color: C.ghost,
-        }}
-      >
+     <span
+  style={{
+    fontFamily: "var(--font-jetbrains-mono,'JetBrains Mono',monospace)",
+    fontSize: 10,
+    letterSpacing: "0.5px",
+    textTransform: "uppercase",
+    color: C.ghost,
+    position: "relative",
+    overflow: "visible",
+  }}
+>
         {label}
         {tip && <Tooltip text={tip} />}
       </span>
@@ -1329,7 +1336,7 @@ function Hero({ frontmatter }) {
 
   return (
     <header
-      className="relative overflow-hidden mx-auto"
+      className="relative  mx-auto"
       style={{ maxWidth: 1200, padding: "52px clamp(16px,4vw,48px) 0" }}
     >
       <TechGrid />

@@ -1,4 +1,3 @@
-// pages/obd2/[slug].jsx
 
 import fs from "fs";
 import path from "path";
