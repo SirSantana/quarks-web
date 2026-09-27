@@ -359,9 +359,9 @@ export default function MapTalleresHome({ data }) {
       >
         <MapRecenter lat={centerLat} lng={centerLng} zoomLevel={zoomLevel} />
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright"></a>'
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
-        />
+  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+/>
         <MyComponent setZoomLevel={setZoomLevel} />
         <MarkerClusterGroup
           data={data}
